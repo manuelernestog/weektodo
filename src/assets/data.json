@@ -1,0 +1,33 @@
+{
+  "weeklyToDos": {
+    "2021-12-29": [
+      {
+        "text": "Hacer la compra",
+        "checked": true
+      },
+      {
+        "text": "Llamar a ramon",
+        "checked": false
+      }
+    ],
+    "2021-12-31": {
+    }
+  },
+  "customToDos": {
+    "Lista de Compras": [
+      {
+        "text": "Platano",
+        "checked": true
+      },
+      {
+        "text": "Pilas para el carro",
+        "checked": false
+      }
+    ],
+    "Otras cosas": {
+    }
+  },
+  "settings": {
+
+  }
+}
