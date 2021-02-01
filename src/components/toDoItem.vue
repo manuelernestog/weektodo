@@ -1,36 +1,42 @@
 <template>
-  <div class="todo-item-container" @dblclick="editing = true" @click="toggleTodo" >
-<!--    @mouseover="hover = true"-->
-<!--    @mouseleave="hover = false"-->
-    <div v-if="!editing" class="todo-item" draggable="true" >
-      <label :class="{ 'checked-todo': checked }" class="noselect">
+  <div class="todo-item-container" @dblclick="editToDo" @click="toggleTodo" @mouseover="hover = true"
+       @mouseleave="hover = false">
+
+    <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': checked }">
+      <span class="noselect" style=" flex-grow:1; ">
         {{ text }}
-      </label>
+      </span>
+      <i class="bi-x todo-item-remove" v-if="hover" @click="removeTodo()" style="flex-grow:0; color: black"></i>
     </div>
-    <input v-if="editing" class="edit todo-input" type="text"
+    <input v-show="editing" class="edit todo-input" type="text"
            v-model="text"
+           ref="toDoEditInput"
            @blur="doneEdit()"
            @keyup.enter="doneEdit()"
-           @keyup.esc="cancelEdit()">
-    <a href="#" v-if="hover" style="float: right; display: block"><i class="bi-x" @click="removeTodo()"></i></a>
+           @keyup.esc="cancelEdit()"
+    />
+
   </div>
 
 </template>
 
 <script>
+
     export default {
         components: {},
         props: {
             label: {required: true, type: String},
             done: {default: false, type: Boolean},
-            id: {required: true, type: String}
+            id: {required: true, type: String},
+            index: {required: true, type: Number}
         },
         data() {
             return {
                 text: this.label,
                 checked: this.done,
-                hover: true,
+                hover: false,
                 editing: false,
+                position: this.index
             }
         },
         methods: {
@@ -41,10 +47,17 @@
                 this.editing = false;
             },
             removeTodo: function () {
-                console.log("eliminar");
+                this.$emit("remove-todo", this.position);
             },
             toggleTodo: function () {
                 this.checked = !this.checked;
+            },
+            editToDo: function () {
+                this.editing = true;
+                this.$nextTick(function () {
+                    this.$refs.toDoEditInput.focus();
+                    this.$refs.toDoEditInput.select();
+                });
             }
         }
     }
@@ -54,13 +67,23 @@
 <style>
   .todo-item-container {
     width: 300px;
-    display: flex;
     border-bottom: 1px solid #eaecef;
   }
 
   .todo-item {
     overflow-wrap: break-word;
     word-wrap: break-word;
+    word-break: break-all;
+    flex-direction: row;
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.5rem;
+  }
+
+  .todo-item:hover {
+    background-color: #fbfbfb;
+    height: unset;
   }
 
   .todo-input {
@@ -86,6 +109,11 @@
     user-select: none;
     /* Non-prefixed version, currently
                                      supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  .todo-item-remove {
+    cursor: pointer;
+    margin: 1px;
   }
 
 </style>

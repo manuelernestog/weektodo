@@ -1,14 +1,15 @@
 `<template>
 
   <div
-    style="border-right: 1px #eaecef solid; width: 4.5rem; padding: 1rem 1.3rem; height: 100vh; display: inline; float: left; ">
+    style="width: 4rem; padding: 1rem 1.3rem; height: 100vh; display: flex; flex-direction: column-reverse;  float: left; background-color: #fcfcfc ">
     <ul style="list-style: none; width: 50px; padding-inline-start: 0px;">
-      <li style="    margin-bottom: 20px;"><i class="bi-house" style="font-size: 1.6rem; "></i></li>
-      <li style="    margin-bottom: 20px;"><i class="bi-calendar-event" style="font-size: 1.6rem; "></i></li>
-      <!--      <li style="    margin-bottom: 10px;"><i class="bi-gear" style="font-size: 1.6rem; "></i></li>-->
-      <li style="    margin-bottom: 20px;"><i class="bi-sliders" style="font-size: 1.6rem; "></i></li>
-      <li style="    margin-bottom: 20px;"><i class="bi-gift" style="font-size: 1.6rem; "></i></li>
+      <li style="    margin-bottom: 20px;"><i class="bi-house" style="font-size: 1.4rem; "></i></li>
+      <li style="    margin-bottom: 20px;"><i class="bi-calendar-event" style="font-size: 1.4rem; "></i></li>
+      <li style="    margin-bottom: 20px;"><i class="bi-sliders" style="font-size: 1.4rem; "></i></li>
+      <li style="    margin-bottom: 20px;"><i class="bi-gift" style="font-size: 1.4rem; "></i></li>
+      <li style="    margin-bottom: 20px;"><i class="bi-info-square" style="font-size: 1.4rem; "></i></li>
 
+      <!--      <li style="    margin-bottom: 10px;"><i class="bi-gear" style="font-size: 1.6rem; "></i></li>-->
       <!--      <li>   <i class="bi-chevron-double-left" style="font-size: 1.6rem; "></i>  </li>-->
       <!--      <li>   <i class="bi-chevron-double-right" style="font-size: 1.6rem; "></i>  </li>-->
       <!--      <li>   <i class="bi-chevron-right" style="font-size: 1.6rem; "></i>  </li>-->
