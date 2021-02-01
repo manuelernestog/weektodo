@@ -66,11 +66,12 @@
 
 <style>
   .todo-item-container {
-    width: 300px;
+    width: 220px;
     border-bottom: 1px solid #eaecef;
   }
 
   .todo-item {
+    font-size: 0.9rem;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-all;
@@ -114,6 +115,8 @@
   .todo-item-remove {
     cursor: pointer;
     margin: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
 </style>
