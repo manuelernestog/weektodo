@@ -1,8 +1,14 @@
 <template>
   <div class="to-do-list-container">
-    <div class="weekly-to-do-header" style="text-align: center; margin-bottom: 16px; margin-top: 10px;">
-      <h4> {{date_to_week_day(Date.now())}} </h4>
-      <h6> {{date_to_month_date(Date.now())}} </h6>
+    <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
+      <i class="bi-check2-all" v-show="header_hover" @click="check_all_items"
+         style="font-size: 1.4rem; flex-grow:0; align-self: start "></i>
+      <div style="flex-grow:1;">
+        <h4> {{date_to_week_day(date)}} </h4>
+                <span class="weekly-to-do-header"> {{date_to_month_date(date)}} </span>
+      </div>
+      <i class="bi-reply-all " v-show="header_hover"
+         style="font-size: 1.4rem; -webkit-transform: scaleX(-1); transform: scaleX(-1); flex-grow:0; align-self: start"></i>
     </div>
     <ul class="to-do-list">
       <li v-for="(toDo,n) in toDoList" :key="toDo.id">
@@ -14,7 +20,7 @@
              @keyup.enter="addToDo()">
     </div>
     <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()">
-      <div v-for="index in 7 - toDoList.length" :key="index">
+      <div v-for="index in 6 - toDoList.length" :key="index">
         <div class="to-do-fake-item"></div>
       </div>
     </div>
@@ -29,13 +35,17 @@
         components: {
             toDoItem
         },
+        props: {
+            date: {required: false, type: Date}
+        },
         data() {
             return {
                 toDoList: [
                     {text: "Primer Todo", checked: false,},
                     {text: "Segundo Todo", checked: false,},
                 ],
-                newToDo: {text: "", checked: false}
+                newToDo: {text: "", checked: false},
+                header_hover: false,
             }
         },
         methods: {
@@ -53,6 +63,11 @@
             },
             date_to_month_date: function (date) {
                 return moment(date).format('LL')
+            },
+            check_all_items: function () {
+                this.toDoList.forEach(function (toDo) {
+                    toDo.checked = true;
+                });
             }
         }
     }
@@ -67,12 +82,39 @@
   }
 
   .to-do-list-container {
-    min-height: 45vh;
+    margin: 20px 13px 13px;
   }
 
   .to-do-fake-item {
     height: 1.5rem;
-    width: 220px;
+    width: 216px;
     border-bottom: 1px solid #eaecef;
+  }
+
+  .weekly-to-do-header {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    display: flex;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .weekly-to-do-header h4 {
+    margin-bottom: 4px;
+  }
+
+  .weekly-to-do-header span {
+    margin-top: 0px;
+  }
+
+  .weekly-to-do-header i {
+    color: grey;
+  }
+
+  .weekly-to-do-header i:hover {
+    color: black;
   }
 </style>

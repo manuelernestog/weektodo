@@ -1,8 +1,7 @@
 <template>
   <div class="todo-item-container" @dblclick="editToDo" @click="toggleTodo" @mouseover="hover = true"
        @mouseleave="hover = false">
-
-    <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': checked }">
+    <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': done }">
       <span class="noselect" style=" flex-grow:1; ">
         {{ text }}
       </span>
@@ -59,14 +58,14 @@
                     this.$refs.toDoEditInput.select();
                 });
             }
-        }
+        },
     }
 
 </script>
 
 <style>
   .todo-item-container {
-    width: 220px;
+    width: 216px;
     border-bottom: 1px solid #eaecef;
   }
 
@@ -85,6 +84,7 @@
   .todo-item:hover {
     background-color: #fbfbfb;
     height: unset;
+    color: #1e1e1e;
   }
 
   .todo-input {
