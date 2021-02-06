@@ -1,5 +1,4 @@
 {
-  "weeklyToDo": {
     "2021-12-29": [
       {
         "text": "Hacer la compra",
@@ -12,22 +11,12 @@
     ],
     "2021-12-31": {
     }
-  },
-  "customToDos": {
-    "Lista de Compras": [
-      {
-        "text": "Platano",
-        "checked": true
-      },
-      {
-        "text": "Pilas para el carro",
-        "checked": false
-      }
-    ],
-    "Otras cosas": {
-    }
-  },
+  ,
+  "customTasksIds": [],
   "settings": {
+
+  },
+  "appsEvents": {
 
   }
 }

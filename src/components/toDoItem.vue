@@ -1,57 +1,50 @@
 <template>
-  <div class="todo-item-container" @dblclick="editToDo" @click="toggleTodo" @mouseover="hover = true"
-       @mouseleave="hover = false">
-    <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': done }">
-      <span class="noselect" style=" flex-grow:1; ">
-        {{ text }}
-      </span>
+  <div class="todo-item-container" @mouseover="hover = true" @mouseleave="hover = false">
+    <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': toDo.checked }">
+      <span class="noselect" style=" flex-grow:1; " @dblclick="editToDo" @click="checkToDo"> {{ toDo.text }} </span>
       <i class="bi-x todo-item-remove" v-if="hover" @click="removeTodo()" style="flex-grow:0; color: black"></i>
     </div>
-    <input v-show="editing" class="edit todo-input" type="text"
-           v-model="text"
-           ref="toDoEditInput"
-           @blur="doneEdit()"
-           @keyup.enter="doneEdit()"
-           @keyup.esc="cancelEdit()"
-    />
-
+    <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput"  @blur="doneEdit()"  @keyup.enter="doneEdit()"  @keyup.esc="cancelEdit()" />
   </div>
-
 </template>
 
 <script>
+    import ToDoItemRepository from "../repositories/ToDoItemRepository";
 
     export default {
         components: {},
         props: {
-            label: {required: true, type: String},
-            done: {default: false, type: Boolean},
-            id: {required: true, type: String},
-            index: {required: true, type: Number}
+            toDo: {required: true, type: Object},
+            index: {required: true, type: Number},
+            toDoListId: {required: true, type: String}
         },
         data() {
             return {
-                text: this.label,
-                checked: this.done,
                 hover: false,
                 editing: false,
-                position: this.index
+                text: this.toDo.text
             }
         },
         methods: {
             doneEdit: function () {
                 this.editing = false;
+                ToDoItemRepository.edit(this.toDoListId, this.index, this.text);
+                this.$emit("todo-updated");
             },
             cancelEdit: function () {
                 this.editing = false;
+                this.$emit("todo-updated");
             },
             removeTodo: function () {
-                this.$emit("remove-todo", this.position);
+                ToDoItemRepository.remove(this.toDoListId, this.index);
+                this.$emit("todo-updated");
             },
-            toggleTodo: function () {
-                this.checked = !this.checked;
+            checkToDo: function () {
+                ToDoItemRepository.check(this.toDoListId, this.index);
+                this.$emit("todo-updated");
             },
             editToDo: function () {
+                this.text = this.toDo.text;
                 this.editing = true;
                 this.$nextTick(function () {
                     this.$refs.toDoEditInput.focus();
@@ -65,7 +58,6 @@
 
 <style>
   .todo-item-container {
-    width: 216px;
     border-bottom: 1px solid #eaecef;
   }
 
