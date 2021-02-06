@@ -1,34 +1,25 @@
 `
 <template>
-  <div class="side-bar">
-    <i class="bi-app-indicator" @click="changeDate"></i>
-    <i class="bi-house" @click="changeDate"></i>
-    <i class="bi-calendar-event"></i>
-    <i class="bi-clipboard-plus"></i>
-    <i class="bi-sliders"></i>
-    <span style="flex-grow: 1"></span>
-    <i class="bi-info-square"></i>
-    <i class="bi-gift"></i>
-  </div>
+  <side-bar></side-bar>
 
   <div class="weekly-todo-lists-container">
     <i class="bi-chevron-left slider-btn" @click="weekMoveLeft"></i>
     <div style="flex-grow: 1; display: flex; width: 85vw;  overflow-x: hidden; " ref="weekListContainer">
-      <to-do-list :date="selected_date_plus(-1)" ref="list" :id="selected_date_plus(1)"></to-do-list>
-      <to-do-list :date="selected_date" ref="list"></to-do-list>
-      <to-do-list :date="selected_date_plus(1)" ref="list"></to-do-list>
-      <to-do-list :date="selected_date_plus(2)" ref="list"></to-do-list>
-      <to-do-list :date="selected_date_plus(3)" ref="list"></to-do-list>
-      <to-do-list :date="selected_date_plus(4)" ref="list"></to-do-list>
+      <to-do-list :date="selected_date_plus(-1)" @update-lists="updateTodoLists"></to-do-list>
+      <to-do-list :date="selected_date" @update-lists="updateTodoLists"></to-do-list>
+      <to-do-list :date="selected_date_plus(1)" ref="list" @update-lists="updateTodoLists"></to-do-list>
+      <to-do-list :date="selected_date_plus(2)" @update-lists="updateTodoLists"></to-do-list>
+      <to-do-list :date="selected_date_plus(3)" @update-lists="updateTodoLists"></to-do-list>
+      <to-do-list :date="selected_date_plus(4)" @update-lists="updateTodoLists"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" @click="weekMoveRight"></i>
   </div>
-  <div style="height: 50vh; display: flex; overflow: auto">
-    <i class="bi-chevron-left" style="font-size: 2rem; align-self: center; "></i>
-    <to-do-list :date="selected_date_plus(1)"></to-do-list>
-    <!--    <to-do-list></to-do-list>-->
-    <i class="bi-chevron-right" style="font-size: 2rem; align-self: center; "></i>
-  </div>
+  <!--  <div style="height: 50vh; display: flex; overflow: auto">-->
+  <!--    <i class="bi-chevron-left" style="font-size: 2rem; align-self: center; "></i>-->
+  <!--    <to-do-list :date="selected_date_plus(1)"></to-do-list>-->
+  <!--    &lt;!&ndash;    <to-do-list></to-do-list>&ndash;&gt;-->
+  <!--    <i class="bi-chevron-right" style="font-size: 2rem; align-self: center; "></i>-->
+  <!--  </div>-->
 
 </template>
 
@@ -36,11 +27,13 @@
     // import uniqueId from "lodash.uniqueid";
     import toDoList from "./components/toDoList";
     import moment from 'moment'
+    import sideBar from "./components/layout/sideBar";
 
     export default {
         name: 'App',
         components: {
-            toDoList
+            toDoList,
+            sideBar
         },
         data() {
             return {
@@ -49,15 +42,8 @@
             }
         },
         methods: {
-            addItem() {
-
-            },
             moments: function (date) {
                 return moment(date)
-            },
-            changeDate: function () {
-
-                // this.selected_date.setDate(this.selected_date.getDate() + 25);
             },
             selected_date_plus: function (days) {
                 var new_date = new Date(this.selected_date);
@@ -71,33 +57,24 @@
                 });
             },
             weekMoveRight: function () {
-                console.log(this.$refs.weekListContainer);
-                console.log(this.$refs.weekListContainer.scrollLeft);
                 this.$refs.weekListContainer.scroll({
                     left: (this.$refs.weekListContainer.scrollLeft + 230),
                     top: 0,
                     behavior: 'smooth'
                 });
             },
+            updateTodoLists: function () {
+                this.$refs.list.updateData();
+            }
         }
 
     }
 </script>
 
 <style>
-  .side-bar {
-    width: 4rem;
-    padding: 1rem 1.3rem;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    float: left;
-    background-color: #fcfcfc
-  }
 
-  .side-bar i {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
+  body{
+    line-height: unset !important;
   }
 
   .weekly-todo-lists-container {
@@ -106,12 +83,22 @@
     display: flex;
   }
 
-  .slider-btn{
-    margin-left: 5px;
-    margin-right: 5px;
+  .slider-btn {
+    padding: 3px;
     font-size: 2rem;
     align-self: center;
-    flex-grow: 0
+    flex-grow: 0;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+  .slider-btn:hover {
+    border-radius: 6px;
+    background-color: #eaecef;
+  }
+
+  .slider-btn:active {
+    background-color: #dddfe2;
   }
 
 </style>

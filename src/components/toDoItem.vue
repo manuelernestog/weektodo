@@ -4,7 +4,8 @@
       <span class="noselect" style=" flex-grow:1; " @dblclick="editToDo" @click="checkToDo"> {{ toDo.text }} </span>
       <i class="bi-x todo-item-remove" v-if="hover" @click="removeTodo()" style="flex-grow:0; color: black"></i>
     </div>
-    <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput"  @blur="doneEdit()"  @keyup.enter="doneEdit()"  @keyup.esc="cancelEdit()" />
+    <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
+           @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
   </div>
 </template>
 
@@ -70,7 +71,9 @@
     display: flex;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-height: 1.5rem;
     height: 1.5rem;
+    line-height: 1.4rem;
   }
 
   .todo-item:hover {
@@ -80,8 +83,10 @@
   }
 
   .todo-input {
+    line-height: 1.4rem;
     width: 100%;
     border: none;
+    font-size: 0.9rem;
   }
 
   .todo-input:focus {
@@ -100,8 +105,6 @@
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
-    /* Non-prefixed version, currently
-                                     supported by Chrome, Edge, Opera and Firefox */
   }
 
   .todo-item-remove {

@@ -1,17 +1,15 @@
 <template>
   <div class="to-do-list-container" :class="{ 'old-date': moments(date).isBefore(Date(),'day') }">
     <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
-      <i class="bi-check2-all" v-show="header_hover && !allTodoChecked()" @click="check_all_items"
-         style="font-size: 1.4rem; flex-grow:0; align-self: start "></i>
+      <i class="bi-check2-all" v-show="header_hover && !allTodoChecked()" @click="check_all_items"></i>
       <div style="flex-grow:1;">
         <h4> {{moments(date).format('dddd')}} </h4>
         <span class="weekly-to-do-header"> {{moments(date).format('LL')}} </span>
       </div>
-      <i class="bi-reply-all " v-show="header_hover && !allTodoChecked()" @click="moveUndoneItems"
-         style="font-size: 1.4rem; -webkit-transform: scaleX(-1); transform: scaleX(-1); flex-grow:0; align-self: start"></i>
+      <i class="bi-reply-all" v-show="header_hover && !allTodoChecked()" @click="moveUndoneItems"></i>
     </div>
-    <ul class="to-do-list">
-      <li v-for="(toDo,n) in toDoList" :key="n">
+    <ul class="to-do-list drop-zone" @drop='onDrop($event, 1)' @dragover.prevent @dragenter.prevent>
+      <li v-for="(toDo,n) in toDoList" :key="n" class='drag-el' draggable @dragstart='startDrag($event, toDo)'>
         <to-do-item :to-do="toDo" :index="n" :to-do-list-id="id()" @todo-updated="updateData"></to-do-item>
       </li>
     </ul>
@@ -21,7 +19,9 @@
     </div>
     <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()">
       <div v-for="index in 6 - toDoList.length" :key="index">
-        <div class="to-do-fake-item"></div>
+        <div style="border-bottom: 1px solid #eaecef;">
+          <div class="to-do-fake-item"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@
         },
         data() {
             return {
-                toDoList: WeeklyToDoListRepository.load(this.moments(this.date).format('YYYYMMDD')),
+                toDoList: WeeklyToDoListRepository.load(this.id()),
                 newToDo: {text: "", checked: false},
                 header_hover: false,
             }
@@ -50,8 +50,8 @@
         methods: {
             addToDo: function () {
                 if (this.newToDo.text != "") {
-                    var newTodo = {text: this.newToDo.text, checked: false}
-                    ToDoItemRepository.add(this.id(), newTodo);
+                    var newTodo = {text: this.newToDo.text, checked: false, listId: this.id()}
+                    ToDoItemRepository.add(newTodo);
                     this.newToDo.text = "";
                     this.updateData();
                 }
@@ -60,9 +60,10 @@
                 WeeklyToDoListRepository.checkAllItems(this.id());
                 this.updateData();
             },
-            moveUndoneItems: function(){
-                WeeklyToDoListRepository.moveUndoneItems(this.id(),'20210206');
+            moveUndoneItems: function () {
+                WeeklyToDoListRepository.moveUndoneItems(this.id(), '20210206');
                 this.updateData();
+                this.$emit('update-lists');
             },
             moments: function (date) {
                 return moment(date);
@@ -72,6 +73,7 @@
             },
             updateData: function () {
                 this.toDoList = WeeklyToDoListRepository.load(this.id());
+                console.log('asd')
             },
             allTodoChecked: function () {
                 var allChecked = true
@@ -82,6 +84,16 @@
                     }
                 });
                 return allChecked;
+            },
+            startDrag: function (event, item) {
+                event.dataTransfer.dropEffect = 'move'
+                event.dataTransfer.effectAllowed = 'move'
+                event.dataTransfer.setData('item', JSON.stringify(item))
+            },
+            onDrop: function (event, list) {
+                const item = JSON.parse(event.dataTransfer.getData('item'));
+                console.log(item, list);
+                // const item = this.items.find(item => item.id == itemID)
             }
         }
     }
@@ -95,6 +107,10 @@
     margin-bottom: 0px;
   }
 
+  .todo-input {
+    height: 1.5rem;
+  }
+
   .to-do-list-container {
     margin: 20px 13px 13px;
     flex: 0 0 calc(20% - 26px);
@@ -103,7 +119,6 @@
   .to-do-fake-item {
     height: 1.5rem;
     width: 100%;
-    border-bottom: 1px solid #eaecef;
   }
 
   .weekly-to-do-header {
@@ -135,5 +150,25 @@
 
   .old-date {
     color: lightgray;
+  }
+
+  .drop-zone {
+
+  }
+
+  .bi-check2-all {
+    font-size: 1.4rem;
+    flex-grow: 0;
+    align-self: start;
+    cursor: pointer;
+  }
+
+  .bi-reply-all {
+    font-size: 1.4rem;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    flex-grow: 0;
+    align-self: start;
+    cursor: pointer;
   }
 </style>

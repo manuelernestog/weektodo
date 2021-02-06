@@ -1,10 +1,10 @@
 import storageRepository from "./storageRepository";
 
 export default {
-    add(toDoListId, todo) {
-        let todoList = storageRepository.get(toDoListId) || '[]';
+    add(todo) {
+        let todoList = storageRepository.get(todo.listId) || '[]';
         todoList.push(todo);
-        storageRepository.set(toDoListId, todoList);
+        storageRepository.set(todo.listId, todoList);
     },
     remove(toDoListId, index) {
         let todoList = storageRepository.get(toDoListId);
