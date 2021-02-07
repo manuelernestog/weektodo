@@ -11,6 +11,7 @@
 
 <script>
     import ToDoItemRepository from "../repositories/ToDoItemRepository";
+import {store} from "../store/store";
 
     export default {
         components: {},
@@ -30,19 +31,17 @@
             doneEdit: function () {
                 this.editing = false;
                 ToDoItemRepository.edit(this.toDoListId, this.index, this.text);
-                this.$emit("todo-updated");
             },
             cancelEdit: function () {
                 this.editing = false;
-                this.$emit("todo-updated");
             },
             removeTodo: function () {
                 ToDoItemRepository.remove(this.toDoListId, this.index);
-                this.$emit("todo-updated");
+                store.removeTodo(this.toDoListId, this.index);
             },
             checkToDo: function () {
                 ToDoItemRepository.check(this.toDoListId, this.index);
-                this.$emit("todo-updated");
+                store.checkTodo(this.toDoListId, this.index);
             },
             editToDo: function () {
                 this.text = this.toDo.text;

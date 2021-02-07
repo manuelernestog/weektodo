@@ -32,6 +32,7 @@
     import moment from 'moment'
     import ToDoItemRepository from "../repositories/ToDoItemRepository";
     import WeeklyToDoListRepository from "../repositories/WeeklyToDoListRepository";
+    import {store} from "../store/store";
 
     export default {
         components: {
@@ -42,28 +43,29 @@
         },
         data() {
             return {
-                toDoList: WeeklyToDoListRepository.load(this.id()),
+                toDoList: store.state.toDoLists[this.id()],
                 newToDo: {text: "", checked: false},
                 header_hover: false,
             }
+        },
+        beforeCreate() {
+            let listId = moment(this.date).format('YYYYMMDD');
+            store.loadTodoLists(listId,WeeklyToDoListRepository.load(listId));
         },
         methods: {
             addToDo: function () {
                 if (this.newToDo.text != "") {
                     var newTodo = {text: this.newToDo.text, checked: false, listId: this.id()}
                     ToDoItemRepository.add(newTodo);
+                    store.addTodo(newTodo);
                     this.newToDo.text = "";
-                    this.updateData();
                 }
             },
             check_all_items: function () {
                 WeeklyToDoListRepository.checkAllItems(this.id());
-                this.updateData();
             },
             moveUndoneItems: function () {
                 WeeklyToDoListRepository.moveUndoneItems(this.id(), '20210206');
-                this.updateData();
-                this.$emit('update-lists');
             },
             moments: function (date) {
                 return moment(date);
@@ -71,9 +73,8 @@
             id: function () {
                 return this.moments(this.date).format('YYYYMMDD');
             },
-            updateData: function () {
-                this.toDoList = WeeklyToDoListRepository.load(this.id());
-                console.log('asd')
+            loadData: function () {
+                store.updateTodoLists(this.id(),WeeklyToDoListRepository.load(this.id()));
             },
             allTodoChecked: function () {
                 var allChecked = true

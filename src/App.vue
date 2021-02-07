@@ -6,8 +6,8 @@
     <i class="bi-chevron-left slider-btn" @click="weekMoveLeft"></i>
     <div style="flex-grow: 1; display: flex; width: 85vw;  overflow-x: hidden; " ref="weekListContainer">
       <to-do-list :date="selected_date_plus(-1)" @update-lists="updateTodoLists"></to-do-list>
-      <to-do-list :date="selected_date" @update-lists="updateTodoLists"></to-do-list>
-      <to-do-list :date="selected_date_plus(1)" ref="list" @update-lists="updateTodoLists"></to-do-list>
+      <to-do-list :date="selected_date"></to-do-list>
+      <to-do-list :date="selected_date_plus(1)" @update-lists="updateTodoLists"></to-do-list>
       <to-do-list :date="selected_date_plus(2)" @update-lists="updateTodoLists"></to-do-list>
       <to-do-list :date="selected_date_plus(3)" @update-lists="updateTodoLists"></to-do-list>
       <to-do-list :date="selected_date_plus(4)" @update-lists="updateTodoLists"></to-do-list>
@@ -62,9 +62,6 @@
                     top: 0,
                     behavior: 'smooth'
                 });
-            },
-            updateTodoLists: function () {
-                this.$refs.list.updateData();
             }
         }
 
