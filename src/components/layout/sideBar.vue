@@ -47,6 +47,7 @@
     padding: 10px;
     margin-bottom: 10px;
     align-self: center;
+    cursor: pointer;
   }
 
   .side-bar i:hover {

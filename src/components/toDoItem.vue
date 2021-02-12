@@ -10,8 +10,8 @@
 </template>
 
 <script>
-    import ToDoItemRepository from "../repositories/ToDoItemRepository";
-import {store} from "../store/store";
+    // import {store} from "../store/store";
+    import toDoListRepository from "../repositories/toDoListRepository";
 
     export default {
         components: {},
@@ -28,21 +28,6 @@ import {store} from "../store/store";
             }
         },
         methods: {
-            doneEdit: function () {
-                this.editing = false;
-                ToDoItemRepository.edit(this.toDoListId, this.index, this.text);
-            },
-            cancelEdit: function () {
-                this.editing = false;
-            },
-            removeTodo: function () {
-                ToDoItemRepository.remove(this.toDoListId, this.index);
-                store.removeTodo(this.toDoListId, this.index);
-            },
-            checkToDo: function () {
-                ToDoItemRepository.check(this.toDoListId, this.index);
-                store.checkTodo(this.toDoListId, this.index);
-            },
             editToDo: function () {
                 this.text = this.toDo.text;
                 this.editing = true;
@@ -50,6 +35,22 @@ import {store} from "../store/store";
                     this.$refs.toDoEditInput.focus();
                     this.$refs.toDoEditInput.select();
                 });
+            },
+            doneEdit: function () {
+                this.editing = false;
+                this.$store.commit('updateTodo', {toDoListId: this.toDoListId, index: this.index, text: this.text});
+                toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
+            },
+            cancelEdit: function () {
+                this.editing = false;
+            },
+            removeTodo: function () {
+                this.$store.commit('removeTodo', {toDoListId: this.toDoListId, index: this.index});
+                toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
+            },
+            checkToDo: function () {
+                this.$store.commit('checkTodo', {toDoListId: this.toDoListId, index: this.index})
+                toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
             }
         },
     }
@@ -95,15 +96,6 @@ import {store} from "../store/store";
   .checked-todo {
     color: lightgray;
     text-decoration: line-through;
-  }
-
-  .noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
   }
 
   .todo-item-remove {

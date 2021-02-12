@@ -2,7 +2,7 @@
   <div class="to-do-list-container" :class="{ 'old-date': moments(date).isBefore(Date(),'day') }">
     <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
       <i class="bi-check2-all" v-show="header_hover && !allTodoChecked()" @click="check_all_items"></i>
-      <div style="flex-grow:1;">
+      <div style="flex-grow:1;" class="noselect">
         <h4> {{moments(date).format('dddd')}} </h4>
         <span class="weekly-to-do-header"> {{moments(date).format('LL')}} </span>
       </div>
@@ -10,7 +10,7 @@
     </div>
     <ul class="to-do-list drop-zone" @drop='onDrop($event, 1)' @dragover.prevent @dragenter.prevent>
       <li v-for="(toDo,n) in toDoList" :key="n" class='drag-el' draggable @dragstart='startDrag($event, toDo)'>
-        <to-do-item :to-do="toDo" :index="n" :to-do-list-id="id()" @todo-updated="updateData"></to-do-item>
+        <to-do-item :to-do="toDo" :index="n" :to-do-list-id="date"></to-do-item>
       </li>
     </ul>
     <div class="todo-item-container">
@@ -30,51 +30,47 @@
 <script>
     import toDoItem from "./toDoItem";
     import moment from 'moment'
-    import ToDoItemRepository from "../repositories/ToDoItemRepository";
-    import WeeklyToDoListRepository from "../repositories/WeeklyToDoListRepository";
-    import {store} from "../store/store";
+    import toDoListRepository from "../repositories/toDoListRepository";
 
     export default {
         components: {
             toDoItem,
         },
         props: {
-            date: {required: false, type: Date}
+            date: {required: false, type: String}
         },
         data() {
             return {
-                toDoList: store.state.toDoLists[this.id()],
+                toDoList: this.$store.state.todoLists[this.date],
                 newToDo: {text: "", checked: false},
                 header_hover: false,
             }
         },
         beforeCreate() {
-            let listId = moment(this.date).format('YYYYMMDD');
-            store.loadTodoLists(listId,WeeklyToDoListRepository.load(listId));
+            let listId = this.date;
+            this.$store.dispatch('loadTodoLists', listId);
         },
         methods: {
             addToDo: function () {
                 if (this.newToDo.text != "") {
-                    var newTodo = {text: this.newToDo.text, checked: false, listId: this.id()}
-                    ToDoItemRepository.add(newTodo);
-                    store.addTodo(newTodo);
+                    var newTodo = {text: this.newToDo.text, checked: false, listId: this.date};
+                    this.$store.commit('addTodo', newTodo);
+                    toDoListRepository.update(this.date, this.$store.state.todoLists[this.date]);
                     this.newToDo.text = "";
                 }
             },
             check_all_items: function () {
-                WeeklyToDoListRepository.checkAllItems(this.id());
+                this.$store.commit('checkAllItems', this.date);
+                toDoListRepository.update(this.date, this.$store.state.todoLists[this.date]);
             },
             moveUndoneItems: function () {
-                WeeklyToDoListRepository.moveUndoneItems(this.id(), '20210206');
+                let towmorrow_id = this.moments(this.date).add(1, 'd').format('YYYYMMDD');
+                this.$store.commit('moveUndoneItems', {origenId: this.date, destinyId: towmorrow_id});
+                toDoListRepository.update(this.date, this.$store.state.todoLists[this.date]);
+                toDoListRepository.update(towmorrow_id, this.$store.state.todoLists[towmorrow_id]);
             },
             moments: function (date) {
                 return moment(date);
-            },
-            id: function () {
-                return this.moments(this.date).format('YYYYMMDD');
-            },
-            loadData: function () {
-                store.updateTodoLists(this.id(),WeeklyToDoListRepository.load(this.id()));
             },
             allTodoChecked: function () {
                 var allChecked = true

@@ -1,18 +1,14 @@
 `
 <template>
   <side-bar></side-bar>
-
   <div class="weekly-todo-lists-container">
-    <i class="bi-chevron-left slider-btn" @click="weekMoveLeft"></i>
+    <i class="bi-chevron-left slider-btn"  ref="weekLeft" @click="weekMoveLeft"></i>
     <div style="flex-grow: 1; display: flex; width: 85vw;  overflow-x: hidden; " ref="weekListContainer">
-      <to-do-list :date="selected_date_plus(-1)" @update-lists="updateTodoLists"></to-do-list>
-      <to-do-list :date="selected_date"></to-do-list>
-      <to-do-list :date="selected_date_plus(1)" @update-lists="updateTodoLists"></to-do-list>
-      <to-do-list :date="selected_date_plus(2)" @update-lists="updateTodoLists"></to-do-list>
-      <to-do-list :date="selected_date_plus(3)" @update-lists="updateTodoLists"></to-do-list>
-      <to-do-list :date="selected_date_plus(4)" @update-lists="updateTodoLists"></to-do-list>
+      <div v-for="date in dates_array" :key="date">
+        <to-do-list :date="date" ></to-do-list>
+      </div>
     </div>
-    <i class="bi-chevron-right slider-btn" @click="weekMoveRight"></i>
+    <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
   <!--  <div style="height: 50vh; display: flex; overflow: auto">-->
   <!--    <i class="bi-chevron-left" style="font-size: 2rem; align-self: center; "></i>-->
@@ -24,7 +20,6 @@
 </template>
 
 <script>
-    // import uniqueId from "lodash.uniqueid";
     import toDoList from "./components/toDoList";
     import moment from 'moment'
     import sideBar from "./components/layout/sideBar";
@@ -38,30 +33,31 @@
         data() {
             return {
                 ToDoItems: [],
-                selected_date: new Date()
+                selected_date: this.moments().format('YYYYMMDD')
             }
         },
         methods: {
             moments: function (date) {
-                return moment(date)
-            },
-            selected_date_plus: function (days) {
-                var new_date = new Date(this.selected_date);
-                return new_date.setDate(new_date.getDate() + days);
+                if (date) {
+                    return moment(date);
+                }
+                return moment();
             },
             weekMoveLeft: function () {
-                this.$refs.weekListContainer.scroll({
-                    left: (this.$refs.weekListContainer.scrollLeft - 230),
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                this.selected_date = moment(this.selected_date).subtract(1, 'd').format('YYYYMMDD');
             },
             weekMoveRight: function () {
-                this.$refs.weekListContainer.scroll({
-                    left: (this.$refs.weekListContainer.scrollLeft + 230),
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                this.selected_date = moment(this.selected_date).add(1, 'd').format('YYYYMMDD');
+
+            }
+        },
+        computed: {
+            dates_array: function () {
+                var dates_array = [moment(this.selected_date).subtract(1, 'd').format('YYYYMMDD'), this.selected_date];
+                for (let i = 1; i < 4; i++) {
+                    dates_array.push(moment(this.selected_date).add(i, 'd').format('YYYYMMDD'));
+                }
+                return dates_array;
             }
         }
 
@@ -70,7 +66,7 @@
 
 <style>
 
-  body{
+  body {
     line-height: unset !important;
   }
 
@@ -87,6 +83,7 @@
     flex-grow: 0;
     margin-left: 6px;
     margin-right: 6px;
+    cursor: pointer;
   }
 
   .slider-btn:hover {
@@ -96,6 +93,15 @@
 
   .slider-btn:active {
     background-color: #dddfe2;
+  }
+
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
   }
 
 </style>
