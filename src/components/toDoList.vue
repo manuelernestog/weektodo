@@ -3,21 +3,25 @@
     <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
       <i class="bi-check2-all" v-show="header_hover && !allTodoChecked()" @click="check_all_items"></i>
       <div style="flex-grow:1;" class="noselect">
-        <h4> {{moments(date).format('dddd')}} </h4>
+        <h4 :class="{ 'today-date': is_today }"> {{moments(date).format('dddd')}} </h4>
         <span class="weekly-to-do-header"> {{moments(date).format('LL')}} </span>
       </div>
       <i class="bi-reply-all" v-show="header_hover && !allTodoChecked()" @click="moveUndoneItems"></i>
     </div>
-    <ul class="to-do-list drop-zone" @drop='onDrop($event, 1)' @dragover.prevent @dragenter.prevent>
-      <li v-for="(toDo,n) in toDoList" :key="n" class='drag-el' draggable @dragstart='startDrag($event, toDo)'>
-        <to-do-item :to-do="toDo" :index="n" :to-do-list-id="date"></to-do-item>
+    <ul class="to-do-list ">
+      <li v-for="(toDo,index) in toDoList" :key="index" class='drag-el' draggable
+          @dragstart='startDrag($event, toDo,index)'>
+        <div class="drop-zone" @drop='onDrop($event, date,index)' @dragover.prevent @dragenter.prevent>
+          <to-do-item :to-do="toDo" :index="index" :to-do-list-id="date"></to-do-item>
+        </div>
       </li>
     </ul>
     <div class="todo-item-container">
-      <input class="todo-input" type="text" ref="newToDoInput" v-model="newToDo.text" @blur="addToDo()"
-             @keyup.enter="addToDo()">
+      <input class="todo-input drop-zone" type="text" ref="newToDoInput" v-model="newToDo.text" @blur="addToDo()"
+             @keyup.enter="addToDo()" @drop='onDropAtEnd($event, date)' @dragover.prevent @dragenter.prevent>
     </div>
-    <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()">
+    <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()" class="drop-zone"
+         @drop='onDropAtEnd($event, date)' @dragover.prevent @dragenter.prevent>
       <div v-for="index in 6 - toDoList.length" :key="index">
         <div style="border-bottom: 1px solid #eaecef;">
           <div class="to-do-fake-item"></div>
@@ -82,15 +86,34 @@
                 });
                 return allChecked;
             },
-            startDrag: function (event, item) {
+            startDrag: function (event, item, index) {
                 event.dataTransfer.dropEffect = 'move'
                 event.dataTransfer.effectAllowed = 'move'
                 event.dataTransfer.setData('item', JSON.stringify(item))
+                event.dataTransfer.setData('index', index);
             },
-            onDrop: function (event, list) {
-                const item = JSON.parse(event.dataTransfer.getData('item'));
-                console.log(item, list);
-                // const item = this.items.find(item => item.id == itemID)
+            onDrop: function (event, list, new_index) {
+                let toDo = JSON.parse(event.dataTransfer.getData('item'));
+                let index = event.dataTransfer.getData('index');
+                this.$store.commit('removeTodo', {toDoListId: toDo.listId, index: index});
+                toDoListRepository.update(toDo.listId, this.$store.state.todoLists[toDo.listId]);
+                toDo.listId = list;
+                this.$store.commit('insertTodo', {toDoListId: list, index: new_index, toDo: toDo});
+                toDoListRepository.update(list, this.$store.state.todoLists[list]);
+            },
+            onDropAtEnd: function (event, list) {
+                let toDo = JSON.parse(event.dataTransfer.getData('item'));
+                let index = event.dataTransfer.getData('index');
+                this.$store.commit('removeTodo', {toDoListId: toDo.listId, index: index});
+                toDoListRepository.update(toDo.listId, this.$store.state.todoLists[toDo.listId]);
+                toDo.listId = list;
+                this.$store.commit('addTodo', toDo);
+                toDoListRepository.update(list, this.$store.state.todoLists[list]);
+            }
+        },
+        computed: {
+            is_today: function () {
+                return moment().format('YYYYMMDD') == this.date;
             }
         }
     }
@@ -109,7 +132,7 @@
   }
 
   .to-do-list-container {
-    margin: 20px 13px 13px;
+    margin: 1.6rem 13px 13px;
     flex: 0 0 calc(20% - 26px);
   }
 
@@ -127,6 +150,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .today-date {
+    text-decoration: underline;
   }
 
   .weekly-to-do-header h4 {

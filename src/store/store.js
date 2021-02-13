@@ -23,6 +23,9 @@ export const store = createStore({
         removeTodo(state, obj) {
             state.todoLists[obj.toDoListId].splice(obj.index, 1);
         },
+        insertTodo(state, obj) {
+            state.todoLists[obj.toDoListId].splice(obj.index, 0, obj.toDo);
+        },
         checkAllItems(state, toDoListId) {
             state.todoLists[toDoListId].forEach(toDo => toDo.checked = true)
         },

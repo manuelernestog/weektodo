@@ -2,20 +2,17 @@
 <template>
   <side-bar></side-bar>
   <div class="weekly-todo-lists-container">
-    <i class="bi-chevron-left slider-btn"  ref="weekLeft" @click="weekMoveLeft"></i>
-    <div style="flex-grow: 1; display: flex; width: 85vw;  overflow-x: hidden; " ref="weekListContainer">
-      <div v-for="date in dates_array" :key="date">
-        <to-do-list :date="date" ></to-do-list>
-      </div>
+    <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
+    <div style="flex-grow: 1; display: flex;  overflow-x: hidden; ">
+      <to-do-list v-for="date in dates_array" :key="date" :date="date"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
-  <!--  <div style="height: 50vh; display: flex; overflow: auto">-->
-  <!--    <i class="bi-chevron-left" style="font-size: 2rem; align-self: center; "></i>-->
-  <!--    <to-do-list :date="selected_date_plus(1)"></to-do-list>-->
-  <!--    &lt;!&ndash;    <to-do-list></to-do-list>&ndash;&gt;-->
-  <!--    <i class="bi-chevron-right" style="font-size: 2rem; align-self: center; "></i>-->
-  <!--  </div>-->
+    <div style="height: 50vh; display: flex; overflow: auto">
+      <i class="bi-chevron-left" style="font-size: 2rem; align-self: center; "></i>
+      <to-do-list :date="date"></to-do-list>
+      <i class="bi-chevron-right" style="font-size: 2rem; align-self: center; "></i>
+    </div>
 
 </template>
 
