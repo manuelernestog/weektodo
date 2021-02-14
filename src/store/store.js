@@ -3,7 +3,8 @@ import toDoListRepository from "../repositories/toDoListRepository";
 
 export const store = createStore({
     state: {
-        todoLists: []
+        todoLists: [],
+        cTodoListIds: [],
     },
     getters: {},
     mutations: {
@@ -12,7 +13,6 @@ export const store = createStore({
         },
         checkTodo(state, obj) {
             state.todoLists[obj.toDoListId][obj.index].checked = !state.todoLists[obj.toDoListId][obj.index].checked;
-            console.log()
         },
         addTodo(state, toDo) {
             state.todoLists[toDo.listId].push(toDo);
@@ -40,12 +40,22 @@ export const store = createStore({
                     state.todoLists[obj.origenId].splice(i, 1);
                 }
             }
-        }
+        },
+        loadCustomTodoListsIds(state, obj) {
+            state.cTodoListIds = obj;
+        },
+        newCustomTodoList(state, obj) {
+            state.cTodoListIds.push(obj);
+            this.commit('loadTodoLists', {todoListId: obj.listId, todoList: []});
+        },
+        updateCustomTodoList(state, obj) {
+            state.cTodoListIds[obj.index].listName = obj.name;
+        },
     },
     actions: {
         loadTodoLists({commit}, todoListId) {
             let todoList = toDoListRepository.load(todoListId);
-            commit('loadTodoLists', {todoListId: todoListId, todoList: todoList})
+            commit('loadTodoLists', {todoListId: todoListId, todoList: todoList});
         },
     }
 });

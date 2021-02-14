@@ -3,7 +3,7 @@
     <i class="bi-app-indicator"></i>
     <i class="bi-house"></i>
     <i class="bi-calendar-event" @click="changeDate"></i>
-    <i class="bi-clipboard-plus"></i>
+    <i class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders"></i>
     <span style="flex-grow: 1"></span>
     <i class="bi-info-square"></i>
@@ -12,12 +12,22 @@
 </template>
 
 <script>
+    import moment from 'moment';
+    import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
+    import toDoListRepository from "../../repositories/toDoListRepository";
+
     export default {
         name: "sideBar",
         methods: {
             changeDate: function () {
-                // this.selected_date.setDate(this.selected_date.getDate() + 25);
-            }
+
+            },
+            newCustomTodoList: function () {
+                const customTodoListId = {listId: moment().format("YYYYMMDDTHHmmss"), listName: ""};
+                this.$store.commit('newCustomTodoList', customTodoListId);
+                customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
+                toDoListRepository.update(customTodoListId.listId, this.$store.state.todoLists[customTodoListId.listId]);
+            },
         }
     }
 </script>

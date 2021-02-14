@@ -13,5 +13,4 @@ export default {
     update(toDoListId, toDoList) {
         storageRepository.set(toDoListId, toDoList);
     }
-}
-;
+};

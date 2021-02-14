@@ -1,27 +1,37 @@
 <template>
-  <div class="to-do-list-container" :class="{ 'old-date': moments(date).isBefore(Date(),'day') }">
+  <div class="to-do-list-container" :class="{ 'old-date': moments(id).isBefore(Date(),'day') }">
     <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
-      <i class="bi-check2-all" v-show="header_hover && !allTodoChecked()" @click="check_all_items"></i>
+      <i class="bi-check2-all" v-show="header_hover && !allTodoChecked() && !editing" @click="check_all_items"></i>
       <div style="flex-grow:1;" class="noselect">
-        <h4 :class="{ 'today-date': is_today }"> {{moments(date).format('dddd')}} </h4>
-        <span class="weekly-to-do-header"> {{moments(date).format('LL')}} </span>
+        <div v-if="!customTodoList">
+          <h4 :class="{ 'today-date': is_today }"> {{moments(id).format('dddd')}} </h4>
+          <span class="weekly-to-do-header"> {{moments(id).format('LL')}} </span>
+        </div>
+        <div v-else>
+          <h5 v-show="!editing" @dblclick="editToDoListName"> {{ todo_list_name }} </h5>
+          <input class="custom-todo-input" v-show="editing" type="text" v-model="name" ref="cTodoInput"
+                 @blur="doneEdit()"
+                 @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
+        </div>
       </div>
-      <i class="bi-reply-all" v-show="header_hover && !allTodoChecked()" @click="moveUndoneItems"></i>
+      <i v-if="!customTodoList" class="bi-reply-all" v-show="header_hover && !allTodoChecked()"
+         @click="moveUndoneItems"></i>
+      <i v-if="customTodoList && !editing" class="bi-x" v-show="header_hover && !allTodoChecked()"></i>
     </div>
     <ul class="to-do-list ">
       <li v-for="(toDo,index) in toDoList" :key="index" class='drag-el' draggable
           @dragstart='startDrag($event, toDo,index)'>
-        <div class="drop-zone" @drop='onDrop($event, date,index)' @dragover.prevent @dragenter.prevent>
-          <to-do-item :to-do="toDo" :index="index" :to-do-list-id="date"></to-do-item>
+        <div class="drop-zone" @drop='onDrop($event, id,index)' @dragover.prevent @dragenter.prevent>
+          <to-do-item :to-do="toDo" :index="index" :to-do-list-id="id"></to-do-item>
         </div>
       </li>
     </ul>
     <div class="todo-item-container">
       <input class="todo-input drop-zone" type="text" ref="newToDoInput" v-model="newToDo.text" @blur="addToDo()"
-             @keyup.enter="addToDo()" @drop='onDropAtEnd($event, date)' @dragover.prevent @dragenter.prevent>
+             @keyup.enter="addToDo()" @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
     </div>
     <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()" class="drop-zone"
-         @drop='onDropAtEnd($event, date)' @dragover.prevent @dragenter.prevent>
+         @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
       <div v-for="index in 6 - toDoList.length" :key="index">
         <div style="border-bottom: 1px solid #eaecef;">
           <div class="to-do-fake-item"></div>
@@ -35,42 +45,59 @@
     import toDoItem from "./toDoItem";
     import moment from 'moment'
     import toDoListRepository from "../repositories/toDoListRepository";
+    import customToDoListIdsRepository from "../repositories/customToDoListIdsRepository";
 
     export default {
         components: {
             toDoItem,
         },
         props: {
-            date: {required: false, type: String}
+            id: {required: false, type: String},
+            customTodoList: {required: false, default: false, type: Boolean},
+            cTodoListIndex: {required: false, type: Number}
         },
         data() {
             return {
-                toDoList: this.$store.state.todoLists[this.date],
+                toDoList: this.$store.state.todoLists[this.id],
                 newToDo: {text: "", checked: false},
                 header_hover: false,
+                editing: false,
+                name: ""
             }
         },
         beforeCreate() {
-            let listId = this.date;
+            let listId = this.id;
             this.$store.dispatch('loadTodoLists', listId);
+        },
+        mounted() {
+            if (this.customTodoList) {
+                this.name = this.$store.state.cTodoListIds[this.cTodoListIndex].listName;
+                if (this.name == "") {
+                    this.editing = true;
+                    this.$nextTick(function () {
+                        this.$refs.cTodoInput.focus();
+                        this.$refs.cTodoInput.select();
+                    });
+                }
+            }
         },
         methods: {
             addToDo: function () {
                 if (this.newToDo.text != "") {
-                    var newTodo = {text: this.newToDo.text, checked: false, listId: this.date};
+                    var newTodo = {text: this.newToDo.text, checked: false, listId: this.id};
                     this.$store.commit('addTodo', newTodo);
-                    toDoListRepository.update(this.date, this.$store.state.todoLists[this.date]);
+                    toDoListRepository.update(this.id, this.$store.state.todoLists[this.id]);
                     this.newToDo.text = "";
                 }
             },
             check_all_items: function () {
-                this.$store.commit('checkAllItems', this.date);
-                toDoListRepository.update(this.date, this.$store.state.todoLists[this.date]);
+                this.$store.commit('checkAllItems', this.id);
+                toDoListRepository.update(this.id, this.$store.state.todoLists[this.id]);
             },
             moveUndoneItems: function () {
-                let towmorrow_id = this.moments(this.date).add(1, 'd').format('YYYYMMDD');
-                this.$store.commit('moveUndoneItems', {origenId: this.date, destinyId: towmorrow_id});
-                toDoListRepository.update(this.date, this.$store.state.todoLists[this.date]);
+                let towmorrow_id = this.moments(this.id).add(1, 'd').format('YYYYMMDD');
+                this.$store.commit('moveUndoneItems', {origenId: this.id, destinyId: towmorrow_id});
+                toDoListRepository.update(this.id, this.$store.state.todoLists[this.id]);
                 toDoListRepository.update(towmorrow_id, this.$store.state.todoLists[towmorrow_id]);
             },
             moments: function (date) {
@@ -109,11 +136,32 @@
                 toDo.listId = list;
                 this.$store.commit('addTodo', toDo);
                 toDoListRepository.update(list, this.$store.state.todoLists[list]);
-            }
+            },
+            editToDoListName: function () {
+                this.name = this.$store.state.cTodoListIds[this.cTodoListIndex].listName;
+                this.editing = true;
+                this.$nextTick(function () {
+                    this.$refs.cTodoInput.focus();
+                    this.$refs.cTodoInput.select();
+                });
+            },
+            doneEdit: function () {
+                this.editing = false;
+                this.$store.commit('updateCustomTodoList', {index: this.cTodoListIndex, name: this.name});
+                customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
+            },
+            cancelEdit: function () {
+                // this.editing = false;
+                // this.$store.commit('updateTodo', {toDoListId: this.toDoListId, index: this.index, text: this.text});
+                // toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
+            },
         },
         computed: {
             is_today: function () {
-                return moment().format('YYYYMMDD') == this.date;
+                return moment().format('YYYYMMDD') == this.id;
+            },
+            todo_list_name: function () {
+                return this.$store.state.cTodoListIds[this.cTodoListIndex].listName
             }
         }
     }
@@ -180,7 +228,7 @@
 
   }
 
-  .bi-check2-all {
+  .weekly-to-do-header i {
     font-size: 1.4rem;
     flex-grow: 0;
     align-self: start;
@@ -188,11 +236,12 @@
   }
 
   .bi-reply-all {
-    font-size: 1.4rem;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-    flex-grow: 0;
-    align-self: start;
-    cursor: pointer;
+  }
+
+  .custom-todo-input {
+    font-size: 1.25rem;
+    width: 100%;
   }
 </style>

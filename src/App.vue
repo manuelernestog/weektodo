@@ -4,15 +4,18 @@
   <div class="weekly-todo-lists-container">
     <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
     <div style="flex-grow: 1; display: flex;  overflow-x: hidden; ">
-      <to-do-list v-for="date in dates_array" :key="date" :date="date"></to-do-list>
+      <to-do-list v-for="date in dates_array" :key="date" :id="date"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
-    <div style="height: 50vh; display: flex; overflow: auto">
-      <i class="bi-chevron-left" style="font-size: 2rem; align-self: center; "></i>
-      <to-do-list :date="date"></to-do-list>
-      <i class="bi-chevron-right" style="font-size: 2rem; align-self: center; "></i>
+  <div class="weekly-todo-lists-container" style="height: 50vh; display: flex; overflow: auto">
+    <i class="bi-chevron-left slider-btn"></i>
+    <div style="flex-grow: 1; display: flex;  overflow-x: hidden; ">
+      <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
+                  :customTodoList="true" :cTodoListIndex="index"></to-do-list>
     </div>
+    <i class="bi-chevron-right slider-btn"></i>
+  </div>
 
 </template>
 
@@ -20,6 +23,7 @@
     import toDoList from "./components/toDoList";
     import moment from 'moment'
     import sideBar from "./components/layout/sideBar";
+    import customToDoListIdsRepository from "./repositories/customToDoListIdsRepository";
 
     export default {
         name: 'App',
@@ -29,8 +33,8 @@
         },
         data() {
             return {
-                ToDoItems: [],
-                selected_date: this.moments().format('YYYYMMDD')
+                selected_date: this.moments().format('YYYYMMDD'),
+                cTodoList: this.$store.state.cTodoListIds
             }
         },
         methods: {
@@ -56,8 +60,11 @@
                 }
                 return dates_array;
             }
+        },
+        beforeCreate() {
+            let list = customToDoListIdsRepository.load();
+            this.$store.commit('loadCustomTodoListsIds', list);
         }
-
     }
 </script>
 
