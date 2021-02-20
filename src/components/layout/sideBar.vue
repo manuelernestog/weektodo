@@ -1,8 +1,9 @@
 <template>
   <div class="side-bar">
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo">
-    <i class="bi-house"></i>
-    <i class="bi-calendar-event" @click="changeDate"></i>
+    <i class="bi-house" @click="setTodayDate"></i>
+    <datepicker id="side-bar-date-picker-input" v-model="picked"/>
+    <i class="bi-calendar-event" @click="changeDate"> </i>
     <i class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders"></i>
     <span style="flex-grow: 1"></span>
@@ -15,12 +16,25 @@
     import moment from 'moment';
     import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
     import toDoListRepository from "../../repositories/toDoListRepository";
+    import Datepicker from 'vue3-datepicker'
+    import {ref} from 'vue'
 
     export default {
         name: "sideBar",
+        components: {
+            Datepicker
+        },
+        data() {
+            return {
+                picked: ref(new Date())
+            }
+        },
         methods: {
             changeDate: function () {
-
+                document.getElementById('side-bar-date-picker-input').click();
+            },
+            setTodayDate: function () {
+                this.$emit('changeDate', moment().format('YYYYMMDD'));
             },
             newCustomTodoList: function () {
                 const customTodoListId = {listId: moment().format("YYYYMMDDTHHmmss"), listName: ""};
@@ -69,7 +83,7 @@
     background-color: #dddfe2;
   }
 
-  .side-bar .logo{
+  .side-bar .logo {
     /*padding: 10px;*/
     margin-bottom: 18px;
     margin-top: 18px;

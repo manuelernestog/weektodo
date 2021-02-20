@@ -1,21 +1,23 @@
 `
 <template>
-  <side-bar></side-bar>
+  <side-bar @change-date="setSelectedDate"></side-bar>
   <div class="weekly-todo-lists-container">
     <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
-    <div style="flex-grow: 1; display: flex;  overflow-x: hidden;  ">
+    <div style="flex-grow: 1; display: flex;  overflow-x: hidden;  " ref="weekListContainer">
       <to-do-list v-for="date in dates_array" :key="date" :id="date"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
-  <div class="custom-todo-lists-container"
-       style="height: 50vh; display: flex; overflow: auto">
-    <i class="bi-chevron-left slider-btn" @click="customMoveLeft"></i>
+  <a-divider>Text</a-divider>
+  <div class="custom-todo-lists-container">
+    <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
+       :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
     <div style="flex-grow: 1; display: flex;  overflow-x: hidden; " ref="customListContainer">
       <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
                   :customTodoList="true" :cTodoListIndex="index"></to-do-list>
     </div>
-    <i class="bi-chevron-right slider-btn" @click="customMoveRight"></i>
+    <i class="bi-chevron-right slider-btn" @click="customMoveRight"
+       :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
   </div>
 
 </template>
@@ -47,9 +49,22 @@
             },
             weekMoveLeft: function () {
                 this.selected_date = moment(this.selected_date).subtract(1, 'd').format('YYYYMMDD');
+                this.$refs.weekListContainer.scrollLeft = this.todoListWidth() * 2;
+                this.$refs.weekListContainer.scroll({
+                    left: (this.$refs.weekListContainer.scrollLeft - this.todoListWidth()),
+                    top: 0,
+                    behavior: 'smooth'
+                });
             },
             weekMoveRight: function () {
                 this.selected_date = moment(this.selected_date).add(1, 'd').format('YYYYMMDD');
+                this.$refs.weekListContainer.scrollLeft = 0;
+                this.$refs.weekListContainer.scroll({
+                    left: (this.$refs.weekListContainer.scrollLeft + this.todoListWidth()),
+                    top: 0,
+                    behavior: 'smooth'
+                });
+
             },
             customMoveRight: function () {
                 this.$refs.customListContainer.scroll({
@@ -65,14 +80,21 @@
                     behavior: 'smooth'
                 });
             },
-            todoListWidth() {
+            todoListWidth: function () {
                 return this.$refs.customListContainer.clientWidth / 5;
             },
+            setSelectedDate: function (date) {
+                this.selected_date = date;
+            }
         },
         computed: {
             dates_array: function () {
-                var dates_array = [moment(this.selected_date).subtract(1, 'd').format('YYYYMMDD'), this.selected_date];
-                for (let i = 1; i < 4; i++) {
+                var dates_array = [
+                    moment(this.selected_date).subtract(2, 'd').format('YYYYMMDD'),
+                    moment(this.selected_date).subtract(1, 'd').format('YYYYMMDD'),
+                    this.selected_date
+                ];
+                for (let i = 1; i < 5; i++) {
                     dates_array.push(moment(this.selected_date).add(i, 'd').format('YYYYMMDD'));
                 }
                 return dates_array;
@@ -81,6 +103,9 @@
         beforeCreate() {
             let list = customToDoListIdsRepository.load();
             this.$store.commit('loadCustomTodoListsIds', list);
+        },
+        mounted() {
+            this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
         }
     }
 </script>
@@ -95,6 +120,12 @@
     height: 50vh;
     border-bottom: 1px solid #eaecef;
     display: flex;
+  }
+
+  .custom-todo-lists-container {
+    height: 50vh;
+    display: flex;
+    overflow: auto;
   }
 
   .slider-btn {
@@ -123,6 +154,10 @@
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
+  }
+
+  #side-bar-date-picker-input{
+    display: none;
   }
 
 </style>
