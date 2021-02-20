@@ -2,7 +2,7 @@
   <div class="side-bar">
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo">
     <i class="bi-house" @click="setTodayDate"></i>
-    <datepicker v-if="isDatepickerEnable" id="side-bar-date-picker-input" v-model="pickedDate"/>
+    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate"/>
     <i class="bi-calendar-event" @click="changeDate"> </i>
     <i class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders"></i>
@@ -35,7 +35,7 @@
                 this.$nextTick(function () {
                     document.getElementById('side-bar-date-picker-input').click();
                     document.getElementById('side-bar-date-picker-input').focus();
-                    document.getElementById('side-bar-date-picker-input').addEventListener('focusout',this.resetDatePicker);
+                    document.getElementById('side-bar-date-picker-input').addEventListener('focusout', this.resetDatePicker);
                 });
             },
             setTodayDate: function () {
@@ -60,11 +60,6 @@
                     this.$emit('changeDate', moment(val).format('YYYYMMDD'));
                     this.pickedDate = new Date();
                 }
-            }
-        },
-        computed: {
-            isDatepickerEnable: function () {
-                return this.datepickerEnabled;
             }
         }
     }

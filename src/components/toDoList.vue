@@ -35,7 +35,7 @@
     export default {
         components: {
             listHeader,
-            toDoItem,
+            toDoItem
         },
         props: {
             id: {required: false, type: String},
