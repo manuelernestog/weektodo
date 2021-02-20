@@ -1,9 +1,9 @@
 <template>
-  <div class="modal fade" id="removeList" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" :id="'list'+listId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Modal {{listName}}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -22,8 +22,8 @@
     export default {
         name: "removeCustomList",
         props: {
-            id: {require: true, type: String},
-            cTodoListIndex: {require: true, type: Number}
+            listName: {require: true, type: String},
+            listId: {require: true, type: String},
         }
     }
 </script>

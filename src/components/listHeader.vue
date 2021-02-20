@@ -17,17 +17,23 @@
     </div>
     <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()"
        @click="moveUndoneItems"></i>
-    <i v-show="customTodoList && !editing && header_hover" class="bi-x" ></i>
+    <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal"
+       :data-bs-target="'#list'+id"></i>
   </div>
+
+  <remove-custom-list :list-name="name" :list-id="id"></remove-custom-list>
 </template>
 
 <script>
     import moment from 'moment'
     import toDoListRepository from "../repositories/toDoListRepository";
     import customToDoListIdsRepository from "../repositories/customToDoListIdsRepository";
+    import removeCustomList from "./windows/removeCustomList";
 
     export default {
-        components: {},
+        components: {
+            removeCustomList
+        },
         props: {
             id: {required: false, type: String},
             customTodoList: {required: false, default: false, type: Boolean},
