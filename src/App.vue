@@ -8,7 +8,6 @@
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
-  <a-divider>Text</a-divider>
   <div class="custom-todo-lists-container">
     <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
@@ -156,9 +155,17 @@
     user-select: none;
   }
 
-  #side-bar-date-picker-input{
-    display: none;
+  #side-bar-date-picker-input {
+    /*hidind input but it need to be visible to get the focus*/
+    position: fixed;
+    top: -50px;
   }
+
+  .side-bar .v3dp__popout {
+    margin-left: 75px;
+    margin-top: 0px;
+  }
+
 
 </style>
 `

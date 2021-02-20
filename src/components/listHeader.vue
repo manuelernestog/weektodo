@@ -92,8 +92,6 @@
             },
             cancelEdit: function () {
                 this.editing = false;
-                // this.$store.commit('updateTodo', {toDoListId: this.toDoListId, index: this.index, text: this.text});
-                // toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
             },
         },
         computed: {

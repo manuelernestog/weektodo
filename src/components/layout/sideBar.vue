@@ -2,7 +2,7 @@
   <div class="side-bar">
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo">
     <i class="bi-house" @click="setTodayDate"></i>
-    <datepicker id="side-bar-date-picker-input" v-model="picked"/>
+    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate"/>
     <i class="bi-calendar-event" @click="changeDate"> </i>
     <i class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders"></i>
@@ -17,7 +17,6 @@
     import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
     import toDoListRepository from "../../repositories/toDoListRepository";
     import Datepicker from 'vue3-datepicker'
-    import {ref} from 'vue'
 
     export default {
         name: "sideBar",
@@ -26,12 +25,17 @@
         },
         data() {
             return {
-                picked: ref(new Date())
+                pickedDate: new Date(),
+                datepickerEnabled: false
             }
         },
         methods: {
             changeDate: function () {
-                document.getElementById('side-bar-date-picker-input').click();
+                this.datepickerEnabled = true;
+                this.$nextTick(function () {
+                    document.getElementById('side-bar-date-picker-input').click();
+                    document.getElementById('side-bar-date-picker-input').focus();
+                });
             },
             setTodayDate: function () {
                 this.$emit('changeDate', moment().format('YYYYMMDD'));
@@ -42,6 +46,15 @@
                 customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
                 toDoListRepository.update(customTodoListId.listId, this.$store.state.todoLists[customTodoListId.listId]);
             },
+        },
+        watch: {
+            pickedDate: function (val) {
+                if (this.datepickerEnabled) {
+                    this.datepickerEnabled = false;
+                    this.$emit('changeDate', moment(val).format('YYYYMMDD'));
+                    this.pickedDate = new Date();
+                }
+            }
         }
     }
 </script>
