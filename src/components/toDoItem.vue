@@ -2,7 +2,7 @@
   <div class="todo-item-container" @mouseover="hover = true" @mouseleave="hover = false">
     <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': toDo.checked }">
       <span class="noselect" style=" flex-grow:1; " @dblclick="editToDo" @click="checkToDo"> {{ toDo.text }} </span>
-      <i class="bi-x todo-item-remove" v-if="hover" @click="removeTodo()" style="flex-grow:0; color: black"></i>
+      <i class="bi-x todo-item-remove" v-if="hover" @click="removeTodo()"></i>
     </div>
     <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
            @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
@@ -103,6 +103,12 @@
     margin: 1px;
     margin-left: 5px;
     margin-right: 5px;
+    color: grey;
+    flex-grow: 0;
+  }
+
+  .todo-item-remove:hover {
+    color: black;
   }
 
 </style>

@@ -3,18 +3,19 @@
   <side-bar></side-bar>
   <div class="weekly-todo-lists-container">
     <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
-    <div style="flex-grow: 1; display: flex;  overflow-x: hidden; ">
+    <div style="flex-grow: 1; display: flex;  overflow-x: hidden;  ">
       <to-do-list v-for="date in dates_array" :key="date" :id="date"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
-  <div class="weekly-todo-lists-container" style="height: 50vh; display: flex; overflow: auto">
-    <i class="bi-chevron-left slider-btn"></i>
-    <div style="flex-grow: 1; display: flex;  overflow-x: hidden; ">
+  <div class="custom-todo-lists-container"
+       style="height: 50vh; display: flex; overflow: auto">
+    <i class="bi-chevron-left slider-btn" @click="customMoveLeft"></i>
+    <div style="flex-grow: 1; display: flex;  overflow-x: hidden; " ref="customListContainer">
       <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
                   :customTodoList="true" :cTodoListIndex="index"></to-do-list>
     </div>
-    <i class="bi-chevron-right slider-btn"></i>
+    <i class="bi-chevron-right slider-btn" @click="customMoveRight"></i>
   </div>
 
 </template>
@@ -49,8 +50,24 @@
             },
             weekMoveRight: function () {
                 this.selected_date = moment(this.selected_date).add(1, 'd').format('YYYYMMDD');
-
-            }
+            },
+            customMoveRight: function () {
+                this.$refs.customListContainer.scroll({
+                    left: (this.$refs.customListContainer.scrollLeft + this.todoListWidth()),
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            },
+            customMoveLeft: function () {
+                this.$refs.customListContainer.scroll({
+                    left: (this.$refs.customListContainer.scrollLeft - this.todoListWidth()),
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            },
+            todoListWidth() {
+                return this.$refs.customListContainer.clientWidth / 5;
+            },
         },
         computed: {
             dates_array: function () {

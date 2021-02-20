@@ -1,6 +1,6 @@
 <template>
   <div class="side-bar">
-    <i class="bi-app-indicator"></i>
+    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo">
     <i class="bi-house"></i>
     <i class="bi-calendar-event" @click="changeDate"></i>
     <i class="bi-clipboard-plus" @click="newCustomTodoList"></i>
@@ -67,6 +67,14 @@
 
   .side-bar i:active {
     background-color: #dddfe2;
+  }
+
+  .side-bar .logo{
+    /*padding: 10px;*/
+    margin-bottom: 18px;
+    margin-top: 18px;
+    align-self: center;
+    cursor: pointer;
   }
 
 </style>
