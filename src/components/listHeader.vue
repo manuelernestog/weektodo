@@ -15,9 +15,9 @@
                @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
       </div>
     </div>
-    <i v-if="!customTodoList" class="bi-reply-all" v-show="header_hover && !allTodoChecked()"
+    <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()"
        @click="moveUndoneItems"></i>
-    <i v-if="customTodoList && !editing" class="bi-x" v-show="header_hover"></i>
+    <i v-show="customTodoList && !editing && header_hover" class="bi-x" ></i>
   </div>
 </template>
 
