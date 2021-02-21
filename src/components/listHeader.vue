@@ -18,7 +18,7 @@
     <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()"
        @click="moveUndoneItems"></i>
     <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal"
-       :data-bs-target="'#list'+id"></i>
+       :data-bs-target="'#modal'+id"></i>
   </div>
 
   <remove-custom-list :list-name="name" :list-id="id"></remove-custom-list>

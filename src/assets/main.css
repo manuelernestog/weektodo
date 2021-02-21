@@ -1,0 +1,12 @@
+.main-horizontal-divider {
+    display: flex;
+    margin-left: 94px;
+    margin-right: 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /*padding: 0;*/
+    color: rgba(0,0,0,.85);
+    line-height: 1.5715;
+    list-style: none;
+    border-top: 1px solid rgba(0,0,0,.06);
+}

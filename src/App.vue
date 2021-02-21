@@ -8,12 +8,17 @@
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
+  <div class="main-horizontal-divider"></div>
   <div class="custom-todo-lists-container">
     <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
     <div style="flex-grow: 1; display: flex;  overflow-x: hidden; " ref="customListContainer">
-      <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-                  :customTodoList="true" :cTodoListIndex="index"></to-do-list>
+      <to-do-list v-for="(cTodoList,index) in cTodoList"
+                  :key="cTodoList.listId"
+                  :id="cTodoList.listId"
+                  :customTodoList="true"
+                  :cTodoListIndex="index"
+      ></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" @click="customMoveRight"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
@@ -84,6 +89,10 @@
             },
             setSelectedDate: function (date) {
                 this.selected_date = date;
+                this.$nextTick(function () {
+                    document.getElementById('list'+date).getElementsByClassName('new-todo-input')[0].focus();
+                    document.getElementById('list'+date).getElementsByClassName('new-todo-input')[0].select();
+                });
             }
         },
         computed: {
@@ -117,7 +126,7 @@
 
   .weekly-todo-lists-container {
     height: 50vh;
-    border-bottom: 1px solid #eaecef;
+    /*border-bottom: 1px solid #eaecef;*/
     display: flex;
   }
 

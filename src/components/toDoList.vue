@@ -1,5 +1,5 @@
 <template>
-  <div class="to-do-list-container" ref='listContainer'
+  <div :id="'list'+id" class="to-do-list-container" ref='listContainer'
        :class="{ 'old-date': !customTodoList && moments(id).isBefore(Date(),'day') }">
     <list-header :id="id" :customTodoList="customTodoList" :cTodoListIndex="cTodoListIndex"
                  :toDoList="toDoList"></list-header>
@@ -12,7 +12,8 @@
       </li>
     </ul>
     <div class="todo-item-container">
-      <input class="todo-input drop-zone" type="text" ref="newToDoInput" v-model="newToDo.text" @blur="addToDo()"
+      <input class="todo-input drop-zone new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text"
+             @blur="addToDo()"
              @keyup.enter="addToDo()" @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
     </div>
     <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()" class="drop-zone"
