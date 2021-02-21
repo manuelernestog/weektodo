@@ -1,23 +1,19 @@
 <template>
-  <div :id="'list'+id" class="to-do-list-container" ref='listContainer'
-       :class="{ 'old-date': !customTodoList && moments(id).isBefore(Date(),'day') }">
-    <list-header :id="id" :customTodoList="customTodoList" :cTodoListIndex="cTodoListIndex"
-                 :toDoList="toDoList"></list-header>
+  <div :id="'list'+id" class="to-do-list-container" ref='listContainer' :class="{ 'old-date': !customTodoList && moments(id).isBefore(Date(),'day') }">
+    <list-header :id="id" :customTodoList="customTodoList" :cTodoListIndex="cTodoListIndex" :toDoList="toDoList"></list-header>
     <ul class="to-do-list ">
-      <li v-for="(toDo,index) in toDoList" :key="index" class='drag-el' draggable
-          @dragstart='startDrag($event, toDo,index)'>
-        <div class="drop-zone" @drop='onDrop($event, id,index)' @dragover.prevent @dragenter.prevent>
+      <li v-for="(toDo,index) in toDoList" :key="index" class='drag-el' draggable @dragstart='startDrag($event, toDo,index)'>
+      <div class="drop-zone" @drop='onDrop($event, id,index)' @dragover.prevent @dragenter.prevent>
           <to-do-item :to-do="toDo" :index="index" :to-do-list-id="id"></to-do-item>
         </div>
       </li>
     </ul>
     <div class="todo-item-container">
       <input class="todo-input drop-zone new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text"
-             @blur="addToDo()"
-             @keyup.enter="addToDo()" @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
+             @blur="addToDo()" @keyup.enter="addToDo()" @drop='onDropAtEnd($event, id)' @dragover.prevent
+             @dragenter.prevent>
     </div>
-    <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()" class="drop-zone"
-         @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
+    <div v-if="toDoList.length < 7" @click="$refs.newToDoInput.focus()" class="drop-zone" @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
       <div v-for="index in fakeItemCounts - toDoList.length" :key="index">
         <div style="border-bottom: 1px solid #eaecef;">
           <div class="to-do-fake-item"></div>

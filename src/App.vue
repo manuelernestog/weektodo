@@ -3,11 +3,7 @@
   <div class="weekly-todo-lists-container">
     <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
     <div class="todo-slider" ref="weekListContainer">
-      <to-do-list
-        v-for="date in dates_array"
-        :key="date"
-        :id="date"
-      ></to-do-list>
+      <to-do-list v-for="date in dates_array" :key="date" :id="date"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
@@ -16,13 +12,8 @@
     <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
     <div class="todo-slider" ref="customListContainer">
-      <to-do-list
-        v-for="(cTodoList,index) in cTodoList"
-        :key="cTodoList.listId"
-        :id="cTodoList.listId"
-        :customTodoList="true"
-        :cTodoListIndex="index"
-      ></to-do-list>
+      <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
+                  :customTodoList="true" :cTodoListIndex="index"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" @click="customMoveRight"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>

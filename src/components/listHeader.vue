@@ -1,8 +1,8 @@
 <template>
+  <remove-custom-list :list-name="name" :list-id="id"></remove-custom-list>
   <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
     <i class="bi-check2-all" v-show="header_hover && !allTodoChecked() && !editing" @click="check_all_items"></i>
-    <i class="bi-info" v-show="header_hover && customTodoList && allTodoChecked() && !editing"
-       style="visibility: hidden"></i>
+    <i class="bi-info" v-show="header_hover && customTodoList && allTodoChecked() && !editing" style="visibility: hidden"></i>
     <div style="flex-grow:1;" class="noselect">
       <div v-if="!customTodoList">
         <h4 :class="{ 'today-date': is_today }"> {{moments(id).format('dddd')}} </h4>
@@ -10,18 +10,12 @@
       </div>
       <div v-else>
         <h5 v-show="!editing" @dblclick="editToDoListName"> {{ todo_list_name }} </h5>
-        <input class="custom-todo-input" v-show="editing" type="text" v-model="name" ref="cTodoInput"
-               @blur="doneEdit()"
-               @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
+        <input class="custom-todo-input" v-show="editing" type="text" v-model="name" ref="cTodoInput"  @blur="doneEdit()" @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
       </div>
     </div>
-    <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()"
-       @click="moveUndoneItems"></i>
-    <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal"
-       :data-bs-target="'#modal'+id"></i>
+    <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()" @click="moveUndoneItems"></i>
+    <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal" :data-bs-target="'#modal'+id"></i>
   </div>
-
-  <remove-custom-list :list-name="name" :list-id="id"></remove-custom-list>
 </template>
 
 <script>
@@ -109,7 +103,6 @@
             }
         }
     }
-
 </script>
 
 <style>
