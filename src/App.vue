@@ -34,7 +34,7 @@
         },
         data() {
             return {
-                selected_date: this.moment().format('YYYYMMDD'),
+                selected_date: moment().format('YYYYMMDD'),
                 cTodoList: this.$store.state.cTodoListIds
             }
         },
