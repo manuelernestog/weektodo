@@ -10,3 +10,18 @@
     list-style: none;
     border-top: 1px solid rgba(0,0,0,.06);
 }
+
+#side-bar-date-picker-input {
+    /*hiding input but it need to be visible to get the focus*/
+    position: fixed;
+    top: -50px;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
