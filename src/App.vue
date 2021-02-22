@@ -1,6 +1,6 @@
 <template>
   <side-bar @change-date="setSelectedDate"></side-bar>
-  <div class="weekly-todo-lists-container">
+  <div class="todo-lists-container">
     <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
     <div class="todo-slider" ref="weekListContainer">
       <to-do-list v-for="date in dates_array" :key="date" :id="date"></to-do-list>
@@ -8,10 +8,10 @@
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
   <div class="main-horizontal-divider"></div>
-  <div class="custom-todo-lists-container">
+  <div class="todo-lists-container">
     <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
-    <div class="todo-slider" ref="customListContainer">
+    <div class="todo-slider slides" ref="customListContainer">
       <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
                   :customTodoList="true" :cTodoListIndex="index"></to-do-list>
     </div>
@@ -64,18 +64,10 @@
                 });
             },
             customMoveRight: function () {
-                this.$refs.customListContainer.scroll({
-                    left: (this.$refs.customListContainer.scrollLeft + this.todoListWidth()),
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.todoListWidth();
             },
             customMoveLeft: function () {
-                this.$refs.customListContainer.scroll({
-                    left: (this.$refs.customListContainer.scrollLeft - this.todoListWidth()),
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.todoListWidth();
             },
             todoListWidth: function () {
                 return this.$refs.customListContainer.clientWidth / 5;
@@ -109,13 +101,8 @@
     line-height: unset !important;
   }
 
-  .weekly-todo-lists-container {
-    height: 50vh;
-    display: flex;
-  }
-
-  .custom-todo-lists-container {
-    height: 50vh;
+  .todo-lists-container {
+    height: calc(50vh - 1px);
     display: flex;
     overflow: auto;
   }
@@ -148,6 +135,11 @@
     flex-grow: 1;
     display: flex;
     overflow-x: hidden;
+  }
+
+  .slides {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
   }
 </style>
 `

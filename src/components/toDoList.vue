@@ -115,6 +115,7 @@
   .to-do-list-container {
     margin: 1.6rem 13px 13px;
     flex: 0 0 calc(20% - 26px);
+    scroll-snap-align: start;
   }
 
   .to-do-fake-item {
