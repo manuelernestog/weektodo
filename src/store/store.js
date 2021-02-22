@@ -5,6 +5,11 @@ export const store = createStore({
     state: {
         todoLists: [],
         cTodoListIds: [],
+        config: {},
+        actions: {
+            cListCreated: false,
+            cListToRmv: null
+        }
     },
     getters: {},
     mutations: {
@@ -50,6 +55,12 @@ export const store = createStore({
         },
         updateCustomTodoList(state, obj) {
             state.cTodoListIds[obj.index].listName = obj.name;
+        },
+        actionsCListCreatedUpdate(state, obj) {
+            state.actions.cListCreated = obj;
+        },
+        actionsCListToRmvUpdate(state, obj) {
+            state.actions.cListToRmv = obj;
         },
     },
     actions: {

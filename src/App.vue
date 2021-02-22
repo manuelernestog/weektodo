@@ -18,6 +18,8 @@
     <i class="bi-chevron-right slider-btn" @click="customMoveRight"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
   </div>
+
+  <remove-custom-list></remove-custom-list>
 </template>
 
 <script>
@@ -25,12 +27,14 @@
     import moment from 'moment'
     import sideBar from "./components/layout/sideBar";
     import customToDoListIdsRepository from "./repositories/customToDoListIdsRepository";
+    import removeCustomList from "./components/windows/removeCustomList";
 
     export default {
         name: 'App',
         components: {
             toDoList,
-            sideBar
+            sideBar,
+            removeCustomList
         },
         data() {
             return {

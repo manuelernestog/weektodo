@@ -43,6 +43,7 @@
             },
             newCustomTodoList: function () {
                 const customTodoListId = {listId: moment().format("YYYYMMDDTHHmmss"), listName: ""};
+                this.$store.commit('actionsCListCreatedUpdate', true);
                 this.$store.commit('newCustomTodoList', customTodoListId);
                 customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
                 toDoListRepository.update(customTodoListId.listId, this.$store.state.todoLists[customTodoListId.listId]);

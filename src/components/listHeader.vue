@@ -1,8 +1,8 @@
 <template>
-  <remove-custom-list :list-name="name" :list-id="id"></remove-custom-list>
   <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
     <i class="bi-check2-all" v-show="header_hover && !allTodoChecked() && !editing" @click="check_all_items"></i>
-    <i class="bi-info" v-show="header_hover && customTodoList && allTodoChecked() && !editing" style="visibility: hidden"></i>
+    <i class="bi-info" v-show="header_hover && customTodoList && allTodoChecked() && !editing"
+       style="visibility: hidden"></i>
     <div style="flex-grow:1;" class="noselect">
       <div v-if="!customTodoList">
         <h4 :class="{ 'today-date': is_today }"> {{moments(id).format('dddd')}} </h4>
@@ -10,11 +10,13 @@
       </div>
       <div v-else>
         <h5 v-show="!editing" @dblclick="editToDoListName"> {{ todo_list_name }} </h5>
-        <input class="custom-todo-input" v-show="editing" type="text" v-model="name" ref="cTodoInput"  @blur="doneEdit()" @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
+        <input class="custom-todo-input" v-show="editing" type="text" v-model="name" ref="cTodoInput" @blur="doneEdit()"
+               @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
       </div>
     </div>
     <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()" @click="moveUndoneItems"></i>
-    <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal" :data-bs-target="'#modal'+id"></i>
+    <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal"
+       data-bs-target="#customListRemoveModal" @click="removeList"></i>
   </div>
 </template>
 
@@ -22,12 +24,9 @@
     import moment from 'moment'
     import toDoListRepository from "../repositories/toDoListRepository";
     import customToDoListIdsRepository from "../repositories/customToDoListIdsRepository";
-    import removeCustomList from "./windows/removeCustomList";
 
     export default {
-        components: {
-            removeCustomList
-        },
+        components: {},
         props: {
             id: {required: false, type: String},
             customTodoList: {required: false, default: false, type: Boolean},
@@ -43,8 +42,8 @@
         },
         mounted() {
             if (this.customTodoList) {
-                this.name = this.$store.state.cTodoListIds[this.cTodoListIndex].listName;
-                if (this.name == "") {
+                if (this.$store.state.actions.cListCreated) {
+                    this.$store.commit('actionsCListCreatedUpdate', false);
                     this.editing = true;
                     this.$nextTick(function () {
                         this.$refs.cTodoInput.focus();
@@ -93,6 +92,13 @@
             cancelEdit: function () {
                 this.editing = false;
             },
+            removeList: function () {
+                this.$store.commit('actionsCListToRmvUpdate', {
+                    id: this.id,
+                    index: this.cTodoListIndex,
+                    name: this.$store.state.cTodoListIds[this.cTodoListIndex].listName
+                });
+            }
         },
         computed: {
             is_today: function () {
