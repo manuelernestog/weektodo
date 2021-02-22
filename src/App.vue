@@ -141,5 +141,23 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
   }
+
+  .todo-slider::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .todo-slider::-webkit-scrollbar-thumb {
+    background: #eaecef;
+    border-radius: 5px;
+  }
+  .todo-slider::-webkit-scrollbar-thumb:hover {
+    background: #dddfe2;
+  }
+  .todo-slider::-webkit-scrollbar-thumb:active {
+    background: #d0d2d5;
+  }
+  .todo-slider::-webkit-scrollbar-track {
+    background: transparent;
+  }
 </style>
 `
