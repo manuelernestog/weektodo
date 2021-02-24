@@ -5,10 +5,10 @@
       <div class="modal-content">
         <div class="modal-body" style="margin-bottom: 20px">
           <div class="d-flex flex-row">
-            <i class="bi-x-circle-fill" style="font-size: 40px; margin-right: 30px;"></i>
-            <div style="margin-top: 5px">
-              <h6 class="modal-title"> Remove To-do List</h6>
-              <text class="modal-title" style="font-size: 0.9rem"> Estas seguro que deseas eliminar la lista
+            <i class="bi-x-circle-fill" style="font-size: 38px; margin-right: 30px; color: #ef5350"></i>
+            <div style="margin-top: 2px">
+              <h6 class="modal-title"> Remove List</h6>
+              <text class="modal-title" style="font-size: 0.9rem"> Are you sure do you want to remove the list
                 {{listId}}?
               </text>
             </div>
@@ -16,8 +16,8 @@
         </div>
         <div class="horizontal-divider"></div>
         <div class="modal-footer d-flex">
-          <button type="button" class="btn flex-fill" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn flex-fill" @click="removeCustomList">Eliminar</button>
+          <button type="button" class="btn flex-fill" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn flex-fill" @click="removeCustomList">Remove</button>
         </div>
       </div>
     </div>
@@ -58,6 +58,18 @@
     border: none;
     border-radius: 1rem;
     padding: 10px 20px;
+  }
+
+  .btn:hover{
+    background-color: #eaecef;
+  }
+
+  .btn:active {
+    background-color: #d0d2d5;
+  }
+
+  .btn:focus {
+    box-shadow: none;
   }
 
 </style>
