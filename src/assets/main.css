@@ -5,10 +5,22 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /*padding: 0;*/
-    color: rgba(0,0,0,.85);
+    color: rgba(0, 0, 0, .85);
     line-height: 1.5715;
     list-style: none;
-    border-top: 1px solid rgba(0,0,0,.06);
+    border-top: 1px solid rgba(0, 0, 0, .06);
+}
+
+.horizontal-divider {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, .85);
+    line-height: 1.5715;
+    list-style: none;
+    border-top: 1px solid rgba(0, 0, 0, .06);
 }
 
 #side-bar-date-picker-input {
@@ -24,4 +36,12 @@
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
+}
+
+.modal-body {
+}
+
+.modal-footer {
+    border-top: none;
+    padding: .2rem;
 }

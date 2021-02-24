@@ -5,7 +5,7 @@
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate"/>
     <i class="bi-calendar-event" @click="changeDate"> </i>
     <i class="bi-clipboard-plus" @click="newCustomTodoList"></i>
-    <i class="bi-sliders"></i>
+    <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal"></i>
     <span style="flex-grow: 1"></span>
     <i class="bi-info-square"></i>
     <i class="bi-gift"></i>

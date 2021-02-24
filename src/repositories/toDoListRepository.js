@@ -12,5 +12,8 @@ export default {
     },
     update(toDoListId, toDoList) {
         storageRepository.set(toDoListId, toDoList);
+    },
+    remove(toDoListId){
+        storageRepository.remove(toDoListId);
     }
 };

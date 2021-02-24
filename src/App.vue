@@ -20,6 +20,7 @@
   </div>
 
   <remove-custom-list></remove-custom-list>
+  <config-modal></config-modal>
 </template>
 
 <script>
@@ -28,10 +29,12 @@
     import sideBar from "./components/layout/sideBar";
     import customToDoListIdsRepository from "./repositories/customToDoListIdsRepository";
     import removeCustomList from "./components/windows/removeCustomList";
+    import configModal from "./components/windows/configModal";
 
     export default {
         name: 'App',
         components: {
+            configModal,
             toDoList,
             sideBar,
             removeCustomList
@@ -150,16 +153,20 @@
     width: 6px;
     height: 6px;
   }
+
   .todo-slider::-webkit-scrollbar-thumb {
     background: #eaecef;
     border-radius: 5px;
   }
+
   .todo-slider::-webkit-scrollbar-thumb:hover {
     background: #dddfe2;
   }
+
   .todo-slider::-webkit-scrollbar-thumb:active {
     background: #d0d2d5;
   }
+
   .todo-slider::-webkit-scrollbar-track {
     background: transparent;
   }

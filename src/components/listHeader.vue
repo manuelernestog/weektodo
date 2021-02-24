@@ -157,11 +157,11 @@
   }
 
   .custom-todo-input {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     width: 100%;
   }
 
   .weekly-to-do-header h5 {
-    min-height: 1.25rem;
+    min-height: 1.5rem;
   }
 </style>

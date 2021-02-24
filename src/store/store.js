@@ -62,6 +62,10 @@ export const store = createStore({
         actionsCListToRmvUpdate(state, obj) {
             state.actions.cListToRmv = obj;
         },
+        removeCustomTodoList(state, obj) {
+            delete state.todoLists[obj.id];
+            state.cTodoListIds.splice(obj.index, 1);
+        }
     },
     actions: {
         loadTodoLists({commit}, todoListId) {
