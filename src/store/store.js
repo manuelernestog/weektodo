@@ -71,7 +71,10 @@ export const store = createStore({
         },
         updateConfigCustomList(state, val) {
             state.config.customList = val;
-        }
+        },
+        updateConfigDarkTheme(state, val) {
+            state.config.darkTheme = val;
+        },
     },
     actions: {
         loadTodoLists({commit}, todoListId) {

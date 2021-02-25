@@ -18,9 +18,9 @@
     </div>
     <div @click="$refs.newToDoInput.focus()" class="drop-zone"
          @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
-      <div v-if="fakeItemCounts > 0">
+      <div v-if="fakeItemCounts > 0 && toDoList.length < fakeItemCounts">
         <div v-for="index in fakeItemCounts - toDoList.length" :key="index">
-          <div style="border-bottom: 1px solid #eaecef;">
+          <div class="fake-item-container">
             <div class="to-do-fake-item"></div>
           </div>
         </div>
@@ -161,8 +161,8 @@
     color: lightgray;
   }
 
-  .drop-zone {
-
+  .dark-theme .old-date {
+    color: #343b42;
   }
 
   .weekly-to-do-header i {
@@ -170,5 +170,13 @@
     flex-grow: 0;
     align-self: start;
     cursor: pointer;
+  }
+
+  .fake-item-container {
+    border-bottom: 1px solid #eaecef;
+  }
+
+  .dark-theme .fake-item-container {
+    border-bottom: 1px solid #30363d;
   }
 </style>

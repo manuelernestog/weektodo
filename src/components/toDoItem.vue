@@ -62,6 +62,10 @@
     border-bottom: 1px solid #eaecef;
   }
 
+  .dark-theme .todo-item-container{
+    border-bottom: 1px solid #30363d;
+  }
+
   .todo-item {
     font-size: 0.9rem;
     overflow-wrap: break-word;
@@ -82,6 +86,11 @@
     color: #1e1e1e;
   }
 
+  .dark-theme .todo-item:hover {
+    background-color: #161b22;
+    color: #f7f7f7;
+  }
+
   .todo-input {
     line-height: 1.4rem;
     width: 100%;
@@ -96,6 +105,10 @@
   .checked-todo {
     color: lightgray;
     text-decoration: line-through;
+  }
+
+   .dark-theme .checked-todo {
+    color: #343b42;
   }
 
   .todo-item-remove {

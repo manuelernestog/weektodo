@@ -3,7 +3,7 @@
     <div v-if="show" class="splash-screen d-flex justify-content-center align-items-center" ref="splashScreen">
       <div class="d-flex flex-column align-items-center">
         <img class="logo" src="../../public/WeekToDo-Logo-Color.svg">
-        <h1 style="color: #3f0e81">WeekToDo</h1>
+        <h1>WeekToDo</h1>
         <span>Simple Weekly Planner</span>
       </div>
     </div>
@@ -35,9 +35,21 @@
     background-color: #fcfcfc;
   }
 
+  .dark-theme .splash-screen {
+    background-color: #13171d;
+  }
+
   .logo {
     margin-bottom: 30px;
     width: 7rem;
+  }
+
+  .splash-screen h1 {
+    color: #3f0e81;
+  }
+
+  .dark-theme .splash-screen h1 {
+    color: #5329a3;
   }
 
   .splash-screen h1 {
@@ -51,6 +63,10 @@
     text-transform: uppercase;
     letter-spacing: 0.7rem;
     color: #79606b;
+  }
+
+  .dark-theme .splash-screen span {
+    color: #c9d1d9;
   }
 
   .fade-leave-active {

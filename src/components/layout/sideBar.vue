@@ -2,7 +2,7 @@
   <div class="side-bar">
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo">
     <i class="bi-house" @click="setTodayDate"></i>
-    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate"/>
+    <datepicker  id="side-bar-date-picker-input" v-model="pickedDate"/>
     <i class="bi-calendar-event" @click="changeDate"> </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal"></i>
@@ -114,6 +114,21 @@
     margin-top: 18px;
     align-self: center;
     cursor: pointer;
+  }
+
+  /*------------------------Dark Theme*------------------*/
+
+  .dark-theme .side-bar {
+    background-color: #161b22
+  }
+
+  .dark-theme .side-bar i:hover {
+    border-radius: 6px;
+    background-color: #21262d;
+  }
+
+  .dark-theme .side-bar i:active {
+    background-color: #21262d;
   }
 
 </style>

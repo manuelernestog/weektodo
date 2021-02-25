@@ -1,28 +1,30 @@
 <template>
-  <splash-screen ref="splash"></splash-screen>
+  <div class="app-container" :class="{'dark-theme' : darkTheme}">
+    <splash-screen ref="splash"></splash-screen>
 
-  <side-bar @change-date="setSelectedDate"></side-bar>
-  <div class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
-    <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
-    <div class="todo-slider" ref="weekListContainer">
-      <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList = "showCustomList"></to-do-list>
+    <side-bar @change-date="setSelectedDate"></side-bar>
+    <div class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
+      <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
+      <div class="todo-slider" ref="weekListContainer">
+        <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
+      </div>
+      <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
     </div>
-    <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
-  </div>
-  <div v-show="showCustomList" class="main-horizontal-divider"></div>
-  <div v-show="showCustomList" class="todo-lists-container">
-    <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
-       :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
-    <div class="todo-slider slides" ref="customListContainer">
-      <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-                  :customTodoList="true" :cTodoListIndex="index" :showCustomList = "showCustomList"></to-do-list>
+    <div v-show="showCustomList" class="main-horizontal-divider"></div>
+    <div v-show="showCustomList" class="todo-lists-container">
+      <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
+         :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
+      <div class="todo-slider slides" ref="customListContainer">
+        <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
+                    :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
+      </div>
+      <i class="bi-chevron-right slider-btn" @click="customMoveRight"
+         :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
     </div>
-    <i class="bi-chevron-right slider-btn" @click="customMoveRight"
-       :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
-  </div>
 
-  <remove-custom-list></remove-custom-list>
-  <config-modal></config-modal>
+    <remove-custom-list></remove-custom-list>
+    <config-modal></config-modal>
+  </div>
 </template>
 
 <script>
@@ -115,6 +117,9 @@
             },
             showCustomList: function () {
                 return this.$store.state.config.customList;
+            },
+            darkTheme: function () {
+                return this.$store.state.config.darkTheme;
             }
         }
     }
@@ -194,6 +199,26 @@
 
   .full-screen .todo-slider {
     margin-top: 20px;
+  }
+
+  /*----------------Dark Theme------------------*/
+  .dark-theme {
+    background-color: #13171d;
+    color: #c9d1d9;
+  }
+
+  .dark-theme input {
+    background-color: #13171d;
+    color: #c9d1d9;
+  }
+
+  .dark-theme .slider-btn:hover {
+    border-radius: 6px;
+    background-color: #21262d;
+  }
+
+  .dark-theme .slider-btn:active {
+    background-color: #2a2e36;
   }
 </style>
 `

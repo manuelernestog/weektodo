@@ -60,7 +60,7 @@
     padding: 10px 20px;
   }
 
-  .btn:hover{
+  .btn:hover {
     background-color: #eaecef;
   }
 
@@ -70,6 +70,13 @@
 
   .btn:focus {
     box-shadow: none;
+  }
+
+  /*------------------------Dark Theme*------------------*/
+
+  .dark-theme .modal-content {
+    background-color: #21262d;
+    border: 1px solid #30363d;
   }
 
 </style>

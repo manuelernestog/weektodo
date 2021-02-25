@@ -140,8 +140,16 @@
     color: grey;
   }
 
+  .dark-theme .weekly-to-do-header i {
+    color: #c9d1d9;
+  }
+
   .weekly-to-do-header i:hover {
     color: black;
+  }
+
+  .dark-theme .weekly-to-do-header i:hover {
+    color: white;
   }
 
   .weekly-to-do-header i {

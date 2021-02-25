@@ -22,7 +22,8 @@
               <label class="form-check-label" for="customListsSetting">Custom Lists</label>
             </div>
             <div class="form-check form-switch flex-fill">
-              <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme">
+              <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme"
+                     @change="changeDarkTheme">
               <label class="form-check-label" for="darkThemeSetting">Dark Theme</label>
             </div>
           </div>
@@ -49,6 +50,13 @@
                     this.$store.commit('updateConfigCustomList', this.customList);
                     configRepository.update(this.$store.state.config);
                 });
+            },
+            changeDarkTheme: function () {
+                this.$nextTick(function () {
+                    this.$store.commit('updateConfigDarkTheme', this.darkTheme);
+                    console.log(this.$store.state.config);
+                    configRepository.update(this.$store.state.config);
+                });
             }
         }
     }
@@ -69,6 +77,15 @@
     color: black;
   }
 
+  .dark-theme .btn-close {
+    color: #c9d1d9;
+  }
+
+  .dark-theme .btn-close:hover {
+    color: white;
+  }
+
+
   .btn-close:focus {
     box-shadow: none;
   }
@@ -81,5 +98,10 @@
   .form-check-label {
     margin-left: 10px;
     padding-top: 5px;
+  }
+
+  .dark-theme .modal-content {
+    background-color: #21262d;
+    border: 1px solid #30363d;
   }
 </style>

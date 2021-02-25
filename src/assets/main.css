@@ -9,6 +9,7 @@
     line-height: 1.5715;
     list-style: none;
     border-top: 1px solid rgba(0, 0, 0, .06);
+    margin-bottom: 1px;
 }
 
 .horizontal-divider {
@@ -21,6 +22,11 @@
     line-height: 1.5715;
     list-style: none;
     border-top: 1px solid rgba(0, 0, 0, .06);
+    margin-bottom: 1px;
+}
+
+.dark-theme .main-horizontal-divider, .dark-theme .horizontal-divider {
+    border-top: 1px solid #30363d;
 }
 
 #side-bar-date-picker-input {
@@ -41,4 +47,15 @@
 .modal-footer {
     border-top: none;
     padding: .2rem;
+}
+
+.dark-theme .v3dp__popout{
+    background-color: #21262d !important;
+    border: 1px solid #30363d !important;
+    color: #c9d1d9 !important;
+    box-shadow: none !important;
+}
+
+button.v3dp__heading__center:hover, .v3dp__heading__button:not(:disabled):hover {
+    background-color: #161b22 !important;
 }
