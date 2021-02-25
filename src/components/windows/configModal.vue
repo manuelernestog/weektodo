@@ -15,15 +15,16 @@
               <option value="Es">Español</option>
             </select>
           </div>
-          <div class="d-flex" >
-              <div class="form-check form-switch flex-fill">
-                <input class="form-check-input" type="checkbox" id="customListsSetting">
-                <label class="form-check-label" for="customListsSetting">Show Custom Lists</label>
-              </div>
-              <div class="form-check form-switch flex-fill">
-                <input class="form-check-input" type="checkbox" id="darkThemeSetting">
-                <label class="form-check-label" for="darkThemeSetting">Dark Theme</label>
-              </div>
+          <div class="d-flex">
+            <div class="form-check form-switch flex-fill">
+              <input class="form-check-input" type="checkbox" id="customListsSetting" v-model="customList"
+                     @change="changeCustomList">
+              <label class="form-check-label" for="customListsSetting">Show Custom Lists</label>
+            </div>
+            <div class="form-check form-switch flex-fill">
+              <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme">
+              <label class="form-check-label" for="darkThemeSetting">Dark Theme</label>
+            </div>
           </div>
         </div>
       </div>
@@ -32,9 +33,24 @@
 </template>
 
 <script>
+    import configRepository from "../../repositories/configRepository";
+
     export default {
         name: "configModal",
-        methods: {}
+        data() {
+            return {
+                customList: this.$store.state.config.customList,
+                darkTheme: this.$store.state.config.darkTheme
+            }
+        },
+        methods: {
+            changeCustomList: function () {
+                this.$nextTick(function () {
+                    this.$store.commit('updateConfigCustomList', this.customList);
+                    configRepository.update(this.$store.state.config);
+                });
+            }
+        }
     }
 </script>
 
@@ -62,7 +78,7 @@
     height: 1.4em !important;
   }
 
-  .form-check-label{
+  .form-check-label {
     margin-left: 10px;
     padding-top: 5px;
   }

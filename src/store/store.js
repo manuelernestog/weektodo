@@ -69,6 +69,9 @@ export const store = createStore({
         loadConfig(state, obj) {
             state.config = obj;
         },
+        updateConfigCustomList(state, val) {
+            state.config.customList = val;
+        }
     },
     actions: {
         loadTodoLists({commit}, todoListId) {

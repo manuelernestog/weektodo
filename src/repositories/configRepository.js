@@ -16,6 +16,6 @@ export default {
         }
     },
     update(config) {
-        storageRepository.set(config, 'config');
+        storageRepository.set('config',config);
     }
 };

@@ -1,27 +1,28 @@
 <template>
   <splash-screen ref="splash"></splash-screen>
-  <remove-custom-list></remove-custom-list>
-  <config-modal></config-modal>
 
   <side-bar @change-date="setSelectedDate"></side-bar>
-  <div class="todo-lists-container">
+  <div class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
     <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
     <div class="todo-slider" ref="weekListContainer">
-      <to-do-list v-for="date in dates_array" :key="date" :id="date"></to-do-list>
+      <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
   </div>
-  <div class="main-horizontal-divider"></div>
-  <div class="todo-lists-container">
+  <div v-show="showCustomList" class="main-horizontal-divider"></div>
+  <div v-show="showCustomList" class="todo-lists-container">
     <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
     <div class="todo-slider slides" ref="customListContainer">
       <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-                  :customTodoList="true" :cTodoListIndex="index"></to-do-list>
+                  :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
     </div>
     <i class="bi-chevron-right slider-btn" @click="customMoveRight"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
   </div>
+
+  <remove-custom-list></remove-custom-list>
+  <config-modal></config-modal>
 </template>
 
 <script>
@@ -111,6 +112,9 @@
                     dates_array.push(moment(this.selected_date).add(i, 'd').format('YYYYMMDD'));
                 }
                 return dates_array;
+            },
+            showCustomList: function () {
+                return this.$store.state.config.customList;
             }
         }
     }
@@ -182,6 +186,14 @@
 
   .todo-slider::-webkit-scrollbar-track {
     background: transparent;
+  }
+
+  .full-screen {
+    height: 100vh;
+  }
+
+  .full-screen .todo-slider {
+    margin-top: 20px;
   }
 </style>
 `
