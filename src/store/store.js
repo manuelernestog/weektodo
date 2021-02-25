@@ -65,7 +65,10 @@ export const store = createStore({
         removeCustomTodoList(state, obj) {
             delete state.todoLists[obj.id];
             state.cTodoListIds.splice(obj.index, 1);
-        }
+        },
+        loadConfig(state, obj) {
+            state.config = obj;
+        },
     },
     actions: {
         loadTodoLists({commit}, todoListId) {

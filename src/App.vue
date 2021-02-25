@@ -32,6 +32,7 @@
     import removeCustomList from "./components/windows/removeCustomList";
     import configModal from "./components/windows/configModal";
     import splashScreen from "./components/splashScreen";
+    import configRepository from "./repositories/configRepository";
 
     export default {
         name: 'App',
@@ -50,6 +51,7 @@
         },
         beforeCreate() {
             this.$store.commit('loadCustomTodoListsIds', customToDoListIdsRepository.load());
+            this.$store.commit('loadConfig', configRepository.load());
         },
         mounted() {
             this.$refs.weekListContainer.scrollLeft = this.todoListWidth();

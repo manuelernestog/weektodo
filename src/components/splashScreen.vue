@@ -32,7 +32,7 @@
     height: 100%;
     z-index: 999;
     position: absolute;
-    background-color: #ffe8f2;
+    background-color: #fcfcfc;
   }
 
   .logo {
