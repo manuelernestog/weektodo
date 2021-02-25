@@ -124,4 +124,12 @@
     color: black;
   }
 
+  .dark-theme .todo-item-remove {
+    color: #c9d1d9;
+  }
+
+  .dark-theme .todo-item-remove:hover {
+    color: white;
+  }
+
 </style>

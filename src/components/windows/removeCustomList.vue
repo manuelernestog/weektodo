@@ -79,4 +79,19 @@
     border: 1px solid #30363d;
   }
 
+  .dark-theme  .btn {
+    color: #c9d1d9;
+  }
+
+  .dark-theme  .btn:hover {
+    color: #c9d1d9;
+    background-color: #2e353d;
+  }
+
+  .dark-theme  .btn:active {
+    color: #c9d1d9;
+    background-color: #343b43;
+  }
+
+
 </style>

@@ -128,7 +128,7 @@
   }
 
   .dark-theme .side-bar i:active {
-    background-color: #21262d;
+    background-color: #2e353d;
   }
 
 </style>
