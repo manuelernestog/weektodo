@@ -19,7 +19,7 @@
             <div class="form-check form-switch flex-fill">
               <input class="form-check-input" type="checkbox" id="customListsSetting" v-model="customList"
                      @change="changeCustomList">
-              <label class="form-check-label" for="customListsSetting">Show Custom Lists</label>
+              <label class="form-check-label" for="customListsSetting">Custom Lists</label>
             </div>
             <div class="form-check form-switch flex-fill">
               <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme">

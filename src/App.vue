@@ -88,7 +88,7 @@
                 this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.todoListWidth();
             },
             todoListWidth: function () {
-                return this.$refs.customListContainer.clientWidth / 5;
+                return this.$refs.weekListContainer.clientWidth / 5;
             },
             setSelectedDate: function (date) {
                 this.selected_date = date;

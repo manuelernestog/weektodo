@@ -103,7 +103,6 @@
             setTodoListHeight: function () {
                 if (this.showCustomList) {
                     this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 40);
-
                 } else {
                     this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 34);
                 }
