@@ -1,4 +1,8 @@
 <template>
+  <splash-screen ref="splash"></splash-screen>
+  <remove-custom-list></remove-custom-list>
+  <config-modal></config-modal>
+
   <side-bar @change-date="setSelectedDate"></side-bar>
   <div class="todo-lists-container">
     <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
@@ -18,9 +22,6 @@
     <i class="bi-chevron-right slider-btn" @click="customMoveRight"
        :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
   </div>
-
-  <remove-custom-list></remove-custom-list>
-  <config-modal></config-modal>
 </template>
 
 <script>
@@ -30,6 +31,7 @@
     import customToDoListIdsRepository from "./repositories/customToDoListIdsRepository";
     import removeCustomList from "./components/windows/removeCustomList";
     import configModal from "./components/windows/configModal";
+    import splashScreen from "./components/splashScreen";
 
     export default {
         name: 'App',
@@ -37,7 +39,8 @@
             configModal,
             toDoList,
             sideBar,
-            removeCustomList
+            removeCustomList,
+            splashScreen
         },
         data() {
             return {
@@ -50,6 +53,11 @@
         },
         mounted() {
             this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
+            document.onreadystatechange = () => {
+                if (document.readyState == "complete") {
+                    setTimeout(this.hideSplash, 1000);
+                }
+            }
         },
         methods: {
             weekMoveLeft: function () {
@@ -85,6 +93,9 @@
                     document.getElementById('list' + date).getElementsByClassName('new-todo-input')[0].focus();
                     document.getElementById('list' + date).getElementsByClassName('new-todo-input')[0].select();
                 });
+            },
+            hideSplash: function () {
+                this.$refs.splash.hideSplash();
             }
         },
         computed: {
