@@ -18,9 +18,11 @@
     </div>
     <div @click="$refs.newToDoInput.focus()" class="drop-zone"
          @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
-      <div v-for="index in fakeItemCounts - toDoList.length" :key="index">
-        <div style="border-bottom: 1px solid #eaecef;">
-          <div class="to-do-fake-item"></div>
+      <div v-if="fakeItemCounts > 0">
+        <div v-for="index in fakeItemCounts - toDoList.length" :key="index">
+          <div style="border-bottom: 1px solid #eaecef;">
+            <div class="to-do-fake-item"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,6 +103,7 @@
             setTodoListHeight: function () {
                 if (this.showCustomList) {
                     this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 40);
+
                 } else {
                     this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 34);
                 }
