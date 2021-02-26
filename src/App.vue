@@ -24,6 +24,7 @@
 
     <remove-custom-list></remove-custom-list>
     <config-modal></config-modal>
+    <about-modal></about-modal>
   </div>
 </template>
 
@@ -36,6 +37,7 @@
     import configModal from "./components/windows/configModal";
     import splashScreen from "./components/splashScreen";
     import configRepository from "./repositories/configRepository";
+    import aboutModal from "./components/windows/aboutModal";
 
     export default {
         name: 'App',
@@ -44,7 +46,8 @@
             toDoList,
             sideBar,
             removeCustomList,
-            splashScreen
+            splashScreen,
+            aboutModal
         },
         data() {
             return {

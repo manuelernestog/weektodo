@@ -67,3 +67,41 @@
 .v3dp__elements button:not(:disabled):hover span{
     background-color: #3f377e !important;
 }
+
+
+/*-------------Modals----------------*/
+
+.modal-content {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0px 20px 10px 20px;
+}
+
+.dark-theme .modal-content {
+    background-color: #21262d;
+    border: 1px solid #30363d;
+}
+
+.close-modal {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #212529;
+}
+
+.close-modal:hover {
+    color: black;
+}
+
+.dark-theme .close-modal {
+    color: #c9d1d9;
+}
+
+.dark-theme .close-modal:hover {
+    color: white;
+}
+
+.dark-theme .form-select {
+    background-color: #15161e;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+}

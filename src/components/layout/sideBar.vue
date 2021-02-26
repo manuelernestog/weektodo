@@ -1,6 +1,7 @@
 <template>
   <div class="side-bar">
-    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo">
+    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo"
+         data-bs-toggle="modal" data-bs-target="#aboutModal">
     <i class="bi-house" @click="setTodayDate"></i>
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate"/>
     <i class="bi-calendar-event" @click="changeDate"> </i>
