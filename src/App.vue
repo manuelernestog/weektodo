@@ -63,6 +63,7 @@
                     setTimeout(this.hideSplash, 1000);
                 }
             }
+            window.addEventListener("resize", this.weekResetScroll);
         },
         methods: {
             weekMoveLeft: function () {
@@ -82,6 +83,9 @@
                     top: 0,
                     behavior: 'smooth'
                 });
+            },
+            weekResetScroll: function () {
+                this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
             },
             customMoveRight: function () {
                 this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.todoListWidth();
@@ -191,6 +195,19 @@
 
   .todo-slider::-webkit-scrollbar-track {
     background: transparent;
+  }
+
+  .dark-theme .todo-slider::-webkit-scrollbar-thumb {
+    background: #21262d;
+    border-radius: 5px;
+  }
+
+  .dark-theme .todo-slider::-webkit-scrollbar-thumb:hover {
+    background: #2e3a41;
+  }
+
+  .dark-theme .todo-slider::-webkit-scrollbar-thumb:active {
+    background: #43535d;
   }
 
   .full-screen {

@@ -5,14 +5,15 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Settings</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <!--          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+          <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
           <div class="mb-5">
-            <label for="exampleFormControlInput1" class="form-label">Language</label>
-            <select id="exampleFormControlInput1" class="col-sm-9 form-select" aria-label="Default select example">
-              <option value="En">English</option>
-              <option value="Es">Español</option>
+            <label for="languaje" class="form-label">Language</label>
+            <select id="languaje" class="col-sm-9 form-select" aria-label="Default select example">
+              <option value="en">English</option>
+              <option value="es">Español</option>
             </select>
           </div>
           <div class="d-flex">
@@ -104,4 +105,33 @@
     background-color: #21262d;
     border: 1px solid #30363d;
   }
+
+  .close-modal {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #212529;
+  }
+
+  .close-modal:hover {
+    color: black;
+  }
+
+  .dark-theme .close-modal {
+    color: #c9d1d9;
+  }
+
+  .dark-theme .close-modal:hover {
+    color: white;
+  }
+
+  .dark-theme .form-select {
+    background-color: #0b0c12;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+  }
+
+  .form-select:focus {
+    box-shadow: none;
+  }
+
 </style>
