@@ -37,6 +37,7 @@ export const store = createStore({
         moveUndoneItems(state, obj) {
             state.todoLists[obj.origenId].forEach(function (item) {
                 if (!item.checked) {
+                    item.listId = obj.destinyId;
                     state.todoLists[obj.destinyId].push(item);
                 }
             });
