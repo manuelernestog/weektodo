@@ -41,7 +41,7 @@
 
   .logo {
     margin-bottom: 30px;
-    width: 7rem;
+    width: 6.5rem;
   }
 
   .splash-screen h1 {
@@ -54,14 +54,14 @@
 
   .splash-screen h1 {
     letter-spacing: 3px;
-    font-size: 3.8rem;
+    font-size: 3.5rem;
     margin-bottom: 10px;
   }
 
   .splash-screen span {
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.7rem;
+    letter-spacing: 0.6rem;
     color: #79606b;
   }
 
