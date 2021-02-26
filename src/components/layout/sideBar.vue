@@ -2,7 +2,7 @@
   <div class="side-bar">
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo">
     <i class="bi-house" @click="setTodayDate"></i>
-    <datepicker  id="side-bar-date-picker-input" v-model="pickedDate"/>
+    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate"/>
     <i class="bi-calendar-event" @click="changeDate"> </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal"></i>
@@ -42,7 +42,7 @@
                 this.$emit('changeDate', moment().format('YYYYMMDD'));
             },
             newCustomTodoList: function () {
-                const customTodoListId = {listId: moment().format("YYYYMMDDTHHmmss"), listName: ""};
+                const customTodoListId = {listId: moment().format("YYYYMMDDTHHmmssS"), listName: ""};
                 this.$store.commit('actionsCListCreatedUpdate', true);
                 this.$store.commit('newCustomTodoList', customTodoListId);
                 customToDoListIdsRepository.update(this.$store.state.cTodoListIds);

@@ -10,8 +10,9 @@
         </div>
         <div class="modal-body">
           <div class="mb-5">
-            <label for="languaje" class="form-label">Language</label>
-            <select id="languaje" class="col-sm-9 form-select" aria-label="Default select example">
+            <label for="language" class="form-label">Language</label>
+            <select id="language" class="col-sm-9 form-select" aria-label="Default select example" v-model="language"
+                    @change="changeLanguage">
               <option value="en">English</option>
               <option value="es">Español</option>
             </select>
@@ -42,7 +43,8 @@
         data() {
             return {
                 customList: this.$store.state.config.customList,
-                darkTheme: this.$store.state.config.darkTheme
+                darkTheme: this.$store.state.config.darkTheme,
+                language: this.$store.state.config.language
             }
         },
         methods: {
@@ -55,7 +57,12 @@
             changeDarkTheme: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigDarkTheme', this.darkTheme);
-                    console.log(this.$store.state.config);
+                    configRepository.update(this.$store.state.config);
+                });
+            },
+            changeLanguage: function () {
+                this.$nextTick(function () {
+                    this.$store.commit('updateConfigLanguage', this.language);
                     configRepository.update(this.$store.state.config);
                 });
             }
@@ -125,7 +132,7 @@
   }
 
   .dark-theme .form-select {
-    background-color: #0b0c12;
+    background-color: #15161e;
     border: 1px solid #30363d;
     color: #c9d1d9;
   }

@@ -59,3 +59,11 @@
 .dark-theme button.v3dp__heading__center:hover, .dark-theme .v3dp__heading__button:not(:disabled):hover {
     background-color: #2e353d !important;
 }
+
+.v3dp__elements button.selected span {
+    background-color: #3f377e !important;
+}
+
+.v3dp__elements button:not(:disabled):hover span{
+    background-color: #3f377e !important;
+}

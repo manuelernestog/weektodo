@@ -75,6 +75,9 @@ export const store = createStore({
         updateConfigDarkTheme(state, val) {
             state.config.darkTheme = val;
         },
+        updateConfigLanguage(state, val) {
+            state.config.language = val;
+        },
     },
     actions: {
         loadTodoLists({commit}, todoListId) {

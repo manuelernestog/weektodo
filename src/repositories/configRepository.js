@@ -9,10 +9,10 @@ export default {
             let default_config = {
                 darkMode: false,
                 customList: true,
-                languaje: 'en'
+                language: 'en'
             }
             storageRepository.set('config', default_config);
-            return {};
+            return default_config;
         }
     },
     update(config) {
