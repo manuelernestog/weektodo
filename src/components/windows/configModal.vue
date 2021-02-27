@@ -64,6 +64,7 @@
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigLanguage', this.language);
                     configRepository.update(this.$store.state.config);
+                    this.$i18n.locale = this.language;
                 });
             }
         }
