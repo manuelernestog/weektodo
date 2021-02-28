@@ -114,7 +114,7 @@
     }
 </script>
 
-<style>
+<style scoped>
 
   .weekly-to-do-header {
     text-align: center;

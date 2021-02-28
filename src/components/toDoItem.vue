@@ -112,6 +112,7 @@
   }
 
   .todo-item-remove {
+    font-size: 1.3rem;
     cursor: pointer;
     margin: 1px;
     margin-left: 5px;
