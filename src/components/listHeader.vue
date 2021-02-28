@@ -133,6 +133,7 @@
 
   .weekly-to-do-header h4 {
     margin-bottom: 4px;
+    text-transform: capitalize;
   }
 
   .weekly-to-do-header span {

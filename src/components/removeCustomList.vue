@@ -26,8 +26,8 @@
 
 <script>
     import {Modal} from 'bootstrap'
-    import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
-    import toDoListRepository from "../../repositories/toDoListRepository";
+    import customToDoListIdsRepository from "../repositories/customToDoListIdsRepository";
+    import toDoListRepository from "../repositories/toDoListRepository";
 
     export default {
         name: "removeCustomList",

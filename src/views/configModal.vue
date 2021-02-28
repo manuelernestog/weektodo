@@ -36,7 +36,7 @@
 </template>
 
 <script>
-    import configRepository from "../../repositories/configRepository";
+    import configRepository from "../repositories/configRepository";
 
     export default {
         name: "configModal",

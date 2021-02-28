@@ -33,11 +33,11 @@
     import moment from 'moment'
     import sideBar from "./components/layout/sideBar";
     import customToDoListIdsRepository from "./repositories/customToDoListIdsRepository";
-    import removeCustomList from "./components/windows/removeCustomList";
-    import configModal from "./components/windows/configModal";
+    import removeCustomList from "./components/removeCustomList";
+    import configModal from "./views/configModal";
     import splashScreen from "./components/splashScreen";
     import configRepository from "./repositories/configRepository";
-    import aboutModal from "./components/windows/aboutModal";
+    import aboutModal from "./views/aboutModal";
 
     export default {
         name: 'App',
