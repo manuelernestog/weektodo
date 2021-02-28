@@ -5,8 +5,8 @@
        style="visibility: hidden"></i>
     <div style="flex-grow:1;" class="noselect">
       <div v-if="!customTodoList">
-        <h4 :class="{ 'today-date': is_today }"> {{moments(id).format('dddd')}} </h4>
-        <span class="weekly-to-do-header"> {{moments(id).format('LL')}} </span>
+        <h4 :class="{ 'today-date': is_today }"> {{moments(id).locale(language).format('dddd') }} </h4>
+        <span class="weekly-to-do-header"> {{moments(id).locale(language).format('LL')}} </span>
       </div>
       <div v-else>
         <h5 v-show="!editing" @dblclick="editToDoListName"> {{ todo_list_name }} </h5>
@@ -106,6 +106,9 @@
             },
             todo_list_name: function () {
                 return this.$store.state.cTodoListIds[this.cTodoListIndex].listName
+            },
+            language: function () {
+                return this.$store.state.config.language;
             }
         }
     }

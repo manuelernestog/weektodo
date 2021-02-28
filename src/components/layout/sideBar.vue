@@ -3,7 +3,7 @@
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo"
          data-bs-toggle="modal" data-bs-target="#aboutModal">
     <i class="bi-house" @click="setTodayDate"></i>
-    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate"/>
+    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language"/>
     <i class="bi-calendar-event" @click="changeDate"> </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal"></i>
@@ -18,6 +18,7 @@
     import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
     import toDoListRepository from "../../repositories/toDoListRepository";
     import Datepicker from 'vue3-datepicker';
+    import {es, enUS} from 'date-fns/locale';
 
     export default {
         name: "sideBar",
@@ -67,6 +68,19 @@
         computed: {
             showCustomList: function () {
                 return this.$store.state.config.customList;
+            },
+            language: function () {
+                let lang = this.$store.state.config.language;
+                let return_lang = null;
+                switch (lang) {
+                    case "es":
+                        return_lang = es;
+                        break;
+                    case "en":
+                        return_lang = enUS;
+                        break;
+                }
+                return return_lang;
             }
         }
     }

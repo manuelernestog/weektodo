@@ -1,34 +1,15 @@
 import {createApp} from 'vue';
 import App from './App.vue';
 import {store} from "./store/store";
+
 import { createI18n } from "vue-i18n/dist/vue-i18n.esm-bundler.js";
-
-const messages = {
-    en: {
-        message: {
-            hello: 'hello world'
-        }
-    },
-    ja: {
-        message: {
-            hello: 'こんにちは、世界'
-        }
-    },
-    es: {
-        message: {
-            hello: 'bankayy'
-        }
-    }
-}
-// {{ $t("message.hello") }}
-
+import {languages} from "./assets/languages/languajes.js"
+const messages = Object.assign(languages);
 const i18n = createI18n({
     locale: 'en',
     fallbackLocale: 'es',
     messages,
 })
-
-
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
