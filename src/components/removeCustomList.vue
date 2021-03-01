@@ -5,7 +5,7 @@
       <div class="modal-content">
         <div class="modal-body" style="margin-bottom: 20px">
           <div class="d-flex flex-row">
-            <i class="bi-x-circle-fill" style="font-size: 38px; margin-right: 30px; color: #ef5350"></i>
+            <i class="bi-x-circle" style="font-size: 38px; margin-right: 30px; "></i>
             <div style="margin-top: 2px">
               <h6 class="modal-title"> Remove List</h6>
               <text class="modal-title" style="font-size: 0.9rem"> Are you sure do you want to remove the list
