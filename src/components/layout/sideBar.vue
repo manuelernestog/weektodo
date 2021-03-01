@@ -9,7 +9,7 @@
     <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal"></i>
     <span style="flex-grow: 1"></span>
     <i class="bi-info-square"></i>
-    <i class="bi-gift"></i>
+    <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal"></i>
   </div>
 </template>
 

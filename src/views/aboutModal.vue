@@ -32,10 +32,9 @@
                 </div>
                 <div class="d-flex" style="margin-top: 30px">
                   <button type="button" class="btn flex-fill">Send Comment</button>
-                  <button type="button" class="btn flex-fill" data-bs-dismiss="modal">Donate</button>
+                  <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#donateModal">Donate</button>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

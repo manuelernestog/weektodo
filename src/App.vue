@@ -25,6 +25,7 @@
     <remove-custom-list></remove-custom-list>
     <config-modal></config-modal>
     <about-modal></about-modal>
+    <donate-modal></donate-modal>
   </div>
 </template>
 
@@ -38,10 +39,12 @@
     import splashScreen from "./components/splashScreen";
     import configRepository from "./repositories/configRepository";
     import aboutModal from "./views/aboutModal";
+    import donateModal from "./views/donateModal";
 
     export default {
         name: 'App',
         components: {
+            donateModal,
             configModal,
             toDoList,
             sideBar,
