@@ -31,8 +31,11 @@
                   </div>
                 </div>
                 <div class="d-flex" style="margin-top: 30px">
-                  <button type="button" class="btn flex-fill">Send Comment</button>
-                  <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#donateModal">Donate</button>
+                  <span style="margin-top: 10px; margin-right: 10px;">Hecho con <i class="bi-heart-fill"
+                                                                                   style="color: red"></i> en Cuba {{new Date().getFullYear()}}</span>
+                  <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal"
+                          data-bs-target="#donateModal">Donate
+                  </button>
                 </div>
               </div>
             </div>

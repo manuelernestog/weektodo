@@ -11,68 +11,90 @@
           <h6>
             Si te gustaria contribuir con la aplicacion blbla cualquier donacion que hagas seria de gran ayuda.
           </h6>
-          <!--          <nav>-->
-          <!--            <div class="nav nav-tabs" id="nav-tab" role="tablist">-->
-          <!--              <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>-->
-          <!--              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>-->
-          <!--              <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>-->
-          <!--            </div>-->
-          <!--          </nav>-->
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <div class="d-flex">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="icons/paypal.png" width="50" height="50">
-                  </div>
-                  <div class="card-footer">
-                    <div>PayPal</div>
+            <div class="tab-pane fade show active" id="donate-home">
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="card" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button">
+                        <div class="card-body">
+                          <i class="bi-chat-text-fill" style="font-size: 40px; color: #8dc351"></i>
+                        </div>
+                        <div class="card-footer">
+                          <div>Comment</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <img src="icons/paypal.png" width="50" height="50">
+                        </div>
+                        <div class="card-footer">
+                          <div>PayPal</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="card " data-bs-toggle="tab" data-bs-target="#donate-btc" type="button">
+                        <div class="card-body">
+                          <img src="icons/btc.svg" width="50" height="50">
+                        </div>
+                        <div class="card-footer">
+                          <div>Bitcoin</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="card ">
+                        <div class="card-body">
+                          <img src="icons/eth.svg" width="50" height="50">
+                        </div>
+                        <div class="card-footer">
+                          <div>ETH</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="card ">
+                        <div class="card-body">
+                          <img src="icons/usdt.svg" width="50" height="50">
+                        </div>
+                        <div class="card-footer">
+                          <div>USDT</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="card ">
+                        <div class="card-body">
+                          <img src="icons/enzona.png" width="50" height="50">
+                        </div>
+                        <div class="card-footer">
+                          <div>Enzona</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <img src="icons/qvapay.png" width="50" height="50">
+                        </div>
+                        <div class="card-footer">
+                          <div>Qvapay (Payeer, Aritm and Other Altcoins)</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="card">
-                  <div class="card-body">
-                    <img src="icons/btc.svg" width="50" height="50">
-                  </div>
-                  <div class="card-footer">
-                    <div>Bitcoin</div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <img src="icons/eth.svg" width="50" height="50">
-                  </div>
-                  <div class="card-footer">
-                    <div>ETH</div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <img src="icons/usdt.svg" width="50" height="50">
-                  </div>
-                  <div class="card-footer">
-                    <div>USDT</div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <img src="icons/enzona.png" width="50" height="50">
-                  </div>
-                  <div class="card-footer">
-                    <div>Enzona</div>
-                  </div>
-                </div>
-                <div class="card" style="width: 220px">
-                  <div class="card-body">
-                    <img src="icons/qvapay.png" width="50" height="50">
-                  </div>
-                  <div class="card-footer">
-                    <div>Qvapay (Airtm, Payeer, Other Cryptocurrencies)</div>
-                  </div>
-                </div>
-              </div>
+              </nav>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            <div class="tab-pane fade" id="donate-btc">
+              <img src="payment_qr/btc_address.jpg" style="height: 90%">
+              bc1qy7x0au4tk3h2mvkl3cg5ns5hjqeg7r6snh8z0a
+            </div>
+            <div class="tab-pane fade" id="nav-contact">...</div>
           </div>
         </div>
       </div>
@@ -121,20 +143,37 @@
     max-width: 800px;
   }
 
-  .card{
-    width: 88px;
-    margin-left: 10px;
+  .card {
     display: flex;
     align-items: center;
+    margin-top: 20px;
   }
 
-  .card-footer{
+  .card-footer {
     width: 100%;
     text-align: center;
   }
 
-  #nav-tabContent{
+  #nav-tabContent {
     margin-top: 20px;
+  }
+
+  .tab-pane {
+    height: 300px;
+  }
+
+  .nav-tabs {
+    border-bottom: none;
+  }
+
+  .dark-theme .card {
+    background-color: #15161e;
+    border: 1px solid #30363d;
+  }
+
+  .dark-theme .card-footer {
+    background-color: #0d0d12;
+    border-top: 1px solid #30363d;
   }
 
 </style>
