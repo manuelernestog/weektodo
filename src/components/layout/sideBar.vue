@@ -8,7 +8,7 @@
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList"></i>
     <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal"></i>
     <span style="flex-grow: 1"></span>
-    <i class="bi-info-square"></i>
+    <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#welcomeModal"></i>
     <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal"></i>
   </div>
 </template>

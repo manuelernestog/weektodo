@@ -26,6 +26,7 @@
     <config-modal></config-modal>
     <about-modal></about-modal>
     <donate-modal></donate-modal>
+    <welcome-modal></welcome-modal>
   </div>
 </template>
 
@@ -40,6 +41,7 @@
     import configRepository from "./repositories/configRepository";
     import aboutModal from "./views/aboutModal";
     import donateModal from "./views/donateModal";
+    import welcomeModal from "./views/infoModal";
 
     export default {
         name: 'App',
@@ -50,7 +52,8 @@
             sideBar,
             removeCustomList,
             splashScreen,
-            aboutModal
+            aboutModal,
+            welcomeModal
         },
         data() {
             return {
