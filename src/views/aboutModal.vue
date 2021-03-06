@@ -58,32 +58,6 @@
 </script>
 
 <style scoped>
-  .btn:hover {
-    background-color: #eaecef;
-  }
-
-  .btn:active {
-    background-color: #d0d2d5;
-  }
-
-  .btn:focus {
-    box-shadow: none;
-  }
-
-  .dark-theme .btn {
-    color: #c9d1d9;
-  }
-
-  .dark-theme .btn:hover {
-    color: #c9d1d9;
-    background-color: #2e353d;
-  }
-
-  .dark-theme .btn:active {
-    color: #c9d1d9;
-    background-color: #343b43;
-  }
-
   .modal-dialog {
     max-width: 600px;
   }

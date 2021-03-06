@@ -60,38 +60,11 @@
     padding: 10px 20px;
   }
 
-  .btn:hover {
-    background-color: #eaecef;
-  }
-
-  .btn:active {
-    background-color: #d0d2d5;
-  }
-
-  .btn:focus {
-    box-shadow: none;
-  }
-
-  /*------------------------Dark Theme*------------------*/
-
   .dark-theme .modal-content {
     background-color: #21262d;
     border: 1px solid #30363d;
   }
 
-  .dark-theme  .btn {
-    color: #c9d1d9;
-  }
-
-  .dark-theme  .btn:hover {
-    color: #c9d1d9;
-    background-color: #2e353d;
-  }
-
-  .dark-theme  .btn:active {
-    color: #c9d1d9;
-    background-color: #343b43;
-  }
 
 
 </style>

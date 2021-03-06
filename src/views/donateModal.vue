@@ -11,91 +11,86 @@
           <h6>
             Si te gustaria contribuir con la aplicacion blbla cualquier donacion que hagas seria de gran ayuda.
           </h6>
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="homeTab" data-bs-toggle="tab" data-bs-target="#donate-home"
+                      role="tab">Home
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" ref="btcTab" data-bs-toggle="tab" data-bs-target="#donate-btc"
+                      role="tab">btc
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" ref="ethTab" data-bs-toggle="tab" data-bs-target="#donate-eth"
+                      role="tab">eth
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" ref="usdtTab" data-bs-toggle="tab" data-bs-target="#donate-usdt"
+                      role="tab">usdt
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" ref="enzonaTab" data-bs-toggle="tab" data-bs-target="#donate-enzona"
+                      role="tab">enz
+              </button>
+            </li>
+          </ul>
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="donate-home">
-              <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <div class="card" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button">
-                        <div class="card-body">
-                          <i class="bi-chat-text-fill" style="font-size: 40px; color: #8dc351"></i>
-                        </div>
-                        <div class="card-footer">
-                          <div>Comment</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <img src="icons/paypal.png" width="50" height="50">
-                        </div>
-                        <div class="card-footer">
-                          <div>PayPal</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="card " data-bs-toggle="tab" data-bs-target="#donate-btc" type="button">
-                        <div class="card-body">
-                          <img src="icons/btc.svg" width="50" height="50">
-                        </div>
-                        <div class="card-footer">
-                          <div>Bitcoin</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="card ">
-                        <div class="card-body">
-                          <img src="icons/eth.svg" width="50" height="50">
-                        </div>
-                        <div class="card-footer">
-                          <div>ETH</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="card ">
-                        <div class="card-body">
-                          <img src="icons/usdt.svg" width="50" height="50">
-                        </div>
-                        <div class="card-footer">
-                          <div>USDT</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="card ">
-                        <div class="card-body">
-                          <img src="icons/enzona.png" width="50" height="50">
-                        </div>
-                        <div class="card-footer">
-                          <div>Enzona</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <img src="icons/qvapay.png" width="50" height="50">
-                        </div>
-                        <div class="card-footer">
-                          <div>Qvapay (Payeer, Aritm and Other Altcoins)</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
+              <div class="row">
+                <payment-method name="Comment" icon="bi-chat-text-fill" @clickBtn="sendEmail"></payment-method>
+                <payment-method name="PayPal" img="icons/paypal.png"></payment-method>
+                <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"></payment-method>
+                <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"></payment-method>
+                <payment-method name="Tether" img="icons/usdt.svg" @clickBtn="$refs.usdtTab.click()"></payment-method>
+                <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"></payment-method>
+                <payment-method name="Qvapay (Payeer, Aritm and Other Altcoins)" img="icons/qvapay.png"
+                                @clickBtn="goToQvaPay" col-length="6"></payment-method>
+              </div>
             </div>
             <div class="tab-pane fade" id="donate-btc">
-              <img src="payment_qr/btc_address.jpg" style="height: 90%">
-              bc1qy7x0au4tk3h2mvkl3cg5ns5hjqeg7r6snh8z0a
+              <payment-details
+                address="bc1qy7x0au4tk3h2mvkl3cg5ns5hjqeg7r6snh8z0a"
+                payment="Bitcoin"
+                qr-img="payment_qr/btc_address.jpg"
+              ></payment-details>
             </div>
-            <div class="tab-pane fade" id="nav-contact">...</div>
+            <div class="tab-pane fade" id="donate-eth">
+              <payment-details
+                address="0xc9D838529fF65228100ccE0A7Bb0427763E321B6"
+                payment="Ethereum"
+                qr-img="payment_qr/eth_address.jpg"
+              ></payment-details>
+            </div>
+            <div class="tab-pane fade" id="donate-usdt">
+              <payment-details
+                address="0xc9D838529fF65228100ccE0A7Bb0427763E321B6"
+                payment="USDT (ERC20)"
+                qr-img="payment_qr/usdt_address.jpg"
+              ></payment-details>
+            </div>
+            <div class="tab-pane fade" id="donate-enzona">
+              <payment-details
+                payment="ENZONA"
+                qr-img="payment_qr/enzona.png"
+              ></payment-details>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+      <div id="liveToast" class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            Direccion copiada !!!
+          </div>
+          <i class="bi-x me-2 m-auto close-toast" data-bs-dismiss="toast" aria-label="Close"></i>
         </div>
       </div>
     </div>
@@ -103,55 +98,32 @@
 </template>
 
 <script>
+    import paymentDetails from "./donateModal/paymentDetails";
+    import paymentMethod from "../components/paymentMethod";
+
     export default {
         name: "donateModal",
+        components: {
+            paymentDetails,
+            paymentMethod
+        },
         data() {
             return {}
         },
-        methods: {}
+        methods: {
+            sendEmail: function () {
+                window.location = "mailto:weektodoapp@gmail.com";
+            },
+            goToQvaPay: function () {
+                window.open('https://qvapay.com/payme/merodriguez9112', '_blank');
+            }
+        }
     }
 </script>
 
 <style scoped>
-  .btn:hover {
-    background-color: #eaecef;
-  }
-
-  .btn:active {
-    background-color: #d0d2d5;
-  }
-
-  .btn:focus {
-    box-shadow: none;
-  }
-
-  .dark-theme .btn {
-    color: #c9d1d9;
-  }
-
-  .dark-theme .btn:hover {
-    color: #c9d1d9;
-    background-color: #2e353d;
-  }
-
-  .dark-theme .btn:active {
-    color: #c9d1d9;
-    background-color: #343b43;
-  }
-
   .modal-dialog {
     max-width: 800px;
-  }
-
-  .card {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .card-footer {
-    width: 100%;
-    text-align: center;
   }
 
   #nav-tabContent {
@@ -165,15 +137,4 @@
   .nav-tabs {
     border-bottom: none;
   }
-
-  .dark-theme .card {
-    background-color: #15161e;
-    border: 1px solid #30363d;
-  }
-
-  .dark-theme .card-footer {
-    background-color: #0d0d12;
-    border-top: 1px solid #30363d;
-  }
-
 </style>
