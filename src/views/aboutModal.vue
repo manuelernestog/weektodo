@@ -21,11 +21,11 @@
                   class="bi-globe2"></i></b></a></span>
                 <div class="horizontal-divider mt-3 mb-3"></div>
                 <div class="row">
-                  <div class="col-md-2">
-                    <img class="logo align-self-center" src="Avatar.jpg" alt="WeekToDo" width="50"
-                         style="border-radius: 40px">
+                  <div class="col-md-3">
+                    <img class="logo align-self-center" src="Avatar.png" alt="WeekToDo" width="85"
+                         >
                   </div>
-                  <div class="col-md-10 pt-1">
+                  <div class="col-md-8 pt-4">
                     <span>Developed and Designed by</span>
                     <h6 style="margin-top: 5px">Manuel Ernesto García</h6>
                   </div>
