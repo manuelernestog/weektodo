@@ -27,6 +27,7 @@
     <about-modal></about-modal>
     <donate-modal></donate-modal>
     <welcome-modal></welcome-modal>
+    <tips-modal></tips-modal>
   </div>
 </template>
 
@@ -42,6 +43,8 @@
     import aboutModal from "./views/aboutModal";
     import donateModal from "./views/donateModal";
     import welcomeModal from "./views/welcomeModal";
+    import tipsModal from "./views/tipsModal";
+    import {Modal} from 'bootstrap';
 
     export default {
         name: 'App',
@@ -53,7 +56,8 @@
             removeCustomList,
             splashScreen,
             aboutModal,
-            welcomeModal
+            welcomeModal,
+            tipsModal
         },
         data() {
             return {
@@ -114,6 +118,15 @@
             },
             hideSplash: function () {
                 this.$refs.splash.hideSplash();
+                if (this.$store.state.config.firstTimeOpen) {
+                    this.showWelcomeModal();
+                }
+            },
+            showWelcomeModal: function () {
+                let modal = new Modal(document.getElementById('welcomeModal'),{backdrop: 'static'});
+                modal.show();
+                this.$store.commit('updateConfigFirstTimeOpen');
+                configRepository.update(this.$store.state.config);
             }
         },
         computed: {

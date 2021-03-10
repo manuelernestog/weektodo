@@ -79,6 +79,9 @@ export const store = createStore({
         updateConfigLanguage(state, val) {
             state.config.language = val;
         },
+        updateConfigFirstTimeOpen(state) {
+            state.config.firstTimeOpen = false;
+        },
     },
     actions: {
         loadTodoLists({commit}, todoListId) {
