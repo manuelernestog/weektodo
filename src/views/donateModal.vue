@@ -42,14 +42,17 @@
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="donate-home">
               <div class="row">
-                <payment-method name="Comment" icon="bi-chat-text-fill" @clickBtn="sendEmail"></payment-method>
-                <payment-method name="PayPal" img="icons/paypal.png"></payment-method>
-                <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"></payment-method>
-                <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"></payment-method>
-                <payment-method name="Tether" img="icons/usdt.svg" @clickBtn="$refs.usdtTab.click()"></payment-method>
-                <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"></payment-method>
-                <payment-method name="Qvapay (Payeer, Aritm and Other Altcoins)" img="icons/qvapay.png"
-                                @clickBtn="goToQvaPay" col-length="6"></payment-method>
+                <payment-method name="Comment" icon="bi-chat-text-fill" @clickBtn="sendEmail"
+                                col-length="3"></payment-method>
+                <payment-method name="PayPal" img="icons/paypal.png" col-length="3"></payment-method>
+                <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"
+                                col-length="3"></payment-method>
+                <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"
+                                col-length="3"></payment-method>
+                <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"
+                                col-length="3"></payment-method>
+                <payment-method name="Qvapay ( Payeer | Airtm | Other Criptocurrencies )" img="icons/qvapay.png"
+                                @clickBtn="goToQvaPay" col-length="9"></payment-method>
               </div>
             </div>
             <div class="tab-pane fade" id="donate-btc">
@@ -64,13 +67,6 @@
                 address="0xc9D838529fF65228100ccE0A7Bb0427763E321B6"
                 payment="Ethereum"
                 qr-img="payment_qr/eth_address.jpg"
-              ></payment-details>
-            </div>
-            <div class="tab-pane fade" id="donate-usdt">
-              <payment-details
-                address="0xc9D838529fF65228100ccE0A7Bb0427763E321B6"
-                payment="USDT (ERC20)"
-                qr-img="payment_qr/usdt_address.jpg"
               ></payment-details>
             </div>
             <div class="tab-pane fade" id="donate-enzona">
@@ -98,7 +94,7 @@
 </template>
 
 <script>
-    import paymentDetails from "./donateModal/paymentDetails";
+    import paymentDetails from "./donate/paymentDetails";
     import paymentMethod from "../components/paymentMethod";
 
     export default {

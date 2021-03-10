@@ -41,7 +41,7 @@
     import configRepository from "./repositories/configRepository";
     import aboutModal from "./views/aboutModal";
     import donateModal from "./views/donateModal";
-    import welcomeModal from "./views/infoModal";
+    import welcomeModal from "./views/welcomeModal";
 
     export default {
         name: 'App',

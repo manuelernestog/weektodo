@@ -22,17 +22,17 @@
                 <div class="horizontal-divider mt-3 mb-3"></div>
                 <div class="row">
                   <div class="col-md-3">
-                    <img class="logo align-self-center" src="Avatar.png" alt="WeekToDo" width="85"
+                    <img class="logo align-self-center" src="Avatar.png" alt="WeekToDo" width="70"
                          >
                   </div>
-                  <div class="col-md-8 pt-4">
+                  <div class="col-md-8 pt-3">
                     <span>Developed and Designed by</span>
                     <h6 style="margin-top: 5px">Manuel Ernesto García</h6>
                   </div>
                 </div>
                 <div class="d-flex" style="margin-top: 30px">
                   <span style="margin-top: 10px; margin-right: 10px;">Hecho con <i class="bi-heart-fill"
-                                                                                   style="color: red"></i> en Cuba {{new Date().getFullYear()}}</span>
+                                                                                   style="color: red"></i> en Cuba 2021</span>
                   <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal"
                           data-bs-target="#donateModal">Donate
                   </button>
@@ -60,6 +60,9 @@
 <style scoped>
   .modal-dialog {
     max-width: 600px;
+  }
+  a, a:hover {
+    color: unset;
   }
 
 </style>
