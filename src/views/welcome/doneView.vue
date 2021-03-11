@@ -9,18 +9,20 @@
       <div>
         <h4> Todo listo</h4>
         <h6> Ya todo esta listo para que puedas disfrutar de WeekTodo. </h6>
-        <span class="sub-header"> Si tienes alguna duda puedes encontrar tips la barra lateral <i class="bi-info-square"></i></span>
+        <span class="sub-header"> Si tienes alguna duda puedes encontrar tips la barra lateral <i
+          class="bi-info-square"></i></span>
       </div>
     </div>
   </div>
   <div class="d-flex btn-footer">
     <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i> Anterior</button>
-    <button type="button" class="btn flex-fill" data-bs-dismiss="modal">Listo</button>
+    <button type="button" class="btn flex-fill" data-bs-dismiss="modal" @click="finish">Listo</button>
   </div>
 
 </template>
 
 <script>
+    import initialDataCreator from "../../helpers/initialDataCreator";
 
     export default {
         name: "doneView",
@@ -32,6 +34,9 @@
         methods: {
             back: function () {
                 document.getElementById('welcome-2-tab').click();
+            },
+            finish: function () {
+                initialDataCreator.create(this);
             }
         }
     }
@@ -81,7 +86,7 @@
     border-top: 1px solid #999da1;
   }
 
-  .sub-header{
+  .sub-header {
     font-size: 0.9rem;
     font-style: italic;
   }

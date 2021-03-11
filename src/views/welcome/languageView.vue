@@ -71,5 +71,9 @@
     border-top: 1px solid #999da1;
   }
 
+  .form-select:focus {
+    box-shadow: none;
+  }
+
 
 </style>

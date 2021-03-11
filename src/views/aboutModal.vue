@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-9" style="padding-left: 40px;">
               <div style="margin-top: 10px">
-                <span>Free Minimalist Weekly Planer Focus on Privacy. <a href="#"><b>Visit Web Site <i
+                <span>WeekToDo is a Free and Simple Weekly Planer Focus on Privacy. <a href="#"><b>Visit Web Site <i
                   class="bi-globe2"></i></b></a></span>
                 <div class="horizontal-divider mt-3 mb-3"></div>
                 <div class="row">
