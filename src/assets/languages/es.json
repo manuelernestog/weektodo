@@ -1,5 +1,18 @@
 {
   "message": {
     "settings": "Configuración"
+  },
+  "donate": {
+    "donate": "Donar",
+    "mainMessage": "WeekTodo es una aplicacion totalmente gratuita. Puedes hacer una donacion o enviarme un comentario para ayudar a mejorar la aplicación o mostrar que valoras mi trabajo. Gracias por utilizar WeekToDo!",
+    "comment": "Comentario",
+    "otherCrypto": "Otras Criptomonedas",
+    "goBack": "Ir Atras",
+    "paymentType": "Tipo de Pago",
+    "address": "Dirección",
+    "copy": "Copiar"
+  },
+  "about": {
+
   }
 }
