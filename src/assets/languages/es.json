@@ -13,6 +13,8 @@
     "copy": "Copiar"
   },
   "about": {
-
+  },
+  "generatedData": {
+    "oldTask": "Esto es una tarea vieja"
   }
 }

@@ -10,7 +10,7 @@ export default {
         let custom_list1_id = create_custom_list(vue, 'Lista Personalizada');
         let custom_list2_id = create_custom_list(vue, 'Lista de Compras');
 
-        create_todo(vue, yesterday_id, 'Esto es una tarea vieja', false);
+        create_todo(vue, yesterday_id, vue.$t("generatedData.oldTask"), false);
         create_todo(vue, today_id, 'Click para completar tarea', false);
         create_todo(vue, today_id, 'Doble click para editar', false);
         create_todo(vue, today_id, 'Esto ya se completo', true);

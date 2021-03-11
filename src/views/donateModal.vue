@@ -4,13 +4,13 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Donate</h5>
+          <h5 class="modal-title">{{ $t("donate.donate") }}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          <h6>
-            Si te gustaria contribuir con la aplicacion blbla cualquier donacion que hagas seria de gran ayuda.
-          </h6>
+          <text>
+            {{ $t("donate.mainMessage") }}
+          </text>
 
           <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
             <li class="nav-item" role="presentation">
@@ -42,7 +42,7 @@
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="donate-home">
               <div class="row">
-                <payment-method name="Comment" icon="bi-chat-text-fill" @clickBtn="sendEmail"
+                <payment-method :name="$t('donate.comment')" icon="bi-chat-text-fill" @clickBtn="sendEmail"
                                 col-length="3"></payment-method>
                 <payment-method name="PayPal" img="icons/paypal.png" col-length="3"></payment-method>
                 <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"
@@ -51,7 +51,7 @@
                                 col-length="3"></payment-method>
                 <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"
                                 col-length="3"></payment-method>
-                <payment-method name="Qvapay ( Payeer | Airtm | Other Criptocurrencies )" img="icons/qvapay.png"
+                <payment-method :name="`Qvapay ( Payeer | Airtm | ${$t('donate.otherCrypto')} )`" img="icons/qvapay.png"
                                 @clickBtn="goToQvaPay" col-length="9"></payment-method>
               </div>
             </div>

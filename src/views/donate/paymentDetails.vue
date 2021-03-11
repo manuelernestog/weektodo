@@ -3,18 +3,19 @@
     <div class="col-md-5"><img class="qr-payment" :src="qrImg"></div>
     <div class="col-md-7 d-flex flex-column ">
       <div style="margin-top: 20px;">
-        <div class="mb-3"><h6 class="d-inline"> Tipo de Pago: </h6> {{payment}}</div>
+        <div class="mb-3"><h6 class="d-inline"> {{$t("donate.paymentType")}}: </h6> {{payment}}</div>
         <div v-if="paymentAddress">
-          <label class="form-label">Direccion: </label>
+          <label class="form-label">{{$t("donate.address")}}: </label>
           <div class="input-group mb-3">
             <input type="text" class="form-control" v-model="paymentAddress" readonly>
-            <span class="input-group-text" id="basic-addon2" @click="copy">Copy <i class="bi-files"> </i></span>
+            <span class="input-group-text" id="basic-addon2" @click="copy">{{$t("donate.copy")}} <i
+              class="bi-files"> </i></span>
           </div>
         </div>
       </div>
       <div class="d-flex flex-row-reverse">
         <button class="btn " type="button" @click="goHome">
-          <i class="bi-arrow-left a"></i> Ir Atras
+          <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
         </button>
       </div>
     </div>
