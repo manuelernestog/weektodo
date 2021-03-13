@@ -4,13 +4,12 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"> {{ $t("message.settings") }}</h5>
-          <!--          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+          <h5 class="modal-title"> {{ $t("settings.settings") }}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
           <div class="mb-5">
-            <label for="language" class="form-label">Language</label>
+            <label for="language" class="form-label">{{ $t("settings.language") }}</label>
             <select id="language" class="col-sm-9 form-select" aria-label="Default select example" v-model="language"
                     @change="changeLanguage">
               <option value="en">English</option>
@@ -21,12 +20,12 @@
             <div class="form-check form-switch flex-fill">
               <input class="form-check-input" type="checkbox" id="customListsSetting" v-model="customList"
                      @change="changeCustomList">
-              <label class="form-check-label" for="customListsSetting">Custom Lists</label>
+              <label class="form-check-label" for="customListsSetting">{{ $t("settings.customLists") }}</label>
             </div>
             <div class="form-check form-switch flex-fill">
               <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme"
                      @change="changeDarkTheme">
-              <label class="form-check-label" for="darkThemeSetting">Dark Theme</label>
+              <label class="form-check-label" for="darkThemeSetting">{{ $t("settings.darkTheme") }}</label>
             </div>
           </div>
         </div>
