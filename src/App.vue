@@ -28,8 +28,9 @@
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
     </div>
-    <div class="mobile d-flex justify-content-center align-items-center">
-      <h2>Esto no esta hecho pa celulares locol</h2>
+    <div class="mobile d-flex flex-column justify-content-center align-items-center">
+      <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
+      <h3 style="text-align: center">WeekToDo es una aplicacion diseñada para ejecutarse en Equipos de Escritorio y por ahora no esta lista para mostrarse en resoluciones tan pequeñas. ('一_一) </h3>
     </div>
   </div>
 </template>
@@ -268,6 +269,7 @@
     height: 100%;
     z-index: 999;
     position: absolute;
+    padding: 20%;
   }
 
   .dark-theme .mobile {
