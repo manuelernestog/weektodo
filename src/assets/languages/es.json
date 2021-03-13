@@ -3,7 +3,8 @@
     "settings": "Configuración",
     "language": "Lenguaje",
     "customLists": "Listas Personalizadas",
-    "darkTheme": "Tema Oscuro"
+    "darkTheme": "Tema Oscuro",
+    "data": "Datos"
   },
   "donate": {
     "donate": "Donar",
@@ -21,7 +22,7 @@
     "inCuba": "en Cuba",
     "dev": "Desarrollado y Diseñado por",
     "version": "Version",
-    "desc": "WeekToDo es un Planificador Semanal Minimalista gratis, enfocado en la privacidad. ",
+    "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad. ",
     "site": "Visitar Sitio Web."
   },
   "generatedData": {
