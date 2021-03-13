@@ -166,3 +166,18 @@
 .dark-theme .close-toast:hover {
     color: white;
 }
+
+
+/*Media querys*/
+
+@media only screen and (max-width: 600px) {
+    .hidden-mobile {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .mobile {
+        display: none !important;
+    }
+}

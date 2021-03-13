@@ -1,33 +1,36 @@
 <template>
   <div class="app-container" :class="{'dark-theme' : darkTheme}">
-    <splash-screen ref="splash"></splash-screen>
-
-    <side-bar @change-date="setSelectedDate"></side-bar>
-    <div class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
-      <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
-      <div class="todo-slider" ref="weekListContainer">
-        <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
+    <div class="hidden-mobile">
+      <splash-screen ref="splash"></splash-screen>
+      <side-bar @change-date="setSelectedDate"></side-bar>
+      <div class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
+        <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
+        <div class="todo-slider" ref="weekListContainer">
+          <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
+        </div>
+        <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
       </div>
-      <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
-    </div>
-    <div v-show="showCustomList" class="main-horizontal-divider"></div>
-    <div v-show="showCustomList" class="todo-lists-container">
-      <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
-         :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
-      <div class="todo-slider slides" ref="customListContainer">
-        <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-                    :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
+      <div v-show="showCustomList" class="main-horizontal-divider"></div>
+      <div v-show="showCustomList" class="todo-lists-container">
+        <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
+           :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
+        <div class="todo-slider slides" ref="customListContainer">
+          <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
+                      :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
+        </div>
+        <i class="bi-chevron-right slider-btn" @click="customMoveRight"
+           :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
       </div>
-      <i class="bi-chevron-right slider-btn" @click="customMoveRight"
-         :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
+      <remove-custom-list></remove-custom-list>
+      <config-modal></config-modal>
+      <about-modal></about-modal>
+      <donate-modal></donate-modal>
+      <welcome-modal></welcome-modal>
+      <tips-modal></tips-modal>
     </div>
-
-    <remove-custom-list></remove-custom-list>
-    <config-modal></config-modal>
-    <about-modal></about-modal>
-    <donate-modal></donate-modal>
-    <welcome-modal></welcome-modal>
-    <tips-modal></tips-modal>
+    <div class="mobile d-flex justify-content-center align-items-center">
+      <h2>Esto no esta hecho pa celulares locol</h2>
+    </div>
   </div>
 </template>
 
@@ -123,7 +126,7 @@
                 }
             },
             showWelcomeModal: function () {
-                let modal = new Modal(document.getElementById('welcomeModal'),{backdrop: 'static'});
+                let modal = new Modal(document.getElementById('welcomeModal'), {backdrop: 'static'});
                 modal.show();
                 this.$store.commit('updateConfigFirstTimeOpen');
                 configRepository.update(this.$store.state.config);
@@ -259,5 +262,17 @@
   .dark-theme .slider-btn:active {
     background-color: #2a2e36;
   }
+
+  .mobile {
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: absolute;
+  }
+
+  .dark-theme .mobile {
+    background-color: #13171d;
+  }
+
 </style>
 `
