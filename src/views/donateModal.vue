@@ -80,28 +80,21 @@
       </div>
     </div>
 
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-      <div id="liveToast" class="toast " role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-          <div class="toast-body">
-            Direccion copiada !!!
-          </div>
-          <i class="bi-x me-2 m-auto close-toast" data-bs-dismiss="toast" aria-label="Close"></i>
-        </div>
-      </div>
-    </div>
+    <toast-message ref="copiedAddress" id="copiedAddress" text="Direccion copiada !!!"></toast-message>
   </div>
 </template>
 
 <script>
     import paymentDetails from "./donate/paymentDetails";
     import paymentMethod from "../components/paymentMethod";
+    import toastMessage from "../components/toastMessage";
 
     export default {
         name: "donateModal",
         components: {
             paymentDetails,
-            paymentMethod
+            paymentMethod,
+            toastMessage
         },
         data() {
             return {}

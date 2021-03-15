@@ -40,7 +40,7 @@
         methods: {
             async copy() {
                 await navigator.clipboard.writeText(this.paymentAddress);
-                var toast = new Toast(document.getElementById('liveToast'));
+                var toast = new Toast(document.getElementById('copiedAddress'));
                 toast.show();
             },
             goHome: function () {

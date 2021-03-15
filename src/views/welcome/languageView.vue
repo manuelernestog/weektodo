@@ -8,8 +8,8 @@
     <div class="col-md-8">
       <div>
         <h4> Bienvenido a WeekToDo</h4>
-        <text> El Gestor de Tareas Semanales Minimalista enfocado en la privacidad. Para comenzar seleccione
-          su idioma.
+        <text> El Gestor de Tareas Semanales Minimalista enfocado en la privacidad. Para comenzar selecciona
+          tu idioma.
         </text>
         <div>
           <label for="language" class="form-label"></label>

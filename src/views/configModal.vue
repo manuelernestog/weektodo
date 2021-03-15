@@ -47,15 +47,20 @@
         </div>
       </div>
     </div>
+
+    <toast-message ref="invalidFile" id="invalidFile" text="Archivo Invalido"></toast-message>
   </div>
 </template>
 
 <script>
     import configRepository from "../repositories/configRepository";
     import storageRepository from "../repositories/storageRepository";
+    import toastMessage from "../components/toastMessage";
+    import {Toast} from 'bootstrap';
 
     export default {
         name: "configModal",
+        components: {toastMessage},
         data() {
             return {
                 customList: this.$store.state.config.customList,
@@ -101,13 +106,22 @@
                     var fr = new FileReader();
                     fr.readAsText(fileList[0]);
                     fr.onload = function () {
-                        var data = JSON.parse(fr.result);
-                        storageRepository.clean();
-                        storageRepository.load_json(data);
-                        location.reload();
+                        try {
+                            var toast = new Toast(document.getElementById('invalidFile'));
+                            var data = JSON.parse(fr.result);
+                            if ('config' in data) {
+                                storageRepository.clean();
+                                storageRepository.load_json(data);
+                                location.reload();
+                            } else {
+                                toast.show();
+                            }
+                        } catch (e) {
+                            toast.show();
+                        }
                     }
                 }
-            }
+            },
         }
     }
 </script>

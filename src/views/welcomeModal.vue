@@ -19,6 +19,11 @@
                       role="tab">3
               </button>
             </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#welcome-4" id="welcome-4-tab"
+                      role="tab">4
+              </button>
+            </li>
           </ul>
           <div class="tab-content mt-4" id="nav-tabContent" style="height: 200px">
             <div class="tab-pane fade show active" id="welcome-1">
@@ -28,6 +33,9 @@
               <theme-view></theme-view>
             </div>
             <div class="tab-pane fade" id="welcome-3">
+              <backup-view></backup-view>
+            </div>
+            <div class="tab-pane fade" id="welcome-4">
               <done-view></done-view>
             </div>
           </div>
@@ -41,13 +49,15 @@
     import LanguageView from "./welcome/languageView";
     import ThemeView from "./welcome/themeView";
     import doneView from "./welcome/doneView";
+    import backupView from "./welcome/privacityView";
 
     export default {
         name: "aboutModal",
         components: {
             LanguageView,
             ThemeView,
-            doneView
+            doneView,
+            backupView
         },
         data() {
             return {}

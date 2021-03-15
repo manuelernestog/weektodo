@@ -2,41 +2,42 @@
   <div class="row" style="height: 170px">
     <div class="col-md-4">
       <div class="icon-container">
-        <i class="bi-check-circle"></i>
+        <i class="bi-exclamation-triangle"></i>
       </div>
     </div>
     <div class="col-md-8">
       <div>
-        <h4> Todo listo</h4>
-        <h6> Ya todo esta listo para que puedas disfrutar de WeekTodo. </h6>
-        <span class="sub-header"> Si tienes alguna duda puedes encontrar tips en la barra lateral <i
-          class="bi-info-square"></i></span>
+        <h4> Privacidad</h4>
+        <div class="mb-1">
+          WeekToDo almacena la información en tu equipo. Si eventualmente deseas cambiar de equipo o navegador recuerda
+          crear una copia de seguridad.
+        </div>
+        <span class="sub-header"> Puedes crear una copia de seguriad en el menu de configuracion.</span>
       </div>
     </div>
   </div>
   <div class="d-flex btn-footer">
     <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i> Anterior</button>
-    <button type="button" class="btn flex-fill" data-bs-dismiss="modal" @click="finish">Listo</button>
+    <button type="button" class="btn flex-fill" @click="next">Siguiente <i class="bi-chevron-double-right"></i></button>
   </div>
 
 </template>
 
 <script>
-    import initialDataCreator from "../../helpers/initialDataCreator";
 
     export default {
-        name: "doneView",
+        name: "backupView",
         data() {
             return {
                 darkTheme: this.$store.state.config.darkTheme
             }
         },
         methods: {
-            back: function () {
-                document.getElementById('welcome-3-tab').click();
+            next: function () {
+                document.getElementById('welcome-4-tab').click();
             },
-            finish: function () {
-                initialDataCreator.create(this);
+            back: function () {
+                document.getElementById('welcome-2-tab').click();
             }
         }
     }

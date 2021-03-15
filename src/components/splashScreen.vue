@@ -4,7 +4,7 @@
       <div class="d-flex flex-column align-items-center">
         <img class="logo" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
-        <span>Simple Weekly Planner</span>
+        <span>Minimalist Weekly Planner</span>
       </div>
     </div>
   </transition>
