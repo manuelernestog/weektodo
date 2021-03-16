@@ -4,7 +4,10 @@
     "language": "Lenguaje",
     "customLists": "Listas Personalizadas",
     "darkTheme": "Tema Oscuro",
-    "data": "Datos"
+    "data": "Datos",
+    "import": "Importar",
+    "export": "Exportar",
+    "backup": "Copia de Seguridad:"
   },
   "donate": {
     "donate": "Donar",
@@ -14,7 +17,8 @@
     "goBack": "Ir Atras",
     "paymentType": "Tipo de Pago",
     "address": "Dirección",
-    "copy": "Copiar"
+    "copy": "Copiar",
+    "copiedAddres": "Direccion Copiada!!!"
   },
   "about": {
     "about": "Acerca De",

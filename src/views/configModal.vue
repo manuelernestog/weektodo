@@ -32,13 +32,13 @@
           </div>
           <div class="horizontal-divider mb-4"></div>
           <div>
-            <label for="language" class="form-label">Copia de Seguridad:</label>
+            <label for="language" class="form-label">{{ $t("settings.backup") }}</label>
             <div class="modal-footer d-flex">
               <button type="button" class="btn flex-fill" @click="exportData"><i
-                class="icons bi-cloud-arrow-down-fill"></i> Exportar
+                class="icons bi-cloud-arrow-down-fill"></i> {{ $t("settings.export") }}
               </button>
               <button type="button" class="btn flex-fill" @click="$refs.loadData.click"><i
-                class="icons bi-cloud-arrow-up-fill"></i> Importar
+                class="icons bi-cloud-arrow-up-fill"></i> {{ $t("settings.import") }}
               </button>
             </div>
             <input type="file" id="file-selector" class="d-none" accept=".wtdb" ref="loadData"

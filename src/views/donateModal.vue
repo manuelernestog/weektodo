@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <toast-message ref="copiedAddress" id="copiedAddress" text="Direccion copiada !!!"></toast-message>
+    <toast-message ref="copiedAddress" id="copiedAddress" :text="$t('donate.copiedAddres')"></toast-message>
   </div>
 </template>
 
