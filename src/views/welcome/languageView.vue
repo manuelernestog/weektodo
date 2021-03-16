@@ -7,10 +7,8 @@
     </div>
     <div class="col-md-8">
       <div>
-        <h4> Bienvenido a WeekToDo</h4>
-        <text> El Gestor de Tareas Semanales Minimalista enfocado en la privacidad. Para comenzar selecciona
-          tu idioma.
-        </text>
+        <h4> {{$t('welcome.welcome')}}</h4>
+        <text> {{$t('welcome.welcomeText')}}</text>
         <div>
           <label for="language" class="form-label"></label>
           <select id="language" class="col-sm-9 form-select" aria-label="Default select example"
@@ -24,9 +22,11 @@
     </div>
   </div>
   <div class="d-flex btn-footer">
-    <button type="button" class="btn flex-fill invisible"><i class="bi-chevron-double-left"></i> Anterior
+    <button type="button" class="btn flex-fill invisible"><i class="bi-chevron-double-left"></i>
+      {{$t('welcome.forward')}}
     </button>
-    <button type="button" class="btn flex-fill" @click="next">Siguiente <i class="bi-chevron-double-right"></i></button>
+    <button type="button" class="btn flex-fill" @click="next">{{$t('welcome.next')}} <i
+      class="bi-chevron-double-right"></i></button>
   </div>
 </template>
 

@@ -7,8 +7,8 @@
     </div>
     <div class="col-md-8">
       <div>
-        <h4> Tema</h4>
-        <text> Puedes seleccionar entre el tema claro y oscuro segun prefieras.
+        <h4> {{$t('welcome.theme')}}</h4>
+        <text> {{$t('welcome.themeText')}}
         </text>
         <div style="padding-left: 50px;" class="pt-4">
           <label class="form-check-label"><i class="bi-sun"></i></label>
@@ -22,8 +22,11 @@
     </div>
   </div>
   <div class="d-flex btn-footer">
-    <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i> Anterior</button>
-    <button type="button" class="btn flex-fill" @click="next">Siguiente <i class="bi-chevron-double-right"></i></button>
+    <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i>
+      {{$t('welcome.forward')}}
+    </button>
+    <button type="button" class="btn flex-fill" @click="next">{{$t('welcome.next')}} <i
+      class="bi-chevron-double-right"></i></button>
   </div>
 
 </template>
@@ -80,7 +83,7 @@
 
   .icon-container i {
     font-size: 6rem;
-    background: -webkit-linear-gradient(180deg, rgba(89,66,141,1) 0%, rgba(114,78,156,1) 90%);
+    background: -webkit-linear-gradient(180deg, rgba(89, 66, 141, 1) 0%, rgba(114, 78, 156, 1) 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -97,12 +100,12 @@
     margin-left: 20px;
   }
 
-  .btn-footer{
+  .btn-footer {
     border-top: 1px solid #dee2e6;
     padding-top: 6px
   }
 
-  .dark-theme .btn-footer{
+  .dark-theme .btn-footer {
     border-top: 1px solid #999da1;
   }
 

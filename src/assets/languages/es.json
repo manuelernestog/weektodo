@@ -45,5 +45,20 @@
     "tip10": "Productividad: Una buena forma de ser productivo es revisar y organizar tu lista de tareas para la semana al comenzar tu dia.",
     "tip11": "Productividad: Para cada dia intenta definir la menor cantidad de tareas posibles y ordenarlas segun su prioridad. Asi te puedes enfocar en loque realmente necesitas.",
     "tip12": "Productividad: Intenta no planificar muchas cosas con antelacion dejando la mayor planificacion para tu dia a dia. Si te quedan tareas por hacer puedes moverlas hacia para el proximo día. Notaras como tu semana se vuelve cada vez mas productiva. "
+  },
+  "welcome": {
+    "next": "Siguiente",
+    "forward": "Anterior",
+    "ready": "Listo",
+    "allReady": "Todo listo",
+    "allReadyText": "Ya todo esta listo para que puedas disfrutar de WeekTodo.",
+    "allReadySub": "Si tienes alguna duda puedes encontrar tips en la barra lateral",
+    "welcome": "Bienvenido a WeekToDo",
+    "welcomeText": "El Gestor de Tareas Semanales Minimalista enfocado en la privacidad. Para comenzar selecciona tu idioma.",
+    "privacy": "Privacidad",
+    "privacyText": "WeekToDo almacena la información en tu equipo. Si eventualmente deseas cambiar de equipo o navegador recuerda crear una copia de seguridad.",
+    "privacySub": "Puedes crear una copia de seguriad en el menu de configuracion.",
+    "theme": "Tema",
+    "themeText": "Puedes seleccionar entre el tema claro y oscuro segun prefieras."
   }
 }

@@ -7,18 +7,18 @@
     </div>
     <div class="col-md-8">
       <div>
-        <h4> Privacidad</h4>
-        <div class="mb-1">
-          WeekToDo almacena la información en tu equipo. Si eventualmente deseas cambiar de equipo o navegador recuerda
-          crear una copia de seguridad.
-        </div>
-        <span class="sub-header"> Puedes crear una copia de seguriad en el menu de configuracion.</span>
+        <h4> {{$t('welcome.privacy')}}</h4>
+        <div class="mb-1">{{$t('welcome.privacyText')}}</div>
+        <span class="sub-header">{{$t('welcome.privacySub')}}  </span>
       </div>
     </div>
   </div>
   <div class="d-flex btn-footer">
-    <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i> Anterior</button>
-    <button type="button" class="btn flex-fill" @click="next">Siguiente <i class="bi-chevron-double-right"></i></button>
+    <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i>
+      {{$t('welcome.forward')}}
+    </button>
+    <button type="button" class="btn flex-fill" @click="next">{{$t('welcome.next')}} <i
+      class="bi-chevron-double-right"></i></button>
   </div>
 
 </template>

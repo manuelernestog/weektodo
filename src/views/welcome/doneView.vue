@@ -7,16 +7,18 @@
     </div>
     <div class="col-md-8">
       <div>
-        <h4> Todo listo</h4>
-        <h6> Ya todo esta listo para que puedas disfrutar de WeekTodo. </h6>
-        <span class="sub-header"> Si tienes alguna duda puedes encontrar tips en la barra lateral <i
+        <h4> {{$t('welcome.allReady')}}</h4>
+        <h6> {{$t('welcome.allReadyText')}} </h6>
+        <span class="sub-header"> {{$t('welcome.allReadySub')}} <i
           class="bi-info-square"></i></span>
       </div>
     </div>
   </div>
   <div class="d-flex btn-footer">
-    <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i> Anterior</button>
-    <button type="button" class="btn flex-fill" data-bs-dismiss="modal" @click="finish">Listo</button>
+    <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i>
+      {{$t('welcome.next')}}
+    </button>
+    <button type="button" class="btn flex-fill" data-bs-dismiss="modal" @click="finish">{{$t('welcome.ready')}}</button>
   </div>
 
 </template>
