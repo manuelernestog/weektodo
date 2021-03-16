@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <toast-message ref="invalidFile" id="invalidFile" text="Archivo Invalido"></toast-message>
+    <toast-message ref="invalidFile" id="invalidFile" text="$t('settings.invalidFile')"></toast-message>
   </div>
 </template>
 
