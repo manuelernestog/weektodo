@@ -10,17 +10,17 @@ export default {
         let custom_list1_id = create_custom_list(vue, 'Lista Personalizada');
         let custom_list2_id = create_custom_list(vue, 'Lista de Compras');
 
-        create_todo(vue, yesterday_id, vue.$t("generatedData.oldTask"), false);
-        create_todo(vue, today_id, 'Click para completar tarea', false);
-        create_todo(vue, today_id, 'Doble click para editar', false);
-        create_todo(vue, today_id, 'Esto ya se completo', true);
-        create_todo(vue, tomorrow_id, 'Puedes arrastrar las tareas', false);
+        create_todo(vue, yesterday_id, vue.$t("generatedData.data1"), false);
+        create_todo(vue, today_id, vue.$t("generatedData.data2"), false);
+        create_todo(vue, today_id, vue.$t("generatedData.data3"), false);
+        create_todo(vue, today_id, vue.$t("generatedData.data4"), true);
+        create_todo(vue, tomorrow_id, vue.$t("generatedData.data5"), false);
 
-        create_todo(vue, custom_list1_id, 'Esto es una lista personalizada', false);
-        create_todo(vue, custom_list1_id, 'Puedes crear y eliminar las que quieras', false);
-        create_todo(vue, custom_list1_id, 'Puedes ocultarlas en el menu de opciones', false);
-        create_todo(vue, custom_list2_id, 'Refrescos', false);
-        create_todo(vue, custom_list2_id, '5 libras de Pan', false);
+        create_todo(vue, custom_list1_id, vue.$t("generatedData.data6"), false);
+        create_todo(vue, custom_list1_id, vue.$t("generatedData.data7"), false);
+        create_todo(vue, custom_list1_id, vue.$t("generatedData.data8"), false);
+        create_todo(vue, custom_list2_id, vue.$t("generatedData.data9"), false);
+        create_todo(vue, custom_list2_id, vue.$t("generatedData.data10"), false);
     }
 };
 

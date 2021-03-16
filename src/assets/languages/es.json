@@ -30,7 +30,16 @@
     "site": "Visitar Sitio Web."
   },
   "generatedData": {
-    "oldTask": "Esto es una tarea vieja"
+    "data1": "Esto es una tarea vieja",
+    "data2": "Click para completar tarea",
+    "data3": "Doble click para editar",
+    "data4": "Esto ya se completo",
+    "data5": "Puedes arrastrar las tareas",
+    "data6": "Esto es una lista personalizada",
+    "data7": "Puedes crear y eliminar las que quieras",
+    "data8": "Puedes ocultarlas en el menu de opciones",
+    "data9": "Refrescos",
+    "data10": "5 libras de Pan"
   },
   "tips": {
     "tips": "Consejos",
@@ -70,6 +79,7 @@
     "rmListConfirm":"Estas seguro que deseas eliminar la lista",
     "cancel": "Cancelar",
     "remove": "Eliminar",
-    "splashSub": "Planificador Semanal Minimalista"
+    "splashSub": "Planificador Semanal Minimalista",
+    "mobileWarning": "WeekToDo es una aplicacion diseñada para ejecutarse en Equipos de Escritorio y por ahora no esta lista para mostrarse en resoluciones tan pequeñas. ('一_一)"
   }
 }
