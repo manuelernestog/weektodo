@@ -7,8 +7,8 @@
           <div class="d-flex flex-row">
             <i class="bi-x-circle" style="font-size: 38px; margin-right: 30px; "></i>
             <div style="margin-top: 2px">
-              <h6 class="modal-title"> Remove List</h6>
-              <text class="modal-title" style="font-size: 0.9rem"> Are you sure do you want to remove the list
+              <h6 class="modal-title"> {{$t('ui.rmList')}}</h6>
+              <text class="modal-title" style="font-size: 0.9rem"> {{$t('ui.rmListConfirm')}}
                 {{listId}}?
               </text>
             </div>
@@ -16,8 +16,8 @@
         </div>
         <div class="horizontal-divider"></div>
         <div class="modal-footer d-flex">
-          <button type="button" class="btn flex-fill" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn flex-fill" @click="removeCustomList">Remove</button>
+          <button type="button" class="btn flex-fill" data-bs-dismiss="modal">{{$t('ui.cancel')}}</button>
+          <button type="button" class="btn flex-fill" @click="removeCustomList">{{$t('ui.remove')}}</button>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
 
   .bi-x-circle {
     margin-top: 5px;
-    background: -webkit-linear-gradient(180deg, rgba(89,66,141,1) 0%, rgba(114,78,156,1) 90%);
+    background: -webkit-linear-gradient(180deg, rgba(89, 66, 141, 1) 0%, rgba(114, 78, 156, 1) 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

@@ -4,7 +4,7 @@
       <div class="d-flex flex-column align-items-center">
         <img class="logo" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
-        <span>Minimalist Weekly Planner</span>
+        <span>{{$t('ui.splashSub')}}</span>
       </div>
     </div>
   </transition>

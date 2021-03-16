@@ -64,5 +64,12 @@
     "privacySub": "Puedes crear una copia de seguriad en el menu de configuracion.",
     "theme": "Tema",
     "themeText": "Puedes seleccionar entre el tema claro y oscuro segun prefieras."
+  },
+  "ui": {
+    "rmList": "Eliminar Lista",
+    "rmListConfirm":"Estas seguro que deseas eliminar la lista",
+    "cancel": "Cancelar",
+    "remove": "Eliminar",
+    "splashSub": "Planificador Semanal Minimalista"
   }
 }
