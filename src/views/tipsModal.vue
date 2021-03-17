@@ -33,21 +33,6 @@
         name: "tipsModal",
         data() {
             return {
-                tips: [
-                    {text: this.$i18n.t("tips.tip1")},
-                    {text: this.$i18n.t("tips.tip2")},
-                    {text: this.$i18n.t("tips.tip3")},
-                    {text: this.$i18n.t("tips.tip4")},
-                    {text: this.$i18n.t("tips.tip5")},
-                    {text: this.$i18n.t("tips.tip6")},
-                    {text: this.$i18n.t("tips.tip7")},
-                    {text: this.$i18n.t("tips.tip8")},
-                    {text: this.$i18n.t("tips.tip9")},
-                    {text: this.$i18n.t("tips.tip13")},
-                    {text: this.$i18n.t("tips.tip10")},
-                    {text: this.$i18n.t("tips.tip11")},
-                    {text: this.$i18n.t("tips.tip12")}
-                ],
                 index: 0
             }
         },
@@ -66,6 +51,25 @@
                     this.index--;
                 }
             }
+        },
+        computed: {
+            tips: function () {
+                return [
+                    {text: this.$t("tips.tip1")},
+                    {text: this.$i18n.t("tips.tip2")},
+                    {text: this.$i18n.t("tips.tip3")},
+                    {text: this.$i18n.t("tips.tip4")},
+                    {text: this.$i18n.t("tips.tip5")},
+                    {text: this.$i18n.t("tips.tip6")},
+                    {text: this.$i18n.t("tips.tip7")},
+                    {text: this.$i18n.t("tips.tip8")},
+                    {text: this.$i18n.t("tips.tip9")},
+                    {text: this.$i18n.t("tips.tip13")},
+                    {text: this.$i18n.t("tips.tip10")},
+                    {text: this.$i18n.t("tips.tip11")},
+                    {text: this.$i18n.t("tips.tip12")}
+                ]
+            }
         }
     }
 </script>
@@ -80,7 +84,7 @@
   }
 
   .bi-info-circle {
-    background: -webkit-linear-gradient(180deg, rgba(89,66,141,1) 0%, rgba(114,78,156,1) 90%);
+    background: -webkit-linear-gradient(180deg, rgba(89, 66, 141, 1) 0%, rgba(114, 78, 156, 1) 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
