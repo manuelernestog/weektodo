@@ -8,57 +8,59 @@
     "import": "Importar",
     "export": "Exportar",
     "backup": "Copia de Seguridad:",
-    "invalidFile": "Archivo Invalido"
+    "invalidFile": "Archivo Inválido"
   },
   "donate": {
     "donate": "Donar",
-    "mainMessage": "WeekTodo es una aplicacion totalmente gratuita. Puedes hacer una donacion o enviarme un comentario para ayudar a mejorar la aplicación o mostrar que valoras mi trabajo. Gracias por utilizar WeekToDo!",
+    "mainMessage": "WeekTodo es una aplicación totalmente gratuita. Puedes hacer una donación o enviarme un comentario para ayudar a mejorar la aplicación o mostrar que valoras mi trabajo. Gracias por utilizar WeekToDo!",
     "comment": "Comentario",
     "otherCrypto": "Otras Criptomonedas",
-    "goBack": "Ir Atras",
+    "goBack": "Ir Atrás",
     "paymentType": "Tipo de Pago",
     "address": "Dirección",
     "copy": "Copiar",
-    "copiedAddres": "Direccion Copiada!!!"
+    "copiedAddres": "Dirección Copiada!!!"
   },
   "about": {
     "about": "Acerca De",
     "madeWith": "Hecho con",
     "inCuba": "en Cuba",
     "dev": "Desarrollado y Diseñado por",
-    "version": "Version",
-    "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad. ",
+    "version": "Versión",
+    "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad.",
     "site": "Visitar Sitio Web."
   },
   "generatedData": {
     "data1": "Esto es una tarea vieja",
     "data2": "Click para completar tarea",
-    "data3": "Doble click para editar",
-    "data4": "Esto ya se completo",
-    "data5": "Puedes arrastrar las tareas",
+    "data3": "Doble clic para editar",
+    "data4": "Esta es una tarea completada",
+    "data5": "Puedes arrastrar y soltar las tareas",
     "data6": "Esto es una lista personalizada",
-    "data7": "Puedes crear y eliminar las que quieras",
+    "data7": "Puedes crear cuantas quieras",
     "data8": "Puedes ocultarlas en el menu de opciones",
-    "data9": "Refrescos",
-    "data10": "5 libras de Pan"
+    "data9": "Manzanas",
+    "data10": "Refrescos",
+    "list1": "Lista Personalizada",
+    "list2": "Lista de Compras"
   },
   "tips": {
     "tips": "Consejos",
     "next": "Siguiente Consejo",
     "forward": "Consejo Anterior",
-    "tip1": "Puedes crear una nueva tarea clikeando en cualquier area de las listas.",
-    "tip2": "Las tareas se pueden arrastrar y soltar de una lista a otra o para cambiar su orden en la lista.",
-    "tip3": "Para editar el nombre de una lista o una tarea haz doble click sobre ella.",
-    "tip4": "A la derecha de la fecha de cada lista se encuentra el icono Mover Hacia Delante el cual te permite enviar al proximo dia todas las tears que incompletas de la lista actual.",
-    "tip5": "Si no quieres utilizar las listas personalizadas, pedes ocultarlas en menu de configuracion.",
-    "tip6": "El calendario en la barra lateral te permite desplazarte rapidamente a una fecha que selecciones.",
-    "tip7": "Situando el cursor en el nombre de la lista aparecera el icono Doble Check, este te permite marcar todas las tareas que contiene una lista.",
-    "tip8": "Puedes crear una nueva lista perzonalizada utilizando el boton de Adicionar Nueva Lista situado en el panel lateral.",
-    "tip9": "El boton Inicio te devuelve al dia actual de manera inmediata.",
-    "tip13": "WeekToDo almacena la informacion en tu equipo. Si deseas cambiar de equipo o navegador recuerda crear una copia de seguridad. Puedes hacerlo en el menu de configuración.",
-    "tip10": "Productividad: Una buena forma de ser productivo es revisar y organizar tu lista de tareas para la semana al comenzar tu dia.",
-    "tip11": "Productividad: Para cada dia intenta definir la menor cantidad de tareas posibles y ordenarlas segun su prioridad. Asi te puedes enfocar en loque realmente necesitas.",
-    "tip12": "Productividad: Intenta no planificar muchas cosas con antelacion dejando la mayor planificacion para tu dia a dia. Si te quedan tareas por hacer puedes moverlas hacia para el proximo día. Notaras como tu semana se vuelve cada vez mas productiva. "
+    "tip1": "Puedes crear una nueva tarea cliqueando en cualquier área de las listas.",
+    "tip2": "Las tareas se pueden arrastrar y soltar de una lista a otra o cambiando su orden.",
+    "tip3": "Para editar el nombre de una lista o una tarea haz doble clic sobre ella.",
+    "tip4": "A la derecha de la fecha de cada lista se encuentra el icono Mover Hacia Delante el cual te permite enviar al próximo día todas las tareas pendientes de la lista actual.",
+    "tip5": "Si no vas a utilizar las listas personalizadas, puedes ocultarlas en menú de configuración.",
+    "tip6": "El calendario en la barra lateral te permite desplazarte rápidamente a una fecha.",
+    "tip7": "Situando el cursor en el nombre de la lista aparecerá el icono Marcar Todo, este te permite marcar todas las tareas que contiene una lista.",
+    "tip8": "Puedes crear una nueva lista personalizada utilizando el botón de Adicionar Nueva Lista situado en el panel lateral.",
+    "tip9": "El botón Inicio te sitúa en el día actual.",
+    "tip13": "WeekToDo almacena la información en tu equipo. Si deseas cambiar de equipo o navegador recuerda crear una copia de seguridad. Puedes hacerlo en el menú de configuración.",
+    "tip10": "Productividad: Intenta definir la menor cantidad de tareas posibles por día y ordenarlas según su prioridad.",
+    "tip11": "Productividad: Revisar y organizar tu lista de tareas para la semana al comenzar y terminar tu dia.",
+    "tip12": "Productividad: No planifiques muchas cosas por adelantado, organizate un dia a la vez. Si te quedan tareas por hacer muevelas hacia para el proximo día."
   },
   "welcome": {
     "next": "Siguiente",
@@ -66,14 +68,14 @@
     "ready": "Listo",
     "allReady": "Todo listo",
     "allReadyText": "Ya todo esta listo para que puedas disfrutar de WeekTodo.",
-    "allReadySub": "Si tienes alguna duda puedes encontrar tips en la barra lateral",
+    "allReadySub": "Si tienes alguna duda puedes encontrar consejos en la barra lateral ",
     "welcome": "Bienvenido a WeekToDo",
     "welcomeText": "El Gestor de Tareas Semanales Minimalista enfocado en la privacidad. Para comenzar selecciona tu idioma.",
     "privacy": "Privacidad",
     "privacyText": "WeekToDo almacena la información en tu equipo. Si eventualmente deseas cambiar de equipo o navegador recuerda crear una copia de seguridad.",
-    "privacySub": "Puedes crear una copia de seguriad en el menu de configuracion.",
+    "privacySub": "Puedes crear una copia de seguridad en el menú de configuración.",
     "theme": "Tema",
-    "themeText": "Puedes seleccionar entre el tema claro y oscuro segun prefieras."
+    "themeText": "Puedes seleccionar entre el tema claro y oscuro según prefieras."
   },
   "ui": {
     "rmList": "Eliminar Lista",
@@ -81,6 +83,6 @@
     "cancel": "Cancelar",
     "remove": "Eliminar",
     "splashSub": "Planificador Semanal Minimalista",
-    "mobileWarning": "WeekToDo es una aplicacion diseñada para ejecutarse en Equipos de Escritorio y por ahora no esta lista para mostrarse en resoluciones tan pequeñas. ('一_一)"
+    "mobileWarning": "WeekToDo es una aplicación diseñada para ejecutarse en Equipos de Escritorio y por ahora no esta lista para mostrarse en resoluciones tan pequeñas. ('一_一)"
   }
 }

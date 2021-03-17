@@ -76,7 +76,7 @@
   }
 
   .modal-body {
-    height: 120px;
+    height: 100px;
   }
 
   .bi-info-circle {

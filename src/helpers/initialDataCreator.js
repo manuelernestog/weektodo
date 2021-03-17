@@ -7,8 +7,8 @@ export default {
         let yesterday_id = moment().subtract(1, 'd').format('YYYYMMDD');
         let today_id = moment().format('YYYYMMDD');
         let tomorrow_id = moment().add(1, 'd').format('YYYYMMDD');
-        let custom_list1_id = create_custom_list(vue, 'Lista Personalizada');
-        let custom_list2_id = create_custom_list(vue, 'Lista de Compras');
+        let custom_list1_id = create_custom_list(vue, vue.$t("generatedData.list1"));
+        let custom_list2_id = create_custom_list(vue, vue.$t("generatedData.list2"));
 
         create_todo(vue, yesterday_id, vue.$t("generatedData.data1"), false);
         create_todo(vue, today_id, vue.$t("generatedData.data2"), false);

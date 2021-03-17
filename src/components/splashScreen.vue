@@ -61,7 +61,7 @@
   .splash-screen span {
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.6rem;
+    letter-spacing: 0.4rem;
     color: #79606b;
   }
 
