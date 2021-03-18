@@ -1,15 +1,15 @@
 <template>
   <div class="side-bar">
-    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" title="WeekTodo"
-         data-bs-toggle="modal" data-bs-target="#aboutModal">
-    <i class="bi-house" @click="setTodayDate"></i>
-    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language"/>
-    <i class="bi-calendar-event" @click="changeDate"> </i>
-    <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList"></i>
-    <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal"></i>
+    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo"
+         data-bs-toggle="modal" data-bs-target="#aboutModal" :title="$t('about.about')">
+    <i class="bi-house" @click="setTodayDate" :title="$t('ui.home')"></i>
+    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
+    <i class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
+    <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
+    <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"></i>
     <span style="flex-grow: 1"></span>
-    <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal"></i>
-    <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal"></i>
+    <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
+    <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal" :title="$t('donate.donate')"></i>
   </div>
 </template>
 

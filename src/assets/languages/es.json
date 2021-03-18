@@ -83,6 +83,9 @@
     "cancel": "Cancelar",
     "remove": "Eliminar",
     "splashSub": "Planificador Semanal Minimalista",
-    "mobileWarning": "WeekToDo es una aplicación diseñada para ejecutarse en Equipos de Escritorio y por ahora no esta lista para mostrarse en resoluciones tan pequeñas. ('一_一)"
+    "mobileWarning": "WeekToDo es una aplicación diseñada para ejecutarse en Equipos de Escritorio y por ahora no esta lista para mostrarse en resoluciones tan pequeñas. ('一_一)",
+    "home": "Inicio",
+    "calendar": "Calendario",
+    "newCustomList": "Nueva Lista Personalizada"
   }
 }
