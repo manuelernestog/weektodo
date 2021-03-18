@@ -1,7 +1,7 @@
 <template>
   <div class="todo-item-container" @mouseover="hover = true" @mouseleave="hover = false">
     <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': toDo.checked }">
-      <span class="noselect" style=" flex-grow:1; " @dblclick="editToDo" @click="checkToDo"> {{ toDo.text }} </span>
+      <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo" @click="checkToDo"> {{ toDo.text }} </span>
       <i class="bi-x todo-item-remove" v-show="hover" @click="removeTodo()"></i>
     </div>
     <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
@@ -67,24 +67,33 @@
   }
 
   .todo-item {
-    font-size: 0.9rem;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-all;
     flex-direction: row;
     display: flex;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-height: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.4rem;
   }
 
   .todo-item:hover {
     background-color: #fbfbfb;
-    height: unset;
     color: #1e1e1e;
+  }
+
+  .item-text {
+    font-size: 0.9rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-height: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.4rem;
+    width: 1rem;
+  }
+
+  .item-text:hover {
+    white-space: unset;
+    width: unset;
     word-break: unset;
+    height: unset;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .dark-theme .todo-item:hover {
