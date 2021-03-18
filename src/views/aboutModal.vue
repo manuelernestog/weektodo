@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-9" style="padding-left: 40px;">
               <div style="margin-top: 10px">
-                <span>{{$t('about.desc')}}<a href="#"><b>{{$t('about.site')}} <i
+                <span>{{$t('about.desc')}} <a href="#"><b>{{$t('about.site')}} <i
                   class="bi-globe2"></i></b></a></span>
                 <div class="horizontal-divider mt-3 mb-3"></div>
                 <div class="row">

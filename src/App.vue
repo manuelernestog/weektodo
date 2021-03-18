@@ -72,6 +72,7 @@
         beforeCreate() {
             this.$store.commit('loadCustomTodoListsIds', customToDoListIdsRepository.load());
             this.$store.commit('loadConfig', configRepository.load());
+            this.$i18n.locale = this.$store.state.config.language
         },
         mounted() {
             this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
