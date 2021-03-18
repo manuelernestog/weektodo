@@ -84,6 +84,7 @@
     background-color: #fbfbfb;
     height: unset;
     color: #1e1e1e;
+    word-break: unset;
   }
 
   .dark-theme .todo-item:hover {
