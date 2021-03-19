@@ -2,7 +2,7 @@
   <div class="side-bar">
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo"
          data-bs-toggle="modal" data-bs-target="#aboutModal" :title="$t('about.about')">
-    <i class="bi-house" @click="setTodayDate" :title="$t('ui.home')"></i>
+    <i class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
     <i class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
