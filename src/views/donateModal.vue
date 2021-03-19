@@ -104,7 +104,12 @@
                 window.location = "mailto:weektodoapp@gmail.com";
             },
             goToQvaPay: function () {
-                window.open('https://qvapay.com/payme/merodriguez9112', '_blank');
+                let isElectron = require("is-electron");
+                if (isElectron()) {
+                    require('electron').shell.openExternal('https://qvapay.com/payme/merodriguez9112', '_blank');
+                } else {
+                    window.open('https://qvapay.com/payme/merodriguez9112', '_blank');
+                }
             }
         }
     }
