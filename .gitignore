@@ -15,3 +15,6 @@ pnpm-debug.log*
 # Editor directories and files
 .idea
 .vscode
+
+#Electron-builder output
+/dist_electron
