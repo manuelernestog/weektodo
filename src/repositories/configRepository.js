@@ -1,4 +1,5 @@
 import storageRepository from "./storageRepository";
+import version_json from '../../public/version.json'
 
 export default {
     load() {
@@ -10,7 +11,8 @@ export default {
                 darkMode: false,
                 customList: true,
                 firstTimeOpen: true,
-                language: 'en'
+                language: 'en',
+                version: version_json.version
             }
             storageRepository.set('config', default_config);
             return default_config;
