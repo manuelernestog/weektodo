@@ -2,6 +2,15 @@
   "name": "WeekToDo",
   "version": "1.0.0",
   "private": true,
+  "description": "WeekToDo is a Minimalist Weekly Planner focused on privacy.",
+  "author": "Manuel Ernesto Garcia <merodriguez9112@gmail.com>",
+  "keywords": [
+    "ToDo",
+    "Weekly Planner",
+    "to-do",
+    "Productivity",
+    "Minimalist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

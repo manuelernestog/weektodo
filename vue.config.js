@@ -1,7 +1,16 @@
 module.exports = {
     pluginOptions: {
         electronBuilder: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            builderOptions: {
+                appId: "weektodo-app.netlify.app",
+                productName: "WeekToDo",
+                linux: {
+                    category: "Utility",
+                    target: ["AppImage", "deb", "rpm", "snap"],
+                    icon: "build/icon/"
+                }
+            }
         }
     }
 }
