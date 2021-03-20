@@ -4,7 +4,7 @@
       <div class="d-flex">
         <div class="toast-body">
           {{text}}
-          <span v-if="subText" class="sub-text"> {{subText}}</span>
+          <span v-if="subText" class="sub-text" @click="subTextClick"> {{subText}}</span>
         </div>
         <i class="bi-x me-2 m-auto close-toast" data-bs-dismiss="toast" aria-label="Close"></i>
       </div>
@@ -26,6 +26,9 @@
             show: function () {
                 var toast = new Toast(document.getElementById(this.id));
                 toast.show();
+            },
+            subTextClick: function () {
+                this.$emit("subTextClick");
             }
         }
     }
@@ -35,6 +38,7 @@
   .sub-text {
     font-weight: bold;
     margin-left: 5px;
+    cursor: pointer;
   }
 
 </style>

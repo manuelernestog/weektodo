@@ -88,6 +88,7 @@
     "calendar": "Calendar",
     "newCustomList": "New Custom List",
     "softwareUpdated": "Software Updated",
-    "seeChanges": "(See Changes)"
+    "seeChanges": "(See Changes)",
+    "changeLog": "Change Log"
   }
 }
