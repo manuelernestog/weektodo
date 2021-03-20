@@ -13,7 +13,7 @@
               <img class="logo align-self-center" src="WeekToDo-Logo-Color.svg" alt="WeekToDo" title="WeekToDo Logo"
                    width="110">
               <h5 style="margin-top: 20px; margin-bottom: 2px;">WeekToDo</h5>
-              <span style="font-size: 0.75rem">{{$t('about.version')}} 1.0.0</span>
+              <span style="font-size: 0.75rem">{{$t('about.version')}} {{version}}</span>
             </div>
             <div class="col-md-9" style="padding-left: 40px;">
               <div style="margin-top: 10px">
@@ -47,11 +47,14 @@
 </template>
 
 <script>
+    import version_json from '../../public/version.json'
 
     export default {
         name: "aboutModal",
         data() {
-            return {}
+            return {
+                version: version_json.version
+            }
         },
         methods: {}
     }
