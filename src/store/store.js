@@ -82,6 +82,9 @@ export const store = createStore({
         updateConfigFirstTimeOpen(state) {
             state.config.firstTimeOpen = false;
         },
+        updateConfigVersion(state, val) {
+            state.config.version = val;
+        },
     },
     actions: {
         loadTodoLists({commit}, todoListId) {

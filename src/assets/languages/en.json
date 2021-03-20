@@ -86,6 +86,8 @@
     "mobileWarning": "WeekToDo is an application designed to run on Desktop Computers and at the moment it is not ready to be displayed in such small resolutions. ('一 _ 一)",
     "today": "Today",
     "calendar": "Calendar",
-    "newCustomList": "New Custom List"
+    "newCustomList": "New Custom List",
+    "softwareUpdated": "Software Updated",
+    "seeChanges": "(See Changes)"
   }
 }

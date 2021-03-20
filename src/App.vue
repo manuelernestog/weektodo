@@ -27,6 +27,7 @@
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
+      <update-checker></update-checker>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
@@ -49,6 +50,7 @@
     import welcomeModal from "./views/welcomeModal";
     import tipsModal from "./views/tipsModal";
     import {Modal} from 'bootstrap';
+    import updateChecker from "./components/updateChecker";
 
     export default {
         name: 'App',
@@ -61,7 +63,8 @@
             splashScreen,
             aboutModal,
             welcomeModal,
-            tipsModal
+            tipsModal,
+            updateChecker
         },
         data() {
             return {

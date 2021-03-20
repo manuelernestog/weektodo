@@ -86,6 +86,8 @@
     "mobileWarning": "WeekToDo es una aplicación diseñada para ejecutarse en Equipos de Escritorio y por ahora no esta lista para mostrarse en resoluciones tan pequeñas. ('一_一)",
     "today": "Hoy",
     "calendar": "Calendario",
-    "newCustomList": "Nueva Lista Personalizada"
+    "newCustomList": "Nueva Lista Personalizada",
+    "softwareUpdated": "Software Actualizado",
+    "seeChanges": "(Ver Cambios)"
   }
 }
