@@ -3,7 +3,7 @@
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo"
          data-bs-toggle="modal" data-bs-target="#aboutModal" :title="$t('about.about')">
     <i class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
-    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
+    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language"/>
     <i class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
     <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"></i>
@@ -18,7 +18,7 @@
     import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
     import toDoListRepository from "../../repositories/toDoListRepository";
     import Datepicker from 'vue3-datepicker';
-    import {es, enUS} from 'date-fns/locale';
+    import {es, enUS, fr, pt, ru, zhCN} from 'date-fns/locale';
 
     export default {
         name: "sideBar",
@@ -78,6 +78,18 @@
                         break;
                     case "en":
                         return_lang = enUS;
+                        break;
+                    case "fr":
+                        return_lang = fr;
+                        break;
+                    case "pt":
+                        return_lang = pt;
+                        break;
+                    case "ru":
+                        return_lang = ru;
+                        break;
+                    case "zh_cn":
+                        return_lang = zhCN;
                         break;
                 }
                 return return_lang;
