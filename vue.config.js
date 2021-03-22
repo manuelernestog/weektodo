@@ -7,8 +7,11 @@ module.exports = {
                 productName: "WeekToDo",
                 linux: {
                     category: "Utility",
-                    target: ["AppImage", "deb", "rpm", "snap"],
+                    target: ["AppImage","deb", "rpm"],
                     icon: "build/icon/"
+                },
+                win: {
+                    target: ["nsis", "portable", "msi"],
                 }
             }
         }
