@@ -17,6 +17,8 @@ async function createWindow() {
     const win = new BrowserWindow({
         width: 1000,
         height: 600,
+        minWidth:800,
+        minHeight:440,
         webPreferences: {
             nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
         }
