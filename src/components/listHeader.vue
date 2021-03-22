@@ -176,4 +176,13 @@
   .weekly-to-do-header h5 {
     min-height: 1.5rem;
   }
+
+  .custom-todo-input:focus {
+    outline: black auto 1px;
+  }
+
+  .dark-theme .custom-todo-input:focus {
+    color: white;
+    outline: #13171d auto 1px;
+  }
 </style>
