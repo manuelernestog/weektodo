@@ -53,7 +53,7 @@
 <style scoped>
   .qr-payment {
     margin-top: 10px;
-    width: 90%;
+    width: 100%;
   }
 
   .input-group-text {
