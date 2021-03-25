@@ -43,16 +43,16 @@
             <div class="tab-pane fade show active" id="donate-home">
               <div class="row">
                 <payment-method :name="$t('donate.comment')" icon="bi-chat-text-fill" @clickBtn="sendEmail"
-                                col-length="4"></payment-method>
-<!--                <payment-method name="PayPal" img="icons/paypal.png" col-length="3"></payment-method>-->
+                                col-length="3"></payment-method>
                 <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"
-                                col-length="4"></payment-method>
+                                col-length="3"></payment-method>
                 <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"
-                                col-length="4"></payment-method>
+                                col-length="3"></payment-method>
                 <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"
-                                col-length="4"></payment-method>
+                                col-length="3"></payment-method>
+                <payment-method name="PayPal ( Visa | Mastercard )" img="icons/paypal.png" col-length="5" @clickBtn="goToPayPal"></payment-method>
                 <payment-method :name="`Qvapay ( Payeer | Airtm | ${$t('donate.otherCrypto')} )`" img="icons/qvapay.png"
-                                @clickBtn="goToQvaPay" col-length="8"></payment-method>
+                                @clickBtn="goToQvaPay" col-length="7"></payment-method>
               </div>
             </div>
             <div class="tab-pane fade" id="donate-btc">
@@ -110,6 +110,14 @@
                 } else {
                     window.open('https://qvapay.com/payme/merodriguez9112', '_blank');
                 }
+            },
+            goToPayPal: function () {
+                let isElectron = require("is-electron");
+                if (isElectron()) {
+                    require('electron').shell.openExternal('https://www.paypal.com/donate?hosted_button_id=TVWQZVZDCBSK2', '_blank');
+                } else {
+                    window.open('https://www.paypal.com/donate?hosted_button_id=TVWQZVZDCBSK2', '_blank');
+                }
             }
         }
     }
@@ -117,7 +125,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 720px;
+    max-width: 800px;
   }
 
   #nav-tabContent {
