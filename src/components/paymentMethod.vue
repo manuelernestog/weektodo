@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-body">
         <i v-if="icon" :class="icon" style="font-size: 40px; color: #8dc351"></i>
-        <img v-if="img" :src="img" width="50" height="50">
+        <img v-if="img" :src="img" height="50">
       </div>
       <div class="card-footer">
         <div>{{name}}</div>
