@@ -2,9 +2,9 @@
   <div :id="'list'+id" class="to-do-list-container" ref='listContainer'
        :class="{ 'old-date': !customTodoList && moments(id).isBefore(Date(),'day') }">
     <list-header :id="id" :customTodoList="customTodoList" :cTodoListIndex="cTodoListIndex"
-                 :toDoList="toDoList"></list-header>
+                 :toDoList="toDoListState"></list-header>
     <ul class="to-do-list ">
-      <li v-for="(toDo,index) in toDoList" :key="index" class='drag-el' draggable
+      <li v-for="(toDo,index) in toDoListState" :key="index" class='drag-el' draggable
           @dragstart='startDrag($event, toDo,index)'>
         <div class="drop-zone" @drop='onDrop($event, id,index)' @dragover.prevent @dragenter.prevent>
           <to-do-item :to-do="toDo" :index="index" :to-do-list-id="id"></to-do-item>
@@ -18,8 +18,8 @@
     </div>
     <div @click="$refs.newToDoInput.focus()" class="drop-zone"
          @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
-      <div v-if="fakeItemCounts > 0 && toDoList.length < fakeItemCounts">
-        <div v-for="index in fakeItemCounts - toDoList.length" :key="index">
+      <div v-if="fakeItemCounts > 0 && toDoListState.length < fakeItemCounts">
+        <div v-for="index in fakeItemCounts - toDoListState.length" :key="index">
           <div class="fake-item-container">
             <div class="to-do-fake-item"></div>
           </div>
@@ -48,7 +48,6 @@
         },
         data() {
             return {
-                toDoList: this.$store.state.todoLists[this.id],
                 newToDo: {text: "", checked: false},
                 fakeItemCounts: 6
             }
@@ -114,6 +113,11 @@
                 this.$nextTick(function () {
                     this.setTodoListHeight();
                 });
+            }
+        },
+        computed: {
+            toDoListState: function(){
+                return this.$store.state.todoLists[this.id];
             }
         }
     }
