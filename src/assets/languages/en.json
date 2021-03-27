@@ -90,6 +90,7 @@
     "newCustomList": "New Custom List",
     "softwareUpdated": "Software Updated",
     "seeChanges": "(See Changes)",
-    "changeLog": "Change Log"
+    "changeLog": "Change Log",
+    "compatible": "Sorry, WeekToDo is not compatible with your web browser. Try to update it or use another one."
   }
 }

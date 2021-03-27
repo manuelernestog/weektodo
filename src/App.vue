@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container" :class="{'dark-theme' : darkTheme}">
+  <div v-show="!compatible" class="app-container" :class="{'dark-theme' : darkTheme}">
     <div class="hidden-mobile">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
@@ -33,6 +33,10 @@
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
       <h3 style="text-align: center"> {{$t('ui.mobileWarning')}} </h3>
     </div>
+  </div>
+  <div v-if="compatible" class="compatible d-flex flex-column justify-content-center align-items-center p-5">
+    <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
+    <h3 style="text-align: center"> {{$t('ui.compatible')}} </h3>
   </div>
 </template>
 
@@ -135,6 +139,9 @@
                 modal.show();
                 this.$store.commit('updateConfigFirstTimeOpen');
                 configRepository.update(this.$store.state.config);
+            },
+            compatible: function () {
+                return window.IndexedDB;
             }
         },
         computed: {
@@ -278,6 +285,13 @@
 
   .dark-theme .mobile {
     background-color: #13171d;
+  }
+
+  .compatible{
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: absolute;
   }
 
 </style>

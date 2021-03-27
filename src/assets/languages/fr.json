@@ -90,6 +90,7 @@
     "newCustomList": "Nouvelle liste personnalisée",
     "softwareUpdated": "Logiciel mis à jour",
     "seeChanges": "(Voir les changements)",
-    "changeLog": "Journal des modifications"
+    "changeLog": "Journal des modifications",
+    "compatible": "Désolé, WeekToDo n'est pas compatible avec votre navigateur Web. Essayez de le mettre à jour ou d'en utiliser un autre."
   }
 }

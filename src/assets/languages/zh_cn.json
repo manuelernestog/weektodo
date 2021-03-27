@@ -90,6 +90,7 @@
     "newCustomList": "新的自定義列表",
     "softwareUpdated": "軟件已更新",
     "seeChanges": "(查看更改)",
-    "changeLog": "更改日誌"
+    "changeLog": "更改日誌",
+    "compatible": "抱歉，WeekToDo與您的網絡瀏覽器不兼容。 嘗試更新它或使用另一個。"
   }
 }
