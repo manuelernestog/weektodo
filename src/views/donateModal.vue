@@ -125,7 +125,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 700px;
+    max-width: 740px;
   }
 
   #nav-tabContent {
