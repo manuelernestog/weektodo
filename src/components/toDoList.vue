@@ -62,6 +62,7 @@
         },
         beforeCreate() {
             let listId = this.id;
+            this.$store.commit('loadTodoLists', {todoListId: this.id, todoList: []});
             this.$store.dispatch('loadTodoLists', listId);
         },
         methods: {

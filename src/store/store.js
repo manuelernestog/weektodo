@@ -1,5 +1,6 @@
 import {createStore} from 'vuex'
-import toDoListRepository from "../repositories/toDoListRepository";
+import dbRepository from "../repositories/dbRepository";
+
 
 export const store = createStore({
     state: {
@@ -88,8 +89,22 @@ export const store = createStore({
     },
     actions: {
         loadTodoLists({commit}, todoListId) {
-            let todoList = toDoListRepository.load(todoListId);
-            commit('loadTodoLists', {todoListId: todoListId, todoList: todoList});
+            let db_req = dbRepository.open();
+
+            db_req.onsuccess = function (event) {
+                let db = event.target.result;
+                var get_req = dbRepository.get(db, 'todo_lists', todoListId);
+
+                get_req.onsuccess = function (event) {
+                    let todoList = event.target.result;
+                    if (todoList) {
+                        commit('loadTodoLists', {todoListId: todoListId, todoList: todoList});
+                    } else {
+                        commit('loadTodoLists', {todoListId: todoListId, todoList: []});
+                        dbRepository.add(db, 'todo_lists', todoListId, []);
+                    }
+                }
+            }
         },
     }
 });

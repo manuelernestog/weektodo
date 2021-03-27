@@ -1,19 +1,15 @@
-import storageRepository from "./storageRepository";
+import dbRepository from "./dbRepository";
 
 export default {
-    load(toDoListId) {
-        let todoList = storageRepository.get(toDoListId);
-        if (todoList) {
-            return todoList;
-        } else {
-            storageRepository.set(toDoListId, []);
-            return [];
+    update(toDoListId, toDoList) {
+        let db_req = dbRepository.open();
+        db_req.onsuccess = function (event) {
+            let db = event.target.result;
+            dbRepository.update(db,'todo_lists',toDoListId, toDoList)
         }
     },
-    update(toDoListId, toDoList) {
-        storageRepository.set(toDoListId, toDoList);
-    },
-    remove(toDoListId){
-        storageRepository.remove(toDoListId);
+    remove(toDoListId) {
+        console.log(toDoListId);
+        // storageRepository.remove(toDoListId);
     }
 };
