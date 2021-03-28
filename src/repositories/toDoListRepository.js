@@ -9,7 +9,10 @@ export default {
         }
     },
     remove(toDoListId) {
-        console.log(toDoListId);
-        // storageRepository.remove(toDoListId);
+        let db_req = dbRepository.open();
+        db_req.onsuccess = function (event) {
+            let db = event.target.result;
+            dbRepository.delete(db,'todo_lists',toDoListId)
+        }
     }
 };

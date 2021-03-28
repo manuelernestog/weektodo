@@ -28,5 +28,11 @@ export default {
         let new_obj = JSON.parse(JSON.stringify(obj));
         let req = store.put(new_obj,id);
         return req;
+    },
+    delete(db, table, id) {
+        let tx = db.transaction([table], 'readwrite');
+        let store = tx.objectStore(table);
+        let req = store.delete(id);
+        return req;
     }
 };
