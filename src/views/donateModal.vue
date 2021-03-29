@@ -101,7 +101,7 @@
         },
         methods: {
             sendEmail: function () {
-                window.location = "mailto:weektodoapp@gmail.com";
+                window.location = "mailto:week2do@gmail.com";
             },
             goToQvaPay: function () {
                 let isElectron = require("is-electron");
