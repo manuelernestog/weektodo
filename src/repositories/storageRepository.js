@@ -19,9 +19,7 @@ export default {
         return values;
     },
     load_json(data){
-        var keys = Object.keys(data), i = keys.length;
-        while (i--) {
-            localStorage.setItem(keys[i],data[keys[i]]);
-        }
+        localStorage.setItem('config',data['config'])
+        localStorage.setItem('customTodoListIds',data['customTodoListIds'])
     },
 };

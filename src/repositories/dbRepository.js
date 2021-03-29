@@ -40,5 +40,11 @@ export default {
         let store = tx.objectStore(table);
         let req = store.openCursor();
         return req;
+    },
+    clear(db, table){
+        let tx = db.transaction([table], 'readwrite');
+        let store = tx.objectStore(table);
+        let req = store.clear();
+        return req;
     }
 };

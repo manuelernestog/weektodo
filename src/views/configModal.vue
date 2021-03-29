@@ -58,9 +58,7 @@
 
 <script>
     import configRepository from "../repositories/configRepository";
-    import storageRepository from "../repositories/storageRepository";
     import toastMessage from "../components/toastMessage";
-    import {Toast} from 'bootstrap';
     import exportTool from "../helpers/exportTool";
 
     export default {
@@ -97,26 +95,7 @@
                 exportTool.export();
             },
             importData: function (event) {
-                const fileList = event.target.files;
-                if (fileList[0]) {
-                    var fr = new FileReader();
-                    fr.readAsText(fileList[0]);
-                    fr.onload = function () {
-                        try {
-                            var toast = new Toast(document.getElementById('invalidFile'));
-                            var data = JSON.parse(fr.result);
-                            if ('config' in data) {
-                                storageRepository.clean();
-                                storageRepository.load_json(data);
-                                location.reload();
-                            } else {
-                                toast.show();
-                            }
-                        } catch (e) {
-                            toast.show();
-                        }
-                    }
-                }
+                exportTool.import(event);
             },
         }
     }
