@@ -1,6 +1,7 @@
 <template>
   <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
-    <i class="bi-check2-all" v-show="header_hover && !allTodoChecked() && !editing" @click="check_all_items"></i>
+    <i class="bi-check2-all" v-show="header_hover && !allTodoChecked() && !editing" @click="check_all_items"
+       :title="$t('ui.completeAll')"></i>
     <i class="bi-info" v-show="header_hover && customTodoList && allTodoChecked() && !editing"
        style="visibility: hidden"></i>
     <div style="flex-grow:1;" class="noselect">
@@ -14,9 +15,10 @@
                @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
       </div>
     </div>
-    <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()" @click="moveUndoneItems"></i>
+    <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()" @click="moveUndoneItems"
+       :title="$t('ui.postpone')"></i>
     <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal"
-       data-bs-target="#customListRemoveModal" @click="removeList"></i>
+       data-bs-target="#customListRemoveModal" @click="removeList" :title="$t('ui.removeList')"></i>
   </div>
 </template>
 

@@ -84,13 +84,16 @@
     "cancel": "Cancelar",
     "remove": "Eliminar",
     "splashSub": "Planificador Semanal Minimalista",
-    "mobileWarning": "WeekToDo es una aplicación de Escritorio y por ahora no esta lista para mostrarse en esta resolución. ('一_一)",
+    "mobileWarning": "WeekToDo es una aplicación de Escritorio y por ahora no esta lista para mostrarse en esta resolución. :(",
     "today": "Hoy",
     "calendar": "Calendario",
     "newCustomList": "Nueva Lista Personalizada",
     "softwareUpdated": "Software Actualizado",
     "seeChanges": "(Ver Cambios)",
     "changeLog": "Registro de Cambios",
-    "compatible": "Lo sentimos, WeekToDo no es compatible con tu navegador Web. Intenta actualizarlo o utilizar otro."
+    "compatible": "Lo sentimos, WeekToDo no es compatible con tu navegador Web. Intenta actualizarlo o utilizar otro.",
+    "removeList": "Eliminar Lista",
+    "completeAll": "Completar Todos",
+    "postpone": "Posponer Inconclusas"
   }
 }

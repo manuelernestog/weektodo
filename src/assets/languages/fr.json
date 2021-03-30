@@ -84,13 +84,16 @@
     "cancel": "Annuler",
     "remove": "Remove",
     "splashSub": "Agenda hebdomadaire minimaliste",
-    "mobileWarning": "WeekToDo est une application de bureau et pour l'instant elle n'est pas prête à être affichée dans cette résolution. ('一 _ 一)",
+    "mobileWarning": "WeekToDo est une application de bureau et pour l'instant elle n'est pas prête à être affichée dans cette résolution. :(",
     "today": "Aujourd'hui",
     "calendar": "Calendrier",
     "newCustomList": "Nouvelle liste personnalisée",
     "softwareUpdated": "Logiciel mis à jour",
     "seeChanges": "(Voir les changements)",
     "changeLog": "Journal des modifications",
-    "compatible": "Désolé, WeekToDo n'est pas compatible avec votre navigateur Web. Essayez de le mettre à jour ou d'en utiliser un autre."
+    "compatible": "Désolé, WeekToDo n'est pas compatible avec votre navigateur Web. Essayez de le mettre à jour ou d'en utiliser un autre.",
+    "removeList": "Supprimer la liste",
+    "completeAll": "Compléter tout",
+    "postpone": "Reporter inachevé"
   }
 }

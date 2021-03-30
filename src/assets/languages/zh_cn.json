@@ -84,13 +84,16 @@
     "cancel": "取消",
     "remove": "刪除",
     "splashSub": "極簡主義每週計劃",
-    "mobileWarning": "WeekToDo是一個桌面應用程序，目前尚未準備好以該分辨率顯示。（'一_一）",
+    "mobileWarning": "WeekToDo是一個桌面應用程序，目前尚未準備好以該分辨率顯示。:(",
     "today": "今天",
     "calendar": "日曆",
     "newCustomList": "新的自定義列表",
     "softwareUpdated": "軟件已更新",
     "seeChanges": "(查看更改)",
     "changeLog": "更改日誌",
-    "compatible": "抱歉，WeekToDo與您的網絡瀏覽器不兼容。 嘗試更新它或使用另一個。"
+    "compatible": "抱歉，WeekToDo與您的網絡瀏覽器不兼容。 嘗試更新它或使用另一個。",
+    "removeList": "刪除清單",
+    "completeAll": "全部完成",
+    "postpone": "推遲未完成"
   }
 }
