@@ -43,16 +43,16 @@
             <div class="tab-pane fade show active" id="donate-home">
               <div class="row">
                 <payment-method :name="$t('donate.comment')" icon="bi-chat-text-fill" @clickBtn="sendEmail"
-                                col-length="3"></payment-method>
-                <payment-method name="PayPal" img="icons/paypal2.png" col-length="3" @clickBtn="goToPayPal"></payment-method>
+                                :col-length="3"></payment-method>
+                <payment-method name="PayPal" img="icons/paypal2.png" :col-length="3" @clickBtn="goToPayPal"></payment-method>
                 <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"
-                                col-length="3"></payment-method>
+                                :col-length="3"></payment-method>
                 <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"
-                                col-length="3"></payment-method>
+                                :col-length="3"></payment-method>
                 <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"
-                                col-length="3"></payment-method>
+                                :col-length="3"></payment-method>
                 <payment-method :name="`Qvapay ( Payeer | Airtm | ${$t('donate.otherCrypto')} )`" img="icons/qvapay.png"
-                                @clickBtn="goToQvaPay" col-length="9"></payment-method>
+                                @clickBtn="goToQvaPay" :col-length="9"></payment-method>
               </div>
             </div>
             <div class="tab-pane fade" id="donate-btc">
