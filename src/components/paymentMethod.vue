@@ -15,6 +15,7 @@
 <script>
     export default {
         name: "paymentMethod",
+        emits: ['clickBtn'],
         props: {
             name: {type: String, required: false},
             icon: {type: String, required: false},

@@ -17,6 +17,7 @@
 
     export default {
         name: "toastMessage",
+        emits: ['subTextClick'],
         props: {
             text: {type: String, required: true},
             subText: {type: String, required: false},

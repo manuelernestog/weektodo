@@ -22,6 +22,7 @@
 
     export default {
         name: "sideBar",
+        emits: ["changeDate"],
         components: {
             Datepicker
         },
