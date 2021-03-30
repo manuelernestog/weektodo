@@ -90,6 +90,7 @@
                 customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
             },
             cancelEdit: function () {
+                this.name = this.$store.state.cTodoListIds[this.cTodoListIndex].listName || ""
                 this.editing = false;
             },
             removeList: function () {
