@@ -15,7 +15,7 @@
   </div>
   <div class="d-flex btn-footer">
     <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i>
-      {{$t('welcome.forward')}}
+      {{$t('welcome.back')}}
     </button>
     <button type="button" class="btn flex-fill" @click="next">{{$t('welcome.next')}} <i
       class="bi-chevron-double-right"></i></button>

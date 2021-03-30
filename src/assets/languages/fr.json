@@ -48,7 +48,7 @@
   "tips": {
     "tips": "des astuces",
     "next": "Prochain conseil",
-    "forward": "Conseil précédent",
+    "back": "Conseil précédent",
     "tip1": "Vous pouvez créer une nouvelle tâche en cliquant sur n'importe quelle zone des listes.",
     "tip2": "Les tâches peuvent être glissées et déposées d'une liste à une autre ou en modifiant leur ordre.",
     "tip3": "Pour modifier le nom d'une liste ou d'une tâche, double-cliquez dessus.",
@@ -65,7 +65,7 @@
   },
   "welcome": {
     "next": "Suivant",
-    "forward": "Précédent",
+    "back": "Précédent",
     "ready": "prêt",
     "allReady": "Tout est prêt",
     "allReadyText": "Tout est prêt pour que vous puissiez profiter de WeekTodo.",

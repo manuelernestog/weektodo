@@ -48,7 +48,7 @@
   "tips": {
     "tips": "Tips",
     "next": "Next Tip",
-    "forward": "Previous Tip",
+    "back": "Previous Tip",
     "tip1": "You can create a new task by clicking on any area of ​​the lists.",
     "tip2": "Tasks can be dragged and dropped from one list to another or by changing their order.",
     "tip3": "To edit the name of a list or a task, double click on it.",
@@ -65,7 +65,7 @@
   },
   "welcome": {
     "next": "Next",
-    "forward": "Previous",
+    "back": "Previous",
     "ready": "ready",
     "allReady": "All ready",
     "allReadyText": "Everything is ready so you can enjoy WeekTodo.",

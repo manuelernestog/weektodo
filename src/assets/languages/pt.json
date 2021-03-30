@@ -48,7 +48,7 @@
   "tips": {
     "tips": "Dicas",
     "next": "Próxima dica",
-    "forward": "Dica anterior",
+    "back": "Dica anterior",
     "tip1": "Você pode criar uma nova tarefa clicando em qualquer área das listas.",
     "tip2": "As tarefas podem ser arrastadas e soltas de uma lista para outra ou alterando sua ordem.",
     "tip3": "Para editar o nome de uma lista ou tarefa, clique duas vezes sobre ela.",
@@ -65,7 +65,7 @@
   },
   "welcome": {
     "next": "Próximo",
-    "forward": "Anterior",
+    "back": "Anterior",
     "ready": "pronto",
     "allReady": "Tudo pronto",
     "allReadyText": "Está tudo pronto para você aproveitar o WeekTodo.",

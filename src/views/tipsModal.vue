@@ -16,8 +16,8 @@
           </div>
         </div>
         <div class="modal-footer d-flex">
-          <button type="button" class="btn flex-fill" @click="forward"><i class="bi-chevron-double-left"></i>
-            {{$t('tips.forward')}}
+          <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i>
+            {{$t('tips.back')}}
           </button>
           <button type="button" class="btn flex-fill" @click="next">{{$t('tips.next')}} <i
             class="bi-chevron-double-right"></i></button>
@@ -44,7 +44,7 @@
                     this.index++;
                 }
             },
-            forward: function () {
+            back: function () {
                 if (this.index == 0) {
                     this.index = this.tips.length - 1;
                 } else {
