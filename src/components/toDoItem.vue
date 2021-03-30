@@ -42,6 +42,7 @@
                 toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
             },
             cancelEdit: function () {
+                this.text = this.toDo.text;
                 this.editing = false;
             },
             removeTodo: function () {

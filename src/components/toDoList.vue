@@ -13,7 +13,7 @@
     </ul>
     <div class="todo-item-container">
       <input class="todo-input drop-zone new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text"
-             @blur="addToDo()" @keyup.enter="addToDo()" @drop='onDropAtEnd($event, id)' @dragover.prevent
+             @blur="addToDo()" @keyup.enter="addToDo()" @keyup.esc="cancelAdd()" @drop='onDropAtEnd($event, id)' @dragover.prevent
              @dragenter.prevent>
     </div>
     <div @click="$refs.newToDoInput.focus()" class="drop-zone"
@@ -72,6 +72,9 @@
                     toDoListRepository.update(this.id, this.$store.state.todoLists[this.id]);
                     this.newToDo.text = "";
                 }
+            },
+            cancelAdd: function(){
+                this.newToDo.text = ""
             },
             moments: function (date) {
                 return moment(date);
