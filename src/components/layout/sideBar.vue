@@ -38,6 +38,9 @@
                     document.getElementById('side-bar-date-picker-input').click();
                     document.getElementById('side-bar-date-picker-input').focus();
                     document.getElementById('side-bar-date-picker-input').addEventListener('focusout', this.resetDatePicker);
+                    document.getElementById('side-bar-date-picker-input').onkeydown = function (evt) {
+                        evt.keyCode == 27 && document.getElementById("side-bar-date-picker-input").blur();
+                    }
                 });
             },
             setTodayDate: function () {
