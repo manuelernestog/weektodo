@@ -52,10 +52,10 @@
     "tip1": "Puedes crear una nueva tarea cliqueando en cualquier área de las listas.",
     "tip2": "Las tareas se pueden arrastrar y soltar de una lista a otra o cambiando su orden.",
     "tip3": "Para editar el nombre de una lista o una tarea haz doble clic sobre ella.",
-    "tip4": "A la derecha de la fecha de cada lista se encuentra el icono Mover Hacia Delante el cual te permite enviar al próximo día todas las tareas pendientes de la lista actual.",
+    "tip4": "A la derecha de la fecha de cada lista se encuentra el icono Posponer el cual te permite enviar al próximo día todas las tareas pendientes de la lista actual.",
     "tip5": "Si no vas a utilizar las listas personalizadas, puedes ocultarlas en menú de configuración.",
     "tip6": "El calendario en la barra lateral te permite desplazarte rápidamente a una fecha.",
-    "tip7": "Situando el cursor en el nombre de la lista aparecerá el icono Marcar Todo, este te permite marcar todas las tareas que contiene una lista.",
+    "tip7": "Situando el cursor en el nombre de la lista aparecerá el icono Completar Todo, este te permite marcar todas las tareas que contiene una lista.",
     "tip8": "Puedes crear una nueva lista personalizada utilizando el botón de Adicionar Nueva Lista situado en el panel lateral.",
     "tip9": "El botón Inicio te sitúa en el día actual.",
     "tip13": "WeekToDo almacena la información en tu equipo. Si deseas cambiar de equipo o navegador recuerda crear una copia de seguridad. Puedes hacerlo en el menú de configuración.",
@@ -93,7 +93,7 @@
     "changeLog": "Registro de Cambios",
     "compatible": "Lo sentimos, WeekToDo no es compatible con tu navegador Web. Intenta actualizarlo o utilizar otro.",
     "removeList": "Eliminar Lista",
-    "completeAll": "Completar Todos",
-    "postpone": "Posponer Inconclusas"
+    "completeAll": "Completar Todo",
+    "postpone": "Posponer"
   }
 }

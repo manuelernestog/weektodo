@@ -52,7 +52,7 @@
     "tip1": "Você pode criar uma nova tarefa clicando em qualquer área das listas.",
     "tip2": "As tarefas podem ser arrastadas e soltas de uma lista para outra ou alterando sua ordem.",
     "tip3": "Para editar o nome de uma lista ou tarefa, clique duas vezes sobre ela.",
-    "tip4": "À direita da data de cada lista está o ícone Mover para a frente que permite enviar todas as tarefas pendentes da lista atual para o dia seguinte.",
+    "tip4": "À direita da data de cada lista está o ícone Snooze que permite enviar todas as tarefas pendentes da lista atual para o dia seguinte.",
     "tip5": "Se você não vai usar as listas personalizadas, pode ocultá-las no menu de configuração.",
     "tip6": "O calendário na barra lateral permite rolar rapidamente para uma data.",
     "tip7": "Ao colocar o cursor sobre o nome da lista, aparecerá o ícone Marcar tudo, o que permite marcar todas as tarefas que uma lista contém.",
@@ -94,6 +94,6 @@
     "compatible": "Desculpe, WeekToDo não é compatível com o seu navegador. Tente atualizá-lo ou usar outro.",
     "removeList": "Remover lista",
     "completeAll": "Completar tudo",
-    "postpone": "Adiar inacabado"
+    "postpone": "Adiar"
   }
 }

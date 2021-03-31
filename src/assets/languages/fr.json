@@ -52,7 +52,7 @@
     "tip1": "Vous pouvez créer une nouvelle tâche en cliquant sur n'importe quelle zone des listes.",
     "tip2": "Les tâches peuvent être glissées et déposées d'une liste à une autre ou en modifiant leur ordre.",
     "tip3": "Pour modifier le nom d'une liste ou d'une tâche, double-cliquez dessus.",
-    "tip4": "À droite de la date de chaque liste se trouve l'icône Avancer qui vous permet d'envoyer toutes les tâches en attente de la liste actuelle au jour suivant.",
+    "tip4": "À droite de la date de chaque liste se trouve l'icône Répéter qui vous permet d'envoyer toutes les tâches en attente de la liste actuelle au jour suivant.",
     "tip5": "Si vous n'utilisez pas les listes personnalisées, vous pouvez les masquer dans le menu de configuration.",
     "tip6": "Le calendrier de la barre latérale vous permet de faire défiler rapidement jusqu'à une date.",
     "tip7": "En plaçant le curseur sur le nom de la liste, l'icône Marquer tout apparaîtra, cela vous permet de marquer toutes les tâches qu'une liste contient.",
@@ -94,6 +94,6 @@
     "compatible": "Désolé, WeekToDo n'est pas compatible avec votre navigateur Web. Essayez de le mettre à jour ou d'en utiliser un autre.",
     "removeList": "Supprimer la liste",
     "completeAll": "Compléter tout",
-    "postpone": "Reporter inachevé"
+    "postpone": "Remettre à plus tard"
   }
 }
