@@ -4,6 +4,7 @@ import {app, protocol, BrowserWindow} from 'electron'
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 
+const windowStateKeeper = require('electron-window-state');
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const gotTheLock = app.requestSingleInstanceLock()
 let myWindow = null
@@ -14,16 +15,22 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 async function createWindow() {
+    let mainWindowState = windowStateKeeper({
+        defaultWidth: 1000,
+        defaultHeight: 800
+    });
     const win = new BrowserWindow({
         width: 1000,
         height: 600,
-        minWidth:800,
-        minHeight:440,
+        x: mainWindowState.x,
+        y: mainWindowState.y,
+        minWidth:mainWindowState.width,
+        minHeight:mainWindowState.height,
         webPreferences: {
             nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
         }
     })
-    win.maximize()
+    mainWindowState.manage(win);
     win.removeMenu()
 
     if (process.env.WEBPACK_DEV_SERVER_URL) {
