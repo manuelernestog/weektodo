@@ -923,3 +923,11 @@ blockquote {
 	top: 0;
 	left: -2400px;
 }
+
+#loading-cover {
+    background: url("../../images/Loader.gif") no-repeat scroll center center #FFF;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+}

@@ -69,6 +69,8 @@
 </head>
 <body>
 
+<div id="loading-cover"></div>
+
 <section class="menu menu2 cid-spM3qU3Ub7" once="menu" id="menu2-n">
   <nav class="navbar navbar-dropdown collapsed">
     <div class="container">
@@ -347,6 +349,17 @@
 <script src="assets/dropdown/js/navbar-dropdown.js"></script>
 <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
 <script src="assets/theme/js/script.js"></script>
+
+<script>
+    // Fade smooth screen loader
+    $(window).on('load', function(){
+        setTimeout(function () {
+            $('#loading-cover').fadeOut(300)
+        },200)
+    })
+
+</script>
+
 
 <div id="scrollToTop" class="scrollToTop mbr-arrow-up" style=""><a style="text-align: center;"><i
   class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
