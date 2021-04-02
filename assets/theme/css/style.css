@@ -360,8 +360,8 @@ nav .mbr-section-btn {
 
 /*! Scroll to top arrow */
 .mbr-arrow-up {
-  bottom: 25px;
-  right: 90px;
+  bottom: 45px;
+  right: 32px;
   position: fixed;
   text-align: right;
   z-index: 5000;
