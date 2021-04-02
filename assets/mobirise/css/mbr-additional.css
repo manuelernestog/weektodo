@@ -1239,3 +1239,7 @@ a {
   color: #6592e6;
   margin-bottom: 2rem;
 }
+
+#google_translate_element img{
+  width: unset;
+}
