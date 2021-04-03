@@ -17,15 +17,15 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
     let mainWindowState = windowStateKeeper({
         defaultWidth: 1000,
-        defaultHeight: 800
+        defaultHeight: 600
     });
     const win = new BrowserWindow({
-        width: 1000,
-        height: 600,
+        width: mainWindowState.width,
+        height: mainWindowState.height,
         x: mainWindowState.x,
         y: mainWindowState.y,
-        minWidth:mainWindowState.width,
-        minHeight:mainWindowState.height,
+        minWidth:1000,
+        minHeight: 600,
         webPreferences: {
             nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
         }
