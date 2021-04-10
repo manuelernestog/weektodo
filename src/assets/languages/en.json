@@ -8,7 +8,8 @@
     "import": "Import",
     "export": "Export",
     "backup": "Backup:",
-    "invalidFile": "Invalid File"
+    "invalidFile": "Invalid File",
+    "checkUpdates": "Check for Updates on Startup"
   },
   "donate": {
     "donate": "Donate",

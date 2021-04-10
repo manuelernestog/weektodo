@@ -28,14 +28,21 @@
               <label class="form-check-label" for="customListsSetting">{{ $t("settings.customLists") }}</label>
             </div>
           </div>
-          <div class="mb-4">
+          <div class="mb-3">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme"
                      @change="changeDarkTheme">
               <label class="form-check-label" for="darkThemeSetting">{{ $t("settings.darkTheme") }}</label>
             </div>
           </div>
-          <div class="horizontal-divider mb-4"></div>
+          <div class="mb-3">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="updatesCheckSetting" v-model="checkUpdates"
+                     @change="changeCheckUpdates">
+              <label class="form-check-label" for="updatesCheckSetting">{{ $t("settings.checkUpdates") }}</label>
+            </div>
+          </div>
+          <div class="horizontal-divider mb-4 mt-4"></div>
           <div>
             <label for="language" class="form-label">{{ $t("settings.backup") }}</label>
             <div class="modal-footer d-flex">
@@ -69,7 +76,8 @@
             return {
                 customList: this.$store.state.config.customList,
                 darkTheme: this.$store.state.config.darkTheme,
-                language: this.$store.state.config.language
+                language: this.$store.state.config.language,
+                checkUpdates: this.$store.state.config.checkUpdates,
             }
         },
         methods: {
@@ -90,6 +98,12 @@
                     this.$store.commit('updateConfigLanguage', this.language);
                     configRepository.update(this.$store.state.config);
                     this.$i18n.locale = this.language;
+                });
+            },
+            changeCheckUpdates: function(){
+                this.$nextTick(function () {
+                    this.$store.commit('updateConfigUpdatesCheck', this.checkUpdates);
+                    configRepository.update(this.$store.state.config);
                 });
             },
             exportData: function () {
