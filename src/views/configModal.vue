@@ -35,7 +35,7 @@
               <label class="form-check-label" for="darkThemeSetting">{{ $t("settings.darkTheme") }}</label>
             </div>
           </div>
-          <div class="mb-3">
+          <div v-if="isElectron()" class="mb-3">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="updatesCheckSetting" v-model="checkUpdates"
                      @change="changeCheckUpdates">
@@ -100,7 +100,7 @@
                     this.$i18n.locale = this.language;
                 });
             },
-            changeCheckUpdates: function(){
+            changeCheckUpdates: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigUpdatesCheck', this.checkUpdates);
                     configRepository.update(this.$store.state.config);
@@ -112,6 +112,10 @@
             importData: function (event) {
                 exportTool.import(event);
             },
+            isElectron: function () {
+                let isElectron = require("is-electron");
+                return isElectron();
+            }
         }
     }
 </script>
