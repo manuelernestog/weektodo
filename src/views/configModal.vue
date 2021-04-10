@@ -126,6 +126,10 @@
     height: 1.4em !important;
   }
 
+  .form-check-label{
+    width: 220px;
+  }
+
   .icons {
     font-size: 20px;
     margin-right: 5px;

@@ -8,7 +8,8 @@
     "import": "導入",
     "export": "導出",
     "backup": "備份：",
-    "invalidFile": "無效的文件"
+    "invalidFile": "無效的文件",
+    "checkUpdates": "在啟動時檢查更新"
   },
   "donate": {
     "donate": "捐贈",

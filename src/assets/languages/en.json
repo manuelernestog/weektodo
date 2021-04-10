@@ -9,7 +9,7 @@
     "export": "Export",
     "backup": "Backup:",
     "invalidFile": "Invalid File",
-    "checkUpdates": "Check for Updates on Startup"
+    "checkUpdates": "Check for Updates on startup"
   },
   "donate": {
     "donate": "Donate",

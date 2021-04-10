@@ -8,7 +8,8 @@
     "import": "Importar",
     "export": "Exportar",
     "backup": "Backup:",
-    "invalidFile": "Arquivo inválido"
+    "invalidFile": "Arquivo inválido",
+    "checkUpdates": "Verifique se há atualizações na inicialização"
   },
   "donate": {
     "donate": "Doar",
