@@ -55,6 +55,8 @@
     import tipsModal from "./views/tipsModal";
     import {Modal} from 'bootstrap';
     import updateChecker from "./components/updateChecker";
+    import migrations from "./migrations/migrations";
+    import version_json from '../public/version.json'
 
     export default {
         name: 'App',
@@ -77,6 +79,10 @@
             }
         },
         beforeCreate() {
+            let config = configRepository.load();
+            if (version_json.version != config.version) {
+                migrations.migrate();
+            }
             this.$store.commit('loadCustomTodoListsIds', customToDoListIdsRepository.load());
             this.$store.commit('loadConfig', configRepository.load());
             this.$i18n.locale = this.$store.state.config.language
@@ -288,7 +294,7 @@
     background-color: #13171d;
   }
 
-  .compatible{
+  .compatible {
     width: 100%;
     height: 100%;
     z-index: 999;
