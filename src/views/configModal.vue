@@ -102,7 +102,7 @@
             },
             changeCheckUpdates: function () {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfigUpdatesCheck', this.checkUpdates);
+                    this.$store.commit('updateConfigCheckUpdates', this.checkUpdates);
                     configRepository.update(this.$store.state.config);
                 });
             },

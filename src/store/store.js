@@ -86,7 +86,7 @@ export const store = createStore({
         updateConfigVersion(state, val) {
             state.config.version = val;
         },
-        updateConfigUpdatesCheck(state, val) {
+        updateConfigCheckUpdates(state, val) {
             state.config.checkUpdates = val;
         }
     },

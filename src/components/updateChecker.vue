@@ -55,6 +55,13 @@
                 var toast = new Toast(document.getElementById('versionChanges'));
                 toast.show();
             }
+            // this.isElectron &&
+            if (this.$store.state.config.checkUpdates) {
+                const axios = require('axios').default;
+                axios
+                    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                    .then(response => (console.log(response)))
+            }
         },
         methods: {
             seeChangeLog: function () {
@@ -76,6 +83,13 @@
         computed: {
             language: function () {
                 return this.$store.state.config.language;
+            },
+            isElectron: function () {
+                let isElectron = require("is-electron");
+                return isElectron();
+            },
+            showNewVersionToast: function (response) {
+                console.log(response);
             }
         }
     }
