@@ -15,8 +15,5 @@ module.exports = {
                 }
             }
         }
-    },
-    devServer: {
-        proxy: 'http://weektodo-app.netlify.app',
     }
 }
