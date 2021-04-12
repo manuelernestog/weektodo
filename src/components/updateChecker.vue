@@ -29,6 +29,9 @@
 
   <toast-message id="versionChanges" :text="$t('ui.softwareUpdated')" :sub-text="$t('ui.seeChanges')"
                  @subTextClick="seeChangeLog"></toast-message>
+
+  <toast-message id="newVersionAvailable" :text="$t('ui.newVersionAvailable')" :sub-text="$t('ui.download')"
+                 @subTextClick="downloadNewVersion"></toast-message>
 </template>
 
 <script>
@@ -55,12 +58,11 @@
                 var toast = new Toast(document.getElementById('versionChanges'));
                 toast.show();
             }
-            // this.isElectron &&
-            if (this.$store.state.config.checkUpdates) {
+            if (this.isElectron && this.$store.state.config.checkUpdates ) {
                 const axios = require('axios').default;
                 axios
-                    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-                    .then(response => (console.log(response)))
+                    .get('https://weektodo-app.netlify.app/version.json')
+                    .then(response => (this.showNewVersionToast(response)))
             }
         },
         methods: {
@@ -89,7 +91,18 @@
                 return isElectron();
             },
             showNewVersionToast: function (response) {
-                console.log(response);
+                if (response.data.version != version_json.version){
+                    var toast = new Toast(document.getElementById('newVersionAvailable'));
+                    toast.show();
+                }
+            },
+            downloadNewVersion: function () {
+                let isElectron = require("is-electron");
+                if (isElectron()) {
+                    require('electron').shell.openExternal('https://weektodo.netlify.app', '_blank');
+                } else {
+                    window.open('https://weektodo.netlify.app', '_blank');
+                }
             }
         }
     }

@@ -95,6 +95,8 @@
     "compatible": "Desculpe, WeekToDo não é compatível com o seu navegador. Tente atualizá-lo ou usar outro.",
     "removeList": "Remover lista",
     "completeAll": "Completar tudo",
-    "postpone": "Adiar"
+    "postpone": "Adiar",
+    "newVersionAvailable": "Nova versão disponível",
+    "download": "(Download)"
   }
 }

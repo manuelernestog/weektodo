@@ -95,6 +95,8 @@
     "compatible": "抱歉，WeekToDo與您的網絡瀏覽器不兼容。 嘗試更新它或使用另一個。",
     "removeList": "刪除清單",
     "completeAll": "全部完成",
-    "postpone": "推遲"
+    "postpone": "推遲",
+    "newVersionAvailable": "新版本可用",
+    "download": "(下載)"
   }
 }
