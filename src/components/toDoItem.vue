@@ -1,8 +1,10 @@
 <template>
-  <div class="todo-item-container" >
+  <div class="todo-item-container">
     <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': toDo.checked }">
       <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
             @click="checkToDo"> {{ toDo.text }} </span>
+      <!--      para cuando ponga las opciones para los items -->
+      <!--      <i class="bi-three-dots todo-item-remove"></i>-->
       <i class="bi-x todo-item-remove" @click="removeTodo()"></i>
     </div>
     <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
@@ -61,7 +63,7 @@
 <style>
   .todo-item-container {
     border-bottom: 1px solid #eaecef;
-    height: 1.65rem;
+    height: 1.85rem;
     z-index: 1
   }
 
@@ -71,16 +73,19 @@
   }
 
   .todo-item {
-    margin: 4px 0px 4px 0px;
+    transition: 0.3s cubic-bezier(0.2, 1, 0.1, 1);
     flex-direction: row;
     display: flex;
   }
 
   .todo-item:hover {
-    background-color: #fbfbfb;
+    background-color: #fdfdfd;
     color: #1e1e1e;
     border-radius: 5px;
     position: relative;
+    transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
+    border-radius: 3px;
   }
 
   .item-text {
@@ -89,19 +94,21 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 1rem;
-    height: 1.3rem;
+    height: 1.2rem;
     line-height: 1.3rem;
-    font-size: 0.87rem;
+    font-size: 0.865rem;
+    margin: 4px 0px 4px 0px;
+    padding: 0 8px 0 8px;
   }
 
-  .todo-item:hover .item-text{
+  .todo-item:hover .item-text {
     white-space: unset;
     word-break: normal;
     height: unset;
     overflow-wrap: break-word;
     word-wrap: break-word;
     z-index: 1;
-    padding-bottom: 5px;
+    /*padding-bottom: 5px;*/
   }
 
   .dark-theme .todo-item:hover {

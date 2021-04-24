@@ -105,9 +105,9 @@
             },
             setTodoListHeight: function () {
                 if (this.showCustomList) {
-                    this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 40);
+                    this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 47);
                 } else {
-                    this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 34);
+                    this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 40);
                 }
             }
         },
@@ -134,57 +134,64 @@
     margin-bottom: 0px;
   }
 
-  .todo-input {
-    height: 1.5rem;
-  }
+  .to-do-list li {
+   -webkit-transition: all .4s ease-out;
+   transition: all .4s ease-out;
+}
 
-  .to-do-list-container {
-    margin: 1.6rem 13px 13px;
-    flex: 0 0 calc(20% - 26px);
-    scroll-snap-align: start;
-  }
+.todo-input {
+  height: 1.5rem;
+  padding: 0 8px 0 8px;
+  font-size: 0.865rem;
+}
 
-  .to-do-fake-item {
-    height: 1.8rem;
-    width: 100%;
-  }
+.to-do-list-container {
+  margin: 1.6rem 13px 13px;
+  flex: 0 0 calc(20% - 26px);
+  scroll-snap-align: start;
+}
 
-  .weekly-to-do-header h4 {
-    margin-bottom: 4px;
-  }
+.to-do-fake-item {
+  height: 1.85rem;
+  width: 100%;
+}
 
-  .weekly-to-do-header span {
-    margin-top: 0px;
-  }
+.weekly-to-do-header h4 {
+  margin-bottom: 4px;
+}
 
-  .weekly-to-do-header i {
-    color: grey;
-  }
+.weekly-to-do-header span {
+  margin-top: 0px;
+}
 
-  .weekly-to-do-header i:hover {
-    color: black;
-  }
+.weekly-to-do-header i {
+  color: grey;
+}
 
-  .old-date {
-    color: lightgray;
-  }
+.weekly-to-do-header i:hover {
+  color: black;
+}
 
-  .dark-theme .old-date {
-    color: #343b42;
-  }
+.old-date {
+  color: lightgray;
+}
 
-  .weekly-to-do-header i {
-    font-size: 1.4rem;
-    flex-grow: 0;
-    align-self: start;
-    cursor: pointer;
-  }
+.dark-theme .old-date {
+  color: #343b42;
+}
 
-  .fake-item-container {
-    border-bottom: 1px solid #eaecef;
-  }
+.weekly-to-do-header i {
+  font-size: 1.4rem;
+  flex-grow: 0;
+  align-self: start;
+  cursor: pointer;
+}
 
-  .dark-theme .fake-item-container {
-    border-bottom: 1px solid #30363d;
-  }
+.fake-item-container {
+  border-bottom: 1px solid #eaecef;
+}
+
+.dark-theme .fake-item-container {
+  border-bottom: 1px solid #30363d;
+}
 </style>
