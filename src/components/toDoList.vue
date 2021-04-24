@@ -145,7 +145,7 @@
   }
 
   .to-do-fake-item {
-    height: 1.5rem;
+    height: 1.8rem;
     width: 100%;
   }
 

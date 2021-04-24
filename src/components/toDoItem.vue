@@ -1,8 +1,9 @@
 <template>
-  <div class="todo-item-container" @mouseover="hover = true" @mouseleave="hover = false">
+  <div class="todo-item-container" >
     <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': toDo.checked }">
-      <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo" @click="checkToDo"> {{ toDo.text }} </span>
-      <i class="bi-x todo-item-remove" v-show="hover" @click="removeTodo()"></i>
+      <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
+            @click="checkToDo"> {{ toDo.text }} </span>
+      <i class="bi-x todo-item-remove" @click="removeTodo()"></i>
     </div>
     <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
            @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
@@ -22,7 +23,6 @@
         },
         data() {
             return {
-                hover: false,
                 editing: false,
                 text: this.toDo.text
             }
@@ -61,13 +61,17 @@
 <style>
   .todo-item-container {
     border-bottom: 1px solid #eaecef;
+    height: 1.65rem;
+    z-index: 1
   }
 
-  .dark-theme .todo-item-container{
+
+  .dark-theme .todo-item-container {
     border-bottom: 1px solid #30363d;
   }
 
   .todo-item {
+    margin: 4px 0px 4px 0px;
     flex-direction: row;
     display: flex;
   }
@@ -75,26 +79,29 @@
   .todo-item:hover {
     background-color: #fbfbfb;
     color: #1e1e1e;
+    border-radius: 5px;
+    position: relative;
   }
 
   .item-text {
-    font-size: 0.9rem;
+    transition: width 2s, height 2s, transform 2s;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    min-height: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.4rem;
     width: 1rem;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    font-size: 0.87rem;
   }
 
-  .item-text:hover {
+  .todo-item:hover .item-text{
     white-space: unset;
-    width: unset;
-    word-break: unset;
+    word-break: normal;
     height: unset;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    z-index: 1;
+    padding-bottom: 5px;
   }
 
   .dark-theme .todo-item:hover {
@@ -106,7 +113,7 @@
     line-height: 1.4rem;
     width: 100%;
     border: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .todo-input:focus {
@@ -118,18 +125,24 @@
     text-decoration: line-through;
   }
 
-   .dark-theme .checked-todo {
+  .dark-theme .checked-todo {
     color: #343b42;
   }
 
   .todo-item-remove {
+    display: none;
     font-size: 1.3rem;
     cursor: pointer;
     margin: 1px;
     margin-left: 5px;
     margin-right: 5px;
     color: grey;
+    height: 1.3rem;
     flex-grow: 0;
+  }
+
+  .todo-item:hover .todo-item-remove {
+    display: block;
   }
 
   .todo-item-remove:hover {
