@@ -88,6 +88,10 @@
     border-radius: 3px;
   }
 
+  .dark-theme .todo-item:hover {
+    box-shadow: 0 0px 0 1px #4c4c4c;
+  }
+
   .item-text {
     transition: width 2s, height 2s, transform 2s;
     overflow: hidden;
@@ -140,7 +144,7 @@
     display: none;
     font-size: 1.3rem;
     cursor: pointer;
-    margin: 1px;
+    margin-top: 3px;
     margin-left: 5px;
     margin-right: 5px;
     color: grey;
