@@ -128,6 +128,7 @@
     margin-bottom: 10px;
     align-self: center;
     cursor: pointer;
+    transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
   }
 
   .side-bar i:hover {

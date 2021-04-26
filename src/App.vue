@@ -185,6 +185,7 @@
     margin-left: 6px;
     margin-right: 6px;
     cursor: pointer;
+    transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
   }
 
   .slider-btn:hover {

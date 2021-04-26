@@ -73,7 +73,7 @@
   }
 
   .todo-item {
-    transition: 0.3s cubic-bezier(0.2, 1, 0.1, 1);
+    transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
     flex-direction: row;
     display: flex;
   }
