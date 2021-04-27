@@ -39,22 +39,37 @@
               </button>
             </li>
           </ul>
+
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="donate-home">
-              <div class="row">
-                <payment-method :name="$t('donate.comment')" icon="bi-chat-text-fill" @clickBtn="sendEmail"
-                                :col-length="3"></payment-method>
-                <payment-method name="PayPal" img="icons/paypal2.png" :col-length="3" @clickBtn="goToPayPal"></payment-method>
-                <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"
-                                :col-length="3"></payment-method>
-                <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"
-                                :col-length="3"></payment-method>
-                <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"
-                                :col-length="3"></payment-method>
-                <payment-method :name="`Qvapay ( Payeer | Airtm | ${$t('donate.otherCrypto')} )`" img="icons/qvapay.png"
-                                @clickBtn="goToQvaPay" :col-length="9"></payment-method>
-              </div>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <payment-method :name="$t('donate.comment')" icon="bi-chat-text-fill" @clickBtn="sendEmail"
+                                  :col-length="3"></payment-method>
+                </li>
+                <li class="list-group-item">
+                  <payment-method name="PayPal" img="icons/paypal.png" :col-length="3"
+                                  @clickBtn="goToPayPal"></payment-method>
+                </li>
+                <li class="list-group-item">
+                  <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"
+                                  :col-length="3"></payment-method>
+                </li>
+                <li class="list-group-item">
+                  <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"
+                                  :col-length="3"></payment-method>
+                </li>
+                <li class="list-group-item">
+                  <payment-method :name="`Qvapay ( Payeer | Airtm | ${$t('donate.otherCrypto')} )`" img="icons/qvapay.png"
+                                  @clickBtn="goToQvaPay" :col-length="9"></payment-method>
+                </li>
+                <li class="list-group-item">
+                  <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"
+                                  :col-length="3"></payment-method>
+                </li>
+              </ul>
             </div>
+
             <div class="tab-pane fade" id="donate-btc">
               <payment-details
                 address="bc1qy7x0au4tk3h2mvkl3cg5ns5hjqeg7r6snh8z0a"
@@ -125,7 +140,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 740px;
+    max-width: 450px;
   }
 
   #nav-tabContent {
@@ -133,10 +148,16 @@
   }
 
   .tab-pane {
-    height: 300px;
+    height: 340px;
   }
 
   .nav-tabs {
     border-bottom: none;
+  }
+
+  .list-group-item {
+    background-color: unset;
+    border: none;
+    padding: .8rem 1rem;
   }
 </style>

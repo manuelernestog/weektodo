@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <div class="col-md-5"><img class="qr-payment" :src="qrImg"></div>
-    <div class="col-md-7 d-flex flex-column ">
+    <div class="col-md-12 d-fex flex-column align-items-center center"><img class="qr-payment" :src="qrImg"></div>
+    <div class="col-md-12 d-flex flex-column ">
       <div style="margin-top: 20px;">
         <div class="mb-3"><h6 class="d-inline"> {{$t("donate.paymentType")}}: </h6> {{payment}}</div>
         <div v-if="paymentAddress">
@@ -53,7 +53,8 @@
 <style scoped>
   .qr-payment {
     margin-top: 10px;
-    width: 100%;
+    height: 120px;
+    align-self: center;
   }
 
   .input-group-text {
