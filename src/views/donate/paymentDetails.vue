@@ -1,23 +1,20 @@
 <template>
   <div class="row">
-    <div class="col-md-12 d-fex flex-column align-items-center center"><img class="qr-payment" :src="qrImg"></div>
-    <div class="col-md-12 d-flex flex-column ">
-      <div style="margin-top: 20px;">
-        <div class="mb-3"><h6 class="d-inline"> {{$t("donate.paymentType")}}: </h6> {{payment}}</div>
-        <div v-if="paymentAddress">
-          <label class="form-label">{{$t("donate.address")}}: </label>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" v-model="paymentAddress" readonly>
-            <span class="input-group-text" id="basic-addon2" @click="copy">{{$t("donate.copy")}} <i
-              class="bi-files"> </i></span>
-          </div>
+    <div class="col-12 d-flex flex-column align-items-center">
+      <img class="qr-payment" :src="qrImg"></div>
+    <div class="mb-3 mt-2 w-100 text-center"><h6 class="d-inline"> {{$t("donate.paymentType")}}: </h6> {{payment}}</div>
+    <div class="col-md-12 d-flex flex-column mt-3 ">
+      <div v-if="paymentAddress" class="d-flex flex-column align-items-center">
+        <label class="form-label">{{$t("donate.address")}} </label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" v-model="paymentAddress" readonly>
+          <span class="input-group-text" id="basic-addon2" @click="copy">{{$t("donate.copy")}} <i
+            class="bi-files"> </i></span>
         </div>
       </div>
-      <div class="d-flex flex-row-reverse">
-        <button class="btn " type="button" @click="goHome">
-          <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
-        </button>
-      </div>
+      <button class="btn " type="button" @click="goHome">
+        <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
+      </button>
     </div>
   </div>
 </template>

@@ -140,7 +140,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 450px;
+    max-width: 420px;
   }
 
   #nav-tabContent {
@@ -158,6 +158,6 @@
   .list-group-item {
     background-color: unset;
     border: none;
-    padding: .8rem 1rem;
+    padding: .85rem 1rem;
   }
 </style>
