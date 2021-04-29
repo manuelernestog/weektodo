@@ -148,7 +148,7 @@
   }
 
   .tab-pane {
-    height: 340px;
+    height: 350px;
   }
 
   .nav-tabs {
@@ -159,5 +159,14 @@
     background-color: unset;
     border: none;
     padding: .85rem 1rem;
+    transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
+  }
+
+  .list-group-item:hover{
+    background-color: #eaecef;
+  }
+
+  .dark-theme .list-group-item:hover{
+    background-color: #171b20;
   }
 </style>
