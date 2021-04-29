@@ -1,8 +1,8 @@
 <template>
-  <div class="weekly-to-do-header" @mouseover="header_hover = true" @mouseleave="header_hover = false">
-    <i class="bi-check2-all" v-show="header_hover && !allTodoChecked() && !editing" @click="check_all_items"
+  <div class="weekly-to-do-header">
+    <i class="bi-check2-all" v-show="!allTodoChecked() && !editing" @click="check_all_items"
        :title="$t('ui.completeAll')"></i>
-    <i class="bi-info" v-show="header_hover && customTodoList && allTodoChecked() && !editing"
+    <i class="bi-info" v-show=" customTodoList && allTodoChecked() && !editing"
        style="visibility: hidden"></i>
     <div style="flex-grow:1;" class="noselect">
       <div v-if="!customTodoList">
@@ -15,9 +15,9 @@
                @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
       </div>
     </div>
-    <i class="bi-reply-all" v-show="!customTodoList && header_hover && !allTodoChecked()" @click="moveUndoneItems"
+    <i class="bi-reply-all" v-show="!customTodoList && !allTodoChecked()" @click="moveUndoneItems"
        :title="$t('ui.postpone')"></i>
-    <i v-show="customTodoList && !editing && header_hover" class="bi-x" data-bs-toggle="modal"
+    <i v-show="customTodoList && !editing" class="bi-x" data-bs-toggle="modal"
        data-bs-target="#customListRemoveModal" @click="removeList" :title="$t('ui.removeList')"></i>
   </div>
 </template>
@@ -37,7 +37,6 @@
         },
         data() {
             return {
-                header_hover: false,
                 editing: false,
                 name: ""
             }
@@ -164,6 +163,9 @@
     flex-grow: 0;
     align-self: start;
     cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
   }
 
   .bi-reply-all {
@@ -187,5 +189,10 @@
   .dark-theme .custom-todo-input:focus {
     color: white;
     outline: #13171d auto 1px;
+  }
+
+  .weekly-to-do-header:hover i {
+    visibility: visible;
+    opacity: 1;
   }
 </style>
