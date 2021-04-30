@@ -140,9 +140,11 @@
 }
 
 .todo-input {
-  height: 1.5rem;
-  padding: 0 8px 0 8px;
+  height: 1.2rem;
   font-size: 0.865rem;
+  margin: 4px 0px 4px 0px;
+  padding: 0 8px 0 8px;
+  line-height: 1.3rem;
 }
 
 .to-do-list-container {
