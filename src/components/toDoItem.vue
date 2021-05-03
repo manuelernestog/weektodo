@@ -1,6 +1,6 @@
 <template>
-  <div class="todo-item-container">
-    <div v-if="!editing" class="todo-item" draggable="true" :class="{ 'checked-todo': toDo.checked }">
+  <div class="todo-item-container" draggable="true" @dragstart='startDrag($event, toDo,index)'>
+    <div v-if="!editing" class="todo-item" :class="{ 'checked-todo': toDo.checked }">
       <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
             @click="checkToDo"> {{ toDo.text }} </span>
       <!--      para cuando ponga las opciones para los items -->
@@ -54,6 +54,12 @@
             checkToDo: function () {
                 this.$store.commit('checkTodo', {toDoListId: this.toDoListId, index: this.index})
                 toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
+            },
+            startDrag: function (event, item, index) {
+                event.dataTransfer.dropEffect = 'move'
+                event.dataTransfer.effectAllowed = 'move'
+                event.dataTransfer.setData('item', JSON.stringify(item))
+                event.dataTransfer.setData('index', index);
             }
         },
     }
