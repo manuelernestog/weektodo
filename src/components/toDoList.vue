@@ -13,7 +13,8 @@
     </ul>
     <div class="todo-item-container">
       <input class="todo-input drop-zone new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text"
-             @blur="addToDo()" @keyup.enter="addToDo()" @keyup.esc="cancelAdd()" @drop='onDropAtEnd($event, id)' @dragover.prevent
+             @blur="addToDo()" @keyup.enter="addToDo()" @keyup.esc="cancelAdd()" @drop='onDropAtEnd($event, id)'
+             @dragover.prevent
              @dragenter.prevent>
     </div>
     <div @click="$refs.newToDoInput.focus()" class="drop-zone"
@@ -73,7 +74,7 @@
                     this.newToDo.text = "";
                 }
             },
-            cancelAdd: function(){
+            cancelAdd: function () {
                 this.newToDo.text = ""
             },
             moments: function (date) {
@@ -119,7 +120,7 @@
             }
         },
         computed: {
-            toDoListState: function(){
+            toDoListState: function () {
                 return this.$store.state.todoLists[this.id];
             }
         }
@@ -135,65 +136,65 @@
   }
 
   .to-do-list li {
-   -webkit-transition: all .4s ease-out;
-   transition: all .4s ease-out;
-}
+    -webkit-transition: all .4s ease-out;
+    transition: all .4s ease-out;
+  }
 
-.todo-input {
-  height: 1.2rem;
-  font-size: 0.865rem;
-  margin: 4px 0px 4px 0px;
-  padding: 0 8px 0 8px;
-  line-height: 1.3rem;
-}
+  .todo-input {
+    height: 1.2rem;
+    font-size: 0.865rem;
+    margin: 4px 0px 4px 0px;
+    padding: 0 8px 0 8px;
+    line-height: 1.3rem;
+  }
 
-.to-do-list-container {
-  margin: 1.6rem 13px 13px;
-  flex: 0 0 calc(20% - 26px);
-  scroll-snap-align: start;
-}
+  .to-do-list-container {
+    margin: 1.6rem 13px 13px;
+    flex: 0 0 calc(20% - 26px);
+    scroll-snap-align: start;
+  }
 
-.to-do-fake-item {
-  height: 1.85rem;
-  width: 100%;
-}
+  .to-do-fake-item {
+    height: 1.85rem;
+    width: 100%;
+  }
 
-.weekly-to-do-header h4 {
-  margin-bottom: 4px;
-}
+  .weekly-to-do-header h4 {
+    margin-bottom: 4px;
+  }
 
-.weekly-to-do-header span {
-  margin-top: 0px;
-}
+  .weekly-to-do-header span {
+    margin-top: 0px;
+  }
 
-.weekly-to-do-header i {
-  color: grey;
-}
+  .weekly-to-do-header i {
+    color: grey;
+  }
 
-.weekly-to-do-header i:hover {
-  color: black;
-}
+  .weekly-to-do-header i:hover {
+    color: black;
+  }
 
-.old-date {
-  color: lightgray;
-}
+  .old-date {
+    color: lightgray;
+  }
 
-.dark-theme .old-date {
-  color: #343b42;
-}
+  .dark-theme .old-date {
+    color: #343b42;
+  }
 
-.weekly-to-do-header i {
-  font-size: 1.4rem;
-  flex-grow: 0;
-  align-self: start;
-  cursor: pointer;
-}
+  .weekly-to-do-header i {
+    font-size: 1.4rem;
+    flex-grow: 0;
+    align-self: start;
+    cursor: pointer;
+  }
 
-.fake-item-container {
-  border-bottom: 1px solid #eaecef;
-}
+  .fake-item-container {
+    border-bottom: 1px solid #eaecef;
+  }
 
-.dark-theme .fake-item-container {
-  border-bottom: 1px solid #30363d;
-}
+  .dark-theme .fake-item-container {
+    border-bottom: 1px solid #30363d;
+  }
 </style>
