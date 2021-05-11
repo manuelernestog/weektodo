@@ -98,9 +98,9 @@
             },
             setTodoListHeight: function () {
                 if (this.showCustomList) {
-                    this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 47);
-                } else {
                     this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 40);
+                } else {
+                    this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 34);
                 }
             }
         },
@@ -134,10 +134,10 @@
 
   .todo-input {
     height: 1.2rem;
-    font-size: 0.865rem;
-    margin: 4px 0px 4px 0px;
-    padding: 0 8px 0 8px;
     line-height: 1.3rem;
+    font-size: 13px;
+    margin: 2px 0px 2px 0px;
+    padding: 0 6px 0 6px;
   }
 
   .to-do-list-container {
@@ -147,7 +147,7 @@
   }
 
   .to-do-fake-item {
-    height: 1.85rem;
+    height: 1.2rem;
     width: 100%;
   }
 
@@ -184,6 +184,7 @@
 
   .fake-item-container {
     border-bottom: 1px solid #eaecef;
+    height: 1.6rem;
   }
 
   .dark-theme .fake-item-container {

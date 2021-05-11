@@ -69,10 +69,9 @@
 <style>
   .todo-item-container {
     border-bottom: 1px solid #eaecef;
-    height: 1.85rem;
+    height: 1.6rem;
     z-index: 1
   }
-
 
   .dark-theme .todo-item-container {
     border-bottom: 1px solid #30363d;
@@ -107,8 +106,8 @@
     height: 1.2rem;
     line-height: 1.3rem;
     font-size: 0.865rem;
-    margin: 4px 0px 4px 0px;
-    padding: 0 8px 0 8px;
+    margin: 2px 0px 2px 0px;
+    padding: 0 6px 0 6px;
   }
 
   .todo-item:hover .item-text {
@@ -130,7 +129,7 @@
     line-height: 1.4rem;
     width: 100%;
     border: none;
-    font-size: 0.95rem;
+    font-size: 13px;
   }
 
   .todo-input:focus {
@@ -150,7 +149,7 @@
     display: none;
     font-size: 1.3rem;
     cursor: pointer;
-    margin-top: 3px;
+    margin-top: 1px;
     margin-left: 5px;
     margin-right: 5px;
     color: grey;
