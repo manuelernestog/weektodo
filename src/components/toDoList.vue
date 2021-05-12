@@ -10,9 +10,15 @@
         </div>
       </li>
     </ul>
-    <div class="drop-zone" @drop='onDropAtEnd($event, id)' @dragover.prevent @dragenter.prevent>
+    <div class="fake-drop-zone"
+         @drop='onDropAtEnd($event, id)'
+         @dragenter.self="onDragenter"
+         @dragleave.self="onDragleave"
+         @dragover.prevent
+         :class="{'fake-drag-hover': fakeItemsDragHover}"
+    >
       <div class="todo-item-container">
-        <input class="todo-input drop-zone new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text"
+        <input class="todo-input new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text"
                @blur="addToDo()" @keyup.enter="addToDo()" @keyup.esc="cancelAdd()">
       </div>
       <div @click="$refs.newToDoInput.focus()">
@@ -48,7 +54,8 @@
         data() {
             return {
                 newToDo: {text: "", checked: false},
-                fakeItemCounts: 6
+                fakeItemCounts: 6,
+                fakeItemsDragHover: false,
             }
         },
         mounted() {
@@ -95,6 +102,7 @@
                 toDo.listId = list;
                 this.$store.commit('addTodo', toDo);
                 toDoListRepository.update(list, this.$store.state.todoLists[list]);
+                this.fakeItemsDragHover = false;
             },
             setTodoListHeight: function () {
                 if (this.showCustomList) {
@@ -102,6 +110,12 @@
                 } else {
                     this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 34);
                 }
+            },
+            onDragenter: function () {
+                this.fakeItemsDragHover = true;
+            },
+            onDragleave: function () {
+                this.fakeItemsDragHover = false;
             }
         },
         watch: {
@@ -190,4 +204,27 @@
   .dark-theme .fake-item-container {
     border-bottom: 1px solid #30363d;
   }
+
+  .fake-drop-zone * {
+    pointer-events: none;
+  }
+
+  .fake-drop-zone:hover * {
+    pointer-events: unset;
+  }
+
+  .fake-drag-hover .todo-item-container {
+    box-shadow: rgb(233, 232, 232) 0px 0px 4px 1px inset;
+    background-color: rgba(223, 223, 223, 0.14);
+  }
+
+  .dark-theme .fake-drag-hover .todo-item-container {
+    box-shadow: #0e1015 0px 0px 4px 1px inset;
+    background-color: #101218;
+  }
+
+  .fake-drag-hover input, .dark-theme .fake-drag-hover input{
+    background-color: unset;
+  }
+
 </style>

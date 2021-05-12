@@ -1,19 +1,23 @@
 <template>
-  <div class="todo-item-container" draggable="true" @dragstart='startDrag($event, toDo,index)'>
-    <div v-if="!editing" class="todo-item" :class="{ 'checked-todo': toDo.checked }">
+  <div class="item-drop-zone"
+       @dragenter.self="onDragenter"
+       @dragleave.self="onDragleave"
+       @drop="onDragleave"
+       :class="[{'drag-hover': todoDragHover},{'dragging': todoDragging}]"
+  >
+    <div class="todo-item-container" draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
+      <div v-if="!editing" class="todo-item" :class="{ 'checked-todo': toDo.checked }" ref="currentTodo">
       <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
             @click="checkToDo"> {{ toDo.text }} </span>
-      <!--      para cuando ponga las opciones para los items -->
-      <!--      <i class="bi-three-dots todo-item-remove"></i>-->
-      <i class="bi-x todo-item-remove" @click="removeTodo()"></i>
+        <i class="bi-x todo-item-remove" @click="removeTodo()"></i>
+      </div>
+      <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
+             @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
     </div>
-    <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
-           @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
   </div>
 </template>
 
 <script>
-    // import {store} from "../store/store";
     import toDoListRepository from "../repositories/toDoListRepository";
 
     export default {
@@ -26,7 +30,9 @@
         data() {
             return {
                 editing: false,
-                text: this.toDo.text
+                text: this.toDo.text,
+                todoDragHover: false,
+                todoDragging: false
             }
         },
         methods: {
@@ -60,6 +66,16 @@
                 event.dataTransfer.effectAllowed = 'move'
                 event.dataTransfer.setData('item', JSON.stringify(item))
                 event.dataTransfer.setData('index', index);
+                this.todoDragging = true;
+            },
+            endDrag: function () {
+                this.todoDragging = false;
+            },
+            onDragenter: function () {
+                this.todoDragHover = true;
+            },
+            onDragleave: function () {
+                this.todoDragHover = false;
             }
         },
     }
@@ -172,5 +188,30 @@
   .dark-theme .todo-item-remove:hover {
     color: white;
   }
+
+  .item-drop-zone * {
+    pointer-events: none;
+  }
+
+  .item-drop-zone:hover * {
+    pointer-events: unset;
+  }
+
+  .drag-hover {
+    color: rgba(157, 157, 157, 0.43);
+    box-shadow: rgb(233, 232, 232) 0px 0px 4px 1px inset;
+    background-color: rgba(223, 223, 223, 0.14);
+  }
+
+  .dark-theme .drag-hover {
+    color: rgb(69, 69, 69);
+    box-shadow: #0e1015 0px 0px 4px 1px inset;
+    background-color: #101218;
+  }
+
+  .dragging .todo-item .item-text {
+    height: 1.2rem;
+  }
+
 
 </style>
