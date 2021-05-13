@@ -10,7 +10,11 @@
         <div class="modal-body">
 
           <div v-for="(changes,version) in changes" :key="version">
-            <h6 class="mb-2"><b>v{{version}}</b> <span style="font-size: 0.85rem; opacity: .4">{{moments("20210413").locale(language).format('LL') }} </span></h6>
+            <h6 class="mb-2"><b>v{{version.split('-')[0]}} </b>
+              <span style="font-size: 0.85rem; opacity: .4; margin-left: 5px;" >
+                {{moments(version.split('-')[1]).locale(language).format('LL')}}
+              </span>
+            </h6>
             <ul class="">
               <li v-for="change in changes" :key="change">
                 {{change}}
