@@ -56,7 +56,7 @@
 
   .modal-content {
     border: none;
-    border-radius: 1rem;
+    border-radius: .4rem;
     padding: 10px 20px;
   }
 
