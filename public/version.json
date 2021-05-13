@@ -1,9 +1,15 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "changes": {
-    "en": [
-    ],
-    "es": [
-    ]
+    "en": {
+      "1.1.0": [
+        "Adding smooth animations to view components",
+        "Adding animation to drag and drop",
+        "Refactoring donation menu",
+        "Refactoring about menu",
+        "Adding changelog view",
+        "Adding check for update option for desktop version"
+      ]
+    }
   }
 }

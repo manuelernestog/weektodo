@@ -14,6 +14,9 @@
                    width="110">
               <h5 style="margin-top: 20px; margin-bottom: 2px;">WeekToDo</h5>
               <span style="font-size: 0.75rem">{{$t('about.version')}} {{version}}</span>
+              <span class="mt-2" style="font-size: 0.75rem; cursor: pointer" data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#changeLogModal"> {{ $t("ui.changeLog") }} </span>
             </div>
             <div class="col-md-9" style="padding-left: 40px;">
               <div style="margin-top: 10px">
@@ -48,6 +51,7 @@
 
 <script>
     import version_json from '../../public/version.json'
+    import {Modal} from 'bootstrap';
 
     export default {
         name: "aboutModal",
@@ -64,6 +68,10 @@
                 } else {
                     window.open('https://weektodo.netlify.app', '_blank');
                 }
+            },
+            showChangeLog: function () {
+                let modal = new Modal(document.getElementById('changeLogModal'));
+                modal.show();
             }
         }
     }
@@ -78,7 +86,7 @@
     color: unset;
   }
 
-  .visit-site{
+  .visit-site {
     cursor: pointer;
   }
 

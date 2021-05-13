@@ -219,8 +219,8 @@
   }
 
   .dark-theme .fake-drag-hover .todo-item-container {
-    box-shadow: #0e1015 0px 0px 4px 1px inset;
-    background-color: #101218;
+    box-shadow: #0d0f14 0px 0px 4px 1px inset;
+    background-color: #0f1016;
   }
 
   .fake-drag-hover input, .dark-theme .fake-drag-hover input{

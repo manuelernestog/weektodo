@@ -73,14 +73,12 @@ function importLocalStorageData(data) {
 }
 
 function importIndexedDbData(a_data) {
-    console.log(a_data);
     var data = a_data;
     let db_req = dbRepository.open();
     db_req.onsuccess = function (event) {
         let db = event.target.result;
         let request = dbRepository.clear(db, 'todo_lists');
         request.onsuccess = function () {
-            console.log('limpiando db');
             importDbRecords(db, data);
         }
     }

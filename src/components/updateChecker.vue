@@ -8,9 +8,16 @@
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          <ul>
-            <li v-for="change in changes" :key="change">{{change}}</li>
-          </ul>
+
+          <div v-for="(changes,version) in changes" :key="version">
+            <h6 class="mb-2"><b>v{{version}}</b> <span style="font-size: 0.85rem; opacity: .4">{{moments("20210413").locale(language).format('LL') }} </span></h6>
+            <ul class="">
+              <li v-for="change in changes" :key="change">
+                {{change}}
+              </li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </div>
@@ -25,6 +32,7 @@
     import configRepository from "../repositories/configRepository";
     import toastMessage from "./toastMessage";
     import {Toast, Modal} from 'bootstrap';
+    import moment from 'moment'
 
     export default {
         name: "updateCheck",
@@ -56,6 +64,14 @@
                     return version_json.changes['en']
                 }
 
+            },
+            moments: function (date) {
+                return moment(date);
+            }
+        },
+        computed: {
+            language: function () {
+                return this.$store.state.config.language;
             }
         }
     }
@@ -63,6 +79,6 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 350px;
+    max-width: 400px;
   }
 </style>
