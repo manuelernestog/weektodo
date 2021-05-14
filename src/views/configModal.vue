@@ -16,6 +16,7 @@
               <option value="es">Español</option>
               <option value="fr">Français</option>
               <option value="pt">Português</option>
+              <option value="de">Deutsche</option>
               <option value="ru">русский</option>
               <option value="zh_cn">中國人</option>
             </select>
