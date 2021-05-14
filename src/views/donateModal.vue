@@ -8,9 +8,9 @@
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          <text>
+          <div style="text-align: justify; font-size: .95rem;">
             {{ $t("donate.mainMessage") }}
-          </text>
+          </div>
 
           <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
             <li class="nav-item" role="presentation">
@@ -140,7 +140,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 420px;
+    max-width: 400px;
   }
 
   #nav-tabContent {
@@ -148,7 +148,7 @@
   }
 
   .tab-pane {
-    height: 350px;
+    height: 360px;
   }
 
   .nav-tabs {

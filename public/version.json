@@ -3,12 +3,13 @@
   "changes": {
     "en": {
       "1.1.0-20210413": [
-        "Adding smooth animations to view components",
+        "Adding smooth animations",
         "Adding animation to drag and drop",
         "Refactoring donation menu",
-        "Refactoring about menu",
+        "Refactoring about view",
         "Adding changelog view",
-        "Adding check for update option for desktop version"
+        "Adding check for update option for desktop version",
+        "Improving User Interface elements"
       ]
     }
   }

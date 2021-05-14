@@ -12,8 +12,8 @@
   },
   "donate": {
     "donate": "Donate",
-    "mainMessage": "WeektoDo is completely free to use application. You can support this project with a small contribution via the following methods:",
-    "comment": "Comment",
+    "mainMessage": "WeektoDo is a completely free application. You can support this project with a small contribution. Thanks for using WeekToDo!",
+    "comment": "Send comment",
     "otherCrypto": "Other Cryptocurrencies",
     "goBack": "Go Back",
     "paymentType": "Payment Type",
@@ -25,11 +25,11 @@
     "about": "About",
     "madeWith": "Made with",
     "inCuba": "in Cuba",
-    "dev": "Developed and Designed by",
+    "dev": "Developer and Designer",
     "devName": "Manuel Ernesto García",
     "version": "Version",
     "desc": "WeekToDo is a Minimalist Weekly Planner focused on privacy.",
-    "site": "Visit Website."
+    "site": "Visit Website"
   },
   "generatedData": {
     "data2": "Click to complete task",

@@ -12,8 +12,8 @@
   },
   "donate": {
     "donate": "Donar",
-    "mainMessage": "WeektoDo es una aplicación completamente gratuita. Puede apoyar este proyecto con una pequeña contribución a través de los siguientes métodos:",
-    "comment": "Comentario",
+    "mainMessage": "WeektoDo es una aplicación completamente gratuita. Puede apoyar este proyecto con una pequeña contribución. Gracias por utilizar WeekToDo!",
+    "comment": "Enviar Comentario",
     "otherCrypto": "Otras Criptomonedas",
     "goBack": "Ir Atrás",
     "paymentType": "Tipo de Pago",
@@ -25,11 +25,11 @@
     "about": "Acerca De",
     "madeWith": "Hecho con",
     "inCuba": "en Cuba",
-    "dev": "Desarrollado y Diseñado por",
+    "dev": "Desarrollador y Diseñador",
     "devName": "Manuel Ernesto García",
     "version": "Versión",
     "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad.",
-    "site": "Visitar Sitio Web."
+    "site": "Visitar Sitio Web"
   },
   "generatedData": {
     "data2": "Click para completar tarea",
