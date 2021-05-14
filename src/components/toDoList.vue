@@ -149,7 +149,7 @@
   .todo-input {
     height: 1.2rem;
     line-height: 1.3rem;
-    font-size: 13px;
+    font-size: 0.865rem;
     margin: 2px 0px 2px 0px;
     padding: 0 6px 0 6px;
   }
@@ -214,13 +214,13 @@
   }
 
   .fake-drag-hover .todo-item-container {
-    box-shadow: rgb(233, 232, 232) 0px 0px 4px 1px inset;
-    background-color: rgba(223, 223, 223, 0.14);
+    box-shadow: rgb(244, 243, 243) 0px 0px 4px 1px inset;
+    background-color: rgb(250, 249, 249);
   }
 
   .dark-theme .fake-drag-hover .todo-item-container {
-    box-shadow: #0d0f14 0px 0px 4px 1px inset;
-    background-color: #0f1016;
+    box-shadow: #0b0d12 0px 0px 4px 1px inset;
+    background-color: #0c0d14;
   }
 
   .fake-drag-hover input, .dark-theme .fake-drag-hover input{

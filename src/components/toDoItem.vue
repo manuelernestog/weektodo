@@ -142,10 +142,10 @@
   }
 
   .todo-input {
-    line-height: 1.4rem;
+    line-height: 1.3rem;
     width: 100%;
     border: none;
-    font-size: 13px;
+    font-size: 0.865rem;
   }
 
   .todo-input:focus {
@@ -199,14 +199,14 @@
 
   .drag-hover {
     color: rgba(157, 157, 157, 0.43);
-    box-shadow: rgb(233, 232, 232) 0px 0px 4px 1px inset;
-    background-color: rgba(223, 223, 223, 0.14);
+    box-shadow: rgb(244, 243, 243) 0px 0px 4px 1px inset;
+    background-color: rgb(250, 249, 249);
   }
 
   .dark-theme .drag-hover {
     color: rgb(69, 69, 69);
-    box-shadow: #0d0f14 0px 0px 4px 1px inset;
-    background-color: #0f1016;
+    box-shadow: #0b0d12 0px 0px 4px 1px inset;
+    background-color: #0c0d14;
   }
 
   .dragging .todo-item .item-text {
