@@ -80,12 +80,8 @@
             },
             moments: function (date) {
                 return moment(date);
-            }
-        },
-        computed: {
-            language: function () {
-                return this.$store.state.config.language;
             },
+
             isElectron: function () {
                 let isElectron = require("is-electron");
                 return isElectron();
@@ -103,6 +99,11 @@
                 } else {
                     window.open('https://weektodo.netlify.app', '_blank');
                 }
+            }
+        },
+        computed: {
+            language: function () {
+                return this.$store.state.config.language;
             }
         }
     }
