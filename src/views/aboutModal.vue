@@ -31,10 +31,7 @@
                 </div>
                 <div class="col-md-9 pt-3">
                   <h6 class="mb-1">{{$t('about.devName')}}</h6>
-                  <div style="font-size: 0.7rem; opacity: .7 ">
-                    {{$t('about.dev')}}
-<!--                    <i class="bi-linkedin" style="margin-left: 10px; font-size: .9rem;"></i>-->
-                  </div>
+                  <div style="font-size: 0.7rem; opacity: .7;">   {{$t('about.dev')}}      </div>
                 </div>
               </div>
               <div class="horizontal-divider mt-3 mb-3"></div>
