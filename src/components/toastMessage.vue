@@ -1,6 +1,6 @@
 <template>
   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-    <div :id="id" class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+    <div :id="id" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
         <div class="toast-body">
           {{text}}
