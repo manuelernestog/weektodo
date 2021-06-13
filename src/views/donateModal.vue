@@ -19,57 +19,69 @@
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" ref="btcTab" data-bs-toggle="tab" data-bs-target="#donate-btc"
+              <button class="nav-link" id="cryptoTab" data-bs-toggle="tab" data-bs-target="#donate-crypto"
+                      role="tab">Crypto
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="rateTab" data-bs-toggle="tab" data-bs-target="#donate-rate"
+                      role="tab">Rate
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="shareTab" data-bs-toggle="tab" data-bs-target="#donate-share"
+                      role="tab">Share
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="btcTab" data-bs-toggle="tab" data-bs-target="#donate-btc"
                       role="tab">btc
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" ref="ethTab" data-bs-toggle="tab" data-bs-target="#donate-eth"
+              <button class="nav-link" id="ethTab" data-bs-toggle="tab" data-bs-target="#donate-eth"
                       role="tab">eth
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" ref="usdtTab" data-bs-toggle="tab" data-bs-target="#donate-usdt"
+              <button class="nav-link" id="usdtTab" data-bs-toggle="tab" data-bs-target="#donate-usdt"
                       role="tab">usdt
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" ref="enzonaTab" data-bs-toggle="tab" data-bs-target="#donate-enzona"
+              <button class="nav-link" id="enzonaTab" data-bs-toggle="tab" data-bs-target="#donate-enzona"
                       role="tab">enz
               </button>
             </li>
           </ul>
-
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="donate-home">
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <payment-method :name="$t('donate.comment')" icon="bi-chat-text-fill" @clickBtn="sendEmail"
-                                  :col-length="3"></payment-method>
-                </li>
-                <li class="list-group-item">
-                  <payment-method name="PayPal" img="icons/paypal.png" :col-length="3"
-                                  @clickBtn="goToPayPal"></payment-method>
-                </li>
-                <li class="list-group-item">
-                  <payment-method name="Bitcoin" img="icons/btc.svg" @clickBtn="$refs.btcTab.click()"
-                                  :col-length="3"></payment-method>
-                </li>
-                <li class="list-group-item">
-                  <payment-method name="Ethereum" img="icons/eth.svg" @clickBtn="$refs.ethTab.click()"
-                                  :col-length="3"></payment-method>
-                </li>
-                <li class="list-group-item">
-                  <payment-method :name="`Qvapay ( Payeer | Airtm | ${$t('donate.otherCrypto')} )`" img="icons/qvapay.png"
-                                  @clickBtn="goToQvaPay" :col-length="9"></payment-method>
-                </li>
-                <li class="list-group-item">
-                  <payment-method name="ENZONA" img="icons/enzona.png" @clickBtn="$refs.enzonaTab.click()"
-                                  :col-length="3"></payment-method>
-                </li>
-              </ul>
+              <link-list :linkList="donateList"></link-list>
             </div>
-
+            <div class="tab-pane fade" id="donate-crypto">
+              <div class="d-flex flex-column mt-3 h-100 ">
+                <link-list :linkList="cryptoList"></link-list>
+                <button class="btn mt-auto" type="button" @click="goHome">
+                  <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
+                </button>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="donate-rate">
+              <div class="d-flex flex-column mt-3 h-100 ">
+                <link-list :linkList="rateList"></link-list>
+                <button class="btn mt-auto" type="button" @click="goHome">
+                  <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
+                </button>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="donate-share">
+              <div class="d-flex flex-column mt-3 h-100 ">
+                <link-list :linkList="shareList"></link-list>
+                <button class="btn mt-auto" type="button" @click="goHome">
+                  <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
+                </button>
+              </div>
+            </div>
             <div class="tab-pane fade" id="donate-btc">
               <payment-details
                 address="bc1qy7x0au4tk3h2mvkl3cg5ns5hjqeg7r6snh8z0a"
@@ -84,12 +96,6 @@
                 qr-img="payment_qr/eth_address.jpg"
               ></payment-details>
             </div>
-            <div class="tab-pane fade" id="donate-enzona">
-              <payment-details
-                payment="ENZONA"
-                qr-img="payment_qr/enzona.png"
-              ></payment-details>
-            </div>
           </div>
         </div>
       </div>
@@ -101,38 +107,31 @@
 
 <script>
     import paymentDetails from "./donate/paymentDetails";
-    import paymentMethod from "../components/paymentMethod";
     import toastMessage from "../components/toastMessage";
+    import linkList from "../components/linkList";
+    import donateLists from "./donate/donateLists";
 
     export default {
         name: "donateModal",
         components: {
             paymentDetails,
-            paymentMethod,
-            toastMessage
+            toastMessage,
+            linkList
         },
         data() {
-            return {}
+            return {
+                donateList: donateLists.donateList(this),
+                cryptoList: donateLists.cryptoList(this),
+                shareList: donateLists.shareList(),
+                rateList: donateLists.rateList(),
+            }
         },
         methods: {
             sendEmail: function () {
                 window.location = "mailto:week2do@gmail.com";
             },
-            goToQvaPay: function () {
-                let isElectron = require("is-electron");
-                if (isElectron()) {
-                    require('electron').shell.openExternal('https://qvapay.com/payme/merodriguez9112', '_blank');
-                } else {
-                    window.open('https://qvapay.com/payme/merodriguez9112', '_blank');
-                }
-            },
-            goToPayPal: function () {
-                let isElectron = require("is-electron");
-                if (isElectron()) {
-                    require('electron').shell.openExternal('https://www.paypal.com/donate?hosted_button_id=TVWQZVZDCBSK2', '_blank');
-                } else {
-                    window.open('https://www.paypal.com/donate?hosted_button_id=TVWQZVZDCBSK2', '_blank');
-                }
+            goHome: function () {
+                document.getElementById("homeTab").click()
             }
         }
     }
@@ -153,20 +152,5 @@
 
   .nav-tabs {
     border-bottom: none;
-  }
-
-  .list-group-item {
-    background-color: unset;
-    border: none;
-    padding: .85rem 1rem;
-    transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
-  }
-
-  .list-group-item:hover{
-    background-color: #eaecef;
-  }
-
-  .dark-theme .list-group-item:hover{
-    background-color: #171b20;
   }
 </style>

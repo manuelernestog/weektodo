@@ -17,7 +17,6 @@
             name: {type: String, required: false},
             icon: {type: String, required: false},
             img: {type: String, required: false},
-            colLength: {type: Number, required: false, default: 3}
         },
         methods: {
             click_btn: function () {

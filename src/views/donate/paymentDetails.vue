@@ -1,8 +1,11 @@
 <template>
-  <div class="row">
+  <div class="d-flex flex-column mt-3 h-100">
     <div class="col-12 d-flex flex-column align-items-center">
-      <img class="qr-payment" :src="qrImg"></div>
-    <div class="mb-3 mt-2 w-100 text-center"><h6 class="d-inline"> {{$t("donate.paymentType")}}: </h6> {{payment}}</div>
+      <img class="qr-payment" :src="qrImg">
+    </div>
+    <div class="mb-2 mt-2 w-100 text-center">
+      <h6 class="d-inline"> {{$t("donate.paymentType")}}: </h6> {{payment}}
+    </div>
     <div class="col-md-12 d-flex flex-column mt-3 ">
       <div v-if="paymentAddress" class="d-flex flex-column align-items-center">
         <label class="form-label">{{$t("donate.address")}} </label>
@@ -12,10 +15,10 @@
             class="bi-files"> </i></span>
         </div>
       </div>
-      <button class="btn " type="button" @click="goHome">
-        <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
-      </button>
     </div>
+    <button class="btn mt-auto" type="button" @click="goHome">
+      <i class="bi-arrow-left a"></i> {{$t("donate.goBack")}}
+    </button>
   </div>
 </template>
 
@@ -41,7 +44,7 @@
                 toast.show();
             },
             goHome: function () {
-                document.getElementById("homeTab").click()
+                document.getElementById("cryptoTab").click()
             }
         }
     }
