@@ -43,18 +43,18 @@ before_script:
   - git lfs pull
 
 # on PRs and merges to master and prod run tests and build the app
-script:
-  - |
-    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      docker run --rm \
-        -v ${PWD}:/project \
-        -v ~/.cache/electron:/root/.cache/electron \
-        -v ~/.cache/electron-builder:/root/.cache/electron-builder \
-        electronuserland/builder:wine \
+#script:
+#  - |
+#    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+#      docker run --rm \
+#        -v ${PWD}:/project \
+#        -v ~/.cache/electron:/root/.cache/electron \
+#        -v ~/.cache/electron-builder:/root/.cache/electron-builder \
+#        electronuserland/builder:wine \
 #        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn test"
 #    else
 #      yarn test
-    fi
+#    fi
 # only deploy to github on a merge to the prod branch
 deploy:
   provider: script
