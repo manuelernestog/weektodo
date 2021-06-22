@@ -2,6 +2,12 @@
   "version": "1.1.0",
   "changes": {
     "en": {
+      "1.2.0-20210601": [
+        "Performance improvements",
+        "Fixing bugs",
+        "Implementing macOS compatibility",
+       " Generating macOS desktop application"
+      ],
       "1.1.0-20210415": [
         "Adding smooth animations",
         "Adding animation to drag and drop",

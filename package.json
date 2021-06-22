@@ -1,6 +1,6 @@
 {
   "name": "WeekToDo",
-  "version": "1.3.0",
+  "version": "1.2.0",
   "private": true,
   "description": "WeekToDo is a Free Minimalist Weekly Planner focused on privacy.",
   "author": "Manuel Ernesto Garcia <week2do@gmail.com> (http://weektodo.netlify.app/)",
@@ -18,9 +18,12 @@
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "postuninstall": "electron-builder install-app-deps",
+    "release": "electron-builder",
+    "test": "echo success"
   },
   "main": "background.js",
+  "repository": "https://github.com/Zuntek/WeekToDoWeb",
   "dependencies": {
     "@popperjs/core": "^2.6.0",
     "axios": "^0.21.1",
