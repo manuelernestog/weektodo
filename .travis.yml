@@ -8,13 +8,13 @@ node_js:
 # linux apps
 matrix:
   include:
-    - os: osx
-      osx_image: xcode10.2
-      language: node_js
-      node_js: "14.15.1"
-      env:
-          - ELECTRON_CACHE=$HOME/.cache/electron
-          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+#    - os: osx
+#      osx_image: xcode10.2
+#      language: node_js
+#      node_js: "14.15.1"
+#      env:
+#          - ELECTRON_CACHE=$HOME/.cache/electron
+#          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
     - os: linux
       dist: trusty
       sudo: required
@@ -51,9 +51,9 @@ script:
         -v ~/.cache/electron:/root/.cache/electron \
         -v ~/.cache/electron-builder:/root/.cache/electron-builder \
         electronuserland/builder:wine \
-        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn test"
+#        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn test"
     else
-      yarn test
+#      yarn test
     fi
 # only deploy to github on a merge to the prod branch
 deploy:
