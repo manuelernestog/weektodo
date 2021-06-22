@@ -6,8 +6,6 @@ node_js:
 # Always run two parallel builds: one on mac and one on linux
 # the linux build will use wine to be able to build windows and
 # linux apps
-matrix:
-  include:
 #    - os: osx
 #      osx_image: xcode10.2
 #      language: node_js
@@ -15,6 +13,8 @@ matrix:
 #      env:
 #          - ELECTRON_CACHE=$HOME/.cache/electron
 #          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+matrix:
+  include:
     - os: linux
       dist: trusty
       sudo: required
@@ -43,25 +43,25 @@ before_script:
   - git lfs pull
 
 # on PRs and merges to master and prod run tests and build the app
-script:
-  - |
-    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      docker run --rm \
-        -v ${PWD}:/project \
-        -v ~/.cache/electron:/root/.cache/electron \
-        -v ~/.cache/electron-builder:/root/.cache/electron-builder \
-        electronuserland/builder:wine \
-        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn test"
-    else
-      yarn test
-    fi
+#script:
+#  - |
+#    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+#      docker run --rm \
+#        -v ${PWD}:/project \
+#        -v ~/.cache/electron:/root/.cache/electron \
+#        -v ~/.cache/electron-builder:/root/.cache/electron-builder \
+#        electronuserland/builder:wine \
+#        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn test"
+#    else
+#      yarn test
+#    fi
 # only deploy to github on a merge to the prod branch
 deploy:
   provider: script
   script: bash deploy.travis.sh
   skip_cleanup: true
   on:
-    branch: main
+    branch: dev
 
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
@@ -70,4 +70,4 @@ before_cache:
 # the 'master' and 'prod' branches
 branches:
   only:
-    - main
+    - dev
