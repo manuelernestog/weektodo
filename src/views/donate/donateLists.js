@@ -1,8 +1,8 @@
 export default {
     donateList(vue) {
         return [
-            {name: "Rate", ico: "bi-star-half", color: "#8dc351", linktype: "tagId", link: 'rateTab'},
-            {name: "Share", ico: "bi-share-fill", color: "blue", linktype: "tagId", link: 'shareTab'},
+            {name: "Rate", ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
+            {name: "Share", ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
             {
                 name: "PayPal",
                 img: "icons/paypal.png",
@@ -48,28 +48,22 @@ export default {
     rateList() {
         return [
             {
-                name: "Github",
-                ico: "bi-github",
+                name: "AlternativeTo",
+                img: "icons/alternativeTo.png",
                 linktype: "external",
-                link: "https://"
-            },
-            {
-                name: "Alternative.me",
-                img: "icons/eth.svg",
-                linktype: "external",
-                link: "https://"
+                link: "https://alternativeto.net/software/weektodo/about/"
             },
             {
                 name: "Softpedia",
-                img: "icons/eth.svg",
+                img: "icons/softpedia.png",
                 linktype: "external",
-                link: "https://"
+                link: "https://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/WeekToDo.shtml"
             },
             {
                 name: "ProductHunt",
-                img: "icons/eth.svg",
+                img: "icons/product-hunt.svg",
                 linktype: "external",
-                link: "https://"
+                link: "https://www.producthunt.com/posts/weektodo"
             }
         ]
     },
@@ -78,30 +72,29 @@ export default {
             {
                 name: "Facebook",
                 ico: "bi-facebook",
-                color: "blue",
+                color: "#4b6cad",
                 linktype: "external",
-                link: "https://"
+                link: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.netlify.app%2F"
             },
             {
                 name: "Twitter",
                 ico: "bi-twitter",
-                color: "blue",
+                color: "#3eafda",
                 linktype: "external",
-                link: "https://"
+                link: "https://twitter.com/intent/tweet?url=https%3A%2F%2Fweektodo.netlify.app%2F&text="
             },
             {
                 name: "Linkedin",
                 ico: "bi-linkedin",
-                color: "blue",
+                color: "#1a77af",
                 linktype: "external",
-                link: "https://"
+                link: "http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweektodo.netlify.app%2F&title="
             },
             {
-                name: "Instagram",
-                ico: "bi-instagram",
-                color: "blue",
+                name: "Pinterest",
+                img: "icons/pinterest.svg",
                 linktype: "external",
-                link: "https://"
+                link: "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweektodo.netlify.app%2F&media=&description="
             }
         ]
     }

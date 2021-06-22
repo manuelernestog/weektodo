@@ -5,13 +5,18 @@ module.exports = {
             builderOptions: {
                 appId: "weektodo-app.netlify.app",
                 productName: "WeekToDo",
+                publish: ['github'],
                 linux: {
                     category: "Utility",
-                    target: ["AppImage","deb", "rpm","snap"],
+                    target: ["deb", "rpm", "snap"],
                     icon: "build/icon/"
                 },
                 win: {
-                    target: ["nsis", "portable", "msi"],
+                    target: ["nsis"],
+                },
+                mac: {
+                    category: "public.app-category.productivity",
+                    target: ["dmg"]
                 }
             }
         }
