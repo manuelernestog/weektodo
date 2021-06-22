@@ -18,9 +18,12 @@
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "postuninstall": "electron-builder install-app-deps",
+    "release": "electron-builder",
+    "test": "echo success"
   },
   "main": "background.js",
+  "repository": "https://github.com/Zuntek/WeekToDoWeb",
   "dependencies": {
     "@popperjs/core": "^2.6.0",
     "axios": "^0.21.1",
