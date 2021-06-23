@@ -10,7 +10,7 @@ export default {
                 link: "https://www.paypal.com/donate?hosted_button_id=TVWQZVZDCBSK2"
             },
             {
-                name: vue.$t('donate.Cryptocurrencies'),
+                name: vue.$t('donate.cryptocurrencies'),
                 img: "icons/btc.svg",
                 linktype: "tagId",
                 link: 'cryptoTab'
