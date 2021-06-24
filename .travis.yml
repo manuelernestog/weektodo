@@ -42,9 +42,10 @@ before_script:
   - git lfs pull
 
 # on PRs and merges to master and prod run tests and build the app
-#script:
-#  - |
-#    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+script:
+  - |
+    npm install
+#  if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 #      docker run --rm \
 #        -v ${PWD}:/project \
 #        -v ~/.cache/electron:/root/.cache/electron \
