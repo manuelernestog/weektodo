@@ -16,7 +16,12 @@ node_js:
 matrix:
   include:
     - os: linux
-      dist: trusty
+      dist: xenial
+      addons:
+        snaps:
+          - name: weektodo
+            confinement: classic
+            channel: edge
       sudo: required
       services: docker
       language: generic
