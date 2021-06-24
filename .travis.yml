@@ -16,12 +16,7 @@ node_js:
 matrix:
   include:
     - os: linux
-      dist: xenial
-      addons:
-        snaps:
-          - name: weektodo
-            confinement: classic
-            channel: edge
+      dist: trusty
       sudo: required
       services: docker
       language: generic
@@ -48,8 +43,8 @@ before_script:
 
 # on PRs and merges to master and prod run tests and build the app
 #script:
-#  - npm install
-#  if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+#  - |
+#    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 #      docker run --rm \
 #        -v ${PWD}:/project \
 #        -v ~/.cache/electron:/root/.cache/electron \
