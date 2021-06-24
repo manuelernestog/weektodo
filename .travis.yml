@@ -47,8 +47,8 @@ before_script:
   - git lfs pull
 
 # on PRs and merges to master and prod run tests and build the app
-script:
-  - npm install
+#script:
+#  - npm install
 #  if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 #      docker run --rm \
 #        -v ${PWD}:/project \
