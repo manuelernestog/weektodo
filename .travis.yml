@@ -26,7 +26,6 @@ notifications:
 
 # cache some files for faster builds
 cache:
-  yarn: true
   directories:
     - node_modules
     - $HOME/.cache/electron
