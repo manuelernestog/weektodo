@@ -19,18 +19,18 @@ include:
     dist: xenial
     before_deploy: "yarn electron:build --linux snap -p always"
     deploy:
-      provider: snap
-      snap: "**/WeekToDo*.snap"
-      channel: edge
-      skip_cleanup: true
-      edge: true
-      on:
-        branch: dev
-      provider: script
-      script: bash deploy.travis.sh
-      skip_cleanup: true
-      on:
-        branch: dev
+      - provider: snap
+        snap: "**/WeekToDo*.snap"
+        channel: edge
+        skip_cleanup: true
+        edge: true
+        on:
+          branch: dev
+      - provider: script
+        script: bash deploy.travis.sh
+        skip_cleanup: true
+        on:
+          branch: dev
 
 notifications:
   email: false
