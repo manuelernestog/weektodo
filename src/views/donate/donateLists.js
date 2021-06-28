@@ -1,8 +1,8 @@
 export default {
     donateList(vue) {
         return [
-            {name: "Rate", ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
             {name: "Share", ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
+            {name: "Rate", ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
             {
                 name: "PayPal",
                 img: "icons/paypal.png",
