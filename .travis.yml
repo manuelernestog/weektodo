@@ -7,30 +7,30 @@ node_js:
 # the linux build will use wine to be able to build windows and
 # linux apps
 matrix:
-include:
-  #    - os: osx
-  #      osx_image: xcode10.2
-  #      language: node_js
-  #      node_js: "14.15.1"
-  #      env:
-  #          - ELECTRON_CACHE=$HOME/.cache/electron
-  #          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-  - os: linux
-    dist: xenial
-    before_deploy: "yarn electron:build --linux snap -p always"
-    deploy:
-      - provider: snap
-        snap: "**/WeekToDo*.snap"
-        channel: edge
-        skip_cleanup: true
-        edge: true
-        on:
-          branch: dev
-      - provider: script
-        script: bash deploy.travis.sh
-        skip_cleanup: true
-        on:
-          branch: dev
+  include:
+    #    - os: osx
+    #      osx_image: xcode10.2
+    #      language: node_js
+    #      node_js: "14.15.1"
+    #      env:
+    #          - ELECTRON_CACHE=$HOME/.cache/electron
+    #          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+    - os: linux
+      dist: xenial
+      deploy:
+        - provider: snap
+          before_deploy: "yarn electron:build --linux snap -p always"
+          snap: "**/WeekToDo*.snap"
+          channel: edge
+          skip_cleanup: true
+          edge: true
+          on:
+            branch: dev
+        - provider: script
+          script: bash deploy.travis.sh
+          skip_cleanup: true
+          on:
+            branch: dev
 
 notifications:
   email: false
