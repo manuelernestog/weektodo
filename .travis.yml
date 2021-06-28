@@ -16,11 +16,6 @@ include:
   #          - ELECTRON_CACHE=$HOME/.cache/electron
   #          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
   - os: linux
-    dist: trusty
-    sudo: required
-    services: docker
-    language: generic
-  - os: linux
     dist: xenial
     before_deploy: "yarn electron:build --linux snap -p always"
     deploy:
@@ -29,6 +24,11 @@ include:
       channel: edge
       skip_cleanup: true
       edge: true
+      on:
+        branch: dev
+      provider: script
+      script: bash deploy.travis.sh
+      skip_cleanup: true
       on:
         branch: dev
 
@@ -67,12 +67,12 @@ script:
       yarn test
     fi
 # only deploy to github on a merge to the prod branch
-deploy:
-  provider: script
-  script: bash deploy.travis.sh
-  skip_cleanup: true
-  on:
-    branch: dev
+#deploy:
+#  provider: script
+#  script: bash deploy.travis.sh
+#  skip_cleanup: true
+#  on:
+#    branch: dev
 
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
