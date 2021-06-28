@@ -2,12 +2,12 @@ import {createApp} from 'vue';
 import App from './App.vue';
 import {store} from "./store/store";
 
-import { createI18n } from "vue-i18n/dist/vue-i18n.esm-browser.prod.js";
+import { createI18n } from 'vue-i18n'
 import {languages} from "./assets/languages/languages.js"
 const messages = Object.assign(languages);
 const i18n = createI18n({
     locale: 'en',
-    fallbackLocale: 'es',
+    fallbackLocale: 'en',
     messages,
 })
 
