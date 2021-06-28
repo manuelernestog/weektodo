@@ -30,7 +30,7 @@ include:
       skip_cleanup: true
       edge: true
       on:
-        branch: main
+        branch: dev
 
 notifications:
   email: false
