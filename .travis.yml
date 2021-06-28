@@ -19,18 +19,17 @@ matrix:
       dist: xenial
       deploy:
         - provider: snap
-          before_deploy: "yarn electron:build --linux snap -p always"
           snap: "**/WeekToDo*.snap"
           channel: edge
           skip_cleanup: true
           edge: true
           on:
-            branch: dev
+            branch: main
         - provider: script
           script: bash deploy.travis.sh
           skip_cleanup: true
           on:
-            branch: dev
+            branch: main
 
 notifications:
   email: false
@@ -81,4 +80,4 @@ before_cache:
 # the 'master' and 'prod' branches
 branches:
   only:
-    - dev
+    - main
