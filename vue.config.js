@@ -8,12 +8,15 @@ module.exports = {
                 publish: ['github'],
                 linux: {
                     category: "Utility",
+                    target: ["deb", "rpm"],
                     icon: "build/icon/"
                 },
                 win: {
+                    target: ["nsis"],
                 },
                 mac: {
                     category: "public.app-category.productivity",
+                    target: ["dmg"]
                 }
             }
         }
