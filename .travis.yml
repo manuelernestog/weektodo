@@ -16,18 +16,19 @@ matrix:
     #          - ELECTRON_CACHE=$HOME/.cache/electron
     #          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
     - os: linux
+        dist: xenial
+        deploy:
+          - provider: script
+            script: bash deploy.travis.sh
+            skip_cleanup: true
+            on:
+              branch: dev
+    - os: linux
       dist: xenial
       deploy:
         - provider: script
           script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb rpm --win nsis -p always"
           skip_cleanup: true
-          on:
-            branch: dev
-        - provider: snap
-          snap: "**/WeekToDo*.snap"
-          channel: edge
-          skip_cleanup: true
-          edge: true
           on:
             branch: dev
 
@@ -65,19 +66,10 @@ script:
     else
       yarn test
     fi
-# only deploy to github on a merge to the prod branch
-#deploy:
-#  provider: script
-#  script: bash deploy.travis.sh
-#  skip_cleanup: true
-#  on:
-#    branch: dev
 
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
 
-# only run this script on pull requests and merges into
-# the 'master' and 'prod' branches
 branches:
   only:
     - dev
