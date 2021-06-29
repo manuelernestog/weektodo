@@ -8,13 +8,19 @@ node_js:
 # linux apps
 matrix:
   include:
-    #    - os: osx
-    #      osx_image: xcode10.2
-    #      language: node_js
-    #      node_js: "14.15.1"
-    #      env:
-    #          - ELECTRON_CACHE=$HOME/.cache/electron
-    #          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+    - os: osx
+      osx_image: xcode10.2
+      language: node_js
+      node_js: "14.15.1"
+      env:
+          - ELECTRON_CACHE=$HOME/.cache/electron
+          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+      deploy:
+        - provider: script
+          script: bash deploy.travis.sh
+          skip_cleanup: true
+          on:
+            branch: main
     - os: linux
       dist: xenial
       deploy:
@@ -22,15 +28,15 @@ matrix:
           script: bash deploy.travis.sh
           skip_cleanup: true
           on:
-            branch: dev
-#    - os: linux
-#      dist: xenial
-#      deploy:
-#        - provider: script
-#          script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb rpm --win nsis -p always"
-#          skip_cleanup: true
-#          on:
-#            branch: dev
+            branch: main
+    - os: linux
+      dist: xenial
+      deploy:
+        - provider: script
+          script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb rpm --win nsis -p always"
+          skip_cleanup: true
+          on:
+            branch: main
 
 notifications:
   email: false
@@ -72,4 +78,4 @@ before_cache:
 
 branches:
   only:
-    - dev
+    - main
