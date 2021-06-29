@@ -16,13 +16,13 @@ matrix:
     #          - ELECTRON_CACHE=$HOME/.cache/electron
     #          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
     - os: linux
-        dist: xenial
-        deploy:
-          - provider: script
-            script: bash deploy.travis.sh
-            skip_cleanup: true
-            on:
-              branch: dev
+      dist: xenial
+      deploy:
+        - provider: script
+          script: bash deploy.travis.sh
+          skip_cleanup: true
+          on:
+            branch: dev
     - os: linux
       dist: xenial
       deploy:
