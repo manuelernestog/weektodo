@@ -24,12 +24,12 @@ matrix:
           skip_cleanup: true
           edge: true
           on:
-            branch: main
+            branch: dev
         - provider: script
-          script: bash deploy.travis.sh
+          script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb rpm --win nsis -p always"
           skip_cleanup: true
           on:
-            branch: main
+            branch: dev
 
 notifications:
   email: false
@@ -80,4 +80,4 @@ before_cache:
 # the 'master' and 'prod' branches
 branches:
   only:
-    - main
+    - dev
