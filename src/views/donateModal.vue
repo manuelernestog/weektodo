@@ -147,7 +147,7 @@
   }
 
   .tab-pane {
-    height: 360px;
+    height: 300px;
   }
 
   .nav-tabs {

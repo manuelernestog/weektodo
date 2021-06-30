@@ -16,10 +16,11 @@ export default {
                 link: 'cryptoTab'
             },
             {
-                name: "Report a Bug",
-                ico: "bi-bug",
-                linktype: "external",
-                link: "https://www.paypal.com/donate?hosted_button_id=TVWQZVZDCBSK2"
+                name: vue.$t('donate.comment'),
+                color: "#3d7c42",
+                ico: "bi-chat-text-fill",
+                linktype: "email",
+                link: "mailto:week2do@gmail.com"
             },
         ]
     },
@@ -49,7 +50,7 @@ export default {
         return [
             {
                 name: "AlternativeTo",
-                img: "icons/alternativeTo.png",
+                img: "icons/alternativeto.png",
                 linktype: "external",
                 link: "https://alternativeto.net/software/weektodo/about/"
             },

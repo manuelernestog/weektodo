@@ -91,7 +91,7 @@
             this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
             document.onreadystatechange = () => {
                 if (document.readyState == "complete") {
-                    setTimeout(this.hideSplash, 1000);
+                    setTimeout(this.hideSplash, 5000);
                 }
             }
             window.addEventListener("resize", this.weekResetScroll);
