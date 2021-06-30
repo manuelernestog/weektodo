@@ -41,7 +41,6 @@ matrix:
 notifications:
   email: false
 
-# cache some files for faster builds
 cache:
   yarn: true
   directories:
@@ -59,7 +58,6 @@ before_install:
 before_script:
   - git lfs pull
 
-# on PRs and merges to master and prod run tests and build the app
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
