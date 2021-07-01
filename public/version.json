@@ -2,11 +2,14 @@
   "version": "1.2.0",
   "changes": {
     "en": {
-      "1.2.0-20210601": [
+      "1.2.0-20210701": [
         "Performance improvements",
         "Fixing bugs",
         "Implementing macOS compatibility",
-       " Generating macOS desktop application"
+        "Generating macOS desktop application",
+        "Adding Sponsor space in splash screen",
+        "Updating Contribute View",
+        "Configuring continuous integration and continuous deployment tool for futures release"
       ],
       "1.1.0-20210415": [
         "Adding smooth animations",
