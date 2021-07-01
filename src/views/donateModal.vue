@@ -49,8 +49,8 @@
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="enzonaTab" data-bs-toggle="tab" data-bs-target="#donate-enzona"
-                      role="tab">enz
+              <button class="nav-link" id="dogeTab" data-bs-toggle="tab" data-bs-target="#donate-doge"
+                      role="tab">doge
               </button>
             </li>
           </ul>
@@ -94,6 +94,20 @@
                 address="0xc9D838529fF65228100ccE0A7Bb0427763E321B6"
                 payment="Ethereum"
                 qr-img="payment_qr/eth_address.jpg"
+              ></payment-details>
+            </div>
+            <div class="tab-pane fade" id="donate-usdt">
+              <payment-details
+                address="0xc9D838529fF65228100ccE0A7Bb0427763E321B6"
+                payment="USDT (ERC20)"
+                qr-img="payment_qr/usdt.jpg"
+              ></payment-details>
+            </div>
+            <div class="tab-pane fade" id="donate-doge">
+              <payment-details
+                address="D7xwFNwEr66YEWahycouA8oUaxsPzD3m4U"
+                payment="DOGE"
+                qr-img="payment_qr/doge.jpg"
               ></payment-details>
             </div>
           </div>

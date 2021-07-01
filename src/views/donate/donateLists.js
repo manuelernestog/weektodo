@@ -43,6 +43,18 @@ export default {
                 img: "icons/eth.svg",
                 linktype: "tagId",
                 link: 'ethTab'
+            },
+            {
+                name: "USDT (ERC20)",
+                img: "icons/usdt.svg",
+                linktype: "tagId",
+                link: 'usdtTab'
+            },
+            {
+                name: "DOGE",
+                img: "icons/dogecoin.svg",
+                linktype: "tagId",
+                link: 'dogeTab'
             }
         ]
     },
