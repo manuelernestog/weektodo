@@ -1,8 +1,8 @@
 export default {
     donateList(vue) {
         return [
-            {name: "Share", ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
-            {name: "Rate", ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
+            {name: vue.$t('donate.share'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
+            {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
             {
                 name: "PayPal",
                 img: "icons/paypal.png",
@@ -16,6 +16,12 @@ export default {
                 link: 'cryptoTab'
             },
             {
+                name: "Qvapay - AirTM/Payeer/"+vue.$t('donate.crypto'),
+                img: "icons/qvapay.png",
+                linktype: "external",
+                link: 'https://qvapay.com/payme/merodriguez9112'
+            },
+            {
                 name: vue.$t('donate.comment'),
                 color: "#3d7c42",
                 ico: "bi-chat-text-fill",
@@ -24,7 +30,7 @@ export default {
             },
         ]
     },
-    cryptoList(vue) {
+    cryptoList() {
         return [
             {
                 name: "Bitcoin",
@@ -37,12 +43,6 @@ export default {
                 img: "icons/eth.svg",
                 linktype: "tagId",
                 link: 'ethTab'
-            },
-            {
-                name: "Qvapay (" + vue.$t('donate.otherCrypto') + ")",
-                img: "icons/qvapay.png",
-                linktype: "external",
-                link: 'https://qvapay.com/payme/merodriguez9112'
             }
         ]
     },

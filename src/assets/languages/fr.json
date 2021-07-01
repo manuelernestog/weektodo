@@ -15,12 +15,15 @@
     "donate": "Faire un don",
     "mainMessage": "WeektoDo est une application entièrement gratuite. Vous pouvez soutenir ce projet avec une petite contribution. Merci d'utiliser WeekToDo!",
     "comment": "Envoyer un commentaire",
-    "otherCrypto": "Autres crypto-monnaies",
+    "crypto": "Crypto",
     "goBack": "Revenir en arrière",
     "paymentType": "Type de paiement",
     "address": "adresse",
     "copy": "Copier",
-    "copiedAddres": "Adresse copiée !!!"
+    "copiedAddres": "Adresse copiée !!!",
+    "share": "Partager",
+    "rate": "Taux",
+    "cryptocurrencies": "Crypto-monnaies"
   },
   "about": {
     "about": "à propos à propos",

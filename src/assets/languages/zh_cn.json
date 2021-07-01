@@ -15,12 +15,15 @@
     "donate": "捐贈",
     "mainMessage": "WeektoDo是一個完全免費的應用程序。 您可以貢獻一點錢來支持這個項目。 感謝您使用WeekToDo！",
     "comment": "發表評論",
-    "otherCrypto": "其他加密貨幣",
+    "crypto": "加密",
     "goBack": "返回",
     "paymentType": "“付款類型",
     "address": "地址",
     "copy": "複製",
-    "copiedAddres": "複製的地址!!!"
+    "copiedAddres": "複製的地址!!!",
+    "share": "分享",
+    "rate": "速度",
+    "cryptocurrencies": "加密貨幣"
   },
   "about": {
     "about": "關於",

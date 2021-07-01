@@ -120,7 +120,6 @@
         },
         data() {
             return {
-                donateList: donateLists.donateList(this),
                 cryptoList: donateLists.cryptoList(this),
                 shareList: donateLists.shareList(),
                 rateList: donateLists.rateList(),
@@ -132,6 +131,11 @@
             },
             goHome: function () {
                 document.getElementById("homeTab").click()
+            }
+        },
+        computed: {
+            donateList: function () {
+                return donateLists.donateList(this);
             }
         }
     }
@@ -147,7 +151,7 @@
   }
 
   .tab-pane {
-    height: 300px;
+    height: 350px;
   }
 
   .nav-tabs {
