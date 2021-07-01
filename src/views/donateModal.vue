@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{ $t("donate.donate") }}</h5>
+          <h5 class="modal-title">{{ $t("donate.contribute") }}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">

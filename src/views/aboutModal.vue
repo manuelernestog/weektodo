@@ -36,9 +36,9 @@
               </div>
               <div class="horizontal-divider mt-3 mb-3"></div>
               <div class="d-flex" style="margin-top: 10px">
-                  <span style="margin-top: 10px; margin-right: 10px;">{{$t('about.madeWith')}} <i class="bi-heart-fill" style="color: red"></i> {{$t('about.inCuba')}} 2021</span>
+                  <span style="margin-top: 10px; margin-right: 10px;">{{$t('about.madeWith')}} <i class="bi-heart-fill" style="color: red"></i> {{$t('about.inCuba')}}</span>
                 <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#donateModal">{{$t('donate.donate')}}
+                        data-bs-target="#donateModal">{{$t('donate.contribute')}}
                 </button>
               </div>
             </div>

@@ -12,7 +12,7 @@
     "checkUpdates": "Check for Updates on startup"
   },
   "donate": {
-    "donate": "Donate",
+    "contribute": "Contribute",
     "mainMessage": "WeektoDo is a completely free application. You can support this project with a small contribution. Thanks for using WeekToDo!",
     "comment": "Send feedback",
     "crypto": "Cripto",
