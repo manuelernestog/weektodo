@@ -8,7 +8,7 @@
         <iframe data-aa="1688388" src="//ad.a-ads.com/1688388?size=728x90" scrolling="no"
                 style="width:728px; height:90px; border:0px; padding:0; overflow:hidden"
                 allowtransparency="true"></iframe>
-        <div class="sponsor">Sponsor by</div>
+        <div class="sponsor">{{$t('ui.sponsoredBy')}}</div>
       </div>
     </div>
   </transition>

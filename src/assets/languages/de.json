@@ -97,6 +97,7 @@
     "compatible": "Leider ist WeekToDo nicht mit Ihrem Webbrowser kompatibel. Bitte versuchen Sie es zu aktualisieren oder verwenden Sie einen anderen.",
     "removeList": "Liste entfernen",
     "completeAll": "Schließe alle ab",
-    "postpone": "verschieben"
+    "postpone": "verschieben",
+    "sponsoredBy": "Gesponsert von"
   }
 }
