@@ -52,18 +52,20 @@
             }
         },
         mounted() {
-            if (version_json.version != this.$store.state.config.version) {
-                this.$store.commit('updateConfigVersion', version_json.version);
-                configRepository.update(this.$store.state.config);
-                var toast = new Toast(document.getElementById('versionChanges'));
-                toast.show();
-            }
-            if (this.isElectron && this.$store.state.config.checkUpdates ) {
-                const axios = require('axios').default;
-                axios
-                    .get('https://weektodo-app.netlify.app/version.json')
-                    .then(response => (this.showNewVersionToast(response)))
-            }
+            setTimeout(function () {
+                if (version_json.version != this.$store.state.config.version) {
+                    this.$store.commit('updateConfigVersion', version_json.version);
+                    configRepository.update(this.$store.state.config);
+                    var toast = new Toast(document.getElementById('versionChanges'));
+                    toast.show();
+                }
+                if (this.isElectron && this.$store.state.config.checkUpdates ) {
+                    const axios = require('axios').default;
+                    axios
+                        .get('https://weektodo-app.netlify.app/version.json')
+                        .then(response => (this.showNewVersionToast(response)))
+                }
+            }.bind(this), 5000);
         },
         methods: {
             seeChangeLog: function () {
