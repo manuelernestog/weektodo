@@ -59,7 +59,7 @@
                     var toast = new Toast(document.getElementById('versionChanges'));
                     toast.show();
                 }
-                if (this.isElectron && this.$store.state.config.checkUpdates ) {
+                if (this.isElectron() && this.$store.state.config.checkUpdates ) {
                     const axios = require('axios').default;
                     axios
                         .get('https://weektodo-app.netlify.app/version.json')
