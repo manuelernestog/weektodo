@@ -16,7 +16,7 @@ export default {
                 link: 'cryptoTab'
             },
             {
-                name: "Qvapay - AirTM/Payeer/"+vue.$t('donate.crypto'),
+                name: "Qvapay - Airtm/Payeer/"+vue.$t('donate.crypto'),
                 img: "icons/qvapay.png",
                 linktype: "external",
                 link: 'https://qvapay.com/payme/merodriguez9112'
