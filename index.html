@@ -106,15 +106,20 @@
             class="mobi-mbri mobi-mbri-globe-2 mbr-iconfont mbr-iconfont-btn"></span>Change Language&nbsp;</a>
           </li>
           <li class="nav-item"><a class="nav-link link text-black display-4"
-                                  href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.1.0/WeekToDo.Setup.1.1.0.exe"><span
+                                  href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo.Setup.1.2.0.exe"><span
             class="mobi-mbri mobi-mbri-windows mbr-iconfont mbr-iconfont-btn"></span>Download for Windows</a></li>
+          <li class="nav-item"><a
+            id="open-mac-modal-2"
+            class="nav-link link text-black display-4"
+            href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo-1.2.0.dmg"><span
+            class="mobi-mbri mobi-mbri-apple mbr-iconfont mbr-iconfont-btn"></span>Download for macOS</a></li>
           <li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle display-4" href="#"
                                            data-toggle="dropdown-submenu" aria-expanded="true"><span
             class="socicon socicon-debian mbr-iconfont mbr-iconfont-btn"></span>Download for Linux<br></a>
             <div class="dropdown-menu"><a class="text-black dropdown-item display-4"
-                                          href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.1.0/WeekToDo_1.1.0_amd64.deb">Linux.deb</a><a
+                                          href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo_1.2.0_amd64.deb">Linux.deb</a><a
               class="text-black dropdown-item display-4"
-              href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.1.0/WeekToDo-1.1.0.x86_64.rpm">Linux.rpm</a>
+              href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo-1.2.0.x86_64.rpm">Linux.rpm</a>
             </div>
           </li>
           <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
@@ -229,13 +234,17 @@
           <p class="mbr-text mb-4 mbr-fonts-style display-4">
             Download WeekToDo and enjoy a native experience from your computer in your favorite Operative System.</p>
           <div class="mbr-section-btn"><a class="btn btn-secondary display-4"
-                                          href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.1.0/WeekToDo.Setup.1.1.0.exe">Windows</a>
+                                          href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo.Setup.1.2.0.exe">Windows</a>
+            <a
+              id="open-mac-modal-1"
+              class="btn btn-secondary display-4"
+              href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo-1.2.0.dmg">macOS</a>
             <a
               class="btn btn-secondary display-4"
-              href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.1.0/WeekToDo_1.1.0_amd64.deb">Linux.deb</a>
+              href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo_1.2.0_amd64.deb">Linux.deb</a>
             <a
               class="btn btn-secondary display-4"
-              href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.1.0/WeekToDo-1.1.0.x86_64.rpm">Linux.rpm</a>
+              href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.2.0/WeekToDo-1.2.0.x86_64.rpm">Linux.rpm</a>
           </div>
         </div>
       </div>
@@ -255,11 +264,11 @@
         </div>
       </div>
     </div>
-    <div class="mt-4"> Download older versions from
-      <a href="https://github.com/Zuntek/WeekToDoWeb/releases"  target="_blank">
+    <div class="mt-4"> Current Version <b>1.2.0</b>. Download older versions from
+      <a href="https://github.com/Zuntek/WeekToDoWeb/releases" target="_blank">
         Github
       </a>
-     </div>
+    </div>
 
   </div>
 </section>
@@ -353,6 +362,32 @@
                                                                             style="color:#aaa;">Mobirise</a></p>
 </section>
 
+<!-- The Modal -->
+<div id="myModal" class="mac-modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="mt-2">
+      <span class="mb-1"><b>WeekToDo</b> is not signed (due to its costs) so you will need to use this workaround for the first run:</span>
+
+      <ul class="mb-1">
+        <li>Don’t use Launchpad to do this. Launchpad doesn’t allow you to access the shortcut menu.</li>
+        <li>Control-click the app icon, then choose Open from the shortcut menu.</li>
+        <li>Click Open.</li>
+      </ul>
+      The app is saved as an exception to your security settings, and you can open it in the future by double-clicking
+      it just as you can any registered app.
+      <hr>
+      Note: You can also grant an exception for a blocked app by clicking the Open Anyway button in the General pane of
+      Security & Privacy preferences. This button is available for about an hour after you try to open the app.
+      <hr>
+      <a href="https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac"
+         target="_blank"> Click here to read more about this in the macOS official page </a>
+    </div>
+  </div>
+
+</div>
+
 <script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
@@ -379,6 +414,39 @@
 
 </script>
 
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn1 = document.getElementById("open-mac-modal-1");
+    var btn2 = document.getElementById("open-mac-modal-2");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn1.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    btn2.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 <div id="scrollToTop" class="scrollToTop mbr-arrow-up" style=""><a style="text-align: center;"><i
   class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
