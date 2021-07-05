@@ -2,6 +2,9 @@
   "version": "1.2.0",
   "changes": {
     "en": {
+      "1.3.0-20210702": [
+        "Fixing Germany errors"
+      ],
       "1.2.0-20210702": [
         "Performance improvements",
         "Fixing bugs",
