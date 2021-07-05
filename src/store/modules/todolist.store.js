@@ -20,7 +20,7 @@ const mutations = {
     }
     ,
     checkTodo(state, obj) {
-        state.todoLists[obj.toDoListId][obj.index].checked = !state.todoList.todoLists[obj.toDoListId][obj.index].checked;
+        state.todoLists[obj.toDoListId][obj.index].checked = !state.todoLists[obj.toDoListId][obj.index].checked;
     }
     ,
     addTodo(state, toDo) {
