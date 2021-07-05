@@ -38,14 +38,14 @@
         name: "languageView",
         data() {
             return {
-                darkTheme: this.$store.state.config.darkTheme
+                darkTheme: this.$store.getters.config.darkTheme
             }
         },
         methods: {
             changeDarkTheme: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigDarkTheme', this.darkTheme);
-                    configRepository.update(this.$store.state.config);
+                    configRepository.update(this.$store.getters.config);
                 });
             },
             next: function () {

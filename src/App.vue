@@ -75,7 +75,7 @@
         data() {
             return {
                 selected_date: moment().format('YYYYMMDD'),
-                cTodoList: this.$store.state.cTodoListIds
+                cTodoList: this.$store.getters.cTodoListIds
             }
         },
         beforeCreate() {
@@ -85,7 +85,7 @@
             }
             this.$store.commit('loadCustomTodoListsIds', customToDoListIdsRepository.load());
             this.$store.commit('loadConfig', configRepository.load());
-            this.$i18n.locale = this.$store.state.config.language
+            this.$i18n.locale = this.$store.getters.config.language
         },
         mounted() {
             this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
@@ -136,7 +136,7 @@
             },
             hideSplash: function () {
                 this.$refs.splash.hideSplash();
-                if (this.$store.state.config.firstTimeOpen) {
+                if (this.$store.getters.config.firstTimeOpen) {
                     this.showWelcomeModal();
                 }
             },
@@ -144,7 +144,7 @@
                 let modal = new Modal(document.getElementById('welcomeModal'), {backdrop: 'static'});
                 modal.show();
                 this.$store.commit('updateConfigFirstTimeOpen');
-                configRepository.update(this.$store.state.config);
+                configRepository.update(this.$store.getters.config);
             },
             compatible: function () {
                 return window.IndexedDB;
@@ -163,10 +163,10 @@
                 return dates_array;
             },
             showCustomList: function () {
-                return this.$store.state.config.customList;
+                return this.$store.getters.config.customList;
             },
             darkTheme: function () {
-                return this.$store.state.config.darkTheme;
+                return this.$store.getters.config.darkTheme;
             }
         }
     }

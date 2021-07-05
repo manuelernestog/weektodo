@@ -29,7 +29,7 @@
         name: "backupView",
         data() {
             return {
-                darkTheme: this.$store.state.config.darkTheme
+                darkTheme: this.$store.getters.config.darkTheme
             }
         },
         methods: {

@@ -44,7 +44,7 @@
                 this.$store.commit('removeCustomTodoList', this.$store.state.actions.cListToRmv);
                 var modalEl = document.getElementById('customListRemoveModal');
                 var modal = Modal.getInstance(modalEl);
-                customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
+                customToDoListIdsRepository.update(this.$store.getters.cTodoListIds);
                 toDoListRepository.remove(this.$store.state.actions.cListToRmv.id);
                 modal.hide();
             }

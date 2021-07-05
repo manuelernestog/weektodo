@@ -42,14 +42,14 @@
         name: "languageView",
         data() {
             return {
-                language: this.$store.state.config.language
+                language: this.$store.getters.config.language
             }
         },
         methods: {
             changeLanguage: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigLanguage', this.language);
-                    configRepository.update(this.$store.state.config);
+                    configRepository.update(this.$store.getters.config);
                     this.$i18n.locale = this.language;
                 });
             },

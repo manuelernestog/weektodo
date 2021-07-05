@@ -74,36 +74,36 @@
         components: {toastMessage},
         data() {
             return {
-                customList: this.$store.state.config.customList,
-                darkTheme: this.$store.state.config.darkTheme,
-                language: this.$store.state.config.language,
-                checkUpdates: this.$store.state.config.checkUpdates,
+                customList: this.$store.getters.config.customList,
+                darkTheme: this.$store.getters.config.darkTheme,
+                language: this.$store.getters.config.language,
+                checkUpdates: this.$store.getters.config.checkUpdates,
             }
         },
         methods: {
             changeCustomList: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigCustomList', this.customList);
-                    configRepository.update(this.$store.state.config);
+                    configRepository.update(this.$store.getters.config);
                 });
             },
             changeDarkTheme: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigDarkTheme', this.darkTheme);
-                    configRepository.update(this.$store.state.config);
+                    configRepository.update(this.$store.getters.config);
                 });
             },
             changeLanguage: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigLanguage', this.language);
-                    configRepository.update(this.$store.state.config);
+                    configRepository.update(this.$store.getters.config);
                     this.$i18n.locale = this.language;
                 });
             },
             changeCheckUpdates: function () {
                 this.$nextTick(function () {
                     this.$store.commit('updateConfigCheckUpdates', this.checkUpdates);
-                    configRepository.update(this.$store.state.config);
+                    configRepository.update(this.$store.getters.config);
                 });
             },
             exportData: function () {

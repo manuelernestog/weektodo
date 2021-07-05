@@ -51,8 +51,8 @@
                 const customTodoListId = {listId: moment().format("YYYYMMDDTHHmmssS"), listName: ""};
                 this.$store.commit('actionsCListCreatedUpdate', true);
                 this.$store.commit('newCustomTodoList', customTodoListId);
-                customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
-                toDoListRepository.update(customTodoListId.listId, this.$store.state.todoLists[customTodoListId.listId]);
+                customToDoListIdsRepository.update(this.$store.getters.cTodoListIds);
+                toDoListRepository.update(customTodoListId.listId, this.$store.getters.todoLists[customTodoListId.listId]);
             },
             resetDatePicker: function () {
                 document.getElementById('side-bar-date-picker-input').removeEventListener("focusout", this.resetDatePicker);
@@ -71,10 +71,10 @@
         },
         computed: {
             showCustomList: function () {
-                return this.$store.state.config.customList;
+                return this.$store.getters.config.customList;
             },
             language: function () {
-                let lang = this.$store.state.config.language;
+                let lang = this.$store.getters.config.language;
                 let return_lang = null;
                 switch (lang) {
                     case "es":

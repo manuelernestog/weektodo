@@ -56,13 +56,13 @@
         methods: {
             check_all_items: function () {
                 this.$store.commit('checkAllItems', this.id);
-                toDoListRepository.update(this.id, this.$store.state.todoLists[this.id]);
+                toDoListRepository.update(this.id, this.$store.getters.todoLists[this.id]);
             },
             moveUndoneItems: function () {
                 let towmorrow_id = this.moments(this.id).add(1, 'd').format('YYYYMMDD');
                 this.$store.commit('moveUndoneItems', {origenId: this.id, destinyId: towmorrow_id});
-                toDoListRepository.update(this.id, this.$store.state.todoLists[this.id]);
-                toDoListRepository.update(towmorrow_id, this.$store.state.todoLists[towmorrow_id]);
+                toDoListRepository.update(this.id, this.$store.getters.todoLists[this.id]);
+                toDoListRepository.update(towmorrow_id, this.$store.getters.todoLists[towmorrow_id]);
             },
             moments: function (date) {
                 return moment(date);
@@ -78,7 +78,7 @@
                 return allChecked;
             },
             editToDoListName: function () {
-                this.name = this.$store.state.cTodoListIds[this.cTodoListIndex].listName;
+                this.name = this.$store.getters.cTodoListIds[this.cTodoListIndex].listName;
                 this.editing = true;
                 this.$nextTick(function () {
                     this.$refs.cTodoInput.focus();
@@ -88,17 +88,17 @@
             doneEdit: function () {
                 this.editing = false;
                 this.$store.commit('updateCustomTodoList', {index: this.cTodoListIndex, name: this.name});
-                customToDoListIdsRepository.update(this.$store.state.cTodoListIds);
+                customToDoListIdsRepository.update(this.$store.getters.cTodoListIds);
             },
             cancelEdit: function () {
-                this.name = this.$store.state.cTodoListIds[this.cTodoListIndex].listName || ""
+                this.name = this.$store.getters.cTodoListIds[this.cTodoListIndex].listName || ""
                 this.editing = false;
             },
             removeList: function () {
                 this.$store.commit('actionsCListToRmvUpdate', {
                     id: this.id,
                     index: this.cTodoListIndex,
-                    name: this.$store.state.cTodoListIds[this.cTodoListIndex].listName
+                    name: this.$store.getters.cTodoListIds[this.cTodoListIndex].listName
                 });
             }
         },
@@ -107,10 +107,10 @@
                 return moment().format('YYYYMMDD') == this.id;
             },
             todo_list_name: function () {
-                return this.$store.state.cTodoListIds[this.cTodoListIndex].listName
+                return this.$store.getters.cTodoListIds[this.cTodoListIndex].listName
             },
             language: function () {
-                return this.$store.state.config.language;
+                return this.$store.getters.config.language;
             }
         }
     }

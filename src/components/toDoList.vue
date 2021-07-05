@@ -75,7 +75,7 @@
                 if (this.newToDo.text != "") {
                     var newTodo = {text: this.newToDo.text, checked: false, listId: this.id};
                     this.$store.commit('addTodo', newTodo);
-                    toDoListRepository.update(this.id, this.$store.state.todoLists[this.id]);
+                    toDoListRepository.update(this.id, this.$store.getters.todoLists[this.id]);
                     this.newToDo.text = "";
                 }
             },
@@ -89,19 +89,19 @@
                 let toDo = JSON.parse(event.dataTransfer.getData('item'));
                 let index = event.dataTransfer.getData('index');
                 this.$store.commit('removeTodo', {toDoListId: toDo.listId, index: index});
-                toDoListRepository.update(toDo.listId, this.$store.state.todoLists[toDo.listId]);
+                toDoListRepository.update(toDo.listId, this.$store.getters.todoLists[toDo.listId]);
                 toDo.listId = list;
                 this.$store.commit('insertTodo', {toDoListId: list, index: new_index, toDo: toDo});
-                toDoListRepository.update(list, this.$store.state.todoLists[list]);
+                toDoListRepository.update(list, this.$store.getters.todoLists[list]);
             },
             onDropAtEnd: function (event, list) {
                 let toDo = JSON.parse(event.dataTransfer.getData('item'));
                 let index = event.dataTransfer.getData('index');
                 this.$store.commit('removeTodo', {toDoListId: toDo.listId, index: index});
-                toDoListRepository.update(toDo.listId, this.$store.state.todoLists[toDo.listId]);
+                toDoListRepository.update(toDo.listId, this.$store.getters.todoLists[toDo.listId]);
                 toDo.listId = list;
                 this.$store.commit('addTodo', toDo);
-                toDoListRepository.update(list, this.$store.state.todoLists[list]);
+                toDoListRepository.update(list, this.$store.getters.todoLists[list]);
                 this.fakeItemsDragHover = false;
             },
             setTodoListHeight: function () {
@@ -127,7 +127,7 @@
         },
         computed: {
             toDoListState: function () {
-                return this.$store.state.todoLists[this.id];
+                return this.$store.getters.todoLists[this.id];
             }
         }
     }

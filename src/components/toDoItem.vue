@@ -47,7 +47,7 @@
             doneEdit: function () {
                 this.editing = false;
                 this.$store.commit('updateTodo', {toDoListId: this.toDoListId, index: this.index, text: this.text});
-                toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
+                toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
             },
             cancelEdit: function () {
                 this.text = this.toDo.text;
@@ -55,11 +55,11 @@
             },
             removeTodo: function () {
                 this.$store.commit('removeTodo', {toDoListId: this.toDoListId, index: this.index});
-                toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
+                toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
             },
             checkToDo: function () {
                 this.$store.commit('checkTodo', {toDoListId: this.toDoListId, index: this.index})
-                toDoListRepository.update(this.toDoListId, this.$store.state.todoLists[this.toDoListId]);
+                toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
             },
             startDrag: function (event, item, index) {
                 event.dataTransfer.dropEffect = 'move'

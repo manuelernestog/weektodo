@@ -53,13 +53,13 @@
         },
         mounted() {
             setTimeout(function () {
-                if (version_json.version != this.$store.state.config.version) {
+                if (version_json.version != this.$store.getters.config.version) {
                     this.$store.commit('updateConfigVersion', version_json.version);
-                    configRepository.update(this.$store.state.config);
+                    configRepository.update(this.$store.getters.config);
                     var toast = new Toast(document.getElementById('versionChanges'));
                     toast.show();
                 }
-                if (this.isElectron() && this.$store.state.config.checkUpdates ) {
+                if (this.isElectron() && this.$store.getters.config.checkUpdates ) {
                     const axios = require('axios').default;
                     axios
                         .get('https://weektodo-app.netlify.app/version.json')
@@ -73,8 +73,8 @@
                 modal.show();
             },
             getChangeLogs: function () {
-                if (version_json.changes[this.$store.state.config.language]) {
-                    return version_json.changes[this.$store.state.config.language]
+                if (version_json.changes[this.$store.getters.config.language]) {
+                    return version_json.changes[this.$store.getters.config.language]
                 } else {
                     return version_json.changes['en']
                 }
@@ -105,7 +105,7 @@
         },
         computed: {
             language: function () {
-                return this.$store.state.config.language;
+                return this.$store.getters.config.language;
             }
         }
     }

@@ -48,7 +48,7 @@
     "list2": "Einkaufsliste",
     "list3": "Ideen"
   },
-  "Tipps": {
+  "tips": {
     "tips": "Tipps",
     "next": "Nächster Tipp",
     "back": "Vorheriger Tipp",
@@ -98,6 +98,8 @@
     "removeList": "Liste entfernen",
     "completeAll": "Schließe alle ab",
     "postpone": "verschieben",
+    "newVersionAvailable": "New Version Available",
+    "download": "(Download)",
     "sponsoredBy": "Gesponsert von"
   }
 }
