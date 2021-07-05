@@ -11,7 +11,7 @@
           <div class="mb-4">
             <label for="language" class="form-label">{{ $t("settings.language") }}:</label>
             <select id="language" class="col-sm-9 form-select" aria-label="Default select example" v-model="language"
-                    @change="changeLanguage">
+                    @change="changeConfig('language',language)">
               <option value="en">English</option>
               <option value="es">Español</option>
               <option value="fr">Français</option>
@@ -23,23 +23,36 @@
           </div>
           <div class="mb-3">
             <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="calendarSetting" v-model="calendar"
+                     @change="changeConfig('calendar',calendar)">
+              <label class="form-check-label" for="calendarSetting">{{ $t("settings.calendar") }}</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="customListsSetting" v-model="customList"
-                     @change="changeCustomList">
+                     @change="changeConfig('customList',customList)">
               <label class="form-check-label" for="customListsSetting">{{ $t("settings.customLists") }}</label>
             </div>
           </div>
           <div class="mb-3">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme"
-                     @change="changeDarkTheme">
+                     @change="changeConfig('darkTheme',darkTheme)">
               <label class="form-check-label" for="darkThemeSetting">{{ $t("settings.darkTheme") }}</label>
             </div>
           </div>
           <div v-if="isElectron()" class="mb-3">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="updatesCheckSetting" v-model="checkUpdates"
-                     @change="changeCheckUpdates">
+                     @change="changeConfig('checkUpdates',checkUpdates)">
               <label class="form-check-label" for="updatesCheckSetting">{{ $t("settings.checkUpdates") }}</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="">
+              <label for="customRange2" class="form-label">Example range</label>
+              <input type="range" class="form-range" min="0" max="5" id="customRange2">
             </div>
           </div>
           <div class="horizontal-divider mb-4 mt-4"></div>
@@ -78,32 +91,16 @@
                 darkTheme: this.$store.getters.config.darkTheme,
                 language: this.$store.getters.config.language,
                 checkUpdates: this.$store.getters.config.checkUpdates,
+                calendar: this.$store.getters.config.calendar,
+                columns: this.$store.getters.config.columns,
             }
         },
         methods: {
-            changeCustomList: function () {
+            changeConfig: function (key, val) {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfig', {val: this.customList, key: "customList"});
+                    this.$store.commit('updateConfig', {val: val, key: key});
                     configRepository.update(this.$store.getters.config);
-                });
-            },
-            changeDarkTheme: function () {
-                this.$nextTick(function () {
-                    this.$store.commit('updateConfig', {val: this.darkTheme, key: "darkTheme"});
-                    configRepository.update(this.$store.getters.config);
-                });
-            },
-            changeLanguage: function () {
-                this.$nextTick(function () {
-                    this.$store.commit('updateConfig', {val: this.language, key: "language"});
-                    configRepository.update(this.$store.getters.config);
-                    this.$i18n.locale = this.language;
-                });
-            },
-            changeCheckUpdates: function () {
-                this.$nextTick(function () {
-                    this.$store.commit('updateConfig', {val:  this.checkUpdates, key: "checkUpdates"});
-                    configRepository.update(this.$store.getters.config);
+                    if (key === "language") this.$i18n.locale = this.language;
                 });
             },
             exportData: function () {
@@ -126,7 +123,7 @@
     height: 1.4em !important;
   }
 
-  .form-check-label{
+  .form-check-label {
     width: 220px;
   }
 

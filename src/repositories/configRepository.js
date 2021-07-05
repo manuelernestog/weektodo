@@ -10,6 +10,7 @@ export default {
             let default_config = {
                 darkMode: false,
                 customList: true,
+                calendar: true,
                 firstTimeOpen: true,
                 language: 'en',
                 version: version_json.version,

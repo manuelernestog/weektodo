@@ -3,15 +3,18 @@
     <div class="hidden-mobile">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
-      <div class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
+
+      <div v-show="showCalendar" class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
         <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
         <div class="todo-slider" ref="weekListContainer">
           <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
         </div>
         <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
       </div>
-      <div v-show="showCustomList" class="main-horizontal-divider"></div>
-      <div v-show="showCustomList" class="todo-lists-container">
+
+      <div v-show="showCustomList && showCalendar" class="main-horizontal-divider"></div>
+
+      <div v-show="showCustomList" class="todo-lists-container" :class="{'full-screen' : !showCalendar }">
         <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
            :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
         <div class="todo-slider slides" ref="customListContainer">
@@ -21,6 +24,7 @@
         <i class="bi-chevron-right slider-btn" @click="customMoveRight"
            :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
       </div>
+
       <remove-custom-list></remove-custom-list>
       <config-modal></config-modal>
       <about-modal></about-modal>
@@ -119,13 +123,18 @@
                 this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
             },
             customMoveRight: function () {
-                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.todoListWidth();
+                console.log('right');
+                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.customTodoListWidth();
             },
             customMoveLeft: function () {
-                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.todoListWidth();
+                console.log('left');
+                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
             },
             todoListWidth: function () {
                 return this.$refs.weekListContainer.clientWidth / 5;
+            },
+            customTodoListWidth: function () {
+                return this.$refs.customListContainer.clientWidth / 5;
             },
             setSelectedDate: function (date) {
                 this.selected_date = date;
@@ -164,6 +173,9 @@
             },
             showCustomList: function () {
                 return this.$store.getters.config.customList;
+            },
+            showCalendar: function () {
+                return this.$store.getters.config.calendar;
             },
             darkTheme: function () {
                 return this.$store.getters.config.darkTheme;
