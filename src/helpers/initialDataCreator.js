@@ -27,13 +27,13 @@ export default {
 function create_todo(vue, list_id, text, checked) {
     var newTodo = {text: text, checked: checked, listId: list_id};
     vue.$store.commit('addTodo', newTodo);
-    toDoListRepository.update(list_id, vue.$store.state.todoLists[list_id]);
+    toDoListRepository.update(list_id, vue.$store.getters.todoLists[list_id]);
 }
 
 function create_custom_list(vue, name) {
     const customTodoListId = {listId: name, listName: name};
     vue.$store.commit('newCustomTodoList', customTodoListId);
-    customToDoListIdsRepository.update(vue.$store.state.cTodoListIds);
-    toDoListRepository.update(customTodoListId.listId, vue.$store.state.todoLists[customTodoListId.listId]);
+    customToDoListIdsRepository.update(vue.$store.getters.cTodoListIds);
+    toDoListRepository.update(customTodoListId.listId, vue.$store.getters.todoLists[customTodoListId.listId]);
     return customTodoListId.listId;
 }
