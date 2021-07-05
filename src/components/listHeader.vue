@@ -43,7 +43,7 @@
         },
         mounted() {
             if (this.customTodoList) {
-                if (this.$store.state.actions.cListCreated) {
+                if (this.$store.getters.actions.cListCreated) {
                     this.$store.commit('actionsCListCreatedUpdate', false);
                     this.editing = true;
                     this.$nextTick(function () {

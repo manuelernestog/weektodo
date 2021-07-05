@@ -33,19 +33,19 @@
         name: "removeCustomList",
         computed: {
             listId: function () {
-                if (this.$store.state.actions.cListToRmv) {
-                    return this.$store.state.actions.cListToRmv.name;
+                if (this.$store.getters.actions.cListToRmv) {
+                    return this.$store.getters.actions.cListToRmv.name;
                 }
                 return null;
             }
         },
         methods: {
             removeCustomList: function () {
-                this.$store.commit('removeCustomTodoList', this.$store.state.actions.cListToRmv);
+                this.$store.commit('removeCustomTodoList', this.$store.getters.actions.cListToRmv);
                 var modalEl = document.getElementById('customListRemoveModal');
                 var modal = Modal.getInstance(modalEl);
                 customToDoListIdsRepository.update(this.$store.getters.cTodoListIds);
-                toDoListRepository.remove(this.$store.state.actions.cListToRmv.id);
+                toDoListRepository.remove(this.$store.getters.actions.cListToRmv.id);
                 modal.hide();
             }
         }
