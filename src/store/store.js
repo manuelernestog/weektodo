@@ -15,6 +15,13 @@ export const store = createStore({
         }
     },
     getters: {},
-    mutations: {},
+    mutations: {
+        actionsCListCreatedUpdate(state, obj) {
+            state.actions.cListCreated = obj;
+        },
+        actionsCListToRmvUpdate(state, obj) {
+            state.actions.cListToRmv = obj;
+        }
+    },
     actions: {}
 });

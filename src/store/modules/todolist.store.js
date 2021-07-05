@@ -68,7 +68,10 @@ const mutations = {
     removeCustomTodoList(state, obj) {
         delete state.todoLists[obj.id];
         state.cTodoListIds.splice(obj.index, 1);
-    }
+    },
+    updateCustomTodoList(state, obj) {
+        state.cTodoListIds[obj.index].listName = obj.name;
+    },
 }
 
 const actions = {
