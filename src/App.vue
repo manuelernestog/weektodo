@@ -123,11 +123,9 @@
                 this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
             },
             customMoveRight: function () {
-                console.log('right');
                 this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.customTodoListWidth();
             },
             customMoveLeft: function () {
-                console.log('left');
                 this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
             },
             todoListWidth: function () {
