@@ -54,7 +54,8 @@
         mounted() {
             setTimeout(function () {
                 if (version_json.version != this.$store.getters.config.version) {
-                    this.$store.commit('updateConfigVersion', version_json.version);
+                    this.$store.commit('updateConfig', {val: version_json.version, key: "version"});
+
                     configRepository.update(this.$store.getters.config);
                     var toast = new Toast(document.getElementById('versionChanges'));
                     toast.show();

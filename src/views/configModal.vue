@@ -83,26 +83,26 @@
         methods: {
             changeCustomList: function () {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfigCustomList', this.customList);
+                    this.$store.commit('updateConfig', {val: this.customList, key: "customList"});
                     configRepository.update(this.$store.getters.config);
                 });
             },
             changeDarkTheme: function () {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfigDarkTheme', this.darkTheme);
+                    this.$store.commit('updateConfig', {val: this.darkTheme, key: "darkTheme"});
                     configRepository.update(this.$store.getters.config);
                 });
             },
             changeLanguage: function () {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfigLanguage', this.language);
+                    this.$store.commit('updateConfig', {val: this.language, key: "language"});
                     configRepository.update(this.$store.getters.config);
                     this.$i18n.locale = this.language;
                 });
             },
             changeCheckUpdates: function () {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfigCheckUpdates', this.checkUpdates);
+                    this.$store.commit('updateConfig', {val:  this.checkUpdates, key: "checkUpdates"});
                     configRepository.update(this.$store.getters.config);
                 });
             },

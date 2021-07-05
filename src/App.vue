@@ -143,7 +143,7 @@
             showWelcomeModal: function () {
                 let modal = new Modal(document.getElementById('welcomeModal'), {backdrop: 'static'});
                 modal.show();
-                this.$store.commit('updateConfigFirstTimeOpen');
+                this.$store.commit('updateConfig', {val: false, key: "firstTimeOpen"});
                 configRepository.update(this.$store.getters.config);
             },
             compatible: function () {

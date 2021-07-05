@@ -44,7 +44,7 @@
         methods: {
             changeDarkTheme: function () {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfigDarkTheme', this.darkTheme);
+                    this.$store.commit('updateConfig', {val: this.darkTheme, key: "darkTheme"});
                     configRepository.update(this.$store.getters.config);
                 });
             },
