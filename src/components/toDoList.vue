@@ -1,6 +1,7 @@
 <template>
-  <div :id="'list'+id" class="to-do-list-container" ref='listContainer'
-       :class="{ 'old-date': !customTodoList && moments(id).isBefore(Date(),'day') }">
+  <div :id="'list'+id" class="to-do-list-container d-flex flex-column" ref='listContainer'
+       :class="{ 'old-date': !customTodoList && moments(id).isBefore(Date(),'day') }"
+  >
     <list-header :id="id" :customTodoList="customTodoList" :cTodoListIndex="cTodoListIndex"
                  :toDoList="toDoListState"></list-header>
     <ul class="to-do-list ">
@@ -10,26 +11,18 @@
         </div>
       </li>
     </ul>
-    <div class="fake-drop-zone"
+    <div class="fake-drop-zone flex-grow-1"
          @drop='onDropAtEnd($event, id)'
          @dragenter.self="onDragenter"
          @dragleave.self="onDragleave"
          @dragover.prevent
          :class="{'fake-drag-hover': fakeItemsDragHover}"
     >
-      <div class="todo-item-container">
+      <div class="todo-item-container border-bottom-0">
         <input class="todo-input new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text"
                @blur="addToDo()" @keyup.enter="addToDo()" @keyup.esc="cancelAdd()">
       </div>
-      <div @click="$refs.newToDoInput.focus()">
-        <div v-if="fakeItemCounts > 0 && toDoListState.length < fakeItemCounts">
-          <div v-for="index in fakeItemCounts - toDoListState.length" :key="index">
-            <div class="fake-item-container">
-              <div class="to-do-fake-item"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="fake-lines" :class="{ 'custom-list': customTodoList}" @click="$refs.newToDoInput.focus()"></div>
     </div>
   </div>
 </template>
@@ -223,8 +216,23 @@
     background-color: #0c0d14;
   }
 
-  .fake-drag-hover input, .dark-theme .fake-drag-hover input{
+  .fake-drag-hover input, .dark-theme .fake-drag-hover input {
     background-color: unset;
+  }
+
+  .fake-lines {
+    background-image: linear-gradient(0deg, #ffffff 48.08%, #eaecef 48.08%, #eaecef 50%, #ffffff 50%, #ffffff 98.08%, #eaecef 98.08%, #eaecef 100%);
+    background-size: 52.00px 52.00px;
+    height: calc(100% - 25px);
+  }
+
+  .dark-theme .fake-lines {
+    background-image: linear-gradient(0deg, #13171d 48.08%, #30363d 48.08%, #30363d 50%, #13171d 50%, #13171d 98.08%, #30363d 98.08%, #30363d 100%);
+    background-size: 52.00px 52.00px;
+  }
+
+  .fake-lines.custom-list {
+    height: calc(100% - 35px);
   }
 
 </style>
