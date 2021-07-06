@@ -4,6 +4,7 @@ export default {
     migrate() {
         configCheckUpdate();
         configCalendar();
+        configZoomAndColums();
     }
 }
 
@@ -19,6 +20,15 @@ function configCalendar() {
     let config = configRepository.load();
     if (!('calendar' in config)) {
         config['calendar'] = true;
+        configRepository.update(config);
+    }
+}
+
+function configZoomAndColums() {
+    let config = configRepository.load();
+    if (!('zoom' in config)) {
+        config['zoom'] = 100;
+        config['columns'] = 5;
         configRepository.update(config);
     }
 }

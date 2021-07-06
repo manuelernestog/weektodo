@@ -15,6 +15,8 @@ export default {
                 language: 'en',
                 version: version_json.version,
                 checkUpdates: true,
+                columns: 5,
+                zoom: 100,
             }
             storageRepository.set('config', default_config);
             return default_config;

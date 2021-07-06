@@ -51,8 +51,14 @@
           </div>
           <div class="mb-3">
             <div class="">
-              <label for="customRange2" class="form-label">Example range</label>
-              <input type="range" class="form-range" min="0" max="5" id="customRange2">
+              <label for="customRange2" class="form-label">Columns {{columns}}</label>
+              <input type="range" class="form-range" min="0" max="5" id="customRange2" v-model="columns">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="">
+              <label for="customRange1" class="form-label">Zoom {{zoom}}</label>
+              <input type="range" class="form-range" min="0" max="5" id="customRange1" v-model="zoom">
             </div>
           </div>
           <div class="horizontal-divider mb-4 mt-4"></div>
@@ -93,6 +99,7 @@
                 checkUpdates: this.$store.getters.config.checkUpdates,
                 calendar: this.$store.getters.config.calendar,
                 columns: this.$store.getters.config.columns,
+                zoom: this.$store.getters.config.zoom,
             }
         },
         methods: {
