@@ -3,7 +3,11 @@
   "changes": {
     "en": {
       "1.3.0-20210702": [
-        "Fixing Germany errors"
+        "Fixing Germany errors",
+        "Adding setting to hide Calendar",
+        "Adding setting to change columns count",
+        "Adding setting to change view zoom",
+        "Fixing columns align bug"
       ],
       "1.2.0-20210702": [
         "Performance improvements",
