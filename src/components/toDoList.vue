@@ -1,7 +1,7 @@
 <template>
   <div :id="'list'+id" class="to-do-list-container d-flex flex-column" ref='listContainer'
        :class="{ 'old-date': !customTodoList && moments(id).isBefore(Date(),'day') }"
-       :style=" `flex: 0 0 calc(${100/columns}% - 26px);` "
+       :style=" `flex: 0 0 ${100/columns}%;` "
   >
     <list-header :id="id" :customTodoList="customTodoList" :cTodoListIndex="cTodoListIndex"
                  :toDoList="toDoListState"></list-header>
@@ -152,7 +152,8 @@
   }
 
   .to-do-list-container {
-    margin: 1.6rem 13px 13px;
+    /*margin: 1.6rem 13px 13px;*/
+    padding: 1.6rem 13px 13px;
     scroll-snap-align: start;
   }
 

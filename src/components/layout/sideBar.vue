@@ -111,7 +111,7 @@
 <style scoped>
   .side-bar {
     width: 4rem;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     float: left;

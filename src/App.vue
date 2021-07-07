@@ -1,6 +1,6 @@
 <template>
   <div v-show="compatible" class="app-container" :class="{'dark-theme' : darkTheme}">
-    <div class="hidden-mobile">
+    <div class="hidden-mobile app-body">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
 
@@ -123,11 +123,13 @@
                 this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
             },
             customMoveRight: function () {
-                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.customTodoListWidth();
+                console.log(this.$refs.customListContainer.scrollLeft);
+                this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.customTodoListWidth() - 13;
             },
             customMoveLeft: function () {
                 this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
-            },
+            console.log(this.$refs.customListContainer.scrollLeft);
+                },
             todoListWidth: function () {
                 return this.$refs.weekListContainer.clientWidth / this.columns;
             },
@@ -191,7 +193,7 @@
   }
 
   .todo-lists-container {
-    height: calc(50vh - 1px);
+    height: calc(50% - 1px);
     display: flex;
     overflow: auto;
   }
@@ -284,6 +286,10 @@
   .dark-theme input {
     background-color: #13171d;
     color: #c9d1d9;
+  }
+
+  .dark-theme input.form-range {
+    background-color: unset;
   }
 
   .dark-theme .slider-btn:hover {

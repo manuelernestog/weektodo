@@ -181,3 +181,11 @@
         display: none !important;
     }
 }
+
+.app-container{
+    height: 100vh;
+}
+
+.app-body{
+    height: 100%;
+}
