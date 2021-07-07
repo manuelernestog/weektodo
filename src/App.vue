@@ -26,7 +26,7 @@
       </div>
 
       <remove-custom-list></remove-custom-list>
-      <config-modal></config-modal>
+      <config-modal @change-columns="weekResetScroll"></config-modal>
       <about-modal></about-modal>
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
@@ -129,10 +129,10 @@
                 this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
             },
             todoListWidth: function () {
-                return this.$refs.weekListContainer.clientWidth / 5;
+                return this.$refs.weekListContainer.clientWidth / this.columns;
             },
             customTodoListWidth: function () {
-                return this.$refs.customListContainer.clientWidth / 5;
+                return this.$refs.customListContainer.clientWidth / this.columns;
             },
             setSelectedDate: function (date) {
                 this.selected_date = date;
@@ -164,7 +164,7 @@
                     moment(this.selected_date).subtract(1, 'd').format('YYYYMMDD'),
                     this.selected_date
                 ];
-                for (let i = 1; i < 5; i++) {
+                for (let i = 1; i < this.columns; i++) {
                     dates_array.push(moment(this.selected_date).add(i, 'd').format('YYYYMMDD'));
                 }
                 return dates_array;
@@ -174,6 +174,9 @@
             },
             showCalendar: function () {
                 return this.$store.getters.config.calendar;
+            },
+            columns: function () {
+                return this.$store.getters.config.columns;
             },
             darkTheme: function () {
                 return this.$store.getters.config.darkTheme;

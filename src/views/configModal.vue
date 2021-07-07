@@ -52,7 +52,8 @@
           <div class="mb-3">
             <div class="">
               <label for="customRange2" class="form-label">Columns {{columns}}</label>
-              <input type="range" class="form-range" min="0" max="5" id="customRange2" v-model="columns">
+              <input type="range" class="form-range" min="1" max="12" id="customRange2" v-model="columns"
+                     @change="changeConfig('columns',columns)">
             </div>
           </div>
           <div class="mb-3">
@@ -108,6 +109,11 @@
                     this.$store.commit('updateConfig', {val: val, key: key});
                     configRepository.update(this.$store.getters.config);
                     if (key === "language") this.$i18n.locale = this.language;
+                    if (key === "columns") {
+                        setTimeout(function () {
+                            this.$emit('changeColumns')
+                        }.bind(this), 50);
+                    }
                 });
             },
             exportData: function () {
@@ -119,7 +125,8 @@
             isElectron: function () {
                 let isElectron = require("is-electron");
                 return isElectron();
-            }
+            },
+
         }
     }
 </script>
