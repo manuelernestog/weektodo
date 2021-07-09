@@ -51,15 +51,15 @@
           </div>
           <div class="mb-3">
             <div class="">
-              <label for="customRange2" class="form-label">Columns {{columns}}</label>
-              <input type="range" class="form-range" min="1" max="12" id="customRange2" v-model="columns"
+              <label for="columnsConfig" class="form-label">Columns {{columns}}</label>
+              <input type="range" class="form-range" min="1" max="12" id="columnsConfig" v-model="columns"
                      @change="changeConfig('columns',columns)">
             </div>
           </div>
           <div class="mb-3">
             <div class="">
-              <label for="customRange1" class="form-label">Zoom {{zoom}}</label>
-              <input type="range" class="form-range" min="0" max="5" id="customRange1" v-model="zoom">
+              <label for="zoomConfig" class="form-label">Zoom {{zoom}}</label>
+              <input type="range" class="form-range" min="50" max="150" id="zoomConfig" step="5" v-model="zoom" @change="changeConfig('zoom',zoom)">
             </div>
           </div>
           <div class="horizontal-divider mb-4 mt-4"></div>

@@ -1,6 +1,6 @@
 <template>
   <div v-show="compatible" class="app-container" :class="{'dark-theme' : darkTheme}">
-    <div class="hidden-mobile app-body">
+    <div class="hidden-mobile app-body" :style="{'zoom' : `${zoom}%` }">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
 
@@ -16,13 +16,13 @@
 
       <div v-show="showCustomList" class="todo-lists-container" :class="{'full-screen' : !showCalendar }">
         <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
-           :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
+           :style="{visibility: (cTodoList.length > columns) ? 'visible' : 'hidden'}"></i>
         <div class="todo-slider slides" ref="customListContainer">
           <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
                       :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
         </div>
         <i class="bi-chevron-right slider-btn" @click="customMoveRight"
-           :style="{visibility: (cTodoList.length > 5) ? 'visible' : 'hidden'}"></i>
+           :style="{visibility: (cTodoList.length > columns) ? 'visible' : 'hidden'}"></i>
       </div>
 
       <remove-custom-list></remove-custom-list>
@@ -179,6 +179,9 @@
             },
             columns: function () {
                 return this.$store.getters.config.columns;
+            },
+            zoom: function () {
+                return this.$store.getters.config.zoom;
             },
             darkTheme: function () {
                 return this.$store.getters.config.darkTheme;
