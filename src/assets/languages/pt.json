@@ -9,7 +9,10 @@
     "export": "Exportar",
     "backup": "Backup:",
     "invalidFile": "Arquivo inválido",
-    "checkUpdates": "Verifique se há atualizações na inicialização"
+    "checkUpdates": "Verifique se há atualizações na inicialização",
+    "calendar": "Calendário",
+    "zoom": "Ampliação",
+    "columns": "Colunas"
   },
   "donate": {
     "contribute": "Contribuir",

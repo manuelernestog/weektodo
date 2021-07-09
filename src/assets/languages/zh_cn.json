@@ -9,7 +9,10 @@
     "export": "導出",
     "backup": "備份：",
     "invalidFile": "無效的文件",
-    "checkUpdates": "在啟動時檢查更新"
+    "checkUpdates": "在啟動時檢查更新",
+    "calendar": "日曆",
+    "zoom": "飛漲",
+    "columns": "飛漲"
   },
   "donate": {
     "contribute": "貢獻",

@@ -4,26 +4,30 @@
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
 
-      <div v-show="showCalendar" class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
-        <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
-        <div class="todo-slider" ref="weekListContainer">
-          <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
+      <div class="h-100 d-flex flex-column">
+        <div v-show="showCalendar" class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
+          <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
+          <div class="todo-slider" ref="weekListContainer">
+            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
+          </div>
+          <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
+
         </div>
-        <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
+
+        <div v-show="showCustomList && showCalendar" class="main-horizontal-divider"></div>
+
+        <div v-show="showCustomList" class="todo-lists-container" :class="{'full-screen' : !showCalendar, 'flex-grow-1' : showCalendar  }">
+          <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
+             :style="{visibility: (cTodoList.length > columns) ? 'visible' : 'hidden'}"></i>
+          <div class="todo-slider slides" ref="customListContainer">
+            <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
+                        :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
+          </div>
+          <i class="bi-chevron-right slider-btn" @click="customMoveRight"
+             :style="{visibility: (cTodoList.length > columns) ? 'visible' : 'hidden'}"></i>
+        </div>
       </div>
 
-      <div v-show="showCustomList && showCalendar" class="main-horizontal-divider"></div>
-
-      <div v-show="showCustomList" class="todo-lists-container" :class="{'full-screen' : !showCalendar }">
-        <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
-           :style="{visibility: (cTodoList.length > columns) ? 'visible' : 'hidden'}"></i>
-        <div class="todo-slider slides" ref="customListContainer">
-          <to-do-list v-for="(cTodoList,index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-                      :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
-        </div>
-        <i class="bi-chevron-right slider-btn" @click="customMoveRight"
-           :style="{visibility: (cTodoList.length > columns) ? 'visible' : 'hidden'}"></i>
-      </div>
 
       <remove-custom-list></remove-custom-list>
       <config-modal @change-columns="weekResetScroll"></config-modal>
@@ -196,7 +200,6 @@
   }
 
   .todo-lists-container {
-    height: calc(50% - 1px);
     display: flex;
     overflow: auto;
   }
@@ -273,8 +276,13 @@
   }
 
   .full-screen {
-    height: 100vh;
+    height: 100%;
+    resize: unset;
   }
+
+  /*.todo-lists-container::-webkit-resizer {*/
+  /*  background-color: red;*/
+  /*}*/
 
   .full-screen .todo-slider {
     margin-top: 20px;

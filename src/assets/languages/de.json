@@ -8,7 +8,10 @@
     "import": "Importieren",
     "export": "Exportieren",
     "backup": "Backup:",
-    "invalidFile": "Ungültige Datei"
+    "invalidFile": "Ungültige Datei",
+    "calendar": "Kalender",
+    "zoom": "Zoomen",
+    "columns": "Säulen"
   },
   "donate": {
     "contribute": "Beitragen",

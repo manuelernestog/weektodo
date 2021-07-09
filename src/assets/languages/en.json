@@ -9,7 +9,10 @@
     "export": "Export",
     "backup": "Backup:",
     "invalidFile": "Invalid File",
-    "checkUpdates": "Check for Updates on startup"
+    "checkUpdates": "Check for Updates on startup",
+    "calendar": "Calendar",
+    "zoom": "Zoom",
+    "columns": "Columns"
   },
   "donate": {
     "contribute": "Contribute",
