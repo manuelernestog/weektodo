@@ -1,3 +1,15 @@
+*{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.todo-item-container {
+    -webkit-user-drag: element;
+}
+
 .main-horizontal-divider {
     display: flex;
     margin-left: 40px;

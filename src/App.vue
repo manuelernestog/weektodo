@@ -16,7 +16,8 @@
 
         <div v-show="showCustomList && showCalendar" class="main-horizontal-divider"></div>
 
-        <div v-show="showCustomList" class="todo-lists-container" :class="{'full-screen' : !showCalendar, 'flex-grow-1' : showCalendar  }">
+        <div v-show="showCustomList" class="todo-lists-container"
+             :class="{'full-screen' : !showCalendar, 'flex-grow-1' : showCalendar  }">
           <i class="bi-chevron-left slider-btn" @click="customMoveLeft"
              :style="{visibility: (cTodoList.length > columns) ? 'visible' : 'hidden'}"></i>
           <div class="todo-slider slides" ref="customListContainer">
@@ -132,8 +133,7 @@
             },
             customMoveLeft: function () {
                 this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
-            console.log(this.$refs.customListContainer.scrollLeft);
-                },
+            },
             todoListWidth: function () {
                 return this.$refs.weekListContainer.clientWidth / this.columns;
             },
@@ -280,10 +280,6 @@
     resize: unset;
   }
 
-  /*.todo-lists-container::-webkit-resizer {*/
-  /*  background-color: red;*/
-  /*}*/
-
   .full-screen .todo-slider {
     margin-top: 20px;
   }
@@ -328,7 +324,7 @@
     width: 100%;
     height: 100%;
     z-index: 999;
-    position: absolute;
+    /*position: absolute;*/
   }
 
 </style>
