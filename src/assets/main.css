@@ -11,7 +11,9 @@
 }
 
 .main-horizontal-divider {
+    cursor: row-resize;
     display: flex;
+    flex-direction: column;
     margin-left: 40px;
     margin-right: 40px;
     -webkit-box-sizing: border-box;
@@ -20,8 +22,15 @@
     color: rgba(0, 0, 0, .85);
     line-height: 1.5715;
     list-style: none;
-    border-top: 1px solid rgba(0, 0, 0, .06);
+    height: 9px;
     margin-bottom: 1px;
+}
+
+.inner-main-horizontal-divider{
+    margin-top: 4px;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .06) ;
 }
 
 .horizontal-divider {

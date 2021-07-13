@@ -5,16 +5,21 @@
       <side-bar @change-date="setSelectedDate"></side-bar>
 
       <div class="h-100 d-flex flex-column">
-        <div v-show="showCalendar" class="todo-lists-container" :class="{'full-screen' : !showCustomList }">
+        <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer"
+             :class="{'full-screen' : !showCustomList }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
-            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
+            <to-do-list v-for="date in dates_array" :key="date" :id="date"
+                        :showCustomList="showCustomList"></to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
 
         </div>
 
-        <div v-show="showCustomList && showCalendar" class="main-horizontal-divider"></div>
+        <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
+             @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
+          <div class="inner-main-horizontal-divider"></div>
+        </div>
 
         <div v-show="showCustomList" class="todo-lists-container"
              :class="{'full-screen' : !showCalendar, 'flex-grow-1' : showCalendar  }">
@@ -84,7 +89,8 @@
         data() {
             return {
                 selected_date: moment().format('YYYYMMDD'),
-                cTodoList: this.$store.getters.cTodoListIds
+                cTodoList: this.$store.getters.cTodoListIds,
+                calendarHeight: "50%"
             }
         },
         beforeCreate() {
@@ -161,6 +167,21 @@
             },
             compatible: function () {
                 return window.IndexedDB;
+            },
+            resizerDblClick: function () {
+                this.calendarHeight = "50%";
+            },
+            resizerMouseDownHandler: function (e) {
+                this.resizerY = e.clientY;
+                document.addEventListener('mousemove', this.resizerMouseMoveHandler);
+                document.addEventListener('mouseup', this.resizerMouseUpHandler);
+            },
+            resizerMouseMoveHandler: function (e) {
+                this.calendarHeight = `${e.clientY}px`;
+            },
+            resizerMouseUpHandler: function () {
+                document.removeEventListener('mousemove', this.resizerMouseMoveHandler);
+                document.removeEventListener('mouseup', this.resizerMouseUpHandler);
             }
         },
         computed: {
@@ -189,6 +210,11 @@
             },
             darkTheme: function () {
                 return this.$store.getters.config.darkTheme;
+            },
+            resizableStyle: function () {
+                return {
+                    "height": this.calendarHeight
+                }
             }
         }
     }
@@ -202,6 +228,7 @@
   .todo-lists-container {
     display: flex;
     overflow: auto;
+    min-height: 180px;
   }
 
   .slider-btn {

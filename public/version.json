@@ -2,12 +2,13 @@
   "version": "1.3.0",
   "changes": {
     "en": {
-      "1.3.0-20210702": [
+      "1.3.0-20210725": [
         "Fixing Germany errors",
         "Adding setting to hide Calendar",
         "Adding setting to change columns count",
         "Adding setting to change view zoom",
-        "Fixing columns align bug"
+        "Fixing columns align bug",
+        "Fixing drag and drop bug"
       ],
       "1.2.0-20210702": [
         "Performance improvements",
