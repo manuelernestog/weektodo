@@ -100,10 +100,11 @@
             }
             this.$store.commit('loadCustomTodoListsIds', customToDoListIdsRepository.load());
             this.$store.commit('loadConfig', configRepository.load());
-            this.$i18n.locale = this.$store.getters.config.language
+            this.$i18n.locale = this.$store.getters.config.language;
         },
         mounted() {
             this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
+            this.calendarHeight = this.$store.getters.config.calendarHeight;
             document.onreadystatechange = () => {
                 if (document.readyState == "complete") {
                     setTimeout(this.hideSplash, 5000);
@@ -182,6 +183,8 @@
             resizerMouseUpHandler: function () {
                 document.removeEventListener('mousemove', this.resizerMouseMoveHandler);
                 document.removeEventListener('mouseup', this.resizerMouseUpHandler);
+                this.$store.commit('updateConfig', {val: this.calendarHeight, key: "calendarHeight"});
+                configRepository.update(this.$store.getters.config);
             }
         },
         computed: {
@@ -229,6 +232,7 @@
     display: flex;
     overflow: auto;
     min-height: 180px;
+    transition: height 0.15s ease-out 0s;
   }
 
   .slider-btn {

@@ -17,6 +17,7 @@ export default {
                 checkUpdates: true,
                 columns: 5,
                 zoom: 100,
+                calendarHeight: "50%",
             }
             storageRepository.set('config', default_config);
             return default_config;

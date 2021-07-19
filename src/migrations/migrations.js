@@ -3,7 +3,7 @@ import configRepository from "../repositories/configRepository";
 export default {
     migrate() {
         configCheckUpdate();
-        configCalendarZoomColumns();
+        configCalendarZoomColumnsCalendarHeight();
     }
 }
 
@@ -15,12 +15,13 @@ function configCheckUpdate() {
     }
 }
 
-function configCalendarZoomColumns() {
+function configCalendarZoomColumnsCalendarHeight() {
     let config = configRepository.load();
     if (!('calendar' in config)) {
         config['calendar'] = true;
         config['zoom'] = 100;
         config['columns'] = 5;
+        config['calendarHeight'] = "50%";
         configRepository.update(config);
     }
 }
