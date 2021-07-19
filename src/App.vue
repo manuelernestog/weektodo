@@ -271,38 +271,38 @@
     scroll-behavior: smooth;
   }
 
-  .todo-slider::-webkit-scrollbar {
+  *::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
-  .todo-slider::-webkit-scrollbar-thumb {
+  *::-webkit-scrollbar-thumb {
     background: #eaecef;
     border-radius: 5px;
   }
 
-  .todo-slider::-webkit-scrollbar-thumb:hover {
+  *::-webkit-scrollbar-thumb:hover {
     background: #dddfe2;
   }
 
-  .todo-slider::-webkit-scrollbar-thumb:active {
+  *::-webkit-scrollbar-thumb:active {
     background: #d0d2d5;
   }
 
-  .todo-slider::-webkit-scrollbar-track {
+  *::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  .dark-theme .todo-slider::-webkit-scrollbar-thumb {
+  .dark-theme *::-webkit-scrollbar-thumb {
     background: #21262d;
     border-radius: 5px;
   }
 
-  .dark-theme .todo-slider::-webkit-scrollbar-thumb:hover {
+  .dark-theme *::-webkit-scrollbar-thumb:hover {
     background: #2e3a41;
   }
 
-  .dark-theme .todo-slider::-webkit-scrollbar-thumb:active {
+  .dark-theme *::-webkit-scrollbar-thumb:active {
     background: #43535d;
   }
 
