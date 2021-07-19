@@ -8,7 +8,8 @@
         "Adding setting to change columns count",
         "Adding setting to change view zoom",
         "Fixing columns align bug",
-        "Fixing drag and drop bug"
+        "Fixing drag and drop bug",
+        "Adding Resizable view divider"
       ],
       "1.2.0-20210702": [
         "Performance improvements",

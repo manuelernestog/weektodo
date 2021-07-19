@@ -215,8 +215,10 @@
                 return this.$store.getters.config.darkTheme;
             },
             resizableStyle: function () {
-                return {
-                    "height": this.calendarHeight
+                if (this.showCalendar && this.showCustomList) {
+                    return {"height": this.calendarHeight}
+                } else {
+                    return {};
                 }
             }
         }
