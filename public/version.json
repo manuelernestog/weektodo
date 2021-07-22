@@ -9,7 +9,8 @@
         "Adding setting to change view zoom",
         "Fixing columns align bug",
         "Fixing drag and drop bug",
-        "Adding Resizable view divider"
+        "Adding Resizable view divider",
+        "Resizable view divider double click set size to default"
       ],
       "1.2.0-20210702": [
         "Performance improvements",

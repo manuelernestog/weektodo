@@ -39,6 +39,12 @@ export default {
                 link: "btcTab"
             },
             {
+                name: "Litecoin",
+                img: "icons/ltc.svg",
+                linktype: "tagId",
+                link: "ltcTab"
+            },
+            {
                 name: "Ethereum",
                 img: "icons/eth.svg",
                 linktype: "tagId",

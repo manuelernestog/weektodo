@@ -39,6 +39,11 @@
               </button>
             </li>
             <li class="nav-item" role="presentation">
+              <button class="nav-link" id="ltcTab" data-bs-toggle="tab" data-bs-target="#donate-ltc"
+                      role="tab">ltc
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
               <button class="nav-link" id="ethTab" data-bs-toggle="tab" data-bs-target="#donate-eth"
                       role="tab">eth
               </button>
@@ -87,6 +92,13 @@
                 address="bc1qy7x0au4tk3h2mvkl3cg5ns5hjqeg7r6snh8z0a"
                 payment="Bitcoin"
                 qr-img="payment_qr/btc_address.jpg"
+              ></payment-details>
+            </div>
+            <div class="tab-pane fade" id="donate-ltc">
+              <payment-details
+                address="ltc1q57dv9kz2043wf57w4w4rk8e8unuczfr055epsp"
+                payment="Litecoin"
+                qr-img="payment_qr/ltc_address.jpg"
               ></payment-details>
             </div>
             <div class="tab-pane fade" id="donate-eth">
