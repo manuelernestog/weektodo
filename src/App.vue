@@ -171,6 +171,8 @@
             },
             resizerDblClick: function () {
                 this.calendarHeight = "50%";
+                this.$store.commit('updateConfig', {val: this.calendarHeight, key: "calendarHeight"});
+                configRepository.update(this.$store.getters.config);
             },
             resizerMouseDownHandler: function (e) {
                 this.resizerY = e.clientY;
@@ -178,7 +180,7 @@
                 document.addEventListener('mouseup', this.resizerMouseUpHandler);
             },
             resizerMouseMoveHandler: function (e) {
-                this.calendarHeight = `${e.clientY}px`;
+                this.calendarHeight = `${e.clientY * 100 / this.zoom}px`;
             },
             resizerMouseUpHandler: function () {
                 document.removeEventListener('mousemove', this.resizerMouseMoveHandler);
@@ -233,7 +235,8 @@
   .todo-lists-container {
     display: flex;
     overflow: auto;
-    min-height: 180px;
+    min-height: 5px;
+    height: 5px;
     transition: height 0.15s ease-out 0s;
   }
 

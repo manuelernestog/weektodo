@@ -67,16 +67,22 @@ export default {
                 link: "https://alternativeto.net/software/weektodo/about/"
             },
             {
-                name: "Softpedia",
-                img: "icons/softpedia.png",
-                linktype: "external",
-                link: "https://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/WeekToDo.shtml"
-            },
-            {
                 name: "ProductHunt",
                 img: "icons/product-hunt.svg",
                 linktype: "external",
                 link: "https://www.producthunt.com/posts/weektodo"
+            },
+            {
+                name: "SaaSHub",
+                img: "icons/SaaSHub.png",
+                linktype: "external",
+                link: "https://www.saashub.com/weektodo-reviews/new"
+            },
+            {
+                name: "Softpedia",
+                img: "icons/softpedia.png",
+                linktype: "external",
+                link: "https://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/WeekToDo.shtml"
             }
         ]
     },
