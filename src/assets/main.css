@@ -6,9 +6,11 @@
     -ms-user-select: none;
 }
 
-.todo-item-container {
+.todo-item {
     -webkit-user-drag: element;
 }
+
+
 
 .main-horizontal-divider {
     cursor: row-resize;

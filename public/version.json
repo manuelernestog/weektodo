@@ -2,6 +2,9 @@
   "version": "1.3.0",
   "changes": {
     "en": {
+      "1.4.0-20210815": [
+        "Fixing drag and drop error on task quick editing"
+      ],
       "1.3.0-20210727": [
         "Fixing Germany errors",
         "Adding setting to hide Calendar",
