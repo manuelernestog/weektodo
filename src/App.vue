@@ -41,6 +41,7 @@
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
+      <to-do-modal></to-do-modal>
       <update-checker></update-checker>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
@@ -66,6 +67,7 @@
     import aboutModal from "./views/aboutModal";
     import donateModal from "./views/donateModal";
     import welcomeModal from "./views/welcomeModal";
+    import toDoModal from "./views/toDoModal";
     import tipsModal from "./views/tipsModal";
     import {Modal} from 'bootstrap';
     import updateChecker from "./components/updateChecker";
@@ -84,7 +86,8 @@
             aboutModal,
             welcomeModal,
             tipsModal,
-            updateChecker
+            updateChecker,
+            toDoModal
         },
         data() {
             return {

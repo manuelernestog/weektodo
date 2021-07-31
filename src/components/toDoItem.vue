@@ -10,8 +10,8 @@
            draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
         <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
               @click="checkToDo"> {{ toDo.text }} </span>
-        <i class="bi-three-dots todo-item-menu" type="button" data-bs-toggle="dropdown"></i>
-        <i class="bi-x todo-item-remove" @click="removeTodo()"></i>
+        <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
+        <i class="bi-x todo-item-remove" @click="removeTodo"></i>
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
              @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
@@ -21,10 +21,10 @@
 
 <script>
     import toDoListRepository from "../repositories/toDoListRepository";
+    import {Modal} from "bootstrap";
 
     export default {
-        components: {
-        },
+        components: {},
         props: {
             toDo: {required: true, type: Object},
             index: {required: true, type: Number},
@@ -59,6 +59,11 @@
             removeTodo: function () {
                 this.$store.commit('removeTodo', {toDoListId: this.toDoListId, index: this.index});
                 toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
+            },
+            showToDoDetails: function () {
+                let modalEl = document.getElementById('toDoModal');
+                let modal = new Modal(modalEl);
+                modal.show();
             },
             checkToDo: function () {
                 this.$store.commit('checkTodo', {toDoListId: this.toDoListId, index: this.index})
@@ -169,7 +174,7 @@
     font-size: 1.3rem;
     cursor: pointer;
     margin-top: 1px;
-    margin-left: 4px;
+    margin-left: 5px;
     margin-right: 5px;
     color: grey;
     height: 1.3rem;
@@ -192,11 +197,11 @@
     display: block;
   }
 
-  .todo-item-remove:hover,  .todo-item-menu:hover {
+  .todo-item-remove:hover, .todo-item-menu:hover {
     color: black;
   }
 
-  .dark-theme .todo-item-remove,  .dark-theme .todo-item-menu {
+  .dark-theme .todo-item-remove, .dark-theme .todo-item-menu {
     color: #c9d1d9;
   }
 
