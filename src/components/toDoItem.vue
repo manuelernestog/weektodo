@@ -5,11 +5,12 @@
        @drop="onDragleave"
        :class="[{'drag-hover': todoDragHover},{'dragging': todoDragging}]"
   >
-    <div class="todo-item-container">
+    <div class="todo-item-container" @mouseleave="onMouseleave">
       <div v-if="!editing" class="todo-item" :class="{ 'checked-todo': toDo.checked }" ref="currentTodo"
            draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
-      <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
-            @click="checkToDo"> {{ toDo.text }} </span>
+        <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
+              @click="checkToDo"> {{ toDo.text }} </span>
+        <i class="bi-three-dots todo-item-menu" type="button" data-bs-toggle="dropdown"></i>
         <i class="bi-x todo-item-remove" @click="removeTodo()"></i>
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
@@ -22,7 +23,8 @@
     import toDoListRepository from "../repositories/toDoListRepository";
 
     export default {
-        components: {},
+        components: {
+        },
         props: {
             toDo: {required: true, type: Object},
             index: {required: true, type: Number},
@@ -167,26 +169,38 @@
     font-size: 1.3rem;
     cursor: pointer;
     margin-top: 1px;
-    margin-left: 5px;
+    margin-left: 4px;
     margin-right: 5px;
     color: grey;
     height: 1.3rem;
     flex-grow: 0;
   }
 
-  .todo-item:hover .todo-item-remove {
+  .todo-item-menu {
+    display: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 3px;
+    margin-left: 5px;
+    margin-right: 0px;
+    color: grey;
+    height: 1.1rem;
+    flex-grow: 0;
+  }
+
+  .todo-item:hover .todo-item-remove, .todo-item:hover .todo-item-menu {
     display: block;
   }
 
-  .todo-item-remove:hover {
+  .todo-item-remove:hover,  .todo-item-menu:hover {
     color: black;
   }
 
-  .dark-theme .todo-item-remove {
+  .dark-theme .todo-item-remove,  .dark-theme .todo-item-menu {
     color: #c9d1d9;
   }
 
-  .dark-theme .todo-item-remove:hover {
+  .dark-theme .todo-item-remove:hover, .dark-theme .todo-item-menu:hover {
     color: white;
   }
 
