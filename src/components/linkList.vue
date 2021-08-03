@@ -81,7 +81,7 @@
   }
 
   .item-img {
-    margin-right: 14px;
+    margin-right: 24px;
   }
 
   .dark-theme .card {
