@@ -179,7 +179,7 @@
   }
 
   .old-date {
-    color: lightgray;
+    color: grey;
   }
 
   .dark-theme .old-date {

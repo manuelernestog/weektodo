@@ -135,11 +135,14 @@
 
   .weekly-to-do-header h4 {
     margin-bottom: 4px;
+    font-size: 21px;
     text-transform: capitalize;
   }
 
   .weekly-to-do-header span {
     margin-top: 0px;
+    font-size: 12px;
+    color: grey;
   }
 
   .weekly-to-do-header i {

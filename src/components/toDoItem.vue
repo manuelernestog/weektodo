@@ -169,6 +169,22 @@
     color: #343b42;
   }
 
+  .old-date .todo-item {
+    color: lightgray;
+  }
+
+  .old-date .todo-item:hover {
+    color: black;
+  }
+
+  .dark-theme .old-date .todo-item {
+    color: #343b42;
+  }
+
+  .dark-theme .old-date .todo-item:hover {
+    color: white;
+  }
+
   .todo-item-remove {
     display: none;
     font-size: 1.3rem;
