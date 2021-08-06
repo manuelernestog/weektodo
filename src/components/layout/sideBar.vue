@@ -110,12 +110,13 @@
 
 <style scoped>
   .side-bar {
-    width: 4rem;
+    width: 3.8rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     float: left;
-    background-color: #fcfcfc
+    background-color: #fcfcfc;
+    color: #414141;
   }
 
   .side-bar i:first-child {
@@ -129,7 +130,7 @@
   }
 
   .side-bar i {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     padding: 10px;
     margin-bottom: 10px;
     align-self: center;
@@ -147,7 +148,6 @@
   }
 
   .side-bar .logo {
-    /*padding: 10px;*/
     margin-bottom: 18px;
     margin-top: 18px;
     align-self: center;
@@ -157,7 +157,8 @@
   /*------------------------Dark Theme*------------------*/
 
   .dark-theme .side-bar {
-    background-color: #161b22
+    background-color: #161b22;
+    color: #ababab;
   }
 
   .dark-theme .side-bar i:hover {

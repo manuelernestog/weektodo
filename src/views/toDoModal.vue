@@ -5,10 +5,33 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"> {{ $t("settings.settings") }}</h5>
+          <div class="d-flex header-menu-icons">
+            <i class="bi-trash "></i>
+            <i class="bi-circle "></i>
+            <i class="bi-alarm "></i>
+            <i class="bi-arrow-repeat "></i>
+            <i class="bi-flag "></i>
+            <i class="bi-tag-fill "></i>
+            <i class="bi-three-dots-vertical "></i>
+          </div>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          todo modal
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label">
+              Este es el nombre de la tareca esa dios miooooooo asd aksdjh askdjhaskdj haskdj haksjdhaksdjhaskjhaksdjhadk
+            </label>
+          </div>
+
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
+            <label for="floatingTextarea2">Detalles</label>
+          </div>
+          <div class="horizontal-divider mb-4 mt-4"></div>
+          <div style="height: 150px">
+            Subtarea 1 y la muela y eso que lleva
+          </div>
         </div>
       </div>
     </div>
@@ -20,12 +43,9 @@
     export default {
         name: "toDoModal",
         data() {
-            return {
-
-            }
+            return {}
         },
-        methods: {
-        }
+        methods: {}
     }
 </script>
 
@@ -60,7 +80,13 @@
   }
 
   .modal-dialog {
-    max-width: 500px;
+    max-width: 600px;
+  }
+
+  .header-menu-icons i {
+    font-size: 1.1rem;
+    margin-left: 18px;
+    color: #6e6e6e;
   }
 
 
