@@ -110,13 +110,13 @@
 
 <style scoped>
   .side-bar {
-    width: 3.8rem;
+    width: 3.9rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     float: left;
     background-color: #fcfcfc;
-    color: #414141;
+    color: #414a5a;
   }
 
   .side-bar i:first-child {
@@ -141,6 +141,7 @@
   .side-bar i:hover {
     border-radius: 6px;
     background-color: #eaecef;
+    color: black;
   }
 
   .side-bar i:active {
@@ -164,6 +165,7 @@
   .dark-theme .side-bar i:hover {
     border-radius: 6px;
     background-color: #21262d;
+    color: #dedede;
   }
 
   .dark-theme .side-bar i:active {
