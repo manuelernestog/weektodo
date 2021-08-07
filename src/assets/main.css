@@ -1,4 +1,4 @@
-*{
+* {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -6,10 +6,18 @@
     -ms-user-select: none;
 }
 
+.app-container {
+    height: 100vh;
+}
+
+.app-body {
+    height: 100%;
+}
+
+
 .todo-item {
     -webkit-user-drag: element;
 }
-
 
 
 .main-horizontal-divider {
@@ -28,11 +36,11 @@
     margin-bottom: 1px;
 }
 
-.inner-main-horizontal-divider{
+.inner-main-horizontal-divider {
     margin-top: 4px;
     height: 1px;
     width: 100%;
-    background-color: rgba(0, 0, 0, .06) ;
+    background-color: rgba(0, 0, 0, .06);
 }
 
 .horizontal-divider {
@@ -87,7 +95,7 @@
     background-color: #3f377e !important;
 }
 
-.v3dp__elements button:not(:disabled):hover span{
+.v3dp__elements button:not(:disabled):hover span {
     background-color: #3f377e !important;
 }
 
@@ -98,7 +106,7 @@
     border: none;
     border-radius: 0.3rem;
     padding: 0px 20px 10px 20px;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,.16);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .16);
 }
 
 .modal-header {
@@ -109,7 +117,7 @@
     font-size: 18px;
 }
 
-.modal-header i{
+.modal-header i {
     font-size: 1.8rem;
 }
 
@@ -172,6 +180,13 @@
     background-color: #343b43;
 }
 
+#todo-date-picker-input {
+    width: 100px;
+    border: none;
+    background-color: unset;
+    color: #8d8998;
+    font-size: 15px;
+}
 
 
 /*TOast*/
@@ -180,7 +195,7 @@
     width: auto;
 }
 
-.dark-theme .toast{
+.dark-theme .toast {
     background-color: #21262d;
     border: 1px solid #30363d;
 }
@@ -204,6 +219,13 @@
 }
 
 
+/*Commons elements*/
+
+.btn-outline-primary {
+    color: #8a848a;
+    border-color: #ced4da;
+}
+
 /*Media querys*/
 
 @media only screen and (max-width: 600px) {
@@ -216,12 +238,4 @@
     .mobile {
         display: none !important;
     }
-}
-
-.app-container{
-    height: 100vh;
-}
-
-.app-body{
-    height: 100%;
 }
