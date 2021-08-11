@@ -279,28 +279,6 @@
     scroll-behavior: smooth;
   }
 
-  *::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: #eaecef;
-    border-radius: 5px;
-  }
-
-  *::-webkit-scrollbar-thumb:hover {
-    background: #dddfe2;
-  }
-
-  *::-webkit-scrollbar-thumb:active {
-    background: #d0d2d5;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
   .dark-theme *::-webkit-scrollbar-thumb {
     background: #21262d;
     border-radius: 5px;

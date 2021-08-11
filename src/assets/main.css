@@ -66,6 +66,27 @@
     top: -50px;
 }
 
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #eaecef;
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #dddfe2;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background: #d0d2d5;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -222,8 +243,8 @@
 /*Commons elements*/
 
 .btn-outline-primary {
-    color: #8a848a;
-    border-color: #ced4da;
+    color: #373137;
+    border-color: #a9adb2;
 }
 
 /*Media querys*/

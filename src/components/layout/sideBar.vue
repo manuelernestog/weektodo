@@ -116,7 +116,6 @@
     flex-direction: column;
     float: left;
     background-color: #fcfcfc;
-    color: #414a5a;
   }
 
   .side-bar i:first-child {
@@ -130,7 +129,7 @@
   }
 
   .side-bar i {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     padding: 10px;
     margin-bottom: 10px;
     align-self: center;

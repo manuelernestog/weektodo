@@ -28,15 +28,19 @@
               </ul>
             </div>
           </div>
-          <div class="d-flex header-menu-icons ms-auto">
+          <div class="d-flex header-menu-icons ms-auto align-items-center">
             <i class="bi-circle "></i>
             <i class="bi-alarm "></i>
-            <i class="bi-arrow-repeat "></i>
-            <i class="bi-flag "></i>
-            <i class="bi-tag "></i>
-            <i class="bi-three-dots-vertical "></i>
+            <!--            <i class="bi-arrow-repeat "></i>-->
+            <!--            <i class="bi-flag "></i>-->
+            <!--            <i class="bi-tag "></i>-->
+            <i class="bi-three-dots-vertical"></i>
+            <div>
+              <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
+            </div>
+
           </div>
-<!--          <i class="bi-x close-modal" data-bs-dismiss="modal"></i>-->
+
         </div>
         <div class="modal-body">
           <div class="form-check">
@@ -46,7 +50,7 @@
                 Este es el nombre de la tareca esa dios miooooooo asd aksdjh askdjhaskdj haskdj
                 haksjdhaksdjhaskjhaksdjhadk
               </label>
-              <label class="todo-description mt-3">
+              <textarea class="todo-description mt-3">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -57,18 +61,31 @@
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                 deserunt mollit anim id est laborum.
-              </label>
+              </textarea>
             </div>
           </div>
-          <div class="horizontal-divider mb-4 mt-4"></div>
-          <div class="subtask-container m-4">
-            <div class="sub-task d-flex flex-row align-items-center">
-              <input class="form-check-input d-inline " type="checkbox" value="">
+          <div class="horizontal-divider mb-2 mt-3"></div>
+          <ul class="sub-tasks">
+            <li class="sub-task d-flex flex-row align-items-center">
+              <input class="form-check-input d-inline mx-3 mt-0" type="checkbox" value="">
               <span>Sub task number uno lasd a sdasd asd asd asd</span>
               <i class="bi-trash ms-auto"></i>
+            </li>
+            <li class="sub-task d-flex flex-row align-items-center">
+              <input class="form-check-input d-inline mx-3 mt-0" type="checkbox" value="">
+              <span>Sub task number uno lasd a sdasd asd asd asd</span>
+              <i class="bi-trash ms-auto"></i>
+            </li>
+            <li class="sub-task d-flex flex-row align-items-center">
+              <input class="form-check-input d-inline mx-3 mt-0" type="checkbox" value="">
+              <span>Sub task number uno lasd a sdasd asd asd asd</span>
+              <i class="bi-trash ms-auto"></i>
+            </li>
+            <div class="new-sub-task d-flex align-items-center">
+              <i class="bi-plus-circle mx-3"></i>
+              <input  type="text" placeholder="Nueva subtarea">
             </div>
-            <div class="horizontal-divider mb-4 mt-4"></div>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -134,16 +151,76 @@
   .todo-description {
     font-size: 14px;
     color: grey;
-    max-height: 100px;
+    max-height: 150px;
+    height: 100px;
+    width: 100%;
+    border: none;
     overflow: auto;
+    line-height: 20px;
+    resize: none;
+    background: unset
   }
 
-.todo-list-selector i{
-  font-size: 1rem;
-}
+  .todo-list-selector i {
+    font-size: 1rem;
+  }
 
-  .todo-list-selector .btn{
+  .todo-list-selector .btn {
     padding: unset;
+  }
+
+  .sub-tasks {
+    list-style: none;
+    padding: 0px 20px 10px 20px;
+    margin: 0px;
+    max-height: 20vh;
+    overflow-y: auto;
+  }
+
+  .sub-task {
+    border-bottom: 1px solid #eaecef;
+    padding: 10px 5px 10px 0px;
+  }
+
+  .sub-task i {
+    color: #6b6c6e;
+    display: none;
+    cursor: pointer;
+  }
+
+  .sub-task i:hover {
+    color: #444547;
+  }
+
+  .sub-task:hover i {
+    display: block;
+  }
+
+  .sub-task:hover {
+    background-color: #f9f9f9;
+  }
+
+  .new-sub-task {
+    padding: 0px 5px 0px 0px;
+    width: 100%;
+  }
+  .new-sub-task i{
+    color: lightgrey;
+  }
+
+  .new-sub-task input{
+    border: none;
+    width: 100%;
+    height: 38px;
+  }
+
+  .form-check-input{
+  border-radius: 10px !important;
+  }
+
+  .form-check-input:checked{
+    border: 1px solid green;
+    background-color: green;
   }
 
   .title-container {
@@ -167,7 +244,7 @@
   }
 
   .modal-dialog {
-    max-width: 550px;
+    max-width: 600px;
   }
 
   .header-menu-icons i {
@@ -175,6 +252,10 @@
     margin-left: 18px;
     color: #6e6e6e;
     cursor: pointer;
+  }
+
+  .header-menu-icons .bi-x {
+    font-size: 1.9rem;
   }
 
   .header-menu-icons i:hover {
