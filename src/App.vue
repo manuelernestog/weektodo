@@ -67,7 +67,7 @@
     import aboutModal from "./views/aboutModal";
     import donateModal from "./views/donateModal";
     import welcomeModal from "./views/welcomeModal";
-    import toDoModal from "./views/toDoModal";
+    import toDoModal from "./views/toDoModal/toDoModal";
     import tipsModal from "./views/tipsModal";
     import {Modal} from 'bootstrap';
     import updateChecker from "./components/updateChecker";

@@ -31,9 +31,9 @@
           <div class="d-flex header-menu-icons ms-auto align-items-center">
             <i class="bi-circle "></i>
             <i class="bi-alarm "></i>
-            <!--            <i class="bi-arrow-repeat "></i>-->
-            <!--            <i class="bi-flag "></i>-->
-            <!--            <i class="bi-tag "></i>-->
+            <i class="bi-arrow-repeat "></i>
+            <i class="bi-flag "></i>
+            <i class="bi-tag "></i>
             <i class="bi-three-dots-vertical"></i>
             <div>
               <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
@@ -44,9 +44,9 @@
         </div>
         <div class="modal-body">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="">
+            <input class="form-check-input" type="checkbox" value="" id="todo-header">
             <div class="mt-1 title-container">
-              <label class="form-check-label todo-title">
+              <label class="form-check-label todo-title" for="todo-header">
                 Este es el nombre de la tareca esa dios miooooooo asd aksdjh askdjhaskdj haskdj
                 haksjdhaksdjhaskjhaksdjhadk
               </label>
@@ -66,24 +66,25 @@
           </div>
           <div class="horizontal-divider mb-2 mt-3"></div>
           <ul class="sub-tasks">
-            <li class="sub-task d-flex flex-row align-items-center">
-              <input class="form-check-input d-inline mx-3 mt-0" type="checkbox" value="">
-              <span>Sub task number uno lasd a sdasd asd asd asd</span>
-              <i class="bi-trash ms-auto"></i>
-            </li>
-            <li class="sub-task d-flex flex-row align-items-center">
-              <input class="form-check-input d-inline mx-3 mt-0" type="checkbox" value="">
-              <span>Sub task number uno lasd a sdasd asd asd asd</span>
-              <i class="bi-trash ms-auto"></i>
-            </li>
-            <li class="sub-task d-flex flex-row align-items-center">
-              <input class="form-check-input d-inline mx-3 mt-0" type="checkbox" value="">
-              <span>Sub task number uno lasd a sdasd asd asd asd</span>
-              <i class="bi-trash ms-auto"></i>
+
+            <li v-for="(subTask,index) in subTaskList" :key="index"
+                class="sub-task ">
+              <div v-show="!subTask.editing">
+                <div class="d-flex flex-row align-items-center">
+                  <input class="form-check-input d-inline mx-3 mt-0" type="checkbox" v-model="subTask.checked"
+                         :id="'sub-task-'+index">
+                  <label class="form-check-label" :for="'sub-task-'+index"
+                         @dblclick="editSubTask(index)">{{subTask.text}}</label>
+                  <i class="bi-trash ms-auto" @click="removeSubTask(index)"></i>
+                </div>
+              </div>
+              <input v-show="subTask.editing" v-model="subTask.text" @blur="doneEditSubTask(index)"
+                     @keyup.enter="doneEditSubTask(index)">
             </li>
             <div class="new-sub-task d-flex align-items-center">
               <i class="bi-plus-circle mx-3"></i>
-              <input  type="text" placeholder="Nueva subtarea">
+              <input type="text" placeholder="Nueva subtarea" @blur="addSubTask()" @keyup.enter="addSubTask()"
+                     @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text">
             </div>
           </ul>
         </div>
@@ -101,12 +102,38 @@
         data() {
             return {
                 pickedDate: new Date(),
+                subTaskList: [
+                    {checked: true, text: "Primera sub-tarea", editing: false},
+                    {checked: false, text: "Segunda sub-tarea", editing: false},
+                    {checked: true, text: "tercera sub-tarea", editing: false}
+                ],
+                newSubTask: {text: "", checked: false, editing: false},
             }
         },
         components: {
             Datepicker
         },
-        methods: {},
+        methods: {
+            removeSubTask: function (index) {
+                this.subTaskList.splice(index, 1);
+            },
+            addSubTask: function () {
+                if (this.newSubTask.text != "") {
+                    var newTodo = {text: this.newSubTask.text, checked: false, editing: false};
+                    this.subTaskList.push(newTodo);
+                    this.newSubTask.text = "";
+                }
+            },
+            cancelAddSubTask: function () {
+
+            },
+            editSubTask: function (index) {
+                this.subTaskList[index].editing = true;
+            },
+            doneEditSubTask: function (index) {
+                this.subTaskList[index].editing = false;
+            },
+        },
         computed: {
             language: function () {
                 let lang = this.$store.getters.config.language;
@@ -173,7 +200,7 @@
     list-style: none;
     padding: 0px 20px 10px 20px;
     margin: 0px;
-    max-height: 20vh;
+    max-height: 250px;
     overflow-y: auto;
   }
 
@@ -204,23 +231,30 @@
     padding: 0px 5px 0px 0px;
     width: 100%;
   }
-  .new-sub-task i{
+
+  .new-sub-task i {
     color: lightgrey;
   }
 
-  .new-sub-task input{
+  .new-sub-task input {
     border: none;
     width: 100%;
     height: 38px;
   }
 
-  .form-check-input{
-  border-radius: 10px !important;
+  .form-check-input {
+    border-radius: 10px !important;
   }
 
-  .form-check-input:checked{
-    border: 1px solid green;
-    background-color: green;
+  .form-check-input:checked {
+    border: 1px solid #5bb04e;
+    background-color: #5bb04e;
+  }
+
+  .form-check-input:focus {
+    border-color: #5bb04e;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(210, 253, 198, 0.2);
   }
 
   .title-container {
@@ -244,7 +278,7 @@
   }
 
   .modal-dialog {
-    max-width: 600px;
+    max-width: 550px;
   }
 
   .header-menu-icons i {
