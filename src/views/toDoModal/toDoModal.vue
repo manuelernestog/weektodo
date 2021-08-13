@@ -61,13 +61,17 @@
               <label class="form-check-label todo-title mt-1" for="todo-header">
                 Este es el nombre de la tareca esa dios miooooooo
               </label>
-              <textarea v-show="editingDescription" class="todo-description-input mt-2" v-model="description"
-                        placeholder="Descripcion" ref="descriptionInput" @blur="doneEditDescription"></textarea>
+              <div class="position-relative" v-show="editingDescription">
+              <textarea class="todo-description-input mt-2" v-model="description"
+                        placeholder="Descripcion" ref="descriptionInput" @blur="doneEditDescription">
+              </textarea>
+                <i class="bi-markdown-fill" @click="goToMarkDown" title="Supports Markdown"></i>
+              </div>
               <div v-show="!editingDescription && description!=''" class="mt-2 todo-description"
                    @dblclick="editDescription">
                 <Markdown :source="description"/>
               </div>
-              <div v-if="!editingDescription && description==''" @dblclick="editDescription"
+              <div v-show="!editingDescription && description==''" @dblclick="editDescription"
                    class="description-empty mt-2"> Description
               </div>
             </div>
@@ -160,7 +164,12 @@
                 });
             },
             doneEditDescription: function () {
-                this.editingDescription = false;
+                setTimeout(function () {
+                    this.editingDescription = false;
+                }.bind(this), 80)
+            },
+            goToMarkDown: function () {
+                window.open("https://commonmark.org/help/", '_blank');
             },
         },
         computed: {
@@ -206,8 +215,7 @@
 
   .todo-description-input {
     font-size: 14px;
-    max-height: 150px;
-    height: 100px;
+    height: 150px;
     width: 100%;
     overflow: auto;
     resize: none;
@@ -274,6 +282,20 @@
   .sub-task {
     border-bottom: 1px solid #eaecef;
     padding: 10px 5px 10px 0px;
+  }
+
+  .bi-markdown-fill {
+    font-size: 20px;
+    margin-top: -50px;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    opacity: 30%;
+    cursor: pointer;
+  }
+
+  .bi-markdown-fill:hover {
+    opacity: 100%;
   }
 
   .sub-task label {
