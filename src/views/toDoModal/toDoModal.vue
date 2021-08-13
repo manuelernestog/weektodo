@@ -29,23 +29,24 @@
 
           <div class="todo-list-selector">
             <div class="d-flex align-items-center">
-              <div class="d-flex align-items-center py-1">
+              <div class="d-flex align-items-center py-2 date-picker-btn">
                 <label for="todo-date-picker-input">
                   <i class="bi-calendar-event mx-2 "></i>
                 </label>
                 <datepicker id="todo-date-picker-input" v-model="pickedDate" :locale="language"/>
               </div>
-              <i class="bi-chevron-down p-1 px-2"></i>
+              <div class="selector-divider"></div>
+              <i class="bi-chevron-down p-2"></i>
             </div>
           </div>
 
           <div class="d-flex header-menu-icons ms-auto align-items-center">
-            <i class="bi-circle "></i>
-            <i class="bi-alarm "></i>
-            <!--                        <i class="bi-arrow-repeat "></i>-->
-            <!--                        <i class="bi-flag "></i>-->
-            <!--                        <i class="bi-tag "></i>-->
-            <i class="bi-three-dots-vertical"></i>
+<!--            <i class="bi-circle "></i>-->
+<!--            <i class="bi-alarm "></i>-->
+<!--            <i class="bi-arrow-repeat "></i>-->
+<!--            <i class="bi-flag "></i>-->
+<!--            <i class="bi-tag "></i>-->
+<!--            <i class="bi-three-dots-vertical"></i>-->
             <div>
               <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
             </div>
@@ -232,8 +233,30 @@
     font-size: 1rem;
   }
 
-  .todo-list-selector .bi-chevron-down {
-    border-left: 1px solid #b9b9b9;
+
+  .todo-list-selector .bi-chevron-down:hover {
+    background-color: #f4f3f3;
+    border-radius: 4px;
+  }
+
+  .todo-list-selector .date-picker-btn {
+    cursor: grab;
+  }
+
+  .todo-list-selector .date-picker-btn:hover {
+    background-color: #f4f3f3;
+    border-radius: 4px;
+  }
+
+  .todo-list-selector i {
+    cursor: pointer !important;
+  }
+
+  .todo-list-selector .selector-divider {
+    height: 21px;
+    width: 1px;
+    background-color: #b9b9b9;
+    margin: 0px 4px 0px 4px;
   }
 
   .sub-tasks {
