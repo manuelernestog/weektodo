@@ -65,7 +65,7 @@
               <textarea class="todo-description-input mt-2" v-model="description"
                         placeholder="Descripcion" ref="descriptionInput" @blur="doneEditDescription">
               </textarea>
-                <i class="bi-markdown-fill" @click="goToMarkDown" title="Supports Markdown"></i>
+                <i class="bi-markdown-fill" @click="goToMarkDown" title="Markdown Style Supported"></i>
               </div>
               <div v-show="!editingDescription && description!=''" class="mt-2 todo-description"
                    @dblclick="editDescription">
@@ -215,6 +215,7 @@
 
   .todo-description-input {
     font-size: 14px;
+    line-height: 21px;
     height: 150px;
     width: 100%;
     overflow: auto;

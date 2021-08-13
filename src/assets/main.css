@@ -212,6 +212,7 @@
 
 .todo-description p {
     white-space: pre-wrap;
+    line-height: 21px;
 }
 
 /*TOast*/
