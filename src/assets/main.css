@@ -210,6 +210,10 @@
     cursor: pointer;
 }
 
+.todo-description p {
+    white-space: pre-wrap;
+}
+
 
 /*TOast*/
 

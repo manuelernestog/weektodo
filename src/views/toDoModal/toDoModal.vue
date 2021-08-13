@@ -41,12 +41,12 @@
           </div>
 
           <div class="d-flex header-menu-icons ms-auto align-items-center">
-<!--            <i class="bi-circle "></i>-->
-<!--            <i class="bi-alarm "></i>-->
-<!--            <i class="bi-arrow-repeat "></i>-->
-<!--            <i class="bi-flag "></i>-->
-<!--            <i class="bi-tag "></i>-->
-<!--            <i class="bi-three-dots-vertical"></i>-->
+            <!--            <i class="bi-circle "></i>-->
+            <!--            <i class="bi-alarm "></i>-->
+            <!--            <i class="bi-arrow-repeat "></i>-->
+            <!--            <i class="bi-flag "></i>-->
+            <!--            <i class="bi-tag "></i>-->
+            <!--            <i class="bi-three-dots-vertical"></i>-->
             <div>
               <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
             </div>
@@ -63,10 +63,10 @@
               </label>
               <textarea v-show="editingDescription" class="todo-description-input mt-2" v-model="description"
                         placeholder="Descripcion" ref="descriptionInput" @blur="doneEditDescription"></textarea>
-              <p v-show="!editingDescription && description!=''" class="todo-description mt-2"
-                 @dblclick="editDescription">
-                {{description}}
-              </p>
+              <div v-show="!editingDescription && description!=''" class="mt-2 todo-description"
+                   @dblclick="editDescription">
+                <Markdown :source="description"/>
+              </div>
               <div v-if="!editingDescription && description==''" @dblclick="editDescription"
                    class="description-empty mt-2"> Description
               </div>
@@ -106,6 +106,7 @@
 <script>
     import Datepicker from 'vue3-datepicker';
     import {es, enUS, fr, pt, ru, zhCN, de} from 'date-fns/locale';
+    import Markdown from 'vue3-markdown-it';
 
     export default {
         name: "toDoModal",
@@ -123,7 +124,8 @@
             }
         },
         components: {
-            Datepicker
+            Datepicker,
+            Markdown
         },
         methods: {
             removeSubTask: function (index) {
@@ -207,21 +209,18 @@
     max-height: 150px;
     height: 100px;
     width: 100%;
-    border: none;
     overflow: auto;
-    line-height: 21px;
     resize: none;
     background: unset;
     cursor: auto;
   }
 
   .todo-description {
-    font-size: 14px;
-    line-height: 21px;
-    max-height: 100px;
-    white-space: pre-wrap;
+    zoom: 87%;
+    max-height: 150px;
     overflow-y: auto;
   }
+
 
   .description-empty {
     color: grey;
