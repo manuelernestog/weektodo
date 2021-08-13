@@ -291,12 +291,12 @@
     position: absolute;
     right: 10px;
     bottom: 5px;
-    opacity: 30%;
+    opacity: .3;
     cursor: pointer;
   }
 
   .bi-markdown-fill:hover {
-    opacity: 100%;
+    opacity: 1;
   }
 
   .sub-task label {
@@ -322,11 +322,11 @@
   }
 
   .sub-task .checked i {
-    opacity: 100% !important;
+    opacity: 1 !important;
   }
 
   .sub-task .checked {
-    opacity: 60%;
+    opacity: .6;
     text-decoration: line-through;
   }
 
