@@ -42,9 +42,9 @@
           <div class="d-flex header-menu-icons ms-auto align-items-center">
             <i class="bi-circle "></i>
             <i class="bi-alarm "></i>
-            <!--            <i class="bi-arrow-repeat "></i>-->
-            <!--            <i class="bi-flag "></i>-->
-            <!--            <i class="bi-tag "></i>-->
+            <!--                        <i class="bi-arrow-repeat "></i>-->
+            <!--                        <i class="bi-flag "></i>-->
+            <!--                        <i class="bi-tag "></i>-->
             <i class="bi-three-dots-vertical"></i>
             <div>
               <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
@@ -58,12 +58,17 @@
             <input class="form-check-input" type="checkbox" value="" id="todo-header">
             <div class=" title-container">
               <label class="form-check-label todo-title mt-1" for="todo-header">
-                Este es el nombre de la tareca esa dios miooooooo asd aksdjh askdjhaskdj haskdj
-                haksjdhaksdjhaskjhaksdjhadk
+                Este es el nombre de la tareca esa dios miooooooo
               </label>
-              <textarea class="todo-description-input mt-3" v-model="description" placeholder="Descripcion">
-              </textarea>
-              <p class="todo-description mt-3">{{description}}</p>
+              <textarea v-show="editingDescription" class="todo-description-input mt-2" v-model="description"
+                        placeholder="Descripcion" ref="descriptionInput" @blur="doneEditDescription"></textarea>
+              <p v-show="!editingDescription && description!=''" class="todo-description mt-2"
+                 @dblclick="editDescription">
+                {{description}}
+              </p>
+              <div v-if="!editingDescription && description==''" @dblclick="editDescription"
+                   class="description-empty mt-2"> Description
+              </div>
             </div>
           </div>
           <div class="mt-3"></div>
@@ -112,6 +117,7 @@
                     {checked: true, text: "tercera sub-tarea", editing: false}
                 ],
                 description: "",
+                editingDescription: false,
                 newSubTask: {text: "", checked: false, editing: false},
             }
         },
@@ -141,6 +147,17 @@
             },
             doneEditSubTask: function (index) {
                 this.subTaskList[index].editing = false;
+            },
+            editDescription: function () {
+                this.editingDescription = true;
+                this.$nextTick(function () {
+                    this.$refs["descriptionInput"].focus();
+                    this.$refs["descriptionInput"].setSelectionRange(0, 0);
+                    this.$refs["descriptionInput"].scrollTop = 0;
+                });
+            },
+            doneEditDescription: function () {
+                this.editingDescription = false;
             },
         },
         computed: {
@@ -186,7 +203,6 @@
 
   .todo-description-input {
     font-size: 14px;
-    color: grey;
     max-height: 150px;
     height: 100px;
     width: 100%;
@@ -194,23 +210,29 @@
     overflow: auto;
     line-height: 21px;
     resize: none;
-    background: unset
+    background: unset;
+    cursor: auto;
   }
 
   .todo-description {
     font-size: 14px;
-    color: #252525;
     line-height: 21px;
     max-height: 100px;
     white-space: pre-wrap;
     overflow-y: auto;
   }
 
+  .description-empty {
+    color: grey;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
   .todo-list-selector i {
     font-size: 1rem;
   }
 
-  .todo-list-selector .bi-chevron-down{
+  .todo-list-selector .bi-chevron-down {
     border-left: 1px solid #b9b9b9;
   }
 
@@ -246,10 +268,10 @@
   }
 
   .sub-task:hover {
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
   }
 
-  .sub-task .checked i{
+  .sub-task .checked i {
     opacity: 100% !important;
   }
 
@@ -257,7 +279,6 @@
     opacity: 60%;
     text-decoration: line-through;
   }
-
 
 
   .new-sub-task {
@@ -316,17 +337,21 @@
 
   .header-menu-icons i {
     font-size: 1.1rem;
-    margin-left: 18px;
+    margin-left: 6px;
+    padding: 8px;
+    border-radius: 5px;
     color: #6e6e6e;
-    cursor: pointer;
   }
 
   .header-menu-icons .bi-x {
     font-size: 1.9rem;
+    padding: 0px;
   }
 
   .header-menu-icons i:hover {
     color: #171717;
+    background-color: #f4f4f4;
+    cursor: pointer;
   }
 
   .dropdown-item {
