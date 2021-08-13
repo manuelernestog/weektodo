@@ -219,6 +219,11 @@
     zoom: 87%;
     max-height: 150px;
     overflow-y: auto;
+    user-select: auto;
+    -moz-user-select: auto;
+    -webkit-user-drag: auto;
+    -webkit-user-select: auto;
+    -ms-user-select: auto;
   }
 
 
