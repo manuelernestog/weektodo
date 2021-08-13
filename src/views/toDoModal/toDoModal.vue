@@ -166,7 +166,7 @@
             doneEditDescription: function () {
                 setTimeout(function () {
                     this.editingDescription = false;
-                }.bind(this), 80)
+                }.bind(this),110)
             },
             goToMarkDown: function () {
                 window.open("https://commonmark.org/help/", '_blank');
