@@ -19,6 +19,9 @@
     -webkit-user-drag: element;
 }
 
+i {
+    transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
+}
 
 .main-horizontal-divider {
     cursor: row-resize;
@@ -87,6 +90,7 @@
 *::-webkit-scrollbar-track {
     background: transparent;
 }
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

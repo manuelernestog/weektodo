@@ -326,13 +326,13 @@
   }
 
   .sub-task i {
-    color: #6b6c6e;
+    color: #87888a;
     display: none;
     cursor: pointer;
   }
 
   .sub-task i:hover {
-    color: #0a0b0d;
+    color: black;
   }
 
   .sub-task:hover i {
@@ -347,7 +347,7 @@
     opacity: 1 !important;
   }
 
-  .sub-task .checked {
+  .sub-task .checked input, .sub-task .checked label {
     opacity: .6;
     text-decoration: line-through;
   }
