@@ -86,7 +86,7 @@
           <ul class="sub-tasks">
             <li v-for="(subTask,index) in subTaskList" :key="index"
                 class="sub-task ">
-              <div v-show="!subTask.editing">
+              <div v-show="!subTask.editing" draggable="true">
                 <div class="d-flex flex-row align-items-center" :class="{'checked' : subTask.checked }">
                   <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
                          :id="'sub-task-'+index">
@@ -296,14 +296,26 @@
 
   .sub-tasks {
     list-style: none;
-    padding: 0px 20px 10px 20px;
+    padding: 0px 10px 10px 10px;
     margin: 0px;
     max-height: 250px;
     overflow-y: auto;
   }
 
+  .sub-tasks {
+    user-select: unset;
+    -moz-user-select: unset;
+    -webkit-user-drag: unset;
+    -webkit-user-select: unset;
+    -ms-user-select: unset;
+  }
+
   .sub-task {
+    marging: 0px 20px 10px 20px;
     border-bottom: 1px solid #eaecef;
+  }
+
+  .sub-task > div {
     padding: 10px 5px 10px 0px;
   }
 
