@@ -82,8 +82,6 @@
           </div>
           <div class="mt-3"></div>
           <!--          <div class="sub-tasks-header">Subtasks</div>-->
-
-
           <div class="horizontal-divider mb-2 mt-3"></div>
           <ul class="sub-tasks">
             <li v-for="(subTask,index) in subTaskList" :key="index"
@@ -206,10 +204,8 @@
             },
             onDrop: function (event, to_index) {
                 let from_index = event.dataTransfer.getData('index');
-                let to_subTask = this.subTaskList[to_index];
-                this.subTaskList[to_index] = this.subTaskList[from_index];
-                this.subTaskList[from_index] = to_subTask;
-                console.log()
+                let sub_task = this.subTaskList.splice(parseInt(from_index),1)[0];
+                this.subTaskList.splice(to_index, 0, sub_task);
                 event.target.classList.remove("drag-hover");
             }
         },
