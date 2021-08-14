@@ -212,7 +212,17 @@ i {
     color: #4d4a57;
     font-size: 15px;
     cursor: pointer;
+    outline: unset;
 }
+
+.todo-list-selector .v3dp__popout {
+    margin-top: 10px;
+    margin-left: -30px;
+}
+
+/*#todo-date-picker-input:focus {*/
+/*    outline: unset;*/
+/*}*/
 
 .todo-description p {
     white-space: pre-wrap;
