@@ -3,8 +3,3 @@
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
-[[redirects]]
-    from = "/index.html"
-    to = "/"
-    status = 301
-    force = false
