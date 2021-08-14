@@ -58,9 +58,13 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="todo-header">
             <div class=" title-container">
-              <label class="form-check-label todo-title mt-1" for="todo-header">
-                Este es el nombre de la tareca esa dios miooooooo
+              <label v-show="!editingTitle" class="form-check-label todo-title mt-1" for="todo-header"
+                     @dblclick="editTitle">
+                {{title}}
               </label>
+              <input v-show="editingTitle" class="todo-title-input" type="text" v-model="title" ref="titleInput"
+                     @blur="doneEditTitle()"
+                     @keyup.enter="doneEditTitle()">
               <div class="position-relative" v-show="editingDescription">
               <textarea class="todo-description-input mt-2" v-model="description"
                         placeholder="Descripcion" ref="descriptionInput" @blur="doneEditDescription">
@@ -125,6 +129,8 @@
                 description: "",
                 editingDescription: false,
                 newSubTask: {text: "", checked: false, editing: false},
+                title: "Task Title",
+                editingTitle: false,
             }
         },
         components: {
@@ -166,7 +172,17 @@
             doneEditDescription: function () {
                 setTimeout(function () {
                     this.editingDescription = false;
-                }.bind(this),110)
+                }.bind(this), 110)
+            },
+            editTitle: function () {
+                this.editingTitle = true;
+                this.$nextTick(function () {
+                    this.$refs["titleInput"].focus();
+                    this.$refs["titleInput"].select();
+                });
+            },
+            doneEditTitle: function () {
+                this.editingTitle = false;
             },
             goToMarkDown: function () {
                 window.open("https://commonmark.org/help/", '_blank');
@@ -211,6 +227,12 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
+  }
+
+  .todo-title-input {
+    font-size: 18px;
+    line-height: 22px;
+    width: 100%;
   }
 
   .todo-description-input {
@@ -365,6 +387,7 @@
     margin-left: 14px;
     margin-top: 1px;
   }
+
 
   .form-check-input {
     width: 1.3em !important;
