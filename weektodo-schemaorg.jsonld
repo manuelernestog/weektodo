@@ -1,0 +1,26 @@
+  {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "WeekToDo",
+      "operatingSystem": "Windows, Linux, macOS",
+      "applicationCategory": "UtilitiesApplication, BusinessApplication",
+      "applicationSubCategory": "Productivity",
+      "fileSize": "80MB",
+      "screenshot": "https://weektodo.netlify.app/assets/images/screenshot-from-2021-04-01-00-19-42-1-1206x580.png",
+      "author": "Manuel Ernesto Garcia",
+      "keywords": "Weekly planner, 2021 planner, Personal planner, Weekly todo list, to do list app",
+      "license": "MIT",
+      "thumbnailUrl": "https://weektodo.netlify.app/assets/images/WeekToDo-logo-512x512.png",
+      "version": "1.3.0",
+      "image": "https://weektodo.netlify.app/assets/images/WeekToDo-logo-512x512.png",
+      "offers": {
+       "@type": "Offer",
+       "price": "0"
+      },
+        "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "ratingCount": "18",
+              "author": "Sofpedia"
+            }
+    }
