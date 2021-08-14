@@ -82,11 +82,19 @@
           </div>
           <div class="mt-3"></div>
           <!--          <div class="sub-tasks-header">Subtasks</div>-->
+
+
           <div class="horizontal-divider mb-2 mt-3"></div>
           <ul class="sub-tasks">
             <li v-for="(subTask,index) in subTaskList" :key="index"
-                class="sub-task ">
-              <div v-show="!subTask.editing" draggable="true">
+                class="sub-task">
+              <div v-show="!subTask.editing" draggable="true"
+                   @dragstart='startDrag($event,index)'
+                   @drop="onDrop($event, index)"
+                   @dragenter.self="onDragenter($event)"
+                   @dragleave.self="onDragleave($event)"
+                   @dragover.prevent
+              >
                 <div class="d-flex flex-row align-items-center" :class="{'checked' : subTask.checked }">
                   <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
                          :id="'sub-task-'+index">
@@ -187,6 +195,23 @@
             goToMarkDown: function () {
                 window.open("https://commonmark.org/help/", '_blank');
             },
+            startDrag: function (event, index) {
+                event.dataTransfer.setData('index', index);
+            },
+            onDragenter: function (event) {
+                event.target.classList.add("drag-hover");
+            },
+            onDragleave: function (event) {
+                event.target.classList.remove("drag-hover");
+            },
+            onDrop: function (event, to_index) {
+                let from_index = event.dataTransfer.getData('index');
+                let to_subTask = this.subTaskList[to_index];
+                this.subTaskList[to_index] = this.subTaskList[from_index];
+                this.subTaskList[from_index] = to_subTask;
+                console.log()
+                event.target.classList.remove("drag-hover");
+            }
         },
         computed: {
             language: function () {
@@ -302,17 +327,23 @@
     overflow-y: auto;
   }
 
-  .sub-tasks {
-    user-select: unset;
-    -moz-user-select: unset;
-    -webkit-user-drag: unset;
-    -webkit-user-select: unset;
-    -ms-user-select: unset;
+  .sub-tasks li > div {
+    -webkit-user-drag: element;
   }
 
   .sub-task {
     marging: 0px 20px 10px 20px;
     border-bottom: 1px solid #eaecef;
+  }
+
+  .sub-task .drag-hover {
+    color: rgba(157, 157, 157, 0.43);
+    box-shadow: rgb(244, 243, 243) 0px 0px 4px 1px inset;
+    background-color: rgb(250, 249, 249);
+  }
+
+  .sub-task .drag-hover * {
+    pointer-events: none;
   }
 
   .sub-task > div {

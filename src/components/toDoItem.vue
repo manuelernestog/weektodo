@@ -5,7 +5,7 @@
        @drop="onDragleave"
        :class="[{'drag-hover': todoDragHover},{'dragging': todoDragging}]"
   >
-    <div class="todo-item-container" @mouseleave="onMouseleave">
+    <div class="todo-item-container">
       <div v-if="!editing" class="todo-item" :class="{ 'checked-todo': toDo.checked }" ref="currentTodo"
            draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
         <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
