@@ -56,7 +56,6 @@
   <meta name="theme-color" content="#ffffff">
 
   <title>WeekToDo | Minimalist Weekly Planner</title>
-  <script type="application/ld+json" src="weektodo-schemaorg.jsonld"></script>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -424,6 +423,14 @@
 
 </script>
 
+<script>
+    $.getJSON( "weektodo-schemaorg.jsonld", function( data ) {
+        $( "<script/>", {
+            "type": "application/ld+json",
+            "html": JSON.stringify(data)
+        }).appendTo( "head" );
+    });
+</script>
 
 <script>
     // Get the modal
