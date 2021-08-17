@@ -1,7 +1,7 @@
   {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "WeekToDo",
+      "name": "WeekToDo | Free Minimalist Weekly Planner App",
       "description": "WeekToDo is a free minimalist weekly planner app focused on privacy. Improve your productivity scheduling your tasks and projects with to do lists and a weekly calendar."
       "operatingSystem": "Windows, Linux, macOS",
       "applicationCategory": "UtilitiesApplication, BusinessApplication",
