@@ -30,9 +30,7 @@
           <div class="todo-list-selector">
             <div class="d-flex align-items-center">
               <div class="d-flex align-items-center py-2 date-picker-btn">
-                <label for="todo-date-picker-input">
-                  <i class="bi-calendar-event mx-2 "></i>
-                </label>
+                <i class="bi-calendar-event mx-2 "></i>
                 <datepicker id="todo-date-picker-input" v-model="pickedDate" :locale="language"/>
               </div>
               <div class="selector-divider"></div>
@@ -89,16 +87,18 @@
                 class="sub-task">
               <div v-show="!subTask.editing" draggable="true"
                    @dragstart='startDrag($event,index)'
-                   @drop="onDrop($event, index)"
-                   @dragenter.self="onDragenter($event)"
-                   @dragleave.self="onDragleave($event)"
                    @dragover.prevent
               >
                 <div class="d-flex flex-row align-items-center" :class="{'checked' : subTask.checked }">
                   <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
                          :id="'sub-task-'+index">
                   <label class="form-check-label" :for="'sub-task-'+index"
-                         @dblclick="editSubTask(index)">{{subTask.text}}</label>
+                         @dblclick="editSubTask(index)"
+                         @dragenter.self="onDragenter($event)"
+                         @dragleave.self="onDragleave($event)"
+                         @drop="onDrop($event, index)"
+                         @dragover.prevent
+                  >{{subTask.text}}</label>
                   <i class="bi-trash mx-2" @click="removeSubTask(index)"></i>
                 </div>
               </div>
@@ -198,7 +198,7 @@
                     this.$refs["titleInput"].select();
                 });
             },
-            cancelEditTitle: function (){
+            cancelEditTitle: function () {
                 this.title = this.tempTitle;
                 this.$refs["titleInput"].blur();
             },
@@ -212,16 +212,16 @@
                 event.dataTransfer.setData('index', index);
             },
             onDragenter: function (event) {
-                event.target.classList.add("drag-hover");
+                event.target.parentElement.classList.add("drag-hover");
             },
             onDragleave: function (event) {
-                event.target.classList.remove("drag-hover");
+                event.target.parentElement.classList.remove("drag-hover");
             },
             onDrop: function (event, to_index) {
                 let from_index = event.dataTransfer.getData('index');
                 let sub_task = this.subTaskList.splice(parseInt(from_index), 1)[0];
                 this.subTaskList.splice(to_index, 0, sub_task);
-                event.target.classList.remove("drag-hover");
+                event.target.parentElement.classList.remove("drag-hover");
             }
         },
         computed: {
@@ -308,6 +308,8 @@
   .todo-list-selector .bi-chevron-down:hover {
     background-color: #f4f3f3;
     border-radius: 4px;
+    color: black;
+    cursor: pointer;
   }
 
   .todo-list-selector .date-picker-btn {
@@ -317,10 +319,8 @@
   .todo-list-selector .date-picker-btn:hover {
     background-color: #f4f3f3;
     border-radius: 4px;
-  }
-
-  .todo-list-selector i {
-    cursor: pointer !important;
+    color: black;
+    cursor: pointer;
   }
 
   .todo-list-selector .selector-divider {
@@ -353,12 +353,8 @@
     background-color: rgb(250, 249, 249);
   }
 
-  .sub-task .drag-hover * {
+  .sub-task .drag-hover label * {
     pointer-events: none;
-  }
-
-  .sub-task > div {
-    padding: 10px 5px 10px 0px;
   }
 
   .bi-markdown-fill {
@@ -377,6 +373,9 @@
 
   .sub-task label {
     width: 100%;
+    padding: 10px 5px 10px 0px;
+    min-height: 38px;
+    height: auto;
   }
 
   .sub-task i {
