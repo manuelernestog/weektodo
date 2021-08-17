@@ -64,6 +64,7 @@
               </label>
               <input v-show="editingTitle" class="todo-title-input" type="text" v-model="title" ref="titleInput"
                      @blur="doneEditTitle()"
+                     @keyup.esc="cancelEditTitle()"
                      @keyup.enter="doneEditTitle()">
               <div class="position-relative" v-show="editingDescription">
               <textarea class="todo-description-input mt-2" v-model="description"
@@ -102,13 +103,14 @@
                 </div>
               </div>
               <input v-show="subTask.editing" v-model="subTask.text" @blur="doneEditSubTask(index)"
-                     @keyup.enter="doneEditSubTask(index)" :ref="'subTaskEdit'+index" class="edit-sub-task">
+                     @keyup.enter="doneEditSubTask(index)" @keyup.esc="cancelEditSubTask(index)"
+                     :ref="'subTaskEdit'+index" class="edit-sub-task">
             </li>
             <div class="new-sub-task d-flex align-items-center">
               <label for="new-sub-task"><i class="bi-plus-circle mx-3"></i></label>
               <input type="text" id="new-sub-task" placeholder="Adicionar Subtarea" @blur="addSubTask()"
                      @keyup.enter="addSubTask()"
-                     @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text">
+                     @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text" ref="newSubTask">
             </div>
           </ul>
         </div>
@@ -136,6 +138,8 @@
                 editingDescription: false,
                 newSubTask: {text: "", checked: false, editing: false},
                 title: "Task Title",
+                tempTitle: "",
+                tempSubTask: "",
                 editingTitle: false,
             }
         },
@@ -155,17 +159,23 @@
                 }
             },
             cancelAddSubTask: function () {
-
+                this.newSubTask.text = "";
+                this.$refs["newSubTask"].blur();
             },
             editSubTask: function (index) {
                 this.subTaskList[index].editing = true;
                 this.$nextTick(function () {
                     this.$refs["subTaskEdit" + index].focus();
                     this.$refs["subTaskEdit" + index].select();
+                    this.tempSubTask = this.subTaskList[index].text;
                 });
             },
             doneEditSubTask: function (index) {
                 this.subTaskList[index].editing = false;
+            },
+            cancelEditSubTask: function (index) {
+                this.subTaskList[index].text = this.tempSubTask;
+                this.$refs["subTaskEdit" + index].blur();
             },
             editDescription: function () {
                 this.editingDescription = true;
@@ -183,9 +193,14 @@
             editTitle: function () {
                 this.editingTitle = true;
                 this.$nextTick(function () {
+                    this.tempTitle = this.title;
                     this.$refs["titleInput"].focus();
                     this.$refs["titleInput"].select();
                 });
+            },
+            cancelEditTitle: function (){
+                this.title = this.tempTitle;
+                this.$refs["titleInput"].blur();
             },
             doneEditTitle: function () {
                 this.editingTitle = false;
@@ -204,7 +219,7 @@
             },
             onDrop: function (event, to_index) {
                 let from_index = event.dataTransfer.getData('index');
-                let sub_task = this.subTaskList.splice(parseInt(from_index),1)[0];
+                let sub_task = this.subTaskList.splice(parseInt(from_index), 1)[0];
                 this.subTaskList.splice(to_index, 0, sub_task);
                 event.target.classList.remove("drag-hover");
             }
@@ -258,7 +273,7 @@
 
   .todo-description-input {
     font-size: 14px;
-    line-height: 21px;
+    line-height: 19px;
     height: 150px;
     width: 100%;
     overflow: auto;
@@ -268,7 +283,7 @@
   }
 
   .todo-description {
-    zoom: 87%;
+    zoom: 89%;
     max-height: 150px;
     overflow-y: auto;
     user-select: auto;
@@ -480,6 +495,10 @@
     height: 16px !important;
     min-width: 16px;
     min-height: 16px;
+  }
+
+  .modal.modal-static .modal-dialog {
+    transform: none;
   }
 
   /*.sub-tasks-header{*/

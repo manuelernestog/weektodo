@@ -62,7 +62,7 @@
             },
             showToDoDetails: function () {
                 let modalEl = document.getElementById('toDoModal');
-                let modal = new Modal(modalEl);
+                let modal = new Modal(modalEl, {keyboard: false});
                 modal.show();
             },
             checkToDo: function () {
