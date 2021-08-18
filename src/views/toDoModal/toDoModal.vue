@@ -60,7 +60,12 @@
                      @dblclick="editTitle">
                 {{title}}
               </label>
+              <label v-show="!editingTitle && title==''" class="form-check-label todo-title todo-title-empty-title mt-1"
+                     for="todo-header" @dblclick="editTitle">
+                Titulo de Tarea
+              </label>
               <input v-show="editingTitle" class="todo-title-input" type="text" v-model="title" ref="titleInput"
+                     placeholder="Titulo de Tarea"
                      @blur="doneEditTitle()"
                      @keyup.esc="cancelEditTitle()"
                      @keyup.enter="doneEditTitle()">
@@ -74,7 +79,7 @@
                    @dblclick="editDescription">
                 <Markdown :source="description"/>
               </div>
-              <div v-show="!editingDescription && description==''" @dblclick="editDescription"
+              <div v-show="!editingDescription && description.replace(/^\s*$(?:\r\n?|\n)/gm, '') ==''" @dblclick="editDescription"
                    class="description-empty mt-2"> Description
               </div>
             </div>
@@ -108,7 +113,8 @@
             </li>
             <div class="new-sub-task d-flex align-items-center">
               <label for="new-sub-task"><i class="bi-plus-circle mx-3"></i></label>
-              <input type="text" id="new-sub-task" placeholder="Adicionar Subtarea" @blur="addSubTask()"
+              <input type="text" id="new-sub-task" placeholder="Adicionar Subtarea" autocomplete="false"
+                     @blur="addSubTask()"
                      @keyup.enter="addSubTask()"
                      @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text" ref="newSubTask">
             </div>
@@ -272,6 +278,10 @@
     font-size: 18px;
     line-height: 22px;
     width: 100%;
+  }
+
+  .todo-title-empty-title {
+    color: grey;
   }
 
   .todo-description-input {
