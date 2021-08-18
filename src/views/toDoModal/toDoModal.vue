@@ -5,28 +5,6 @@
       <div class="modal-content">
         <div class="modal-header d-flex">
 
-          <!--          <div class="btn-group d-block todo-list-selector" role="group">-->
-          <!--            <button type="button" class="btn btn-outline-primary">-->
-          <!--             -->
-          <!--            </button>-->
-          <!--            <div class="btn-group" role="group">-->
-          <!--              <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary"-->
-          <!--                      data-bs-toggle="dropdown" aria-expanded="false">-->
-          <!--                <i class="bi-chevron-down"></i>-->
-          <!--              </button>-->
-          <!--              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
-          <!--                <li>-->
-          <!--                  <button class="dropdown-item" type="button"><i class="bi-calendar-check"></i> <span>Calendar</span>-->
-          <!--                  </button>-->
-          <!--                </li>-->
-          <!--                <li>-->
-          <!--                  <button class="dropdown-item" type="button"><i class="bi-list"></i> <span>Custom List</span>-->
-          <!--                  </button>-->
-          <!--                </li>-->
-          <!--              </ul>-->
-          <!--            </div>-->
-          <!--          </div>-->
-
           <div class="todo-list-selector">
             <div class="d-flex align-items-center">
               <div class="d-flex align-items-center py-2 date-picker-btn" @click="showCalendar()">
@@ -34,10 +12,19 @@
                 <datepicker id="todo-date-picker-input" v-model="pickedDate" :locale="language"/>
               </div>
               <div class="selector-divider"></div>
-              <i class="bi-chevron-down p-2"></i>
+              <i id="btnGroupDrop1" class="bi-chevron-down p-2" type="button" data-bs-toggle="dropdown"></i>
+              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <li>
+                  <button class="dropdown-item" type="button"><i class="bi-calendar-check"></i> <span>Calendar</span>
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button"><i class="bi-list"></i> <span>Custom List</span>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
-
           <div class="d-flex header-menu-icons ms-auto align-items-center">
             <!--            <i class="bi-circle "></i>-->
             <!--            <i class="bi-alarm "></i>-->
@@ -79,7 +66,8 @@
                    @dblclick="editDescription">
                 <Markdown :source="description"/>
               </div>
-              <div v-show="!editingDescription && description.replace(/^\s*$(?:\r\n?|\n)/gm, '') ==''" @dblclick="editDescription"
+              <div v-show="!editingDescription && description.replace(/^\s*$(?:\r\n?|\n)/gm, '') ==''"
+                   @dblclick="editDescription"
                    class="description-empty mt-2"> Description
               </div>
             </div>
@@ -113,7 +101,7 @@
             </li>
             <div class="new-sub-task d-flex align-items-center">
               <label for="new-sub-task"><i class="bi-plus-circle mx-3"></i></label>
-              <input type="text" id="new-sub-task" placeholder="Adicionar Subtarea" autocomplete="false"
+              <input type="text" id="new-sub-task" placeholder="Adicionar Subtarea" autocomplete="off"
                      @blur="addSubTask()"
                      @keyup.enter="addSubTask()"
                      @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text" ref="newSubTask">
@@ -493,15 +481,6 @@
     cursor: pointer;
   }
 
-  .dropdown-item {
-    font-size: 1rem;
-  }
-
-  .dropdown-item i {
-    font-size: 1.2rem;
-    margin-right: 15px;
-  }
-
   .sub-task .form-check-input {
     width: 16px !important;
     height: 16px !important;
@@ -512,14 +491,5 @@
   .modal.modal-static .modal-dialog {
     transform: none;
   }
-
-  /*.sub-tasks-header{*/
-  /*  display: inline;*/
-  /*  border-bottom: 1px solid #3b3b3b;*/
-  /*  color: #3d3d3d;*/
-  /*  padding: 0px 20px 0px 5px;*/
-  /*  margin-left: 30px;*/
-  /*}*/
-
 
 </style>
