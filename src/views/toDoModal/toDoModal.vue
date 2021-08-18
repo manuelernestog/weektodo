@@ -29,7 +29,7 @@
 
           <div class="todo-list-selector">
             <div class="d-flex align-items-center">
-              <div class="d-flex align-items-center py-2 date-picker-btn">
+              <div class="d-flex align-items-center py-2 date-picker-btn" @click="showCalendar()">
                 <i class="bi-calendar-event mx-2 "></i>
                 <datepicker id="todo-date-picker-input" v-model="pickedDate" :locale="language"/>
               </div>
@@ -222,6 +222,9 @@
                 let sub_task = this.subTaskList.splice(parseInt(from_index), 1)[0];
                 this.subTaskList.splice(to_index, 0, sub_task);
                 event.target.parentElement.classList.remove("drag-hover");
+            },
+            showCalendar: function () {
+                document.getElementById('todo-date-picker-input').focus();
             }
         },
         computed: {
