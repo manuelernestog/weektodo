@@ -4,22 +4,33 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex">
-
           <div class="todo-list-selector">
             <div class="d-flex align-items-center">
-              <div class="d-flex align-items-center py-2 date-picker-btn" @click="showCalendar()">
+              <div v-show="showingCalendar" class="align-items-center py-2 date-picker-btn"
+                   @click="showCalendar()">
                 <i class="bi-calendar-event mx-2 "></i>
                 <datepicker id="todo-date-picker-input" v-model="pickedDate" :locale="language"/>
+              </div>
+              <div v-show="!showingCalendar" class="align-items-center py-2 date-picker-btn">
+                <i class="bi-view-list mx-2"></i>
+                <select class="form-select form-select-sm" id="todo-list-select">
+                  <option selected>Custom List</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
               </div>
               <div class="selector-divider"></div>
               <i id="btnGroupDrop1" class="bi-chevron-down p-2" type="button" data-bs-toggle="dropdown"></i>
               <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <li>
-                  <button class="dropdown-item" type="button"><i class="bi-calendar-check"></i> <span>Calendar</span>
+                  <button class="dropdown-item" type="button" @click="showingCalendar = true">
+                    <i class="bi-calendar-check"></i> <span>Calendar</span>
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button"><i class="bi-list"></i> <span>Custom List</span>
+                  <button class="dropdown-item" type="button" @click="showingCalendar = false">
+                    <i class="bi-view-list"></i> <span>Custom List</span>
                   </button>
                 </li>
               </ul>
@@ -35,9 +46,7 @@
             <div>
               <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
             </div>
-
           </div>
-
         </div>
         <div class="modal-body">
           <div class="form-check">
@@ -73,7 +82,6 @@
             </div>
           </div>
           <div class="mt-3"></div>
-          <!--          <div class="sub-tasks-header">Subtasks</div>-->
           <div class="horizontal-divider mb-2 mt-3"></div>
           <ul class="sub-tasks">
             <li v-for="(subTask,index) in subTaskList" :key="index"
@@ -135,6 +143,7 @@
                 tempTitle: "",
                 tempSubTask: "",
                 editingTitle: false,
+                showingCalendar: true
             }
         },
         components: {
@@ -315,6 +324,7 @@
 
   .todo-list-selector .date-picker-btn {
     cursor: grab;
+    display: flex;
   }
 
   .todo-list-selector .date-picker-btn:hover {
@@ -422,6 +432,11 @@
     height: 38px;
   }
 
+  .edit-sub-task {
+    width: calc(100% - 48px);
+    margin-left: 48px;
+  }
+
   .form-check-input {
     border-radius: 10px !important;
   }
@@ -490,6 +505,21 @@
 
   .modal.modal-static .modal-dialog {
     transform: none;
+  }
+
+  #todo-list-select {
+    padding: 0px;
+    color: #4d4a57;
+    border: none;
+    background-color: unset;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    background-image: none;
+    width: 90px;
+    font-size: 15px;
+    line-height: 15px;
+    outline: unset;
   }
 
 </style>
