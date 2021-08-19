@@ -52,11 +52,11 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="todo-header">
             <div class=" title-container">
-              <label v-show="!editingTitle" class="form-check-label todo-title mt-1" for="todo-header"
+              <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
                      @dblclick="editTitle">
                 {{title}}
               </label>
-              <label v-show="!editingTitle && title==''" class="form-check-label todo-title todo-title-empty-title mt-1"
+              <label v-show="!editingTitle && title==''" class="form-check-label todo-title todo-title-empty-title"
                      for="todo-header" @dblclick="editTitle">
                 Titulo de Tarea
               </label>
@@ -269,16 +269,23 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
+    border: 2px solid transparent;
+    padding: 1px 2px 1px 2px;
   }
 
   .todo-title-input {
     font-size: 18px;
     line-height: 22px;
     width: 100%;
+    font-weight: 500;
+    outline: unset;
+    border: 2px solid black;
+    border-radius: 3px;
   }
 
   .todo-title-empty-title {
     color: grey;
+    margin-left: -8px;
   }
 
   .todo-description-input {
@@ -290,6 +297,9 @@
     resize: none;
     background: unset;
     cursor: auto;
+    outline: unset;
+    border: 2px solid black;
+    border-radius: 3px;
   }
 
   .todo-description {
@@ -301,6 +311,8 @@
     -webkit-user-drag: auto;
     -webkit-user-select: auto;
     -ms-user-select: auto;
+    padding: 2px;
+    border: 2px solid transparent;
   }
 
 
