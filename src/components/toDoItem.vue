@@ -61,6 +61,11 @@
                 toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
             },
             showToDoDetails: function () {
+                this.$store.commit('actionsSelectedTodoIdUpdate', {
+                    toDo: this.toDo,
+                    index: this.index,
+                });
+
                 let modalEl = document.getElementById('toDoModal');
                 let modal = new Modal(modalEl, {keyboard: false});
                 modal.show();

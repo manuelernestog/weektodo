@@ -1,7 +1,8 @@
 const state = {
     actions: {
         cListCreated: false,
-        cListToRmv: null
+        cListToRmv: null,
+        selectedTodo: null,
     }
 }
 
@@ -17,7 +18,10 @@ const mutations = {
     },
     actionsCListToRmvUpdate(state, obj) {
         state.actions.cListToRmv = obj;
-    }
+    },
+    actionsSelectedTodoIdUpdate(state, obj) {
+        state.actions.selectedTodo = obj;
+    },
 }
 
 const actions = {}

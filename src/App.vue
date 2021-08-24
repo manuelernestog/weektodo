@@ -41,7 +41,7 @@
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
-      <to-do-modal></to-do-modal>
+      <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
       <update-checker></update-checker>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
@@ -225,6 +225,12 @@
                 } else {
                     return {};
                 }
+            },
+            selectedTodo: function () {
+                if (this.$store.getters.actions.selectedTodo) {
+                    return this.$store.getters.actions.selectedTodo;
+                }
+                return null;
             }
         }
     }

@@ -50,17 +50,17 @@
         </div>
         <div class="modal-body">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="todo-header">
+            <input class="form-check-input" type="checkbox" value="" id="todo-header" v-model="todo.checked">
             <div class=" title-container">
               <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
                      @dblclick="editTitle">
-                {{title}}
+                {{todo.text}}
               </label>
               <label v-show="!editingTitle && title==''" class="form-check-label todo-title todo-title-empty-title"
                      for="todo-header" @dblclick="editTitle">
                 Titulo de Tarea
               </label>
-              <input v-show="editingTitle" class="todo-title-input" type="text" v-model="title" ref="titleInput"
+              <input v-show="editingTitle" class="todo-title-input" type="text" v-model="todo.text" ref="titleInput"
                      placeholder="Titulo de Tarea"
                      @blur="doneEditTitle()"
                      @keyup.esc="cancelEditTitle()"
@@ -125,26 +125,30 @@
     import Datepicker from 'vue3-datepicker';
     import {es, enUS, fr, pt, ru, zhCN, de} from 'date-fns/locale';
     import Markdown from 'vue3-markdown-it';
+    // import moment from 'moment'
 
     export default {
         name: "toDoModal",
         data() {
             return {
                 pickedDate: new Date(),
+                todo: {text: "", checked: false},
                 subTaskList: [
                     {checked: true, text: "Primera sub-tarea", editing: false},
                     {checked: false, text: "Segunda sub-tarea", editing: false},
                     {checked: true, text: "tercera sub-tarea", editing: false}
                 ],
                 description: "",
-                editingDescription: false,
                 newSubTask: {text: "", checked: false, editing: false},
-                title: "Task Title",
+                editingDescription: false,
                 tempTitle: "",
                 tempSubTask: "",
                 editingTitle: false,
                 showingCalendar: true
             }
+        },
+        props: {
+            selectedTodo: {required: true, type: Object},
         },
         components: {
             Datepicker,
@@ -228,6 +232,11 @@
             },
             showCalendar: function () {
                 document.getElementById('todo-date-picker-input').focus();
+            }
+        },
+        watch: {
+            selectedTodo: function (newVal) { // watch it
+                this.todo = newVal.toDo;
             }
         },
         computed: {
