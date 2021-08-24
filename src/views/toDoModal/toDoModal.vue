@@ -56,7 +56,7 @@
                      @dblclick="editTitle">
                 {{todo.text}}
               </label>
-              <label v-show="!editingTitle && title==''" class="form-check-label todo-title todo-title-empty-title"
+              <label v-show="!editingTitle && todo.text==''" class="form-check-label todo-title todo-title-empty-title"
                      for="todo-header" @dblclick="editTitle">
                 Titulo de Tarea
               </label>
@@ -66,16 +66,16 @@
                      @keyup.esc="cancelEditTitle()"
                      @keyup.enter="doneEditTitle()">
               <div class="position-relative" v-show="editingDescription">
-              <textarea class="todo-description-input mt-2" v-model="description"
-                        placeholder="Descripcion" ref="descriptionInput" @blur="doneEditDescription">
+              <textarea class="todo-description-input mt-2" v-model="todo.desc"
+                        placeholder="Description" ref="descriptionInput" @blur="doneEditDescription">
               </textarea>
                 <i class="bi-markdown-fill" @click="goToMarkDown" title="Markdown Style Supported"></i>
               </div>
-              <div v-show="!editingDescription && description!=''" class="mt-2 todo-description"
+              <div v-show="!editingDescription && todo.desc!=''" class="mt-2 todo-description"
                    @dblclick="editDescription">
-                <Markdown :source="description"/>
+                <Markdown :source="todo.desc"/>
               </div>
-              <div v-show="!editingDescription && description.replace(/^\s*$(?:\r\n?|\n)/gm, '') ==''"
+              <div v-show="!editingDescription && todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') ==''"
                    @dblclick="editDescription"
                    class="description-empty mt-2"> Description
               </div>
@@ -84,7 +84,7 @@
           <div class="mt-3"></div>
           <div class="horizontal-divider mb-2 mt-3"></div>
           <ul class="sub-tasks">
-            <li v-for="(subTask,index) in subTaskList" :key="index"
+            <li v-for="(subTask,index) in todo.subTaskList" :key="index"
                 class="sub-task">
               <div v-show="!subTask.editing" draggable="true"
                    @dragstart='startDrag($event,index)'
@@ -132,13 +132,7 @@
         data() {
             return {
                 pickedDate: new Date(),
-                todo: {text: "", checked: false},
-                subTaskList: [
-                    {checked: true, text: "Primera sub-tarea", editing: false},
-                    {checked: false, text: "Segunda sub-tarea", editing: false},
-                    {checked: true, text: "tercera sub-tarea", editing: false}
-                ],
-                description: "",
+                todo: {text: "", checked: false, desc: "", subTaskList: []},
                 newSubTask: {text: "", checked: false, editing: false},
                 editingDescription: false,
                 tempTitle: "",
@@ -156,12 +150,12 @@
         },
         methods: {
             removeSubTask: function (index) {
-                this.subTaskList.splice(index, 1);
+                this.todo.subTaskList.splice(index, 1);
             },
             addSubTask: function () {
                 if (this.newSubTask.text != "") {
                     var newTodo = {text: this.newSubTask.text, checked: false, editing: false};
-                    this.subTaskList.push(newTodo);
+                    this.todo.subTaskList.push(newTodo);
                     this.newSubTask.text = "";
                 }
             },
@@ -170,18 +164,18 @@
                 this.$refs["newSubTask"].blur();
             },
             editSubTask: function (index) {
-                this.subTaskList[index].editing = true;
+                this.todo.subTaskList[index].editing = true;
                 this.$nextTick(function () {
                     this.$refs["subTaskEdit" + index].focus();
                     this.$refs["subTaskEdit" + index].select();
-                    this.tempSubTask = this.subTaskList[index].text;
+                    this.tempSubTask = this.todo.subTaskList[index].text;
                 });
             },
             doneEditSubTask: function (index) {
-                this.subTaskList[index].editing = false;
+                this.todo.subTaskList[index].editing = false;
             },
             cancelEditSubTask: function (index) {
-                this.subTaskList[index].text = this.tempSubTask;
+                this.todo.subTaskList[index].text = this.tempSubTask;
                 this.$refs["subTaskEdit" + index].blur();
             },
             editDescription: function () {
@@ -200,13 +194,13 @@
             editTitle: function () {
                 this.editingTitle = true;
                 this.$nextTick(function () {
-                    this.tempTitle = this.title;
+                    this.tempTitle = this.todo.text;
                     this.$refs["titleInput"].focus();
                     this.$refs["titleInput"].select();
                 });
             },
             cancelEditTitle: function () {
-                this.title = this.tempTitle;
+                this.todo.text = this.tempTitle;
                 this.$refs["titleInput"].blur();
             },
             doneEditTitle: function () {
@@ -226,8 +220,8 @@
             },
             onDrop: function (event, to_index) {
                 let from_index = event.dataTransfer.getData('index');
-                let sub_task = this.subTaskList.splice(parseInt(from_index), 1)[0];
-                this.subTaskList.splice(to_index, 0, sub_task);
+                let sub_task = this.todo.subTaskList.splice(parseInt(from_index), 1)[0];
+                this.todo.subTaskList.splice(to_index, 0, sub_task);
                 event.target.parentElement.classList.remove("drag-hover");
             },
             showCalendar: function () {
@@ -235,8 +229,18 @@
             }
         },
         watch: {
-            selectedTodo: function (newVal) { // watch it
+            selectedTodo: function (newVal) {
                 this.todo = newVal.toDo;
+                if (this.todo['desc'] == undefined) {
+                    this.todo['desc'] = "";
+                    this.todo['subTaskList'] = [];
+                    this.todo['color'] = 'none';
+                    this.todo['priority'] = 0;
+                    this.todo['tags'] = [];
+                    this.todo['time'] = null;
+                    this.todo['alarm'] = false;
+                    this.todo['repeatingEvent'] = null;
+                }
             }
         },
         computed: {

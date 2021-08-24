@@ -4,6 +4,7 @@ export default {
     migrate() {
         configCheckUpdate();
         configCalendarZoomColumnsCalendarHeight();
+        addTodoDetails();
     }
 }
 
@@ -24,4 +25,8 @@ function configCalendarZoomColumnsCalendarHeight() {
         config['calendarHeight'] = "50%";
         configRepository.update(config);
     }
+}
+
+function addTodoDetails() {
+
 }

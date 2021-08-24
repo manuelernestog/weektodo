@@ -67,7 +67,19 @@
         methods: {
             addToDo: function () {
                 if (this.newToDo.text != "") {
-                    var newTodo = {text: this.newToDo.text, checked: false, listId: this.id};
+                    var newTodo = {
+                        text: this.newToDo.text,
+                        checked: false,
+                        listId: this.id,
+                        desc: "",
+                        subTaskList: [],
+                        color: "none",
+                        priority: 0,
+                        tags: [],
+                        time: null,
+                        alarm: false,
+                        repeatingEvent: null
+                    };
                     this.$store.commit('addTodo', newTodo);
                     toDoListRepository.update(this.id, this.$store.getters.todoLists[this.id]);
                     this.newToDo.text = "";
