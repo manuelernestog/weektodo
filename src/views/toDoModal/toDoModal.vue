@@ -50,7 +50,8 @@
         </div>
         <div class="modal-body">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="todo-header" v-model="todo.checked" @change="updateTodo">
+            <input class="form-check-input" type="checkbox" value="" id="todo-header" v-model="todo.checked"
+                   @change="updateTodo">
             <div class=" title-container">
               <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
                      @dblclick="editTitle">
@@ -69,7 +70,7 @@
               <textarea class="todo-description-input mt-2" v-model="todo.desc"
                         placeholder="Description" ref="descriptionInput" @blur="doneEditDescription">
               </textarea>
-                <i class="bi-markdown-fill" @click="goToMarkDown" title="Markdown Style Supported"></i>
+                <i class="bi-markdown-fill" @mousedown="goToMarkDown" title="Markdown Style Supported"></i>
               </div>
               <div v-show="!editingDescription && todo.desc!=''" class="mt-2 todo-description"
                    @dblclick="editDescription">
@@ -191,10 +192,8 @@
                 });
             },
             doneEditDescription: function () {
-                setTimeout(function () {
-                    this.editingDescription = false;
-                    this.updateTodo();
-                }.bind(this), 150)
+                this.editingDescription = false;
+                this.updateTodo();
             },
             editTitle: function () {
                 this.editingTitle = true;
