@@ -50,7 +50,7 @@
         </div>
         <div class="modal-body">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="todo-header" v-model="todo.checked">
+            <input class="form-check-input" type="checkbox" value="" id="todo-header" v-model="todo.checked" @change="updateTodo">
             <div class=" title-container">
               <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
                      @dblclick="editTitle">
@@ -92,7 +92,7 @@
               >
                 <div class="d-flex flex-row align-items-center" :class="{'checked' : subTask.checked }">
                   <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
-                         :id="'sub-task-'+index">
+                         :id="'sub-task-'+index" @change="updateTodo">
                   <label class="form-check-label" :for="'sub-task-'+index"
                          @dblclick="editSubTask(index)"
                          @dragenter.self="onDragenter($event)"
@@ -125,6 +125,7 @@
     import Datepicker from 'vue3-datepicker';
     import {es, enUS, fr, pt, ru, zhCN, de} from 'date-fns/locale';
     import Markdown from 'vue3-markdown-it';
+    import toDoListRepository from "../../repositories/toDoListRepository";
     // import moment from 'moment'
 
     export default {
@@ -151,6 +152,7 @@
         methods: {
             removeSubTask: function (index) {
                 this.todo.subTaskList.splice(index, 1);
+                this.updateTodo();
             },
             addSubTask: function () {
                 if (this.newSubTask.text != "") {
@@ -158,6 +160,7 @@
                     this.todo.subTaskList.push(newTodo);
                     this.newSubTask.text = "";
                 }
+                this.updateTodo();
             },
             cancelAddSubTask: function () {
                 this.newSubTask.text = "";
@@ -173,6 +176,7 @@
             },
             doneEditSubTask: function (index) {
                 this.todo.subTaskList[index].editing = false;
+                this.updateTodo();
             },
             cancelEditSubTask: function (index) {
                 this.todo.subTaskList[index].text = this.tempSubTask;
@@ -189,7 +193,8 @@
             doneEditDescription: function () {
                 setTimeout(function () {
                     this.editingDescription = false;
-                }.bind(this), 110)
+                    this.updateTodo();
+                }.bind(this), 150)
             },
             editTitle: function () {
                 this.editingTitle = true;
@@ -205,6 +210,7 @@
             },
             doneEditTitle: function () {
                 this.editingTitle = false;
+                this.updateTodo();
             },
             goToMarkDown: function () {
                 window.open("https://commonmark.org/help/", '_blank');
@@ -223,9 +229,13 @@
                 let sub_task = this.todo.subTaskList.splice(parseInt(from_index), 1)[0];
                 this.todo.subTaskList.splice(to_index, 0, sub_task);
                 event.target.parentElement.classList.remove("drag-hover");
+                this.updateTodo();
             },
             showCalendar: function () {
                 document.getElementById('todo-date-picker-input').focus();
+            },
+            updateTodo: function () {
+                toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
             }
         },
         watch: {
