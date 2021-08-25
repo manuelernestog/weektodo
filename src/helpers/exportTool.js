@@ -1,6 +1,7 @@
 import storageRepository from "../repositories/storageRepository";
 import dbRepository from "../repositories/dbRepository";
 import {Toast} from 'bootstrap';
+import migrations from "../migrations/migrations";
 
 export default {
     export() {
@@ -32,6 +33,7 @@ export default {
                 var data = JSON.parse(fr.result);
                 if ('config' in data) {
                     importData(data);
+                    migrations.migrate();
                 } else {
                     toast.show();
                 }
