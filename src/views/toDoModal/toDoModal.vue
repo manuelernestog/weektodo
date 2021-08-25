@@ -13,11 +13,10 @@
               </div>
               <div v-show="!showingCalendar" class="align-items-center py-2 date-picker-btn">
                 <i class="bi-view-list mx-2"></i>
-                <select class="form-select form-select-sm" id="todo-list-select">
-                  <option selected>Custom List</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select class="form-select form-select-sm" id="todo-list-select" v-model="pickedCList">
+                  <option v-for="option in cListOptions" :key="option.listId" :value="option.listId">
+                    {{ option.listName }}
+                  </option>
                 </select>
               </div>
               <div class="selector-divider"></div>
@@ -127,13 +126,15 @@
     import {es, enUS, fr, pt, ru, zhCN, de} from 'date-fns/locale';
     import Markdown from 'vue3-markdown-it';
     import toDoListRepository from "../../repositories/toDoListRepository";
-    // import moment from 'moment'
+    import moment from 'moment'
 
     export default {
         name: "toDoModal",
         data() {
             return {
                 pickedDate: new Date(),
+                pickedCList: "",
+                cListOptions: [],
                 todo: {text: "", checked: false, desc: "", subTaskList: []},
                 newSubTask: {text: "", checked: false, editing: false},
                 editingDescription: false,
@@ -238,6 +239,9 @@
             },
             isCustomTodoList: function () {
                 return this.todo.listId.length == 16 ? true : false;
+            },
+            getCListOptions: function () {
+                this.cListOptions = this.$store.getters.cTodoListIds;
             }
         },
         watch: {
@@ -254,6 +258,14 @@
                     this.todo['repeatingEvent'] = null;
                 }
                 this.showingCalendar = !this.isCustomTodoList();
+                this.getCListOptions();
+                if (this.isCustomTodoList()) {
+                    this.pickedDate = null;
+                    this.pickedCList = this.todo.listId
+                } else {
+                    this.pickedCList = "";
+                    this.pickedDate = moment(this.todo.listId).toDate();
+                }
             }
         },
         computed: {
