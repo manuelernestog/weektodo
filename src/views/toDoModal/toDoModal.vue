@@ -235,6 +235,9 @@
             },
             updateTodo: function () {
                 toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+            },
+            isCustomTodoList: function () {
+                return this.todo.listId.length == 16 ? true : false;
             }
         },
         watch: {
@@ -250,6 +253,7 @@
                     this.todo['alarm'] = false;
                     this.todo['repeatingEvent'] = null;
                 }
+                this.showingCalendar = !this.isCustomTodoList();
             }
         },
         computed: {
@@ -280,7 +284,7 @@
                         break;
                 }
                 return return_lang;
-            }
+            },
         }
     }
 </script>
