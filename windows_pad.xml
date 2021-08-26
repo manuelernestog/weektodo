@@ -17,6 +17,7 @@
 The security of your data is essential. WeekToDo is focused 100% on privacy, all your data is stored on your computer. The only person who has access to your data is you.
 WeekToDo is a totally free project available for everyone. You can enjoy it in any desktop operating system or web browser and it is also available in multiple languages.</Char_Desc_2000>
 <Program_Category_Class>Business|Desktop|Education|System Utilities</Program_Category_Class>
+<Program_Change_Info>Fixing Germany errors. Adding setting to hide Calendar. Adding setting to change columns count. Adding setting to change view zoom. Fixing columns align bug. Fixing drag and drop bug. Adding Resizable view divider. Resizable view divider double click set size to default.</Program_Change_Info>
 <Application_Screenshot_URL>https://weektodo.netlify.app/assets/images/screenshot-from-2021-04-01-00-19-42-1-1206x580.png</Application_Screenshot_URL>
 <Primary_Download_URL>https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.3.0/WeekToDo-Setup-1.3.0.exe</Primary_Download_URL>
 <Application_XML_File_URL>https://weektodo.netlify.app/pad_windows.xml</Application_XML_File_URL>
