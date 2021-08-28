@@ -13,7 +13,8 @@
               </div>
               <div v-show="!showingCalendar" class="align-items-center py-2 date-picker-btn">
                 <i class="bi-view-list mx-2"></i>
-                <select class="form-select form-select-sm" id="todo-list-select" v-model="pickedCList">
+                <select class="form-select form-select-sm" id="todo-list-select" v-model="pickedCList"
+                        @change="moveToTodoList(pickedCList)">
                   <option v-for="option in cListOptions" :key="option.listId" :value="option.listId">
                     {{ option.listName }}
                   </option>
@@ -136,6 +137,7 @@
                 pickedCList: "",
                 cListOptions: [],
                 todo: {text: "", checked: false, desc: "", subTaskList: []},
+                index: 0,
                 newSubTask: {text: "", checked: false, editing: false},
                 editingDescription: false,
                 tempTitle: "",
@@ -242,11 +244,21 @@
             },
             getCListOptions: function () {
                 this.cListOptions = this.$store.getters.cTodoListIds;
+            },
+            moveToTodoList: function (newListID) {
+                // todo: me quede aqui que tengo arreglar que se parte cuando cambio las cosas de lugar
+                // this.$store.commit('removeTodo', {toDoListId: this.todo.listId, index: this.index});
+                // toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+                // this.todo.listId = newListID;
+                // this.$store.commit('addTodo', this.todo);
+                //
+                // toDoListRepository.update(newListID, this.$store.getters.todoLists[newListID]);
             }
         },
         watch: {
             selectedTodo: function (newVal) {
                 this.todo = newVal.toDo;
+                this.index = newVal.index;
                 if (this.todo['desc'] == undefined) {
                     this.todo['desc'] = "";
                     this.todo['subTaskList'] = [];
@@ -265,6 +277,12 @@
                 } else {
                     this.pickedCList = "";
                     this.pickedDate = moment(this.todo.listId).toDate();
+                }
+            },
+            pickedDate: function (newVal) {
+                var newListId = moment(newVal).format('YYYYMMDD');
+                if (newListId != this.todo.listId) {
+                    this.moveToTodoList(newListId);
                 }
             }
         },
