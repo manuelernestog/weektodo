@@ -128,6 +128,7 @@
     import Markdown from 'vue3-markdown-it';
     import toDoListRepository from "../../repositories/toDoListRepository";
     import moment from 'moment'
+    import dbRepository from '../../repositories/dbRepository'
 
     export default {
         name: "toDoModal",
@@ -244,32 +245,36 @@
                 this.cListOptions = this.$store.getters.cTodoListIds;
             },
             moveToTodoList: function (newListID) {
-                if (this.pickedDate == null || this.pickedCList == "") return;
+                if (newListID == "Invalid date" || newListID == "") return;
 
-                console.log(newListID);
-                // let oldListId = this.todo.listId;
-                // this.todo.listId = newListID;
-                //
-                // if (this.$store.getters.todoLists[newListID]) {
-                //     this.$store.commit('addTodo', this.todo);
-                // }
-                // if (this.$store.getters.todoLists[oldListId]) {
-                //     this.$store.commit('removeTodo', {toDoListId: oldListId, index: this.index});
-                // }
-
-
-                // if (this.$store.getters.todoLists[newListID]) {
-                //     this.index = this.$store.getters.todoLists[this.todo.listId].length - 1;
-                //     this.todoList = this.$store.getters.todoLists[this.todo.listId];
-                //     this.todo = this.todoList[this.index];
-                // } else {
-                //     this.loadToDoFormDB(newListID);
-                // }
-                // toDoListRepository.createIfNotExist(newListID, this.todoList);
-                // toDoListRepository.update(newListID, this.$store.getters.todoLists[newListID]);
+                let oldListId = this.todo.listId;
+                this.todoList.splice(this.index, 1);
+                toDoListRepository.update(oldListId, this.todoList);
+                this.todo.listId = newListID;
+                if (this.$store.getters.todoLists[newListID]) {
+                    this.$store.commit('addTodo', this.todo);
+                    this.todoList = this.$store.getters.todoLists[this.todo.listId];
+                    this.index = this.todoList.length - 1;
+                    this.todo = this.todoList[this.index];
+                    toDoListRepository.update(newListID, this.todoList);
+                } else {
+                    this.loadToDoFormDB(newListID);
+                }
             },
             loadToDoFormDB: function (newListID) {
-                console.log(newListID);
+                let db_req = dbRepository.open();
+                var instancePointer = this;
+                db_req.onsuccess = function (event) {
+                    let db = event.target.result;
+                    var get_req = dbRepository.get(db, 'todo_lists', newListID);
+                    get_req.onsuccess = function (event) {
+                        let newTodoList = event.target.result ? event.target.result : [];
+                        newTodoList.push(instancePointer.todo);
+                        instancePointer.todoList = newTodoList;
+                        instancePointer.index = newTodoList.length - 1;
+                        toDoListRepository.update(newListID, instancePointer.todoList);
+                    }
+                }
             }
         },
         watch: {
