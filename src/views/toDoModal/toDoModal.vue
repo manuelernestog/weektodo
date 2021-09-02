@@ -137,6 +137,7 @@
                 pickedCList: "",
                 cListOptions: [],
                 todo: {text: "", checked: false, desc: "", subTaskList: []},
+                todoList: null,
                 index: 0,
                 newSubTask: {text: "", checked: false, editing: false},
                 editingDescription: false,
@@ -237,28 +238,45 @@
                 document.getElementById('todo-date-picker-input').focus();
             },
             updateTodo: function () {
-                toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
-            },
-            isCustomTodoList: function () {
-                return this.todo.listId.length == 16 ? true : false;
+                toDoListRepository.update(this.todo.listId, this.todoList);
             },
             getCListOptions: function () {
                 this.cListOptions = this.$store.getters.cTodoListIds;
             },
             moveToTodoList: function (newListID) {
-                // todo: me quede aqui que tengo arreglar que se parte cuando cambio las cosas de lugar
-                // this.$store.commit('removeTodo', {toDoListId: this.todo.listId, index: this.index});
-                // toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+                if (this.pickedDate == null || this.pickedCList == "") return;
+
+                console.log(newListID);
+                // let oldListId = this.todo.listId;
                 // this.todo.listId = newListID;
-                // this.$store.commit('addTodo', this.todo);
                 //
+                // if (this.$store.getters.todoLists[newListID]) {
+                //     this.$store.commit('addTodo', this.todo);
+                // }
+                // if (this.$store.getters.todoLists[oldListId]) {
+                //     this.$store.commit('removeTodo', {toDoListId: oldListId, index: this.index});
+                // }
+
+
+                // if (this.$store.getters.todoLists[newListID]) {
+                //     this.index = this.$store.getters.todoLists[this.todo.listId].length - 1;
+                //     this.todoList = this.$store.getters.todoLists[this.todo.listId];
+                //     this.todo = this.todoList[this.index];
+                // } else {
+                //     this.loadToDoFormDB(newListID);
+                // }
+                // toDoListRepository.createIfNotExist(newListID, this.todoList);
                 // toDoListRepository.update(newListID, this.$store.getters.todoLists[newListID]);
+            },
+            loadToDoFormDB: function (newListID) {
+                console.log(newListID);
             }
         },
         watch: {
             selectedTodo: function (newVal) {
-                this.todo = newVal.toDo;
+                this.todoList = this.$store.getters.todoLists[newVal.toDo.listId];
                 this.index = newVal.index;
+                this.todo = this.todoList[this.index];
                 if (this.todo['desc'] == undefined) {
                     this.todo['desc'] = "";
                     this.todo['subTaskList'] = [];
@@ -269,14 +287,14 @@
                     this.todo['alarm'] = false;
                     this.todo['repeatingEvent'] = null;
                 }
-                this.showingCalendar = !this.isCustomTodoList();
+                this.showingCalendar = moment(this.todo.listId, 'YYYYMMDD', true).isValid();
                 this.getCListOptions();
-                if (this.isCustomTodoList()) {
-                    this.pickedDate = null;
-                    this.pickedCList = this.todo.listId
-                } else {
+                if (this.showingCalendar) {
                     this.pickedCList = "";
                     this.pickedDate = moment(this.todo.listId).toDate();
+                } else {
+                    this.pickedDate = null;
+                    this.pickedCList = this.todo.listId
                 }
             },
             pickedDate: function (newVal) {
