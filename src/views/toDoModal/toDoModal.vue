@@ -12,13 +12,19 @@
                 <datepicker id="todo-date-picker-input" v-model="pickedDate" :locale="language"/>
               </div>
               <div v-show="!showingCalendar" class="align-items-center py-2 date-picker-btn">
-                <i class="bi-view-list mx-2"></i>
-                <select class="form-select form-select-sm" id="todo-list-select" v-model="pickedCList"
-                        @change="moveToTodoList(pickedCList)">
-                  <option v-for="option in cListOptions" :key="option.listId" :value="option.listId">
-                    {{ option.listName }}
-                  </option>
-                </select>
+                <div data-bs-toggle="dropdown">
+                  <i class="bi-view-list mx-2"></i>
+                  <div id="todo-list-select"> {{pickedCListName}}</div>
+                </div>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                  <li v-for="option in cListOptions" :key="option.listId" :value="option.listId">
+                    <button class="dropdown-item" type="button" @click="pickedCList = option.listId">
+                      <i class="bi-check"
+                         :style="{visibility: option.listId == pickedCList ? 'visible' : 'hidden'}"></i>
+                      <span>{{ option.listName }}</span>
+                    </button>
+                  </li>
+                </ul>
               </div>
               <div class="selector-divider"></div>
               <i id="btnGroupDrop1" class="bi-chevron-down p-2" type="button" data-bs-toggle="dropdown"></i>
@@ -37,12 +43,12 @@
             </div>
           </div>
           <div class="d-flex header-menu-icons ms-auto align-items-center">
-            <!--            <i class="bi-circle "></i>-->
-            <!--            <i class="bi-alarm "></i>-->
-            <!--            <i class="bi-arrow-repeat "></i>-->
-            <!--            <i class="bi-flag "></i>-->
-            <!--            <i class="bi-tag "></i>-->
-            <!--            <i class="bi-three-dots-vertical"></i>-->
+            <!--                        <i class="bi-circle "></i>-->
+            <!--                        <i class="bi-alarm "></i>-->
+            <!--                        <i class="bi-arrow-repeat "></i>-->
+            <!--                        <i class="bi-flag "></i>-->
+            <!--                        <i class="bi-tag "></i>-->
+            <!--                        <i class="bi-three-dots-vertical"></i>-->
             <div>
               <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
             </div>
@@ -136,6 +142,7 @@
             return {
                 pickedDate: new Date(),
                 pickedCList: "",
+                pickedCListName: "",
                 cListOptions: [],
                 todo: {text: "", checked: false, desc: "", subTaskList: []},
                 todoList: null,
@@ -247,6 +254,18 @@
             moveToTodoList: function (newListID) {
                 if (newListID == "Invalid date" || newListID == "") return;
 
+                //todo: cambiar todo esto cuando andicione los tablones para poder apuntar directo al customtodo por el id en memoria y no iterar
+                if (moment(newListID, 'YYYYMMDD', true).isValid()) {
+                    this.pickedCListName = "";
+                    this.pickedCList = "";
+                } else {
+                    this.cListOptions.forEach((x) => {
+                        if (x.listId == this.pickedCList) {
+                            this.pickedCListName = x.listName;
+                        }
+                    });
+                }
+
                 let oldListId = this.todo.listId;
                 this.todoList.splice(this.index, 1);
                 toDoListRepository.update(oldListId, this.todoList);
@@ -296,6 +315,7 @@
                 this.getCListOptions();
                 if (this.showingCalendar) {
                     this.pickedCList = "";
+                    this.pickedCListName = "";
                     this.pickedDate = moment(this.todo.listId).toDate();
                 } else {
                     this.pickedDate = null;
@@ -307,6 +327,9 @@
                 if (newListId != this.todo.listId) {
                     this.moveToTodoList(newListId);
                 }
+            },
+            pickedCList: function (newVal) {
+                this.moveToTodoList(newVal);
             }
         },
         computed: {
@@ -603,14 +626,14 @@
     color: #4d4a57;
     border: none;
     background-color: unset;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     cursor: pointer;
-    background-image: none;
     width: 90px;
     font-size: 15px;
     line-height: 15px;
-    outline: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
   }
 
 </style>
