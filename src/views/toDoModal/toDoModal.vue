@@ -6,17 +6,17 @@
         <div class="modal-header d-flex">
           <div class="todo-list-selector">
             <div class="d-flex align-items-center">
-              <div v-show="showingCalendar" class="align-items-center py-2 date-picker-btn"
+              <div v-show="showingCalendar" class="align-items-center date-picker-btn"
                    @click="showCalendar()">
                 <i class="bi-calendar-event mx-2 "></i>
-                <datepicker id="todo-date-picker-input" v-model="pickedDate" :locale="language"/>
+                <datepicker id="todo-date-picker-input" class="py-2" v-model="pickedDate" :locale="language"/>
               </div>
-              <div v-show="!showingCalendar" class="align-items-center py-2 date-picker-btn">
-                <div data-bs-toggle="dropdown">
+              <div v-show="!showingCalendar" class="align-items-center date-picker-btn">
+                <div data-bs-toggle="dropdown" class=" align-items-center date-picker-btn py-2">
                   <i class="bi-view-list mx-2"></i>
                   <div id="todo-list-select"> {{pickedCListName}}</div>
                 </div>
-                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <ul class="dropdown-menu mt-2" aria-labelledby="btnGroupDrop1">
                   <li v-for="option in cListOptions" :key="option.listId" :value="option.listId">
                     <button class="dropdown-item" type="button" @click="pickedCList = option.listId">
                       <i class="bi-check"
