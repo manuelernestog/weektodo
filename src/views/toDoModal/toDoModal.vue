@@ -16,10 +16,10 @@
                   <i class="bi-view-list mx-2"></i>
                   <div id="todo-list-select"> {{pickedCListName}}</div>
                 </div>
-                <ul class="dropdown-menu mt-2" aria-labelledby="btnGroupDrop1">
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                   <li v-for="option in cListOptions" :key="option.listId" :value="option.listId">
                     <button class="dropdown-item" type="button" @click="pickedCList = option.listId">
-                      <i class="bi-check"
+                      <i class="bi-check2"
                          :style="{visibility: option.listId == pickedCList ? 'visible' : 'hidden'}"></i>
                       <span>{{ option.listName }}</span>
                     </button>
