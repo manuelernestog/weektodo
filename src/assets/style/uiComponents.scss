@@ -1,3 +1,4 @@
+@import "globalVars";
 //------------------------------------------dropdown-menu--------------------------------------------------
 .dropdown-menu {
   .dropdown-item {
@@ -7,5 +8,22 @@
   i {
     font-size: .8rem;
     margin-right: 15px;
+  }
+}
+
+.dark-theme {
+  .dropdown-menu {
+    background-color: $black-bg-color !important;
+    border: $black-border-color;
+    color: #c9d1d9 !important;
+    box-shadow: none !important;
+  }
+
+  .dropdown-item {
+    color: #c9d1d9 !important;
+
+    &:hover {
+      background-color: #2e353d !important;
+    }
   }
 }
