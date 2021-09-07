@@ -60,6 +60,7 @@
                    @change="updateTodo">
             <div class=" title-container">
               <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
+                     :class="{'completed-task' : todo.checked }"
                      @dblclick="editTitle">
                 {{todo.text}}
               </label>
@@ -634,6 +635,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
+  }
+
+  .completed-task {
+    text-decoration: line-through;
   }
 
 </style>
