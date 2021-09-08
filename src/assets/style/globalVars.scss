@@ -1,2 +1,33 @@
 $black-bg-color: #21262d;
 $black-border-color: 1px solid #30363d;
+
+//--------------------------------Text--------------------------------
+
+//-------------------------------Buttons-----------------------------
+$btn-color: #6e6e6e;
+$btn-hover-color: black;
+$btn-hover-bg-color: #f4f4f4;
+
+$dt-btn-color: #ababab;
+$dt-btn-hover-color: white;
+$dt-btn-hover-bg-color: #2c343b;
+
+@mixin btn {
+  font-size: 1.1rem;
+  border-radius: 5px;
+  padding: 8px;
+  color: $btn-color;
+  &:hover {
+    color: $btn-hover-color;
+    background-color: $btn-hover-bg-color;
+    cursor: pointer;
+  }
+  .dark-theme & {
+    color: $dt-btn-color;
+
+    &:hover {
+      color: $dt-btn-hover-color;
+      background-color: $dt-btn-hover-bg-color;
+    }
+  }
+}

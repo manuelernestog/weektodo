@@ -43,12 +43,12 @@
             </div>
           </div>
           <div class="d-flex header-menu-icons ms-auto align-items-center">
-            <!--                        <i class="bi-circle "></i>-->
-            <!--                        <i class="bi-alarm "></i>-->
-            <!--                        <i class="bi-arrow-repeat "></i>-->
-            <!--                        <i class="bi-flag "></i>-->
-            <!--                        <i class="bi-tag "></i>-->
-            <!--                        <i class="bi-three-dots-vertical"></i>-->
+            <!--            <i class="bi-circle "></i>-->
+            <!--            <i class="bi-alarm "></i>-->
+            <!--            <i class="bi-arrow-repeat "></i>-->
+            <!--            <i class="bi-flag "></i>-->
+            <!--            <i class="bi-tag "></i>-->
+            <!--            <i class="bi-three-dots-vertical"></i>-->
             <div>
               <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
             </div>
@@ -366,7 +366,9 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+  @import "/src/assets/style/globalVars.scss";
 
   .todo-title {
     font-size: 18px;
@@ -430,23 +432,14 @@
   }
 
 
-  .todo-list-selector .bi-chevron-down:hover {
-    background-color: #f4f3f3;
-    border-radius: 4px;
-    color: black;
-    cursor: pointer;
+  .todo-list-selector .bi-chevron-down {
+    @include btn;
   }
 
   .todo-list-selector .date-picker-btn {
-    cursor: grab;
     display: flex;
-  }
-
-  .todo-list-selector .date-picker-btn:hover {
-    background-color: #f4f3f3;
-    border-radius: 4px;
-    color: black;
-    cursor: pointer;
+    @include btn;
+    padding: 0px;
   }
 
   .todo-list-selector .selector-divider {
@@ -593,22 +586,13 @@
   }
 
   .header-menu-icons i {
-    font-size: 1.1rem;
     margin-left: 6px;
-    padding: 8px;
-    border-radius: 5px;
-    color: #6e6e6e;
+    @include btn;
   }
 
   .header-menu-icons .bi-x {
     font-size: 1.9rem;
     padding: 0px;
-  }
-
-  .header-menu-icons i:hover {
-    color: #171717;
-    background-color: #f4f4f4;
-    cursor: pointer;
   }
 
   .sub-task .form-check-input {
@@ -624,7 +608,6 @@
 
   #todo-list-select {
     padding: 0px;
-    color: #4d4a57;
     border: none;
     background-color: unset;
     cursor: pointer;
