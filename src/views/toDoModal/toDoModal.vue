@@ -90,7 +90,7 @@
             </div>
           </div>
           <div class="mt-3"></div>
-          <div class="horizontal-divider mb-2 mt-3"></div>
+          <div class="horizontal-divider mb-0 mt-3"></div>
           <ul class="sub-tasks">
             <li v-for="(subTask,index) in todo.subTaskList" :key="index"
                 class="sub-task">
@@ -370,6 +370,7 @@
 
   @import "/src/assets/style/globalVars.scss";
 
+
   .todo-title {
     font-size: 18px;
     font-weight: 500;
@@ -420,26 +421,24 @@
     border: 2px solid transparent;
   }
 
-
   .description-empty {
     color: grey;
     font-size: 14px;
     line-height: 21px;
   }
 
-  .todo-list-selector i {
-    font-size: 1rem;
-  }
-
-
   .todo-list-selector .bi-chevron-down {
-    @include btn;
+    @include btn-icon;
   }
 
   .todo-list-selector .date-picker-btn {
     display: flex;
-    @include btn;
+    @include btn-icon;
     padding: 0px;
+
+    #todo-list-select{
+      font-size: 15px;
+    }
   }
 
   .todo-list-selector .selector-divider {
@@ -587,7 +586,7 @@
 
   .header-menu-icons i {
     margin-left: 6px;
-    @include btn;
+    @include btn-icon;
   }
 
   .header-menu-icons .bi-x {

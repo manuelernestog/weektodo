@@ -7,12 +7,14 @@ $black-border-color: 1px solid #30363d;
 $btn-color: #6e6e6e;
 $btn-hover-color: black;
 $btn-hover-bg-color: #f4f4f4;
+$btn-active-bg-color: #e9e9e9;
 
 $dt-btn-color: #ababab;
 $dt-btn-hover-color: white;
-$dt-btn-hover-bg-color: #2c343b;
+$dt-btn-hover-bg-color: #303940;
+$dt-btn-active-bg-color: #354048;
 
-@mixin btn {
+@mixin btn-icon {
   font-size: 1.1rem;
   border-radius: 5px;
   padding: 8px;
@@ -22,12 +24,19 @@ $dt-btn-hover-bg-color: #2c343b;
     background-color: $btn-hover-bg-color;
     cursor: pointer;
   }
+  &:active {
+    background-color: $btn-active-bg-color;
+  }
   .dark-theme & {
     color: $dt-btn-color;
 
     &:hover {
       color: $dt-btn-hover-color;
       background-color: $dt-btn-hover-bg-color;
+    }
+
+    &:active {
+      background-color: $dt-btn-active-bg-color;
     }
   }
 }
