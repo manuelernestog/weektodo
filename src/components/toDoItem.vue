@@ -6,12 +6,48 @@
        :class="[{'drag-hover': todoDragHover},{'dragging': todoDragging}]"
   >
     <div class="todo-item-container">
-      <div v-if="!editing" class="todo-item" :class="{ 'checked-todo': toDo.checked }" ref="currentTodo"
+      <div v-if="!editing" class="todo-item d-flex flex-column" ref="currentTodo"
            draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
-        <span class="noselect item-text" style=" flex-grow:1; " @dblclick="editToDo"
-              @click="checkToDo"> {{ toDo.text }} </span>
-        <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
-        <i class="bi-x todo-item-remove" @click="removeTodo"></i>
+        <div class="d-flex">
+          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style=" flex-grow:1; "
+                @dblclick="editToDo"
+                @click="checkToDo"> {{ toDo.text }} </span>
+          <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
+          <i class="bi-x todo-item-remove" @click="removeTodo"></i>
+        </div>
+
+        <!--        <div class="tags">-->
+        <!--                    <div class="tag-item">-->
+        <!--                      <i class="bi-chevron-double-up"></i>-->
+        <!--                    </div>-->
+        <!--                    <div class="tag-item">-->
+        <!--                      <i class="bi-arrow-repeat"></i>-->
+        <!--                    </div>-->
+        <!--          <div class="tag-item">-->
+        <!--            <i class="bi-list-task"></i>-->
+        <!--            <span>5/10</span>-->
+        <!--          </div>-->
+        <!--                    <div class="tag-item">-->
+        <!--                      <i class="bi-clock"></i>-->
+        <!--                      <span>5:15</span>-->
+        <!--                    </div>-->
+        <!--                    <div class="tag-item">-->
+        <!--                      <i class="bi-tag"></i>-->
+        <!--                    </div>-->
+        <!--        </div>-->
+
+        <div class="todo-item-sub-tasks">
+          <ul class="sub-tasks">
+            <li v-for="(subTask,index) in toDo.subTaskList" :key="index"
+                class="sub-task">
+              <div class="d-flex flex-row mt-1" :class="{'checked-todo' : subTask.checked }">
+                <input class="form-check-input" type="checkbox" v-model="subTask.checked">
+                <label class="form-check-label flex-grow-1"
+                       @click="subTask.checked = !subTask.checked">{{subTask.text}}</label>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
              @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
@@ -95,7 +131,7 @@
 
 </script>
 
-<style>
+<style scoped lang="scss">
   .todo-item-container {
     border-bottom: 1px solid #eaecef;
     height: 1.6rem;
@@ -108,8 +144,6 @@
 
   .todo-item {
     transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
-    flex-direction: row;
-    display: flex;
   }
 
   .todo-item:hover {
@@ -120,6 +154,23 @@
     transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
     border-radius: 3px;
+  }
+
+  .todo-item-sub-tasks {
+    display: none
+  }
+
+  .todo-item:hover .todo-item-sub-tasks {
+    display: flex !important;
+  }
+
+  .tags {
+    display: none;
+  }
+
+  .todo-item:hover .tags {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .dark-theme .todo-item:hover {
@@ -152,17 +203,6 @@
   .dark-theme .todo-item:hover {
     background-color: #161b22;
     color: #f7f7f7;
-  }
-
-  .todo-input {
-    line-height: 1.3rem;
-    width: 100%;
-    border: none;
-    font-size: 0.865rem;
-  }
-
-  .todo-input:focus {
-    outline: none;
   }
 
   .checked-todo {
@@ -254,5 +294,40 @@
     height: 1.2rem;
   }
 
+  .sub-tasks {
+    list-style: none;
+    margin: 0px 10px 10px 10px;
+    padding: 0px;
+    font-size: 13px;
+
+    input {
+      width: 14px;
+      height: 14px;
+      margin-right: 8px;
+    }
+
+    label {
+      margin-top: 2px;
+    }
+  }
+
+  .tags {
+    margin: 2px 10px 2px 10px;
+  }
+
+  .tag-item {
+    background-color: #e1ecf4;
+    color: #39739d;
+    border-radius: 3px;
+    font-size: 13px;
+    padding: 4px 6px 4px 6px;
+    margin-right: 5px;
+    margin: 2px 5px 2px 0px;
+
+    span {
+      margin-left: 4px;
+    }
+
+  }
 
 </style>

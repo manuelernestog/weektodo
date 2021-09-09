@@ -251,4 +251,15 @@
     height: calc(100% - 35px);
   }
 
+  .todo-input {
+    line-height: 1.3rem;
+    width: 100%;
+    border: none;
+    font-size: 0.865rem;
+  }
+
+  .todo-input:focus {
+    outline: none;
+  }
+
 </style>
