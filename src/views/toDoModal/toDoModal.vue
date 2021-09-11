@@ -116,7 +116,7 @@
                      :ref="'subTaskEdit'+index" class="edit-sub-task">
             </li>
             <div class="new-sub-task d-flex align-items-center">
-              <label for="new-sub-task"><i class="bi-plus-circle mx-3"></i></label>
+              <label for="new-sub-task"><i class="bi-plus-square mx-3"></i></label>
               <input type="text" id="new-sub-task" placeholder="Adicionar Subtarea" autocomplete="off"
                      @blur="addSubTask()"
                      @keyup.enter="addSubTask()"

@@ -16,31 +16,31 @@
           <i class="bi-x todo-item-remove" @click="removeTodo"></i>
         </div>
 
-        <!--        <div class="tags">-->
-        <!--                    <div class="tag-item">-->
-        <!--                      <i class="bi-chevron-double-up"></i>-->
-        <!--                    </div>-->
-        <!--                    <div class="tag-item">-->
-        <!--                      <i class="bi-arrow-repeat"></i>-->
-        <!--                    </div>-->
-        <!--          <div class="tag-item">-->
-        <!--            <i class="bi-list-task"></i>-->
-        <!--            <span>5/10</span>-->
-        <!--          </div>-->
-        <!--                    <div class="tag-item">-->
-        <!--                      <i class="bi-clock"></i>-->
-        <!--                      <span>5:15</span>-->
-        <!--                    </div>-->
-        <!--                    <div class="tag-item">-->
-        <!--                      <i class="bi-tag"></i>-->
-        <!--                    </div>-->
-        <!--        </div>-->
+        <!--                <div class="tags">-->
+        <!--                            <div class="tag-item">-->
+        <!--                              <i class="bi-chevron-double-up"></i>-->
+        <!--                            </div>-->
+        <!--                            <div class="tag-item">-->
+        <!--                              <i class="bi-arrow-repeat"></i>-->
+        <!--                            </div>-->
+        <!--                  <div class="tag-item">-->
+        <!--                    <i class="bi-list-task"></i>-->
+        <!--                    <span>5/10</span>-->
+        <!--                  </div>-->
+        <!--                            <div class="tag-item">-->
+        <!--                              <i class="bi-clock"></i>-->
+        <!--                              <span>5:15</span>-->
+        <!--                            </div>-->
+        <!--                            <div class="tag-item">-->
+        <!--                              <i class="bi-tag"></i>-->
+        <!--                            </div>-->
+        <!--                </div>-->
 
         <div class="todo-item-sub-tasks">
           <ul class="sub-tasks">
             <li v-for="(subTask,index) in toDo.subTaskList" :key="index"
                 class="sub-task">
-              <div class="d-flex flex-row mt-1" :class="{'checked-todo' : subTask.checked }">
+              <div class="d-flex flex-row mt-1" :class="{'checked-sub-task' : subTask.checked }">
                 <input class="form-check-input" type="checkbox" v-model="subTask.checked">
                 <label class="form-check-label"
                        @click="subTask.checked = !subTask.checked">{{subTask.text}}</label>
@@ -206,8 +206,25 @@
   }
 
   .checked-todo {
-    opacity: .5;
+    color: lightgray;
     text-decoration: line-through;
+
+    .dark-theme & {
+      color: #767676;
+    }
+  }
+
+  .checked-sub-task {
+    color: lightgray;
+    text-decoration: line-through;
+
+    .dark-theme & {
+      color: #767676;
+    }
+
+    input {
+      opacity: .5;
+    }
   }
 
   .old-date .todo-item {
