@@ -539,8 +539,12 @@
 
       .drag-hover {
         color: rgba(157, 157, 157, 0.43);
-        box-shadow: rgb(244, 243, 243) 0px 0px 4px 1px inset;
         background-color: rgb(250, 249, 249);
+
+        .dark-theme & {
+          color: rgb(87, 87, 87);
+          background-color: #1f1e20;
+        }
       }
 
       &:hover {
@@ -568,6 +572,8 @@
         border: none;
         width: 100%;
         height: 38px;
+        outline: unset;
+
         border: 2px solid transparent;
 
         .dark-theme & {
@@ -587,6 +593,7 @@
     }
 
     .edit-sub-task {
+      outline: unset;
       border: none;
       width: 100%;
       height: 38px;

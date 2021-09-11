@@ -177,7 +177,7 @@
   }
 
   .custom-todo-input {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     width: 100%;
   }
 
