@@ -39,3 +39,31 @@
 }
 
 //------------------------------------------input-type-text--------------------------------------------------
+
+//------------------------------------------input-checkbox--------------------------------------------------
+
+.form-check-input {
+  border-radius: 10px !important;
+  border: 1px solid #ced4da;
+
+  &:checked {
+    border: 1px solid $check-color;
+    background-color: $check-color;
+  }
+
+  &:focus {
+    border-color: $check-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(210, 253, 198, 0.2);
+  }
+
+  .dark-theme & {
+    background-color: unset;
+    color: #c9d1d9;
+    border: 1px solid #81868c;
+    &:checked {
+      border: 1px solid $check-color;
+      background-color: $check-color;
+    }
+  }
+}

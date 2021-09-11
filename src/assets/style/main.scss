@@ -1,5 +1,9 @@
 @import "globalVars";
 
+body{
+  color: $text-color;
+}
+
 * {
   user-select: none;
   -moz-user-select: none;

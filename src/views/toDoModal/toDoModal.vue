@@ -436,7 +436,7 @@
     @include btn-icon;
     padding: 0px;
 
-    #todo-list-select{
+    #todo-list-select {
       font-size: 15px;
     }
   }
@@ -542,21 +542,6 @@
   .edit-sub-task {
     width: calc(100% - 48px);
     margin-left: 48px;
-  }
-
-  .form-check-input {
-    border-radius: 10px !important;
-  }
-
-  .form-check-input:checked {
-    border: 1px solid #5bb04e;
-    background-color: #5bb04e;
-  }
-
-  .form-check-input:focus {
-    border-color: #5bb04e;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(210, 253, 198, 0.2);
   }
 
   .title-container {

@@ -42,7 +42,7 @@
                 class="sub-task">
               <div class="d-flex flex-row mt-1" :class="{'checked-todo' : subTask.checked }">
                 <input class="form-check-input" type="checkbox" v-model="subTask.checked">
-                <label class="form-check-label flex-grow-1"
+                <label class="form-check-label"
                        @click="subTask.checked = !subTask.checked">{{subTask.text}}</label>
               </div>
             </li>
@@ -206,12 +206,8 @@
   }
 
   .checked-todo {
-    color: lightgray;
+    opacity: .5;
     text-decoration: line-through;
-  }
-
-  .dark-theme .checked-todo {
-    color: #343b42;
   }
 
   .old-date .todo-item {
@@ -301,7 +297,9 @@
     font-size: 13px;
 
     input {
+      min-width: 14px;
       width: 14px;
+      min-height: 14px;
       height: 14px;
       margin-right: 8px;
     }
