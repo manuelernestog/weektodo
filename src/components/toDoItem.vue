@@ -16,26 +16,6 @@
           <i class="bi-x todo-item-remove" @click="removeTodo"></i>
         </div>
 
-        <!--                <div class="tags">-->
-        <!--                            <div class="tag-item">-->
-        <!--                              <i class="bi-chevron-double-up"></i>-->
-        <!--                            </div>-->
-        <!--                            <div class="tag-item">-->
-        <!--                              <i class="bi-arrow-repeat"></i>-->
-        <!--                            </div>-->
-        <!--                  <div class="tag-item">-->
-        <!--                    <i class="bi-list-task"></i>-->
-        <!--                    <span>5/10</span>-->
-        <!--                  </div>-->
-        <!--                            <div class="tag-item">-->
-        <!--                              <i class="bi-clock"></i>-->
-        <!--                              <span>5:15</span>-->
-        <!--                            </div>-->
-        <!--                            <div class="tag-item">-->
-        <!--                              <i class="bi-tag"></i>-->
-        <!--                            </div>-->
-        <!--                </div>-->
-
         <div class="todo-item-sub-tasks">
           <ul class="sub-tasks">
             <li v-for="(subTask,index) in toDo.subTaskList" :key="index"
@@ -48,6 +28,15 @@
             </li>
           </ul>
         </div>
+
+        <!--        <div class="tags">-->
+        <!--          <div class="tag-item"><i class="bi-chevron-double-up"></i></div>-->
+        <!--          <div class="tag-item"><i class="bi-arrow-repeat"></i></div>-->
+        <!--          <div class="tag-item"><i class="bi-list-task"></i> <span>5/10</span></div>-->
+        <!--          <div class="tag-item"><i class="bi-clock"></i> <span>5:15</span></div>-->
+        <!--          <div class="tag-item"><i class="bi-tag"></i></div>-->
+        <!--        </div>-->
+
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
              @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()"/>
@@ -309,9 +298,16 @@
 
   .sub-tasks {
     list-style: none;
-    margin: 0px 10px 10px 10px;
     padding: 0px;
     font-size: 13px;
+
+    li {
+      margin: 0px 10px 0px 10px;
+    }
+
+    li:last-child {
+      margin: 0px 10px 10px 10px;
+    }
 
     input {
       min-width: 14px;
