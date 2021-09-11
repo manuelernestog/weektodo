@@ -76,7 +76,7 @@
                      @keyup.esc="cancelEditTitle()"
                      @keyup.enter="doneEditTitle()">
               <div class="position-relative" v-show="editingDescription">
-              <textarea class="todo-description-input mt-2" v-model="todo.desc"
+              <textarea class="todo-description-textarea mt-2" v-model="todo.desc"
                         placeholder="Description" ref="descriptionInput" @blur="doneEditDescription">
               </textarea>
                 <i class="bi-markdown-fill" @mousedown="goToMarkDown" title="Markdown Style Supported"></i>
@@ -378,63 +378,6 @@
 
   @import "/src/assets/style/globalVars.scss";
 
-
-  .todo-title {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 22px;
-    border: 2px solid transparent;
-    padding: 1px 2px 1px 2px;
-  }
-
-  .todo-title-input {
-    font-size: 18px;
-    line-height: 22px;
-    width: 100%;
-    font-weight: 500;
-    outline: unset;
-    border: 2px solid black;
-    border-radius: 3px;
-  }
-
-  .todo-title-empty-title {
-    color: grey;
-    margin-left: -8px;
-  }
-
-  .todo-description-input {
-    font-size: 14px;
-    line-height: 19px;
-    height: 150px;
-    width: 100%;
-    overflow: auto;
-    resize: none;
-    background: unset;
-    cursor: auto;
-    outline: unset;
-    border: 2px solid black;
-    border-radius: 3px;
-  }
-
-  .todo-description {
-    zoom: 89%;
-    max-height: 150px;
-    overflow-y: auto;
-    user-select: auto;
-    -moz-user-select: auto;
-    -webkit-user-drag: auto;
-    -webkit-user-select: auto;
-    -ms-user-select: auto;
-    padding: 2px;
-    border: 2px solid transparent;
-  }
-
-  .description-empty {
-    color: grey;
-    font-size: 14px;
-    line-height: 21px;
-  }
-
   .todo-list-selector .bi-chevron-down {
     @include btn-icon;
   }
@@ -456,31 +399,51 @@
     margin: 0px 4px 0px 4px;
   }
 
-  .sub-tasks {
-    list-style: none;
-    padding: 0px 10px 10px 10px;
-    margin: 0px;
-    max-height: 250px;
-    overflow-y: auto;
+  .todo-title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    border: 2px solid transparent;
+    padding: 1px 2px 1px 2px;
   }
 
-  .sub-tasks li > div {
-    -webkit-user-drag: element;
+  .todo-title-input {
+    font-size: 18px;
+    line-height: 22px;
+    width: 100%;
+    font-weight: 500;
+    outline: unset;
+    border: 2px solid black;
+    border-radius: 3px;
+
+    .dark-theme & {
+      border: 2px solid white;
+      background-color: unset;
+    }
   }
 
-  .sub-task {
-    marging: 0px 20px 10px 20px;
-    border-bottom: 1px solid #eaecef;
+  .todo-title-empty-title {
+    color: grey;
+    margin-left: -8px;
   }
 
-  .sub-task .drag-hover {
-    color: rgba(157, 157, 157, 0.43);
-    box-shadow: rgb(244, 243, 243) 0px 0px 4px 1px inset;
-    background-color: rgb(250, 249, 249);
-  }
+  .todo-description-textarea {
+    font-size: 14px;
+    line-height: 19px;
+    height: 150px;
+    width: 100%;
+    overflow: auto;
+    resize: none;
+    background: unset;
+    cursor: auto;
+    outline: unset;
+    border: 2px solid black;
+    border-radius: 3px;
 
-  .sub-task .drag-hover label * {
-    pointer-events: none;
+    .dark-theme & {
+      border: 2px solid white;
+      color: #c9d1d9;
+    }
   }
 
   .bi-markdown-fill {
@@ -491,39 +454,152 @@
     bottom: 5px;
     opacity: .3;
     cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
-  .bi-markdown-fill:hover {
-    opacity: 1;
+  .todo-description {
+    zoom: 89%;
+    max-height: 150px;
+    overflow-y: auto;
+    user-select: auto;
+    -moz-user-select: auto;
+    -webkit-user-drag: auto;
+    -webkit-user-select: auto;
+    -ms-user-select: auto;
+    padding: 2px;
+    border: 2px solid transparent;
   }
 
-  .sub-task label {
-    width: 100%;
-    padding: 10px 5px 10px 0px;
-    min-height: 38px;
-    height: auto;
+  .description-empty {
+    color: grey;
+    font-size: 14px;
+    line-height: 21px;
   }
 
-  .sub-task i {
-    color: #87888a;
-    display: none;
-    cursor: pointer;
-  }
+  .sub-tasks {
+    list-style: none;
+    padding: 0px 10px 10px 10px;
+    margin: 0px;
+    max-height: 250px;
+    overflow-y: auto;
 
-  .sub-task i:hover {
-    color: black;
-  }
+    li > div {
+      -webkit-user-drag: element;
+    }
 
-  .sub-task:hover i {
-    display: block;
-  }
+    .sub-task {
+      border-bottom: 1px solid #eaecef;
 
-  .sub-task:hover {
-    background-color: #f4f4f4;
-  }
+      .dark-theme & {
+        border-bottom: 1px solid #464647;
+      }
 
-  .sub-task .checked i {
-    opacity: 1 !important;
+      label {
+        width: 100%;
+        padding: 10px 5px 10px 0px;
+        min-height: 38px;
+        height: auto;
+
+        * {
+          pointer-events: none;
+        }
+      }
+
+      .form-check-input {
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px;
+        min-height: 16px;
+      }
+
+      i {
+        color: #87888a;
+        display: none;
+        cursor: pointer;
+
+        &:hover {
+          color: black;
+        }
+
+        .checked & {
+          opacity: 1 !important;
+        }
+
+        .dark-theme & {
+          color: #babbbe;
+
+          &:hover {
+            color: white;
+          }
+        }
+      }
+
+      .drag-hover {
+        color: rgba(157, 157, 157, 0.43);
+        box-shadow: rgb(244, 243, 243) 0px 0px 4px 1px inset;
+        background-color: rgb(250, 249, 249);
+      }
+
+      &:hover {
+        background-color: $btn-hover-bg-color;
+
+        .dark-theme & {
+          background-color: $dt-btn-hover-bg-color;
+        }
+
+        i {
+          display: block;
+        }
+      }
+    }
+
+    .new-sub-task {
+      padding: 0px 5px 0px 0px;
+      width: 100%;
+
+      i {
+        color: lightgrey;
+      }
+
+      input {
+        border: none;
+        width: 100%;
+        height: 38px;
+        border: 2px solid transparent;
+
+        .dark-theme & {
+          background-color: unset;
+        }
+
+        &:focus {
+          border: 2px solid black;
+          border-radius: 3px;
+
+          .dark-theme & {
+            border: 2px solid white;
+            background-color: #21262d;
+          }
+        }
+      }
+    }
+
+    .edit-sub-task {
+      border: none;
+      width: 100%;
+      height: 38px;
+      width: calc(100% - 48px);
+      margin-left: 48px;
+      border: 2px solid black;
+      border-radius: 3px;
+
+      .dark-theme & {
+        border: 2px solid white;
+        background-color: #21262d;
+      }
+    }
   }
 
   .sub-task .checked input, .sub-task .checked label {
@@ -531,32 +607,10 @@
     text-decoration: line-through;
   }
 
-
-  .new-sub-task {
-    padding: 0px 5px 0px 0px;
-    width: 100%;
-  }
-
-  .new-sub-task i {
-    color: lightgrey;
-  }
-
-  .new-sub-task input, .edit-sub-task {
-    border: none;
-    width: 100%;
-    height: 38px;
-  }
-
-  .edit-sub-task {
-    width: calc(100% - 48px);
-    margin-left: 48px;
-  }
-
   .title-container {
     margin-left: 14px;
     margin-top: 1px;
   }
-
 
   .form-check-input {
     width: 1.3em !important;
@@ -587,12 +641,6 @@
     padding: 0px;
   }
 
-  .sub-task .form-check-input {
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px;
-    min-height: 16px;
-  }
 
   .modal.modal-static .modal-dialog {
     transform: none;

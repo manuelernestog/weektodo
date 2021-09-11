@@ -121,6 +121,7 @@
 </script>
 
 <style scoped lang="scss">
+
   .todo-item-container {
     border-bottom: 1px solid #eaecef;
     height: 1.6rem;
@@ -204,7 +205,7 @@
   }
 
   .checked-sub-task {
-    color: lightgray;
+    color: #a1a1a1;
     text-decoration: line-through;
 
     .dark-theme & {
@@ -299,7 +300,7 @@
   .sub-tasks {
     list-style: none;
     padding: 0px;
-    font-size: 13px;
+    font-size: 14px;
 
     li {
       margin: 0px 10px 0px 10px;
