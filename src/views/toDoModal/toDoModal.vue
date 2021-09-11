@@ -26,20 +26,22 @@
                   </li>
                 </ul>
               </div>
-              <div class="selector-divider"></div>
-              <i id="btnGroupDrop1" class="bi-chevron-down p-2" type="button" data-bs-toggle="dropdown"></i>
-              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li>
-                  <button class="dropdown-item" type="button" @click="showingCalendar = true">
-                    <i class="bi-calendar-check"></i> <span>Calendar</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="dropdown-item" type="button" @click="showingCalendar = false">
-                    <i class="bi-view-list"></i> <span>Custom List</span>
-                  </button>
-                </li>
-              </ul>
+              <div v-if="showCL && showCal" class="d-flex align-items-center">
+                <div class="selector-divider"></div>
+                <i id="btnGroupDrop1" class="bi-chevron-down p-2" type="button" data-bs-toggle="dropdown"></i>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                  <li>
+                    <button class="dropdown-item" type="button" @click="showingCalendar = true">
+                      <i class="bi-calendar-check"></i> <span>Calendar</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button" @click="showingCalendar = false">
+                      <i class="bi-view-list"></i> <span>Custom List</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="d-flex header-menu-icons ms-auto align-items-center">
@@ -361,6 +363,12 @@
                         break;
                 }
                 return return_lang;
+            },
+            showCL: function () {
+                return this.$store.getters.config.customList;
+            },
+            showCal: function () {
+                return this.$store.getters.config.calendar;
             },
         }
     }
