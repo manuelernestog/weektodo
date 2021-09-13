@@ -177,7 +177,7 @@
     line-height: 1.3rem;
     font-size: 0.865rem;
     margin: 2px 0px 2px 0px;
-    padding: 0 6px 0 6px;
+    padding: 0 8px 0 8px;
   }
 
   .todo-item:hover .item-text {
@@ -320,6 +320,11 @@
 
     label {
       margin-top: 2px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
   }
 
