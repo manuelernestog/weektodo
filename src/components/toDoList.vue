@@ -190,12 +190,12 @@
     color: black;
   }
 
-  .old-date {
-    color: grey;
+  .old-date .item-text{
+    color: #a1a1a1;
   }
 
-  .dark-theme .old-date {
-    color: #343b42;
+  .dark-theme .old-date .item-text{
+    color: #767676;
   }
 
   .weekly-to-do-header i {

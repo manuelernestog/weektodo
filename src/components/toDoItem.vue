@@ -140,16 +140,6 @@
     transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
   }
 
-  .todo-item:hover {
-    background-color: #fdfdfd;
-    color: #1e1e1e;
-    border-radius: 5px;
-    position: relative;
-    transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
-    border-radius: 3px;
-  }
-
   .todo-item-sub-tasks {
     display: none
   }
@@ -194,13 +184,23 @@
     /*padding-bottom: 5px;*/
   }
 
+  .todo-item:hover {
+    background-color: #fdfdfd;
+    color: #1e1e1e;
+    border-radius: 5px;
+    position: relative;
+    transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
+    border-radius: 3px;
+  }
+
   .dark-theme .todo-item:hover {
     background-color: #161b22;
     color: #f7f7f7;
   }
 
   .checked-todo {
-    color: lightgray;
+    color: #a1a1a1;
     text-decoration: line-through;
 
     .dark-theme & {
