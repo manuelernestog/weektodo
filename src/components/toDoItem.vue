@@ -23,7 +23,7 @@
               <div class="d-flex flex-row mt-1" :class="{'checked-sub-task' : subTask.checked }">
                 <input class="form-check-input" type="checkbox" v-model="subTask.checked">
                 <label class="form-check-label"
-                       @click="subTask.checked = !subTask.checked">{{subTask.text}}</label>
+                       @click="checkSubTask(subTask)">{{subTask.text}}</label>
               </div>
             </li>
           </ul>
@@ -114,7 +114,11 @@
             },
             onDragleave: function () {
                 this.todoDragHover = false;
-            }
+            },
+            checkSubTask: function (subTask) {
+                subTask.checked = !subTask.checked
+                toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
+            },
         },
     }
 
@@ -295,6 +299,10 @@
 
   .dragging .todo-item .item-text {
     height: 1.2rem;
+  }
+
+  .dragging .sub-tasks {
+    display: none;
   }
 
   .sub-tasks {

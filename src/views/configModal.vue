@@ -131,7 +131,9 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "../assets/style/globalVars";
+
   .form-check-input {
     width: 2.8em !important;
     height: 1.4em !important;
@@ -163,6 +165,19 @@
 
   .modal-dialog {
     max-width: 350px;
+  }
+
+
+  .form-range::-webkit-slider-thumb {
+    background: $check-color;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    background: $check-color;
+  }
+
+  .form-range::-ms-thumb {
+    background: $check-color;
   }
 
 
