@@ -106,5 +106,11 @@
     "newVersionAvailable": "New Version Available",
     "download": "(Download)",
     "sponsoredBy": "Gesponsert von"
+  },
+  "todoDetails": {
+    "taskTitle": "Aufgabentitel",
+    "notes": "Anmerkungen",
+    "markdown": "Markdown-Stil unterstützt",
+    "addSubTask": "Unteraufgabe hinzufügen"
   }
 }

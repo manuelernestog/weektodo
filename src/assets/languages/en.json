@@ -107,5 +107,11 @@
     "newVersionAvailable": "New Version Available",
     "download": "(Download)",
     "sponsoredBy": "Sponsored by"
+  },
+  "todoDetails": {
+    "taskTitle": "Task title",
+    "notes": "Notes",
+    "markdown": "Markdown Style Supported",
+    "addSubTask": "Add Subtask"
   }
 }

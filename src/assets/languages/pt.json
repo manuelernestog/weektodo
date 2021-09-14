@@ -107,5 +107,11 @@
     "newVersionAvailable": "Nova versão disponível",
     "download": "(Download)",
     "sponsoredBy": "Patrocinado por"
+  },
+  "todoDetails": {
+    "taskTitle": "Título da tarefa",
+    "notes": "Notas",
+    "markdown": "Estilo Markdown Suportado",
+    "addSubTask": "Adicionar Subtarefa"
   }
 }

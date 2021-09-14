@@ -32,12 +32,12 @@
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                   <li>
                     <button class="dropdown-item" type="button" @click="showingCalendar = true">
-                      <i class="bi-calendar-check"></i> <span>Calendar</span>
+                      <i class="bi-calendar-check"></i> <span>{{$t('settings.calendar')}}</span>
                     </button>
                   </li>
                   <li>
                     <button class="dropdown-item" type="button" @click="showingCalendar = false">
-                      <i class="bi-view-list"></i> <span>Custom List</span>
+                      <i class="bi-view-list"></i> <span>{{$t('settings.customLists')}}</span>
                     </button>
                   </li>
                 </ul>
@@ -68,18 +68,20 @@
               </label>
               <label v-show="!editingTitle && todo.text==''" class="form-check-label todo-title todo-title-empty-title"
                      for="todo-header" @dblclick="editTitle">
-                Titulo de Tarea
+                {{$t('todoDetails.taskTitle')}}
               </label>
               <input v-show="editingTitle" class="todo-title-input" type="text" v-model="todo.text" ref="titleInput"
-                     placeholder="Titulo de Tarea"
+                     :placeholder="$t('todoDetails.taskTitle')"
                      @blur="doneEditTitle()"
                      @keyup.esc="cancelEditTitle()"
                      @keyup.enter="doneEditTitle()">
               <div class="position-relative" v-show="editingDescription">
               <textarea class="todo-description-textarea mt-2" v-model="todo.desc"
-                        placeholder="Description" ref="descriptionInput" @blur="doneEditDescription">
+                        :placeholder="$t('todoDetails.notes')"
+                        ref="descriptionInput"
+                        @blur="doneEditDescription">
               </textarea>
-                <i class="bi-markdown-fill" @mousedown="goToMarkDown" title="Markdown Style Supported"></i>
+                <i class="bi-markdown-fill" @mousedown="goToMarkDown" :title="$t('todoDetails.markdown')"></i>
               </div>
               <div v-show="!editingDescription && todo.desc!=''" class="mt-2 todo-description"
                    @dblclick="editDescription">
@@ -87,7 +89,7 @@
               </div>
               <div v-show="!editingDescription && todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') ==''"
                    @dblclick="editDescription"
-                   class="description-empty mt-2"> Description
+                   class="description-empty mt-2"> {{$t('todoDetails.notes')}}
               </div>
             </div>
           </div>
@@ -110,7 +112,7 @@
                          @drop="onDrop($event, index)"
                          @dragover.prevent
                   >{{subTask.text}}</label>
-                  <i class="bi-trash mx-2" @click="removeSubTask(index)"></i>
+                  <i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeSubTask(index)"></i>
                 </div>
               </div>
               <input v-show="subTask.editing" v-model="subTask.text" @blur="doneEditSubTask(index)"
@@ -119,7 +121,7 @@
             </li>
             <div class="new-sub-task d-flex align-items-center">
               <label for="new-sub-task"><i class="bi-plus-square mx-3"></i></label>
-              <input type="text" id="new-sub-task" placeholder="Adicionar Subtarea" autocomplete="off"
+              <input type="text" id="new-sub-task" :placeholder="$t('todoDetails.addSubTask')" autocomplete="off"
                      @blur="addSubTask()"
                      @keyup.enter="addSubTask()"
                      @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text" ref="newSubTask">

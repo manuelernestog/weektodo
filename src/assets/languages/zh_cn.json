@@ -107,5 +107,11 @@
     "newVersionAvailable": "新版本可用",
     "download": "(下載)",
     "sponsoredBy": "由...贊助"
+  },
+  "todoDetails": {
+    "taskTitle": "任務名稱",
+    "notes": "筆記",
+    "markdown": "支持“降價”樣式",
+    "addSubTask": "添加子任務"
   }
 }
