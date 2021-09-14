@@ -479,6 +479,8 @@
     color: grey;
     font-size: 14px;
     line-height: 21px;
+    padding: 2px;
+    border: 2px solid transparent;
   }
 
   .sub-tasks {
