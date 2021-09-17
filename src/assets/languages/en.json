@@ -50,7 +50,11 @@
     "data10": "Soft drinks",
     "list1": "Custom List",
     "list2": "Grocery List",
-    "list3": "Ideas"
+    "list3": "Ideas",
+    "data11": "Click the three dots for see more details about this task",
+    "subtask1": "I'm a subtask",
+    "subtask2": "Click to complete subtask",
+    "desc1": "Here you can set your notes about this task. Double click to edit the notes."
   },
   "tips": {
     "tips": "Tips",
@@ -68,6 +72,9 @@
     "tip13": "WeekToDo stores the information on your computer. If you want to change your computer or browser, remember to create a backup. You can do it in the settings menu.",
     "tip14": "Click and drag the central division to resize the height of the calendar and the custom lists. Double click on it to restore the size.",
     "tip15": "You can modify the number of columns and the zoom of the application in the configuration panel.",
+    "tip16": "Click the three dots in the tasks to see details.",
+    "tip17": "You can drag and drop the sub task in the task details window.",
+    "tip18": "In the top of the task details window you can change the day or the list of a task.",
     "tip10": "Productivity: Try to define the fewest possible tasks per day and order them according to their priority.",
     "tip11": "Productivity: Review and organize your to-do list for the week at the beginning and end of your day.",
     "tip12": "Productivity: Do not plan many things in advance, organize yourself one day at a time. If you have tasks to do move them to for the next day."

@@ -50,7 +50,11 @@
     "data10": "Refrescos",
     "list1": "Lista personalizada",
     "list2": "Lista de compras",
-    "list3": "Idéias"
+    "list3": "Idéias",
+    "data11": "Clique nos três pontos para ver mais detalhes sobre esta tarefa",
+    "subtask1": "Eu sou uma subtarefa",
+    "subtask2": "Clique para completar a subtarefa",
+    "desc1": "Aqui você pode definir suas notas sobre esta tarefa. Clique duas vezes para editar as notas."
   },
   "tips": {
     "tips": "Dicas",
@@ -68,6 +72,9 @@
     "tip13": "WeekToDo armazena as informações no seu computador. Se você deseja alterar seu computador ou navegador, lembre-se de fazer um backup. Você pode fazer isso no menu de configurações.",
     "tip14": "Clique e arraste a divisão central para redimensionar a altura do calendário e as listas personalizadas. Clique duas vezes nele para restaurar seu tamanho.",
     "tip15": "Você pode modificar o número de colunas e o zoom do aplicativo no painel de configuração.",
+    "tip16": "Clique nos três pontos nas tarefas para ver os detalhes.",
+    "tip17": "Você pode arrastar e soltar a subtarefa na janela de detalhes da tarefa.",
+    "tip18": "Na parte superior da janela de detalhes da tarefa, você pode alterar o dia ou a lista de uma tarefa.",
     "tip10": "Produtividade: Tente definir o menor número possível de tarefas por dia e ordená-las de acordo com sua prioridade.",
     "tip11": "Produtividade: analise e organize sua lista de tarefas da semana no início e no final do dia.",
     "tip12": "Produtividade: Não planeje muitas coisas com antecedência, organize-se um dia de cada vez. Se você tem tarefas para fazer, mova-as para o dia seguinte."
