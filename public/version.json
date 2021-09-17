@@ -1,9 +1,14 @@
 {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "changes": {
     "en": {
-      "1.4.0-20210815": [
-        "Fixing drag and drop error on task quick editing"
+      "1.4.0-20210917": [
+        "Fixing drag and drop error on task quick editing",
+        "Adding details to tasks",
+        "Adding sub-tasks",
+        "Creating sub-task drag and drop",
+        "Introducing MarkDown to task Notes",
+        "Adding Honney Badger for exception capture"
       ],
       "1.3.0-20210727": [
         "Fixing Germany errors",

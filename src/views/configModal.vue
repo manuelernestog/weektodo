@@ -170,14 +170,23 @@
 
   .form-range::-webkit-slider-thumb {
     background: $check-color;
+    .dark-theme &{
+      background: $dt-check-color;
+    }
   }
 
   .form-range::-webkit-slider-thumb {
     background: $check-color;
+    .dark-theme &{
+      background: $dt-check-color;
+    }
   }
 
   .form-range::-ms-thumb {
     background: $check-color;
+    .dark-theme &{
+      background: $dt-check-color;
+    }
   }
 
 
