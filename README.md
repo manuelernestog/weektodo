@@ -66,7 +66,7 @@ sudo snap install weektodo
   
 ## Contributing
 
-You can support this proyect in several ways:
+You can support this project in several ways:
 
 ### Donate
 
