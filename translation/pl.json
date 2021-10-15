@@ -25,7 +25,7 @@
     "copy": "Kopiuj",
     "copiedAddres": "Kopiuj adres !!!",
     "share": "Podziel się",
-    "rate": "Rate",
+    "rate": "Oceń",
     "cryptocurrencies": "Kryptowaluty"
   },
   "about": {
@@ -35,7 +35,7 @@
     "dev": "Programowanie i projekt",
     "devName": "Manuel Ernesto García",
     "version": "Wersja",
-    "desc": "WeekToDo jest minimalnym tygodniowym planerem zadań skoncentrowanym na prywatności.",
+    "desc": "WeekToDo jest minimalnym tygodniowym menadżerem zadań skoncentrowanym na prywatności.",
     "site": "Odwiedź stronę"
   },
   "generatedData": {
