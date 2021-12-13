@@ -36,7 +36,8 @@
       "devName": "Manuel Ernesto García",
       "version": "الإصدار",
       "desc": "WeekToDo هو مخطط أسبوعي بواجهة مبسطة يركز على خصوصيتك.",
-      "site": "زُر الموقع الإلكتروني"
+      "site": "زُر الموقع الإلكتروني",
+      "contributors": "المساهمون"
     },
     "generatedData": {
       "data2": "أُنقر لإكمال المهمة",

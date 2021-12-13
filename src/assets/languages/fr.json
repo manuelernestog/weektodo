@@ -36,7 +36,8 @@
     "devName": "Manuel Ernesto García",
     "version": "Version",
     "desc": "WeekToDo est un agenda hebdomadaire minimaliste axé sur la confidentialité.",
-    "site": "Visiter le site Web"
+    "site": "Visiter le site Web",
+    "contributors": "Contributrice"
   },
   "generatedData": {
     "data2": "Cliquez pour terminer la tâche",

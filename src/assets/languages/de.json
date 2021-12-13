@@ -35,7 +35,8 @@
     "devName": "Manuel Ernesto García",
     "version": "ausführung",
     "desc": "WeekToDo ist ein minimalistischer Wochenplaner, der sich auf Datenschutz konzentriert.",
-    "site": "Website besuchen"
+    "site": "Website besuchen",
+    "contributors": "Mitwirkende"
   },
   "generatedData": {
     "data2": "Klicken, um die Aufgabe abzuschließen",

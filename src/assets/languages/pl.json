@@ -36,7 +36,8 @@
     "devName": "Manuel Ernesto García",
     "version": "Wersja",
     "desc": "WeekToDo jest minimalnym tygodniowym menadżerem zadań skoncentrowanym na prywatności.",
-    "site": "Odwiedź stronę"
+    "site": "Odwiedź stronę",
+    "contributors": "Współtwórcy"
   },
   "generatedData": {
     "data2": "Kliknij, aby zakończyć zadanie",
