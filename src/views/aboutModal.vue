@@ -40,13 +40,13 @@
               <div class="horizontal-divider mt-3 mb-3"></div>
               <div class="row">
                 <div class="text-center text-uppercase" style="font-size: 0.8rem; opacity: .8;">
-                  <span> Patrocinadores </span>
-                  <span class="mx-1"> • </span>
-                  <span @click="showContributors" data-bs-dismiss="modal" style="cursor: pointer"> Colaboradores </span>
+<!--                  <span> Patrocinadores </span>-->
+<!--                  <span class="mx-1"> • </span>-->
+                  <span @click="showContributors" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.contributors')}} </span>
                 </div>
               </div>
               <div class="horizontal-divider mt-3 mb-3"></div>
-              <div class="d-flex" style="margin-top: 10px">
+              <div class="d-flex" >
                 <span style="margin-top: 10px; margin-right: 10px;">{{$t('about.madeWith')}} <i class="bi-heart-fill"
                                                                                                 style="color: red"></i> {{$t('about.inCuba')}}</span>
                 <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal"
