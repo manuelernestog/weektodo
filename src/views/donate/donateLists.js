@@ -4,22 +4,23 @@ export default {
             {name: vue.$t('donate.share'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
             {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
             {
-                name: "PayPal",
-                img: "icons/paypal.png",
+                name: "Buy me a Coffee",
+                img: "icons/ko-fi.png",
                 linktype: "external",
-                link: "https://www.paypal.com/donate?hosted_button_id=TVWQZVZDCBSK2"
+                link: "https://ko-fi.com/manuelernestogr"
             },
             {
-                name: vue.$t('donate.cryptocurrencies'),
-                img: "icons/btc.svg",
-                linktype: "tagId",
-                link: 'cryptoTab'
+                name: "Buy me a Cripto Coffee ",
+                img: "icons/cripto-ko-fi.png",
+                linktype: "external",
+                link: "https://paynest.app/manuelernestogr"
             },
             {
-                name: "Qvapay - Airtm/Payeer/"+vue.$t('donate.crypto'),
-                img: "icons/qvapay.png",
+                name: "Traducir",
+                color: "#4d4d4d",
+                ico: "bi-translate",
                 linktype: "external",
-                link: 'https://qvapay.com/payme/merodriguez9112'
+                link: "https://github.com/Zuntek/WeekToDoWeb#translations"
             },
             {
                 name: vue.$t('donate.comment'),
@@ -30,40 +31,6 @@ export default {
             },
         ]
     },
-    cryptoList() {
-        return [
-            {
-                name: "Bitcoin",
-                img: "icons/btc.svg",
-                linktype: "tagId",
-                link: "btcTab"
-            },
-            {
-                name: "Litecoin",
-                img: "icons/ltc.svg",
-                linktype: "tagId",
-                link: "ltcTab"
-            },
-            {
-                name: "Ethereum",
-                img: "icons/eth.svg",
-                linktype: "tagId",
-                link: 'ethTab'
-            },
-            {
-                name: "USDT (ERC20)",
-                img: "icons/usdt.svg",
-                linktype: "tagId",
-                link: 'usdtTab'
-            },
-            {
-                name: "DOGE",
-                img: "icons/dogecoin.svg",
-                linktype: "tagId",
-                link: 'dogeTab'
-            }
-        ]
-    },
     rateList() {
         return [
             {
@@ -71,6 +38,13 @@ export default {
                 img: "icons/alternativeto.png",
                 linktype: "external",
                 link: "https://alternativeto.net/software/weektodo/about/"
+            },
+            {
+                name: "Github",
+                color: "#24292f",
+                ico: "bi-github",
+                linktype: "external",
+                link: "https://github.com/Zuntek/WeekToDoWeb"
             },
             {
                 name: "ProductHunt",

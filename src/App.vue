@@ -289,16 +289,16 @@
   }
 
   .dark-theme *::-webkit-scrollbar-thumb {
-    background: #21262d;
+    background: #333940;
     border-radius: 5px;
   }
 
   .dark-theme *::-webkit-scrollbar-thumb:hover {
-    background: #2e3a41;
+    background: #39484f;
   }
 
   .dark-theme *::-webkit-scrollbar-thumb:active {
-    background: #43535d;
+    background: #51656f;
   }
 
   .full-screen {
