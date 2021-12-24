@@ -44,15 +44,32 @@
               </div>
             </div>
           </div>
-          <div class="d-flex header-menu-icons ms-auto align-items-center">
-            <!--            <i class="bi-circle "></i>-->
-            <!--            <i class="bi-alarm "></i>-->
-            <!--            <i class="bi-arrow-repeat "></i>-->
-            <!--            <i class="bi-flag "></i>-->
-            <!--            <i class="bi-tag "></i>-->
-            <!--            <i class="bi-three-dots-vertical"></i>-->
+          <div class="d-flex ms-auto align-items-center">
+<!--                        <i class="bi-circle header-menu-icons"></i>-->
+<!--                        <i class="bi-alarm header-menu-icons"></i>-->
+<!--                        <i class="bi-arrow-repeat header-menu-icons"></i>-->
+<!--                        <i class="bi-flag header-menu-icons"></i>-->
+<!--                        <i class="bi-tag header-menu-icons"></i>-->
+            <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button" data-bs-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
+<!--              <li>-->
+<!--                <button class="dropdown-item" type="button" @click="copyTodo">-->
+<!--                  <i class="bi-clipboard"></i> <span>Copiar</span>-->
+<!--                </button>-->
+<!--              </li>-->
+              <li>
+                <button class="dropdown-item" type="button" @click="duplicateTodo" data-bs-dismiss="modal">
+                  <i class="bi-back"></i> <span>Duplicate</span>
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
+                  <i class="bi-trash"></i> <span>Remove</span>
+                </button>
+              </li>
+            </ul>
             <div>
-              <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
+              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal"></i>
             </div>
           </div>
         </div>
@@ -299,6 +316,30 @@
                         toDoListRepository.update(newListID, instancePointer.todoList);
                     }
                 }
+            },
+            removeTodo: function () {
+                this.$store.commit('removeTodo', {toDoListId: this.todo.listId, index: this.index});
+                toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+            },
+            duplicateTodo: function () {
+                    var newTodo = {
+                        text: this.todo.text,
+                        checked: this.todo.checked,
+                        listId: this.todo.listId,
+                        desc: this.todo.desc,
+                        subTaskList: this.todo.subTaskList,
+                        color: "none",
+                        priority: 0,
+                        tags: [],
+                        time: null,
+                        alarm: false,
+                        repeatingEvent: null
+                    };
+                    this.$store.commit('addTodo', newTodo);
+                    toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+            },
+            copyTodo: function () {
+
             }
         },
         watch: {
@@ -639,15 +680,15 @@
   }
 
   .modal-dialog {
-    max-width: 550px;
+    max-width: 600px;
   }
 
-  .header-menu-icons i {
+  .header-menu-icons {
     margin-left: 6px;
     @include btn-icon;
   }
 
-  .header-menu-icons .bi-x {
+  .header-menu-icons.bi-x {
     font-size: 1.9rem;
     padding: 0px;
   }

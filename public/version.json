@@ -4,7 +4,9 @@
     "en": {
       "1.5.0-20210917": [
         "Adding Arabic, Italian and Polish languages",
-        "Adding contributors and backers section"
+        "Adding contributors and backers section",
+        "Fixing style problems in task details",
+        "Adding duplicate and remove task in details form"
       ],
       "1.4.0-20210917": [
         "Fixing drag and drop error on task quick editing",
