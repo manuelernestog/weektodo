@@ -17,7 +17,7 @@ export default {
             },
             {
                 name: "Traducir",
-                color: "#4d4d4d",
+                color: "#676767",
                 ico: "bi-translate",
                 linktype: "external",
                 link: "https://github.com/Zuntek/WeekToDoWeb#translations"

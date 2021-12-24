@@ -45,18 +45,18 @@
             </div>
           </div>
           <div class="d-flex ms-auto align-items-center">
-<!--                        <i class="bi-circle header-menu-icons"></i>-->
-<!--                        <i class="bi-alarm header-menu-icons"></i>-->
-<!--                        <i class="bi-arrow-repeat header-menu-icons"></i>-->
-<!--                        <i class="bi-flag header-menu-icons"></i>-->
-<!--                        <i class="bi-tag header-menu-icons"></i>-->
-            <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button" data-bs-toggle="dropdown"></i>
+<!--            <i class="bi-circle header-menu-icons"></i>-->
+<!--            <i class="bi-alarm header-menu-icons"></i>-->
+<!--            <i class="bi-arrow-repeat header-menu-icons"></i>-->
+<!--            <i class="bi-flag header-menu-icons"></i>-->
+            <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
+               data-bs-toggle="dropdown"></i>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
-<!--              <li>-->
-<!--                <button class="dropdown-item" type="button" @click="copyTodo">-->
-<!--                  <i class="bi-clipboard"></i> <span>Copiar</span>-->
-<!--                </button>-->
-<!--              </li>-->
+              <li>
+                <button class="dropdown-item" type="button" @click="copyTodo">
+                  <i class="bi-clipboard"></i> <span>Copiar</span>
+                </button>
+              </li>
               <li>
                 <button class="dropdown-item" type="button" @click="duplicateTodo" data-bs-dismiss="modal">
                   <i class="bi-back"></i> <span>Duplicate</span>
@@ -148,6 +148,8 @@
       </div>
     </div>
   </div>
+
+  <toast-message id="copiedAddress" :text="$t('donate.copiedAddres')"></toast-message>
 </template>
 
 <script>
@@ -158,6 +160,7 @@
     import moment from 'moment'
     import dbRepository from '../../repositories/dbRepository'
     import {Toast} from 'bootstrap';
+    import toastMessage from '../../components/toastMessage';
 
     export default {
         name: "toDoModal",
@@ -183,7 +186,8 @@
         },
         components: {
             Datepicker,
-            Markdown
+            Markdown,
+            toastMessage
         },
         methods: {
             removeSubTask: function (index) {
@@ -323,26 +327,39 @@
                 toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
             },
             duplicateTodo: function () {
-                    var newTodo = {
-                        text: this.todo.text,
-                        checked: this.todo.checked,
-                        listId: this.todo.listId,
-                        desc: this.todo.desc,
-                        subTaskList: this.todo.subTaskList,
-                        color: "none",
-                        priority: 0,
-                        tags: [],
-                        time: null,
-                        alarm: false,
-                        repeatingEvent: null
-                    };
-                    this.$store.commit('addTodo', newTodo);
-                    toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+                var newTodo = {
+                    text: this.todo.text,
+                    checked: this.todo.checked,
+                    listId: this.todo.listId,
+                    desc: this.todo.desc,
+                    subTaskList: this.todo.subTaskList,
+                    color: "none",
+                    priority: 0,
+                    tags: [],
+                    time: null,
+                    alarm: false,
+                    repeatingEvent: null
+                };
+                this.$store.commit('addTodo', newTodo);
+                toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
             },
             async copyTodo() {
-                await navigator.clipboard.writeText(this.paymentAddress);
+                await navigator.clipboard.writeText(this.todoToString());
                 var toast = new Toast(document.getElementById('copiedAddress'));
                 toast.show();
+            },
+            todoToString() {
+                var text = "";
+                text += this.todo.text + '\n\n';
+                if (this.todo.desc != "") {
+                    text += this.$t('todoDetails.notes') + ':\n';
+                    text += this.todo.desc + '\n\n';
+                }
+                text += this.$t('todoDetails.subtasks') + ':\n';
+                this.todo.subTaskList.forEach(function (task) {
+                    text += '- ' + task.text + '\n';
+                });
+                return text;
             }
         },
         watch: {
