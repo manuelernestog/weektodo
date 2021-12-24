@@ -26,7 +26,10 @@
     "copiedAddres": "Endereço copiado !!!",
     "share": "Compartilhar",
     "rate": "Avaliar",
-    "cryptocurrencies": "Criptomoedas"
+    "cryptocurrencies": "Criptomoedas",
+    "buyMeACoffee": "Compre-me um café",
+    "buyMeACryptoCoffee": "Compre-me um café criptográfico",
+    "translate": "Traduzir"
   },
   "about": {
     "about": "Sobre",
@@ -120,6 +123,10 @@
     "taskTitle": "Título da tarefa",
     "notes": "Notas",
     "markdown": "Estilo Markdown Suportado",
-    "addSubTask": "Adicionar Subtarefa"
+    "addSubTask": "Adicionar Subtarefa",
+    "copiedTaskToClipboard": "Texto copiado para a área de transferência !!!",
+    "taskRemoved": "Tarefa removida !!!",
+    "taskDuplicated": "Tarefa Duplicada !!!",
+    "duplicate": "Duplicado"
   }
 }

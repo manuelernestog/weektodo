@@ -25,7 +25,10 @@
     "copiedAddres": "Kopierte Adresse !!!",
     "share": "Teilen",
     "rate": "Bewertung",
-    "cryptocurrencies": "Kryptowährungen"
+    "cryptocurrencies": "Kryptowährungen",
+    "buyMeACoffee": "Kauf mir einen Kaffee",
+    "buyMeACryptoCoffee": "Kauf mir einen Krypto-Kaffee",
+    "translate": "Übersetzen"
   },
   "about": {
     "about":  "Über",
@@ -119,6 +122,10 @@
     "taskTitle": "Aufgabentitel",
     "notes": "Anmerkungen",
     "markdown": "Markdown-Stil unterstützt",
-    "addSubTask": "Unteraufgabe hinzufügen"
+    "addSubTask": "Unteraufgabe hinzufügen",
+    "copiedTaskToClipboard": "Text in Zwischenablage kopiert !!!",
+    "taskRemoved": "Aufgabe entfernt !!!",
+    "taskDuplicated": "Aufgabe dupliziert !!!",
+    "duplicate": "Duplizieren"
   }
 }

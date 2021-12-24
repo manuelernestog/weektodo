@@ -26,7 +26,10 @@
     "copiedAddres": "複製的地址!!!",
     "share": "分享",
     "rate": "速度",
-    "cryptocurrencies": "加密貨幣"
+    "cryptocurrencies": "加密貨幣",
+    "buyMeACoffee": "給我買杯咖啡",
+    "buyMeACryptoCoffee": "給我買一杯加密咖啡",
+    "translate": "翻譯"
   },
   "about": {
     "about": "關於",
@@ -120,6 +123,10 @@
     "taskTitle": "任務名稱",
     "notes": "筆記",
     "markdown": "支持“降價”樣式",
-    "addSubTask": "添加子任務"
+    "addSubTask": "添加子任務",
+    "copiedTaskToClipboard": "文本複製到剪貼板!!!",
+    "taskRemoved": "任務刪除！！！",
+    "taskDuplicated": "任務重複！！！",
+    "duplicate": "重複"
   }
 }

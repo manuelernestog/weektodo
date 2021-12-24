@@ -26,7 +26,10 @@
     "copiedAddres": "Copied Address !!!",
     "share": "Share",
     "rate": "Rate",
-    "cryptocurrencies": "Cryptocurrencies"
+    "cryptocurrencies": "Cryptocurrencies",
+    "buyMeACoffee": "Buy me a Coffee",
+    "buyMeACryptoCoffee": "Buy me a Crypto Coffee",
+    "translate": "Translate"
   },
   "about": {
     "about": "About",
@@ -120,6 +123,11 @@
     "taskTitle": "Task title",
     "notes": "Notes",
     "markdown": "Markdown Style Supported",
-    "addSubTask": "Add Subtask"
+    "addSubTask": "Add Subtask",
+    "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
+    "taskRemoved": "Task Removed !!!",
+    "taskDuplicated": "Task Duplicated !!!",
+    "duplicate": "Duplicate",
+    "subtasks": "Subtasks"
   }
 }

@@ -4,19 +4,19 @@ export default {
             {name: vue.$t('donate.share'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
             {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
             {
-                name: "Buy me a Coffee",
+                name: vue.$t('donate.buyMeACoffee'),
                 img: "icons/ko-fi.png",
                 linktype: "external",
                 link: "https://ko-fi.com/manuelernestogr"
             },
             {
-                name: "Buy me a Cripto Coffee ",
+                name: vue.$t('donate.buyMeACryptoCoffee'),
                 img: "icons/cripto-ko-fi.png",
                 linktype: "external",
                 link: "https://paynest.app/manuelernestogr"
             },
             {
-                name: "Traducir",
+                name: vue.$t('donate.translate'),
                 color: "#676767",
                 ico: "bi-translate",
                 linktype: "external",

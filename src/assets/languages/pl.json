@@ -26,7 +26,10 @@
     "copiedAddres": "Kopiuj adres !!!",
     "share": "Podziel się",
     "rate": "Oceń",
-    "cryptocurrencies": "Kryptowaluty"
+    "cryptocurrencies": "Kryptowaluty",
+    "buyMeACoffee": "Buy Me A Coffee",
+    "buyMeACryptoCoffee": "Buy Me A Crypto Coffee",
+    "translate": "Translate"
   },
   "about": {
     "about": "O programie",
@@ -120,6 +123,10 @@
     "taskTitle": "Tytuł zadania",
     "notes": "Notatki",
     "markdown": "Obsługiwany styl Markdown",
-    "addSubTask": "Dodaj podzadanie"
+    "addSubTask": "Dodaj podzadanie",
+    "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
+    "taskRemoved": "Task Removed !!!",
+    "taskDuplicated": "Task Duplicated !!!",
+    "duplicate": "Duplicate"
   }
 }

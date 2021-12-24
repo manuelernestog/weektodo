@@ -26,7 +26,10 @@
     "copiedAddres": "Адрес скопирован !!!",
     "share": "доля",
     "rate": "Показатель",
-    "cryptocurrencies": "Криптовалюты"
+    "cryptocurrencies": "Криптовалюты",
+    "buyMeACoffee": "Купи мне кофе",
+    "buyMeACryptoCoffee": "Купи мне крипто-кофе",
+    "translate": "Перевести"
   },
   "about": {
     "about": "О",
@@ -120,6 +123,10 @@
     "taskTitle": "Заголовок задачи",
     "notes": "Примечания",
     "markdown": "Поддерживается стиль Markdown",
-    "addSubTask": "Добавить подзадачу"
+    "addSubTask": "Добавить подзадачу",
+    "copiedTaskToClipboard": "Текст скопирован в буфер обмена !!!",
+    "taskRemoved": "Задача удалена !!!",
+    "taskDuplicated": "Задача дублирована !!!",
+    "duplicate": "Дублировать"
   }
 }

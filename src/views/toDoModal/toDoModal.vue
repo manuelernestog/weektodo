@@ -54,17 +54,17 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
               <li>
                 <button class="dropdown-item" type="button" @click="copyTodo">
-                  <i class="bi-clipboard"></i> <span>Copiar</span>
+                  <i class="bi-clipboard"></i> <span>{{$t('donate.copy')}}</span>
                 </button>
               </li>
               <li>
                 <button class="dropdown-item" type="button" @click="duplicateTodo" data-bs-dismiss="modal">
-                  <i class="bi-back"></i> <span>Duplicate</span>
+                  <i class="bi-back"></i> <span>{{$t('todoDetails.duplicate')}}</span>
                 </button>
               </li>
               <li>
                 <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
-                  <i class="bi-trash"></i> <span>Remove</span>
+                  <i class="bi-trash"></i> <span>{{$t('ui.remove')}}</span>
                 </button>
               </li>
             </ul>
