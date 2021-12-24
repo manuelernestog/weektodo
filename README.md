@@ -98,7 +98,7 @@ For add a new language Fork the repo and create a Pull Request creating a new fi
 
 If this is to dificult, you can donwload this [file](translation/en.json/), translate it and send the file to the email week2do@gmail.com
 
-If you want your name appears in the app contributors credits please add your name in the PR comment or in the email body.
+If you want your name appears in the app contributors credits you can add your name, a profile link and a profile picture link in the PR comment or in the email body.
 
 
 ## Author
