@@ -45,10 +45,10 @@
             </div>
           </div>
           <div class="d-flex ms-auto align-items-center">
-<!--            <i class="bi-circle header-menu-icons"></i>-->
-<!--            <i class="bi-alarm header-menu-icons"></i>-->
-<!--            <i class="bi-arrow-repeat header-menu-icons"></i>-->
-<!--            <i class="bi-flag header-menu-icons"></i>-->
+            <!--            <i class="bi-circle header-menu-icons"></i>-->
+            <!--            <i class="bi-alarm header-menu-icons"></i>-->
+            <!--            <i class="bi-arrow-repeat header-menu-icons"></i>-->
+            <!--            <i class="bi-flag header-menu-icons"></i>-->
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
                data-bs-toggle="dropdown"></i>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
@@ -149,7 +149,9 @@
     </div>
   </div>
 
-  <toast-message id="copiedAddress" :text="$t('donate.copiedAddres')"></toast-message>
+  <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
+  <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')"></toast-message>
+  <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
 </template>
 
 <script>
@@ -325,6 +327,8 @@
             removeTodo: function () {
                 this.$store.commit('removeTodo', {toDoListId: this.todo.listId, index: this.index});
                 toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+                let toast = new Toast(document.getElementById('taskRemoved'));
+                toast.show();
             },
             duplicateTodo: function () {
                 var newTodo = {
@@ -342,23 +346,29 @@
                 };
                 this.$store.commit('addTodo', newTodo);
                 toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+                let toast = new Toast(document.getElementById('taskDuplicated'));
+                toast.show();
             },
             async copyTodo() {
                 await navigator.clipboard.writeText(this.todoToString());
-                var toast = new Toast(document.getElementById('copiedAddress'));
+                let toast = new Toast(document.getElementById('copiedTaskToClipboard'));
                 toast.show();
             },
             todoToString() {
                 var text = "";
-                text += this.todo.text + '\n\n';
+                text += this.todo.text ;
                 if (this.todo.desc != "") {
-                    text += this.$t('todoDetails.notes') + ':\n';
-                    text += this.todo.desc + '\n\n';
+                    text += '\n\n'
+                    text += this.$t('todoDetails.notes') + ':\n\n';
+                    text += this.todo.desc;
                 }
-                text += this.$t('todoDetails.subtasks') + ':\n';
-                this.todo.subTaskList.forEach(function (task) {
-                    text += '- ' + task.text + '\n';
-                });
+                if (this.todo.subTaskList.length > 0) {
+                    text += '\n\n'
+                    text += this.$t('todoDetails.subtasks') + ':\n\n';
+                    this.todo.subTaskList.forEach(function (task) {
+                        text += '- ' + task.text + '\n';
+                    });
+                }
                 return text;
             }
         },
