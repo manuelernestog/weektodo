@@ -157,6 +157,7 @@
     import toDoListRepository from "../../repositories/toDoListRepository";
     import moment from 'moment'
     import dbRepository from '../../repositories/dbRepository'
+    import {Toast} from 'bootstrap';
 
     export default {
         name: "toDoModal",
@@ -338,8 +339,10 @@
                     this.$store.commit('addTodo', newTodo);
                     toDoListRepository.update(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
             },
-            copyTodo: function () {
-
+            async copyTodo() {
+                await navigator.clipboard.writeText(this.paymentAddress);
+                var toast = new Toast(document.getElementById('copiedAddress'));
+                toast.show();
             }
         },
         watch: {
