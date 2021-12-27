@@ -73,27 +73,27 @@ export default {
                 ico: "bi-facebook",
                 color: "#4b6cad",
                 linktype: "external",
-                link: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.netlify.app%2F"
+                link: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.me%2F"
             },
             {
                 name: "Twitter",
                 ico: "bi-twitter",
                 color: "#3eafda",
                 linktype: "external",
-                link: "https://twitter.com/intent/tweet?url=https%3A%2F%2Fweektodo.netlify.app%2F&text="
+                link: "https://twitter.com/intent/tweet?url=https%3A%2F%2Fweektodo.me%2F&text="
             },
             {
                 name: "Linkedin",
                 ico: "bi-linkedin",
                 color: "#1a77af",
                 linktype: "external",
-                link: "http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweektodo.netlify.app%2F&title="
+                link: "http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweektodo.me%2F&title="
             },
             {
                 name: "Pinterest",
                 img: "icons/pinterest.svg",
                 linktype: "external",
-                link: "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweektodo.netlify.app%2F&media=&description="
+                link: "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweektodo.me%2F&media=&description="
             }
         ]
     }

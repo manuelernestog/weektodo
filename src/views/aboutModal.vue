@@ -76,9 +76,9 @@
             openWebSite: function () {
                 let isElectron = require("is-electron");
                 if (isElectron()) {
-                    require('electron').shell.openExternal('https://weektodo.netlify.app', '_blank');
+                    require('electron').shell.openExternal('https://weektodo.me', '_blank');
                 } else {
-                    window.open('https://weektodo.netlify.app', '_blank');
+                    window.open('https://weektodo.me', '_blank');
                 }
             },
             showChangeLog: function () {

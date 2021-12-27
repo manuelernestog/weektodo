@@ -63,7 +63,7 @@
                 if (this.isElectron() && this.$store.getters.config.checkUpdates ) {
                     const axios = require('axios').default;
                     axios
-                        .get('https://weektodo-app.netlify.app/version.json')
+                        .get('https://app.weektodo.me/version.json')
                         .then(response => (this.showNewVersionToast(response)))
                 }
             }.bind(this), 5000);
@@ -98,9 +98,9 @@
             downloadNewVersion: function () {
                 let isElectron = require("is-electron");
                 if (isElectron()) {
-                    require('electron').shell.openExternal('https://weektodo.netlify.app', '_blank');
+                    require('electron').shell.openExternal('https://weektodo.me', '_blank');
                 } else {
-                    window.open('https://weektodo.netlify.app', '_blank');
+                    window.open('https://weektodo.me', '_blank');
                 }
             }
         },

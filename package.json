@@ -3,8 +3,8 @@
   "version": "1.5.0",
   "private": true,
   "description": "WeekToDo is a Free Minimalist Weekly Planner focused on privacy.",
-  "author": "Manuel Ernesto Garcia <week2do@gmail.com> (http://weektodo.netlify.app/)",
-  "homepage": "http://weektodo.netlify.app",
+  "author": "Manuel Ernesto Garcia <week2do@gmail.com> (https://weektodo.me/)",
+  "homepage": "https://weektodo.me",
   "keywords": [
     "ToDo",
     "Weekly Planner",
