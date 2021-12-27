@@ -1,6 +1,6 @@
 <XML_PAD>
 <Company_Name>Manuel Ernesto Garcia</Company_Name>
-<Company_WebSite_URL>https://weektodo.netlify.app</Company_WebSite_URL>
+<Company_WebSite_URL>https://weektodo.me</Company_WebSite_URL>
 <Author_Email>week2do@gmail.com</Author_Email>
 <Program_Name>WeekToDo</Program_Name>
 <Program_Version>1.4.0</Program_Version>
@@ -24,7 +24,7 @@ WeekToDo is a totally free project available for everyone. You can enjoy it in a
     -Introducing MarkDown to task Notes
     -Adding Honney Badger for exception capture
 </Program_Change_Info>
-<Application_Screenshot_URL>https://weektodo.netlify.app/assets/images/screenshot-from-2021-04-01-00-19-42-1-1206x580.png</Application_Screenshot_URL>
+<Application_Screenshot_URL>https://weektodo.me/assets/images/screenshot-from-2021-04-01-00-19-42-1-1206x580.png</Application_Screenshot_URL>
 <Primary_Download_URL>https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.3.0/WeekToDo-Setup-1.3.0.exe</Primary_Download_URL>
-<Application_XML_File_URL>https://weektodo.netlify.app/pad_windows.xml</Application_XML_File_URL>
+<Application_XML_File_URL>https://weektodo.me/pad_windows.xml</Application_XML_File_URL>
 </XML_PAD>

@@ -1,5 +1,5 @@
 
-![Logo](https://weektodo.netlify.app/assets/images/WeekToDoApp_256x256.png)
+![Logo](https://weektodo.me/assets/images/WeekToDoApp_256x256.png)
 
 WeekToDo | The Free Minimalist Weekly Planner
 ---
@@ -76,10 +76,10 @@ You can support this project in several ways:
 
 ### Share
 
-- [Facebook](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.netlify.app%2F)
-- [Twitter](https://twitter.com/intent/tweet?url=https%3A%2F%2Fweektodo.netlify.app%2F&text=)
-- [Linkedin](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweektodo.netlify.app%2F&title=)
-- [Pinteres](http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweektodo.netlify.app%2F&media=&description=)
+- [Facebook](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.me%2F)
+- [Twitter](https://twitter.com/intent/tweet?url=https%3A%2F%2Fweektodo.me%2F&text=)
+- [Linkedin](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweektodo.me%2F&title=)
+- [Pinteres](http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweektodo.me%2F&media=&description=)
 
 ### Rate the app
 
