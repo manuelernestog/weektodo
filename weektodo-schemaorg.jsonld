@@ -14,9 +14,15 @@
       "thumbnailUrl": "https://weektodo.netlify.app/assets/images/WeekToDo-logo-512x512.png",
       "version": "1.4.0",
       "image": "https://weektodo.netlify.app/assets/images/WeekToDo-logo-512x512.png",
+      "url" : "https://weektodo.netlify.app",
       "offers": {
        "@type": "Offer",
-       "price": "0"
+       "price": "0",
+       "author": {
+               "@type": "Person",
+               "givenName": "Manuel Ernesto",
+               "familyName": "Garcia",
+             },
       },
         "aggregateRating": {
               "@type": "AggregateRating",
