@@ -11,12 +11,14 @@
           {{ $t("settings.goToNewDomain")}}
         </div>
         <div class="modal-footer d-flex">
-          <button type="button" class="btn flex-fill" @click="back">
+          <button type="button" class="btn flex-fill" @click="exportData">
             {{ $t("settings.export")}}
             <i class="bi-cloud-download-fill mx-2"></i>
           </button>
-          <button type="button" class="btn flex-fill" @click="next">{{$t('about.site')}} <i
-            class="bi-globe2 mx-2"></i></button>
+          <a href="https://app.weektodo.me" target="_blank" class="btn flex-fill" >
+          {{$t('about.site')}} <i
+            class="bi-globe2 mx-2"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -25,6 +27,8 @@
 
 <script>
 
+    import exportTool from "../helpers/exportTool";
+
     export default {
         name: "RedirectDomainModal",
         data() {
@@ -32,6 +36,11 @@
                 index: 0
             }
         },
+        methods: {
+            exportData: function () {
+                exportTool.export();
+            },
+        }
     }
 </script>
 
