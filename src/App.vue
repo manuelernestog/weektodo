@@ -180,7 +180,7 @@
                 configRepository.update(this.$store.getters.config);
             },
             showRedirectDomainModal: function () {
-                let modal = new Modal(document.getElementById('RedirectDomainModal'), {backdrop: 'static'});
+                let modal = new Modal(document.getElementById('RedirectDomainModal'));
                 modal.show();
             },
             compatible: function () {

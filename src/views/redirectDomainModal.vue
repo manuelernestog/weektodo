@@ -4,11 +4,19 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-<!--          <h5 class="modal-title">{{$t('tips.tips')}}</h5>-->
+          <h5 class="modal-title">{{$t('settings.data')}}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body d-flex">
-     Esta abrindo week todo desde no es loco cambia y deja la tall
+          {{ $t("settings.goToNewDomain")}}
+        </div>
+        <div class="modal-footer d-flex">
+          <button type="button" class="btn flex-fill" @click="back">
+            {{ $t("settings.export")}}
+            <i class="bi-cloud-download-fill mx-2"></i>
+          </button>
+          <button type="button" class="btn flex-fill" @click="next">{{$t('about.site')}} <i
+            class="bi-globe2 mx-2"></i></button>
         </div>
       </div>
     </div>
@@ -29,11 +37,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 400px;
-  }
-
-  .modal-body {
-    height: 100px;
+    max-width: 550px;
   }
 
   .bi-info-circle {

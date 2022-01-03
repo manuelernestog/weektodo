@@ -12,7 +12,8 @@
     "checkUpdates": "Check for Updates on startup",
     "calendar": "Calendar",
     "zoom": "Zoom",
-    "columns": "Columns"
+    "columns": "Columns",
+    "goToNewDomain": "We are migrating the WeekToDo website to a new domain and this one will be discontinued shortly. Please start accessing WeekToDo from the new domain name. To move your data you must export it here and then import it into the other domain from the configuration menu. Sorry for any inconvenience this may cause."
   },
   "donate": {
     "contribute": "Contribute",
