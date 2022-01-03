@@ -38,6 +38,7 @@
       <remove-custom-list></remove-custom-list>
       <config-modal @change-columns="weekResetScroll"></config-modal>
       <about-modal></about-modal>
+      <redirect-domain-modal></redirect-domain-modal>
       <contributors-modal></contributors-modal>
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
@@ -71,6 +72,7 @@
     import welcomeModal from "./views/welcomeModal";
     import toDoModal from "./views/toDoModal/toDoModal";
     import tipsModal from "./views/tipsModal";
+    import redirectDomainModal from "./views/redirectDomainModal";
     import {Modal} from 'bootstrap';
     import updateChecker from "./components/updateChecker";
     import migrations from "./migrations/migrations";
@@ -90,7 +92,8 @@
             tipsModal,
             updateChecker,
             toDoModal,
-            contributorsModal
+            contributorsModal,
+            redirectDomainModal
         },
         data() {
             return {
@@ -164,6 +167,10 @@
                 this.$refs.splash.hideSplash();
                 if (this.$store.getters.config.firstTimeOpen) {
                     this.showWelcomeModal();
+                }else{
+                    // if (window.location.hostname.includes('netlify.app')) {
+                        this.showRedirectDomainModal();
+                    // }
                 }
             },
             showWelcomeModal: function () {
@@ -171,6 +178,10 @@
                 modal.show();
                 this.$store.commit('updateConfig', {val: false, key: "firstTimeOpen"});
                 configRepository.update(this.$store.getters.config);
+            },
+            showRedirectDomainModal: function () {
+                let modal = new Modal(document.getElementById('RedirectDomainModal'), {backdrop: 'static'});
+                modal.show();
             },
             compatible: function () {
                 return window.IndexedDB;

@@ -5,10 +5,10 @@
         <img class="logo" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
         <span>{{$t('ui.splashSub')}}</span>
-        <iframe data-aa="1688388" src="//ad.a-ads.com/1688388?size=728x90" scrolling="no"
-                style="width:728px; height:90px; border:0px; padding:0; overflow:hidden"
-                allowtransparency="true"></iframe>
-        <div class="sponsor">{{$t('ui.sponsoredBy')}}</div>
+        <!--        <iframe data-aa="1688388" src="//ad.a-ads.com/1688388?size=728x90" scrolling="no"-->
+        <!--                style="width:728px; height:90px; border:0px; padding:0; overflow:hidden"-->
+        <!--                allowtransparency="true"></iframe>-->
+        <!--        <div class="sponsor">{{$t('ui.sponsoredBy')}}</div>-->
       </div>
     </div>
   </transition>
@@ -44,9 +44,9 @@
   }
 
   .logo {
-    margin-top: 80px;
-    margin-bottom: 30px;
-    width: 6.5rem;
+    margin-top: 48px;
+    margin-bottom: 20px;
+    width: 5rem;
   }
 
   .splash-screen h1 {
@@ -59,7 +59,7 @@
 
   .splash-screen h1 {
     letter-spacing: 3px;
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
   }
 
