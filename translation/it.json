@@ -12,7 +12,8 @@
     "checkUpdates": "Verifica aggiornamenti all'avvio",
     "calendar": "Calendario",
     "zoom": "Ingrandimento",
-    "columns": "Colonne"
+    "columns": "Colonne",
+    "goToNewDomain": "Stiamo eseguendo la migrazione del sito Web WeekToDo a un nuovo dominio e questo verrà interrotto a breve. Inizia ad accedere a WeekToDo dal nuovo nome di dominio. Per spostare i tuoi dati devi esportarli qui e poi importarli nell'altro dominio dal menu di configurazione. Ci scusiamo per gli eventuali disagi che ciò può causare."
   },
   "donate": {
     "contribute": "Contribuisci",
@@ -26,7 +27,10 @@
     "copiedAddres": "Indirizzo copiato !!!",
     "share": "Condividi",
     "rate": "Valuta",
-    "cryptocurrencies": "Criptomonete"
+    "cryptocurrencies": "Criptomonete",
+    "buyMeACoffee": "Buy Me A Coffee",
+    "buyMeACryptoCoffee": "Buy Me A Crypto Coffee",
+    "translate": "Translate"
   },
   "about": {
     "about": "A proposito di",
@@ -36,7 +40,8 @@
     "devName": "Manuel Ernesto García",
     "version": "Versione",
     "desc": "WeekToDo è un'agenda settimanale focalizzata sulla privacy.",
-    "site": "Visita il sito internet"
+    "site": "Visita il sito internet",
+    "contributors": "Contributrici"
   },
   "generatedData": {
     "data2": "Clicca per completare un'attività",
@@ -119,6 +124,10 @@
     "taskTitle": "Nome attività",
     "notes": "Note",
     "markdown": "Stile Markdown supportato",
-    "addSubTask": "Aggiungi sotto attività"
+    "addSubTask": "Aggiungi sotto attività",
+    "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
+    "taskRemoved": "Task Removed !!!",
+    "taskDuplicated": "Task Duplicated !!!",
+    "duplicate": "Duplicate"
   }
 }

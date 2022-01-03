@@ -12,7 +12,8 @@
     "checkUpdates": "在啟動時檢查更新",
     "calendar": "日曆",
     "zoom": "飛漲",
-    "columns": "飛漲"
+    "columns": "飛漲",
+    "goToNewDomain": "我們正在將 WeekToDo 網站遷移到一個新域，這個域將很快停止使用。 請從新域名開始訪問 WeekToDo。 要移動您的數據，您必須將其導出到此處，然後從配置菜單將其導入到另一個域中。 如有不便，敬請原諒。"
   },
   "donate": {
     "contribute": "貢獻",
@@ -26,7 +27,10 @@
     "copiedAddres": "複製的地址!!!",
     "share": "分享",
     "rate": "速度",
-    "cryptocurrencies": "加密貨幣"
+    "cryptocurrencies": "加密貨幣",
+    "buyMeACoffee": "給我買杯咖啡",
+    "buyMeACryptoCoffee": "給我買一杯加密咖啡",
+    "translate": "翻譯"
   },
   "about": {
     "about": "關於",
@@ -36,7 +40,8 @@
     "devName": "曼努埃爾·埃內斯托·加西亞（Manuel Ernesto Garcia）",
     "version": "版本",
     "desc": "WeekToDo是專注於隱私的極簡主義每週計劃。",
-    "site": "訪問網站。"
+    "site": "訪問網站。",
+    "contributors": "貢獻者"
   },
   "generatedData": {
     "data2": "單擊以完成任務",
@@ -119,6 +124,10 @@
     "taskTitle": "任務名稱",
     "notes": "筆記",
     "markdown": "支持“降價”樣式",
-    "addSubTask": "添加子任務"
+    "addSubTask": "添加子任務",
+    "copiedTaskToClipboard": "文本複製到剪貼板!!!",
+    "taskRemoved": "任務刪除！！！",
+    "taskDuplicated": "任務重複！！！",
+    "duplicate": "重複"
   }
 }

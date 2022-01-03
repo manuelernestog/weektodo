@@ -12,7 +12,8 @@
     "checkUpdates": "Check for Updates on startup",
     "calendar": "Calendar",
     "zoom": "Zoom",
-    "columns": "Columns"
+    "columns": "Columns",
+    "goToNewDomain": "We are migrating the WeekToDo website to a new domain and this one will be discontinued shortly. Please start accessing WeekToDo from the new domain name. To move your data you must export it here and then import it into the other domain from the configuration menu. Sorry for any inconvenience this may cause."
   },
   "donate": {
     "contribute": "Contribute",
@@ -26,7 +27,10 @@
     "copiedAddres": "Copied Address !!!",
     "share": "Share",
     "rate": "Rate",
-    "cryptocurrencies": "Cryptocurrencies"
+    "cryptocurrencies": "Cryptocurrencies",
+    "buyMeACoffee": "Buy me a Coffee",
+    "buyMeACryptoCoffee": "Buy me a Crypto Coffee",
+    "translate": "Translate"
   },
   "about": {
     "about": "About",
@@ -36,7 +40,8 @@
     "devName": "Manuel Ernesto García",
     "version": "Version",
     "desc": "WeekToDo is a Minimalist Weekly Planner focused on privacy.",
-    "site": "Visit Website"
+    "site": "Visit Website",
+    "contributors": "Contributors"
   },
   "generatedData": {
     "data2": "Click to complete task",
@@ -51,7 +56,7 @@
     "list1": "Custom List",
     "list2": "Grocery List",
     "list3": "Ideas",
-    "data11": "Click the three dots for more details about this task",
+    "data11": "Click the three dots for see more details about this task",
     "subtask1": "I'm a subtask",
     "subtask2": "Click to complete subtask",
     "desc1": "Here you can set your notes about this task. Double click to edit the notes."
@@ -77,7 +82,7 @@
     "tip18": "In the top of the task details window you can change the day or the list of a task.",
     "tip10": "Productivity: Try to define the fewest possible tasks per day and order them according to their priority.",
     "tip11": "Productivity: Review and organize your to-do list for the week at the beginning and end of your day.",
-    "tip12": "Productivity: Do not plan many things in advance, organize yourself one day at a time. If you have tasks to do move them to the next day."
+    "tip12": "Productivity: Do not plan many things in advance, organize yourself one day at a time. If you have tasks to do move them to for the next day."
   },
   "welcome": {
     "next": "Next",
@@ -119,6 +124,11 @@
     "taskTitle": "Task title",
     "notes": "Notes",
     "markdown": "Markdown Style Supported",
-    "addSubTask": "Add Subtask"
+    "addSubTask": "Add Subtask",
+    "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
+    "taskRemoved": "Task Removed !!!",
+    "taskDuplicated": "Task Duplicated !!!",
+    "duplicate": "Duplicate",
+    "subtasks": "Subtasks"
   }
 }

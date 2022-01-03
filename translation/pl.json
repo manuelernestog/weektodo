@@ -12,7 +12,8 @@
     "checkUpdates": "Sprawdź dostępność aktualizacji podczas uruchamiania",
     "calendar": "Kalendarz",
     "zoom": "Powiększ",
-    "columns": "Kolumny"
+    "columns": "Kolumny",
+    "goToNewDomain": "Przenosimy witrynę WeekToDo do nowej domeny, a ta zostanie wkrótce wycofana. Zacznij uzyskiwać dostęp do WeekToDo z nowej nazwy domeny. Aby przenieść swoje dane, musisz je wyeksportować tutaj, a następnie zaimportować do innej domeny z menu konfiguracyjnego. Przepraszamy za wszelkie niedogodności z tym związane."
   },
   "donate": {
     "contribute": "Wsparcie",
@@ -26,7 +27,10 @@
     "copiedAddres": "Kopiuj adres !!!",
     "share": "Podziel się",
     "rate": "Oceń",
-    "cryptocurrencies": "Kryptowaluty"
+    "cryptocurrencies": "Kryptowaluty",
+    "buyMeACoffee": "Buy Me A Coffee",
+    "buyMeACryptoCoffee": "Buy Me A Crypto Coffee",
+    "translate": "Translate"
   },
   "about": {
     "about": "O programie",
@@ -36,7 +40,8 @@
     "devName": "Manuel Ernesto García",
     "version": "Wersja",
     "desc": "WeekToDo jest minimalnym tygodniowym menadżerem zadań skoncentrowanym na prywatności.",
-    "site": "Odwiedź stronę"
+    "site": "Odwiedź stronę",
+    "contributors": "Współtwórcy"
   },
   "generatedData": {
     "data2": "Kliknij, aby zakończyć zadanie",
@@ -119,6 +124,10 @@
     "taskTitle": "Tytuł zadania",
     "notes": "Notatki",
     "markdown": "Obsługiwany styl Markdown",
-    "addSubTask": "Dodaj podzadanie"
+    "addSubTask": "Dodaj podzadanie",
+    "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
+    "taskRemoved": "Task Removed !!!",
+    "taskDuplicated": "Task Duplicated !!!",
+    "duplicate": "Duplicate"
   }
 }

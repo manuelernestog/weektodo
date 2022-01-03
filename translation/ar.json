@@ -12,7 +12,8 @@
       "checkUpdates": "تحقق من وجود تحديثات عند التشغيل",
       "calendar": "التقويم",
       "zoom": "تقريب",
-      "columns": "الأعمدة"
+      "columns": "الأعمدة",
+      "goToNewDomain": "نحن بصدد ترحيل موقع WeekToDo الإلكتروني إلى مجال جديد وسيتم إيقاف هذا المجال قريبًا. يرجى البدء في الوصول إلى WeekToDo من اسم المجال الجديد. لنقل بياناتك ، يجب تصديرها هنا ثم استيرادها إلى المجال الآخر من قائمة التكوين. آسف علي ازعاج قد يسببه هذا."
     },
     "donate": {
       "contribute": "ساهِم",
@@ -26,7 +27,10 @@
       "copiedAddres": "تم نسخ العنوان !!!",
       "share": "مشاركة",
       "rate": "تقييم",
-      "cryptocurrencies": "العملات المشفرة"
+      "cryptocurrencies": "العملات المشفرة",
+      "buyMeACoffee": "Buy Me A Coffee",
+      "buyMeACryptoCoffee": "Buy Me A Crypto Coffee",
+      "translate": "Translate"
     },
     "about": {
       "about": "حول التطبيق",
@@ -36,7 +40,8 @@
       "devName": "Manuel Ernesto García",
       "version": "الإصدار",
       "desc": "WeekToDo هو مخطط أسبوعي بواجهة مبسطة يركز على خصوصيتك.",
-      "site": "زُر الموقع الإلكتروني"
+      "site": "زُر الموقع الإلكتروني",
+      "contributors": "المساهمون"
     },
     "generatedData": {
       "data2": "أُنقر لإكمال المهمة",
@@ -119,6 +124,10 @@
       "taskTitle": "عنوان الواجب",
       "notes": "الملاحظات",
       "markdown": "صيغة مارك داون (Markdown) مدعومة",
-      "addSubTask": "أضف مهمة فرعية"
+      "addSubTask": "أضف مهمة فرعية",
+      "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
+      "taskRemoved": "Task Removed !!!",
+      "taskDuplicated": "Task Duplicated !!!",
+      "duplicate": "Duplicate"
     }
   }

@@ -12,7 +12,8 @@
     "checkUpdates": "Buscar actualizaciones al inicio",
     "calendar": "Calendario",
     "zoom": "Zoom",
-    "columns": "Columnas"
+    "columns": "Columnas",
+    "goToNewDomain": "Estamos migrando el sitio web de WeekToDo a un nuevo dominio y este dejará de estar disponible en breve. Comience a acceder a WeekToDo desde el nuevo nombre de dominio. Para mover sus datos debe exportarlos aquí y luego importarlos al otro dominio desde el menú de configuración. Lamentamos cualquier inconveniente que esto pueda causar."
   },
   "donate": {
     "contribute": "Contribuir",
@@ -26,7 +27,10 @@
     "copiedAddres": "Dirección Copiada!!!",
     "share": "Compartir",
     "rate": "Puntuar",
-    "cryptocurrencies": "Criptomonedas"
+    "cryptocurrencies": "Criptomonedas",
+    "buyMeACoffee": "Cómprame un Café",
+    "buyMeACryptoCoffee": "Cómprame un Cripto Café",
+    "translate": "Traducir"
   },
   "about": {
     "about": "Acerca De",
@@ -36,7 +40,8 @@
     "devName": "Manuel Ernesto García",
     "version": "Versión",
     "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad.",
-    "site": "Visitar Sitio Web"
+    "site": "Visitar Sitio Web",
+    "contributors": "Colaboradores"
   },
   "generatedData": {
     "data2": "Click para completar tarea",
@@ -119,6 +124,11 @@
     "taskTitle": "Título de la tarea",
     "notes": "Notas",
     "markdown": "Estilo Markdown",
-    "addSubTask": "Agregar subtarea"
+    "addSubTask": "Agregar subtarea",
+    "copiedTaskToClipboard": "Texto Copiedo al Portapapeles !!!",
+    "taskRemoved": "Tarea Eliminada !!!",
+    "taskDuplicated": "Tarea Duplicada !!!",
+    "duplicate": "Duplicar",
+    "subtasks": "Subtareas"
   }
 }
