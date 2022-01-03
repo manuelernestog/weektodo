@@ -168,9 +168,9 @@
                 if (this.$store.getters.config.firstTimeOpen) {
                     this.showWelcomeModal();
                 }else{
-                    // if (window.location.hostname.includes('netlify.app')) {
+                    if (window.location.hostname.includes('netlify.app')) {
                         this.showRedirectDomainModal();
-                    // }
+                    }
                 }
             },
             showWelcomeModal: function () {
