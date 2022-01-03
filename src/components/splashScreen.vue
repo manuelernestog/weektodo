@@ -5,10 +5,13 @@
         <img class="logo" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
         <span>{{$t('ui.splashSub')}}</span>
-        <!--        <iframe data-aa="1688388" src="//ad.a-ads.com/1688388?size=728x90" scrolling="no"-->
-        <!--                style="width:728px; height:90px; border:0px; padding:0; overflow:hidden"-->
-        <!--                allowtransparency="true"></iframe>-->
-        <!--        <div class="sponsor">{{$t('ui.sponsoredBy')}}</div>-->
+<!--                <iframe data-aa="1688388" src="//ad.a-ads.com/1688388?size=728x90" scrolling="no"-->
+<!--                        style="width:728px; height:90px; border:0px; padding:0; overflow:hidden"-->
+<!--                        allowtransparency="true"-->
+<!--                        sandbox="allow-scripts allow-popups allow-same-origin"-->
+<!--                >-->
+<!--                </iframe>-->
+<!--                <div class="sponsor">{{$t('ui.sponsoredBy')}}</div>-->
       </div>
     </div>
   </transition>
