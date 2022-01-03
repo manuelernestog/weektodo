@@ -11,7 +11,8 @@
     "invalidFile": "Ungültige Datei",
     "calendar": "Kalender",
     "zoom": "Zoomen",
-    "columns": "Säulen"
+    "columns": "Säulen",
+    "goToNewDomain": "Wir migrieren die WeekToDo-Website auf eine neue Domain und diese wird in Kürze eingestellt. Bitte starten Sie den Zugriff auf WeekToDo über den neuen Domainnamen. Um Ihre Daten zu verschieben, müssen Sie sie hierher exportieren und dann aus dem Konfigurationsmenü in die andere Domäne importieren. Entschuldigung für eventuelle Unannehmlichkeiten."
   },
   "donate": {
     "contribute": "Beitragen",

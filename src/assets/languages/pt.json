@@ -12,7 +12,8 @@
     "checkUpdates": "Verifique se há atualizações na inicialização",
     "calendar": "Calendário",
     "zoom": "Ampliação",
-    "columns": "Colunas"
+    "columns": "Colunas",
+    "goToNewDomain": "Estamos migrando o site WeekToDo para um novo domínio e este será descontinuado em breve. Comece a acessar WeekToDo a partir do novo nome de domínio. Para mover seus dados, você deve exportá-los aqui e, em seguida, importá-los para o outro domínio a partir do menu de configuração. Desculpe por qualquer inconveniente que isso possa causar."
   },
   "donate": {
     "contribute": "Contribuir",
