@@ -6,7 +6,11 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RNFS1RPBGT"></script>
   <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+
       gtag('js', new Date());
 
       gtag('config', 'G-RNFS1RPBGT');
@@ -32,11 +36,11 @@
   <meta property="og:description"
         content="WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar. Available for Windows, Mac, Linux or online.">
   <meta property="og:image" content="https://weektodo.me/assets/images/weektodo-opengraph-1200x630.png">
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
   <!-- Twitter card -->
-  <meta name="twitter:card"  content="summary_large_image">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="WeekToDo | Free Minimalist Weekly Planner App">
   <meta name="twitter:description"
         content="WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar. Available for Windows, Mac, Linux or online.">
@@ -102,25 +106,13 @@
                                   href="index.html#footer5-1y"><span
             class="mobi-mbri mobi-mbri-globe-2 mbr-iconfont mbr-iconfont-btn"></span>Change Language&nbsp;</a>
           </li>
-          <li class="nav-item"><a class="nav-link link text-black display-4"
-                                  href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.5.0/WeekToDo-Setup-1.5.0.exe"><span
-            class="mobi-mbri mobi-mbri-windows mbr-iconfont mbr-iconfont-btn"></span>Download for Windows</a></li>
-          <li class="nav-item"><a
-            id="open-mac-modal-2"
-            class="nav-link link text-black display-4"
-            href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.5.0/WeekToDo-1.5.0.dmg"><span
-            class="mobi-mbri mobi-mbri-apple mbr-iconfont mbr-iconfont-btn"></span>Download for macOS</a></li>
-          <li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle display-4" href="#"
-                                           data-toggle="dropdown-submenu" aria-expanded="true"><span
-            class="socicon socicon-debian mbr-iconfont mbr-iconfont-btn"></span>Download for Linux<br></a>
-            <div class="dropdown-menu">
-              <a class="text-black dropdown-item display-4"
-                 href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.5.0/WeekToDo_1.5.0_amd64.deb">Linux.deb</a>
-              <a class="text-black dropdown-item display-4"
-                 href="https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.5.0/WeekToDo-1.5.0.x86_64.rpm">Linux.rpm</a>
-              <a class="text-black dropdown-item display-4"
-                 href="https://snapcraft.io/weektodo">Linux Snap</a>
-            </div>
+          <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
+                                  href="#download"><span
+            class="mobi-mbri mobi-mbri-download-2 mbr-iconfont mbr-iconfont-btn"></span>Download&nbsp;</a>
+          </li>
+          <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
+                                  href="https://blog.weektodo.me"><span
+            class="mobi-mbri mobi-mbri-quote-left mbr-iconfont mbr-iconfont-btn"></span>Our Blog&nbsp;</a>
           </li>
           <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
                                   href="mailto:week2do@gmail.com" aria-expanded="false"><span
@@ -313,7 +305,12 @@
         </div>
 
         <div class="align-self-center mt-3 mt-sm-0">
-          <a href="https://www.producthunt.com/posts/weektodo?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-weektodo" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=291402&theme=dark" alt="WeekToDo - Free Minimalist Weekly Planner Focused on Privacy | Product Hunt" style="width: 200px;" width="250" height="54" /></a>
+          <a
+            href="https://www.producthunt.com/posts/weektodo?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-weektodo"
+            target="_blank"><img
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=291402&theme=dark"
+            alt="WeekToDo - Free Minimalist Weekly Planner Focused on Privacy | Product Hunt" style="width: 200px;"
+            width="250" height="54"/></a>
         </div>
 
         <div class="align-self-center mt-3 mt-sm-0">
@@ -337,16 +334,38 @@
       </div>
       <div class="media-container-row">
         <div class="col-md-6 copyright">
-          <p class="mbr-text mbr-fonts-style display-7">WeekToDo - Made with 💚 in Cuba&nbsp;2021 </p>
+          <p class="mbr-text mbr-fonts-style display-7">
+            WeekToDo - Made with 💚 in 🇨🇺 by <a href="https://manuelernestogr.bio.link" target="_blank"
+                                                  style="color: black">
+            Manuel Ernesto</a>
+          </p>
         </div>
         <div class="col-md-6">
           <div class="social-list align-right">
-            <div class="soc-item">
-              <a href="mailto:week2do@gmail.com">
-                <span class="mbr-iconfont mbr-iconfont-social socicon-mail socicon"></span>
-              </a>
-            </div>
+            <ul class="d-flex m-0" style="list-style-type: none;">
+              <li class="foot-menu-item mbr-fonts-style mx-3 display-7">
+                <a class="text-black" href="mailto:week2do@gmail.com" target="_blank">Contact</a>
+              </li>
+              <li class="foot-menu-item mbr-fonts-style mx-3 display-7">
+                <a class="text-black" href="https://blog.weektodo.me">Blog</a>
+              </li>
+              <li class="foot-menu-item mbr-fonts-style mx-3 display-7">
+                <a class="text-black" href="https://app.weektodo.me">Planner</a>
+              </li>
+              <li class="foot-menu-item mbr-fonts-style mx-3 display-7">
+                <a href="https://twitter.com/weektodo">
+                  <span class="mbr-iconfont mbr-iconfont-social socicon-twitter socicon"></span>
+                </a>
+              </li>
+            </ul>
           </div>
+<!--          <div class="social-list align-right">-->
+<!--            <div class="soc-item">-->
+<!--              <a href="mailto:week2do@gmail.com">-->
+<!--                <span class="mbr-iconfont mbr-iconfont-social socicon-mail socicon"></span>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
     </div>
