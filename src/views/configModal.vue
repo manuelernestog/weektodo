@@ -19,7 +19,7 @@
               <option value="it">Italiano</option>
               <option value="pt">Português</option>
               <option value="ru">русский</option>
-              <option value="ru">Polskie</option>
+              <option value="pl">Polski</option>
               <option value="ar">عرب</option>
               <option value="zh_cn">中國人</option>
             </select>
