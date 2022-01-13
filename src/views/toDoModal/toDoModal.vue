@@ -45,10 +45,11 @@
             </div>
           </div>
           <div class="d-flex ms-auto align-items-center">
-            <!--            <i class="bi-circle header-menu-icons"></i>-->
+
             <!--            <i class="bi-alarm header-menu-icons"></i>-->
             <!--            <i class="bi-arrow-repeat header-menu-icons"></i>-->
             <!--            <i class="bi-flag header-menu-icons"></i>-->
+            <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
                data-bs-toggle="dropdown"></i>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
@@ -163,6 +164,7 @@
     import dbRepository from '../../repositories/dbRepository'
     import {Toast} from 'bootstrap';
     import toastMessage from '../../components/toastMessage';
+    import colorPicker from "./colorPicker";
 
     export default {
         name: "toDoModal",
@@ -187,6 +189,7 @@
             selectedTodo: {required: true, type: Object},
         },
         components: {
+            colorPicker,
             Datepicker,
             Markdown,
             toastMessage
@@ -337,7 +340,7 @@
                     listId: this.todo.listId,
                     desc: this.todo.desc,
                     subTaskList: this.todo.subTaskList,
-                    color: "none",
+                    color: this.todo.color,
                     priority: 0,
                     tags: [],
                     time: null,
@@ -356,7 +359,7 @@
             },
             todoToString() {
                 var text = "";
-                text += this.todo.text ;
+                text += this.todo.text;
                 if (this.todo.desc != "") {
                     text += '\n\n'
                     text += this.$t('todoDetails.notes') + ':\n\n';
@@ -370,6 +373,10 @@
                     });
                 }
                 return text;
+            },
+            changeColor(color){
+                this.todo.color = color;
+                console.log(color);
             }
         },
         watch: {
