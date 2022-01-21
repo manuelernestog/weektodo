@@ -3,7 +3,9 @@
   "changes": {
     "en": {
       "1.6.0-20220104": [
-        "Fixing problem with Polish languages selection"
+        "Fixing problem with Polish languages selection",
+        "Adding color picker",
+        "Fixing problem with calendar for Arabic, Polish and Italian",
       ],
       "1.5.0-20220104": [
         "Adding Arabic, Italian and Polish languages",
