@@ -9,6 +9,8 @@
       <div v-if="!editing" class="todo-item d-flex flex-column" ref="currentTodo"
            draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
         <div class="d-flex">
+          <i v-if="toDo.color != 'none'" class="bi-circle-fill" :style="'color: ' + toDo.color"
+             style="font-size: 7px; margin-top: 8px; margin-left: 5px"></i>
           <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style=" flex-grow:1; "
                 @dblclick="editToDo"
                 @click="checkToDo"> {{ toDo.text }} </span>

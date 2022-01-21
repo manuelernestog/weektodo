@@ -45,10 +45,39 @@
             </div>
           </div>
           <div class="d-flex ms-auto align-items-center">
+            <!--                        <i class="bi-alarm header-menu-icons"></i>-->
+            <!--                        <i class="bi-arrow-repeat header-menu-icons"></i>-->
+            <!--                        <i class="bi-flag header-menu-icons"></i>-->
+            <i id="btnTaskPriority" class="bi-flag header-menu-icons" type="button"
+               data-bs-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskPriority">
+              <li>
+                <button class="dropdown-item" type="button" @click="copyTodo">
+                  <i class="bi-flag-fill" style="color: red"></i> <span>Critica</span>
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button" @click="copyTodo">
+                  <i class="bi-flag-fill" style="color: orange"></i> <span>Alta</span>
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button" @click="copyTodo">
+                  <i class="bi-flag-fill" style="color: green"></i> <span>Media</span>
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button" @click="copyTodo">
+                  <i class="bi-flag-fill" style="color: blue"></i> <span>Baja</span>
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button" @click="copyTodo">
+                  <i class="bi-flag" s></i> <span>Ninguna</span>
+                </button>
+              </li>
+            </ul>
 
-            <!--            <i class="bi-alarm header-menu-icons"></i>-->
-            <!--            <i class="bi-arrow-repeat header-menu-icons"></i>-->
-            <!--            <i class="bi-flag header-menu-icons"></i>-->
             <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
                data-bs-toggle="dropdown"></i>
@@ -157,7 +186,7 @@
 
 <script>
     import Datepicker from 'vue3-datepicker';
-    import {es, enUS, fr, pt, ru, zhCN, de} from 'date-fns/locale';
+    import {es, enUS, fr, pt, ru, zhCN, de, it, ar, pl} from 'date-fns/locale';
     import Markdown from 'vue3-markdown-it';
     import toDoListRepository from "../../repositories/toDoListRepository";
     import moment from 'moment'
@@ -374,7 +403,7 @@
                 }
                 return text;
             },
-            changeColor(color){
+            changeColor(color) {
                 this.todo.color = color;
                 console.log(color);
             }
@@ -431,6 +460,15 @@
                         break;
                     case "pt":
                         return_lang = pt;
+                        break;
+                    case "it":
+                        return_lang = it;
+                        break;
+                    case "ar":
+                        return_lang = ar;
+                        break;
+                    case "pl":
+                        return_lang = pl;
                         break;
                     case "ru":
                         return_lang = ru;

@@ -18,7 +18,7 @@
     import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
     import toDoListRepository from "../../repositories/toDoListRepository";
     import Datepicker from 'vue3-datepicker';
-    import {es, enUS, fr, pt, ru, zhCN, de} from 'date-fns/locale';
+    import {es, enUS, fr, pt, ru, zhCN, de, it, ar, pl} from 'date-fns/locale';
 
     export default {
         name: "sideBar",
@@ -97,6 +97,15 @@
                         break;
                     case "zh_cn":
                         return_lang = zhCN;
+                        break;
+                    case "it":
+                        return_lang = it;
+                        break;
+                    case "ar":
+                        return_lang = ar;
+                        break;
+                    case "pl":
+                        return_lang = pl;
                         break;
                     case "de":
                         return_lang = de;
