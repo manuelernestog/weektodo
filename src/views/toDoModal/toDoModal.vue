@@ -48,7 +48,6 @@
             <!--                        <i class="bi-alarm header-menu-icons"></i>-->
             <!--                        <i class="bi-arrow-repeat header-menu-icons"></i>-->
             <!--                        <i class="bi-flag header-menu-icons"></i>-->
-
 <!--            <i id="btnTaskPriority" class="bi-flag header-menu-icons" type="button"-->
 <!--               data-bs-toggle="dropdown"></i>-->
 <!--            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskPriority">-->
