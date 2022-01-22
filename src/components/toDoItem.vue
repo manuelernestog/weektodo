@@ -1,30 +1,30 @@
 <template>
-  <div class="item-drop-zone"
-       @dragenter.self="onDragenter"
-       @dragleave.self="onDragleave"
-       @drop="onDragleave"
-       :class="[{'drag-hover': todoDragHover},{'dragging': todoDragging}]"
-  >
+  <div class="item-drop-zone" @dragenter.self="onDragenter" @dragleave.self="onDragleave"
+       @drop="onDragleave" :class="[{'drag-hover': todoDragHover},{'dragging': todoDragging}]">
     <div class="todo-item-container">
       <div v-if="!editing" class="todo-item d-flex flex-column" ref="currentTodo"
            draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
         <div class="d-flex">
-          <i v-if="toDo.color != 'none'" class="bi-circle-fill" :style="'color: ' + toDo.color"
-             style="font-size: 7px; margin-top: 8px; margin-left: 5px"></i>
+
+          <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color"
+             :class="{'bi-check-circle-fill': toDo.checked, 'bi-circle-fill': !toDo.checked  }"></i>
+          <i v-else class="cicle-icon" :class="{'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked  }"></i>
+
           <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style=" flex-grow:1; "
-                @dblclick="editToDo"
-                @click="checkToDo"> {{ toDo.text }} </span>
+                @dblclick="editToDo" @click="checkToDo">
+            {{ toDo.text }}
+          </span>
           <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
           <i class="bi-x todo-item-remove" @click="removeTodo"></i>
         </div>
 
-<!--        <div class="tags">-->
-<!--          <div class="tag-item"><i class="bi-chevron-double-up"></i></div>-->
-<!--          <div class="tag-item"><i class="bi-arrow-repeat"></i></div>-->
-<!--          <div class="tag-item"><i class="bi-list-task"></i> <span>5/10</span></div>-->
-<!--          <div class="tag-item"><i class="bi-clock"></i> <span>5:15</span></div>-->
-<!--          <div class="tag-item"><i class="bi-tag"></i></div>-->
-<!--        </div>-->
+        <!--        <div class="tags">-->
+        <!--          <div class="tag-item"><i class="bi-chevron-double-up"></i></div>-->
+        <!--          <div class="tag-item"><i class="bi-arrow-repeat"></i></div>-->
+        <!--          <div class="tag-item"><i class="bi-list-task"></i> <span>5/10</span></div>-->
+        <!--          <div class="tag-item"><i class="bi-clock"></i> <span>5:15</span></div>-->
+        <!--          <div class="tag-item"><i class="bi-tag"></i></div>-->
+        <!--        </div>-->
 
         <div class="todo-item-sub-tasks">
           <ul class="sub-tasks">
@@ -145,6 +145,9 @@
   .todo-item-sub-tasks {
     display: none
   }
+  .todo-item:hover {
+    z-index: 5;
+  }
 
   .todo-item:hover .todo-item-sub-tasks {
     display: flex !important;
@@ -173,7 +176,7 @@
     line-height: 1.3rem;
     font-size: 0.865rem;
     margin: 2px 0px 2px 0px;
-    padding: 0 8px 0 8px;
+    padding: 0 7px 0 7px;
   }
 
   .todo-item:hover .item-text {
@@ -340,6 +343,16 @@
 
   .tags {
     margin: 2px 10px 2px 10px;
+  }
+
+  .cicle-icon {
+    font-size: 10px;
+    margin-top: 7px;
+    margin-left: 5px;
+  }
+
+  .bi-check-circle-fill, .bi-check-circle {
+    opacity: 0.8;
   }
 
   .tag-item {
