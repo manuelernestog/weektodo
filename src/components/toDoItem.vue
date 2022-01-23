@@ -6,12 +6,12 @@
            draggable="true" @dragstart='startDrag($event, toDo,index)' @dragend="endDrag()">
         <div class="d-flex">
 
-          <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color"
-             :class="{'bi-check-circle-fill': toDo.checked, 'bi-circle-fill': !toDo.checked  }"></i>
-          <i v-else class="cicle-icon" :class="{'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked  }"></i>
-
           <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style=" flex-grow:1; "
                 @dblclick="editToDo" @click="checkToDo">
+                      <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color"
+                         :class="{'bi-check-circle-fill': toDo.checked, 'bi-circle-fill': !toDo.checked  }"></i>
+          <i v-else class="cicle-icon" :class="{'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked  }"></i>
+
             {{ toDo.text }}
           </span>
           <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
@@ -347,12 +347,11 @@
 
   .cicle-icon {
     font-size: 10px;
-    margin-top: 7px;
-    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .bi-check-circle-fill, .bi-check-circle {
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .tag-item {
