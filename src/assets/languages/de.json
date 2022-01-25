@@ -16,7 +16,8 @@
   },
   "donate": {
     "contribute": "Beitragen",
-    "mainMessage": "WeektoDo ist eine völlig kostenlose Anwendung. Sie können dieses Projekt mit einem kleinen Beitrag unterstützen. Vielen Dank, dass Sie WeekToDo verwenden!",
+    "contributeSponsor": "Beitrag leisten / Sponsor",
+    "mainMessage": "WeektoDo ist eine völlig kostenlose Anwendung, die durch den Beitrag ihrer Benutzer unterstützt wird. Wenn Ihnen WeekToDo gefällt, erwägen Sie, das Projekt mit einem beliebigen Beitrag zu unterstützen. Danke, dass Sie WeekToDo verwenden!",
     "comment": "Kommentar senden",
     "crypto": "Krypto",
     "goBack": "Zurück",

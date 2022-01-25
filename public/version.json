@@ -1,12 +1,14 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.0",
   "changes": {
     "en": {
-      "1.6.0-20220104": [
+      "1.6.0-20220201": [
         "Fixing problem with Polish languages selection",
         "Adding color picker",
         "Adding circles and checked circles to tasks",
-        "Fixing problem with calendar for Arabic, Polish and Italian"
+        "Fixing problem with calendar for Arabic, Polish and Italian",
+        "Refactoring donate View",
+        "Adding social links to about view"
       ],
       "1.5.0-20220104": [
         "Adding Arabic, Italian and Polish languages",

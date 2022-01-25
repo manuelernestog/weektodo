@@ -2,7 +2,7 @@ export default {
     donateList(vue) {
         return [
             {
-                name: vue.$t('donate.contribute'),
+                name: vue.$t('donate.contributeSponsor'),
                 ico: "bi-heart-fill", color: "#d94242",
                 linktype: "external",
                 link: "https://paynest.app/manuelernestogr"
