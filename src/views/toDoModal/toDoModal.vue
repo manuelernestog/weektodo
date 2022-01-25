@@ -405,6 +405,7 @@
             },
             changeColor(color) {
                 this.todo.color = color;
+                this.updateTodo();
             }
         },
         watch: {
