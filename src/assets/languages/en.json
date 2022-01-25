@@ -17,7 +17,8 @@
   },
   "donate": {
     "contribute": "Contribute",
-    "mainMessage": "WeektoDo is a completely free application. You can support this project with a small contribution. Thanks for using WeekToDo!",
+    "contributeSponsor": "Contribute / Sponsor",
+    "mainMessage": "WeektoDo is a completely free application supported by the contribution of its users. If you enjoy WeekToDo consider supporting the project with whatever contribution you wish. Thanks for using WeekToDo!",
     "comment": "Send feedback",
     "crypto": "Cripto",
     "goBack": "Go Back",
@@ -41,7 +42,10 @@
     "version": "Version",
     "desc": "WeekToDo is a Minimalist Weekly Planner focused on privacy.",
     "site": "Visit Website",
-    "contributors": "Contributors"
+    "contributors": "Contributors",
+    "sponsors": "Sponsors",
+    "email": "E-mail",
+    "blog": "Blog"
   },
   "generatedData": {
     "data2": "Click to complete task",

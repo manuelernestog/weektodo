@@ -42,7 +42,10 @@
     "version": "Version",
     "desc": "WeekToDo est un agenda hebdomadaire minimaliste axé sur la confidentialité.",
     "site": "Visiter le site Web",
-    "contributors": "Contributrice"
+    "contributors": "Contributrice",
+    "sponsors": "Commanditaires",
+    "email": "E-mail",
+    "blog": "Blog"
   },
   "generatedData": {
     "data2": "Cliquez pour terminer la tâche",

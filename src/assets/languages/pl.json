@@ -42,7 +42,10 @@
     "version": "Wersja",
     "desc": "WeekToDo jest minimalnym tygodniowym menadżerem zadań skoncentrowanym na prywatności.",
     "site": "Odwiedź stronę",
-    "contributors": "Współtwórcy"
+    "contributors": "Współtwórcy",
+    "sponsors": "Sponsorzy",
+    "email": "E-mail",
+    "blog": "Blog"
   },
   "generatedData": {
     "data2": "Kliknij, aby zakończyć zadanie",

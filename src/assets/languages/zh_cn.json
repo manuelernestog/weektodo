@@ -42,7 +42,10 @@
     "version": "版本",
     "desc": "WeekToDo是專注於隱私的極簡主義每週計劃。",
     "site": "訪問網站。",
-    "contributors": "貢獻者"
+    "contributors": "貢獻者",
+    "sponsors": "赞助商",
+    "email": "电子邮件",
+    "blog": "博客"
   },
   "generatedData": {
     "data2": "單擊以完成任務",

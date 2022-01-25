@@ -42,7 +42,10 @@
     "version": "Versão",
     "desc": "WeekToDo é um planejador semanal minimalista focado na privacidade.",
     "site": "Visite o site",
-    "contributors": "Contribuidores"
+    "contributors": "Contribuidores",
+    "sponsors": "Patrocinadores",
+    "email": "E-mail",
+    "blog": "Blogue"
   },
   "generatedData": {
     "data2": "Clique para concluir a tarefa",

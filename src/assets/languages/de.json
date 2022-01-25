@@ -41,7 +41,10 @@
     "version": "ausführung",
     "desc": "WeekToDo ist ein minimalistischer Wochenplaner, der sich auf Datenschutz konzentriert.",
     "site": "Website besuchen",
-    "contributors": "Mitwirkende"
+    "contributors": "Mitwirkende",
+    "sponsors": "Sponsoren",
+    "email": "Email",
+    "blog": "Bloggen"
   },
   "generatedData": {
     "data2": "Klicken, um die Aufgabe abzuschließen",
