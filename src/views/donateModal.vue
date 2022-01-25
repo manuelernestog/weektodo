@@ -89,7 +89,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 400px;
+    max-width: 380px;
   }
 
   #nav-tabContent {
@@ -97,7 +97,7 @@
   }
 
   .tab-pane {
-    height: 350px;
+    height: 250px;
   }
 
   .nav-tabs {

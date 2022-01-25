@@ -19,8 +19,17 @@
               </span>
             </span>
             <span>
-              <div class="visit-site mt-2" style="font-size: 0.75rem;" @click="openWebSite()">{{$t('about.site')}}</div>
+              <div class="visit-site mt-2 mb-3" style="font-size: 0.75rem;">
+                <a href="https://weektodo.me" target="_blank">{{$t('about.site')}}</a>
+              </div>
               </span>
+            <div class="d-flex align-self-center">
+              <a href="https://blog.weektodo.me" target="_blank" title="Blog"> <i class="bi-rss mx-2"></i></a>
+              <a href="https://t.me/weektodo" target="_blank" title="Telegram"> <i class="bi-telegram mx-2"></i></a>
+              <a href="https://twitter.com/weektodo" target="_blank" title="Twitter"> <i class="bi-twitter mx-2"></i></a>
+              <a href="https://github.com/Zuntek/WeekToDoWeb" target="_blank" title="Github"> <i class="bi-github mx-2"></i></a>
+              <a href="mailto:week2do@gmail.com"> <i class="bi-envelope mx-2" :title="$t('about.email')"></i></a>
+            </div>
           </div>
           <div class="horizontal-divider mt-3 mb-3"></div>
           <div>
@@ -40,13 +49,13 @@
               <div class="horizontal-divider mt-3 mb-3"></div>
               <div class="row">
                 <div class="text-center text-uppercase" style="font-size: 0.8rem; opacity: .8;">
-<!--                  <span> Patrocinadores </span>-->
-<!--                  <span class="mx-1"> • </span>-->
+                  <!--                  <span> Patrocinadores </span>-->
+                  <!--                  <span class="mx-1"> • </span>-->
                   <span @click="showContributors" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.contributors')}} </span>
                 </div>
               </div>
               <div class="horizontal-divider mt-3 mb-3"></div>
-              <div class="d-flex" >
+              <div class="d-flex">
                 <span style="margin-top: 10px; margin-right: 10px;">{{$t('about.madeWith')}} <i class="bi-heart-fill"
                                                                                                 style="color: red"></i> {{$t('about.inCuba')}}</span>
                 <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal"
@@ -73,14 +82,6 @@
             }
         },
         methods: {
-            openWebSite: function () {
-                let isElectron = require("is-electron");
-                if (isElectron()) {
-                    require('electron').shell.openExternal('https://weektodo.me', '_blank');
-                } else {
-                    window.open('https://weektodo.me', '_blank');
-                }
-            },
             showChangeLog: function () {
                 let modal = new Modal(document.getElementById('changeLogModal'));
                 modal.show();
