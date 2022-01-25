@@ -11,10 +11,10 @@ export default {
         let custom_list2_id = create_custom_list(vue, vue.$t("generatedData.list2"));
         create_custom_list(vue, vue.$t("generatedData.list3"));
 
-        create_todo(vue, today_id, vue.$t("generatedData.data2"), false);
-        create_todo(vue, today_id, vue.$t("generatedData.data3"), false);
+        create_todo(vue, today_id, vue.$t("generatedData.data2"), false,"",[],"#77e785");
+        create_todo(vue, today_id, vue.$t("generatedData.data3"), false,"",[],"#f9d54a");
         create_todo(vue, today_id, vue.$t("generatedData.data4"), false);
-        create_todo(vue, tomorrow_id, vue.$t("generatedData.data5"), false);
+        create_todo(vue, tomorrow_id, vue.$t("generatedData.data5"), false,"",[],"#5e6ef2");
 
         let subtasks = [
             {text: vue.$t("generatedData.subtask1"), checked: false, editing: false},
@@ -25,8 +25,8 @@ export default {
         create_todo(vue, custom_list1_id, vue.$t("generatedData.data6"), false);
         create_todo(vue, custom_list1_id, vue.$t("generatedData.data7"), false);
         create_todo(vue, custom_list1_id, vue.$t("generatedData.data8"), false);
-        create_todo(vue, custom_list2_id, vue.$t("generatedData.data9"), false);
-        create_todo(vue, custom_list2_id, vue.$t("generatedData.data10"), false);
+        create_todo(vue, custom_list2_id, vue.$t("generatedData.data9"), false,"",[],"#ed544b");
+        create_todo(vue, custom_list2_id, vue.$t("generatedData.data10"), false,"",[],"#ed56a1");
     }
 };
 
