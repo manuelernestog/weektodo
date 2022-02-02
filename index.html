@@ -265,6 +265,52 @@
   </div>
 </section>
 
+<section style="background-color: #fcfcfc" class="pt-3 pb-4">
+  <div class="container">
+    <div id="app" class="card-box align-center mt-5" style="max-width: 700px; margin: 0 auto;">
+      <h3 class="mbr-section-title mbr-fonts-style mb-4 display-5"><strong>Our Sponsors</strong></h3>
+
+      <div class="d-flex flex-wrap justify-content-center" style="width: 100%;">
+        <div class="align-self-center " v-for="(sponsor,index) in goldenSponsors" :key="index"
+             style="width: 192px; height: 50px; margin: 15px 20px 15px 20px;">
+          <a class="d-flex align-items-center" :href="sponsor.url" target="_blank" :title="sponsor.message"
+             style="height: 100%; width: 100%">
+            <img :src="sponsor.webImg"
+                 style="max-width: 100%;    max-height: 100%; width: auto;    height: auto; margin: auto;">
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-center" style="width: 100%;">
+        <div class="align-self-center " v-for="(sponsor,index) in silverSponsors" :key="index"
+             style="width: 141px; height: 45px; margin: 12px 17px 12px 17px;">
+          <a class="d-flex align-items-center" :href="sponsor.url" target="_blank" :title="sponsor.message"
+             style="height: 100%; width: 100%">
+            <img :src="sponsor.webImg"
+                 style="max-width: 100%;    max-height: 100%; width: auto;    height: auto; margin: auto;">
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-center" style="width: 100%;">
+        <div class="align-self-center " v-for="(sponsor,index) in bronzeSponsors" :key="index"
+             style="width: 112px; height: 35px; margin: 10px 14px 10px 14px;">
+          <a class="d-flex align-items-center" :href="sponsor.url" target="_blank" :title="sponsor.message"
+             style="height: 100%; width: 100%">
+            <img :src="sponsor.webImg"
+                 style="max-width: 100%;    max-height: 100%; width: auto;    height: auto; margin: auto;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <a class="btn btn-primary-outline display-4 align-self-center" href="https://support.weektodo.me"
+       target="_blank"><span class="mobi-mbri mobi-mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>Become a
+      Sponsor</a>
+  </div>
+</section>
+
 <section class="features1 cid-stlUSjLQuZ" id="features1-1w">
   <div class="container">
     <div class="row">
@@ -315,10 +361,10 @@
 
         <div class="align-self-center mt-3 mt-sm-0">
           <p>
-            <a href="https://paynest.app/manuelernestogr" target="_blank">
+            <a href="https://support.weektodo.me" target="_blank">
               <img src="assets/images/Donate-Button-PNG.png" alt="Donate"
-                   title="Donate"
-                   style="width: 150px; margin-top: 10px;"/>
+                   title="Contribute"
+                   style="width: 170px; margin-top: 10px;"/>
             </a>
           </p>
         </div>
@@ -336,7 +382,7 @@
         <div class="col-md-6 copyright">
           <p class="mbr-text mbr-fonts-style display-7">
             Made with 💚 in 🇨🇺 by <a href="https://manuelernestogr.bio.link" target="_blank"
-                                                  style="color: black">
+                                       style="color: black">
             Manuel Ernesto</a>
           </p>
         </div>
@@ -354,17 +400,17 @@
               </li>
               <div class="d-flex my-sm-0 my-4">
                 <li class="foot-menu-item mbr-fonts-style mx-3 display-7">
-                  <a href="https://t.me/weektodo" target="_blank">
+                  <a href="https://t.me/weektodo" target="_blank" title="Telegram Channel / Comunity">
                     <span class="mbr-iconfont mbr-iconfont-social socicon-telegram socicon"></span>
                   </a>
                 </li>
                 <li class="foot-menu-item mbr-fonts-style mx-3 display-7">
-                  <a href="https://twitter.com/weektodo" target="_blank">
+                  <a href="https://twitter.com/weektodo" target="_blank"  title="Twitter">
                     <span class="mbr-iconfont mbr-iconfont-social socicon-twitter socicon"></span>
                   </a>
                 </li>
                 <li class="foot-menu-item mbr-fonts-style mx-3 display-7">
-                  <a href="https://github.com/Zuntek/WeekToDoWeb" target="_blank">
+                  <a href="https://github.com/Zuntek/WeekToDoWeb" target="_blank"  title="Github">
                     <span class="mbr-iconfont mbr-iconfont-social socicon-github socicon"></span>
                   </a>
                 </li>
@@ -376,8 +422,6 @@
     </div>
   </div>
 </section>
-<div style="height: 1rem; background-color: #fcfcfc">
-</div>
 <section
   style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: none;">
   <a href="https://mobirise.site/r" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a>
@@ -427,6 +471,9 @@
 <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
 <script src="assets/theme/js/script.js"></script>
 
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
     // Fade smooth screen loader
     $(window).on('load', function () {
@@ -445,6 +492,46 @@
         }).appendTo("head");
     });
 </script>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                goldenSponsors: [],
+                silverSponsors: [],
+                bronzeSponsors: [],
+            }
+        },
+        mounted() {
+            axios
+                .get('https://support.weektodo.me/data/active_sponsors.json')
+                .then(response => (this.renderSponsors(response)))
+        },
+        methods: {
+            renderSponsors: function (response) {
+                var data = response.data;
+
+                data.forEach((item) => {
+                    if (item.plan == 'diamond') {
+                        this.diamondSponsors.push(item);
+                    }
+                    if (item.plan == 'golden') {
+                        this.goldenSponsors.push(item);
+                    }
+                    if (item.plan == 'silver') {
+                        this.silverSponsors.push(item);
+                    }
+                    if (item.plan == 'bronze') {
+                        this.bronzeSponsors.push(item);
+                    }
+                });
+            },
+        }
+    })
+</script>
+
 
 <script>
     // Get the modal
