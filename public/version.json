@@ -8,7 +8,13 @@
         "Adding circles and checked circles to tasks",
         "Fixing problem with calendar for Arabic, Polish and Italian",
         "Refactoring donate View",
-        "Adding social links to about view"
+        "Adding social links to about view",
+        "Refactoring Contributor Modal",
+        "Adding Sponsor Modal",
+        "Adding Collaborator Modal",
+        "Adding Contributor / Sponsor web page",
+        "Adding Sponsors to Main WebSite",
+        "Adding Sponsors to Splash Screen"
       ],
       "1.5.0-20220104": [
         "Adding Arabic, Italian and Polish languages",

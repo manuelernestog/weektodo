@@ -2,16 +2,21 @@
   <transition name="fade">
     <div v-if="show" class="splash-screen d-flex justify-content-center align-items-center" ref="splashScreen">
       <div class="d-flex flex-column align-items-center">
-        <img class="logo" src="../../public/WeekToDo-Logo-Color.svg">
+        <img class="logo mt-5" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
         <span>{{$t('ui.splashSub')}}</span>
-<!--                <iframe data-aa="1688388" src="//ad.a-ads.com/1688388?size=728x90" scrolling="no"-->
-<!--                        style="width:728px; height:90px; border:0px; padding:0; overflow:hidden"-->
-<!--                        allowtransparency="true"-->
-<!--                        sandbox="allow-scripts allow-popups allow-same-origin"-->
-<!--                >-->
-<!--                </iframe>-->
-<!--                <div class="sponsor">{{$t('ui.sponsoredBy')}}</div>-->
+        <div v-show="sponsor" class="mt-4 d-flex justify-content-center" style="height: 80px; width: 600px;">
+          <div v-if="sponsor" class="d-flex sponsor-container align-items-center">
+            <img :src="sponsor.img" class="sponsor-img">
+            <div class="mx-2">
+              <div class=" my-1">⚡️
+                <div class="d-inline opacity-75">by </div>
+                <div class="fw-bolder d-inline">{{sponsor.name}}</div>
+              </div>
+              <div class="opacity-50 mx-1"> {{sponsor.message}}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </transition>
@@ -22,18 +27,54 @@
         name: "splashScreen",
         data() {
             return {
-                show: true
+                show: true,
+                sponsor: null
             }
+        },
+        mounted() {
+            const axios = require('axios').default;
+            axios.get('https://support.weektodo.me/data/active_sponsors.json').then(response => (this.renderSponsor(response)))
         },
         methods: {
             hideSplash: function () {
                 this.show = false;
+            },
+            renderSponsor: function (response) {
+                var sponsors = [];
+                response.data.forEach(function (obj) {
+                    for (var i = 0; i < obj.probability; i++) {
+                        sponsors.push(obj);
+                    }
+                });
+                this.sponsor = sponsors[Math.floor(Math.random() * sponsors.length)];
             }
         }
     }
 </script>
 
 <style scoped>
+  .sponsor-container {
+    height: 60px;
+    width: fit-content;
+    padding: 10px 15px 10px 15px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    border-radius: 8px;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start;
+    position: relative;
+    background-color: #fefefe;
+    box-shadow: 0 2px 20px 0 rgb(0 0 0 / 7%);
+  }
+
+  .sponsor-img {
+    width: 38px;
+    border-radius: 4px;
+  }
+
   .splash-screen {
     width: 100%;
     height: 100%;
