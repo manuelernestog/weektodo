@@ -5,7 +5,7 @@ export default {
                 name: vue.$t('donate.contributeSponsor'),
                 ico: "bi-heart-fill", color: "#d94242",
                 linktype: "external",
-                link: "https://paynest.app/manuelernestogr"
+                link: "https://support.weektodo.me"
             },
             {name: vue.$t('donate.share'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
             {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},

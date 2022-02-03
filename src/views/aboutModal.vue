@@ -26,8 +26,10 @@
             <div class="d-flex align-self-center">
               <a href="https://blog.weektodo.me" target="_blank" title="Blog"> <i class="bi-rss mx-2"></i></a>
               <a href="https://t.me/weektodo" target="_blank" title="Telegram"> <i class="bi-telegram mx-2"></i></a>
-              <a href="https://twitter.com/weektodo" target="_blank" title="Twitter"> <i class="bi-twitter mx-2"></i></a>
-              <a href="https://github.com/Zuntek/WeekToDoWeb" target="_blank" title="Github"> <i class="bi-github mx-2"></i></a>
+              <a href="https://twitter.com/weektodo" target="_blank" title="Twitter"> <i
+                class="bi-twitter mx-2"></i></a>
+              <a href="https://github.com/Zuntek/WeekToDoWeb" target="_blank" title="Github"> <i
+                class="bi-github mx-2"></i></a>
               <a href="mailto:week2do@gmail.com"> <i class="bi-envelope mx-2" :title="$t('about.email')"></i></a>
             </div>
           </div>
@@ -46,15 +48,13 @@
                   </div>
                 </a>
               </div>
-              <div class="horizontal-divider mt-3 mb-3"></div>
-              <div class="row">
-                <div class="text-center text-uppercase" style="font-size: 0.8rem; opacity: .8;">
-                  <!--                  <span> Patrocinadores </span>-->
-                  <!--                  <span class="mx-1"> • </span>-->
-                  <span @click="showContributors" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.contributors')}} </span>
-                </div>
+              <div class="horizontal-divider mt-3 mb-2"></div>
+              <div class="text-center text-uppercase px-2 d-flex justify-content-center flex-wrap" style="font-size: 0.8rem; opacity: .8; line-height: 20px">
+                <span class="mx-2" @click="showSponsors" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.sponsors')}} </span>
+                <span class="mx-2" @click="showContributors" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.contributors')}} </span>
+                <span class="mx-2" @click="showCollaborators" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.collaborators')}} </span>
               </div>
-              <div class="horizontal-divider mt-3 mb-3"></div>
+              <div class="horizontal-divider mt-2 mb-3"></div>
               <div class="d-flex">
                 <span style="margin-top: 10px; margin-right: 10px;">{{$t('about.madeWith')}} <i class="bi-heart-fill"
                                                                                                 style="color: red"></i> {{$t('about.inCuba')}}</span>
@@ -68,9 +68,16 @@
       </div>
     </div>
   </div>
+
+  <contributors-modal ref="contributorsModal"></contributors-modal>
+  <sponsor-modal ref="sponsorsModal"></sponsor-modal>
+  <collaborators-modal ref="collaboratorsModal"></collaborators-modal>
 </template>
 
 <script>
+    import contributorsModal from "./contributorsModal";
+    import sponsorModal from "./sponsorModal";
+    import collaboratorsModal from "./collaboratorsModal";
     import version_json from '../../public/version.json'
     import {Modal} from 'bootstrap';
 
@@ -81,13 +88,29 @@
                 version: version_json.version
             }
         },
+        components: {
+            contributorsModal,
+            sponsorModal,
+            collaboratorsModal
+        },
         methods: {
             showChangeLog: function () {
                 let modal = new Modal(document.getElementById('changeLogModal'));
                 modal.show();
             },
             showContributors: function () {
+                this.$refs.contributorsModal.loadContributors();
                 let modal = new Modal(document.getElementById('contributorModal'));
+                modal.show();
+            },
+            showCollaborators: function () {
+                this.$refs.collaboratorsModal.loadCollaborators();
+                let modal = new Modal(document.getElementById('collaboratorModal'));
+                modal.show();
+            },
+            showSponsors: function () {
+                this.$refs.sponsorsModal.loadSponsors();
+                let modal = new Modal(document.getElementById('sponsorModal'));
                 modal.show();
             }
         }

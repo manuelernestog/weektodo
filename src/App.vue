@@ -39,7 +39,6 @@
       <config-modal @change-columns="weekResetScroll"></config-modal>
       <about-modal></about-modal>
       <redirect-domain-modal></redirect-domain-modal>
-      <contributors-modal></contributors-modal>
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
@@ -67,7 +66,6 @@
     import splashScreen from "./components/splashScreen";
     import configRepository from "./repositories/configRepository";
     import aboutModal from "./views/aboutModal";
-    import contributorsModal from "./views/contributorsModal";
     import donateModal from "./views/donateModal";
     import welcomeModal from "./views/welcomeModal";
     import toDoModal from "./views/toDoModal/toDoModal";
@@ -92,7 +90,6 @@
             tipsModal,
             updateChecker,
             toDoModal,
-            contributorsModal,
             redirectDomainModal
         },
         data() {

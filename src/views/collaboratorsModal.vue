@@ -1,23 +1,23 @@
 <template>
-  <div class="modal  fade" id="contributorModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <div class="modal  fade" id="collaboratorModal" tabindex="-1" aria-labelledby="exampleModalLabel"
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{$t('about.contributors')}}</h5>
+          <h5 class="modal-title">{{$t('about.collaborators')}}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
           <div>
             <div>
-              <div class="col-md-12 my-3 " v-for="(contributor,index) in contributorsList" :key="index">
-                <a class="d-flex align-items-center" :href="contributor.url" target="_blank"
+              <div class="col-md-12 my-3 " v-for="(collaborator,index) in collaboratorsList" :key="index">
+                <a class="d-flex align-items-center" :href="collaborator.url" target="_blank"
                    style="text-decoration: unset;">
-                  <img :src="contributor.img" style="border-radius: 15px; height: 42px; width: 42px; ">
+                  <img :src="collaborator.img" style="border-radius: 15px; height: 42px; width: 42px; ">
                   <div class="align-content-start mx-3 card-text">
-                    {{contributor.name}}
+                    {{collaborator.name}}
                   </div>
-                  <div style="margin-left: auto; color: #a52b00;"><strong> +{{contributor.contribution}} 💚 </strong>
+                  <div style="margin-left: auto; color: grey  ">{{collaborator.contribution}}
                   </div>
                 </a>
               </div>
@@ -40,28 +40,19 @@
         name: "aboutModal",
         data() {
             return {
-                contributorsList: []
+                collaboratorsList: []
             }
         },
         methods: {
-            loadContributors: function () {
-                if (this.contributorsList.length == 0) {
+            loadCollaborators: function () {
+                if (this.collaboratorsList.length == 0) {
                     const axios = require('axios').default;
-                    axios.get('https://support.weektodo.me/data/contributors.json').then(response => (this.renderContributors(response)))
+                    axios.get('https://support.weektodo.me/data/collaborators.json').then(response => (this.renderCollaborators(response)))
                 }
             },
-            renderContributors: function (response) {
+            renderCollaborators: function (response) {
                 var data = response.data;
-                data.sort(function (a, b) {
-                    if (a.contribution < b.contribution) {
-                        return 1;
-                    }
-                    if (a.contribution > b.contribution) {
-                        return -1;
-                    }
-                    return 0;
-                });
-                this.contributorsList = data;
+                this.collaboratorsList = data;
             }
         }
     }
@@ -69,7 +60,7 @@
 
 <style scoped>
   .modal-dialog {
-    max-width: 360px;
+    max-width: 400px;
   }
 
   .modal-body {
