@@ -35,7 +35,7 @@
         },
         methods: {
             hideSplash: function () {
-                // this.show = false;
+                this.show = false;
             },
             renderSponsor: function (response) {
                 var sponsors = [];
