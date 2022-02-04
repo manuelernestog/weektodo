@@ -35,7 +35,7 @@
         },
         methods: {
             hideSplash: function () {
-                this.show = false;
+                // this.show = false;
             },
             renderSponsor: function (response) {
                 var sponsors = [];
@@ -126,7 +126,7 @@
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     color: #79606b;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 
   .sponsor {
