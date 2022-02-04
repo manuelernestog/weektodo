@@ -6,7 +6,7 @@
         <h1>WeekToDo</h1>
         <span>{{$t('ui.splashSub')}}</span>
         <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px; width: 600px;">
-          <a v-if="sponsor" :href="sponsor.url" class="d-flex sponsor-container align-items-center" target="_blank" >
+          <a v-if="sponsor" :href="sponsor.url" class="d-flex sponsor-container align-items-center" target="_blank">
             <img :src="sponsor.img" class="sponsor-img">
             <div class="my-2 mx-2">
               <div class="fw-bolder d-inline" style="text-decoration: unset !important;">{{sponsor.name}}</div>
@@ -14,7 +14,9 @@
             </div>
           </a>
         </div>
-        <div class="opacity-25" style="font-size: 0.7rem;">{{$t('ui.sponsoredBy')}}</div>
+        <div style="height: 25px; width: 200px;" class="d-flex justify-content-center">
+          <div v-show="sponsor" class="opacity-25" style="font-size: 0.7rem;">{{$t('ui.sponsoredBy')}}</div>
+        </div>
       </div>
     </div>
   </transition>
@@ -72,7 +74,7 @@
     transition: transform .4s;
   }
 
-  .dark-theme .sponsor-container{
+  .dark-theme .sponsor-container {
     background-color: #102430;
   }
 

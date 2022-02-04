@@ -346,7 +346,7 @@
   }
 
   .cicle-icon {
-    font-size: 10px;
+    font-size: 9px;
     margin-right: 5px;
   }
 
