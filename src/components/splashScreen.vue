@@ -5,18 +5,16 @@
         <img class="logo mt-5" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
         <span>{{$t('ui.splashSub')}}</span>
-        <div v-show="sponsor" class="mt-4 d-flex justify-content-center" style="height: 80px; width: 600px;">
-          <div v-if="sponsor" class="d-flex sponsor-container align-items-center">
+        <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px; width: 600px;">
+          <a v-if="sponsor" :href="sponsor.url" class="d-flex sponsor-container align-items-center" target="_blank" >
             <img :src="sponsor.img" class="sponsor-img">
-            <div class="mx-2">
-              <div class=" my-1">⚡️
-                <div class="d-inline opacity-75">by </div>
-                <div class="fw-bolder d-inline">{{sponsor.name}}</div>
-              </div>
-              <div class="opacity-50 mx-1"> {{sponsor.message}}</div>
+            <div class="my-2 mx-2">
+              <div class="fw-bolder d-inline" style="text-decoration: unset !important;">{{sponsor.name}}</div>
+              <div class="opacity-50 mx-2 d-inline"> {{sponsor.message}}</div>
             </div>
-          </div>
+          </a>
         </div>
+        <div class="opacity-25" style="font-size: 0.7rem;">{{$t('ui.sponsoredBy')}}</div>
       </div>
     </div>
   </transition>
@@ -37,7 +35,7 @@
         },
         methods: {
             hideSplash: function () {
-                this.show = false;
+                // this.show = false;
             },
             renderSponsor: function (response) {
                 var sponsors = [];
@@ -54,12 +52,12 @@
 
 <style scoped>
   .sponsor-container {
-    height: 60px;
+    height: fit-content;
     width: fit-content;
-    padding: 10px 15px 10px 15px;
-    font-size: 0.9rem;
+    padding: 4px 10px 4px 10px;
+    font-size: 0.85rem;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 25px;
     -webkit-box-align: start;
     -ms-flex-align: start;
     -webkit-align-items: flex-start;
@@ -68,12 +66,18 @@
     position: relative;
     background-color: #fefefe;
     box-shadow: 0 2px 20px 0 rgb(0 0 0 / 7%);
+    text-decoration: unset;
+    color: unset;
   }
 
   .sponsor-img {
-    width: 38px;
-    border-radius: 4px;
+    width: 32px;
+    border-radius: 25px;
   }
+
+  /*.sponsor-text{*/
+  /*  text-decoration: unset;*/
+  /*}*/
 
   .splash-screen {
     width: 100%;
