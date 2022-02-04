@@ -35,7 +35,7 @@
         },
         methods: {
             hideSplash: function () {
-                // this.show = false;
+                this.show = false;
             },
             renderSponsor: function (response) {
                 var sponsors = [];
@@ -66,8 +66,18 @@
     position: relative;
     background-color: #fefefe;
     box-shadow: 0 2px 20px 0 rgb(0 0 0 / 7%);
+    /*border: 1px solid #dbdbdb;*/
     text-decoration: unset;
     color: unset;
+    transition: transform .4s;
+  }
+
+  .dark-theme .sponsor-container{
+    background-color: #102430;
+  }
+
+  .sponsor-container:hover {
+    transform: scale(1.04);
   }
 
   .sponsor-img {
