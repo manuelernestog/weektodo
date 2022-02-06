@@ -2,7 +2,7 @@
   "version": "1.6.0",
   "changes": {
     "en": {
-      "1.6.0-20220201": [
+      "1.6.0-20220206": [
         "Fixing problem with Polish languages selection",
         "Adding color picker",
         "Adding circles and checked circles to tasks",
