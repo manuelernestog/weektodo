@@ -3,13 +3,13 @@
 <Company_WebSite_URL>https://weektodo.me</Company_WebSite_URL>
 <Author_Email>week2do@gmail.com</Author_Email>
 <Program_Name>WeekToDo</Program_Name>
-<Program_Version>1.5.0</Program_Version>
+<Program_Version>1.6.0</Program_Version>
 <Program_Release_Year>2021</Program_Release_Year>
 <Program_Release_Month>04</Program_Release_Month>
 <Program_Release_Day>01</Program_Release_Day>
 <Program_Cost_Dollars>Free</Program_Cost_Dollars>
 <Program_OS_Support>Windows</Program_OS_Support>
-<Program_Language>English,Español,Français,Deutsche,Português,русский,中國人</Program_Language>
+<Program_Language>English,Español,Français,Deutsche,Português,русский,中國人,Polish,Italian,Arabic</Program_Language>
 <File_Size_Bytes>70254592</File_Size_Bytes>
 <Keywords>Weekly Planner, Weekly Organizer, Task Planner, Week Planner, Deadline, Checklist, To-do, to do list, Task Management, Calendar, Reminder</Keywords>
 <Char_Desc_250>WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar.</Char_Desc_250>
@@ -18,14 +18,20 @@ The security of your data is essential. WeekToDo is focused 100% on privacy, all
 WeekToDo is a totally free project available for everyone. You can enjoy it in any desktop operating system or web browser and it is also available in multiple languages.</Char_Desc_2000>
 <Program_Category_Class>Business|Desktop|Education|System Utilities</Program_Category_Class>
 <Program_Change_Info>-Fixing drag and drop error on task quick editing
-    - Adding Arabic, Italian and Polish languages
-    - Adding contributors section
-    - Fixing style problems in task details
-    - Adding duplicate and remove task in details form
-    - Redirecting to new Domain Name
-    - Updating contribute section
+    -Fixing problem with Polish languages selection
+    -Adding color picker
+    -Adding circles and checked circles to tasks
+    -Fixing problem with calendar for Arabic, Polish and Italian
+    -Refactoring donate View
+    -Adding social links to about view
+    -Refactoring Contributor Modal
+    -Adding Sponsor Modal
+    -Adding Collaborator Modal
+    -Adding Contributor / Sponsor web page
+    -Adding Sponsors to Main Website
+    -Adding Sponsors to Splash Screen
 </Program_Change_Info>
 <Application_Screenshot_URL>https://weektodo.me/assets/images/screenshot-from-2021-04-01-00-19-42-1-1206x580.png</Application_Screenshot_URL>
-<Primary_Download_URL>https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.5.0/WeekToDo-Setup-1.5.0.exe</Primary_Download_URL>
+<Primary_Download_URL>https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.6.0/WeekToDo-Setup-1.6.0.exe</Primary_Download_URL>
 <Application_XML_File_URL>https://weektodo.me/pad_windows.xml</Application_XML_File_URL>
 </XML_PAD>
