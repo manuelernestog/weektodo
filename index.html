@@ -471,7 +471,6 @@
 <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
 <script src="assets/theme/js/script.js"></script>
 
-<script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
@@ -493,7 +492,7 @@
     });
 </script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
     new Vue({
         el: '#app',
@@ -539,7 +538,6 @@
 
     // Get the button that opens the modal
     var btn1 = document.getElementById("open-mac-modal-1");
-    var btn2 = document.getElementById("open-mac-modal-2");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -549,9 +547,6 @@
         modal.style.display = "block";
     }
 
-    btn2.onclick = function () {
-        modal.style.display = "block";
-    }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
