@@ -33,12 +33,16 @@
         },
         mounted() {
             const axios = require('axios').default;
-            axios.get('https://support.weektodo.me/data/active_sponsors.json').then(response => (this.renderSponsor(response)))
-        },
+            axios.get('https://support.weektodo.me/data/active_sponsors.json')
+                .then(response => (this.renderSponsor(response)))
+                .catch(error => console.log(error.message))
+        }
+        ,
         methods: {
             hideSplash: function () {
                 this.show = false;
-            },
+            }
+            ,
             renderSponsor: function (response) {
                 var sponsors = [];
                 response.data.forEach(function (obj) {

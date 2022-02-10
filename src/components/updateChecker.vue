@@ -11,7 +11,7 @@
 
           <div v-for="(changes,version) in changes" :key="version">
             <h6 class="mb-2"><b>v{{version.split('-')[0]}} </b>
-              <span style="font-size: 0.85rem; opacity: .4; margin-left: 5px;" >
+              <span style="font-size: 0.85rem; opacity: .4; margin-left: 5px;">
                 {{moments(version.split('-')[1]).locale(language).format('LL')}}
               </span>
             </h6>
@@ -60,11 +60,11 @@
                     var toast = new Toast(document.getElementById('versionChanges'));
                     toast.show();
                 }
-                if (this.isElectron() && this.$store.getters.config.checkUpdates ) {
+                if (this.isElectron() && this.$store.getters.config.checkUpdates) {
                     const axios = require('axios').default;
-                    axios
-                        .get('https://app.weektodo.me/version.json')
+                    axios.get('https://app.weektodo.me/version.json')
                         .then(response => (this.showNewVersionToast(response)))
+                        .catch(error => console.log(error.message))
                 }
             }.bind(this), 5000);
         },
@@ -90,7 +90,7 @@
                 return isElectron();
             },
             showNewVersionToast: function (response) {
-                if (response.data.version != version_json.version){
+                if (response.data.version != version_json.version) {
                     var toast = new Toast(document.getElementById('newVersionAvailable'));
                     toast.show();
                 }

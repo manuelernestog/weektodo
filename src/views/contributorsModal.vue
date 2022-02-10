@@ -47,7 +47,9 @@
             loadContributors: function () {
                 if (this.contributorsList.length == 0) {
                     const axios = require('axios').default;
-                    axios.get('https://support.weektodo.me/data/contributors.json').then(response => (this.renderContributors(response)))
+                    axios.get('https://support.weektodo.me/data/contributors.json')
+                        .then(response => (this.renderContributors(response)))
+                        .catch(error => console.log(error.message))
                 }
             },
             renderContributors: function (response) {
