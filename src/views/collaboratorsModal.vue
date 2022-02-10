@@ -47,7 +47,9 @@
             loadCollaborators: function () {
                 if (this.collaboratorsList.length == 0) {
                     const axios = require('axios').default;
-                    axios.get('https://support.weektodo.me/data/collaborators.json').then(response => (this.renderCollaborators(response)))
+                    axios.get('https://support.weektodo.me/data/collaborators.json')
+                        .then(response => (this.renderCollaborators(response)))
+                        .catch(error => console.log(error.message))
                 }
             },
             renderCollaborators: function (response) {
