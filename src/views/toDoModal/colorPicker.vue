@@ -5,7 +5,7 @@
      :style="'color: '+color"
   ></i>
 
-  <ul class="dropdown-menu color-picker-dropdown" aria-labelledby="btnTaskColorPicker">
+  <ul class="dropdown-menu color-picker-dropdown" aria-labelledby="btnTaskTimePicker">
     <div class="d-flex align-items-center">
       <i class="bi-circle header-menu-icons" type="button" @click="selectColor('none')"></i>
       <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#77e785')"
@@ -28,6 +28,7 @@
 
     export default {
         name: "colorPicker",
+        emits: ['ColorSelected'],
         data() {
             return {
                 colorPicker: "",
