@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="d-flex ms-auto align-items-center">
-            <!--                        <i class="bi-alarm header-menu-icons"></i>-->
+
             <!--                        <i class="bi-arrow-repeat header-menu-icons"></i>-->
             <!--                        <i class="bi-flag header-menu-icons"></i>-->
             <!--            <i id="btnTaskPriority" class="bi-flag header-menu-icons" type="button"-->
@@ -78,6 +78,7 @@
             <!--              </li>-->
             <!--            </ul>-->
 
+            <time-picker :color="todo.color" @color-selected="changeColor"></time-picker>
             <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
                data-bs-toggle="dropdown"></i>
@@ -194,6 +195,7 @@
     import {Toast} from 'bootstrap';
     import toastMessage from '../../components/toastMessage';
     import colorPicker from "./colorPicker";
+    import timePicker from "./timePicker";
 
     export default {
         name: "toDoModal",
@@ -221,7 +223,8 @@
             colorPicker,
             Datepicker,
             Markdown,
-            toastMessage
+            toastMessage,
+            timePicker
         },
         methods: {
             removeSubTask: function (index) {
