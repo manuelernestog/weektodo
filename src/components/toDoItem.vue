@@ -186,7 +186,7 @@
     line-height: 1.3rem;
     font-size: 0.865rem;
     margin: 2px 0px 2px 0px;
-    padding: 0 2px 0 7px;
+    padding: 0 3px 0 7px;
   }
 
   .todo-item:hover .item-text {
