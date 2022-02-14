@@ -7,18 +7,18 @@
 
   <ul class="dropdown-menu color-picker-dropdown" aria-labelledby="btnTaskTimePicker">
     <div class="d-flex align-items-center">
-      <i class="bi-circle header-menu-icons" type="button" @click="selectColor('none')"></i>
-      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#77e785')"
+      <i class="bi-circle colors-menu-icons" type="button" @click="selectColor('none')"></i>
+      <i class="bi-circle-fill colors-menu-icons" type="button" @click="selectColor('#77e785')"
          style="color: #77e785"></i>
-      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#ed544b')"
+      <i class="bi-circle-fill colors-menu-icons" type="button" @click="selectColor('#ed544b')"
          style="color: #ed544b"></i>
     </div>
     <div>
-      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#5e6ef2')"
+      <i class="bi-circle-fill colors-menu-icons" type="button" @click="selectColor('#5e6ef2')"
          style="color: #5e6ef2"></i>
-      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#f9d54a')"
+      <i class="bi-circle-fill colors-menu-icons" type="button" @click="selectColor('#f9d54a')"
          style="color: #f9d54a"></i>
-      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#ed56a1')"
+      <i class="bi-circle-fill colors-menu-icons" type="button" @click="selectColor('#ed56a1')"
          style="color: #ed56a1"></i>
     </div>
   </ul>
@@ -65,6 +65,11 @@
   @import "/src/assets/style/globalVars.scss";
 
   .header-menu-icons {
+    margin-left: 6px;
+    @include btn-icon;
+  }
+
+  .colors-menu-icons {
     margin-left: 1px;
     @include btn-icon;
   }

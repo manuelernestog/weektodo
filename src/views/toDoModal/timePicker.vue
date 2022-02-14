@@ -1,6 +1,6 @@
 <template>
   <i id="btnTaskTimePicker"
-     class="header-menu-icons bi-clock " type="button"
+     class="header-menu-icons bi-alarm " type="button"
      data-bs-toggle="dropdown"
      data-bs-auto-close="outside"
   ></i>
@@ -33,11 +33,11 @@
             },
             updateBtnShape(time) {
                 if (time == null) {
-                    document.getElementById('btnTaskTimePicker').classList.remove("bi-clock-fill");
-                    document.getElementById('btnTaskTimePicker').classList.add("bi-clock");
+                    document.getElementById('btnTaskTimePicker').classList.remove("bi-alarm-fill");
+                    document.getElementById('btnTaskTimePicker').classList.add("bi-alarm");
                 } else {
-                    document.getElementById('btnTaskTimePicker').classList.add("bi-clock-fill");
-                    document.getElementById('btnTaskTimePicker').classList.remove("bi-clock");
+                    document.getElementById('btnTaskTimePicker').classList.add("bi-alarm-fill");
+                    document.getElementById('btnTaskTimePicker').classList.remove("bi-alarm");
                 }
             },
             clearTime() {
@@ -58,19 +58,68 @@
 
   @import "/src/assets/style/globalVars.scss";
 
+  .color-picker-dropdown {
+    margin-left: -60px !important;
+  }
+
   .header-menu-icons {
-    margin-left: 1px;
+    margin-left: 6px;
     @include btn-icon;
   }
 
-  .color-picker-dropdown {
-    min-width: 7rem;
-    margin-left: -36px !important;
+  .bi-trash {
+    margin: 0px;
+  }
 
-    i {
-      margin-right: 0px;
+  input[type=time] {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    width: 130px;
+    outline: unset;
+    height: 40px;
+  }
 
-    }
+  input[type=time]::-webkit-datetime-edit-text {
+    padding: 19px 2px;
+  }
+
+  input[type=time]::-webkit-datetime-edit-fields-wrapper {
+    /*display: block;*/
+    padding: 8px 2px 8px 2px;
+    border: none;
+  }
+
+  input[type=time]::-webkit-datetime-edit-hour-field,
+  input[type=time]::-webkit-datetime-edit-minute-field,
+  input[type=time]::-webkit-datetime-edit-ampm-field {
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 80px;
+    width: 80px;
+    color: #494949;
+  }
+
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+    display: none;
+  }
+
+  input[type=time]::-webkit-datetime-edit-hour-field:hover,
+  input[type=time]::-webkit-datetime-edit-minute-field:hover,
+  input[type=time]::-webkit-datetime-edit-ampm-field:hover {
+    color: black;
+    background-color: #f4f4f4;
+  }
+
+  input[type=time]::-webkit-datetime-edit-hour-field:focus,
+  input[type=time]::-webkit-datetime-edit-minute-field:focus,
+  input[type=time]::-webkit-datetime-edit-ampm-field:focus {
+    border: 2px solid black;
+    color: black;
+    background-color: transparent;
   }
 
 </style>
