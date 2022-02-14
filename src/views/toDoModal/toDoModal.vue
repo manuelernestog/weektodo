@@ -78,7 +78,7 @@
             <!--              </li>-->
             <!--            </ul>-->
 
-            <time-picker :color="todo.color" @color-selected="changeColor"></time-picker>
+            <time-picker :time="todo.time" @time-selected="changeTime"></time-picker>
             <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
                data-bs-toggle="dropdown"></i>
@@ -408,6 +408,10 @@
             },
             changeColor(color) {
                 this.todo.color = color;
+                this.updateTodo();
+            },
+            changeTime(time) {
+                this.todo.time = time;
                 this.updateTodo();
             }
         },

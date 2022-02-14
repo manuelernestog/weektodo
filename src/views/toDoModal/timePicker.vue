@@ -1,26 +1,15 @@
 <template>
   <i id="btnTaskTimePicker"
-     class="header-menu-icons bi-alarm " type="button"
+     class="header-menu-icons bi-clock " type="button"
      data-bs-toggle="dropdown"
      data-bs-auto-close="outside"
   ></i>
 
   <ul class="dropdown-menu color-picker-dropdown" aria-labelledby="btnTaskTimePicker">
-<!--    <div class="d-flex align-items-center">-->
-<!--      <i class="bi-circle header-menu-icons" type="button" @click="selectColor('none')"></i>-->
-<!--      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#77e785')"-->
-<!--         style="color: #77e785"></i>-->
-<!--      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#ed544b')"-->
-<!--         style="color: #ed544b"></i>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#5e6ef2')"-->
-<!--         style="color: #5e6ef2"></i>-->
-<!--      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#f9d54a')"-->
-<!--         style="color: #f9d54a"></i>-->
-<!--      <i class="bi-circle-fill header-menu-icons" type="button" @click="selectColor('#ed56a1')"-->
-<!--         style="color: #ed56a1"></i>-->
-<!--    </div>-->
+    <div class="d-flex align-items-center mx-3">
+      <input type="time" v-model="selectedTime" @blur="selectTime(selectedTime)">
+      <i class="header-menu-icons bi-trash" type="button" @click="clearTime"></i>
+    </div>
   </ul>
 </template>
 
@@ -28,32 +17,37 @@
 
     export default {
         name: "timePicker",
-        emits: ['ColorSelected'],
+        emits: ['timeSelected'],
         data() {
             return {
                 colorPicker: "",
-                // todo: {text: "", checked: false, desc: "", subTaskList: []},
+                selectedTime: "",
             }
         },
         props: {
-            color: {required: true, type: String},
+            time: {required: true, type: String},
         },
         methods: {
-            selectColor(color) {
-                this.$emit('ColorSelected', color);
+            selectTime(time) {
+                this.$emit('timeSelected', time);
             },
-            updateBtnShape(color) {
-                if (color == "none") {
-                    document.getElementById('btnTaskTimePicker').classList.remove("bi-circle-fill");
-                    document.getElementById('btnTaskTimePicker').classList.add("bi-circle");
+            updateBtnShape(time) {
+                if (time == null) {
+                    document.getElementById('btnTaskTimePicker').classList.remove("bi-clock-fill");
+                    document.getElementById('btnTaskTimePicker').classList.add("bi-clock");
                 } else {
-                    document.getElementById('btnTaskTimePicker').classList.add("bi-circle-fill");
-                    document.getElementById('btnTaskTimePicker').classList.remove("bi-circle");
+                    document.getElementById('btnTaskTimePicker').classList.add("bi-clock-fill");
+                    document.getElementById('btnTaskTimePicker').classList.remove("bi-clock");
                 }
+            },
+            clearTime() {
+                this.selectedTime = null;
+                this.selectTime(this.selectedTime);
             }
         },
         watch: {
-            color: function (newVal) {
+            time: function (newVal) {
+                this.selectedTime = newVal;
                 this.updateBtnShape(newVal);
             }
         }
