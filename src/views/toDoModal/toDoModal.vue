@@ -46,39 +46,8 @@
           </div>
           <div class="d-flex ms-auto align-items-center">
 
-            <!--                        <i class="bi-arrow-repeat header-menu-icons"></i>-->
-            <!--                        <i class="bi-flag header-menu-icons"></i>-->
-            <!--            <i id="btnTaskPriority" class="bi-flag header-menu-icons" type="button"-->
-            <!--               data-bs-toggle="dropdown"></i>-->
-            <!--            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskPriority">-->
-            <!--              <li>-->
-            <!--                <button class="dropdown-item" type="button" @click="copyTodo">-->
-            <!--                  <i class="bi-flag-fill" style="color: red"></i> <span>Critica</span>-->
-            <!--                </button>-->
-            <!--              </li>-->
-            <!--              <li>-->
-            <!--                <button class="dropdown-item" type="button" @click="copyTodo">-->
-            <!--                  <i class="bi-flag-fill" style="color: orange"></i> <span>Alta</span>-->
-            <!--                </button>-->
-            <!--              </li>-->
-            <!--              <li>-->
-            <!--                <button class="dropdown-item" type="button" @click="copyTodo">-->
-            <!--                  <i class="bi-flag-fill" style="color: green"></i> <span>Media</span>-->
-            <!--                </button>-->
-            <!--              </li>-->
-            <!--              <li>-->
-            <!--                <button class="dropdown-item" type="button" @click="copyTodo">-->
-            <!--                  <i class="bi-flag-fill" style="color: blue"></i> <span>Baja</span>-->
-            <!--                </button>-->
-            <!--              </li>-->
-            <!--              <li>-->
-            <!--                <button class="dropdown-item" type="button" @click="copyTodo">-->
-            <!--                  <i class="bi-flag" s></i> <span>Ninguna</span>-->
-            <!--                </button>-->
-            <!--              </li>-->
-            <!--            </ul>-->
-
             <time-picker :time="todo.time" @time-selected="changeTime"></time-picker>
+<!--            <i class="bi-arrow-repeat header-menu-icons"></i>-->
             <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
                data-bs-toggle="dropdown"></i>

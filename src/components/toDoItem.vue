@@ -12,10 +12,10 @@
                          :class="{'bi-check-circle-fill': toDo.checked, 'bi-circle-fill': !toDo.checked  }"></i>
           <i v-else class="cicle-icon" :class="{'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked  }"></i>
             {{ toDo.text }}
-            <span class="time-details">  {{toDo.time}}</span>
+            <span class="time-details">  {{timeFormat(toDo.time)}}</span>
           </span>
           <span class="item-time " :class="{ 'checked-todo': toDo.checked }" @dblclick="editToDo" @click="checkToDo">
-          {{toDo.time}}
+          {{timeFormat(toDo.time)}}
              </span>
           <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
           <i class="bi-x todo-item-remove" @click="removeTodo"></i>
@@ -52,6 +52,7 @@
 <script>
     import toDoListRepository from "../repositories/toDoListRepository";
     import {Modal} from "bootstrap";
+    import moment from 'moment'
 
     export default {
         components: {},
@@ -124,6 +125,11 @@
                 subTask.checked = !subTask.checked
                 toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
             },
+            timeFormat: function (date) {
+                if (date) {
+                    return moment(date, "HH:mm").format("hh:mm a");
+                }
+            },
         },
     }
 
@@ -180,7 +186,7 @@
     line-height: 1.3rem;
     font-size: 0.865rem;
     margin: 2px 0px 2px 0px;
-    padding: 0 7px 0 7px;
+    padding: 0 2px 0 7px;
   }
 
   .todo-item:hover .item-text {
@@ -200,12 +206,19 @@
     font-size: 0.865rem;
     margin: 2px 0px 2px 0px;
     padding: 0 7px 0 0px;
-    opacity: 0.5;
+    opacity: 0.6;
+  }
+
+  .item-time.checked-todo {
+    opacity: unset;
   }
 
   .time-details {
-    opacity: 0.5;
+    opacity: 0.6;
     display: none;
+  }
+  .todo-item.checked-todo .time-details{
+    opacity: unset;
   }
 
   .todo-item:hover .time-details {
