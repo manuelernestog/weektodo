@@ -11,9 +11,12 @@
                       <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color"
                          :class="{'bi-check-circle-fill': toDo.checked, 'bi-circle-fill': !toDo.checked  }"></i>
           <i v-else class="cicle-icon" :class="{'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked  }"></i>
-
             {{ toDo.text }}
+            <span class="time-details">  {{toDo.time}}</span>
           </span>
+          <span class="item-time " :class="{ 'checked-todo': toDo.checked }" @dblclick="editToDo" @click="checkToDo">
+          {{toDo.time}}
+             </span>
           <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
           <i class="bi-x todo-item-remove" @click="removeTodo"></i>
         </div>
@@ -145,6 +148,7 @@
   .todo-item-sub-tasks {
     display: none
   }
+
   .todo-item:hover {
     z-index: 5;
   }
@@ -186,6 +190,30 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     z-index: 1;
+    /*padding-bottom: 5px;*/
+  }
+
+  .item-time {
+    transition: width 2s, height 2s, transform 2s;
+    height: 1.2rem;
+    line-height: 1.3rem;
+    font-size: 0.865rem;
+    margin: 2px 0px 2px 0px;
+    padding: 0 7px 0 0px;
+    opacity: 0.5;
+  }
+
+  .time-details {
+    opacity: 0.5;
+    display: none;
+  }
+
+  .todo-item:hover .time-details {
+    display: inline;
+  }
+
+  .todo-item:hover .item-time {
+    display: none;
     /*padding-bottom: 5px;*/
   }
 
