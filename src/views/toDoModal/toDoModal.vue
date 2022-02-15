@@ -344,7 +344,7 @@
                     color: this.todo.color,
                     priority: 0,
                     tags: [],
-                    time: null,
+                    time: this.todo.time,
                     alarm: false,
                     repeatingEvent: null
                 };

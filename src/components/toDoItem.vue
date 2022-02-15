@@ -246,11 +246,11 @@
   }
 
   .checked-todo {
-    color: #a1a1a1;
+    color: #c4c4c4;
     text-decoration: line-through;
 
     .dark-theme & {
-      color: #767676;
+      color: #3a3a40;
     }
   }
 
@@ -276,7 +276,7 @@
   }
 
   .dark-theme .old-date .todo-item {
-    color: #343b42;
+    color: #3a3a40;
   }
 
   .dark-theme .old-date .todo-item:hover {
