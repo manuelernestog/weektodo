@@ -25,7 +25,7 @@
             }
         },
         props: {
-            time: {required: true, type: String},
+            time: {required: true, type: [String, null]},
         },
         methods: {
             selectTime(time) {

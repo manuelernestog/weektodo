@@ -36,7 +36,7 @@
             }
         },
         props: {
-            color: {required: true, type: String},
+            color: {required: true, type: [String, null]},
         },
         methods: {
             selectColor(color) {
