@@ -194,8 +194,12 @@
     color: #a1a1a1;
   }
 
+  .old-date .item-text.checked-todo{
+    color: #c4c4c4;
+  }
+
   .dark-theme .old-date .item-text{
-    color: #767676;
+    color: #3a3a40;
   }
 
   .weekly-to-do-header i {
