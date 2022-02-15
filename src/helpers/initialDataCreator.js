@@ -20,7 +20,7 @@ export default {
             {text: vue.$t("generatedData.subtask1"), checked: false, editing: false},
             {text: vue.$t("generatedData.subtask2"), checked: false, editing: false},
         ];
-        create_todo(vue, tomorrow_id, vue.$t("generatedData.data11"), false,vue.$t("generatedData.desc1"), subtasks);
+        create_todo(vue, tomorrow_id, vue.$t("generatedData.data11"), false,vue.$t("generatedData.desc1"), subtasks, "none", "16:20");
 
         create_todo(vue, custom_list1_id, vue.$t("generatedData.data6"), false);
         create_todo(vue, custom_list1_id, vue.$t("generatedData.data7"), false);
@@ -30,7 +30,7 @@ export default {
     }
 };
 
-function create_todo(vue, list_id, text, checked, desc = "", subTaskList = [], color = "none") {
+function create_todo(vue, list_id, text, checked, desc = "", subTaskList = [], color = "none", time = "") {
     var newTodo = {
         text: text,
         checked: checked,
@@ -40,7 +40,7 @@ function create_todo(vue, list_id, text, checked, desc = "", subTaskList = [], c
         color: color,
         priority: 0,
         tags: [],
-        time: null,
+        time: time,
         alarm: false,
         repeatingEvent: null
     }
