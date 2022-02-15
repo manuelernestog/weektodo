@@ -1,7 +1,13 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "changes": {
     "en": {
+      "1.6.1-20220214": [
+        "Fixing major bug in modal detail sub-task field edit action",
+        "Fixing minors bugs",
+        "Adding time to task detail",
+        "Adding time to task item in main view"
+      ],
       "1.6.0-20220206": [
         "Fixing problem with Polish languages selection",
         "Adding color picker",

@@ -76,11 +76,8 @@
 
   .color-picker-dropdown {
     min-width: 7rem;
-    margin-left: -36px !important;
-
     i {
       margin-right: 0px;
-
     }
   }
 
