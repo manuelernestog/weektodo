@@ -351,6 +351,10 @@
     display: none;
   }
 
+  .dragging .time-details {
+    display: none !important;
+  }
+
   .sub-tasks {
     list-style: none;
     padding: 0px;

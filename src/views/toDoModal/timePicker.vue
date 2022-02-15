@@ -100,6 +100,10 @@
     min-width: 80px;
     width: 80px;
     color: #494949;
+
+    .dark-theme & {
+      color: #bfbfbf;
+    }
   }
 
   input[type="time"]::-webkit-calendar-picker-indicator {
@@ -112,6 +116,11 @@
   input[type=time]::-webkit-datetime-edit-ampm-field:hover {
     color: black;
     background-color: #f4f4f4;
+
+    .dark-theme & {
+      color: white;
+      background-color: #303940;
+    }
   }
 
   input[type=time]::-webkit-datetime-edit-hour-field:focus,
@@ -120,6 +129,11 @@
     border: 2px solid black;
     color: black;
     background-color: transparent;
+
+    .dark-theme & {
+      border: 2px solid white;
+      color: white;
+    }
   }
 
 </style>
