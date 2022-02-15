@@ -58,10 +58,6 @@
 
   @import "/src/assets/style/globalVars.scss";
 
-  .color-picker-dropdown {
-    margin-left: -60px !important;
-  }
-
   .header-menu-icons {
     margin-left: 6px;
     @include btn-icon;
