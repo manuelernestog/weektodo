@@ -3,7 +3,7 @@
 <Company_WebSite_URL>https://weektodo.me</Company_WebSite_URL>
 <Author_Email>week2do@gmail.com</Author_Email>
 <Program_Name>WeekToDo</Program_Name>
-<Program_Version>1.6.0</Program_Version>
+<Program_Version>1.6.1</Program_Version>
 <Program_Release_Year>2021</Program_Release_Year>
 <Program_Release_Month>04</Program_Release_Month>
 <Program_Release_Day>01</Program_Release_Day>
@@ -17,21 +17,13 @@
 The security of your data is essential. WeekToDo is focused 100% on privacy, all your data is stored on your computer. The only person who has access to your data is you.
 WeekToDo is a totally free project available for everyone. You can enjoy it in any desktop operating system or web browser and it is also available in multiple languages.</Char_Desc_2000>
 <Program_Category_Class>Business|Desktop|Education|System Utilities</Program_Category_Class>
-<Program_Change_Info>-Fixing drag and drop error on task quick editing
-    -Fixing problem with Polish languages selection
-    -Adding color picker
-    -Adding circles and checked circles to tasks
-    -Fixing problem with calendar for Arabic, Polish and Italian
-    -Refactoring donate View
-    -Adding social links to about view
-    -Refactoring Contributor Modal
-    -Adding Sponsor Modal
-    -Adding Collaborator Modal
-    -Adding Contributor / Sponsor web page
-    -Adding Sponsors to Main Website
-    -Adding Sponsors to Splash Screen
+<Program_Change_Info>
+    -Fixing major bug in modal detail sub-task field edit action
+    -Fixing minors bugs
+    -Adding time to task detail
+    -Adding time to task item in main view
 </Program_Change_Info>
 <Application_Screenshot_URL>https://weektodo.me/assets/images/screenshot-from-2021-04-01-00-19-42-1-1206x580.png</Application_Screenshot_URL>
-<Primary_Download_URL>https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.6.0/WeekToDo-Setup-1.6.0.exe</Primary_Download_URL>
+<Primary_Download_URL>https://github.com/Zuntek/WeekToDoWeb/releases/download/v1.6.1/WeekToDo-Setup-1.6.1.exe</Primary_Download_URL>
 <Application_XML_File_URL>https://weektodo.me/pad_windows.xml</Application_XML_File_URL>
 </XML_PAD>
