@@ -104,6 +104,9 @@
             if (version_json.version != config.version) {
                 migrations.migrate();
             }
+            if (Notification.permission !== "denied") {
+                Notification.requestPermission();
+            }
             this.$store.commit('loadCustomTodoListsIds', customToDoListIdsRepository.load());
             this.$store.commit('loadConfig', configRepository.load());
             this.$i18n.locale = this.$store.getters.config.language;
@@ -163,7 +166,7 @@
                 this.$refs.splash.hideSplash();
                 if (this.$store.getters.config.firstTimeOpen) {
                     this.showWelcomeModal();
-                }else{
+                } else {
                     if (window.location.hostname.includes('netlify.app')) {
                         this.showRedirectDomainModal();
                     }
