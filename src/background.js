@@ -9,6 +9,22 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 const gotTheLock = app.requestSingleInstanceLock()
 let mainWindow = null
 
+console.log(app.getPath('exe'))
+
+let AutoLaunch = require('auto-launch');
+let autoLauncher = new AutoLaunch({
+    name: "WeekToDo"
+});
+
+autoLauncher.isEnabled().then(function (isEnabled) {
+    if (isEnabled) {
+        return;
+    }
+    autoLauncher.enable();
+}).catch(function (err) {
+    throw err;
+});
+
 
 protocol.registerSchemesAsPrivileged([
     {scheme: 'app', privileges: {secure: true, standard: true}}
@@ -50,7 +66,7 @@ async function createWindow() {
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
         await mainWindow.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-        if (!process.env.IS_TEST) win.webContents.openDevTools()
+        if (!process.env.IS_TEST) mainWindow.webContents.openDevTools()
     } else {
         createProtocol('app')
         mainWindow.loadURL('app://./index.html')

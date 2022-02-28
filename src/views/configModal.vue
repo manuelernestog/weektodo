@@ -52,6 +52,12 @@
               <label class="form-check-label" for="updatesCheckSetting">{{ $t("settings.checkUpdates") }}</label>
             </div>
           </div>
+          <div v-if="isElectron()" class="mb-3">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="openOnStart" @change="openOnStart()">
+              <label class="form-check-label" for="openOnStart">Open on startup</label>
+            </div>
+          </div>
           <div class="mb-3">
             <div class="">
               <label for="columnsConfig" class="form-label">{{ $t("settings.columns") }}: {{columns}}</label>
@@ -129,6 +135,22 @@
                 let isElectron = require("is-electron");
                 return isElectron();
             },
+            openOnStart: function () {
+                let AutoLaunch = require('auto-launch');
+                let autoLauncher = new AutoLaunch({
+                    name: "WeekToDo Planner"
+                });
+
+                autoLauncher.isEnabled().then(function (isEnabled) {
+                    if (isEnabled) {
+                        console.log(isEnabled);
+                        return;
+                    }
+                    autoLauncher.enable();
+                }).catch(function (err) {
+                    throw err;
+                });
+            }
 
         }
     }
