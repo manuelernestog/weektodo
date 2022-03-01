@@ -146,7 +146,7 @@
                         console.log(isEnabled);
                         return;
                     }
-                    autoLauncher.enable();
+                    // autoLauncher.enable();
                 }).catch(function (err) {
                     throw err;
                 });

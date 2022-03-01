@@ -7,6 +7,9 @@ import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 const windowStateKeeper = require('electron-window-state');
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const gotTheLock = app.requestSingleInstanceLock()
+const isServeMode = () => {
+    return process.env.WEBPACK_DEV_SERVER_URL
+}
 let mainWindow = null
 
 console.log(app.getPath('exe'))
@@ -100,7 +103,12 @@ if (!gotTheLock) {
     const path = require('path')
 
     app.on('ready', async () => {
-        tray = new Tray(path.join(__dirname, '../public/WeekToDo-icon-white-128.png'));
+        const iconPath = isServeMode()
+            ? path.join(__dirname, "/bundled/WeekToDo-icon-white-128.png")
+            : path.join(__dirname, "/WeekToDo-icon-white-128.png")
+
+        tray = new Tray(iconPath);
+
         const contextMenu = Menu.buildFromTemplate([
             {
                 label: 'Open', click() {
