@@ -33,7 +33,7 @@
     "bootstrap-icons": "^1.7.2",
     "core-js": "^3.20.1",
     "cryptocurrency-icons": "^0.17.1",
-    "electron-window-state": "^5.0.3",
+    "electron-config": "^2.0.0",
     "is-electron": "^2.2.1",
     "lodash.uniqueid": "^4.0.1",
     "moment": "^2.29.1",

@@ -120,6 +120,10 @@
                 }
             }
             window.addEventListener("resize", this.weekResetScroll);
+            new Notification("Papa tienes par de cosas que hacer", {
+                body: "Mata ahi lo que te queda por hacer",
+                icon: "/favicon.ico"
+            });
         },
         methods: {
             weekMoveLeft: function () {
@@ -162,8 +166,14 @@
                     document.getElementById('list' + date).getElementsByClassName('new-todo-input')[0].select();
                 });
             },
+            isElectron: function () {
+                let isElectron = require("is-electron");
+                return isElectron();
+            },
             hideSplash: function () {
-                this.$refs.splash.hideSplash();
+                if (!this.isElectron()) {
+                    this.$refs.splash.hideSplash();
+                }
                 if (this.$store.getters.config.firstTimeOpen) {
                     this.showWelcomeModal();
                 } else {

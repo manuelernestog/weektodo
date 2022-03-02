@@ -1,18 +1,19 @@
 'use strict'
 
-import {app, protocol, BrowserWindow, Menu, Tray} from 'electron'
+import {app, protocol, BrowserWindow, Menu, Tray, Notification} from 'electron'
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 
-const windowStateKeeper = require('electron-window-state');
+// const windowStateKeeper = require('electron-window-state');
+const Config = require('electron-config')
+const config = new Config()
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const gotTheLock = app.requestSingleInstanceLock()
 const isServeMode = () => {
     return process.env.WEBPACK_DEV_SERVER_URL
 }
 let mainWindow = null
-
-console.log(app.getPath('exe'))
 
 let AutoLaunch = require('auto-launch');
 let autoLauncher = new AutoLaunch({
@@ -34,22 +35,17 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 async function createWindow() {
-    let mainWindowState = windowStateKeeper({
-        defaultWidth: 1000,
-        defaultHeight: 600
-    });
-    mainWindow = new BrowserWindow({
-        width: mainWindowState.width,
-        height: mainWindowState.height,
-        x: mainWindowState.x,
-        y: mainWindowState.y,
+    let opts = {
         minWidth: 1000,
         minHeight: 600,
+        show: false,
         webPreferences: {
             nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
         }
-    })
-    mainWindowState.manage(mainWindow);
+    }
+    Object.assign(opts, config.get('winBounds'))
+
+    mainWindow = new BrowserWindow(opts)
     mainWindow.removeMenu()
 
     mainWindow.webContents.on('new-window', function (e, url) {
@@ -83,8 +79,9 @@ if (!gotTheLock) {
         // Someone tried to run a second instance, we should focus our window.
         if (mainWindow) {
             if (mainWindow.isMinimized()) mainWindow.restore()
-            mainWindow.show()
-            mainWindow.focus()
+            mainWindow.showInactive();
+            mainWindow.focus();
+            setTimeout(hideSplashScreen, 5000);
         } else {
             createWindow();
         }
@@ -112,22 +109,22 @@ if (!gotTheLock) {
         const contextMenu = Menu.buildFromTemplate([
             {
                 label: 'Open', click() {
-                    if (mainWindow) {
-                        mainWindow.show();
-                    } else {
-                        createWindow();
-                    }
+                    mainWindow.showInactive();
+                    mainWindow.focus();
+                    setTimeout(hideSplashScreen, 5000);
                 }
             },
             {
                 label: 'Quit', click() {
                     app.isQuiting = true;
+                    config.set('winBounds', mainWindow.getBounds());
                     app.quit();
                 }
             }
         ])
         tray.setToolTip('WeekToDo Planner')
         tray.setContextMenu(contextMenu)
+        createWindow();
 
         if (isDevelopment && !process.env.IS_TEST) {
             try {
@@ -151,6 +148,10 @@ if (!gotTheLock) {
             })
         }
     }
+}
+
+function hideSplashScreen() {
+    mainWindow.webContents.executeJavaScript("document.getElementById('splashScreen').classList.add('hiddenSplashScreen');")
 }
 
 

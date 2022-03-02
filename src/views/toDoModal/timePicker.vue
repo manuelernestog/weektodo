@@ -30,8 +30,7 @@
         methods: {
             selectTime(time) {
                 this.$emit('timeSelected', time);
-                let img = "/favicon.ico"
-                new Notification("Titulo ahi", { body: "Texto Chino", icon: img });
+                new Notification("Titulo ahi", { body: "Texto Chino", icon: "/favicon.ico" });
             },
             updateBtnShape(time) {
                 if (time == null) {

@@ -20,6 +20,15 @@ body{
   height: 100%;
 }
 
+.hiddenSplashScreen{
+  opacity: 0;
+  visibility: hidden;
+}
+
+#splashScreen{
+  transition: opacity 0.7s, visibility 0.7s cubic-bezier(0.2, 1, 0.1, 1);
+}
+
 
 .todo-item {
   -webkit-user-drag: element;

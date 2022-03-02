@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="show" class="splash-screen d-flex justify-content-center align-items-center" ref="splashScreen">
+    <div v-if="show" id="splashScreen" class="splash-screen d-flex justify-content-center align-items-center" ref="splashScreen">
       <div class="d-flex flex-column align-items-center">
         <img class="logo mt-5" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
