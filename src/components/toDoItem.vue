@@ -7,7 +7,7 @@
         <div class="d-flex">
 
           <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style=" flex-grow:1; "
-                @dblclick="editToDo" @click="checkToDo">
+                @dblclick="editToDo" @click="checkToDo" @click.middle="showToDoDetails">
                       <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color"
                          :class="{'bi-check-circle-fill': toDo.checked, 'bi-circle-fill': !toDo.checked  }"></i>
           <i v-else class="cicle-icon" :class="{'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked  }"></i>
