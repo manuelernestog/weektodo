@@ -3,8 +3,8 @@
 import {app, protocol, BrowserWindow, Menu, Tray, Notification} from 'electron'
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
+require('@electron/remote/main').initialize()
 
-// const windowStateKeeper = require('electron-window-state');
 const Config = require('electron-config')
 const config = new Config()
 
@@ -13,6 +13,7 @@ const gotTheLock = app.requestSingleInstanceLock()
 const isServeMode = () => {
     return process.env.WEBPACK_DEV_SERVER_URL
 }
+
 let mainWindow = null
 
 let AutoLaunch = require('auto-launch');
@@ -40,7 +41,8 @@ async function createWindow() {
         minHeight: 600,
         show: false,
         webPreferences: {
-            nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+            nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+            enableRemoteModule: true
         }
     }
     Object.assign(opts, config.get('winBounds'))
@@ -56,6 +58,7 @@ async function createWindow() {
     mainWindow.on('close', function (event) {
         if (!app.isQuiting) {
             event.preventDefault();
+            config.set('winBounds', mainWindow.getBounds());
             mainWindow.hide();
         }
 
