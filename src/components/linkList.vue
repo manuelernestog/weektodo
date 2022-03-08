@@ -3,8 +3,8 @@
     <li v-for="item in linkList" :key="item" class="list-group-item">
       <div class="d-flex list-item justify-content-between" @click="linkAction(item.link,item.linktype)">
         <div class="item-img">
-          <i v-if="item.ico" :style="'font-size: 28px; color: '+ item.color" :class="item.ico"></i>
-          <img v-if="item.img" :src="item.img" height="28">
+          <i v-if="item.ico" :style="'font-size: 24px; color: '+ item.color" :class="item.ico"></i>
+          <img v-if="item.img" :src="item.img" height="24">
         </div>
         <div class="align-self-center w-100">{{item.name}}</div>
         <i class="bi-chevron-right align-self-center"></i>

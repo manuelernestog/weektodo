@@ -16,21 +16,6 @@ const isServeMode = () => {
 
 let mainWindow = null
 
-let AutoLaunch = require('auto-launch');
-let autoLauncher = new AutoLaunch({
-    name: "WeekToDo"
-});
-
-autoLauncher.isEnabled().then(function (isEnabled) {
-    if (isEnabled) {
-        return;
-    }
-    autoLauncher.enable();
-}).catch(function (err) {
-    throw err;
-});
-
-
 protocol.registerSchemesAsPrivileged([
     {scheme: 'app', privileges: {secure: true, standard: true}}
 ])

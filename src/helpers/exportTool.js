@@ -41,6 +41,15 @@ export default {
                 toast.show();
             }
         }
+    },
+    clear() {
+        storageRepository.clean();
+        let db_req = dbRepository.open();
+        db_req.onsuccess = function (event) {
+            let db = event.target.result;
+            dbRepository.clear(db, 'todo_lists');
+        }
+        location.reload();
     }
 };
 

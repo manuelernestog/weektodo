@@ -264,6 +264,11 @@ export default {
       }
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
+           setTimeout(function () {
+          document
+            .getElementById("splashScreen")
+            .classList.add("hiddenSplashScreen");
+        }, 5000);
       } else {
         if (window.location.hostname.includes("netlify.app")) {
           this.showRedirectDomainModal();
