@@ -282,19 +282,25 @@
                 <label for="notificationSound" class="form-label"
                   >{{ $t("settings.notificationSound") }}:</label
                 >
-                <select
-                  id="notificationSound"
-                  class="col-sm-9 form-select"
-                  aria-label="Default select example"
-                  v-model="notificationSound"
-                  @change="changeConfig('notificationSound', notificationSound)"
-                >
-                  <option value="none">None</option>
-                  <option value="bell">Bell</option>
-                  <option value="shine">Click</option>
-                  <option value="click">Clap</option>
-                </select>
-
+                <div class="d-flex">
+                  <select
+                    id="notificationSound"
+                    class="col-sm-9 form-select flex-fill "
+                    aria-label="Default select example"
+                    v-model="notificationSound"
+                    @change="
+                      changeConfig('notificationSound', notificationSound)
+                    "
+                  >
+                    <option value="none">None</option>
+                    <option value="bell">Bell</option>
+                    <option value="shine">Click</option>
+                    <option value="click">Clap</option>
+                  </select>
+                   <button class="btn" style="margin-left: 8px;" type="button">
+                  <i class="bi-play-circle a"></i>
+                </button>
+                </div>
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
                 </button>

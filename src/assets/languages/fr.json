@@ -13,7 +13,16 @@
     "calendar": "Calendrier",
     "zoom": "Zoom",
     "columns": "Colonnes",
-    "goToNewDomain": "Nous migrons le site Web WeekToDo vers un nouveau domaine et celui-ci sera bientôt interrompu. Veuillez commencer à accéder à WeekToDo à partir du nouveau nom de domaine. Pour déplacer vos données, vous devez les exporter ici puis les importer dans l'autre domaine depuis le menu de configuration. Désolé pour tout inconvénient que cela peut causer."
+    "goToNewDomain": "Nous migrons le site Web WeekToDo vers un nouveau domaine et celui-ci sera bientôt interrompu. Veuillez commencer à accéder à WeekToDo à partir du nouveau nom de domaine. Pour déplacer vos données, vous devez les exporter ici puis les importer dans l'autre domaine depuis le menu de configuration. Désolé pour tout inconvénient que cela peut causer.",
+    "general": "Général",
+    "notifications": "Avis",
+    "display": "Afficher",
+    "openOnStartup": "Ouvrir au démarrage",
+    "notificationOnStartup": "Notification au démarrage",
+    "notificationSound": "Son de notification",
+    "clearData": "Effacer les données",
+    "exportBackup": "Exporter la sauvegarde",
+    "importBackup": "Importer la sauvegarde"
   },
   "donate": {
     "contribute": "Contribuer",

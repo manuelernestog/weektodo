@@ -2,6 +2,16 @@
   "version": "1.6.1",
   "changes": {
     "en": {
+      "1.7.0-20220320": [
+        "Open task detail with middle click",
+        "Opening app automatic on startup",
+        "Adding app tray system",
+        "Closing app in background",
+        "Improving windows position function",
+        "Refactoring Config Menu UI",
+        "Adding Notification Options",
+        "Adding Reset Data Option"
+      ],
       "1.6.1-20220214": [
         "Fixing major bug in modal detail sub-task field edit action",
         "Fixing minors bugs",

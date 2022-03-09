@@ -13,7 +13,16 @@
     "calendar": "日曆",
     "zoom": "飛漲",
     "columns": "飛漲",
-    "goToNewDomain": "我們正在將 WeekToDo 網站遷移到一個新域，這個域將很快停止使用。 請從新域名開始訪問 WeekToDo。 要移動您的數據，您必須將其導出到此處，然後從配置菜單將其導入到另一個域中。 如有不便，敬請原諒。"
+    "goToNewDomain": "我們正在將 WeekToDo 網站遷移到一個新域，這個域將很快停止使用。 請從新域名開始訪問 WeekToDo。 要移動您的數據，您必須將其導出到此處，然後從配置菜單將其導入到另一個域中。 如有不便，敬請原諒。",
+    "general": "一般的",
+    "notifications": "通知",
+    "display": "展示",
+    "openOnStartup": "啟動時打開",
+    "notificationOnStartup": "啟動通知",
+    "notificationSound": "通知聲音",
+    "clearData": "清除數據",
+    "exportBackup": "導出備份",
+    "importBackup": "導入備份"
   },
   "donate": {
     "contribute": "貢獻",
