@@ -18,6 +18,8 @@ export default {
                 columns: 5,
                 zoom: 100,
                 calendarHeight: "50%",
+                notificationOnStartup: true,
+                notificationSound: "none",
             }
             storageRepository.set('config', default_config);
             return default_config;

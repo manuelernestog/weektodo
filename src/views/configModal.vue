@@ -249,8 +249,52 @@
             </div>
             <div class="tab-pane fade" id="config-notifications">
               <div class="d-flex flex-column mt-3 h-100">
-                - Mostrar recordatorio al iniciar (solo para electron) - Sonido
-                de notificaciones
+                <div
+                  v-if="isElectron()"
+                  class="
+                    form-check form-switch
+                    d-flex
+                    px-0
+                    mb-3
+                    justify-content-between
+                  "
+                >
+                  <label
+                    class="form-check-label"
+                    style="margin-left: 0px"
+                    for="notificationOnStartup"
+                    >{{ $t("settings.notificationOnStartup") }}</label
+                  >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="notificationOnStartup"
+                    v-model="notificationOnStartup"
+                    @change="
+                      changeConfig(
+                        'notificationOnStartup',
+                        notificationOnStartup
+                      )
+                    "
+                  />
+                </div>
+
+                <label for="notificationSound" class="form-label"
+                  >{{ $t("settings.notificationSound") }}:</label
+                >
+                <select
+                  id="notificationSound"
+                  class="col-sm-9 form-select"
+                  aria-label="Default select example"
+                  v-model="notificationSound"
+                  @change="changeConfig('notificationSound', notificationSound)"
+                >
+                  <option value="none">None</option>
+                  <option value="bell">Bell</option>
+                  <option value="shine">Click</option>
+                  <option value="click">Clap</option>
+                </select>
+
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
                 </button>
@@ -282,10 +326,13 @@
                       class="btn w-100 py-2"
                       @click="clearData"
                     >
-                      <i class="icons bi-x-octagon-fill" style="color: #ed544b"></i>
+                      <i
+                        class="icons bi-x-octagon-fill"
+                        style="color: #ed544b"
+                      ></i>
                       {{ $t("settings.clearData") }}
                     </button>
-                     <div class="horizontal-divider mt-2 mb-2"></div>
+                    <div class="horizontal-divider mt-2 mb-2"></div>
                   </div>
                   <input
                     type="file"
@@ -364,6 +411,8 @@ export default {
       columns: this.$store.getters.config.columns,
       zoom: this.$store.getters.config.zoom,
       openOnStart: true,
+      notificationSound: this.$store.getters.config.notificationSound,
+      notificationOnStartup: this.$store.getters.config.notificationOnStartup,
     };
   },
   mounted() {

@@ -4,6 +4,7 @@ export default {
     migrate() {
         configCheckUpdate();
         configCalendarZoomColumnsCalendarHeight();
+        configNotifications();
     }
 }
 
@@ -23,5 +24,13 @@ function configCalendarZoomColumnsCalendarHeight() {
         config['columns'] = 5;
         config['calendarHeight'] = "50%";
         configRepository.update(config);
+    }
+}
+
+function configNotifications() {
+    let config = configRepository.load();
+    if (!('startupNotification' in config)) {
+        config['notificationOnStartup'] = true;
+        config['notificationSound'] = "none";
     }
 }

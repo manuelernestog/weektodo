@@ -47,9 +47,11 @@ export default {
         let db_req = dbRepository.open();
         db_req.onsuccess = function (event) {
             let db = event.target.result;
-            dbRepository.clear(db, 'todo_lists');
+            let request = dbRepository.clear(db, 'todo_lists');
+            request.onsuccess = function () {
+                location.reload();
+            }
         }
-        location.reload();
     }
 };
 
