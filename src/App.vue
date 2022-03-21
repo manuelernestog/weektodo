@@ -138,6 +138,7 @@ import migrations from "./migrations/migrations";
 import version_json from "../public/version.json";
 import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
+import notifications from "./helpers/notifications";
 
 export default {
   name: "App",
@@ -186,7 +187,8 @@ export default {
         setTimeout(this.hideSplash, 5000);
       }
     };
-    setTimeout(this.showInitialNotification, 5000);
+    if (isElectron() && this.$store.getters.config.notificationOnStartup)
+      setTimeout(this.showInitialNotification, 5000);
   },
   methods: {
     weekMoveLeft: function () {
@@ -305,19 +307,18 @@ export default {
       configRepository.update(this.$store.getters.config);
     },
     showInitialNotification: function () {
-      if (isElectron()) {
-        new Notification("WeekToDo", {
-          body: this.initialNotificationText(),
-          icon: "/favicon.ico",
-        }).onclick = () => {
-          require("@electron/remote").getCurrentWindow().show();
-          setTimeout(() => {
-            document
-              .getElementById("splashScreen")
-              .classList.add("hiddenSplashScreen");
-          }, 5000);
-        };
-      }
+      new Notification("WeekToDo", {
+        body: this.initialNotificationText(),
+        icon: "/favicon.ico",
+      }).onclick = () => {
+        require("@electron/remote").getCurrentWindow().show();
+        setTimeout(() => {
+          document
+            .getElementById("splashScreen")
+            .classList.add("hiddenSplashScreen");
+        }, 5000);
+      };
+      notifications.playNotificationSound(this.$store.getters.config.notificationSound);
     },
     initialNotificationText: function () {
       let yesterdayTasks =
@@ -347,7 +348,7 @@ export default {
           todayPendingTasksCount,
         ]);
       }
-    },
+    }
   },
   computed: {
     dates_array: function () {

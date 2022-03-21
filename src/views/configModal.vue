@@ -293,11 +293,13 @@
                     "
                   >
                     <option value="none">None</option>
+                    <option value="pop">Pop</option>
                     <option value="bell">Bell</option>
-                    <option value="shine">Click</option>
-                    <option value="click">Clap</option>
+                    <option value="positive">Positive</option>
+                    <option value="water">Water</option>
+                    <option value="metal">Metal</option>
                   </select>
-                   <button class="btn" style="margin-left: 8px;" type="button">
+                   <button class="btn" style="margin-left: 8px;" type="button" @click="playSound">
                   <i class="bi-play-circle a"></i>
                 </button>
                 </div>
@@ -403,6 +405,7 @@ import toastMessage from "../components/toastMessage";
 import exportTool from "../helpers/exportTool";
 import linkList from "../components/linkList";
 import configList from "./configList";
+import notifications from "../helpers/notifications";
 
 export default {
   name: "configModal",
@@ -474,7 +477,6 @@ export default {
       let autoLauncher = new AutoLaunch({
         name: "WeekToDo Planner",
       });
-
       autoLauncher
         .isEnabled()
         .then(
@@ -486,6 +488,9 @@ export default {
           throw err;
         });
     },
+    playSound: function(){
+       notifications.playNotificationSound(this.$store.getters.config.notificationSound);
+    }
   },
   computed: {
     configLinks: function () {
