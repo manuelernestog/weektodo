@@ -143,5 +143,11 @@
     "taskRemoved": "任務刪除！！！",
     "taskDuplicated": "任務重複！！！",
     "duplicate": "重複"
+  },
+  "notifications": {
+    "noPendingTasksToday": "您今天沒有計劃任務。",
+    "pendingTasksYesterday": "您昨天有 {0} 個待處理任務。",
+    "pendingTasksToday": "您今天有 {0} 個計劃任務。",
+    "pendingTasksYesterdayAndToday": "您昨天有 {0} 個待處理任務，今天有 {1} 個計劃任務。"
   }
 }

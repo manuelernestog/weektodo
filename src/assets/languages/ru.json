@@ -143,5 +143,11 @@
     "taskRemoved": "Задача удалена !!!",
     "taskDuplicated": "Задача дублирована !!!",
     "duplicate": "Дублировать"
+  },
+  "notifications": {
+    "noPendingTasksToday": "У вас нет запланированных задач на сегодня.",
+    "pendingTasksYesterday": "Вчера у вас было {0} ожидающих выполнения задач.",
+    "pendingTasksToday": "У вас сегодня запланировано {0} задач.",
+    "pendingTasksYesterdayAndToday": "У вас есть {0} отложенных задач вчера и {1} запланированных задач сегодня."
   }
 }

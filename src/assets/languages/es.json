@@ -145,5 +145,11 @@
     "taskDuplicated": "Tarea Duplicada !!!",
     "duplicate": "Duplicar",
     "subtasks": "Subtareas"
+  },
+  "notifications": {
+    "noPendingTasksToday": "No tienes tareas programadas hoy.",
+    "pendingTasksYesterday": "Tienes {0} tareas pendientes ayer.",
+    "pendingTasksToday": "Tienes {0} tareas programadas hoy.",
+    "pendingTasksYesterdayAndToday": "Tienes {0} tareas pendientes ayer y {1} tareas programadas hoy."
   }
 }

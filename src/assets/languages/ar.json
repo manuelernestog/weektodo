@@ -143,5 +143,11 @@
       "taskRemoved": "Task Removed !!!",
       "taskDuplicated": "Task Duplicated !!!",
       "duplicate": "Duplicate"
+    },
+    "notifications": {
+      "noPendingTasksToday": "ليس لديك مهام مجدولة اليوم.",
+      "pendingTasksYesterday": "لديك {0} مهمة معلقة أمس.",
+      "pendingTasksToday": "لديك {0} مهمة مجدولة اليوم.",
+      "pendingTasksYesterdayAndToday": "لديك {0} مهمة معلقة أمس و {1} مهمة مجدولة اليوم."
     }
   }

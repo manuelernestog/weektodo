@@ -143,5 +143,11 @@
     "taskRemoved": "Tarefa removida !!!",
     "taskDuplicated": "Tarefa Duplicada !!!",
     "duplicate": "Duplicado"
+  },
+  "notifications": {
+    "noPendingTasksToday": "Você não tem tarefas agendadas hoje.",
+    "pendingTasksYesterday": "Você tem {0} tarefas pendentes ontem.",
+    "pendingTasksToday": "Você tem {0} tarefas agendadas hoje.",
+    "pendingTasksYesterdayAndToday": "Você tem {0} tarefas pendentes ontem e {1} tarefas agendadas hoje."
   }
 }
