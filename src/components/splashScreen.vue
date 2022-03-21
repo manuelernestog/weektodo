@@ -5,7 +5,7 @@
         <img class="logo mt-5" src="../../public/WeekToDo-Logo-Color.svg">
         <h1>WeekToDo</h1>
         <span>{{$t('ui.splashSub')}}</span>
-        <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px; width: 600px;">
+        <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px; width: 1200px;">
           <a v-if="sponsor" :href="sponsor.url" class="d-flex sponsor-container align-items-center" target="_blank">
             <img :src="sponsor.img" class="sponsor-img">
             <div class="my-2 mx-2">

@@ -137,6 +137,7 @@ import updateChecker from "./components/updateChecker";
 import migrations from "./migrations/migrations";
 import version_json from "../public/version.json";
 import isElectron from "is-electron";
+import taskHelper from "./helpers/tasksHelper";
 
 export default {
   name: "App",
@@ -179,25 +180,13 @@ export default {
   mounted() {
     this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
     this.calendarHeight = this.$store.getters.config.calendarHeight;
+    window.addEventListener("resize", this.weekResetScroll);
     document.onreadystatechange = () => {
       if (document.readyState == "complete") {
         setTimeout(this.hideSplash, 5000);
       }
     };
-    window.addEventListener("resize", this.weekResetScroll);
-    if (isElectron()) {
-      new Notification("Papa tienes par de cosas que hacer", {
-        body: "Mata ahi lo que te queda por hacer",
-        icon: "/favicon.ico",
-      }).onclick = () => {
-        require("@electron/remote").getCurrentWindow().show();
-        setTimeout(() => {
-          document
-            .getElementById("splashScreen")
-            .classList.add("hiddenSplashScreen");
-        }, 5000);
-      };
-    }
+    setTimeout(this.showInitialNotification, 5000);
   },
   methods: {
     weekMoveLeft: function () {
@@ -264,7 +253,7 @@ export default {
       }
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
-           setTimeout(function () {
+        setTimeout(function () {
           document
             .getElementById("splashScreen")
             .classList.add("hiddenSplashScreen");
@@ -314,6 +303,50 @@ export default {
         key: "calendarHeight",
       });
       configRepository.update(this.$store.getters.config);
+    },
+    showInitialNotification: function () {
+      if (isElectron()) {
+        new Notification("WeekToDo", {
+          body: this.initialNotificationText(),
+          icon: "/favicon.ico",
+        }).onclick = () => {
+          require("@electron/remote").getCurrentWindow().show();
+          setTimeout(() => {
+            document
+              .getElementById("splashScreen")
+              .classList.add("hiddenSplashScreen");
+          }, 5000);
+        };
+      }
+    },
+    initialNotificationText: function () {
+      let yesterdayTasks =
+        this.$store.getters.todoLists[
+          moment().subtract(1, "d").format("YYYYMMDD")
+        ];
+      let todayTasks =
+        this.$store.getters.todoLists[moment().format("YYYYMMDD")];
+
+      let yesterayPendingTasksCount =
+        taskHelper.pendingTasksCount(yesterdayTasks);
+      let todayPendingTasksCount = taskHelper.pendingTasksCount(todayTasks);
+
+      if (yesterayPendingTasksCount == 0 && todayPendingTasksCount == 0) {
+        return this.$t("notifications.noPendingTasksToday");
+      } else if (yesterayPendingTasksCount == 0) {
+        return this.$t("notifications.pendingTasksToday", [
+          todayPendingTasksCount,
+        ]);
+      } else if (todayPendingTasksCount == 0) {
+        return this.$t("notifications.pendingTasksYesterday", [
+          yesterayPendingTasksCount,
+        ]);
+      } else {
+        return this.$t("notifications.pendingTasksYesterdayAndToday", [
+          yesterayPendingTasksCount,
+          todayPendingTasksCount,
+        ]);
+      }
     },
   },
   computed: {

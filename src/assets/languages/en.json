@@ -144,5 +144,11 @@
     "taskDuplicated": "Task Duplicated !!!",
     "duplicate": "Duplicate",
     "subtasks": "Subtasks"
+  },
+  "notifications": {
+    "noPendingTasksToday": "You have no pending tasks today.",
+    "pendingTasksYesterday": "You have {0} pending tasks yesterday.",
+    "pendingTasksToday": "You have {0} pending tasks today.",
+    "pendingTasksYesterdayAndToday": "You have {0} pending tasks yesterday and {1} pending tasks today."
   }
 }
