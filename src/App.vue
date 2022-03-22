@@ -310,13 +310,14 @@ export default {
       new Notification("WeekToDo", {
         body: this.initialNotificationText(),
         icon: "/favicon.ico",
+        silent: false
       }).onclick = () => {
         require("@electron/remote").getCurrentWindow().show();
         setTimeout(() => {
           document
             .getElementById("splashScreen")
             .classList.add("hiddenSplashScreen");
-        }, 5000);
+        }, 3000);
       };
       notifications.playNotificationSound(this.$store.getters.config.notificationSound);
     },

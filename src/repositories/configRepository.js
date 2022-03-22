@@ -19,7 +19,7 @@ export default {
                 zoom: 100,
                 calendarHeight: "50%",
                 notificationOnStartup: true,
-                notificationSound: "none",
+                notificationSound: "pop",
             }
             storageRepository.set('config', default_config);
             return default_config;

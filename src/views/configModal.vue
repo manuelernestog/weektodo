@@ -288,10 +288,8 @@
                     class="col-sm-9 form-select flex-fill "
                     aria-label="Default select example"
                     v-model="notificationSound"
-                    @change="
-                      changeConfig('notificationSound', notificationSound)
-                    "
-                  >
+                    @change="changeConfig('notificationSound', notificationSound)"
+                    >
                     <option value="none">None</option>
                     <option value="pop">Pop</option>
                     <option value="bell">Bell</option>

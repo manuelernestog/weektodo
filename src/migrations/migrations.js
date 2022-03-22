@@ -31,6 +31,6 @@ function configNotifications() {
     let config = configRepository.load();
     if (!('startupNotification' in config)) {
         config['notificationOnStartup'] = true;
-        config['notificationSound'] = "none";
+        config['notificationSound'] = "pop";
     }
 }
