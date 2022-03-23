@@ -293,8 +293,11 @@
                     <option value="none">None</option>
                     <option value="pop">Pop</option>
                     <option value="bell">Bell</option>
+                    <option value="soft-bell">Soft Bell</option>
+                    <option value="soft">Soft</option>
+                    <option value="tiny">Tiny</option>
+                    <option value="piano">Piano</option>
                     <option value="positive">Positive</option>
-                    <option value="water">Water</option>
                     <option value="metal">Metal</option>
                   </select>
                    <button class="btn" style="margin-left: 8px;" type="button" @click="playSound">

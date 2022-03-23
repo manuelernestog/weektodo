@@ -310,7 +310,7 @@ export default {
       new Notification("WeekToDo", {
         body: this.initialNotificationText(),
         icon: "/favicon.ico",
-        silent: false
+        silent: true
       }).onclick = () => {
         require("@electron/remote").getCurrentWindow().show();
         setTimeout(() => {

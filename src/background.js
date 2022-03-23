@@ -17,7 +17,7 @@ const isServeMode = () => {
 let mainWindow = null
 
 protocol.registerSchemesAsPrivileged([
-    {scheme: 'app', privileges: {secure: true, standard: true}}
+    {scheme: 'app', privileges: {secure: true, standard: true, stream: true}}
 ])
 
 async function createWindow() {

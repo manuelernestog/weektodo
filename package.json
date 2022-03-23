@@ -38,6 +38,7 @@
     "is-electron": "^2.2.1",
     "lodash.uniqueid": "^4.0.1",
     "moment": "^2.29.1",
+    "sound-play": "^1.1.0",
     "vue": "^3.2.26",
     "vue-i18n": "^9.1.9",
     "vue3-datepicker": "^0.2.5",
