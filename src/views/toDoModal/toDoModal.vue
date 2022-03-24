@@ -47,7 +47,8 @@
           <div class="d-flex ms-auto align-items-center">
 
             <time-picker :time="todo.time" @time-selected="changeTime"></time-picker>
-<!--            <i class="bi-arrow-repeat header-menu-icons"></i>-->
+           <i :class="{'bi-bell': !todo.alarm, 'bi-bell-fill': todo.alarm  }" class="header-menu-icons" @click="changeAlarm"></i>
+           <!-- <i class="bi-arrow-repeat header-menu-icons"></i> -->
             <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
                data-bs-toggle="dropdown"></i>
@@ -174,7 +175,7 @@
                 pickedCList: "",
                 pickedCListName: "",
                 cListOptions: [],
-                todo: {text: "", checked: false, desc: "", subTaskList: []},
+                todo: {text: "", checked: false, desc: "", subTaskList: [], alarm: false},
                 todoList: null,
                 index: 0,
                 newSubTask: {text: "", checked: false, editing: false},
@@ -381,8 +382,17 @@
             },
             changeTime(time) {
                 this.todo.time = time;
+                if (!time){
+                    this.todo.alarm = false;
+                }
                 this.updateTodo();
-            }
+            },
+             changeAlarm() {
+               if (this.todo.time){
+                this.todo.alarm = this.todo.alarm ? false : true;
+                this.updateTodo();
+                }
+            },
         },
         watch: {
             selectedTodo: function (newVal) {

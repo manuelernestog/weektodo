@@ -8,9 +8,11 @@
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          <div style="text-align: justify; font-size: .95rem;">
+          <div style="text-align: justify; font-size: .9rem;">
             {{ $t("donate.mainMessage") }}
           </div>
+
+            <div class="horizontal-divider mt-3 mb-2"></div>
 
           <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
             <li class="nav-item" role="presentation">
@@ -29,7 +31,7 @@
               </button>
             </li>
           </ul>
-          <div class="tab-content" id="nav-tabContent">
+          <div class="tab-content mt-0" id="nav-tabContent" >
             <div class="tab-pane fade show active" id="donate-home">
               <link-list :linkList="donateList"></link-list>
             </div>
@@ -88,8 +90,9 @@
 </script>
 
 <style scoped>
+
   .modal-dialog {
-    max-width: 380px;
+    max-width: 360px;
   }
 
   #nav-tabContent {
@@ -97,7 +100,7 @@
   }
 
   .tab-pane {
-    height: 250px;
+    height: 220px;
   }
 
   .nav-tabs {

@@ -10,7 +10,11 @@
         "Improving windows position function",
         "Refactoring Config Menu UI",
         "Adding Notification Options",
-        "Adding Reset Data Option"
+        "Adding Reset Data Option",
+        "Fixing bug in task clock icon",
+        "Adding notification on Startup",
+        "Adding custom sound to notification",
+        "Improving donate view"
       ],
       "1.6.1-20220214": [
         "Fixing major bug in modal detail sub-task field edit action",

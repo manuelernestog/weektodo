@@ -11,8 +11,8 @@ export default {
             {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
             {
                 name: vue.$t('donate.translate'),
-                color: "#676767",
-                ico: "bi-translate",
+                color: "#676767",       
+                ico: "bi-globe",
                 linktype: "external",
                 link: "https://github.com/Zuntek/WeekToDoWeb#translations"
             }
