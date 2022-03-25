@@ -188,7 +188,11 @@ export default {
       }
     };
     if (isElectron() && this.$store.getters.config.notificationOnStartup)
-      setTimeout(this.showInitialNotification, 5000);
+      setTimeout(this.showInitialNotification, 4000);
+
+    this.resetAppOnDayChange();
+
+    setTimeout(this.refreshTodayNotifications, 4000);
   },
   methods: {
     weekMoveLeft: function () {
@@ -306,11 +310,14 @@ export default {
       });
       configRepository.update(this.$store.getters.config);
     },
+    refreshTodayNotifications: function () {
+      notifications.refreshDayNotifications(this, moment().format("YYYYMMDD"));
+    },
     showInitialNotification: function () {
       new Notification("WeekToDo", {
         body: this.initialNotificationText(),
         icon: "/favicon.ico",
-        silent: true
+        silent: true,
       }).onclick = () => {
         require("@electron/remote").getCurrentWindow().show();
         setTimeout(() => {
@@ -319,7 +326,9 @@ export default {
             .classList.add("hiddenSplashScreen");
         }, 3000);
       };
-      notifications.playNotificationSound(this.$store.getters.config.notificationSound);
+      notifications.playNotificationSound(
+        this.$store.getters.config.notificationSound
+      );
     },
     initialNotificationText: function () {
       let yesterdayTasks =
@@ -349,7 +358,24 @@ export default {
           todayPendingTasksCount,
         ]);
       }
-    }
+    },
+    resetAppOnDayChange: function () {
+      var x = new moment();
+      var y = new moment().add(1, "m");
+      // var y = new moment().add(1, "days").startOf("date");
+      var duration = moment.duration(y.diff(x)).asMilliseconds();
+
+      setTimeout(
+        function () {
+          if (isElectron() && !require("@electron/remote").getCurrentWindow().isVisible()) {
+            window.location.reload();
+          }
+          this.refreshTodayNotifications();
+          this.resetAppOnDayChange();
+        }.bind(this),
+        duration
+      );
+    },
   },
   computed: {
     dates_array: function () {
