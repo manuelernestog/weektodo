@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{$t('settings.data')}}</h5>
+          <h5 class="modal-title"><i class="bi bi-exclamation-diamond-fill"></i> {{$t('settings.data')}}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body d-flex">
@@ -12,11 +12,11 @@
         </div>
         <div class="modal-footer d-flex">
           <button type="button" class="btn flex-fill" @click="exportData">
-            {{ $t("settings.export")}}
+            {{ $t("settings.exportBackup")}}
             <i class="bi-cloud-download-fill mx-2"></i>
           </button>
           <a href="https://app.weektodo.me" target="_blank" class="btn flex-fill" >
-          {{$t('about.site')}} <i
+          {{$t('settings.gotoNewDomainBtn')}} <i
             class="bi-globe2 mx-2"></i>
           </a>
         </div>

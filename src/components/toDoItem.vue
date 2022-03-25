@@ -477,7 +477,7 @@ export default {
 }
 
 .cicle-icon {
-  font-size: 9px;
+  font-size: 10px;
   margin-right: 5px;
 }
 
