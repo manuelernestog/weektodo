@@ -1,10 +1,13 @@
 import moment from "moment";
 
 export default {
-  refreshDayNotifications(vue,todoListId,todoList, notificationSound) {
+  refreshDayNotifications(vue, todoListId) {
+    let todoList = vue.$store.getters.todoLists[todoListId]
+    var notificationSound = vue.$store.getters.config.notificationSound
+
     if (todoListId != moment().format("YYYYMMDD")) return;
 
-    vue.$store.getters.notifications.forEach(notification => {clearTimeout(notification)});
+    vue.$store.getters.notifications.forEach(notification => { clearTimeout(notification) });
 
     var notificationsList = []
     todoList.forEach((todo) => {
@@ -15,7 +18,7 @@ export default {
 
     vue.$store.commit("setNotificatios", notificationsList);
   },
-  createNotificationAlert( todoTime, todoText, notificationSound) {
+  createNotificationAlert(todoTime, todoText, notificationSound) {
 
     var x = new moment();
     var y = new moment(todoTime, "HH:mm");

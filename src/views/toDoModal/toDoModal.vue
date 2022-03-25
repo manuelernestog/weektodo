@@ -449,13 +449,11 @@ export default {
       document.getElementById("todo-date-picker-input").focus();
     },
     updateTodo: function () {
-      notifications.refreshDayNotifications(
-        this,
-        this.todo.listId,
-        this.$store.getters.todoLists[this.todo.listId],
-        this.$store.getters.config.notificationSound
-      );
-      toDoListRepository.update(this.todo.listId, this.todoList);
+      this.updateTodoList(this.todo.listId, this.todoList);
+    },
+     updateTodoList: function (todoListId,TodoList) {
+      notifications.refreshDayNotifications(this, todoListId);
+      toDoListRepository.update(todoListId, TodoList);
     },
     getCListOptions: function () {
       this.cListOptions = this.$store.getters.cTodoListIds;
@@ -477,14 +475,14 @@ export default {
 
       let oldListId = this.todo.listId;
       this.todoList.splice(this.index, 1);
-      toDoListRepository.update(oldListId, this.todoList);
+      this.updateTodoList(oldListId, this.todoList);
       this.todo.listId = newListID;
       if (this.$store.getters.todoLists[newListID]) {
         this.$store.commit("addTodo", this.todo);
         this.todoList = this.$store.getters.todoLists[this.todo.listId];
         this.index = this.todoList.length - 1;
         this.todo = this.todoList[this.index];
-        toDoListRepository.update(newListID, this.todoList);
+        this.updateTodoList(newListID, this.todoList);
       } else {
         this.loadToDoFormDB(newListID);
       }
@@ -500,7 +498,7 @@ export default {
           newTodoList.push(instancePointer.todo);
           instancePointer.todoList = newTodoList;
           instancePointer.index = newTodoList.length - 1;
-          toDoListRepository.update(newListID, instancePointer.todoList);
+          this.updateTodoList(newListID, instancePointer.todoList);
         };
       };
     },
@@ -509,7 +507,7 @@ export default {
         toDoListId: this.todo.listId,
         index: this.index,
       });
-      toDoListRepository.update(
+      this.updateTodoList(
         this.todo.listId,
         this.$store.getters.todoLists[this.todo.listId]
       );
@@ -527,11 +525,11 @@ export default {
         priority: 0,
         tags: [],
         time: this.todo.time,
-        alarm: false,
+        alarm: this.todo.alarm,
         repeatingEvent: null,
       };
       this.$store.commit("addTodo", newTodo);
-      toDoListRepository.update(
+      this.updateTodoList(
         this.todo.listId,
         this.$store.getters.todoLists[this.todo.listId]
       );
