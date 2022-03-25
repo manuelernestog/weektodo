@@ -1,10 +1,46 @@
-export default {
-  createNotification() {
+import moment from "moment";
 
+export default {
+  refreshDayNotifications(vue,todoListId,todoList, notificationSound) {
+    if (todoListId != moment().format("YYYYMMDD")) return;
+
+    vue.$store.getters.notifications.forEach(notification => {clearTimeout(notification)});
+
+    var notificationsList = []
+    todoList.forEach((todo) => {
+      if (todo.alarm && !todo.checked && (moment(todo.time, "HH:mm") >= moment())) {
+        notificationsList.push(this.createNotificationAlert(todo.time, todo.text, notificationSound));
+      }
+    });
+
+    vue.$store.commit("setNotificatios", notificationsList);
   },
-  playNotificationSound(soundConfig) {
+  createNotificationAlert( todoTime, todoText, notificationSound) {
+
+    var x = new moment();
+    var y = new moment(todoTime, "HH:mm");
+    var duration = moment.duration(y.diff(x)).asMilliseconds();
+
+    var alertTimeOut = setTimeout(
+      function () {
+        this.createNotification(moment(todoTime, "HH:mm").format("LT"), todoText, notificationSound)
+      }.bind(this),
+      duration
+    );
+
+    return alertTimeOut
+  },
+  createNotification(header, body, notificationSound) {
+    new Notification(header, {
+      body: body,
+      icon: "/favicon.ico",
+      silent: true,
+    });
+    this.playNotificationSound(notificationSound)
+  },
+  playNotificationSound(notificationSound) {
     var sound;
-    switch (soundConfig) {
+    switch (notificationSound) {
       case "pop":
         sound = new Audio("sounds/pop-alert.ogg");
         break;
@@ -33,7 +69,7 @@ export default {
         return;
     }
     sound.addEventListener("canplaythrough", () => {
-      sound.play(); // the audio now can be played
+      sound.play();
     });
 
   }

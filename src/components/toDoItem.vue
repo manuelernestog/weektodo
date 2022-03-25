@@ -255,11 +255,11 @@
   }
 
   .checked-sub-task {
-    color: #a1a1a1;
+    color: #c4c4c4;
     text-decoration: line-through;
 
     .dark-theme & {
-      color: #767676;
+      color: #3a3a40;
     }
 
     input {
@@ -358,7 +358,7 @@
   .sub-tasks {
     list-style: none;
     padding: 0px;
-    font-size: 14px;
+    font-size: 0.865rem;
 
     li {
       margin: 0px 10px 0px 10px;

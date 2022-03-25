@@ -14,7 +14,8 @@
         "Fixing bug in task clock icon",
         "Adding notification on Startup",
         "Adding custom sound to notification",
-        "Improving donate view"
+        "Improving donate view",
+        "Minior UI improvment"
       ],
       "1.6.1-20220214": [
         "Fixing major bug in modal detail sub-task field edit action",
