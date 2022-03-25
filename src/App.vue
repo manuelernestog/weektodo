@@ -361,8 +361,7 @@ export default {
     },
     resetAppOnDayChange: function () {
       var x = new moment();
-      var y = new moment().add(1, "m");
-      // var y = new moment().add(1, "days").startOf("date");
+      var y = new moment().add(1, "days").startOf("date");
       var duration = moment.duration(y.diff(x)).asMilliseconds();
 
       setTimeout(
