@@ -171,14 +171,14 @@
                     justify-content-between
                   "
                 >
-                  <label class="form-check-label" for="openOnStart">{{
+                  <label class="form-check-label" for="openOnStartup">{{
                     $t("settings.openOnStartup")
                   }}</label>
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    id="openOnStart"
-                    v-model="openOnStart"
+                    id="openOnStartup"
+                    v-model="openOnStartup"
                     @change="setOpenOnStart()"
                   />
                 </div>
@@ -285,11 +285,13 @@
                 <div class="d-flex">
                   <select
                     id="notificationSound"
-                    class="col-sm-9 form-select flex-fill "
+                    class="col-sm-9 form-select flex-fill"
                     aria-label="Default select example"
                     v-model="notificationSound"
-                    @change="changeConfig('notificationSound', notificationSound)"
-                    >
+                    @change="
+                      changeConfig('notificationSound', notificationSound)
+                    "
+                  >
                     <option value="none">None</option>
                     <option value="pop">Pop</option>
                     <option value="bell">Bell</option>
@@ -300,9 +302,14 @@
                     <option value="positive">Positive</option>
                     <option value="metal">Metal</option>
                   </select>
-                   <button class="btn" style="margin-left: 8px;" type="button" @click="playSound">
-                  <i class="bi-play-circle a"></i>
-                </button>
+                  <button
+                    class="btn"
+                    style="margin-left: 8px"
+                    type="button"
+                    @click="playSound"
+                  >
+                    <i class="bi-play-circle a"></i>
+                  </button>
                 </div>
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
@@ -407,6 +414,7 @@ import exportTool from "../helpers/exportTool";
 import linkList from "../components/linkList";
 import configList from "./configList";
 import notifications from "../helpers/notifications";
+import mainHelper from "../helpers/mainHelper";
 
 export default {
   name: "configModal",
@@ -420,15 +428,10 @@ export default {
       calendar: this.$store.getters.config.calendar,
       columns: this.$store.getters.config.columns,
       zoom: this.$store.getters.config.zoom,
-      openOnStart: true,
+      openOnStartup: this.$store.getters.config.openOnStartup,
       notificationSound: this.$store.getters.config.notificationSound,
       notificationOnStartup: this.$store.getters.config.notificationOnStartup,
     };
-  },
-  mounted() {
-    if (this.isElectron()) {
-      this.isOpenOnStart();
-    }
   },
   methods: {
     changeConfig: function (key, val) {
@@ -463,35 +466,16 @@ export default {
       document.getElementById("config-home-tab").click();
     },
     setOpenOnStart: function () {
-      let AutoLaunch = require("auto-launch");
-      let autoLauncher = new AutoLaunch({
-        name: "WeekToDo Planner",
+      this.changeConfig("openOnStartup", this.openOnStartup);
+      this.$nextTick(function () {
+        mainHelper.setOpenOnStartup(this.$store.getters.config.openOnStartup);
       });
-      if (this.openOnStart) {
-        autoLauncher.enable();
-      } else {
-        autoLauncher.disable();
-      }
     },
-    isOpenOnStart: function () {
-      let AutoLaunch = require("auto-launch");
-      let autoLauncher = new AutoLaunch({
-        name: "WeekToDo Planner",
-      });
-      autoLauncher
-        .isEnabled()
-        .then(
-          function (isEnabled) {
-            this.openOnStart = isEnabled;
-          }.bind(this)
-        )
-        .catch(function (err) {
-          throw err;
-        });
+    playSound: function () {
+      notifications.playNotificationSound(
+        this.$store.getters.config.notificationSound
+      );
     },
-    playSound: function(){
-       notifications.playNotificationSound(this.$store.getters.config.notificationSound);
-    }
   },
   computed: {
     configLinks: function () {

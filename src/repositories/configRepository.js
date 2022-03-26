@@ -20,6 +20,7 @@ export default {
                 calendarHeight: "50%",
                 notificationOnStartup: true,
                 notificationSound: "pop",
+                openOnStartup: true,
             }
             storageRepository.set('config', default_config);
             return default_config;

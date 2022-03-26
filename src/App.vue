@@ -139,6 +139,7 @@ import version_json from "../public/version.json";
 import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
+import mainHelper from './helpers/mainHelper';
 
 export default {
   name: "App",
@@ -190,6 +191,7 @@ export default {
     if (isElectron() && this.$store.getters.config.notificationOnStartup)
       setTimeout(this.showInitialNotification, 4000);
 
+    mainHelper.matchOpenOnStartStatus(this.$store.getters.config.openOnStartup);
     this.resetAppOnDayChange();
 
     setTimeout(this.refreshTodayNotifications, 4000);
@@ -366,7 +368,10 @@ export default {
 
       setTimeout(
         function () {
-          if (isElectron() && !require("@electron/remote").getCurrentWindow().isVisible()) {
+          if (
+            isElectron() &&
+            !require("@electron/remote").getCurrentWindow().isVisible()
+          ) {
             window.location.reload();
           }
           this.refreshTodayNotifications();

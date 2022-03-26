@@ -32,5 +32,7 @@ function configNotifications() {
     if (!('startupNotification' in config)) {
         config['notificationOnStartup'] = true;
         config['notificationSound'] = "pop";
+        config['openOnStartup'] = true;
+        configRepository.update(config);
     }
 }
