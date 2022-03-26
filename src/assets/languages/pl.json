@@ -23,7 +23,8 @@
     "notificationSound": "Dźwięk powiadomienia",
     "clearData": "Wyczyść dane",
     "exportBackup": "Eksportuj kopię zapasową",
-    "importBackup": "Importuj kopię zapasową"
+    "importBackup": "Importuj kopię zapasową",
+    "clearDataDetails": "Czy na pewno chcesz usunąć wszystkie dane aplikacji? To działanie jest nieodwracalne."
   },
   "donate": {
     "contribute": "Wsparcie",

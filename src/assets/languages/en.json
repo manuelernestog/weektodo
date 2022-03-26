@@ -23,7 +23,8 @@
     "notificationSound": "Notification sound",
     "clearData": "Clear data",
     "exportBackup": "Export backup",
-    "importBackup": "Import backup"
+    "importBackup": "Import backup",
+    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible."
   },
   "donate": {
     "contribute": "Contribute",

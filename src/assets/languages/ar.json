@@ -23,7 +23,8 @@
       "notificationSound": "صوت الإشعار",
       "clearData": "امسح البيانات",
       "exportBackup": "تصدير نسخة احتياطية",
-      "importBackup": "استيراد نسخة احتياطية"
+      "importBackup": "استيراد نسخة احتياطية",
+      "clearDataDetails": "هل أنت متأكد أنك تريد حذف جميع بيانات التطبيق؟ هذا العمل لا رجوع فيه."
     },
     "donate": {
       "contribute": "ساهِم",

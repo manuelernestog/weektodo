@@ -3,7 +3,7 @@
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body" style="margin-bottom: 20px">
+        <div class="modal-body">
           <div class="d-flex flex-row">
             <i class="bi-x-circle" style="font-size: 38px; margin-right: 30px; "></i>
             <div style="margin-top: 2px">

@@ -336,19 +336,18 @@
                       <i class="icons bi-cloud-arrow-up"></i>
                       {{ $t("settings.importBackup") }}
                     </button>
-                    <div class="horizontal-divider mt-2 mb-2"></div>
                     <button
                       type="button"
                       class="btn w-100 py-2"
-                      @click="clearData"
+                      data-bs-dismiss="modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#clearDataModal"
                     >
                       <i
-                        class="icons bi-x-octagon-fill"
-                        style="color: #ed544b"
+                        class="icons bi-x-circle"
                       ></i>
                       {{ $t("settings.clearData") }}
                     </button>
-                    <div class="horizontal-divider mt-2 mb-2"></div>
                   </div>
                   <input
                     type="file"
@@ -454,9 +453,6 @@ export default {
     },
     importData: function (event) {
       exportTool.import(event);
-    },
-    clearData: function () {
-      exportTool.clear();
     },
     isElectron: function () {
       let isElectron = require("is-electron");

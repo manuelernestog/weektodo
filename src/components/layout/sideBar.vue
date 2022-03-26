@@ -6,10 +6,10 @@
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language"/>
     <i v-if="showCalendar" class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
-    <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"></i>
+    <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')" @click="openConfigModal"></i>
     <span style="flex-grow: 1"></span>
     <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
-    <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal" :title="$t('donate.contribute')"></i>
+    <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal" :title="$t('donate.contribute')" @click="openDonateModal"></i>
   </div>
 </template>
 
@@ -57,6 +57,12 @@
             resetDatePicker: function () {
                 document.getElementById('side-bar-date-picker-input').removeEventListener("focusout", this.resetDatePicker);
                 this.datepickerEnabled = false;
+            },
+            openConfigModal: function(){
+                document.getElementById("config-home-tab").click();
+            },
+            openDonateModal: function(){
+               document.getElementById("homeTab").click()
             }
         },
         watch: {

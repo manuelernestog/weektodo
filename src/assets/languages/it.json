@@ -23,7 +23,8 @@
     "notificationSound": "Suono di notifica",
     "clearData": "Elimina i dati",
     "exportBackup": "Esporta backup",
-    "importBackup": "Importa backup"
+    "importBackup": "Importa backup",
+    "clearDataDetails": "Sei sicuro di voler eliminare tutti i dati dell'app? Questa azione è irreversibile."
   },
   "donate": {
     "contribute": "Contribuisci",

@@ -80,6 +80,7 @@
 
       <remove-custom-list></remove-custom-list>
       <config-modal @change-columns="weekResetScroll"></config-modal>
+      <clear-data-modal></clear-data-modal>
       <about-modal></about-modal>
       <redirect-domain-modal></redirect-domain-modal>
       <donate-modal></donate-modal>
@@ -140,6 +141,7 @@ import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
 import mainHelper from './helpers/mainHelper';
+import clearDataModal from './views/clearDataModal.vue';
 
 export default {
   name: "App",
@@ -156,6 +158,7 @@ export default {
     updateChecker,
     toDoModal,
     redirectDomainModal,
+    clearDataModal,
   },
   data() {
     return {
@@ -256,7 +259,8 @@ export default {
       return isElectron();
     },
     hideSplash: function () {
-      if (!this.isElectron()) {
+      if (!this.isElectron() || require("@electron/remote").getCurrentWindow().isVisible()) {
+        console.log('hiding splash');
         this.$refs.splash.hideSplash();
       }
       if (this.$store.getters.config.firstTimeOpen) {
