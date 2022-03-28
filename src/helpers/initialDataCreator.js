@@ -7,6 +7,7 @@ export default {
         // let yesterday_id = moment().subtract(1, 'd').format('YYYYMMDD');
         let today_id = moment().format('YYYYMMDD');
         let tomorrow_id = moment().add(1, 'd').format('YYYYMMDD');
+        let after_tomorrow_id = moment().add(2, 'd').format('YYYYMMDD');
         let custom_list1_id = create_custom_list(vue, vue.$t("generatedData.list1"));
         let custom_list2_id = create_custom_list(vue, vue.$t("generatedData.list2"));
         create_custom_list(vue, vue.$t("generatedData.list3"));
@@ -21,6 +22,7 @@ export default {
             {text: vue.$t("generatedData.subtask2"), checked: false, editing: false},
         ];
         create_todo(vue, tomorrow_id, vue.$t("generatedData.data11"), false,vue.$t("generatedData.desc1"), subtasks, "none", "16:20");
+        create_todo(vue, after_tomorrow_id, vue.$t("generatedData.data12"), false);
 
         create_todo(vue, custom_list1_id, vue.$t("generatedData.data6"), false);
         create_todo(vue, custom_list1_id, vue.$t("generatedData.data7"), false);

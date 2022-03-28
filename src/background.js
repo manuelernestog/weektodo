@@ -139,7 +139,7 @@ if (!gotTheLock) {
 }
 
 function hideSplashScreen() {
-    mainWindow.webContents.executeJavaScript("document.getElementById('splashScreen').classList.add('hiddenSplashScreen');")
+    mainWindow.webContents.executeJavaScript("if(document.getElementById('splashScreen')) document.getElementById('splashScreen').classList.add('hiddenSplashScreen');")
 }
 
 

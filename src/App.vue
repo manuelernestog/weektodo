@@ -140,8 +140,8 @@ import version_json from "../public/version.json";
 import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
-import mainHelper from './helpers/mainHelper';
-import clearDataModal from './views/clearDataModal.vue';
+import mainHelper from "./helpers/mainHelper";
+import clearDataModal from "./views/clearDataModal.vue";
 
 export default {
   name: "App",
@@ -191,8 +191,16 @@ export default {
         setTimeout(this.hideSplash, 5000);
       }
     };
-    if (isElectron() && this.$store.getters.config.notificationOnStartup)
+
+    if (
+      isElectron() &&
+      this.$store.getters.config.notificationOnStartup &&
+      !this.$store.getters.config.firstTimeOpen
+    )
       setTimeout(this.showInitialNotification, 4000);
+
+    if (isElectron() && this.$store.getters.config.firstTimeOpen)
+      require("@electron/remote").getCurrentWindow().show();
 
     mainHelper.matchOpenOnStartStatus(this.$store.getters.config.openOnStartup);
     this.resetAppOnDayChange();
@@ -259,17 +267,15 @@ export default {
       return isElectron();
     },
     hideSplash: function () {
-      if (!this.isElectron() || require("@electron/remote").getCurrentWindow().isVisible()) {
-        console.log('hiding splash');
+      if (!this.isElectron()) {
         this.$refs.splash.hideSplash();
+      } else {
+        if (require("@electron/remote").getCurrentWindow().isVisible()) {
+          this.$refs.splash.hideSplash();
+        }
       }
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
-        setTimeout(function () {
-          document
-            .getElementById("splashScreen")
-            .classList.add("hiddenSplashScreen");
-        }, 5000);
       } else {
         if (window.location.hostname.includes("netlify.app")) {
           this.showRedirectDomainModal();
@@ -327,9 +333,11 @@ export default {
       }).onclick = () => {
         require("@electron/remote").getCurrentWindow().show();
         setTimeout(() => {
-          document
-            .getElementById("splashScreen")
-            .classList.add("hiddenSplashScreen");
+          if (document.getElementById("splashScreen")) {
+            document
+              .getElementById("splashScreen")
+              .classList.add("hiddenSplashScreen");
+          }
         }, 3000);
       };
       notifications.playNotificationSound(
@@ -367,7 +375,7 @@ export default {
     },
     resetAppOnDayChange: function () {
       var x = new moment();
-      var y = new moment().add(1, "days").startOf("date");
+      var y = new moment().add(1, "d").startOf("date");
       var duration = moment.duration(y.diff(x)).asMilliseconds();
 
       setTimeout(
