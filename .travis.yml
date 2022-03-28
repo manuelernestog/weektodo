@@ -20,7 +20,7 @@ matrix:
           script: bash deploy.travis.sh
           skip_cleanup: true
           on:
-            branch: deploy
+            branch: main
     - os: linux
       dist: xenial
       deploy:
@@ -28,7 +28,7 @@ matrix:
           script: bash deploy.travis.sh
           skip_cleanup: true
           on:
-            branch: deploy
+            branch: main
     - os: linux
       dist: xenial
       deploy:
@@ -36,7 +36,7 @@ matrix:
           script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb rpm --win nsis -p always"
           skip_cleanup: true
           on:
-            branch: deploy
+            branch: main
 
 notifications:
   email: false
@@ -76,4 +76,4 @@ before_cache:
 
 branches:
   only:
-    - deploy
+    - main
