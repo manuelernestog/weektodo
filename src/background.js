@@ -1,8 +1,8 @@
 'use strict'
 
-import {app, protocol, BrowserWindow, Menu, Tray, Notification} from 'electron'
-import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
-import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
+import { app, protocol, BrowserWindow, Menu, Tray, Notification } from 'electron'
+import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
+import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 require('@electron/remote/main').initialize()
 
 const Config = require('electron-config')
@@ -17,7 +17,7 @@ const isServeMode = () => {
 let mainWindow = null
 
 protocol.registerSchemesAsPrivileged([
-    {scheme: 'app', privileges: {secure: true, standard: true, stream: true}}
+    { scheme: 'app', privileges: { secure: true, standard: true, stream: true } }
 ])
 
 async function createWindow() {
@@ -64,11 +64,9 @@ if (!gotTheLock) {
     app.quit()
 } else {
     app.on('second-instance', (event, commandLine, workingDirectory) => {
-        // Someone tried to run a second instance, we should focus our window.
         if (mainWindow) {
             if (mainWindow.isMinimized()) mainWindow.restore()
-            mainWindow.showInactive();
-            mainWindow.focus();
+            mainWindow.show();
             setTimeout(hideSplashScreen, 5000);
         } else {
             createWindow();
@@ -88,17 +86,22 @@ if (!gotTheLock) {
     const path = require('path')
 
     app.on('ready', async () => {
-        const iconPath = isServeMode()
-            ? path.join(__dirname, "/bundled/WeekToDo-icon-white-128.png")
-            : path.join(__dirname, "/WeekToDo-icon-white-128.png")
-
+        var iconPath;
+        console.log(process.platform);
+        if (process.platform === "win32") {
+            app.setAppUserModelId("WeekToDo");
+            iconPath = path.join(__dirname, "/weektodo-white.ico");
+        } else {
+            iconPath = isServeMode()
+                ? path.join(__dirname, "/bundled/WeekToDo-icon-white-128.png")
+                : path.join(__dirname, "/WeekToDo-icon-white-128.png")
+        }
         tray = new Tray(iconPath);
 
         const contextMenu = Menu.buildFromTemplate([
             {
                 label: 'Open', click() {
-                    mainWindow.showInactive();
-                    mainWindow.focus();
+                    mainWindow.show();
                     setTimeout(hideSplashScreen, 5000);
                 }
             },
@@ -112,6 +115,9 @@ if (!gotTheLock) {
         ])
         tray.setToolTip('WeekToDo Planner')
         tray.setContextMenu(contextMenu)
+        tray.on('clicked', function () {
+            tray.popContextMenu();
+        })
         createWindow();
 
         if (isDevelopment && !process.env.IS_TEST) {

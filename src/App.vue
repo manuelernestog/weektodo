@@ -88,6 +88,7 @@
       <tips-modal></tips-modal>
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
       <update-checker></update-checker>
+      <input class="hidden-input-for-focus" tabindex="0" type="text">
     </div>
     <div
       class="
@@ -551,6 +552,11 @@ body {
   height: 100%;
   z-index: 999;
   /*position: absolute;*/
+}
+
+.hidden-input-for-focus{
+  position: absolute;
+  top: -100px;
 }
 </style>
 `
