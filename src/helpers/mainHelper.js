@@ -2,11 +2,13 @@ import isElectron from "is-electron";
 
 export default {
     setOpenOnStartup: function (openOnStartConfig) {
-        console.log(require("@electron/remote").app.getPath('exe'))
+        if (!isElectron()) return;
+
+        const { ipcRenderer } = require('electron')
         let AutoLaunch = require("auto-launch");
         let autoLauncher = new AutoLaunch({
             name: "WeekToDo Planner",
-            path: require("@electron/remote").app.getPath('exe')
+            path: ipcRenderer.sendSync('get-app-path')
         });
         if (openOnStartConfig) {
             autoLauncher.enable();
@@ -17,10 +19,11 @@ export default {
     matchOpenOnStartStatus: function (openOnStartup) {
         if (!isElectron()) return;
 
+        const { ipcRenderer } = require('electron')
         let AutoLaunch = require("auto-launch");
         let autoLauncher = new AutoLaunch({
             name: "WeekToDo Planner",
-            path: require("@electron/remote").app.getPath('exe')
+            path: ipcRenderer.sendSync('get-app-path')
         });
 
         autoLauncher
@@ -29,7 +32,7 @@ export default {
                 if (openOnStartup != isEnabled) {
                     if (openOnStartup) {
                         autoLauncher.enable();
-                    }else{
+                    } else {
                         autoLauncher.disable();
                     }
                 }

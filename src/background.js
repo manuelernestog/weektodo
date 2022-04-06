@@ -1,9 +1,8 @@
 'use strict'
 
-import { app, protocol, BrowserWindow, Menu, Tray, Notification } from 'electron'
+import { app, protocol, BrowserWindow, Menu, Tray, ipcMain } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
-require('@electron/remote/main').initialize()
 
 const Config = require('electron-config')
 const config = new Config()
@@ -26,8 +25,7 @@ async function createWindow() {
         minHeight: 600,
         show: false,
         webPreferences: {
-            nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-            enableRemoteModule: true
+            nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
         }
     }
     Object.assign(opts, config.get('winBounds'))
@@ -39,6 +37,10 @@ async function createWindow() {
         e.preventDefault();
         require('electron').shell.openExternal(url);
     });
+
+    ipcMain.on('show-current-window', showCurrentWindow);
+    ipcMain.on('is-windows-visible', isWindowsVisible);
+    ipcMain.on('get-app-path', getAppPath);
 
     mainWindow.on('close', function (event) {
         if (!app.isQuiting) {
@@ -146,6 +148,23 @@ if (!gotTheLock) {
 
 function hideSplashScreen() {
     mainWindow.webContents.executeJavaScript("if(document.getElementById('splashScreen')) document.getElementById('splashScreen').classList.add('hiddenSplashScreen');")
+}
+
+function showCurrentWindow(event) {
+    const webContents = event.sender;
+    const win = BrowserWindow.fromWebContents(webContents);
+    win.show();
+}
+
+
+function isWindowsVisible(event) {
+    const webContents = event.sender;
+    const win = BrowserWindow.fromWebContents(webContents);
+    event.returnValue = win.isVisible();
+}
+
+function getAppPath(event) {
+    event.returnValue = app.getPath('exe');
 }
 
 

@@ -166,6 +166,7 @@ export default {
       selected_date: moment().format("YYYYMMDD"),
       cTodoList: this.$store.getters.cTodoListIds,
       calendarHeight: "50%",
+      ipcRenderer: null,
     };
   },
   beforeCreate() {
@@ -193,15 +194,19 @@ export default {
       }
     };
 
-    if (
-      isElectron() &&
-      this.$store.getters.config.notificationOnStartup &&
-      !this.$store.getters.config.firstTimeOpen
-    )
-      setTimeout(this.showInitialNotification, 4000);
 
-    if (isElectron() && this.$store.getters.config.firstTimeOpen)
-      require("@electron/remote").getCurrentWindow().show();
+    if (isElectron()){
+      const { ipcRenderer } = require('electron');
+      this.ipcRenderer = ipcRenderer;
+
+      if (this.$store.getters.config.firstTimeOpen){
+        this.ipcRenderer.send('show-current-window');
+      }
+
+      if (this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen){
+        setTimeout(this.showInitialNotification, 4000);
+      } 
+    }
 
     mainHelper.matchOpenOnStartStatus(this.$store.getters.config.openOnStartup);
     this.resetAppOnDayChange();
@@ -268,12 +273,12 @@ export default {
       return isElectron();
     },
     hideSplash: function () {
-      if (!this.isElectron()) {
-        this.$refs.splash.hideSplash();
-      } else {
-        if (require("@electron/remote").getCurrentWindow().isVisible()) {
+      if (this.isElectron()) {
+            if (this.ipcRenderer.sendSync('is-windows-visible')) {
           this.$refs.splash.hideSplash();
         }
+      } else {
+          this.$refs.splash.hideSplash();
       }
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
@@ -332,7 +337,7 @@ export default {
         icon: "/favicon.ico",
         silent: true,
       }).onclick = () => {
-        require("@electron/remote").getCurrentWindow().show();
+         this.ipcRenderer.send('show-current-window');
         setTimeout(() => {
           if (document.getElementById("splashScreen")) {
             document
@@ -383,7 +388,7 @@ export default {
         function () {
           if (
             isElectron() &&
-            !require("@electron/remote").getCurrentWindow().isVisible()
+            !this.ipcRenderer.sendSync('is-windows-visible')
           ) {
             window.location.reload();
           }
