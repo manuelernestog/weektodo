@@ -115,8 +115,8 @@ if (!gotTheLock) {
         ])
         tray.setToolTip('WeekToDo Planner')
         tray.setContextMenu(contextMenu)
-        tray.on('clicked', function () {
-            tray.popContextMenu();
+        tray.on('click', () => {
+            tray.popUpContextMenu();
         })
         createWindow();
 
