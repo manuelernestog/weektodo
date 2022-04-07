@@ -40,7 +40,8 @@ async function createWindow() {
 
     ipcMain.on('show-current-window', showCurrentWindow);
     ipcMain.on('is-windows-visible', isWindowsVisible);
-    ipcMain.on('get-app-path', getAppPath);
+    ipcMain.on('match-open-on-startup', matchOpenOnStartup);
+    ipcMain.on('set-open-on-startup', setOpenOnStartup);
 
     mainWindow.on('close', function (event) {
         if (!app.isQuiting) {
@@ -167,4 +168,39 @@ function getAppPath(event) {
     event.returnValue = app.getPath('exe');
 }
 
+function setOpenOnStartup(event, openOnStartup) {
+    let AutoLaunch = require("auto-launch");
+    let autoLauncher = new AutoLaunch({
+        name: "WeekToDo Planner",
+        path: app.getPath('exe')
+    });
+    if (openOnStartup) {
+        autoLauncher.enable();
+    } else {
+        autoLauncher.disable();
+    }
+}
+
+function matchOpenOnStartup(event, openOnStartup) {
+    let AutoLaunch = require("auto-launch");
+    let autoLauncher = new AutoLaunch({
+        name: "WeekToDo Planner",
+        path: app.getPath('exe')
+    });
+
+    autoLauncher
+        .isEnabled()
+        .then((isEnabled) => {
+            if (openOnStartup != isEnabled) {
+                if (openOnStartup) {
+                    autoLauncher.enable();
+                } else {
+                    autoLauncher.disable();
+                }
+            }
+        })
+        .catch(function (err) {
+            throw err;
+        });
+}
 

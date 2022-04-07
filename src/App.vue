@@ -141,7 +141,6 @@ import version_json from "../public/version.json";
 import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
-import mainHelper from "./helpers/mainHelper";
 import clearDataModal from "./views/clearDataModal.vue";
 
 export default {
@@ -206,9 +205,11 @@ export default {
       if (this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen){
         setTimeout(this.showInitialNotification, 4000);
       } 
+
+      this.ipcRenderer.send('match-open-on-startup',this.$store.getters.config.openOnStartup);
+
     }
 
-    mainHelper.matchOpenOnStartStatus(this.$store.getters.config.openOnStartup);
     this.resetAppOnDayChange();
 
     setTimeout(this.refreshTodayNotifications, 4000);

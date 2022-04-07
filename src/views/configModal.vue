@@ -413,7 +413,6 @@ import exportTool from "../helpers/exportTool";
 import linkList from "../components/linkList";
 import configList from "./configList";
 import notifications from "../helpers/notifications";
-import mainHelper from "../helpers/mainHelper";
 
 export default {
   name: "configModal",
@@ -464,7 +463,10 @@ export default {
     setOpenOnStart: function () {
       this.changeConfig("openOnStartup", this.openOnStartup);
       this.$nextTick(function () {
-        mainHelper.setOpenOnStartup(this.$store.getters.config.openOnStartup);
+        if(this.isElectron()){
+         const { ipcRenderer } = require('electron');
+         ipcRenderer.send('set-open-on-startup', this.openOnStartup);
+        }
       });
     },
     playSound: function () {
