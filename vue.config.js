@@ -9,7 +9,7 @@ module.exports = {
                 linux: {
                     category: "Utility",
                     target: ["deb", "rpm"],
-                    icon: "build/icon/"
+                    icon: "build/icon.icns"
                 },
                 win: {
                     target: ["nsis"],
