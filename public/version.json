@@ -2,7 +2,7 @@
   "version": "1.7.0",
   "changes": {
     "en": {
-      "1.7.0-20220407": [
+      "1.7.0-20220411": [
         "Open task detail with middle click",
         "Opening app automatic on startup",
         "Adding app tray system",

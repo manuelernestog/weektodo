@@ -47,6 +47,7 @@ async function createWindow() {
         if (!app.isQuiting) {
             event.preventDefault();
             config.set('winBounds', mainWindow.getBounds());
+            config.set('isMaximized', mainWindow.isMaximized());
             mainWindow.hide();
         }
 
@@ -68,7 +69,11 @@ if (!gotTheLock) {
 } else {
     app.on('second-instance', (event, commandLine, workingDirectory) => {
         if (mainWindow) {
-            if (mainWindow.isMinimized()) mainWindow.restore()
+            if (mainWindow.isMinimized()) {
+                mainWindow.restore()
+            } else {
+                if (config.get('isMaximized')) mainWindow.maximize()
+            }
             mainWindow.show();
             setTimeout(hideSplashScreen, 5000);
         } else {
@@ -90,7 +95,6 @@ if (!gotTheLock) {
 
     app.on('ready', async () => {
         var iconPath;
-        console.log(process.platform);
         if (process.platform === "win32") {
             app.setAppUserModelId("WeekToDo");
             iconPath = path.join(__dirname, "/weektodo-white.ico");
@@ -104,6 +108,7 @@ if (!gotTheLock) {
         const contextMenu = Menu.buildFromTemplate([
             {
                 label: 'Open', click() {
+                    if (config.get('isMaximized')) mainWindow.maximize()
                     mainWindow.show();
                     setTimeout(hideSplashScreen, 5000);
                 }
@@ -112,6 +117,7 @@ if (!gotTheLock) {
                 label: 'Quit', click() {
                     app.isQuiting = true;
                     config.set('winBounds', mainWindow.getBounds());
+                    config.set('isMaximized', mainWindow.isMaximized());
                     app.quit();
                 }
             }
@@ -154,6 +160,7 @@ function hideSplashScreen() {
 function showCurrentWindow(event) {
     const webContents = event.sender;
     const win = BrowserWindow.fromWebContents(webContents);
+    if (config.get('isMaximized')) mainWindow.maximize()
     win.show();
 }
 
@@ -162,10 +169,6 @@ function isWindowsVisible(event) {
     const webContents = event.sender;
     const win = BrowserWindow.fromWebContents(webContents);
     event.returnValue = win.isVisible();
-}
-
-function getAppPath(event) {
-    event.returnValue = app.getPath('exe');
 }
 
 function setOpenOnStartup(event, openOnStartup) {
@@ -203,4 +206,3 @@ function matchOpenOnStartup(event, openOnStartup) {
             throw err;
         });
 }
-
