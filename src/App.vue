@@ -1,4 +1,5 @@
 <template>
+  <input class="hidden-input-for-focus" type="text">
   <div
     v-show="compatible"
     class="app-container"
@@ -88,7 +89,7 @@
       <tips-modal></tips-modal>
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
       <update-checker></update-checker>
-      <input class="hidden-input-for-focus" tabindex="0" type="text">
+
     </div>
     <div
       class="
@@ -565,4 +566,3 @@ body {
   top: -100px;
 }
 </style>
-`
