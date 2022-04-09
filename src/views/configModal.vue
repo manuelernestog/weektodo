@@ -385,7 +385,8 @@
                   <option value="ru">русский</option>
                   <option value="pl">Polski</option>
                   <option value="ar">عرب</option>
-                  <option value="zh_cn">中國人</option>
+                  <option value="zh_cn">简体中文</option>
+                  <option value="zh_tw">繁體中文</option>
                 </select>
 
                 <button class="btn mt-3" type="button" @click="goHome">

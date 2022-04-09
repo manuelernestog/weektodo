@@ -4,6 +4,7 @@ import ru from './ru.json'
 import fr from './fr.json'
 import pt from './pt.json'
 import zh_cn from './zh_cn.json'
+import zh_tw from './zh_tw.json'
 import de from './de.json'
 import it from './it.json'
 import ar from './ar.json'
@@ -18,6 +19,7 @@ export const languages = {
     fr: fr,
     pt: pt,
     zh_cn: zh_cn,
+    zh_tw: zh_tw,
     de: de,
     it: it,
     ar: ar,
