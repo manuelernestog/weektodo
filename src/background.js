@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow, Menu, Tray, ipcMain } from 'electron'
+import { app, protocol, BrowserWindow, Menu, Tray, ipcMain, nativeImage } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
@@ -97,11 +97,13 @@ if (!gotTheLock) {
         var iconPath;
         if (process.platform === "win32") {
             app.setAppUserModelId("WeekToDo");
-            iconPath = path.join(__dirname, "/weektodo-white.ico");
+            iconPath = path.join(__dirname, "/trayIcon.ico");
+        } else if (process.platform === "darwin") {
+            iconPath = nativeImage.createFromPath(path.join(__dirname, "/trayIcon.png"));
         } else {
             iconPath = isServeMode()
-                ? path.join(__dirname, "/bundled/WeekToDo-icon-white-128.png")
-                : path.join(__dirname, "/WeekToDo-icon-white-128.png")
+                ? path.join(__dirname, "/bundled/trayIcon@3x.png")
+                : path.join(__dirname, "/trayIcon@3x.png")
         }
         tray = new Tray(iconPath);
 
