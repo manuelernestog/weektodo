@@ -48,7 +48,7 @@ async function createWindow() {
             event.preventDefault();
             config.set('winBounds', mainWindow.getBounds());
             config.set('isMaximized', mainWindow.isMaximized());
-            mainWindow.hide();
+            hideWindow(mainWindow);
         }
 
         return false;
@@ -74,7 +74,7 @@ if (!gotTheLock) {
             } else {
                 if (config.get('isMaximized')) mainWindow.maximize()
             }
-            mainWindow.show();
+            showWindow(mainWindow);
             setTimeout(hideSplashScreen, 5000);
         } else {
             createWindow();
@@ -111,7 +111,7 @@ if (!gotTheLock) {
             {
                 label: 'Open', click() {
                     if (config.get('isMaximized')) mainWindow.maximize()
-                    mainWindow.show();
+                    showWindow(mainWindow);
                     setTimeout(hideSplashScreen, 5000);
                 }
             },
@@ -163,7 +163,7 @@ function showCurrentWindow(event) {
     const webContents = event.sender;
     const win = BrowserWindow.fromWebContents(webContents);
     if (config.get('isMaximized')) mainWindow.maximize()
-    win.show();
+    showWindow(win);
 }
 
 
@@ -207,4 +207,14 @@ function matchOpenOnStartup(event, openOnStartup) {
         .catch(function (err) {
             throw err;
         });
+}
+
+function showWindow(window) {
+    window.show();
+    if (process.platform === "darwin") app.dock.show();
+}
+
+function hideWindow(window) {
+    window.hide();
+    if (process.platform === "darwin") app.dock.hide();
 }
