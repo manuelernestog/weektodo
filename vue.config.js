@@ -16,7 +16,7 @@ module.exports = {
                 },
                 mac: {
                     category: "public.app-category.productivity",
-                    target: ["dmg"]
+                    target: ["dmg","pkg"]
                 }
             }
         }

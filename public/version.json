@@ -17,7 +17,10 @@
         "Improving donate view",
         "Minior UI improvment",
         "Adding notifications to task",
-        "Adding data clear confirmation modal"
+        "Adding data clear confirmation modal",
+        "Fixing traditional Chinese",
+        "Adding simplified Chinese translation",
+        "Bulding PKG for MacOS"
       ],
       "1.6.1-20220214": [
         "Fixing major bug in modal detail sub-task field edit action",
