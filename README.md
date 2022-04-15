@@ -70,23 +70,19 @@ You can support this project in several ways:
 
 ### Donate
 
-- [Paypal](https://www.paypal.com/donate/?hosted_button_id=TVWQZVZDCBSK2)
-- [QvaPay](https://qvapay.com/payme/merodriguez9112)
-- [Ko-fi](https://ko-fi.com/manuelernestogr)
+https://support.weektodo.me
 
 ### Share
 
 - [Facebook](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.me%2F)
 - [Twitter](https://twitter.com/intent/tweet?url=https%3A%2F%2Fweektodo.me%2F&text=)
 - [Linkedin](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweektodo.me%2F&title=)
-- [Pinteres](http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweektodo.me%2F&media=&description=)
 
 ### Rate the app
 
-- [AlternativeTo](https://alternativeto.net/software/weektodo/about/)
 - [ProductHunt](https://www.producthunt.com/posts/weektodo)
+- [AlternativeTo](https://alternativeto.net/software/weektodo/about/)
 - [SassHub](https://www.saashub.com/weektodo-reviews/new)
-- [Softpedia](https://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/WeekToDo.shtml)
 
 ### Translations
 
@@ -100,14 +96,17 @@ If this is to dificult, you can donwload this [file](translation/en.json/), tran
 
 If you want your name appears in the app contributors credits you can add your name, a profile link and a profile picture link in the PR comment or in the email body.
 
+  
+## Repo Information
+
+The code of this repo belongs to the app landing page and not to the application. THe repo it's used to manage the versions of the app, the translations and get feedbacks and PR. For now the WeekTodo it is a Freeware application and not open source.
 
 ## Author
 
-- [Manuel Ernesto](https://manuelernestogr.bio.link/)
+- [Manuel Ernesto Garcia](https://manuelernestogr.bio.link/)
 
-  
-## License
+## Contributors
 
-[MIT](LICENSE)
+
 
   
