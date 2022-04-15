@@ -13,11 +13,23 @@
     "calendar": "Kalendarz",
     "zoom": "Powiększ",
     "columns": "Kolumny",
-    "goToNewDomain": "Przenosimy witrynę WeekToDo do nowej domeny, a ta zostanie wkrótce wycofana. Zacznij uzyskiwać dostęp do WeekToDo z nowej nazwy domeny. Aby przenieść swoje dane, musisz je wyeksportować tutaj, a następnie zaimportować do innej domeny z menu konfiguracyjnego. Przepraszamy za wszelkie niedogodności z tym związane."
+    "goToNewDomain": "Zmieniamy witrynę WeekToDo na nową domenę, a ta zostanie wycofana 1 kwietnia 2022 roku. Aby zachować swoje dane, musisz je wyeksportować z tej domeny, a następnie zaimportować w nowej domenie (Z menu konfiguracyjnego). Pamiętaj, że jeśli nie przeniesiesz danych, utracisz informacje, które Twoja przeglądarka przechowuje w tej domenie. Przepraszamy za wszelkie niedogodności z tym związane.",
+    "gotoNewDomainBtn": "Przejdź do nowej domeny",
+    "general": "Ogólny",
+    "notifications": "Powiadomienia",
+    "display": "Wyświetlacz",
+    "openOnStartup": "Otwórz przy starcie",
+    "notificationOnStartup": "Powiadomienie o uruchomieniu",
+    "notificationSound": "Dźwięk powiadomienia",
+    "clearData": "Wyczyść dane",
+    "exportBackup": "Eksportuj kopię zapasową",
+    "importBackup": "Importuj kopię zapasową",
+    "clearDataDetails": "Czy na pewno chcesz usunąć wszystkie dane aplikacji? To działanie jest nieodwracalne."
   },
   "donate": {
     "contribute": "Wsparcie",
-    "mainMessage": "WeektoDo jest całkowicie darmową aplikacją. Możesz wesprzeć ten projekt poprzez niewielką wpłatę. Dziękujemy za użytkowanie WeekToDo!",
+    "contributeSponsor": "Wkład / Sponsor",
+    "mainMessage": "WeektoDo to całkowicie darmowa aplikacja wspierana przez wkład jej użytkowników. Jeśli podoba Ci się WeekToDo, rozważ wsparcie projektu dowolnym wkładem. Dziękujemy za skorzystanie z WeekToDo!",
     "comment": "Wyślij uwagi",
     "crypto": "Krypto",
     "goBack": "Cofnij",
@@ -41,7 +53,11 @@
     "version": "Wersja",
     "desc": "WeekToDo jest minimalnym tygodniowym menadżerem zadań skoncentrowanym na prywatności.",
     "site": "Odwiedź stronę",
-    "contributors": "Współtwórcy"
+    "contributors": "Współtwórcy",
+    "sponsors": "Sponsorzy",
+    "collaborators": "Współpracownicy",
+    "email": "E-mail",
+    "blog": "Blog"
   },
   "generatedData": {
     "data2": "Kliknij, aby zakończyć zadanie",
@@ -57,6 +73,7 @@
     "list2": "Lista zakupów",
     "list3": "Pomysły",
     "data11": "Kliknij trzy kropki, aby zobaczyć więcej szczegółów na temat tego zadania",
+    "data12": "Szybko otwórz szczegóły zadania środkowym kliknięciem myszy",
     "subtask1": "Jestem podzadaniem",
     "subtask2": "Kliknij, aby zakończyć podzadanie",
     "desc1": "Tutaj możesz ustawić swoje notatki na temat tego zadania. Kliknij dwukrotnie, aby edytować notatki."
@@ -129,5 +146,11 @@
     "taskRemoved": "Task Removed !!!",
     "taskDuplicated": "Task Duplicated !!!",
     "duplicate": "Duplicate"
+  },
+  "notifications": {
+    "noPendingTasksToday": "Nie masz dzisiaj zaplanowanych zadań.",
+    "pendingTasksYesterday": "Masz wczoraj {0} oczekujących zadań.",
+    "pendingTasksToday": "Masz dzisiaj {0} zaplanowanych zadań.",
+    "pendingTasksYesterdayAndToday": "Masz {0} oczekujących zadań wczoraj i {1} zaplanowanych zadań na dzisiaj."
   }
 }

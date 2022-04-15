@@ -13,11 +13,23 @@
     "calendar": "Calendar",
     "zoom": "Zoom",
     "columns": "Columns",
-    "goToNewDomain": "We are migrating the WeekToDo website to a new domain and this one will be discontinued shortly. Please start accessing WeekToDo from the new domain name. To move your data you must export it here and then import it into the other domain from the configuration menu. Sorry for any inconvenience this may cause."
+    "goToNewDomain": "We are changing the WeekToDo website to a new domain and this one will be discontinued on April 1st 2022. In order to keep your data, you must export it from this domain and then import it in the new domain (From the configuration menu). Keep in mind that if you do not migrate data, you will lose the information your browser stores in this domain. Sorry for any inconvenience this may cause.",
+    "gotoNewDomainBtn": "Go to new domain",
+    "general": "General",
+    "notifications": "Notifications",
+    "display": "Display",
+    "openOnStartup": "Open on startup",
+    "notificationOnStartup": "Notification on startup",
+    "notificationSound": "Notification sound",
+    "clearData": "Clear data",
+    "exportBackup": "Export backup",
+    "importBackup": "Import backup",
+    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible."
   },
   "donate": {
     "contribute": "Contribute",
-    "mainMessage": "WeektoDo is a completely free application. You can support this project with a small contribution. Thanks for using WeekToDo!",
+    "contributeSponsor": "Contribute / Sponsor",
+    "mainMessage": "WeektoDo is a completely free application supported by the contribution of its users. If you enjoy WeekToDo consider supporting the project with whatever contribution you wish. Thanks for using WeekToDo!",
     "comment": "Send feedback",
     "crypto": "Cripto",
     "goBack": "Go Back",
@@ -41,7 +53,11 @@
     "version": "Version",
     "desc": "WeekToDo is a Minimalist Weekly Planner focused on privacy.",
     "site": "Visit Website",
-    "contributors": "Contributors"
+    "contributors": "Contributors",
+    "sponsors": "Sponsors",
+    "collaborators": "Collaborators",
+    "email": "E-mail",
+    "blog": "Blog"
   },
   "generatedData": {
     "data2": "Click to complete task",
@@ -53,10 +69,11 @@
     "data8": "You can also hide them in the settings menu",
     "data9": "Apples",
     "data10": "Soft drinks",
+    "data11": "Click the three dots for see more details about this task",
+    "data12": "Open task details quickly with the middle mouse click",
     "list1": "Custom List",
     "list2": "Grocery List",
     "list3": "Ideas",
-    "data11": "Click the three dots for see more details about this task",
     "subtask1": "I'm a subtask",
     "subtask2": "Click to complete subtask",
     "desc1": "Here you can set your notes about this task. Double click to edit the notes."
@@ -130,5 +147,11 @@
     "taskDuplicated": "Task Duplicated !!!",
     "duplicate": "Duplicate",
     "subtasks": "Subtasks"
+  },
+  "notifications": {
+    "noPendingTasksToday": "You have no scheduled tasks today.",
+    "pendingTasksYesterday": "You have {0} pending tasks yesterday.",
+    "pendingTasksToday": "You have {0} scheduled tasks today.",
+    "pendingTasksYesterdayAndToday": "You have {0} pending tasks yesterday and {1} scheduled tasks today."
   }
 }

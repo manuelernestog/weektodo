@@ -13,11 +13,23 @@
     "calendar": "Calendario",
     "zoom": "Zoom",
     "columns": "Columnas",
-    "goToNewDomain": "Estamos migrando el sitio web de WeekToDo a un nuevo dominio y este dejará de estar disponible en breve. Comience a acceder a WeekToDo desde el nuevo nombre de dominio. Para mover sus datos debe exportarlos aquí y luego importarlos al otro dominio desde el menú de configuración. Lamentamos cualquier inconveniente que esto pueda causar."
+    "goToNewDomain": "Estamos cambiando el sitio web de WeekToDo a un nuevo dominio y este se suspenderá el 1 de abril de 2022. Para conservar sus datos, debe exportarlos desde este dominio y luego importarlos en el nuevo dominio (Desde el menú de configuración). Tenga en cuenta que si no migra los datos, perderá la información que su navegador almacena en este dominio. Lamentamos cualquier inconveniente que esto pueda causar.",
+    "gotoNewDomainBtn": "Ir al nuevo dominio",
+    "general": "General",
+    "notifications": "Notificaciones",
+    "display": "Visual",
+    "openOnStartup": "Abrir al iniciar",
+    "notificationOnStartup": "Notificación al inicio",
+    "notificationSound": "Sonido de notificación",
+    "clearData": "Borrar datos",
+    "exportBackup": "Exportar copia de seguridad",
+    "importBackup": "Importar copia de seguridad",
+    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible."
   },
   "donate": {
     "contribute": "Contribuir",
-    "mainMessage": "WeektoDo es una aplicación completamente gratuita. Puede apoyar este proyecto con una pequeña contribución. Gracias por utilizar WeekToDo!",
+    "contributeSponsor": "Contribute / Sponsor",
+    "mainMessage": "WeektoDo es una aplicación completamente gratuita sostenida con el aporte de sus usuarios. Si disfrutas WeekToDo considera apoyar el proyecto con el aporte que desees. Gracias por utilizar WeekToDo!",
     "comment": "Enviar Comentario",
     "crypto": "Cripto",
     "goBack": "Ir Atrás",
@@ -26,6 +38,7 @@
     "copy": "Copiar",
     "copiedAddres": "Dirección Copiada!!!",
     "share": "Compartir",
+    "shareWithFriends": "Compartir con Amigos",
     "rate": "Puntuar",
     "cryptocurrencies": "Criptomonedas",
     "buyMeACoffee": "Cómprame un Café",
@@ -41,7 +54,11 @@
     "version": "Versión",
     "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad.",
     "site": "Visitar Sitio Web",
-    "contributors": "Colaboradores"
+    "contributors": "Contribuidores",
+    "sponsors": "Patrocinadores",
+    "collaborators": "Colaboradores",
+    "email": "Correo Electrónico",
+    "blog": "Blog"
   },
   "generatedData": {
     "data2": "Click para completar tarea",
@@ -57,6 +74,7 @@
     "list2": "Lista de Compras",
     "list3": "Ideas",
     "data11": "Haga clic en los tres puntos para ver más detalles sobre esta tarea",
+    "data12": "Abra los detalles de la tarea rápidamente con el clic central del mouse",
     "subtask1": "Soy una subtarea",
     "subtask2": "Click to complete subtask.",
     "desc1": "Aquí puede configurar sus notas sobre esta tarea. Haga doble clic para editar las notas."
@@ -130,5 +148,11 @@
     "taskDuplicated": "Tarea Duplicada !!!",
     "duplicate": "Duplicar",
     "subtasks": "Subtareas"
+  },
+  "notifications": {
+    "noPendingTasksToday": "No tienes tareas programadas hoy.",
+    "pendingTasksYesterday": "Tienes {0} tareas pendientes ayer.",
+    "pendingTasksToday": "Tienes {0} tareas programadas hoy.",
+    "pendingTasksYesterdayAndToday": "Tienes {0} tareas pendientes ayer y {1} tareas programadas hoy."
   }
 }

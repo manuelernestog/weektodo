@@ -13,11 +13,23 @@
     "calendar": "Calendário",
     "zoom": "Ampliação",
     "columns": "Colunas",
-    "goToNewDomain": "Estamos migrando o site WeekToDo para um novo domínio e este será descontinuado em breve. Comece a acessar WeekToDo a partir do novo nome de domínio. Para mover seus dados, você deve exportá-los aqui e, em seguida, importá-los para o outro domínio a partir do menu de configuração. Desculpe por qualquer inconveniente que isso possa causar."
+    "goToNewDomain": "Estamos mudando o site WeekToDo para um novo domínio e este será descontinuado em 1º de abril de 2022. Para manter seus dados, você deve exportá-los deste domínio e depois importá-los no novo domínio (no menu de configuração). Lembre-se de que, se você não migrar dados, perderá as informações que seu navegador armazena neste domínio. Desculpe por qualquer inconveniente que isso possa causar.",
+    "gotoNewDomainBtn": "Ir para o novo domínio",
+     "general": "Em geral",
+    "notifications": "Notificações",
+    "display": "Tela",
+    "openOnStartup": "Abrir na inicialização",
+    "notificationOnStartup": "Notificação na inicialização",
+    "notificationSound": "Som de notificação",
+    "clearData": "Apagar os dados",
+    "exportBackup": "Exportar backup",
+    "importBackup": "Importar backup",
+    "clearDataDetails": "Tem certeza de que deseja excluir todos os dados do aplicativo? Esta ação é irreversível."
   },
   "donate": {
     "contribute": "Contribuir",
-    "mainMessage": "WeektoDo é um aplicativo totalmente gratuito. Você pode apoiar este projeto com uma pequena contribuição. Obrigado por usar o WeekToDo!",
+    "contributeSponsor": "Contribuir / Patrocinar",
+    "mainMessage": "WeektoDo é um aplicativo totalmente gratuito apoiado pela contribuição de seus usuários. Se você gosta do WeekToDo, considere apoiar o projeto com qualquer contribuição que desejar. Obrigado por usar o WeekToDo!",
     "comment": "Enviar comentário",
     "crypto": "Cripto",
     "goBack": "Voltar",
@@ -41,7 +53,11 @@
     "version": "Versão",
     "desc": "WeekToDo é um planejador semanal minimalista focado na privacidade.",
     "site": "Visite o site",
-    "contributors": "Contribuidores"
+    "contributors": "Contribuidores",
+    "sponsors": "Patrocinadores",
+    "collaborators": "Contribuidores",
+    "email": "E-mail",
+    "blog": "Blogue"
   },
   "generatedData": {
     "data2": "Clique para concluir a tarefa",
@@ -57,6 +73,7 @@
     "list2": "Lista de compras",
     "list3": "Idéias",
     "data11": "Clique nos três pontos para ver mais detalhes sobre esta tarefa",
+    "data12": "Abra os detalhes da tarefa rapidamente com o clique do meio do mouse",
     "subtask1": "Eu sou uma subtarefa",
     "subtask2": "Clique para completar a subtarefa",
     "desc1": "Aqui você pode definir suas notas sobre esta tarefa. Clique duas vezes para editar as notas."
@@ -129,5 +146,11 @@
     "taskRemoved": "Tarefa removida !!!",
     "taskDuplicated": "Tarefa Duplicada !!!",
     "duplicate": "Duplicado"
+  },
+  "notifications": {
+    "noPendingTasksToday": "Você não tem tarefas agendadas hoje.",
+    "pendingTasksYesterday": "Você tem {0} tarefas pendentes ontem.",
+    "pendingTasksToday": "Você tem {0} tarefas agendadas hoje.",
+    "pendingTasksYesterdayAndToday": "Você tem {0} tarefas pendentes ontem e {1} tarefas agendadas hoje."
   }
 }
