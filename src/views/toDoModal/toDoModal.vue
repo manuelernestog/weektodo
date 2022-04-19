@@ -101,7 +101,10 @@
               class="header-menu-icons"
               @click="changeAlarm"
             ></i>
-            <!-- <i class="bi-arrow-repeat header-menu-icons"></i> -->
+                <repeating-event
+              :time="todo.time"
+              @time-selected="changeTime"
+            ></repeating-event>
             <color-picker
               :color="todo.color"
               @color-selected="changeColor"
@@ -324,6 +327,7 @@ import { Toast } from "bootstrap";
 import toastMessage from "../../components/toastMessage";
 import colorPicker from "./colorPicker";
 import timePicker from "./timePicker";
+import repeatingEvent from "./repeatingEvent";
 import notifications from "../../helpers/notifications";
 
 export default {
@@ -360,6 +364,7 @@ export default {
     Markdown,
     toastMessage,
     timePicker,
+    repeatingEvent,
   },
   methods: {
     removeSubTask: function (index) {

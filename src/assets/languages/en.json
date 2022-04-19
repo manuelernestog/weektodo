@@ -146,7 +146,14 @@
     "taskRemoved": "Task Removed !!!",
     "taskDuplicated": "Task Duplicated !!!",
     "duplicate": "Duplicate",
-    "subtasks": "Subtasks"
+    "subtasks": "Subtasks",
+    "interval": "Interval:",
+    "indefinitely": "Indefinitely",
+    "occurrences": "Occurrences",
+    "untilDate": "Until Date",
+    "done": "Done",
+    "cancel": "Cancel"
+
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",
