@@ -183,6 +183,8 @@ export default {
     );
     this.$store.commit("loadConfig", configRepository.load());
     this.$i18n.locale = this.$store.getters.config.language;
+
+    this.$store.dispatch("loadAllRepeatingEvent");
   },
   mounted() {
     this.$refs.weekListContainer.scrollLeft = this.todoListWidth();

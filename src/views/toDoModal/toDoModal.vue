@@ -1,56 +1,26 @@
 <template>
-  <div
-    class="modal fade"
-    id="toDoModal"
-    data-backdrop="static"
-    data-keyboard="false"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="toDoModal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex">
           <div class="todo-list-selector">
             <div class="d-flex align-items-center">
-              <div
-                v-show="showingCalendar"
-                class="align-items-center date-picker-btn"
-                @click="showCalendar()"
-              >
+              <div v-show="showingCalendar" class="align-items-center date-picker-btn" @click="showCalendar()">
                 <i class="bi-calendar-event mx-2"></i>
-                <datepicker
-                  id="todo-date-picker-input"
-                  class="py-2"
-                  v-model="pickedDate"
-                  :locale="language"
-                />
+                <datepicker id="todo-date-picker-input" class="py-2" v-model="pickedDate" :locale="language" />
               </div>
-              <div
-                v-show="!showingCalendar"
-                class="align-items-center date-picker-btn"
-              >
-                <div
-                  data-bs-toggle="dropdown"
-                  class="align-items-center date-picker-btn py-2"
-                >
+              <div v-show="!showingCalendar" class="align-items-center date-picker-btn">
+                <div data-bs-toggle="dropdown" class="align-items-center date-picker-btn py-2">
                   <i class="bi-view-list mx-2"></i>
                   <div id="todo-list-select">{{ pickedCListName }}</div>
                 </div>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                  <li
-                    v-for="option in cListOptions"
-                    :key="option.listId"
-                    :value="option.listId"
-                  >
-                    <button
-                      class="dropdown-item"
-                      type="button"
-                      @click="pickedCList = option.listId"
-                    >
+                  <li v-for="option in cListOptions" :key="option.listId" :value="option.listId">
+                    <button class="dropdown-item" type="button" @click="pickedCList = option.listId">
                       <i
                         class="bi-check2"
                         :style="{
-                          visibility:
-                            option.listId == pickedCList ? 'visible' : 'hidden',
+                          visibility: option.listId == pickedCList ? 'visible' : 'hidden',
                         }"
                       ></i>
                       <span>{{ option.listName }}</span>
@@ -60,29 +30,16 @@
               </div>
               <div v-if="showCL && showCal" class="d-flex align-items-center">
                 <div class="selector-divider"></div>
-                <i
-                  id="btnGroupDrop1"
-                  class="bi-chevron-down p-2"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                ></i>
+                <i id="btnGroupDrop1" class="bi-chevron-down p-2" type="button" data-bs-toggle="dropdown"></i>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                   <li>
-                    <button
-                      class="dropdown-item"
-                      type="button"
-                      @click="showingCalendar = true"
-                    >
+                    <button class="dropdown-item" type="button" @click="showingCalendar = true">
                       <i class="bi-calendar-check"></i>
                       <span>{{ $t("settings.calendar") }}</span>
                     </button>
                   </li>
                   <li>
-                    <button
-                      class="dropdown-item"
-                      type="button"
-                      @click="showingCalendar = false"
-                    >
+                    <button class="dropdown-item" type="button" @click="showingCalendar = false">
                       <i class="bi-view-list"></i>
                       <span>{{ $t("settings.customLists") }}</span>
                     </button>
@@ -92,33 +49,25 @@
             </div>
           </div>
           <div class="d-flex ms-auto align-items-center">
-            <time-picker
-              :time="todo.time"
-              @time-selected="changeTime"
-            ></time-picker>
+            <time-picker :time="todo.time" @time-selected="changeTime"></time-picker>
             <i
               :class="{ 'bi-bell': !todo.alarm, 'bi-bell-fill': todo.alarm }"
               class="header-menu-icons"
               @click="changeAlarm"
             ></i>
-                <repeating-event
-              :time="todo.time"
-              @time-selected="changeTime"
+            <repeating-event
+              :repeatingEvent="todo.repeatingEvent"
+              :todo="todo"
+              @repeatingEventSelected="changeRepeatingEvent"
             ></repeating-event>
-            <color-picker
-              :color="todo.color"
-              @color-selected="changeColor"
-            ></color-picker>
+            <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i
               id="btnTaskOptionMenu"
               class="bi-three-dots-vertical header-menu-icons"
               type="button"
               data-bs-toggle="dropdown"
             ></i>
-            <ul
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="btnTaskOptionMenu"
-            >
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
               <li>
                 <button class="dropdown-item" type="button" @click="copyTodo">
                   <i class="bi-clipboard"></i>
@@ -126,32 +75,19 @@
                 </button>
               </li>
               <li>
-                <button
-                  class="dropdown-item"
-                  type="button"
-                  @click="duplicateTodo"
-                  data-bs-dismiss="modal"
-                >
+                <button class="dropdown-item" type="button" @click="duplicateTodo" data-bs-dismiss="modal">
                   <i class="bi-back"></i>
                   <span>{{ $t("todoDetails.duplicate") }}</span>
                 </button>
               </li>
               <li>
-                <button
-                  class="dropdown-item"
-                  type="button"
-                  @click="removeTodo"
-                  data-bs-dismiss="modal"
-                >
+                <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.remove") }}</span>
                 </button>
               </li>
             </ul>
             <div>
-              <i
-                class="bi-x close-modal header-menu-icons"
-                data-bs-dismiss="modal"
-              ></i>
+              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal"></i>
             </div>
           </div>
         </div>
@@ -203,24 +139,13 @@
                   @blur="doneEditDescription"
                 >
                 </textarea>
-                <i
-                  class="bi-markdown-fill"
-                  @mousedown="goToMarkDown"
-                  :title="$t('todoDetails.markdown')"
-                ></i>
+                <i class="bi-markdown-fill" @mousedown="goToMarkDown" :title="$t('todoDetails.markdown')"></i>
               </div>
-              <div
-                v-show="!editingDescription && todo.desc != ''"
-                class="mt-2 todo-description"
-                @dblclick="editDescription"
-              >
+              <div v-show="!editingDescription && todo.desc != ''" class="mt-2 todo-description" @dblclick="editDescription">
                 <Markdown :source="todo.desc" />
               </div>
               <div
-                v-show="
-                  !editingDescription &&
-                  todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') == ''
-                "
+                v-show="!editingDescription && todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') == ''"
                 @dblclick="editDescription"
                 class="description-empty mt-2"
               >
@@ -231,21 +156,9 @@
           <div class="mt-3"></div>
           <div class="horizontal-divider mb-0 mt-3"></div>
           <ul class="sub-tasks">
-            <li
-              v-for="(subTask, index) in todo.subTaskList"
-              :key="index"
-              class="sub-task"
-            >
-              <div
-                v-show="!subTask.editing"
-                draggable="true"
-                @dragstart="startDrag($event, index)"
-                @dragover.prevent
-              >
-                <div
-                  class="d-flex flex-row align-items-center"
-                  :class="{ checked: subTask.checked }"
-                >
+            <li v-for="(subTask, index) in todo.subTaskList" :key="index" class="sub-task">
+              <div v-show="!subTask.editing" draggable="true" @dragstart="startDrag($event, index)" @dragover.prevent>
+                <div class="d-flex flex-row align-items-center" :class="{ checked: subTask.checked }">
                   <input
                     class="form-check-input flex-grow-1 mx-3 mt-0"
                     type="checkbox"
@@ -263,11 +176,7 @@
                     @dragover.prevent
                     >{{ subTask.text }}</label
                   >
-                  <i
-                    class="bi-trash mx-2"
-                    :title="$t('ui.remove')"
-                    @click="removeSubTask(index)"
-                  ></i>
+                  <i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeSubTask(index)"></i>
                 </div>
               </div>
               <input
@@ -281,9 +190,7 @@
               />
             </li>
             <div class="new-sub-task d-flex align-items-center">
-              <label for="new-sub-task"
-                ><i class="bi-plus-square mx-3"></i
-              ></label>
+              <label for="new-sub-task"><i class="bi-plus-square mx-3"></i></label>
               <input
                 type="text"
                 id="new-sub-task"
@@ -302,18 +209,9 @@
     </div>
   </div>
 
-  <toast-message
-    id="copiedTaskToClipboard"
-    :text="$t('todoDetails.copiedTaskToClipboard')"
-  ></toast-message>
-  <toast-message
-    id="taskRemoved"
-    :text="$t('todoDetails.taskRemoved')"
-  ></toast-message>
-  <toast-message
-    id="taskDuplicated"
-    :text="$t('todoDetails.taskDuplicated')"
-  ></toast-message>
+  <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
+  <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')"></toast-message>
+  <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
 </template>
 
 <script>
@@ -456,7 +354,7 @@ export default {
     updateTodo: function () {
       this.updateTodoList(this.todo.listId, this.todoList);
     },
-     updateTodoList: function (todoListId,TodoList) {
+    updateTodoList: function (todoListId, TodoList) {
       notifications.refreshDayNotifications(this, todoListId);
       toDoListRepository.update(todoListId, TodoList);
     },
@@ -512,10 +410,7 @@ export default {
         toDoListId: this.todo.listId,
         index: this.index,
       });
-      this.updateTodoList(
-        this.todo.listId,
-        this.$store.getters.todoLists[this.todo.listId]
-      );
+      this.updateTodoList(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
       let toast = new Toast(document.getElementById("taskRemoved"));
       toast.show();
     },
@@ -534,10 +429,7 @@ export default {
         repeatingEvent: null,
       };
       this.$store.commit("addTodo", newTodo);
-      this.updateTodoList(
-        this.todo.listId,
-        this.$store.getters.todoLists[this.todo.listId]
-      );
+      this.updateTodoList(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
       let toast = new Toast(document.getElementById("taskDuplicated"));
       toast.show();
     },
@@ -580,6 +472,10 @@ export default {
         this.updateTodo();
       }
     },
+    changeRepeatingEvent(repeatingEvent) {
+        this.todo.repeatingEvent = repeatingEvent;
+        this.updateTodo();
+    },
   },
   watch: {
     selectedTodo: function (newVal) {
@@ -596,11 +492,7 @@ export default {
         this.todo["alarm"] = false;
         this.todo["repeatingEvent"] = null;
       }
-      this.showingCalendar = moment(
-        this.todo.listId,
-        "YYYYMMDD",
-        true
-      ).isValid();
+      this.showingCalendar = moment(this.todo.listId, "YYYYMMDD", true).isValid();
       this.getCListOptions();
       if (this.showingCalendar) {
         this.pickedCList = "";

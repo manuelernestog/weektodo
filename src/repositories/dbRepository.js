@@ -1,9 +1,15 @@
 export default {
     open() {
-        var req = indexedDB.open('weekToDo', 1);
+        var req = indexedDB.open('weekToDo', 3);
         req.onupgradeneeded = function (event) {
-            let db = event.target.result;
-            db.createObjectStore('todo_lists', {autoIncrement: false});
+            var db = event.target.result;
+            if (!db.objectStoreNames.contains("todo_lists")) {
+                db.createObjectStore('todo_lists', {autoIncrement: false});
+            }
+
+            if (!db.objectStoreNames.contains("repeating_events")) {
+                db.createObjectStore('repeating_events', {autoIncrement: false});
+            }
         }
         req.onerror = function (event) {
             console.log('error opening database ' + event.target.errorCode);

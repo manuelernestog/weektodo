@@ -152,8 +152,12 @@
     "occurrences": "Occurrences",
     "untilDate": "Until Date",
     "done": "Done",
-    "cancel": "Cancel"
-
+    "cancel": "Cancel",
+    "noRepeat": "No Repeat",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "yearly": "Yearly"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",
