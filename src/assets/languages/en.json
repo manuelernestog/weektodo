@@ -135,7 +135,9 @@
     "postpone": "Postpone",
     "newVersionAvailable": "New Version Available",
     "download": "(Download)",
-    "sponsoredBy": "Sponsored by"
+    "sponsoredBy": "Sponsored by",
+    "updateAll": "Update All",
+    "removeAll": "Delete All"
   },
   "todoDetails": {
     "taskTitle": "Task title",

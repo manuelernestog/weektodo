@@ -135,6 +135,7 @@ export default {
         end_date: rule.options.until,
         repeating_rule: rule.toString(),
         type: this.repeatingType,
+        ocurrencesType: this.ocurrencesType,
         data: this.todo,
         id: repeatingEventId,
         generated_dates: [],
@@ -170,6 +171,11 @@ export default {
         if (this.untilDate) this.ocurrencesType == "untilDate";
       } else {
         this.repeatingType = "";
+        this.ocurrencesType = "";
+        this.interval = 1;
+        this.untilDate = "";
+        this.ocurrences = null;
+        this.untilDate = null;
       }
     },
   },
