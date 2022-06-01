@@ -42,9 +42,6 @@
       </div>
 
       <div class="d-flex flex-row re-form-row re-input">
-        <button type="button" class="btn flex-fill" @click="cancel">
-          {{ $t("todoDetails.cancel") }}
-        </button>
         <button type="button" class="btn flex-fill" @click="done">
           {{ $t("todoDetails.done") }}
         </button>

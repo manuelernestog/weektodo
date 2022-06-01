@@ -312,20 +312,20 @@ export default {
 }
 
 .todo-item:hover {
-  background-color: #fdfdfd;
+  background-color: #ffffff;
   color: #1e1e1e;
-  border-radius: 5px;
+  border-radius: 9px;
   position: relative;
   transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.08),
-    0 1px 3px 1px rgba(66, 66, 66, 0.16);
-  border-radius: 3px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .dark-theme .todo-item:hover {
-  background-color: #161b22;
+  background-color: #21262d;
   color: #f7f7f7;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10);
 }
+
 
 .checked-todo {
   color: #c4c4c4;
@@ -431,6 +431,10 @@ export default {
 
 .dragging .todo-item .item-text {
   height: 1.2rem;
+}
+
+.dark-theme .dragging .todo-item {
+  border-radius: 0px;
 }
 
 .dragging .sub-tasks {

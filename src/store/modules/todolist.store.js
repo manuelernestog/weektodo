@@ -1,7 +1,7 @@
 import dbRepository from "../../repositories/dbRepository";
 
 const state = {
-    todoLists: [],
+    todoLists: {},
     cTodoListIds: []
 }
 

@@ -1,10 +1,6 @@
 <template>
-  <input class="hidden-input-for-focus" type="text">
-  <div
-    v-show="compatible"
-    class="app-container"
-    :class="{ 'dark-theme': darkTheme }"
-  >
+  <input class="hidden-input-for-focus" type="text" />
+  <div v-show="compatible" class="app-container" :class="{ 'dark-theme': darkTheme }">
     <div class="hidden-mobile app-body" :style="{ zoom: `${zoom}%` }">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
@@ -17,24 +13,11 @@
           ref="calendarContainer"
           :class="{ 'full-screen': !showCustomList }"
         >
-          <i
-            class="bi-chevron-left slider-btn"
-            ref="weekLeft"
-            @click="weekMoveLeft"
-          ></i>
+          <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
-            <to-do-list
-              v-for="date in dates_array"
-              :key="date"
-              :id="date"
-              :showCustomList="showCustomList"
-            ></to-do-list>
+            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
           </div>
-          <i
-            class="bi-chevron-right slider-btn"
-            ref="weekRight"
-            @click="weekMoveRight"
-          ></i>
+          <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
         </div>
 
         <div
@@ -89,32 +72,13 @@
       <tips-modal></tips-modal>
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
       <update-checker></update-checker>
-
     </div>
-    <div
-      class="
-        mobile
-        d-flex
-        flex-column
-        justify-content-center
-        align-items-center
-      "
-    >
+    <div class="mobile d-flex flex-column justify-content-center align-items-center">
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
       <h3 style="text-align: center">{{ $t("ui.mobileWarning") }}</h3>
     </div>
   </div>
-  <div
-    v-if="!compatible"
-    class="
-      compatible
-      d-flex
-      flex-column
-      justify-content-center
-      align-items-center
-      p-5
-    "
-  >
+  <div v-if="!compatible" class="compatible d-flex flex-column justify-content-center align-items-center p-5">
     <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
     <h3 style="text-align: center">{{ $t("ui.compatible") }}</h3>
   </div>
@@ -177,10 +141,7 @@ export default {
     if (Notification.permission !== "denied") {
       Notification.requestPermission();
     }
-    this.$store.commit(
-      "loadCustomTodoListsIds",
-      customToDoListIdsRepository.load()
-    );
+    this.$store.commit("loadCustomTodoListsIds", customToDoListIdsRepository.load());
     this.$store.commit("loadConfig", configRepository.load());
     this.$i18n.locale = this.$store.getters.config.language;
 
@@ -196,21 +157,19 @@ export default {
       }
     };
 
-
-    if (isElectron()){
-      const { ipcRenderer } = require('electron');
+    if (isElectron()) {
+      const { ipcRenderer } = require("electron");
       this.ipcRenderer = ipcRenderer;
 
-      if (this.$store.getters.config.firstTimeOpen){
-        this.ipcRenderer.send('show-current-window');
+      if (this.$store.getters.config.firstTimeOpen) {
+        this.ipcRenderer.send("show-current-window");
       }
 
-      if (this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen){
+      if (this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen) {
         setTimeout(this.showInitialNotification, 4000);
-      } 
+      }
 
-      this.ipcRenderer.send('match-open-on-startup',this.$store.getters.config.openOnStartup);
-
+      this.ipcRenderer.send("match-open-on-startup", this.$store.getters.config.openOnStartup);
     }
 
     this.resetAppOnDayChange();
@@ -219,9 +178,7 @@ export default {
   },
   methods: {
     weekMoveLeft: function () {
-      this.selected_date = moment(this.selected_date)
-        .subtract(1, "d")
-        .format("YYYYMMDD");
+      this.selected_date = moment(this.selected_date).subtract(1, "d").format("YYYYMMDD");
       this.$refs.weekListContainer.scrollLeft = this.todoListWidth() * 2;
       this.$refs.weekListContainer.scroll({
         left: this.$refs.weekListContainer.scrollLeft - this.todoListWidth(),
@@ -230,9 +187,7 @@ export default {
       });
     },
     weekMoveRight: function () {
-      this.selected_date = moment(this.selected_date)
-        .add(1, "d")
-        .format("YYYYMMDD");
+      this.selected_date = moment(this.selected_date).add(1, "d").format("YYYYMMDD");
       this.$refs.weekListContainer.scrollLeft = 0;
       this.$refs.weekListContainer.scroll({
         left: this.$refs.weekListContainer.scrollLeft + this.todoListWidth(),
@@ -245,13 +200,10 @@ export default {
     },
     customMoveRight: function () {
       this.$refs.customListContainer.scrollLeft =
-        this.$refs.customListContainer.scrollLeft +
-        this.customTodoListWidth() -
-        13;
+        this.$refs.customListContainer.scrollLeft + this.customTodoListWidth() - 13;
     },
     customMoveLeft: function () {
-      this.$refs.customListContainer.scrollLeft =
-        this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
+      this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
     },
     todoListWidth: function () {
       return this.$refs.weekListContainer.clientWidth / this.columns;
@@ -278,11 +230,11 @@ export default {
     },
     hideSplash: function () {
       if (this.isElectron()) {
-            if (this.ipcRenderer.sendSync('is-windows-visible')) {
+        if (this.ipcRenderer.sendSync("is-windows-visible")) {
           this.$refs.splash.hideSplash();
         }
       } else {
-          this.$refs.splash.hideSplash();
+        this.$refs.splash.hideSplash();
       }
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
@@ -341,46 +293,30 @@ export default {
         icon: "/favicon.ico",
         silent: true,
       }).onclick = () => {
-         this.ipcRenderer.send('show-current-window');
+        this.ipcRenderer.send("show-current-window");
         setTimeout(() => {
           if (document.getElementById("splashScreen")) {
-            document
-              .getElementById("splashScreen")
-              .classList.add("hiddenSplashScreen");
+            document.getElementById("splashScreen").classList.add("hiddenSplashScreen");
           }
         }, 3000);
       };
-      notifications.playNotificationSound(
-        this.$store.getters.config.notificationSound
-      );
+      notifications.playNotificationSound(this.$store.getters.config.notificationSound);
     },
     initialNotificationText: function () {
-      let yesterdayTasks =
-        this.$store.getters.todoLists[
-          moment().subtract(1, "d").format("YYYYMMDD")
-        ];
-      let todayTasks =
-        this.$store.getters.todoLists[moment().format("YYYYMMDD")];
+      let yesterdayTasks = this.$store.getters.todoLists[moment().subtract(1, "d").format("YYYYMMDD")];
+      let todayTasks = this.$store.getters.todoLists[moment().format("YYYYMMDD")];
 
-      let yesterayPendingTasksCount =
-        taskHelper.pendingTasksCount(yesterdayTasks);
+      let yesterayPendingTasksCount = taskHelper.pendingTasksCount(yesterdayTasks);
       let todayPendingTasksCount = taskHelper.pendingTasksCount(todayTasks);
 
       if (yesterayPendingTasksCount == 0 && todayPendingTasksCount == 0) {
         return this.$t("notifications.noPendingTasksToday");
       } else if (yesterayPendingTasksCount == 0) {
-        return this.$t("notifications.pendingTasksToday", [
-          todayPendingTasksCount,
-        ]);
+        return this.$t("notifications.pendingTasksToday", [todayPendingTasksCount]);
       } else if (todayPendingTasksCount == 0) {
-        return this.$t("notifications.pendingTasksYesterday", [
-          yesterayPendingTasksCount,
-        ]);
+        return this.$t("notifications.pendingTasksYesterday", [yesterayPendingTasksCount]);
       } else {
-        return this.$t("notifications.pendingTasksYesterdayAndToday", [
-          yesterayPendingTasksCount,
-          todayPendingTasksCount,
-        ]);
+        return this.$t("notifications.pendingTasksYesterdayAndToday", [yesterayPendingTasksCount, todayPendingTasksCount]);
       }
     },
     resetAppOnDayChange: function () {
@@ -390,10 +326,7 @@ export default {
 
       setTimeout(
         function () {
-          if (
-            isElectron() &&
-            !this.ipcRenderer.sendSync('is-windows-visible')
-          ) {
+          if (isElectron() && !this.ipcRenderer.sendSync("is-windows-visible")) {
             window.location.reload();
           }
           this.refreshTodayNotifications();
@@ -411,9 +344,7 @@ export default {
         this.selected_date,
       ];
       for (let i = 1; i < this.columns; i++) {
-        dates_array.push(
-          moment(this.selected_date).add(i, "d").format("YYYYMMDD")
-        );
+        dates_array.push(moment(this.selected_date).add(i, "d").format("YYYYMMDD"));
       }
       return dates_array;
     },
@@ -482,6 +413,10 @@ body {
   background-color: #dddfe2;
 }
 
+.v3dp__popout {
+  border-radius: 7px;
+}
+
 .side-bar .v3dp__popout {
   margin-left: 75px;
   margin-top: 0px;
@@ -491,6 +426,8 @@ body {
   flex-grow: 1;
   display: flex;
   overflow-x: hidden;
+  height: max-content;
+  min-height: -webkit-fill-available;
 }
 
 .slides {
@@ -563,7 +500,7 @@ body {
   /*position: absolute;*/
 }
 
-.hidden-input-for-focus{
+.hidden-input-for-focus {
   position: absolute;
   top: -100px;
 }

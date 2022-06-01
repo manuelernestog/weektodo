@@ -2,6 +2,13 @@
   "version": "1.7.0",
   "changes": {
     "en": {
+      "1.8.0-20220610": [
+        "Adding repeating events",
+       "Fixing todo lists length when the column grows",
+       "Improving listing performance",
+       "Restyling Modal components",
+       "Restyling To-do hover efect"
+      ],
       "1.7.0-20220411": [
         "Open task detail with middle click",
         "Opening app automatic on startup",
