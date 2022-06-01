@@ -414,7 +414,7 @@ body {
 }
 
 .v3dp__popout {
-  border-radius: 7px;
+  border-radius: 7px !important;
 }
 
 .side-bar .v3dp__popout {
