@@ -314,10 +314,10 @@ export default {
 .todo-item:hover {
   background-color: #ffffff;
   color: #1e1e1e;
-  border-radius: 9px;
+  border-radius: 7px;
   position: relative;
   transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
 }
 
 .dark-theme .todo-item:hover {
