@@ -517,7 +517,7 @@ export default {
     },
     pickedCList: function (newVal) {
       this.moveToTodoList(newVal);
-    },
+    }
   },
   computed: {
     language: function () {
