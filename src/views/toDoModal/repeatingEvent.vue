@@ -7,10 +7,10 @@
     <div class="mx-3 d-flex flex-column drop-container">
       <select class="form-select re-input" aria-label="Default select example" v-model="repeatingType">
         <option value="">{{ $t("todoDetails.noRepeat") }}</option>
-        <option value="daily">{{ $t("todoDetails.daily") }}</option>
-        <option value="weekly">{{ $t("todoDetails.weekly") }}</option>
-        <option value="monthly">{{ $t("todoDetails.monthly") }}</option>
-        <option value="yearly">{{ $t("todoDetails.yearly") }}</option>
+        <option value="3">{{ $t("todoDetails.daily") }}</option>
+        <option value="2">{{ $t("todoDetails.weekly") }}</option>
+        <option value="1">{{ $t("todoDetails.monthly") }}</option>
+        <option value="0">{{ $t("todoDetails.yearly") }}</option>
       </select>
 
       <div v-if="repeatingType" class="d-flex flex-column">
@@ -91,33 +91,9 @@ export default {
 
       this.$emit("repeatingEventSelected", repeatingEventId);
     },
-    cancel() {
-      let reDropDown = document.getElementById("reDropDown");
-      let dropdown = new Dropdown(reDropDown);
-      dropdown.hide();
-    },
     repeatingEventRule() {
       if (!this.repeatingType) return null;
-      var ruleOptions = {};
-      var freq = null;
-      switch (this.repeatingType) {
-        case "daily":
-          freq = RRule.DAILY;
-          break;
-        case "weekly":
-          freq = RRule.WEEKLY;
-          break;
-        case "monthly":
-          freq = RRule.MONTHLY;
-          break;
-        case "yearly":
-          freq = RRule.YEARLY;
-          break;
-        default:
-          freq = RRule.DAILY;
-      }
-
-      ruleOptions = { freq: freq, interval: this.interval };
+      var ruleOptions = { freq: this.repeatingType, interval: this.interval };
 
       if (this.ocurrencesType == "ocurrences") {
         ruleOptions.count = this.ocurrences;
@@ -155,17 +131,13 @@ export default {
       let re = this.$store.getters.repeatingEventList[newVal];
       if (re) {
         const rule = rrulestr(re.repeating_rule);
-        this.repeatingType = re.type;
+        this.repeatingType = rule.options.freq;
         this.interval = rule.options.interval;
         this.ocurrences = rule.options.count;
-        if (rule.options.until) {
-          this.untilDate = rule.options.until.toLocaleDateString("en-GB").split("/").reverse().join("-");
-        } else {
-          this.untilDate = null;
-        }
-        this.ocurrencesType == "";
-        if (this.ocurrences) this.ocurrencesType == "ocurrences";
-        if (this.untilDate) this.ocurrencesType == "untilDate";
+        this.ocurrencesType = re.ocurrencesType;
+        this.untilDate = rule.options.until
+          ? rule.options.until.toLocaleDateString("en-GB").split("/").reverse().join("-")
+          : null;
       } else {
         this.repeatingType = "";
         this.ocurrencesType = "";

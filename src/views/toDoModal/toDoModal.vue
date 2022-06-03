@@ -81,12 +81,6 @@
                 </button>
               </li>
               <li><hr class="dropdown-divider"></li>
-                 <li>
-                <button class="dropdown-item" type="button"  data-bs-dismiss="modal">
-                  <i class="bi-pencil-square"></i> <span>{{ $t("ui.updateAll") }}</span>
-                </button>
-              </li>
-              <li><hr class="dropdown-divider"></li>
               <li>
                 <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.remove") }}</span>
@@ -659,6 +653,10 @@ export default {
   &:hover {
     opacity: 1;
   }
+}
+
+.dropdown-item{
+  color: #3c3c3c;
 }
 
 .todo-description {
