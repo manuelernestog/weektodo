@@ -44,19 +44,10 @@
             {{ toDo.text }}
             <span class="time-details"> {{ timeFormat(toDo.time) }}</span>
           </span>
-          <span
-            class="item-time"
-            :class="{ 'checked-todo': toDo.checked }"
-            @dblclick="editToDo"
-            @click="checkToDo"
-          >
+          <span class="item-time" :class="{ 'checked-todo': toDo.checked }" @dblclick="editToDo" @click="checkToDo">
             {{ timeFormat(toDo.time) }}
           </span>
-          <i
-            class="bi-three-dots todo-item-menu"
-            type="button"
-            @click="showToDoDetails"
-          ></i>
+          <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
           <i class="bi-x todo-item-remove" @click="removeTodo"></i>
         </div>
 
@@ -70,25 +61,10 @@
 
         <div class="todo-item-sub-tasks">
           <ul class="sub-tasks">
-            <li
-              v-for="(subTask, index) in toDo.subTaskList"
-              :key="index"
-              class="sub-task"
-            >
-              <div
-                class="d-flex flex-row mt-1"
-                :class="{ 'checked-sub-task': subTask.checked }"
-              >
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  v-model="subTask.checked"
-                />
-                <label
-                  class="form-check-label"
-                  @click="checkSubTask(subTask)"
-                  >{{ subTask.text }}</label
-                >
+            <li v-for="(subTask, index) in toDo.subTaskList" :key="index" class="sub-task">
+              <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
+                <input class="form-check-input" type="checkbox" v-model="subTask.checked" />
+                <label class="form-check-label" @click="checkSubTask(subTask)">{{ subTask.text }}</label>
               </div>
             </li>
           </ul>
@@ -145,10 +121,7 @@ export default {
         index: this.index,
         text: this.text,
       });
-      toDoListRepository.update(
-        this.toDoListId,
-        this.$store.getters.todoLists[this.toDoListId]
-      );
+      toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
     },
     cancelEdit: function () {
       this.text = this.toDo.text;
@@ -160,10 +133,7 @@ export default {
         index: this.index,
       });
       notifications.refreshDayNotifications(this, this.toDoListId);
-      toDoListRepository.update(
-        this.toDoListId,
-        this.$store.getters.todoLists[this.toDoListId]
-      );
+      toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
     },
     showToDoDetails: function () {
       this.$store.commit("actionsSelectedTodoIdUpdate", {
@@ -180,10 +150,7 @@ export default {
         toDoListId: this.toDoListId,
         index: this.index,
       });
-      toDoListRepository.update(
-        this.toDoListId,
-        this.$store.getters.todoLists[this.toDoListId]
-      );
+      toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
     },
     startDrag: function (event, item, index) {
       event.dataTransfer.dropEffect = "move";
@@ -203,10 +170,7 @@ export default {
     },
     checkSubTask: function (subTask) {
       subTask.checked = !subTask.checked;
-      toDoListRepository.update(
-        this.toDoListId,
-        this.$store.getters.todoLists[this.toDoListId]
-      );
+      toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
     },
     timeFormat: function (date) {
       if (date) {
@@ -323,9 +287,8 @@ export default {
 .dark-theme .todo-item:hover {
   background-color: #21262d;
   color: #f7f7f7;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
 }
-
 
 .checked-todo {
   color: #c4c4c4;

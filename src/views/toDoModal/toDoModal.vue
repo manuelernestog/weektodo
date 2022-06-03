@@ -80,13 +80,13 @@
                   <span>{{ $t("todoDetails.duplicate") }}</span>
                 </button>
               </li>
-              <li><hr class="dropdown-divider"></li>
+              <li><hr class="dropdown-divider" /></li>
               <li>
                 <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.remove") }}</span>
                 </button>
               </li>
-                 <li>
+              <li>
                 <button class="dropdown-item" type="button" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.removeAll") }}</span>
                 </button>
@@ -357,7 +357,11 @@ export default {
     showCalendar: function () {
       document.getElementById("todo-date-picker-input").focus();
     },
-    updateTodo: function () {
+    updateTodo: function (repatingEvent = false) {
+      if (repatingEvent != true) {
+        this.todo.repeatingEvent = null;
+      }
+
       this.updateTodoList(this.todo.listId, this.todoList);
     },
     updateTodoList: function (todoListId, TodoList) {
@@ -386,6 +390,7 @@ export default {
       this.todoList.splice(this.index, 1);
       this.updateTodoList(oldListId, this.todoList);
       this.todo.listId = newListID;
+      this.todo.repeatingEvent = null;
       if (this.$store.getters.todoLists[newListID]) {
         this.$store.commit("addTodo", this.todo);
         this.todoList = this.$store.getters.todoLists[this.todo.listId];
@@ -479,8 +484,8 @@ export default {
       }
     },
     changeRepeatingEvent(repeatingEvent) {
-        this.todo.repeatingEvent = repeatingEvent;
-        this.updateTodo();
+      this.todo.repeatingEvent = repeatingEvent;
+      this.updateTodo(true);
     },
   },
   watch: {
@@ -517,7 +522,7 @@ export default {
     },
     pickedCList: function (newVal) {
       this.moveToTodoList(newVal);
-    }
+    },
   },
   computed: {
     language: function () {
@@ -655,7 +660,7 @@ export default {
   }
 }
 
-.dropdown-item{
+.dropdown-item {
   color: #3c3c3c;
 }
 

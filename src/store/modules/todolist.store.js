@@ -20,14 +20,17 @@ const mutations = {
     }
     ,
     checkTodo(state, obj) {
+        state.todoLists[obj.toDoListId][obj.index].repeatingEvent = null;
         state.todoLists[obj.toDoListId][obj.index].checked = !state.todoLists[obj.toDoListId][obj.index].checked;
     }
     ,
     addTodo(state, toDo) {
+        toDo.repeatingEvent = null;
         state.todoLists[toDo.listId].push(toDo);
     }
     ,
     updateTodo(state, obj) {
+        state.todoLists[obj.toDoListId][obj.index].repeatingEvent = null;
         state.todoLists[obj.toDoListId][obj.index].text = obj.text;
     }
     ,
@@ -36,16 +39,18 @@ const mutations = {
     }
     ,
     insertTodo(state, obj) {
+        obj.toDo.repeatingEvent = null
         state.todoLists[obj.toDoListId].splice(obj.index, 0, obj.toDo);
     }
     ,
     checkAllItems(state, toDoListId) {
-        state.todoLists[toDoListId].forEach(toDo => toDo.checked = true)
+        state.todoLists[toDoListId].forEach(toDo => {toDo.checked = true; toDo.repeatingEvent = null;})
     }
     ,
     moveUndoneItems(state, obj) {
         state.todoLists[obj.origenId].forEach(function (item) {
             if (!item.checked) {
+                item.repeatingEvent = null;
                 item.listId = obj.destinyId;
                 state.todoLists[obj.destinyId].push(item);
             }
