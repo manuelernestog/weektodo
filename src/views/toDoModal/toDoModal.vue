@@ -56,6 +56,7 @@
               @click="changeAlarm"
             ></i>
             <repeating-event
+              v-if="showingCalendar"
               :repeatingEvent="todo.repeatingEvent"
               :todo="todo"
               @repeatingEventSelected="changeRepeatingEvent"
@@ -86,7 +87,7 @@
                   <i class="bi-trash"></i> <span>{{ $t("ui.remove") }}</span>
                 </button>
               </li>
-              <li>
+              <li v-if="showingCalendar">
                 <button class="dropdown-item" type="button" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.removeAll") }}</span>
                 </button>
@@ -374,7 +375,6 @@ export default {
     moveToTodoList: function (newListID) {
       if (newListID == "Invalid date" || newListID == "") return;
 
-      //todo: cambiar todo esto cuando andicione los tablones para poder apuntar directo al customtodo por el id en memoria y no iterar
       if (moment(newListID, "YYYYMMDD", true).isValid()) {
         this.pickedCListName = "";
         this.pickedCList = "";
@@ -412,9 +412,11 @@ export default {
           newTodoList.push(instancePointer.todo);
           instancePointer.todoList = newTodoList;
           instancePointer.index = newTodoList.length - 1;
+          console.log(newListID);
+          console.log(instancePointer.todoList);
           this.updateTodoList(newListID, instancePointer.todoList);
-        };
-      };
+        }.bind(this);
+      }.bind(this);
     },
     removeTodo: function () {
       this.$store.commit("removeTodo", {

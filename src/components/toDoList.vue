@@ -16,17 +16,8 @@
     ></list-header>
     <ul class="to-do-list">
       <li v-for="(toDo, index) in toDoListState" :key="index">
-        <div
-          class="drop-zone"
-          @drop="onDrop($event, id, index)"
-          @dragover.prevent
-          @dragenter.prevent
-        >
-          <to-do-item
-            :to-do="toDo"
-            :index="index"
-            :to-do-list-id="id"
-          ></to-do-item>
+        <div class="drop-zone" @drop="onDrop($event, id, index)" @dragover.prevent @dragenter.prevent>
+          <to-do-item :to-do="toDo" :index="index" :to-do-list-id="id"></to-do-item>
         </div>
       </li>
     </ul>
@@ -49,11 +40,7 @@
           @keyup.esc="cancelAdd()"
         />
       </div>
-      <div
-        class="fake-lines"
-        :class="{ 'custom-list': customTodoList }"
-        @click="$refs.newToDoInput.focus()"
-      ></div>
+      <div class="fake-lines" :class="{ 'custom-list': customTodoList }" @click="$refs.newToDoInput.focus()"></div>
     </div>
   </div>
 </template>
@@ -129,10 +116,7 @@ export default {
         toDoListId: toDo.listId,
         index: index,
       });
-      this.updateTodoList(
-        toDo.listId,
-        this.$store.getters.todoLists[toDo.listId]
-      );
+      this.updateTodoList(toDo.listId, this.$store.getters.todoLists[toDo.listId]);
       toDo.listId = list;
       this.$store.commit("insertTodo", {
         toDoListId: list,
@@ -148,10 +132,7 @@ export default {
         toDoListId: toDo.listId,
         index: index,
       });
-      this.updateTodoList(
-        toDo.listId,
-        this.$store.getters.todoLists[toDo.listId]
-      );
+      this.updateTodoList(toDo.listId, this.$store.getters.todoLists[toDo.listId]);
       toDo.listId = list;
       this.$store.commit("addTodo", toDo);
       this.updateTodoList(list, this.$store.getters.todoLists[list]);
@@ -163,13 +144,9 @@ export default {
     },
     setTodoListHeight: function () {
       if (this.showCustomList) {
-        this.fakeItemCounts = Math.floor(
-          this.$refs.listContainer.clientHeight / 40
-        );
+        this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 40);
       } else {
-        this.fakeItemCounts = Math.floor(
-          this.$refs.listContainer.clientHeight / 34
-        );
+        this.fakeItemCounts = Math.floor(this.$refs.listContainer.clientHeight / 34);
       }
     },
     onDragenter: function () {
