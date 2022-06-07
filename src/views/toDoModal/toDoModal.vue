@@ -81,15 +81,9 @@
                   <span>{{ $t("todoDetails.duplicate") }}</span>
                 </button>
               </li>
-              <li><hr class="dropdown-divider" /></li>
               <li>
                 <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.remove") }}</span>
-                </button>
-              </li>
-              <li v-if="showingCalendar">
-                <button class="dropdown-item" type="button" data-bs-dismiss="modal">
-                  <i class="bi-trash"></i> <span>{{ $t("ui.removeAll") }}</span>
                 </button>
               </li>
             </ul>
@@ -390,7 +384,7 @@ export default {
       this.todoList.splice(this.index, 1);
       this.updateTodoList(oldListId, this.todoList);
       this.todo.listId = newListID;
-      this.todo.repeatingEvent = null;
+      // this.todo.repeatingEvent = null;
       if (this.$store.getters.todoLists[newListID]) {
         this.$store.commit("addTodo", this.todo);
         this.todoList = this.$store.getters.todoLists[this.todo.listId];
@@ -412,8 +406,6 @@ export default {
           newTodoList.push(instancePointer.todo);
           instancePointer.todoList = newTodoList;
           instancePointer.index = newTodoList.length - 1;
-          console.log(newListID);
-          console.log(instancePointer.todoList);
           this.updateTodoList(newListID, instancePointer.todoList);
         }.bind(this);
       }.bind(this);
@@ -524,7 +516,7 @@ export default {
     },
     pickedCList: function (newVal) {
       this.moveToTodoList(newVal);
-    },
+    }
   },
   computed: {
     language: function () {

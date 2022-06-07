@@ -4,10 +4,11 @@
     "en": {
       "1.8.0-20220610": [
         "Adding repeating events",
-       "Fixing todo lists length when the column grows",
-       "Improving listing performance",
-       "Restyling Modal components",
-       "Restyling To-do hover efect"
+        "Fixing todo lists length when the column grows",
+        "Improving listing performance",
+        "Restyling Modal components",
+        "Restyling To-do hover efect",
+        "Fixing bug moving to-do to date in modal"
       ],
       "1.7.0-20220411": [
         "Open task detail with middle click",

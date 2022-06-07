@@ -19,7 +19,7 @@ const mutations = {
   },
   loadRepeatingEventList(state, repeatingEventList) {
     state.repeatingEventList = repeatingEventList;
-  }
+  },
 };
 
 const actions = {
@@ -37,22 +37,24 @@ const actions = {
     };
   },
   loadAllRepeatingEvent({ commit }) {
-    let db_req = dbRepository.open();
-
-    db_req.onsuccess = function (event) {
-      let db = event.target.result;
-      let get_req = dbRepository.selectAll(db, "repeating_events");
-      var repeatingEvents = {};
-      get_req.onsuccess = function () {
-        let cursor = get_req.result;
-        if (cursor) {
-          repeatingEvents[cursor.key] = cursor.value;
-          cursor.continue();
-        } else {
-          commit("loadRepeatingEventList", repeatingEvents);
-        }
+    return new Promise((resolve) => {
+      let db_req = dbRepository.open();
+      db_req.onsuccess = function (event) {
+        let db = event.target.result;
+        let get_req = dbRepository.selectAll(db, "repeating_events");
+        var repeatingEvents = {};
+        get_req.onsuccess = function () {
+          let cursor = get_req.result;
+          if (cursor) {
+            repeatingEvents[cursor.key] = cursor.value;
+            cursor.continue();
+          } else {
+            commit("loadRepeatingEventList", repeatingEvents);
+            resolve();
+          }
+        };
       };
-    };
+    });
   },
 };
 

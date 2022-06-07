@@ -51,6 +51,7 @@ import moment from "moment";
 import toDoListRepository from "../repositories/toDoListRepository";
 import listHeader from "./listHeader";
 import notifications from "../helpers/notifications";
+import repeatingEventRepository from "../repositories/repeatingEventRepository";
 
 export default {
   components: {
@@ -79,8 +80,21 @@ export default {
   },
   beforeCreate() {
     let listId = this.id;
-    this.$store.commit("loadTodoLists", { todoListId: this.id, todoList: [] });
-    this.$store.dispatch("loadTodoLists", listId);
+    this.$store.commit("loadTodoLists", { todoListId: listId, todoList: [] });
+    this.$store.dispatch("loadTodoLists", listId).then(() => {
+      let r_events = this.$store.getters.repeatingEventDateCache[listId] || [];
+      r_events.forEach((re_id) => {
+        var re = this.$store.getters.repeatingEventList[re_id];
+        if (!re.generated_dates.includes(listId)) {
+          var new_instanced_event = JSON.parse(JSON.stringify(re.data));
+          new_instanced_event.listId = listId;
+          this.$store.commit("addTodo", new_instanced_event);
+          toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
+          re.generated_dates.push(listId);
+          repeatingEventRepository.update(re_id, re);
+        }
+      });
+    });
   },
   methods: {
     addToDo: function () {

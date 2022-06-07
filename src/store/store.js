@@ -4,6 +4,7 @@ import config from "./modules/config.store";
 import actions from "./modules/actions.store";
 import notifications from "./modules/notifications.store";
 import repeatingEvents from "./modules/repeatingEvent.store";
+import repeatingEventsDataCache from "./modules/repeatingEventDateCache.store";
 
 
 export const store = createStore({
@@ -12,7 +13,8 @@ export const store = createStore({
         todoLists: todoLists,
         actions: actions,
         notifications: notifications,
-        repeatingEvents: repeatingEvents
+        repeatingEvents: repeatingEvents,
+        repeatingEventsDataCache: repeatingEventsDataCache,
     },
     state: {},
     getters: {},

@@ -145,7 +145,11 @@ export default {
     this.$store.commit("loadConfig", configRepository.load());
     this.$i18n.locale = this.$store.getters.config.language;
 
-    this.$store.dispatch("loadAllRepeatingEvent");
+    this.$store.dispatch("loadAllRepeatingEvent").then(
+      function () {
+        this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
+      }.bind(this)
+    );
   },
   mounted() {
     this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
@@ -160,15 +164,12 @@ export default {
     if (isElectron()) {
       const { ipcRenderer } = require("electron");
       this.ipcRenderer = ipcRenderer;
-
       if (this.$store.getters.config.firstTimeOpen) {
         this.ipcRenderer.send("show-current-window");
       }
-
       if (this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen) {
         setTimeout(this.showInitialNotification, 4000);
       }
-
       this.ipcRenderer.send("match-open-on-startup", this.$store.getters.config.openOnStartup);
     }
 
