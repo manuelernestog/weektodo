@@ -114,8 +114,7 @@ export default {
         type: this.repeatingType,
         ocurrencesType: this.ocurrencesType,
         data: this.todo,
-        id: repeatingEventId,
-        generated_dates: {},
+        id: repeatingEventId
       };
 
       if (rule.options.count) {

@@ -9,6 +9,7 @@ export default {
     var data = storageRepository.as_json();
     data.todoLists = {};
     data.repeating_events = {};
+    data.repeating_events_by_date = {};
     let db_req = dbRepository.open();
 
     db_req.onsuccess = function (event) {
@@ -46,12 +47,15 @@ export default {
     storageRepository.clean();
     let db_req = dbRepository.open();
     db_req.onsuccess = function (event) {
-      let db = event.target.result;
+      var db = event.target.result;
       let request = dbRepository.clear(db, "todo_lists");
       request.onsuccess = function () {
         let request2 = dbRepository.clear(db, "repeating_events");
         request2.onsuccess = function () {
-          location.reload();
+          let request3 = dbRepository.clear(db, "repeating_events_by_date");
+          request3.onsuccess = function () {
+            location.reload();
+          };
         };
       };
     };
@@ -65,6 +69,20 @@ function getRepeatinEventData(filename, data, event) {
     let cursor = request.result;
     if (cursor) {
       data.repeating_events[cursor.key] = cursor.value;
+      cursor.continue();
+    } else {
+      getRepeatinEventByDateData(filename, data, event);
+    }
+  };
+}
+
+function getRepeatinEventByDateData(filename, data, event) {
+  var db = event.target.result;
+  let request = dbRepository.selectAll(db, "repeating_events_by_date");
+  request.onsuccess = function () {
+    let cursor = request.result;
+    if (cursor) {
+      data.repeating_events_by_date[cursor.key] = cursor.value;
       cursor.continue();
     } else {
       let string_data = JSON.stringify(data);
@@ -110,15 +128,25 @@ function importIndexedDbData(a_data, table) {
     let db = event.target.result;
     let request = dbRepository.clear(db, table);
     request.onsuccess = function () {
-        console.log(data);
       importDbRecords(db, data, table);
     };
   };
 }
 
 function importDbRecords(db, data_a, table) {
-  var keys =  (table == "todo_lists") ? Object.keys(data_a.todoLists) : Object.keys(data_a.repeating_events)
-  var data = (table == "todo_lists") ? data_a.todoLists : data_a.repeating_events
+  var keys, data;
+
+  if (table == "todo_lists") {
+    keys = Object.keys(data_a.todoLists);
+    data = data_a.todoLists;
+  } else if (table == "repeating_events") {
+    keys = Object.keys(data_a.repeating_events);
+    data = data_a.repeating_events;
+  } else {
+    keys = Object.keys(data_a.repeating_events_by_date);
+    data = data_a.repeating_events_by_date;
+  }
+
   var i = keys.length;
   var req;
 
@@ -128,6 +156,8 @@ function importDbRecords(db, data_a, table) {
   req.onsuccess = function () {
     if (table == "todo_lists") {
       importIndexedDbData(data_a, "repeating_events");
+    } else if (table == "repeating_events") {
+      importIndexedDbData(data_a, "repeating_events_by_date");
     } else {
       location.reload();
     }
