@@ -157,7 +157,7 @@ export default {
     window.addEventListener("resize", this.weekResetScroll);
     document.onreadystatechange = () => {
       if (document.readyState == "complete") {
-        setTimeout(this.hideSplash, 5000);
+        setTimeout(this.hideSplash, 4500);
       }
     };
 

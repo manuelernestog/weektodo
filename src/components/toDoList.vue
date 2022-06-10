@@ -8,6 +8,12 @@
     }"
     :style="`flex: 0 0 ${100 / columns}%;`"
   >
+    <div v-if="loading" class="loading-spinner">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
     <list-header
       :id="id"
       :customTodoList="customTodoList"
@@ -51,7 +57,7 @@ import moment from "moment";
 import toDoListRepository from "../repositories/toDoListRepository";
 import listHeader from "./listHeader";
 import notifications from "../helpers/notifications";
-import repeatingEventRepository from "../repositories/repeatingEventRepository";
+import repeatingEventHelper from "../helpers/repeatingEvents.js";
 
 export default {
   components: {
@@ -69,11 +75,20 @@ export default {
       newToDo: { text: "", checked: false },
       fakeItemCounts: 6,
       fakeItemsDragHover: false,
+      loading: false,
     };
   },
   mounted() {
     this.setTodoListHeight();
     window.addEventListener("resize", this.setTodoListHeight);
+    let listId = this.id;
+    this.loading = true;
+    this.$store.dispatch("loadTodoLists", listId).then(() => {
+      this.$store.dispatch("loadRepeatingEventGeneratedByDate", listId).then(() => {
+        this.loading = false;
+        repeatingEventHelper.generateRepeatingEventsIntances(listId, this);
+      });
+    });
   },
   unmounted() {
     window.removeEventListener("resize", this.setTodoListHeight);
@@ -81,20 +96,6 @@ export default {
   beforeCreate() {
     let listId = this.id;
     this.$store.commit("loadTodoLists", { todoListId: listId, todoList: [] });
-    this.$store.dispatch("loadTodoLists", listId).then(() => {
-      let r_events = this.$store.getters.repeatingEventDateCache[listId] || [];
-      r_events.forEach((re_id) => {
-        var re = this.$store.getters.repeatingEventList[re_id];
-        if (!re.generated_dates.includes(listId)) {
-          var new_instanced_event = JSON.parse(JSON.stringify(re.data));
-          new_instanced_event.listId = listId;
-          this.$store.commit("addTodo", new_instanced_event);
-          toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
-          re.generated_dates.push(listId);
-          repeatingEventRepository.update(re_id, re);
-        }
-      });
-    });
   },
   methods: {
     addToDo: function () {
@@ -328,5 +329,12 @@ export default {
 
 .todo-input:focus {
   outline: none;
+}
+
+.loading-spinner {
+  position: relative;
+  margin: auto;
+  top: 200px;
+  height: 0px;
 }
 </style>

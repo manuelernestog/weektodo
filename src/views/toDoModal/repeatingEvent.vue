@@ -93,7 +93,11 @@ export default {
     },
     repeatingEventRule() {
       if (!this.repeatingType) return null;
-      var ruleOptions = { freq: this.repeatingType, interval: this.interval };
+      var ruleOptions = {
+        freq: this.repeatingType,
+        interval: this.interval,
+        dtstart: moment(this.todo.listId, "YYYYMMDD").toDate(),
+      };
 
       if (this.ocurrencesType == "ocurrences") {
         ruleOptions.count = this.ocurrences;
@@ -111,7 +115,7 @@ export default {
         ocurrencesType: this.ocurrencesType,
         data: this.todo,
         id: repeatingEventId,
-        generated_dates: [],
+        generated_dates: {},
       };
 
       if (rule.options.count) {
@@ -119,7 +123,7 @@ export default {
       }
       if (!rule.options.until) {
         var date = new Date();
-        date.setFullYear(date.getFullYear() + 100);
+        date.setFullYear(date.getFullYear() + 10);
         re_event.end_date = date;
       }
 

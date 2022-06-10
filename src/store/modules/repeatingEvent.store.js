@@ -2,11 +2,15 @@ import dbRepository from "../../repositories/dbRepository";
 
 const state = {
   repeatingEventList: {},
+  repeatingEventByDate: {},
 };
 
 const getters = {
   repeatingEventList(state) {
     return state.repeatingEventList;
+  },
+  repeatingEventByDate(state) {
+    return state.repeatingEventByDate;
   },
 };
 
@@ -19,6 +23,9 @@ const mutations = {
   },
   loadRepeatingEventList(state, repeatingEventList) {
     state.repeatingEventList = repeatingEventList;
+  },
+  loadRepeatingEventGeneratedByDate(state, obj) {
+    state.repeatingEventByDate[obj.key] = obj.val ? obj.val : {};
   },
 };
 
@@ -52,6 +59,20 @@ const actions = {
             commit("loadRepeatingEventList", repeatingEvents);
             resolve();
           }
+        };
+      };
+    });
+  },
+  loadRepeatingEventGeneratedByDate({ commit }, date) {
+    return new Promise((resolve) => {
+      let db_req = dbRepository.open();
+      db_req.onsuccess = function (event) {
+        let db = event.target.result;
+        var get_req = dbRepository.get(db, "repeating_events_by_date", date);
+        get_req.onsuccess = function (event) {
+          let re_list = event.target.result;
+          commit("loadRepeatingEventGeneratedByDate", { key: date, val: re_list });
+          resolve();
         };
       };
     });

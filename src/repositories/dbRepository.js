@@ -1,6 +1,6 @@
 export default {
     open() {
-        var req = indexedDB.open('weekToDo', 3);
+        var req = indexedDB.open('weekToDo', 4);
         req.onupgradeneeded = function (event) {
             var db = event.target.result;
             if (!db.objectStoreNames.contains("todo_lists")) {
@@ -9,6 +9,10 @@ export default {
 
             if (!db.objectStoreNames.contains("repeating_events")) {
                 db.createObjectStore('repeating_events', {autoIncrement: false});
+            }
+
+            if (!db.objectStoreNames.contains("repeating_events_by_date")) {
+                db.createObjectStore('repeating_events_by_date', {autoIncrement: false});
             }
         }
         req.onerror = function (event) {
