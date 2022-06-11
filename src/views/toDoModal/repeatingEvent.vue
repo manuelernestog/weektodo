@@ -55,6 +55,7 @@ import { RRule, rrulestr } from "rrule";
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
 import moment from "moment";
 import { Dropdown } from "bootstrap";
+import repeatingEventHelper from "../../helpers/repeatingEvents.js";
 
 export default {
   name: "RepatingEvent",
@@ -80,6 +81,10 @@ export default {
         const re_event = this.generateRepeatingEvent(rule, repeatingEventId);
         repeatingEventRepository.update(repeatingEventId, re_event);
         this.$store.commit("updateRepeatingEvent", { key: repeatingEventId, val: re_event });
+        this.$store.commit("addRepeatingEventToDateCache", re_event);
+        this.$store.getters.selectedDates.forEach((date) => {
+           repeatingEventHelper.generateRepeatingEventsIntances(date, this);
+        });
       } else {
         repeatingEventRepository.remove(repeatingEventId);
         repeatingEventId = null;
@@ -114,7 +119,7 @@ export default {
         type: this.repeatingType,
         ocurrencesType: this.ocurrencesType,
         data: this.todo,
-        id: repeatingEventId
+        id: repeatingEventId,
       };
 
       if (rule.options.count) {

@@ -3,6 +3,7 @@ import dbRepository from "../../repositories/dbRepository";
 const state = {
   todoLists: {},
   cTodoListIds: [],
+  selectedDates: []
 };
 
 const getters = {
@@ -11,6 +12,9 @@ const getters = {
   },
   cTodoListIds(state) {
     return state.cTodoListIds;
+  },
+  selectedDates(state) {
+    return state.selectedDates;
   },
 };
 
@@ -70,6 +74,9 @@ const mutations = {
   },
   updateCustomTodoList(state, obj) {
     state.cTodoListIds[obj.index].listName = obj.name;
+  },
+  updateSelectedDates(state, selectedDates) {
+    state.selectedDates = selectedDates;
   },
 };
 
