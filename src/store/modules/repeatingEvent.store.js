@@ -21,6 +21,9 @@ const mutations = {
   updateRepeatingEvent(state, obj) {
     state.repeatingEventList[obj.key] = obj.val;
   },
+  removeRepeatingEvent(state, id) {
+    delete state.repeatingEventList[id];
+  },
   loadRepeatingEventList(state, repeatingEventList) {
     state.repeatingEventList = repeatingEventList;
   },

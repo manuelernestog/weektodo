@@ -55,10 +55,23 @@ i {
 }
 
 .inner-main-horizontal-divider {
+  transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
   margin-top: 4px;
   height: 1px;
   width: 100%;
   background-color: rgba(0, 0, 0, .06);
+}
+
+.dark-theme .inner-main-horizontal-divider {
+  background-color: #30363d;
+}
+
+.dark-theme .main-horizontal-divider:hover .inner-main-horizontal-divider{
+  background-color: #4b545f;
+}
+
+.main-horizontal-divider:hover .inner-main-horizontal-divider{
+  background-color: rgba(0, 0, 0, .3);
 }
 
 .horizontal-divider {
@@ -74,7 +87,9 @@ i {
   margin-bottom: 1px;
 }
 
-.dark-theme .main-horizontal-divider, .dark-theme .horizontal-divider {
+
+
+.dark-theme .horizontal-divider {
   border-top: 1px solid #30363d;
 }
 
@@ -301,4 +316,9 @@ i {
   .mobile {
     display: none !important;
   }
+}
+
+.form-select:disabled, .form-control:disabled {
+  background-color: unset;
+  opacity: 60%;
 }

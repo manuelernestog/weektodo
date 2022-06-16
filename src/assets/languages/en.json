@@ -137,7 +137,8 @@
     "download": "(Download)",
     "sponsoredBy": "Sponsored by",
     "updateAll": "Update All",
-    "removeAll": "Delete All"
+    "removeAll": "Delete All",
+    "recurrentEvents": "Recurrent Events"
   },
   "todoDetails": {
     "taskTitle": "Task title",
@@ -159,7 +160,9 @@
     "daily": "Daily",
     "weekly": "Weekly",
     "monthly": "Monthly",
-    "yearly": "Yearly"
+    "yearly": "Yearly",
+    "split": "Split",
+    "recurrentTaskRemoved": "Recurrent Task Removed"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",

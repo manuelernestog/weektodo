@@ -88,6 +88,7 @@ export default {
         this.loading = false;
         repeatingEventHelper.generateRepeatingEventsIntances(listId, this);
       });
+      this.clearRemovedRepeatingEvents();
     });
   },
   unmounted() {
@@ -132,6 +133,7 @@ export default {
         index: index,
       });
       this.updateTodoList(toDo.listId, this.$store.getters.todoLists[toDo.listId]);
+      if (toDo.listId != list) toDo.repeatingEvent = null;
       toDo.listId = list;
       this.$store.commit("insertTodo", {
         toDoListId: list,
@@ -148,6 +150,7 @@ export default {
         index: index,
       });
       this.updateTodoList(toDo.listId, this.$store.getters.todoLists[toDo.listId]);
+      if (toDo.listId != list) toDo.repeatingEvent = null;
       toDo.listId = list;
       this.$store.commit("addTodo", toDo);
       this.updateTodoList(list, this.$store.getters.todoLists[list]);
@@ -169,6 +172,10 @@ export default {
     },
     onDragleave: function () {
       this.fakeItemsDragHover = false;
+    },
+    clearRemovedRepeatingEvents: function () {
+      if (this.customTodoList) return;
+      repeatingEventHelper.removeGeneratedRepeatingEvents(this.id, this);
     },
   },
   watch: {

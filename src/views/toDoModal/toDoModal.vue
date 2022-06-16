@@ -81,9 +81,15 @@
                   <span>{{ $t("todoDetails.duplicate") }}</span>
                 </button>
               </li>
+              <li><hr class="dropdown-divider" /></li>
               <li>
                 <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.remove") }}</span>
+                </button>
+              </li>
+              <li v-if="todo.repeatingEvent">
+                <button class="dropdown-item" type="button" @click="removeAll" data-bs-dismiss="modal">
+                  <i class="bi-trash"></i> <span>{{ $t("ui.removeAll") }}</span>
                 </button>
               </li>
             </ul>
@@ -100,7 +106,7 @@
               value=""
               id="todo-header"
               v-model="todo.checked"
-              @change="updateTodo"
+              @change="updateTodo(false)"
             />
             <div class="title-container">
               <label
@@ -212,6 +218,7 @@
 
   <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
   <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')"></toast-message>
+  <toast-message id="recurrentTaskRemoved" :text="$t('todoDetails.recurrentTaskRemoved')"></toast-message>
   <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
 </template>
 
@@ -228,6 +235,8 @@ import colorPicker from "./colorPicker";
 import timePicker from "./timePicker";
 import repeatingEvent from "./repeatingEvent";
 import notifications from "../../helpers/notifications";
+import repeatingEventHelper from "../../helpers/repeatingEvents.js";
+import repeatingEventRepository from "../../repositories/repeatingEventRepository";
 
 export default {
   name: "toDoModal",
@@ -352,8 +361,8 @@ export default {
     showCalendar: function () {
       document.getElementById("todo-date-picker-input").focus();
     },
-    updateTodo: function (repatingEvent = false) {
-      if (repatingEvent != true) {
+    updateTodo: function (resetRepeatinEvent = true) {
+      if (resetRepeatinEvent) {
         this.todo.repeatingEvent = null;
       }
 
@@ -384,7 +393,7 @@ export default {
       this.todoList.splice(this.index, 1);
       this.updateTodoList(oldListId, this.todoList);
       this.todo.listId = newListID;
-      // this.todo.repeatingEvent = null;
+      this.todo.repeatingEvent = null;
       if (this.$store.getters.todoLists[newListID]) {
         this.$store.commit("addTodo", this.todo);
         this.todoList = this.$store.getters.todoLists[this.todo.listId];
@@ -417,6 +426,17 @@ export default {
       });
       this.updateTodoList(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
       let toast = new Toast(document.getElementById("taskRemoved"));
+      toast.show();
+    },
+    removeAll: function () {
+      repeatingEventRepository.remove(this.todo.repeatingEvent);
+      this.$store.commit("removeRepeatingEvent", this.todo.repeatingEvent);
+      this.$store.getters.selectedDates.forEach((date) => {
+        repeatingEventHelper.removeGeneratedRepeatingEvents(date, this);
+      });
+      this.$store.commit("resetRepeatingEventDateCache");
+      this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
+      let toast = new Toast(document.getElementById("recurrentTaskRemoved"));
       toast.show();
     },
     duplicateTodo: function () {
@@ -479,7 +499,7 @@ export default {
     },
     changeRepeatingEvent(repeatingEvent) {
       this.todo.repeatingEvent = repeatingEvent;
-      this.updateTodo(true);
+      this.updateTodo(false);
     },
   },
   watch: {
@@ -516,7 +536,7 @@ export default {
     },
     pickedCList: function (newVal) {
       this.moveToTodoList(newVal);
-    }
+    },
   },
   computed: {
     language: function () {

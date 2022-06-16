@@ -5,7 +5,12 @@
 
   <ul class="dropdown-menu repeating-event-dropdown" aria-labelledby="btnRepeatingEvent">
     <div class="mx-3 d-flex flex-column drop-container">
-      <select class="form-select re-input" aria-label="Default select example" v-model="repeatingType">
+      <select
+        class="form-select re-input"
+        aria-label="Default select example"
+        v-model="repeatingType"
+        :disabled="repeatingEvent"
+      >
         <option value="">{{ $t("todoDetails.noRepeat") }}</option>
         <option value="3">{{ $t("todoDetails.daily") }}</option>
         <option value="2">{{ $t("todoDetails.weekly") }}</option>
@@ -16,10 +21,15 @@
       <div v-if="repeatingType" class="d-flex flex-column">
         <div class="d-flex align-items-center justify-content-between re-input">
           <label class="opacity-50">{{ $t("todoDetails.interval") }}</label>
-          <input type="number" class="form-control lex-shrink-1 counter" v-model="interval" />
+          <input type="number" class="form-control lex-shrink-1 counter" v-model="interval" :disabled="repeatingEvent" />
         </div>
 
-        <select class="form-select re-input" aria-label="Default select example" v-model="ocurrencesType">
+        <select
+          class="form-select re-input"
+          aria-label="Default select example"
+          v-model="ocurrencesType"
+          :disabled="repeatingEvent"
+        >
           <option value="">{{ $t("todoDetails.indefinitely") }}</option>
           <option value="ocurrences">
             {{ $t("todoDetails.occurrences") }}
@@ -32,18 +42,23 @@
           type="number"
           class="form-control re-input last-input"
           v-model="ocurrences"
+          :disabled="repeatingEvent"
         />
         <input
           v-if="ocurrencesType == 'untilDate'"
           type="date"
           class="form-control re-input last-input"
           v-model="untilDate"
+          :disabled="repeatingEvent"
         />
       </div>
 
       <div class="d-flex flex-row re-form-row re-input">
-        <button type="button" class="btn flex-fill" @click="done">
+        <button v-if="!repeatingEvent" type="button" class="btn flex-fill" @click="done">
           {{ $t("todoDetails.done") }}
+        </button>
+        <button v-if="repeatingEvent" type="button" class="btn flex-fill" @click="split">
+          {{ $t("todoDetails.split") }}
         </button>
       </div>
     </div>
@@ -56,6 +71,7 @@ import repeatingEventRepository from "../../repositories/repeatingEventRepositor
 import moment from "moment";
 import { Dropdown } from "bootstrap";
 import repeatingEventHelper from "../../helpers/repeatingEvents.js";
+import repeatingEventByDateRepository from "../../repositories/repeatingEventByDateRepository";
 
 export default {
   name: "RepatingEvent",
@@ -78,12 +94,16 @@ export default {
       const rule = this.repeatingEventRule();
       var repeatingEventId = this.repeatingEvent ? this.repeatingEvent : moment().format("x");
       if (rule) {
+        let date = this.todo.listId;
+        var re_by_date = this.$store.getters.repeatingEventByDate[date];
+        re_by_date[repeatingEventId] = true;
+        repeatingEventByDateRepository.update(date, re_by_date);
         const re_event = this.generateRepeatingEvent(rule, repeatingEventId);
         repeatingEventRepository.update(repeatingEventId, re_event);
         this.$store.commit("updateRepeatingEvent", { key: repeatingEventId, val: re_event });
         this.$store.commit("addRepeatingEventToDateCache", re_event);
         this.$store.getters.selectedDates.forEach((date) => {
-           repeatingEventHelper.generateRepeatingEventsIntances(date, this);
+          repeatingEventHelper.generateRepeatingEventsIntances(date, this);
         });
       } else {
         repeatingEventRepository.remove(repeatingEventId);
@@ -95,6 +115,13 @@ export default {
       dropdown.hide();
 
       this.$emit("repeatingEventSelected", repeatingEventId);
+    },
+    split() {
+      repeatingEventRepository.remove(this.repeatingEvent);
+      let reDropDown = document.getElementById("reDropDown");
+      let dropdown = new Dropdown(reDropDown);
+      dropdown.hide();
+      this.$emit("repeatingEventSelected", null);
     },
     repeatingEventRule() {
       if (!this.repeatingType) return null;
@@ -112,13 +139,16 @@ export default {
       return new RRule(ruleOptions);
     },
     generateRepeatingEvent(rule, repeatingEventId) {
+      var todo_data = JSON.parse(JSON.stringify(this.todo));
+      todo_data.repeatingEvent = repeatingEventId;
+
       var re_event = {
         start_date: rule.options.dtstart,
         end_date: rule.options.until,
         repeating_rule: rule.toString(),
         type: this.repeatingType,
         ocurrencesType: this.ocurrencesType,
-        data: this.todo,
+        data: todo_data,
         id: repeatingEventId,
       };
 

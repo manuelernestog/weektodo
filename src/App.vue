@@ -147,7 +147,7 @@ export default {
 
     this.$store.dispatch("loadAllRepeatingEvent").then(
       function () {
-        this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
+        this.$store.commit("resetRepeatingEventDateCache", this.$store.getters.repeatingEventList);
       }.bind(this)
     );
   },
@@ -347,7 +347,7 @@ export default {
       for (let i = 1; i < this.columns; i++) {
         dates_array.push(moment(this.selected_date).add(i, "d").format("YYYYMMDD"));
       }
-      this.$store.commit('updateSelectedDates',dates_array);
+      this.$store.commit("updateSelectedDates", dates_array);
       return dates_array;
     },
     showCustomList: function () {
