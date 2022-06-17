@@ -13,7 +13,14 @@
     <i v-if="showCalendar" class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
     <i v-if="showCalendar" class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
-    <i v-if="showCalendar" class="bi-arrow-repeat" :title="$t('ui.recurrentEvents')"> </i>
+    <i
+      v-if="showCalendar"
+      class="bi-arrow-repeat"
+      :title="$t('ui.recurringTasks')"
+      data-bs-toggle="modal"
+      data-bs-target="#RecurrentEventsModal"
+    >
+    </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
     <i
       class="bi-sliders"

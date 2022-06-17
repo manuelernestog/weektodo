@@ -7,7 +7,6 @@ export default {
     let r_events = vue.$store.getters.repeatingEventDateCache[listId] || [];
     r_events.forEach((re_id) => {
       var re = vue.$store.getters.repeatingEventList[re_id];
-      console.log(re,re_id);
       var re_by_date = vue.$store.getters.repeatingEventByDate[listId];
       if (!re_by_date[re_id]) {
         var new_instanced_event = JSON.parse(JSON.stringify(re.data));

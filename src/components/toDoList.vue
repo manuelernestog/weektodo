@@ -1,25 +1,15 @@
 <template>
-  <div
-    :id="'list' + id"
-    class="to-do-list-container d-flex flex-column"
-    ref="listContainer"
-    :class="{
-      'old-date': !customTodoList && moments(id).isBefore(Date(), 'day'),
-    }"
-    :style="`flex: 0 0 ${100 / columns}%;`"
-  >
+  <div :id="'list' + id" class="to-do-list-container d-flex flex-column" ref="listContainer" :class="{
+    'old-date': !customTodoList && moments(id).isBefore(Date(), 'day'),
+  }" :style="`flex: 0 0 ${100 / columns}%;`">
     <div v-if="loading" class="loading-spinner">
       <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
 
-    <list-header
-      :id="id"
-      :customTodoList="customTodoList"
-      :cTodoListIndex="cTodoListIndex"
-      :toDoList="toDoListState"
-    ></list-header>
+    <list-header :id="id" :customTodoList="customTodoList" :cTodoListIndex="cTodoListIndex" :toDoList="toDoListState">
+    </list-header>
     <ul class="to-do-list">
       <li v-for="(toDo, index) in toDoListState" :key="index">
         <div class="drop-zone" @drop="onDrop($event, id, index)" @dragover.prevent @dragenter.prevent>
@@ -27,24 +17,11 @@
         </div>
       </li>
     </ul>
-    <div
-      class="fake-drop-zone flex-grow-1"
-      @drop="onDropAtEnd($event, id)"
-      @dragenter.self="onDragenter"
-      @dragleave.self="onDragleave"
-      @dragover.prevent
-      :class="{ 'fake-drag-hover': fakeItemsDragHover }"
-    >
+    <div class="fake-drop-zone flex-grow-1" @drop="onDropAtEnd($event, id)" @dragenter.self="onDragenter"
+      @dragleave.self="onDragleave" @dragover.prevent :class="{ 'fake-drag-hover': fakeItemsDragHover }">
       <div class="todo-item-container border-bottom-0">
-        <input
-          class="todo-input new-todo-input"
-          type="text"
-          ref="newToDoInput"
-          v-model="newToDo.text"
-          @blur="addToDo()"
-          @keyup.enter="addToDo()"
-          @keyup.esc="cancelAdd()"
-        />
+        <input class="todo-input new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text" @blur="addToDo()"
+          @keyup.enter="addToDo()" @keyup.esc="cancelAdd()" />
       </div>
       <div class="fake-lines" :class="{ 'custom-list': customTodoList }" @click="$refs.newToDoInput.focus()"></div>
     </div>
@@ -295,31 +272,27 @@ export default {
 }
 
 .fake-lines {
-  background-image: linear-gradient(
-    0deg,
-    #ffffff 48.08%,
-    #eaecef 48.08%,
-    #eaecef 50%,
-    #ffffff 50%,
-    #ffffff 98.08%,
-    #eaecef 98.08%,
-    #eaecef 100%
-  );
+  background-image: linear-gradient(0deg,
+      #ffffff 48.08%,
+      #eaecef 48.08%,
+      #eaecef 50%,
+      #ffffff 50%,
+      #ffffff 98.08%,
+      #eaecef 98.08%,
+      #eaecef 100%);
   background-size: 52px 52px;
   height: calc(100% - 25px);
 }
 
 .dark-theme .fake-lines {
-  background-image: linear-gradient(
-    0deg,
-    #13171d 48.08%,
-    #30363d 48.08%,
-    #30363d 50%,
-    #13171d 50%,
-    #13171d 98.08%,
-    #30363d 98.08%,
-    #30363d 100%
-  );
+  background-image: linear-gradient(0deg,
+      #13171d 48.08%,
+      #30363d 48.08%,
+      #30363d 50%,
+      #13171d 50%,
+      #13171d 98.08%,
+      #30363d 98.08%,
+      #30363d 100%);
   background-size: 52px 52px;
 }
 

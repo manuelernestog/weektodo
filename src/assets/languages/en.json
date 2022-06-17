@@ -138,7 +138,7 @@
     "sponsoredBy": "Sponsored by",
     "updateAll": "Update All",
     "removeAll": "Delete All",
-    "recurrentEvents": "Recurrent Events"
+    "recurringTasks": "Recurring tasks"
   },
   "todoDetails": {
     "taskTitle": "Task title",

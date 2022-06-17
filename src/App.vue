@@ -6,59 +6,33 @@
       <side-bar @change-date="setSelectedDate"></side-bar>
 
       <div class="h-100 d-flex flex-column">
-        <div
-          v-show="showCalendar"
-          class="todo-lists-container"
-          :style="resizableStyle"
-          ref="calendarContainer"
-          :class="{ 'full-screen': !showCustomList }"
-        >
+        <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer"
+          :class="{ 'full-screen': !showCustomList }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
-            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"></to-do-list>
+            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList">
+            </to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
         </div>
 
-        <div
-          v-show="showCustomList && showCalendar"
-          class="main-horizontal-divider"
-          id="resizer"
-          @mousedown="resizerMouseDownHandler"
-          @dblclick="resizerDblClick"
-        >
+        <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
+          @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
           <div class="inner-main-horizontal-divider"></div>
         </div>
 
-        <div
-          v-show="showCustomList"
-          class="todo-lists-container"
-          :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar }"
-        >
-          <i
-            class="bi-chevron-left slider-btn"
-            @click="customMoveLeft"
-            :style="{
-              visibility: cTodoList.length > columns ? 'visible' : 'hidden',
-            }"
-          ></i>
+        <div v-show="showCustomList" class="todo-lists-container"
+          :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar }">
+          <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
+            visibility: cTodoList.length > columns ? 'visible' : 'hidden',
+          }"></i>
           <div class="todo-slider slides" ref="customListContainer">
-            <to-do-list
-              v-for="(cTodoList, index) in cTodoList"
-              :key="cTodoList.listId"
-              :id="cTodoList.listId"
-              :customTodoList="true"
-              :cTodoListIndex="index"
-              :showCustomList="showCustomList"
-            ></to-do-list>
+            <to-do-list v-for="(cTodoList, index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
+              :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
           </div>
-          <i
-            class="bi-chevron-right slider-btn"
-            @click="customMoveRight"
-            :style="{
-              visibility: cTodoList.length > columns ? 'visible' : 'hidden',
-            }"
-          ></i>
+          <i class="bi-chevron-right slider-btn" @click="customMoveRight" :style="{
+            visibility: cTodoList.length > columns ? 'visible' : 'hidden',
+          }"></i>
         </div>
       </div>
 
@@ -71,6 +45,7 @@
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
+      <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
@@ -107,6 +82,7 @@ import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
 import clearDataModal from "./views/clearDataModal.vue";
+import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 
 export default {
   name: "App",
@@ -124,10 +100,11 @@ export default {
     toDoModal,
     redirectDomainModal,
     clearDataModal,
+    RecurrentEventsModal
   },
   data() {
     return {
-      selected_date: moment().format("YYYYMMDD"),
+      selected_date: null,
       cTodoList: this.$store.getters.cTodoListIds,
       calendarHeight: "50%",
       ipcRenderer: null,
@@ -147,7 +124,9 @@ export default {
 
     this.$store.dispatch("loadAllRepeatingEvent").then(
       function () {
-        this.$store.commit("resetRepeatingEventDateCache", this.$store.getters.repeatingEventList);
+        this.selected_date = moment().format("YYYYMMDD");
+        this.$nextTick(() => { this.weekResetScroll() });
+        this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
       }.bind(this)
     );
   },
@@ -339,6 +318,8 @@ export default {
   },
   computed: {
     dates_array: function () {
+      if (!this.selected_date) return [];
+
       var dates_array = [
         moment(this.selected_date).subtract(2, "d").format("YYYYMMDD"),
         moment(this.selected_date).subtract(1, "d").format("YYYYMMDD"),

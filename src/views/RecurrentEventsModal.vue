@@ -1,0 +1,120 @@
+<template>
+  <div class="modal fade" id="RecurrentEventsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ $t("ui.recurringTasks") }}</h5>
+          <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
+        </div>
+        <div class="modal-body d-flex">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col">Frecuency</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="task in recurringTasks" :key="task.id">
+                <td>{{ task.data.text }}</td>
+                <td>{{ frecuency(task.type) }}</td>
+                <td><i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeRecurringTask(task.id)"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { Toast } from "bootstrap";
+import repeatingEventHelper from "../helpers/repeatingEvents.js";
+import repeatingEventRepository from "../repositories/repeatingEventRepository";
+
+export default {
+  name: "RecurrentEventsModal",
+  data() {
+    return {
+      index: 0,
+    };
+  },
+  methods: {
+    frecuency: function (frec) {
+      switch (frec) {
+        case "0":
+          return this.$t("todoDetails.yearly");
+        case "1":
+          return this.$t("todoDetails.monthly");
+        case "2":
+          return this.$t("todoDetails.weekly");
+        case "3":
+          return this.$t("todoDetails.daily");
+      }
+    },
+    removeRecurringTask: function (id) {
+      repeatingEventRepository.remove(id);
+      this.$store.commit("removeRepeatingEvent", id);
+      this.$store.getters.selectedDates.forEach((date) => {
+        repeatingEventHelper.removeGeneratedRepeatingEvents(date, this);
+      });
+      this.$store.commit("resetRepeatingEventDateCache");
+      this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
+      let toast = new Toast(document.getElementById("recurrentTaskRemoved"));
+      toast.show();
+    },
+  },
+  computed: {
+    recurringTasks: function () {
+      return this.$store.getters.repeatingEventList;
+    },
+  },
+};
+</script>
+
+<style scoped lang="scss">
+.modal-dialog {
+  max-width: 800px;
+}
+
+.modal-body {
+  height: 400px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.table {
+  --bs-table-hover-bg: #f4f4f4;
+  color: #212529;
+}
+
+.dark-theme .table {
+  --bs-table-bg: #21262d;
+  --bs-table-striped-bg: #2c3034;
+  --bs-table-striped-color: #fff;
+  --bs-table-active-bg: #373b3e;
+  --bs-table-active-color: #fff;
+  --bs-table-hover-bg: #323539;
+  --bs-table-hover-color: #fff;
+  color: #fff;
+  border-color: #373b3e;
+}
+
+.bi-trash {
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+  }
+
+  .dark-theme & {
+    color: #babbbe;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+</style>

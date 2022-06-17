@@ -5,15 +5,11 @@
 
   <ul class="dropdown-menu repeating-event-dropdown" aria-labelledby="btnRepeatingEvent">
     <div class="mx-3 d-flex flex-column drop-container">
-      <select
-        class="form-select re-input"
-        aria-label="Default select example"
-        v-model="repeatingType"
-        :disabled="repeatingEvent"
-      >
+      <select class="form-select re-input" aria-label="Default select example" v-model="repeatingType"
+        :disabled="repeatingEvent">
         <option value="">{{ $t("todoDetails.noRepeat") }}</option>
         <option value="3">{{ $t("todoDetails.daily") }}</option>
-        <option value="2">{{ $t("todoDetails.weekly") }}</option>
+        <option value="2">{{ $t("todoDetails.weekly") }} </option>
         <option value="1">{{ $t("todoDetails.monthly") }}</option>
         <option value="0">{{ $t("todoDetails.yearly") }}</option>
       </select>
@@ -21,15 +17,12 @@
       <div v-if="repeatingType" class="d-flex flex-column">
         <div class="d-flex align-items-center justify-content-between re-input">
           <label class="opacity-50">{{ $t("todoDetails.interval") }}</label>
-          <input type="number" class="form-control lex-shrink-1 counter" v-model="interval" :disabled="repeatingEvent" />
+          <input type="number" class="form-control lex-shrink-1 counter" v-model="interval"
+            :disabled="repeatingEvent" />
         </div>
 
-        <select
-          class="form-select re-input"
-          aria-label="Default select example"
-          v-model="ocurrencesType"
-          :disabled="repeatingEvent"
-        >
+        <select class="form-select re-input" aria-label="Default select example" v-model="ocurrencesType"
+          :disabled="repeatingEvent">
           <option value="">{{ $t("todoDetails.indefinitely") }}</option>
           <option value="ocurrences">
             {{ $t("todoDetails.occurrences") }}
@@ -37,20 +30,10 @@
           <option value="untilDate">{{ $t("todoDetails.untilDate") }}</option>
         </select>
 
-        <input
-          v-if="ocurrencesType == 'ocurrences'"
-          type="number"
-          class="form-control re-input last-input"
-          v-model="ocurrences"
-          :disabled="repeatingEvent"
-        />
-        <input
-          v-if="ocurrencesType == 'untilDate'"
-          type="date"
-          class="form-control re-input last-input"
-          v-model="untilDate"
-          :disabled="repeatingEvent"
-        />
+        <input v-if="ocurrencesType == 'ocurrences'" type="number" class="form-control re-input last-input"
+          v-model="ocurrences" :disabled="repeatingEvent" />
+        <input v-if="ocurrencesType == 'untilDate'" type="date" class="form-control re-input last-input"
+          v-model="untilDate" :disabled="repeatingEvent" />
       </div>
 
       <div class="d-flex flex-row re-form-row re-input">
@@ -230,6 +213,7 @@ export default {
 [type="date"]::-webkit-inner-spin-button {
   display: none;
 }
+
 [type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }

@@ -21,6 +21,7 @@
       <i class="bi-circle-fill colors-menu-icons" type="button" @click="selectColor('#ed56a1')"
          style="color: #ed56a1"></i>
     </div>
+    
   </ul>
 </template>
 
