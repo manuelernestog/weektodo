@@ -83,6 +83,7 @@ import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
 import clearDataModal from "./views/clearDataModal.vue";
 import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
+import repeatingEventRepository from "./repositories/repeatingEventRepository";
 
 export default {
   name: "App",
@@ -124,6 +125,7 @@ export default {
 
     this.$store.dispatch("loadAllRepeatingEvent").then(
       function () {
+        this.deleteOldRepeatingEvents();
         this.selected_date = moment().format("YYYYMMDD");
         this.$nextTick(() => { this.weekResetScroll() });
         this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
@@ -174,6 +176,15 @@ export default {
         top: 0,
         behavior: "smooth",
       });
+    },
+    deleteOldRepeatingEvents: function () {
+      for (const event of Object.entries(this.$store.getters.repeatingEventList)) {
+        if (moment(event[1].end_date).isBefore(moment())) {
+          repeatingEventRepository.remove(event[0]);
+          this.$store.commit("removeRepeatingEvent", event[0]);
+        }
+      }
+
     },
     weekResetScroll: function () {
       this.$refs.weekListContainer.scrollLeft = this.todoListWidth();

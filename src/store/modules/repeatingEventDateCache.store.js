@@ -18,7 +18,7 @@ const mutations = {
   loadRepeatingEventDateCache(state, repeatingEventList) {
     var today = new Date();
     var future_date = new Date();
-    future_date.setFullYear(today.getFullYear() + 20);
+    future_date.setFullYear(today.getFullYear() + 15);
     for (const [id, re] of Object.entries(repeatingEventList)) {
       const rule = rrulestr(re.repeating_rule);
       rule.between(today, future_date).forEach((date) => {
@@ -33,7 +33,7 @@ const mutations = {
   addRepeatingEventToDateCache(state, re) {
     var today = new Date();
     var future_date = new Date();
-    future_date.setFullYear(today.getFullYear() + 20);
+    future_date.setFullYear(today.getFullYear() + 15);
     const rule = rrulestr(re.repeating_rule);
     rule.between(today, future_date).forEach((date) => {
       if (state.repeatingEventDateCache[moment(date).format("YYYYMMDD")]) {

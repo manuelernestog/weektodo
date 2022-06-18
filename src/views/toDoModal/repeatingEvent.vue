@@ -117,17 +117,17 @@ export default {
       if (this.ocurrencesType == "ocurrences") {
         ruleOptions.count = this.ocurrences;
       } else if (this.ocurrencesType == "untilDate") {
-        ruleOptions.until = this.untilDate;
+        ruleOptions.until = moment(this.untilDate);
       }
       return new RRule(ruleOptions);
     },
     generateRepeatingEvent(rule, repeatingEventId) {
       var todo_data = JSON.parse(JSON.stringify(this.todo));
       todo_data.repeatingEvent = repeatingEventId;
+      const rule2 = rrulestr(rule.toString()); //Cloning the rule for some error in the library don't works with original rule
 
       var re_event = {
         start_date: rule.options.dtstart,
-        end_date: rule.options.until,
         repeating_rule: rule.toString(),
         type: this.repeatingType,
         ocurrencesType: this.ocurrencesType,
@@ -135,12 +135,13 @@ export default {
         id: repeatingEventId,
       };
 
-      if (rule.options.count) {
-        re_event.end_date = rule.all().slice(-1)[0];
-      }
-      if (!rule.options.until) {
+      if (this.ocurrencesType == "ocurrences") {
+        re_event.end_date = moment(rule2.all().slice(-1)[0]);
+      } else if (this.ocurrencesType == "untilDate") {
+        re_event.end_date = moment(rule.options.until).toDate();
+      } else {
         var date = new Date();
-        date.setFullYear(date.getFullYear() + 10);
+        date.setFullYear(date.getFullYear() + 15);
         re_event.end_date = date;
       }
 
@@ -156,9 +157,7 @@ export default {
         this.interval = rule.options.interval;
         this.ocurrences = rule.options.count;
         this.ocurrencesType = re.ocurrencesType;
-        this.untilDate = rule.options.until
-          ? rule.options.until.toLocaleDateString("en-GB").split("/").reverse().join("-")
-          : null;
+        this.untilDate = rule.options.until ? rule.options.until.toLocaleDateString("en-GB").split("/").reverse().join("-") : null;
       } else {
         this.repeatingType = "";
         this.ocurrencesType = "";
