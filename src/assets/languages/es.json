@@ -38,7 +38,6 @@
     "copy": "Copiar",
     "copiedAddres": "Dirección Copiada!!!",
     "share": "Compartir",
-    "shareWithFriends": "Compartir con Amigos",
     "rate": "Puntuar",
     "cryptocurrencies": "Criptomonedas",
     "buyMeACoffee": "Cómprame un Café",
@@ -119,7 +118,7 @@
   },
   "ui": {
     "rmList": "Eliminar Lista",
-    "rmListConfirm":"Estas seguro que deseas eliminar la lista",
+    "rmListConfirm": "Estas seguro que deseas eliminar la lista",
     "cancel": "Cancelar",
     "remove": "Eliminar",
     "splashSub": "Planificador Semanal Minimalista",

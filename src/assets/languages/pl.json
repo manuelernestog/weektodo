@@ -7,7 +7,12 @@
     "madeWith": "Wykonane z",
     "site": "Odwiedź stronę",
     "sponsors": "Sponsorzy",
-    "version": "Wersja"
+    "version": "Wersja",
+    "about": "O",
+    "blog": "Blog",
+    "collaborators": "Współpracownicy",
+    "contributors": "Współtwórcy",
+    "desc": "WeekToDo to minimalistyczny planer tygodniowy skoncentrowany na prywatności."
   },
   "donate": {
     "address": "Adres zamieszkania",
@@ -25,7 +30,7 @@
     "paymentType": "Typ płatności",
     "rate": "Wskaźnik",
     "share": "Dzielić",
-    "shareWithFriends": "",
+    "shareWithFriends": "Podziel się z przyjaciółmi",
     "translate": "Tłumaczyć"
   },
   "generatedData": {
