@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="modal fade"
-    id="configModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -13,75 +7,40 @@
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          <ul
-            class="nav nav-tabs"
-            id="confTab"
-            role="tablist"
-            style="display: none"
-          >
+          <ul class="nav nav-tabs" id="confTab" role="tablist" style="display: none">
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="config-home-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#config-home"
-                role="tab"
-              >
+              <button class="nav-link active" id="config-home-tab" data-bs-toggle="tab" data-bs-target="#config-home"
+                role="tab">
                 Home
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="config-general-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#config-general"
-                role="tab"
-              >
+              <button class="nav-link" id="config-general-tab" data-bs-toggle="tab" data-bs-target="#config-general"
+                role="tab">
                 General
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="config-display-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#config-display"
-                role="tab"
-              >
+              <button class="nav-link" id="config-display-tab" data-bs-toggle="tab" data-bs-target="#config-display"
+                role="tab">
                 Display
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="config-notifications-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#config-notifications"
-                role="tab"
-              >
+              <button class="nav-link" id="config-notifications-tab" data-bs-toggle="tab"
+                data-bs-target="#config-notifications" role="tab">
                 Notifications
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="config-data-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#config-data"
-                role="tab"
-              >
+              <button class="nav-link" id="config-data-tab" data-bs-toggle="tab" data-bs-target="#config-data"
+                role="tab">
                 Data
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="config-language-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#config-language"
-                role="tab"
-              >
+              <button class="nav-link" id="config-language-tab" data-bs-toggle="tab" data-bs-target="#config-language"
+                role="tab">
                 Language
               </button>
             </li>
@@ -93,94 +52,75 @@
             </div>
             <div class="tab-pane fade" id="config-general">
               <div class="d-flex flex-column mt-2 h-100">
-                <div
-                  class="
+                <div class="
                     form-check form-switch
                     d-flex
                     px-1
                     mb-3
                     justify-content-between
-                  "
-                >
-                  <label
-                    class="form-check-label flex-fill"
-                    for="calendarSetting"
-                    >{{ $t("settings.calendar") }}</label
-                  >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="calendarSetting"
-                    v-model="calendar"
-                    @change="changeConfig('calendar', calendar)"
-                  />
+                  ">
+                  <label class="form-check-label flex-fill" for="calendarSetting">{{ $t("settings.calendar") }}</label>
+                  <input class="form-check-input" type="checkbox" id="calendarSetting" v-model="calendar"
+                    @change="changeConfig('calendar', calendar)" />
                 </div>
 
-                <div
-                  class="
+                <div class="
                     form-check form-switch
                     d-flex
                     px-1
                     mb-3
                     justify-content-between
-                  "
-                >
-                  <label
-                    class="form-check-label flex-fill"
-                    for="customListsSetting"
-                    >{{ $t("settings.customLists") }}</label
-                  >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="customListsSetting"
-                    v-model="customList"
-                    @change="changeConfig('customList', customList)"
-                  />
+                  ">
+                  <label class="form-check-label flex-fill" for="customListsSetting">{{ $t("settings.customLists")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="customListsSetting" v-model="customList"
+                    @change="changeConfig('customList', customList)" />
                 </div>
 
-                <div
-                  v-if="isElectron()"
-                  class="
+                <div v-if="isElectron()" class="
                     form-check form-switch
                     d-flex
                     px-1
                     mb-3
                     justify-content-between
-                  "
-                >
+                  ">
                   <label class="form-check-label" for="updatesCheckSetting">{{
-                    $t("settings.checkUpdates")
+                      $t("settings.checkUpdates")
                   }}</label>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="updatesCheckSetting"
-                    v-model="checkUpdates"
-                    @change="changeConfig('checkUpdates', checkUpdates)"
-                  />
+                  <input class="form-check-input" type="checkbox" id="updatesCheckSetting" v-model="checkUpdates"
+                    @change="changeConfig('checkUpdates', checkUpdates)" />
                 </div>
 
-                <div
-                  v-if="isElectron()"
-                  class="
+                <div v-if="isElectron()" class="
                     form-check form-switch
                     d-flex
                     px-1
                     mb-3
                     justify-content-between
-                  "
-                >
+                  ">
                   <label class="form-check-label" for="openOnStartup">{{
-                    $t("settings.openOnStartup")
+                      $t("settings.openOnStartup")
                   }}</label>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="openOnStartup"
-                    v-model="openOnStartup"
-                    @change="setOpenOnStart()"
-                  />
+                  <input class="form-check-input" type="checkbox" id="openOnStartup" v-model="openOnStartup"
+                    @change="setOpenOnStart()" />
+                </div>
+                <div v-if="isElectron()" class="
+                    form-check form-switch
+                    d-flex
+                    px-1
+                    mb-3
+                    justify-content-between
+                  ">
+                  <label class="form-check-label" for="runInBackground">
+                    <span>
+                      {{ $t("settings.runInBackground") }}
+                      <sup>
+                        <i class="bi-info-circle" :title="$t('settings.runInBackgroundInfo')"> </i>
+                      </sup>
+                    </span>
+                  </label>
+                  <input class="form-check-input" type="checkbox" id="runInBackground" v-model="runInBackground"
+                    @change="setRunInBackground()" />
                 </div>
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
@@ -190,57 +130,26 @@
             <div class="tab-pane fade" id="config-display">
               <div class="d-flex flex-column mt-2 h-100">
                 <div class="px-1 mb-3">
-                  <label for="columnsConfig" class="form-check-label"
-                    >{{ $t("settings.columns") }}: {{ columns }}</label
-                  >
-                  <input
-                    type="range"
-                    class="form-range mt-2 px-2"
-                    min="1"
-                    max="12"
-                    id="columnsConfig"
-                    v-model="columns"
-                    @change="changeConfig('columns', columns)"
-                  />
+                  <label for="columnsConfig" class="form-check-label">{{ $t("settings.columns") }}: {{ columns
+                  }}</label>
+                  <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig" v-model="columns"
+                    @change="changeConfig('columns', columns)" />
                 </div>
 
                 <div class="px-1 mb-3">
-                  <label for="zoomConfig" class="form-check-label"
-                    >{{ $t("settings.zoom") }}: {{ zoom }}%</label
-                  >
-                  <input
-                    type="range"
-                    class="form-range mt-2 px-2"
-                    min="50"
-                    max="200"
-                    id="zoomConfig"
-                    step="5"
-                    v-model="zoom"
-                    @change="changeConfig('zoom', zoom)"
-                  />
+                  <label for="zoomConfig" class="form-check-label">{{ $t("settings.zoom") }}: {{ zoom }}%</label>
+                  <input type="range" class="form-range mt-2 px-2" min="50" max="200" id="zoomConfig" step="5"
+                    v-model="zoom" @change="changeConfig('zoom', zoom)" />
                 </div>
 
                 <div class="horizontal-divider mb-3"></div>
 
-                <div
-                  class="
-                    form-check form-switch
-                    d-flex
-                    px-1
-                    mb-3
-                    justify-content-between
-                  "
-                >
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkThemeSetting">{{
-                    $t("settings.darkTheme")
+                      $t("settings.darkTheme")
                   }}</label>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="darkThemeSetting"
-                    v-model="darkTheme"
-                    @change="changeConfig('darkTheme', darkTheme)"
-                  />
+                  <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme"
+                    @change="changeConfig('darkTheme', darkTheme)" />
                 </div>
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
@@ -249,49 +158,31 @@
             </div>
             <div class="tab-pane fade" id="config-notifications">
               <div class="d-flex flex-column mt-3 h-100">
-                <div
-                  v-if="isElectron()"
-                  class="
+                <div v-if="isElectron()" class="
                     form-check form-switch
                     d-flex
                     px-0
                     mb-3
                     justify-content-between
-                  "
-                >
-                  <label
-                    class="form-check-label"
-                    style="margin-left: 0px"
-                    for="notificationOnStartup"
-                    >{{ $t("settings.notificationOnStartup") }}</label
-                  >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="notificationOnStartup"
-                    v-model="notificationOnStartup"
-                    @change="
+                  ">
+                  <label class="form-check-label" style="margin-left: 0px" for="notificationOnStartup">{{
+                      $t("settings.notificationOnStartup")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="notificationOnStartup"
+                    v-model="notificationOnStartup" @change="
                       changeConfig(
                         'notificationOnStartup',
                         notificationOnStartup
                       )
-                    "
-                  />
+                    " />
                 </div>
 
-                <label for="notificationSound" class="form-label"
-                  >{{ $t("settings.notificationSound") }}:</label
-                >
+                <label for="notificationSound" class="form-label">{{ $t("settings.notificationSound") }}:</label>
                 <div class="d-flex">
-                  <select
-                    id="notificationSound"
-                    class="col-sm-9 form-select flex-fill"
-                    aria-label="Default select example"
-                    v-model="notificationSound"
-                    @change="
+                  <select id="notificationSound" class="col-sm-9 form-select flex-fill"
+                    aria-label="Default select example" v-model="notificationSound" @change="
                       changeConfig('notificationSound', notificationSound)
-                    "
-                  >
+                    ">
                     <option value="none">None</option>
                     <option value="pop">Pop</option>
                     <option value="bell">Bell</option>
@@ -302,12 +193,7 @@
                     <option value="positive">Positive</option>
                     <option value="metal">Metal</option>
                   </select>
-                  <button
-                    class="btn"
-                    style="margin-left: 8px"
-                    type="button"
-                    @click="playSound"
-                  >
+                  <button class="btn" style="margin-left: 8px" type="button" @click="playSound">
                     <i class="bi-play-circle a"></i>
                   </button>
                 </div>
@@ -320,43 +206,22 @@
               <div class="d-flex flex-column mt-2 h-100">
                 <div>
                   <div>
-                    <button
-                      type="button"
-                      class="btn w-100 py-2"
-                      @click="exportData"
-                    >
+                    <button type="button" class="btn w-100 py-2" @click="exportData">
                       <i class="icons bi-cloud-arrow-down"></i>
                       {{ $t("settings.exportBackup") }}
                     </button>
-                    <button
-                      type="button"
-                      class="btn w-100 py-2"
-                      @click="$refs.loadData.click"
-                    >
+                    <button type="button" class="btn w-100 py-2" @click="$refs.loadData.click">
                       <i class="icons bi-cloud-arrow-up"></i>
                       {{ $t("settings.importBackup") }}
                     </button>
-                    <button
-                      type="button"
-                      class="btn w-100 py-2"
-                      data-bs-dismiss="modal"
-                      data-bs-toggle="modal"
-                      data-bs-target="#clearDataModal"
-                    >
-                      <i
-                        class="icons bi-x-circle"
-                      ></i>
+                    <button type="button" class="btn w-100 py-2" data-bs-dismiss="modal" data-bs-toggle="modal"
+                      data-bs-target="#clearDataModal">
+                      <i class="icons bi-x-circle"></i>
                       {{ $t("settings.clearData") }}
                     </button>
                   </div>
-                  <input
-                    type="file"
-                    id="file-selector"
-                    class="d-none"
-                    accept=".wtdb"
-                    ref="loadData"
-                    @change="importData($event)"
-                  />
+                  <input type="file" id="file-selector" class="d-none" accept=".wtdb" ref="loadData"
+                    @change="importData($event)" />
                 </div>
 
                 <button class="btn mt-3" type="button" @click="goHome">
@@ -366,16 +231,9 @@
             </div>
             <div class="tab-pane fade" id="config-language">
               <div class="d-flex flex-column mt-2 h-100">
-                <label for="language" class="form-label"
-                  >{{ $t("settings.language") }}:</label
-                >
-                <select
-                  id="language"
-                  class="col-sm-9 form-select"
-                  aria-label="Default select example"
-                  v-model="language"
-                  @change="changeConfig('language', language)"
-                >
+                <label for="language" class="form-label">{{ $t("settings.language") }}:</label>
+                <select id="language" class="col-sm-9 form-select" aria-label="Default select example"
+                  v-model="language" @change="changeConfig('language', language)">
                   <option value="en">English</option>
                   <option value="es">Español</option>
                   <option value="fr">Français</option>
@@ -399,11 +257,7 @@
       </div>
     </div>
 
-    <toast-message
-      ref="invalidFile"
-      id="invalidFile"
-      text="$t('settings.invalidFile')"
-    ></toast-message>
+    <toast-message ref="invalidFile" id="invalidFile" text="$t('settings.invalidFile')"></toast-message>
   </div>
 </template>
 
@@ -430,6 +284,7 @@ export default {
       openOnStartup: this.$store.getters.config.openOnStartup,
       notificationSound: this.$store.getters.config.notificationSound,
       notificationOnStartup: this.$store.getters.config.notificationOnStartup,
+      runInBackground: this.$store.getters.config.runInBackground,
     };
   },
   methods: {
@@ -464,9 +319,18 @@ export default {
     setOpenOnStart: function () {
       this.changeConfig("openOnStartup", this.openOnStartup);
       this.$nextTick(function () {
-        if(this.isElectron()){
-         const { ipcRenderer } = require('electron');
-         ipcRenderer.send('set-open-on-startup', this.openOnStartup);
+        if (this.isElectron()) {
+          const { ipcRenderer } = require('electron');
+          ipcRenderer.send('set-open-on-startup', this.openOnStartup);
+        }
+      });
+    },
+    setRunInBackground: function () {
+      this.changeConfig("runInBackground", this.runInBackground);
+      this.$nextTick(function () {
+        if (this.isElectron()) {
+          const { ipcRenderer } = require('electron');
+          ipcRenderer.send('set-run-in-background', this.runInBackground);
         }
       });
     },
@@ -519,6 +383,7 @@ export default {
 
 .form-range::-webkit-slider-thumb {
   background: $check-color;
+
   .dark-theme & {
     background: $dt-check-color;
   }
@@ -526,6 +391,7 @@ export default {
 
 .form-range::-webkit-slider-thumb {
   background: $check-color;
+
   .dark-theme & {
     background: $dt-check-color;
   }
@@ -533,6 +399,7 @@ export default {
 
 .form-range::-ms-thumb {
   background: $check-color;
+
   .dark-theme & {
     background: $dt-check-color;
   }

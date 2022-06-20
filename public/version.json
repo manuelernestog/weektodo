@@ -3,7 +3,8 @@
   "changes": {
     "en": {
       "1.8.0-20220610": [
-        "Adding repeating events",
+        "Adding repeating tasks",
+        "Adding repeating tasks view",
         "Fixing todo lists length when the column grows",
         "Improving listing performance",
         "Restyling Modal components",

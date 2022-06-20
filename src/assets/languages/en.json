@@ -24,7 +24,9 @@
     "clearData": "Clear data",
     "exportBackup": "Export backup",
     "importBackup": "Import backup",
-    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible."
+    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible.",
+    "runInBackground": "Run in background",
+    "runInBackgroundInfo": "Allows notifications to work with the app closed. \n This option may have issues for some macOS versions."
   },
   "donate": {
     "contribute": "Contribute",

@@ -21,6 +21,7 @@ export default {
                 notificationOnStartup: true,
                 notificationSound: "pop",
                 openOnStartup: true,
+                runInBackground: true,
             }
             storageRepository.set('config', default_config);
             return default_config;

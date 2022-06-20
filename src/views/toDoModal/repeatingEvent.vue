@@ -79,6 +79,7 @@ export default {
       if (rule) {
         let date = this.todo.listId;
         var re_by_date = this.$store.getters.repeatingEventByDate[date];
+        if (!re_by_date) re_by_date = {};
         re_by_date[repeatingEventId] = true;
         repeatingEventByDateRepository.update(date, re_by_date);
         const re_event = this.generateRepeatingEvent(rule, repeatingEventId);

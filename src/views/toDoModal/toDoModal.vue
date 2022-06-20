@@ -7,22 +7,20 @@
             <div class="d-flex align-items-center">
               <div v-show="showingCalendar" class="align-items-center date-picker-btn" @click="showCalendar()">
                 <i class="bi-calendar-event mx-2"></i>
-                <datepicker id="todo-date-picker-input" class="py-2" v-model="pickedDate" :locale="language" :input-format='"dd/MM/yyyy"' />
+                <datepicker id="todo-date-picker-input" class="py-2" v-model="pickedDate" :locale="language"
+                  :input-format='"dd/MM/yyyy"' />
               </div>
               <div v-show="!showingCalendar" class="align-items-center date-picker-btn">
-                <div data-bs-toggle="dropdrown" class="align-items-center date-picker-btn py-2">
+                <div class="align-items-center date-picker-btn py-2" id="customListDropDown" data-bs-toggle="dropdown">
                   <i class="bi-view-list mx-2"></i>
                   <div id="todo-list-select">{{ pickedCListName }}</div>
                 </div>
-                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <ul class="dropdown-menu" aria-labelledby="customListDropDown">
                   <li v-for="option in cListOptions" :key="option.listId" :value="option.listId">
                     <button class="dropdown-item" type="button" @click="pickedCList = option.listId">
-                      <i
-                        class="bi-check2"
-                        :style="{
-                          visibility: option.listId == pickedCList ? 'visible' : 'hidden',
-                        }"
-                      ></i>
+                      <i class="bi-check2" :style="{
+                        visibility: option.listId == pickedCList ? 'visible' : 'hidden',
+                      }"></i>
                       <span>{{ option.listName }}</span>
                     </button>
                   </li>
@@ -50,24 +48,13 @@
           </div>
           <div class="d-flex ms-auto align-items-center">
             <time-picker :time="todo.time" @time-selected="changeTime"></time-picker>
-            <i
-              :class="{ 'bi-bell': !todo.alarm, 'bi-bell-fill': todo.alarm }"
-              class="header-menu-icons"
-              @click="changeAlarm"
-            ></i>
-            <repeating-event
-              v-if="showingCalendar"
-              :repeatingEvent="todo.repeatingEvent"
-              :todo="todo"
-              @repeatingEventSelected="changeRepeatingEvent"
-            ></repeating-event>
+            <i :class="{ 'bi-bell': !todo.alarm, 'bi-bell-fill': todo.alarm }" class="header-menu-icons"
+              @click="changeAlarm"></i>
+            <repeating-event v-if="showingCalendar" :repeatingEvent="todo.repeatingEvent" :todo="todo"
+              @repeatingEventSelected="changeRepeatingEvent"></repeating-event>
             <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
-            <i
-              id="btnTaskOptionMenu"
-              class="bi-three-dots-vertical header-menu-icons"
-              type="button"
-              data-bs-toggle="dropdown"
-            ></i>
+            <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
+              data-bs-toggle="dropdown"></i>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
               <li>
                 <button class="dropdown-item" type="button" @click="copyTodo">
@@ -81,7 +68,9 @@
                   <span>{{ $t("todoDetails.duplicate") }}</span>
                 </button>
               </li>
-              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
               <li>
                 <button class="dropdown-item" type="button" @click="removeTodo" data-bs-dismiss="modal">
                   <i class="bi-trash"></i> <span>{{ $t("ui.remove") }}</span>
@@ -100,62 +89,32 @@
         </div>
         <div class="modal-body">
           <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="todo-header"
-              v-model="todo.checked"
-              @change="updateTodo(false)"
-            />
+            <input class="form-check-input" type="checkbox" value="" id="todo-header" v-model="todo.checked"
+              @change="updateTodo(false)" />
             <div class="title-container">
-              <label
-                v-show="!editingTitle"
-                class="form-check-label todo-title"
-                for="todo-header"
-                :class="{ 'completed-task': todo.checked }"
-                @dblclick="editTitle"
-              >
+              <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
+                :class="{ 'completed-task': todo.checked }" @dblclick="editTitle">
                 {{ todo.text }}
               </label>
-              <label
-                v-show="!editingTitle && todo.text == ''"
-                class="form-check-label todo-title todo-title-empty-title"
-                for="todo-header"
-                @dblclick="editTitle"
-              >
+              <label v-show="!editingTitle && todo.text == ''"
+                class="form-check-label todo-title todo-title-empty-title" for="todo-header" @dblclick="editTitle">
                 {{ $t("todoDetails.taskTitle") }}
               </label>
-              <input
-                v-show="editingTitle"
-                class="todo-title-input"
-                type="text"
-                v-model="todo.text"
-                ref="titleInput"
-                :placeholder="$t('todoDetails.taskTitle')"
-                @blur="doneEditTitle()"
-                @keyup.esc="cancelEditTitle()"
-                @keyup.enter="doneEditTitle()"
-              />
+              <input v-show="editingTitle" class="todo-title-input" type="text" v-model="todo.text" ref="titleInput"
+                :placeholder="$t('todoDetails.taskTitle')" @blur="doneEditTitle()" @keyup.esc="cancelEditTitle()"
+                @keyup.enter="doneEditTitle()" />
               <div class="position-relative" v-show="editingDescription">
-                <textarea
-                  class="todo-description-textarea mt-2"
-                  v-model="todo.desc"
-                  :placeholder="$t('todoDetails.notes')"
-                  ref="descriptionInput"
-                  @blur="doneEditDescription"
-                >
+                <textarea class="todo-description-textarea mt-2" v-model="todo.desc"
+                  :placeholder="$t('todoDetails.notes')" ref="descriptionInput" @blur="doneEditDescription">
                 </textarea>
                 <i class="bi-markdown-fill" @mousedown="goToMarkDown" :title="$t('todoDetails.markdown')"></i>
               </div>
-              <div v-show="!editingDescription && todo.desc != ''" class="mt-2 todo-description" @dblclick="editDescription">
+              <div v-show="!editingDescription && todo.desc != ''" class="mt-2 todo-description"
+                @dblclick="editDescription">
                 <Markdown :source="todo.desc" />
               </div>
-              <div
-                v-show="!editingDescription && todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') == ''"
-                @dblclick="editDescription"
-                class="description-empty mt-2"
-              >
+              <div v-show="!editingDescription && todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') == ''"
+                @dblclick="editDescription" class="description-empty mt-2">
                 {{ $t("todoDetails.notes") }}
               </div>
             </div>
@@ -166,49 +125,23 @@
             <li v-for="(subTask, index) in todo.subTaskList" :key="index" class="sub-task">
               <div v-show="!subTask.editing" draggable="true" @dragstart="startDrag($event, index)" @dragover.prevent>
                 <div class="d-flex flex-row align-items-center" :class="{ checked: subTask.checked }">
-                  <input
-                    class="form-check-input flex-grow-1 mx-3 mt-0"
-                    type="checkbox"
-                    v-model="subTask.checked"
-                    :id="'sub-task-' + index"
-                    @change="updateTodo"
-                  />
-                  <label
-                    class="form-check-label"
-                    :for="'sub-task-' + index"
-                    @dblclick="editSubTask(index)"
-                    @dragenter.self="onDragenter($event)"
-                    @dragleave.self="onDragleave($event)"
-                    @drop="onDrop($event, index)"
-                    @dragover.prevent
-                    >{{ subTask.text }}</label
-                  >
+                  <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
+                    :id="'sub-task-' + index" @change="updateTodo" />
+                  <label class="form-check-label" :for="'sub-task-' + index" @dblclick="editSubTask(index)"
+                    @dragenter.self="onDragenter($event)" @dragleave.self="onDragleave($event)"
+                    @drop="onDrop($event, index)" @dragover.prevent>{{ subTask.text }}</label>
                   <i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeSubTask(index)"></i>
                 </div>
               </div>
-              <input
-                v-show="subTask.editing"
-                v-model="subTask.text"
-                @blur="doneEditSubTask(index)"
-                @keyup.enter="doneEditSubTask(index)"
-                @keyup.esc="cancelEditSubTask(index)"
-                :ref="'subTaskEdit' + index"
-                class="edit-sub-task"
-              />
+              <input v-show="subTask.editing" v-model="subTask.text" @blur="doneEditSubTask(index)"
+                @keyup.enter="doneEditSubTask(index)" @keyup.esc="cancelEditSubTask(index)" :ref="'subTaskEdit' + index"
+                class="edit-sub-task" />
             </li>
             <div class="new-sub-task d-flex align-items-center">
               <label for="new-sub-task"><i class="bi-plus-square mx-3"></i></label>
-              <input
-                type="text"
-                id="new-sub-task"
-                :placeholder="$t('todoDetails.addSubTask')"
-                autocomplete="off"
-                @blur="addSubTask()"
-                @keyup.enter="addSubTask()"
-                @keyup.esc="cancelAddSubTask()"
-                v-model="newSubTask.text"
-                ref="newSubTask"
-              />
+              <input type="text" id="new-sub-task" :placeholder="$t('todoDetails.addSubTask')" autocomplete="off"
+                @blur="addSubTask()" @keyup.enter="addSubTask()" @keyup.esc="cancelAddSubTask()"
+                v-model="newSubTask.text" ref="newSubTask" />
             </div>
           </ul>
         </div>
@@ -706,7 +639,7 @@ export default {
   max-height: 250px;
   overflow-y: auto;
 
-  li > div {
+  li>div {
     -webkit-user-drag: element;
   }
 

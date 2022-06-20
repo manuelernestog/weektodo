@@ -5,6 +5,7 @@ export default {
         configCheckUpdate();
         configCalendarZoomColumnsCalendarHeight();
         configNotifications();
+        runInBackground()
     }
 }
 
@@ -33,6 +34,14 @@ function configNotifications() {
         config['notificationOnStartup'] = true;
         config['notificationSound'] = "pop";
         config['openOnStartup'] = true;
+        configRepository.update(config);
+    }
+}
+
+function runInBackground() {
+    let config = configRepository.load();
+    if (!('runInBackground' in config)) {
+        config['runInBackground'] = false;
         configRepository.update(config);
     }
 }
