@@ -7,10 +7,10 @@
             <div class="d-flex align-items-center">
               <div v-show="showingCalendar" class="align-items-center date-picker-btn" @click="showCalendar()">
                 <i class="bi-calendar-event mx-2"></i>
-                <datepicker id="todo-date-picker-input" class="py-2" v-model="pickedDate" :locale="language" />
+                <datepicker id="todo-date-picker-input" class="py-2" v-model="pickedDate" :locale="language" :input-format='"dd/MM/yyyy"' />
               </div>
               <div v-show="!showingCalendar" class="align-items-center date-picker-btn">
-                <div data-bs-toggle="dropdown" class="align-items-center date-picker-btn py-2">
+                <div data-bs-toggle="dropdrown" class="align-items-center date-picker-btn py-2">
                   <i class="bi-view-list mx-2"></i>
                   <div id="todo-list-select">{{ pickedCListName }}</div>
                 </div>
