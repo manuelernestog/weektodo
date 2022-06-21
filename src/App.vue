@@ -107,7 +107,7 @@ export default {
     return {
       selected_date: null,
       cTodoList: this.$store.getters.cTodoListIds,
-      calendarHeight: "50%",
+      calendarHeight: "calc(50% - 35px)",
       ipcRenderer: null,
     };
   },
@@ -251,7 +251,7 @@ export default {
       return window.IndexedDB;
     },
     resizerDblClick: function () {
-      this.calendarHeight = "50%";
+      this.calendarHeight = "calc(50% - 35px)";
       this.$store.commit("updateConfig", {
         val: this.calendarHeight,
         key: "calendarHeight",
@@ -259,12 +259,13 @@ export default {
       configRepository.update(this.$store.getters.config);
     },
     resizerMouseDownHandler: function (e) {
-      this.resizerY = e.clientY;
+      this.resizerY = e.clientY - 35;
+      console.log(this.resizerY);
       document.addEventListener("mousemove", this.resizerMouseMoveHandler);
       document.addEventListener("mouseup", this.resizerMouseUpHandler);
     },
     resizerMouseMoveHandler: function (e) {
-      this.calendarHeight = `${(e.clientY * 100) / this.zoom}px`;
+      this.calendarHeight = `${((e.clientY - 35) * 100) / this.zoom}px`;
     },
     resizerMouseUpHandler: function () {
       document.removeEventListener("mousemove", this.resizerMouseMoveHandler);
@@ -385,6 +386,8 @@ body {
   min-height: 5px;
   height: 5px;
   transition: height 0.15s ease-out 0s;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .slider-btn {

@@ -194,8 +194,8 @@ export default {
 }
 
 .to-do-list-container {
-  /*margin: 1.6rem 13px 13px;*/
-  padding: 1.6rem 13px 13px;
+  padding-left: 13px;
+  padding-right: 13px;
   scroll-snap-align: start;
 }
 
