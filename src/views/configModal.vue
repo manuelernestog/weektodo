@@ -64,17 +64,18 @@
                     @change="changeConfig('calendar', calendar)" />
                 </div>
 
-                <div class="
-                    form-check form-switch
-                    d-flex
-                    px-1
-                    mb-3
-                    justify-content-between
-                  ">
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label flex-fill" for="customListsSetting">{{ $t("settings.customLists")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="customListsSetting" v-model="customList"
                     @change="changeConfig('customList', customList)" />
+                </div>
+
+                  <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.moveOldTasks")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="moveOldTasks"
+                    @change="changeConfig('moveOldTasks', moveOldTasks)" />
                 </div>
 
                 <div v-if="isElectron()" class="
@@ -285,6 +286,7 @@ export default {
       notificationSound: this.$store.getters.config.notificationSound,
       notificationOnStartup: this.$store.getters.config.notificationOnStartup,
       runInBackground: this.$store.getters.config.runInBackground,
+      moveOldTasks: this.$store.getters.config.moveOldTasks,
     };
   },
   methods: {

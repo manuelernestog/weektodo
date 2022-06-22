@@ -97,10 +97,7 @@ export default {
         destinyId: towmorrow_id,
       });
       this.updateTodoList(this.id, this.$store.getters.todoLists[this.id]);
-      this.updateTodoList(
-        towmorrow_id,
-        this.$store.getters.todoLists[towmorrow_id]
-      );
+      this.updateTodoList(towmorrow_id, this.$store.getters.todoLists[towmorrow_id]);
     },
     moments: function (date) {
       return moment(date);

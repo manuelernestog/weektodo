@@ -84,6 +84,7 @@ import notifications from "./helpers/notifications";
 import clearDataModal from "./views/clearDataModal.vue";
 import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 import repeatingEventRepository from "./repositories/repeatingEventRepository";
+import toDoListRepository from "./repositories/toDoListRepository";
 
 export default {
   name: "App",
@@ -156,7 +157,8 @@ export default {
 
     this.resetAppOnDayChange();
 
-    setTimeout(this.refreshTodayNotifications, 4000);
+    if (this.$store.getters.config.moveOldTasks) setTimeout(this.moveOldTasksToToday, 3000);
+    setTimeout(this.refreshTodayNotifications, 3000);
   },
   methods: {
     weekMoveLeft: function () {
@@ -190,8 +192,7 @@ export default {
       this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
     },
     customMoveRight: function () {
-      this.$refs.customListContainer.scrollLeft =
-        this.$refs.customListContainer.scrollLeft + this.customTodoListWidth() - 13;
+      this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.customTodoListWidth() - 13;
     },
     customMoveLeft: function () {
       this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
@@ -260,7 +261,6 @@ export default {
     },
     resizerMouseDownHandler: function (e) {
       this.resizerY = e.clientY - 35;
-      console.log(this.resizerY);
       document.addEventListener("mousemove", this.resizerMouseMoveHandler);
       document.addEventListener("mouseup", this.resizerMouseUpHandler);
     },
@@ -327,6 +327,18 @@ export default {
         duration
       );
     },
+    moveOldTasksToToday: function () {
+      var todayListId = moment(this.id).format("YYYYMMDD");
+      for (let i = 1; i <= 7; i++) {
+        let listId = moment().subtract(i, "d").format("YYYYMMDD");
+        this.$store.dispatch("loadTodoLists", listId).then(() => {
+          this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
+          toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
+          toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
+          notifications.refreshDayNotifications(this, todayListId);
+        })
+      }
+    }
   },
   computed: {
     dates_array: function () {

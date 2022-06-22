@@ -41,7 +41,8 @@ function configNotifications() {
 function runInBackground() {
     let config = configRepository.load();
     if (!('runInBackground' in config)) {
-        config['runInBackground'] = false;
+        config['runInBackground'] = true;
+        config['moveOldTasks'] = true;
         configRepository.update(config);
     }
 }

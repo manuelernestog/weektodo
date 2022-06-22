@@ -9,7 +9,9 @@
         "Improving listing performance",
         "Restyling Modal components",
         "Restyling To-do hover efect",
-        "Fixing bug moving to-do to date in modal"
+        "Fixing bug moving to-do to date in modal",
+        "Building Pacman format app for arch distributions",
+        "Adding option for move automatically old tasks"
       ],
       "1.7.0-20220411": [
         "Open task detail with middle click",
