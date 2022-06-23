@@ -90,7 +90,7 @@
         <div class="modal-body">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="todo-header" v-model="todo.checked"
-              @change="updateTodo(false)" />
+              @change="checkTodoClickhandler(false)" />
             <div class="title-container">
               <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
                 :class="{ 'completed-task': todo.checked }" @dblclick="editTitle">
@@ -170,6 +170,7 @@ import repeatingEvent from "./repeatingEvent";
 import notifications from "../../helpers/notifications";
 import repeatingEventHelper from "../../helpers/repeatingEvents.js";
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
+import mainHelpers from "../../helpers/mainHelpers";
 
 export default {
   name: "toDoModal",
@@ -294,11 +295,20 @@ export default {
     showCalendar: function () {
       document.getElementById("todo-date-picker-input").focus();
     },
+    checkTodoClickhandler: function (resetRepeatinEvent = true) {
+      mainHelpers.click_handler(this, function () { this.checkTodo(resetRepeatinEvent) }.bind(this));
+    },
+    checkTodo: function (resetRepeatinEvent = true) {
+      if (this.todo.checked) {
+        this.$store.commit("moveTodoToEnd", { toDoListId: this.todo.listId, index: this.index });
+        this.index = this.todoList.length - 1;
+      }
+      this.updateTodo(resetRepeatinEvent);
+    },
     updateTodo: function (resetRepeatinEvent = true) {
       if (resetRepeatinEvent) {
         this.todo.repeatingEvent = null;
       }
-
       this.updateTodoList(this.todo.listId, this.todoList);
     },
     updateTodoList: function (todoListId, TodoList) {

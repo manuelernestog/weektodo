@@ -24,6 +24,12 @@ const mutations = {
   },
   checkTodo(state, obj) {
     state.todoLists[obj.toDoListId][obj.index].checked = !state.todoLists[obj.toDoListId][obj.index].checked;
+    if (state.todoLists[obj.toDoListId][obj.index].checked) {
+      this.commit("moveTodoToEnd", obj);
+    }
+  },
+  moveTodoToEnd(state, obj) {
+      state.todoLists[obj.toDoListId].push(state.todoLists[obj.toDoListId].splice(obj.index, 1)[0]);
   },
   addTodo(state, toDo) {
     state.todoLists[toDo.listId].push(toDo);

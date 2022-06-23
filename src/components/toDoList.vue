@@ -122,10 +122,7 @@ export default {
     onDropAtEnd: function (event, list) {
       let toDo = JSON.parse(event.dataTransfer.getData("item"));
       let index = event.dataTransfer.getData("index");
-      this.$store.commit("removeTodo", {
-        toDoListId: toDo.listId,
-        index: index,
-      });
+      this.$store.commit("removeTodo", { toDoListId: toDo.listId, index: index, });
       this.updateTodoList(toDo.listId, this.$store.getters.todoLists[toDo.listId]);
       if (toDo.listId != list) toDo.repeatingEvent = null;
       toDo.listId = list;

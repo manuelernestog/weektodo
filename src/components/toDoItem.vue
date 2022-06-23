@@ -1,46 +1,20 @@
 <template>
-  <div
-    class="item-drop-zone"
-    @dragenter.self="onDragenter"
-    @dragleave.self="onDragleave"
-    @drop="onDragleave"
-    :class="[{ 'drag-hover': todoDragHover }, { dragging: todoDragging }]"
-  >
+  <div class="item-drop-zone" @dragenter.self="onDragenter" @dragleave.self="onDragleave" @drop="onDragleave"
+    :class="[{ 'drag-hover': todoDragHover }, { dragging: todoDragging }]">
     <div class="todo-item-container">
-      <div
-        v-if="!editing"
-        class="todo-item d-flex flex-column"
-        ref="currentTodo"
-        draggable="true"
-        @dragstart="startDrag($event, toDo, index)"
-        @dragend="endDrag()"
-      >
+      <div v-if="!editing" class="todo-item d-flex flex-column" ref="currentTodo" draggable="true"
+        @dragstart="startDrag($event, toDo, index)" @dragend="endDrag()">
         <div class="d-flex">
-          <span
-            class="noselect item-text"
-            :class="{ 'checked-todo': toDo.checked }"
-            style="flex-grow: 1"
-            @dblclick="editToDo"
-            @click="checkToDo"
-            @click.middle="showToDoDetails"
-          >
-            <i
-              v-if="toDo.color != 'none'"
-              class="cicle-icon"
-              :style="'color: ' + toDo.color"
-              :class="{
-                'bi-check-circle-fill': toDo.checked,
-                'bi-circle-fill': !toDo.checked,
-              }"
-            ></i>
-            <i
-              v-else
-              class="cicle-icon"
-              :class="{
-                'bi-check-circle': toDo.checked,
-                'bi-circle': !toDo.checked,
-              }"
-            ></i>
+          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1"
+            @dblclick="editToDo" @click="checkTodoClickhandler" @click.middle="showToDoDetails">
+            <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
+              'bi-check-circle-fill': toDo.checked,
+              'bi-circle-fill': !toDo.checked,
+            }"></i>
+            <i v-else class="cicle-icon" :class="{
+              'bi-check-circle': toDo.checked,
+              'bi-circle': !toDo.checked,
+            }"></i>
             {{ toDo.text }}
             <span class="time-details"> {{ timeFormat(toDo.time) }}</span>
           </span>
@@ -70,16 +44,8 @@
           </ul>
         </div>
       </div>
-      <input
-        v-show="editing"
-        class="edit todo-input"
-        type="text"
-        v-model="text"
-        ref="toDoEditInput"
-        @blur="doneEdit()"
-        @keyup.enter="doneEdit()"
-        @keyup.esc="cancelEdit()"
-      />
+      <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
+        @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()" />
     </div>
   </div>
 </template>
@@ -89,6 +55,7 @@ import toDoListRepository from "../repositories/toDoListRepository";
 import { Modal } from "bootstrap";
 import moment from "moment";
 import notifications from "../helpers/notifications";
+import mainHelpers from "../helpers/mainHelpers";
 
 export default {
   components: {},
@@ -144,6 +111,9 @@ export default {
       let modalEl = document.getElementById("toDoModal");
       let modal = new Modal(modalEl, { keyboard: false });
       modal.show();
+    },
+    checkTodoClickhandler: function () {
+      mainHelpers.click_handler(this, this.checkToDo);
     },
     checkToDo: function () {
       this.$store.commit("checkTodo", {
@@ -262,6 +232,7 @@ export default {
   opacity: 0.6;
   display: none;
 }
+
 .todo-item.checked-todo .time-details {
   opacity: unset;
 }

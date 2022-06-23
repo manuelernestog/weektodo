@@ -157,8 +157,8 @@ export default {
 
     this.resetAppOnDayChange();
 
-    if (this.$store.getters.config.moveOldTasks) setTimeout(this.moveOldTasksToToday, 3000);
-    setTimeout(this.refreshTodayNotifications, 3000);
+    if (this.$store.getters.config.moveOldTasks) setTimeout(this.moveOldTasksToToday, 2500);
+    setTimeout(this.refreshTodayNotifications, 3500);
   },
   methods: {
     weekMoveLeft: function () {
