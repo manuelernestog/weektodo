@@ -11,10 +11,7 @@
               'bi-check-circle-fill': toDo.checked,
               'bi-circle-fill': !toDo.checked,
             }"></i>
-            <i v-else class="cicle-icon" :class="{
-              'bi-check-circle': toDo.checked,
-              'bi-circle': !toDo.checked,
-            }"></i>
+            <i v-else class="cicle-icon" :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></i>
             {{ toDo.text }}
             <span class="time-details"> {{ timeFormat(toDo.time) }}</span>
           </span>
@@ -25,20 +22,12 @@
           <i class="bi-x todo-item-remove" @click="removeTodo"></i>
         </div>
 
-        <!--        <div class="tags">-->
-        <!--          <div class="tag-item"><i class="bi-chevron-double-up"></i></div>-->
-        <!--          <div class="tag-item"><i class="bi-arrow-repeat"></i></div>-->
-        <!--          <div class="tag-item"><i class="bi-list-task"></i> <span>5/10</span></div>-->
-        <!--          <div class="tag-item"><i class="bi-clock"></i> <span>5:15</span></div>-->
-        <!--          <div class="tag-item"><i class="bi-tag"></i></div>-->
-        <!--        </div>-->
-
         <div class="todo-item-sub-tasks">
           <ul class="sub-tasks">
             <li v-for="(subTask, index) in toDo.subTaskList" :key="index" class="sub-task">
               <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
                 <input class="form-check-input" type="checkbox" v-model="subTask.checked" />
-                <label class="form-check-label" @click="checkSubTask(subTask)">{{ subTask.text }}</label>
+                <label class="form-check-label" @click="checkSubTask(subTask, index)">{{ subTask.text }}</label>
               </div>
             </li>
           </ul>
@@ -138,8 +127,10 @@ export default {
     onDragleave: function () {
       this.todoDragHover = false;
     },
-    checkSubTask: function (subTask) {
+    checkSubTask: function (subTask, index) {
       subTask.checked = !subTask.checked;
+      var todoList = this.toDo.subTaskList;
+      if (subTask.checked) { todoList.push(todoList.splice(index, 1)[0]); }
       toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
     },
     timeFormat: function (date) {

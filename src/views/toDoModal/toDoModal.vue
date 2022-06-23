@@ -126,7 +126,7 @@
               <div v-show="!subTask.editing" draggable="true" @dragstart="startDrag($event, index)" @dragover.prevent>
                 <div class="d-flex flex-row align-items-center" :class="{ checked: subTask.checked }">
                   <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
-                    :id="'sub-task-' + index" @change="updateTodo" />
+                    :id="'sub-task-' + index" @change="changeSubTaskClickhandler(index)" />
                   <label class="form-check-label" :for="'sub-task-' + index" @dblclick="editSubTask(index)"
                     @dragenter.self="onDragenter($event)" @dragleave.self="onDragleave($event)"
                     @drop="onDrop($event, index)" @dragover.prevent>{{ subTask.text }}</label>
@@ -444,6 +444,15 @@ export default {
       this.todo.repeatingEvent = repeatingEvent;
       this.updateTodo(false);
     },
+    changeSubTaskClickhandler: function (index) {
+      mainHelpers.click_handler(this, function () { this.changeSubTask(index) }.bind(this));
+    },
+    changeSubTask: function (index) {
+      if (this.todo.subTaskList[index].checked) {
+        this.todo.subTaskList.push(this.todo.subTaskList.splice(index, 1)[0]);
+      }
+      this.updateTodo();
+    }
   },
   watch: {
     selectedTodo: function (newVal) {
@@ -479,7 +488,7 @@ export default {
     },
     pickedCList: function (newVal) {
       this.moveToTodoList(newVal);
-    },
+    }
   },
   computed: {
     language: function () {
