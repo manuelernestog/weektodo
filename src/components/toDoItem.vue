@@ -113,13 +113,13 @@ export default {
       modal.show();
     },
     checkTodoClickhandler: function () {
+      this.$store.commit("checkTodo", { toDoListId: this.toDoListId, index: this.index, });
       mainHelpers.click_handler(this, this.checkToDo);
     },
     checkToDo: function () {
-      this.$store.commit("checkTodo", {
-        toDoListId: this.toDoListId,
-        index: this.index,
-      });
+      if (this.$store.getters.todoLists[this.toDoListId][this.index].checked) {
+        this.$store.commit("moveTodoToEnd", { toDoListId: this.toDoListId, index: this.index, });
+      }
       toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
     },
     startDrag: function (event, item, index) {
