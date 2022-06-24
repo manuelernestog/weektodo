@@ -44,8 +44,9 @@ async function createWindow() {
   ipcMain.on("match-open-on-startup", matchOpenOnStartup);
   ipcMain.on("set-open-on-startup", setOpenOnStartup);
   ipcMain.on("set-run-in-background", setRunInBackground);
+  ipcMain.on("clear-config", clearConfig);
 
-  if (typeof config.get("runInBackground") == 'undefined') {
+  if (typeof config.get("runInBackground") == "undefined") {
     config.set("runInBackground", true);
   }
 
@@ -162,6 +163,10 @@ function setOpenOnStartup(event, openOnStartup) {
   } else {
     autoLauncher.disable();
   }
+}
+
+function clearConfig() {
+  config.set("runInBackground", true);
 }
 
 function setRunInBackground(event, runInBackground) {

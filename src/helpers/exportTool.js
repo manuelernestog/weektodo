@@ -2,6 +2,7 @@ import storageRepository from "../repositories/storageRepository";
 import dbRepository from "../repositories/dbRepository";
 import { Toast } from "bootstrap";
 import migrations from "../migrations/migrations";
+import isElectron from "is-electron";
 
 export default {
   export() {
@@ -44,6 +45,11 @@ export default {
     };
   },
   clear() {
+    if (isElectron()) {
+      const { ipcRenderer } = require("electron");
+      ipcRenderer.send("clear-config");
+    }
+
     storageRepository.clean();
     let db_req = dbRepository.open();
     db_req.onsuccess = function (event) {
