@@ -37,7 +37,7 @@
       </div>
 
       <remove-custom-list></remove-custom-list>
-      <config-modal @change-columns="weekResetScroll"></config-modal>
+      <config-modal @change-columns="weekResetScroll" :configProp="$store.getters.config"></config-modal>
       <clear-data-modal></clear-data-modal>
       <about-modal></about-modal>
       <redirect-domain-modal></redirect-domain-modal>

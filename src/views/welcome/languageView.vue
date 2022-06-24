@@ -52,7 +52,7 @@
         methods: {
             changeLanguage: function () {
                 this.$nextTick(function () {
-                    this.$store.commit('updateConfigLanguage', this.language);
+                   this.$store.commit('updateConfig', { val: this.language, key: "language" });
                     configRepository.update(this.$store.getters.config);
                     this.$i18n.locale = this.language;
                 });
