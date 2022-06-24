@@ -168,7 +168,12 @@
     "monthly": "Monthly",
     "yearly": "Yearly",
     "split": "Split",
-    "recurrentTaskRemoved": "Recurrent Task Removed"
+    "recurrentTaskRemoved": "Recurrent Task Removed",
+    "time": "Time",
+    "alarm": "Alarm",
+    "color": "Color",
+    "close": "Close",
+    "actions": "Actions"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",

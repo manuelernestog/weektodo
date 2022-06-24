@@ -4,6 +4,7 @@
     type="button"
     data-bs-toggle="dropdown"
     data-bs-auto-close="outside"
+    :title="$t('todoDetails.time')"
   >
     <i
       id="btnTaskTimePicker"

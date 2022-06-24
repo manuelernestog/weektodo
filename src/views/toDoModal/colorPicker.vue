@@ -3,6 +3,7 @@
      class="header-menu-icons bi-circle-fill" type="button"
      data-bs-toggle="dropdown"
      :style="'color: '+color"
+     :title="$t('todoDetails.color')"
   ></i>
 
   <ul class="dropdown-menu color-picker-dropdown" aria-labelledby="btnTaskTimePicker">

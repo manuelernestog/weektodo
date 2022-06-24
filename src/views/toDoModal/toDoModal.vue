@@ -49,12 +49,12 @@
           <div class="d-flex ms-auto align-items-center">
             <time-picker :time="todo.time" @time-selected="changeTime"></time-picker>
             <i :class="{ 'bi-bell': !todo.alarm, 'bi-bell-fill': todo.alarm }" class="header-menu-icons"
-              @click="changeAlarm"></i>
+              @click="changeAlarm" :title="$t('todoDetails.alarm')"></i>
             <repeating-event v-if="showingCalendar" :repeatingEvent="todo.repeatingEvent" :todo="todo"
               @repeatingEventSelected="changeRepeatingEvent"></repeating-event>
             <color-picker :color="todo.color" @color-selected="changeColor"></color-picker>
             <i id="btnTaskOptionMenu" class="bi-three-dots-vertical header-menu-icons" type="button"
-              data-bs-toggle="dropdown"></i>
+              data-bs-toggle="dropdown" :title="$t('todoDetails.actions')"></i>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnTaskOptionMenu">
               <li>
                 <button class="dropdown-item" type="button" @click="copyTodo">
@@ -83,7 +83,7 @@
               </li>
             </ul>
             <div>
-              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal"></i>
+              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal" :title="$t('todoDetails.close')"></i>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <div id="reDropDown" class="header-menu-icons" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+  <div id="reDropDown" class="header-menu-icons" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" :title="$t('ui.recurringTasks')">
     <i id="btnRepeatingEvent" :class="{ 'bi-arrow-clockwise': !repeatingEvent, 'bi-arrow-repeat': repeatingEvent }"></i>
   </div>
 
