@@ -195,11 +195,11 @@
                   <div>
                     <button type="button" class="btn w-100 py-2" @click="exportData">
                       <i class="icons bi-cloud-arrow-down"></i>
-                      {{ $t("settings.exportBackup") }}
+                      {{ $t("settings.exportData") }}
                     </button>
                     <button type="button" class="btn w-100 py-2" @click="$refs.loadData.click">
                       <i class="icons bi-cloud-arrow-up"></i>
-                      {{ $t("settings.importBackup") }}
+                      {{ $t("settings.importData") }}
                     </button>
                     <button type="button" class="btn w-100 py-2" data-bs-dismiss="modal" data-bs-toggle="modal"
                       data-bs-target="#clearDataModal">

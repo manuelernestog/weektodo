@@ -22,8 +22,6 @@
     "notificationOnStartup": "Notificação na inicialização",
     "notificationSound": "Som de notificação",
     "clearData": "Apagar os dados",
-    "exportBackup": "Exportar backup",
-    "importBackup": "Importar backup",
     "clearDataDetails": "Tem certeza de que deseja excluir todos os dados do aplicativo? Esta ação é irreversível."
   },
   "donate": {

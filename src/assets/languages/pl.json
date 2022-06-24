@@ -70,7 +70,6 @@
     "data": "Dane",
     "display": "Wyświetlacz",
     "export": "Eksport",
-    "exportBackup": "Eksportuj kopię zapasową",
     "general": "Ogólny",
     "goToNewDomain": "Zmieniamy witrynę WeekToDo na nową domenę, a ta zostanie wycofana 1 kwietnia 2022 roku. Aby zachować swoje dane, musisz je wyeksportować z tej domeny, a następnie zaimportować w nowej domenie (Z menu konfiguracyjnego). \nPamiętaj, że jeśli nie przeniesiesz danych, utracisz informacje, które Twoja przeglądarka przechowuje w tej domenie. \nPrzepraszamy za wszelkie niedogodności z tym związane.",
     "gotoNewDomainBtn": "Przejdź do nowej domeny",

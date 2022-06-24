@@ -21,8 +21,6 @@
     "notificationOnStartup": "Benachrichtigung beim Start",
     "notificationSound": "Benachrichtigungston",
     "clearData": "Daten löschen",
-    "exportBackup": "Sicherung exportieren",
-    "importBackup": "Sicherung importieren",
     "clearDataDetails": "Möchten Sie wirklich alle App-Daten löschen? Diese Aktion ist irreversibel."
   },
   "donate": {

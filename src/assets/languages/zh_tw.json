@@ -22,8 +22,6 @@
     "notificationOnStartup": "啟動通知",
     "notificationSound": "通知聲音",
     "clearData": "清除數據",
-    "exportBackup": "導出備份",
-    "importBackup": "導入備份",
     "clearDataDetails": "您確定要刪除所有應用數據嗎？ 這個動作是不可逆的。"
   },
   "donate": {
