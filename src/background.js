@@ -45,6 +45,10 @@ async function createWindow() {
   ipcMain.on("set-open-on-startup", setOpenOnStartup);
   ipcMain.on("set-run-in-background", setRunInBackground);
 
+  if (typeof config.get("runInBackground") == 'undefined') {
+    config.set("runInBackground", true);
+  }
+
   mainWindow.on("close", function (event) {
     if (!app.isQuiting) {
       event.preventDefault();
