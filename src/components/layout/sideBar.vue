@@ -23,7 +23,7 @@ import moment from "moment";
 import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
 import toDoListRepository from "../../repositories/toDoListRepository";
 import Datepicker from "vue3-datepicker";
-import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja } from "date-fns/locale";
+import languageHelper from "../../helpers/languageHelper.js"
 
 export default {
   name: "sideBar",
@@ -89,46 +89,7 @@ export default {
     },
     language: function () {
       let lang = this.$store.getters.config.language;
-      let return_lang = null;
-      switch (lang) {
-        case "es":
-          return_lang = es;
-          break;
-        case "en":
-          return_lang = enUS;
-          break;
-        case "fr":
-          return_lang = fr;
-          break;
-        case "pt":
-          return_lang = pt;
-          break;
-        case "ru":
-          return_lang = ru;
-          break;
-        case "zh_cn":
-          return_lang = zhCN;
-          break;
-        case "zh_tw":
-          return_lang = zhTW;
-          break;
-        case "it":
-          return_lang = it;
-          break;
-        case "ar":
-          return_lang = ar;
-          break;
-        case "pl":
-          return_lang = pl;
-          break;
-        case "de":
-          return_lang = de;
-          break;
-        case "ja":
-          return_lang = ja;
-          break;
-      }
-      return return_lang;
+      return languageHelper.getLanguagePack(lang);
     },
   },
 };

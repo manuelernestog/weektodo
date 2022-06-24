@@ -158,7 +158,6 @@
 
 <script>
 import Datepicker from "vue3-datepicker";
-import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja } from "date-fns/locale";
 import Markdown from "vue3-markdown-it";
 import toDoListRepository from "../../repositories/toDoListRepository";
 import moment from "moment";
@@ -170,6 +169,7 @@ import timePicker from "./timePicker";
 import repeatingEvent from "./repeatingEvent";
 import notifications from "../../helpers/notifications";
 import repeatingEventHelper from "../../helpers/repeatingEvents.js";
+import languageHelper from "../../helpers/languageHelper.js"
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
 import mainHelpers from "../../helpers/mainHelpers";
 
@@ -494,46 +494,7 @@ export default {
   computed: {
     language: function () {
       let lang = this.$store.getters.config.language;
-      let return_lang = null;
-      switch (lang) {
-        case "es":
-          return_lang = es;
-          break;
-        case "en":
-          return_lang = enUS;
-          break;
-        case "fr":
-          return_lang = fr;
-          break;
-        case "pt":
-          return_lang = pt;
-          break;
-        case "it":
-          return_lang = it;
-          break;
-        case "ar":
-          return_lang = ar;
-          break;
-        case "pl":
-          return_lang = pl;
-          break;
-        case "ru":
-          return_lang = ru;
-          break;
-        case "zh_cn":
-          return_lang = zhCN;
-          break;
-        case "zh_tw":
-          return_lang = zhTW;
-          break;
-        case "de":
-          return_lang = de;
-          break;
-        case "ja":
-          return_lang = ja;
-          break;
-      }
-      return return_lang;
+      return languageHelper.getLanguagePack(lang);
     },
     showCL: function () {
       return this.$store.getters.config.customList;
