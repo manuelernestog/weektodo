@@ -6,8 +6,8 @@
           <h5 class="modal-title">{{ $t("ui.recurringTasks") }}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
-        <div class="modal-body d-flex">
-          <table class="table table-hover">
+        <div class="modal-body">
+          <table class="table table-hover ">
             <thead>
               <tr>
                 <th scope="col">Task</th>
