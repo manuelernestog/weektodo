@@ -52,13 +52,7 @@
             </div>
             <div class="tab-pane fade" id="config-general">
               <div class="d-flex flex-column mt-2 h-100">
-                <div class="
-                    form-check form-switch
-                    d-flex
-                    px-1
-                    mb-3
-                    justify-content-between
-                  ">
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label flex-fill" for="calendarSetting">{{ $t("settings.calendar") }}</label>
                   <input class="form-check-input" type="checkbox" id="calendarSetting" v-model="configData.calendar"
                     @change="changeConfig('calendar', configData.calendar)" />
@@ -78,13 +72,7 @@
                     @change="changeConfig('moveOldTasks', configData.moveOldTasks)" />
                 </div>
 
-                <div v-if="isElectron()" class="
-                    form-check form-switch
-                    d-flex
-                    px-1
-                    mb-3
-                    justify-content-between
-                  ">
+                <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="updatesCheckSetting">{{
                       $t("settings.checkUpdates")
                   }}</label>
@@ -228,6 +216,7 @@
                   <option value="it">Italiano</option>
                   <option value="pt">Português</option>
                   <option value="ru">русский</option>
+                  <option value="ja">日本</option>
                   <option value="pl">Polski</option>
                   <option value="ar">عرب</option>
                   <option value="zh_cn">简体中文</option>
@@ -272,7 +261,7 @@ export default {
       this.$nextTick(function () {
         this.$store.commit("updateConfig", { val: val, key: key });
         configRepository.update(this.$store.getters.config);
-        if (key === "language") this.$i18n.locale = this.language;
+        if (key === "language") this.$i18n.locale = this.configData.language;
         if (key === "columns") {
           setTimeout(
             function () {

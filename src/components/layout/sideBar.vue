@@ -1,43 +1,20 @@
 <template>
   <div class="side-bar">
-    <img
-      class="logo"
-      src="WeekToDo-Logo-Color.svg"
-      width="32"
-      height="32"
-      alt="WeekTodo Logo"
-      data-bs-toggle="modal"
-      data-bs-target="#aboutModal"
-      :title="$t('about.about')"
-    />
+    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" data-bs-toggle="modal"
+      data-bs-target="#aboutModal" :title="$t('about.about')" />
     <i v-if="showCalendar" class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
     <i v-if="showCalendar" class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
-    <i
-      v-if="showCalendar"
-      class="bi-arrow-repeat"
-      :title="$t('ui.recurringTasks')"
-      data-bs-toggle="modal"
-      data-bs-target="#RecurrentEventsModal"
-    >
+    <i v-if="showCalendar" class="bi-arrow-repeat" :title="$t('ui.recurringTasks')" data-bs-toggle="modal"
+      data-bs-target="#RecurrentEventsModal">
     </i>
     <i v-if="showCustomList" class="bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
-    <i
-      class="bi-sliders"
-      data-bs-toggle="modal"
-      data-bs-target="#configModal"
-      :title="$t('settings.settings')"
-      @click="openConfigModal"
-    ></i>
+    <i class="bi-sliders" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"
+      @click="openConfigModal"></i>
     <span style="flex-grow: 1"></span>
     <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
-    <i
-      class="bi-gift"
-      data-bs-toggle="modal"
-      data-bs-target="#donateModal"
-      :title="$t('donate.contribute')"
-      @click="openDonateModal"
-    ></i>
+    <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal" :title="$t('donate.contribute')"
+      @click="openDonateModal"></i>
   </div>
 </template>
 
@@ -46,7 +23,7 @@ import moment from "moment";
 import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
 import toDoListRepository from "../../repositories/toDoListRepository";
 import Datepicker from "vue3-datepicker";
-import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW } from "date-fns/locale";
+import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja } from "date-fns/locale";
 
 export default {
   name: "sideBar",
@@ -146,6 +123,9 @@ export default {
           break;
         case "de":
           return_lang = de;
+          break;
+        case "ja":
+          return_lang = ja;
           break;
       }
       return return_lang;

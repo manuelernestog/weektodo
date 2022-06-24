@@ -13,10 +13,22 @@
     "calendar": "日历",
     "zoom": "缩放",
     "columns": "列",
-    "goToNewDomain": "我们正在将 WeekToDo 网站迁移到一个新的域名，这个域名将很快停止。 请从新域名开始访问 WeekToDo。 要移动您的数据，您必须在此处将其导出，然后从配置菜单将其导入其他域。 如有不便，敬请原谅。"
+    "goToNewDomain": "我们正在将 WeekToDo 网站迁移到一个新的域名，这个域名将很快停止。 请从新域名开始访问 WeekToDo。 要移动您的数据，您必须在此处将其导出，然后从配置菜单将其导入其他域。 如有不便，敬请原谅。",
+    "gotoNewDomainBtn": "转到新域名",
+    "general": "常规",
+    "notifications": "通知",
+    "display": "显示",
+    "openOnStartup": "在启动时打开",
+    "notificationOnStartup": "在启动时通知",
+    "notificationSound": "通知声音",
+    "clearData": "清除数据",
+    "exportBackup": "导出备份",
+    "importBackup": "导入备份",
+    "clearDataDetails": "您确定要删除所有应用程序数据吗？ 这个操作是不可恢复的。"
   },
   "donate": {
     "contribute": "贡献",
+    "contributeSponsor": "贡献/赞助者",
     "comment": "发送反馈",
     "crypto": "Crypto",
     "goBack": "返回",
@@ -40,7 +52,11 @@
     "version": "版本",
     "desc": "WeekToDo 是一个专注于隐私的极简主义每周计划。",
     "site": "访问网站",
-    "contributors": "贡献者"
+    "contributors": "贡献者",
+    "sponsors": "赞助者",
+    "collaborators": "合作者",
+    "email": "E-mail",
+    "blog": "博客"
   },
   "generatedData": {
     "data2": "点击完成任务",
@@ -52,10 +68,11 @@
     "data8": "您也可以在设置菜单中隐藏它们",
     "data9": "苹果",
     "data10": "饮料",
+    "data11": "单击三个点以查看有关此任务的更多详细信息",
+    "data12": "用鼠标点击快速打开任务详细信息",
     "list1": "自定义列表",
     "list2": "购物列表",
     "list3": "想法",
-    "data11": "单击三个点以查看有关此任务的更多详细信息",
     "subtask1": "我是一个子任务",
     "subtask2": "点击完成子任务",
     "desc1": "您可以在此处设置有关此任务的注释。 双击以编辑注释。"
@@ -129,5 +146,11 @@
     "taskDuplicated": "任务已重复！！！",
     "duplicate": "重复",
     "subtasks": "子任务"
+  },
+  "notifications": {
+    "noPendingTasksToday": "你今天没有定期任务。",
+    "pendingTasksYesterday": "昨天你有 {0} 个未完成任务。",
+    "pendingTasksToday": "您今天有 {0} 个计划任务。",
+    "pendingTasksYesterdayAndToday": "您昨天有 {0} 个待办任务和今天的计划任务。"
   }
 }

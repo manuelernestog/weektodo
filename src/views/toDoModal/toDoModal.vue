@@ -83,7 +83,8 @@
               </li>
             </ul>
             <div>
-              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal" :title="$t('todoDetails.close')"></i>
+              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal"
+                :title="$t('todoDetails.close')"></i>
             </div>
           </div>
         </div>
@@ -157,7 +158,7 @@
 
 <script>
 import Datepicker from "vue3-datepicker";
-import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW } from "date-fns/locale";
+import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja } from "date-fns/locale";
 import Markdown from "vue3-markdown-it";
 import toDoListRepository from "../../repositories/toDoListRepository";
 import moment from "moment";
@@ -527,6 +528,9 @@ export default {
           break;
         case "de":
           return_lang = de;
+          break;
+        case "ja":
+          return_lang = ja;
           break;
       }
       return return_lang;

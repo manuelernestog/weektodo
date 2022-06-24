@@ -9,6 +9,7 @@ import de from './de.json'
 import it from './it.json'
 import ar from './ar.json'
 import pl from './pl.json'
+import ja from './ja.json'
 
 export const defaultLocale = 'en'
 
@@ -23,5 +24,6 @@ export const languages = {
     de: de,
     it: it,
     ar: ar,
-    pl: pl
+    pl: pl,
+    ja: ja
 }
