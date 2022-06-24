@@ -1,4 +1,5 @@
 import configRepository from "../repositories/configRepository";
+import moment from "moment";
 
 export default {
     migrate() {
@@ -43,6 +44,8 @@ function runInBackground() {
     if (!('runInBackground' in config)) {
         config['runInBackground'] = true;
         config['moveOldTasks'] = true;
+        config['dateToShowInitialDonateModal'] = moment().add(7, 'd').format('YYYY-MM-DD');
+        config['InitialDonateModalShown'] = false;
         configRepository.update(config);
     }
 }

@@ -26,12 +26,12 @@
     "crypto": "Cripto",
     "cryptocurrencies": "kryptowaluty",
     "goBack": "Wróć",
-    "mainMessage": "WeektoDo to całkowicie darmowa aplikacja wspierana przez wkład jej użytkowników. \nJeśli podoba Ci się WeekToDo, rozważ wsparcie projektu dowolnym wkładem. \nDziękujemy za skorzystanie z WeekToDo!",
     "paymentType": "Typ płatności",
     "rate": "Wskaźnik",
     "share": "Dzielić",
     "shareWithFriends": "Podziel się z przyjaciółmi",
-    "translate": "Tłumaczyć"
+    "translate": "Tłumaczyć",
+    "shareMessage": "Planuję mój tydzień z WeekToDo, darmowym, minimalistycznym tygodniowym planerem skoncentrowanym na prywatności i myślę, że Tobie też się spodoba. \nSprawdź to!"
   },
   "generatedData": {
     "data10": "Napoje bezalkoholowe",

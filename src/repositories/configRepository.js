@@ -1,5 +1,6 @@
 import storageRepository from "./storageRepository";
 import version_json from '../../public/version.json'
+import moment from "moment";
 
 export default {
     load() {
@@ -22,7 +23,9 @@ export default {
                 notificationSound: "pop",
                 openOnStartup: true,
                 runInBackground: true,
-                moveOldTasks: true
+                moveOldTasks: true,
+                dateToShowInitialDonateModal: moment().add(7, 'd').format('YYYY-MM-DD'),
+                InitialDonateModalShown: false                
             }
             storageRepository.set('config', default_config);
             return default_config;

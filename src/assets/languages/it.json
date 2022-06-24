@@ -29,7 +29,6 @@
   "donate": {
     "contribute": "Contribuisci",
     "contributeSponsor": "Contribuisci / Sponsorizza",
-    "mainMessage": "WeektoDo è un'applicazione completamente gratuita supportata dal contributo dei suoi utenti. Se ti piace WeekToDo, considera di supportare il progetto con il contributo che desideri. Grazie per aver utilizzato WeekToDo!",
     "comment": "Invia un parere",
     "crypto": "Cripto",
     "goBack": "Indietro",
@@ -42,7 +41,8 @@
     "cryptocurrencies": "Criptomonete",
     "buyMeACoffee": "Buy Me A Coffee",
     "buyMeACryptoCoffee": "Buy Me A Crypto Coffee",
-    "translate": "Translate"
+    "translate": "Translate",
+    "shareMessage": "Sto programmando la mia settimana con WeekToDo, un pianificatore settimanale gratuito e minimalista incentrato sulla privacy e penso che lo adorerai anche tu. \nControlla!"
   },
   "about": {
     "about": "A proposito di",

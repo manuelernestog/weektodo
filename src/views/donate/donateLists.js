@@ -2,12 +2,12 @@ export default {
     donateList(vue) {
         return [
             {
-                name: vue.$t('donate.contributeSponsor'),
+                name: vue.$t('donate.contribute'),
                 ico: "bi-heart-fill", color: "#d94242",
                 linktype: "external",
                 link: "https://support.weektodo.me"
             },
-            {name: vue.$t('donate.share'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
+            {name: vue.$t('donate.shareWithFriends'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
             {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
             {
                 name: vue.$t('donate.translate'),
@@ -40,7 +40,7 @@ export default {
             },
         ]
     },
-    shareList() {
+    shareList(vue) {
         return [
             {
                 name: "Facebook",
@@ -54,14 +54,21 @@ export default {
                 ico: "bi-twitter",
                 color: "#3eafda",
                 linktype: "external",
-                link: "https://twitter.com/intent/tweet?url=https%3A%2F%2Fweektodo.me%2F&text="
+                link: "https://twitter.com/intent/tweet?text=".concat('',vue.$t('donate.shareMessage'),"  https://weektodo.me")
             },
             {
                 name: "Linkedin",
                 ico: "bi-linkedin",
                 color: "#1a77af",
                 linktype: "external",
-                link: "http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweektodo.me%2F&title="
+                link: "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fweektodo.me"
+            },
+            {
+                name: "Reddit",
+                ico: "bi-reddit",
+                color: "#ed4f1c",
+                linktype: "external",
+                link: "https://www.reddit.com/submit?title=".concat("",vue.$t('donate.shareMessage'),"&url=https%3A%2F%2Fweektodo.me%2F")
             }
         ]
     }

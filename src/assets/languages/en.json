@@ -32,7 +32,8 @@
   "donate": {
     "contribute": "Contribute",
     "contributeSponsor": "Contribute / Sponsor",
-    "mainMessage": "WeektoDo is a completely free application supported by the contribution of its users. If you enjoy WeekToDo consider supporting the project with whatever contribution you wish. Thanks for using WeekToDo!",
+    "supportMessage1": "Weektodo is a free application created by a single person and supported by users like you. If you enjoy WeekToDo you can support it with the contribution you consider or sharing the app with your friends.",
+    "supportMessage2": "Thanks for supporting WeekToDo 😊",
     "comment": "Send feedback",
     "crypto": "Cripto",
     "goBack": "Go Back",
@@ -46,7 +47,8 @@
     "cryptocurrencies": "Cryptocurrencies",
     "buyMeACoffee": "Buy me a Coffee",
     "buyMeACryptoCoffee": "Buy me a Crypto Coffee",
-    "translate": "Translate"
+    "translate": "Translate",
+    "shareMessage": "I'm scheduling my week with WeekToDo, a free minimalist privacy-focused weekly planner and I think you'll love it too. Check it out!"
   },
   "about": {
     "about": "About",

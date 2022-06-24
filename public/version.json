@@ -1,5 +1,5 @@
 {
-  "version": "1.7.0",
+  "version": "1.8.0",
   "changes": {
     "en": {
       "1.8.0-20220610": [
@@ -11,7 +11,10 @@
         "Restyling To-do hover efect",
         "Fixing bug moving to-do to date in modal",
         "Building Pacman format app for arch distributions",
-        "Adding option for move automatically old tasks"
+        "Adding option for move automatically old tasks",
+        "Moving checked tasks to the bottom of the list",
+        "Showing contribute modal after 7 days of use",
+        "Improving contribute modal"
       ],
       "1.7.0-20220411": [
         "Open task detail with middle click",

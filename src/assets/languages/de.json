@@ -28,7 +28,6 @@
   "donate": {
     "contribute": "Beitragen",
     "contributeSponsor": "Beitrag leisten / Sponsor",
-    "mainMessage": "WeektoDo ist eine völlig kostenlose Anwendung, die durch den Beitrag ihrer Benutzer unterstützt wird. Wenn Ihnen WeekToDo gefällt, erwägen Sie, das Projekt mit einem beliebigen Beitrag zu unterstützen. Danke, dass Sie WeekToDo verwenden!",
     "comment": "Kommentar senden",
     "crypto": "Krypto",
     "goBack": "Zurück",
@@ -41,10 +40,11 @@
     "cryptocurrencies": "Kryptowährungen",
     "buyMeACoffee": "Kauf mir einen Kaffee",
     "buyMeACryptoCoffee": "Kauf mir einen Krypto-Kaffee",
-    "translate": "Übersetzen"
+    "translate": "Übersetzen",
+    "shareMessage": "Ich plane meine Woche mit WeekToDo, einem kostenlosen minimalistischen Wochenplaner mit Schwerpunkt auf Privatsphäre, und ich denke, Sie werden es auch lieben. \nHör zu!"
   },
   "about": {
-    "about":  "Über",
+    "about": "Über",
     "madeWith": "Ich stimme mit",
     "inCuba": "in Kuba",
     "dev": "Entwickler und Designer",
@@ -103,7 +103,7 @@
   "welcome": {
     "next": "Nächster",
     "back": "Zurück",
-    "ready":  "Klug",
+    "ready": "Klug",
     "allReady": "Alles bereit",
     "allReadyText": "Alles ist fertig, damit Sie WeekTodo genießen können.",
     "allReadySub": "Wenn Sie Fragen haben, finden Sie Tipps in der Seitenleiste",

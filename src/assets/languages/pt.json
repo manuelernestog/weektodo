@@ -15,7 +15,7 @@
     "columns": "Colunas",
     "goToNewDomain": "Estamos mudando o site WeekToDo para um novo domínio e este será descontinuado em 1º de abril de 2022. Para manter seus dados, você deve exportá-los deste domínio e depois importá-los no novo domínio (no menu de configuração). Lembre-se de que, se você não migrar dados, perderá as informações que seu navegador armazena neste domínio. Desculpe por qualquer inconveniente que isso possa causar.",
     "gotoNewDomainBtn": "Ir para o novo domínio",
-     "general": "Em geral",
+    "general": "Em geral",
     "notifications": "Notificações",
     "display": "Tela",
     "openOnStartup": "Abrir na inicialização",
@@ -29,7 +29,6 @@
   "donate": {
     "contribute": "Contribuir",
     "contributeSponsor": "Contribuir / Patrocinar",
-    "mainMessage": "WeektoDo é um aplicativo totalmente gratuito apoiado pela contribuição de seus usuários. Se você gosta do WeekToDo, considere apoiar o projeto com qualquer contribuição que desejar. Obrigado por usar o WeekToDo!",
     "comment": "Enviar comentário",
     "crypto": "Cripto",
     "goBack": "Voltar",
@@ -42,7 +41,8 @@
     "cryptocurrencies": "Criptomoedas",
     "buyMeACoffee": "Compre-me um café",
     "buyMeACryptoCoffee": "Compre-me um café criptográfico",
-    "translate": "Traduzir"
+    "translate": "Traduzir",
+    "shareMessage": "Estou agendando minha semana com o WeekToDo, um planejador semanal gratuito e minimalista focado em privacidade e acho que você também vai adorar. \nConfira!"
   },
   "about": {
     "about": "Sobre",
