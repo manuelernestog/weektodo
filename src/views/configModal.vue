@@ -221,6 +221,8 @@
                   <option value="ar">عرب</option>
                   <option value="zh_cn">简体中文</option>
                   <option value="zh_tw">繁體中文</option>
+                  <option value="uk">український</option>
+                  <option value="tr">Türk</option>
                 </select>
 
                 <button class="btn mt-3" type="button" @click="goHome">
