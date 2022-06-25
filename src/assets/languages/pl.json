@@ -31,7 +31,9 @@
     "share": "Dzielić",
     "shareWithFriends": "Podziel się z przyjaciółmi",
     "translate": "Tłumaczyć",
-    "shareMessage": "Planuję mój tydzień z WeekToDo, darmowym, minimalistycznym tygodniowym planerem skoncentrowanym na prywatności i myślę, że Tobie też się spodoba. \nSprawdź to!"
+    "shareMessage": "Planuję mój tydzień z WeekToDo, darmowym, minimalistycznym tygodniowym planerem skoncentrowanym na prywatności i myślę, że Tobie też się spodoba. \nSprawdź to!",
+    "supportMessage1": "Weektodo to darmowa aplikacja obsługiwana przez użytkowników takich jak Ty. \nJeśli podoba Ci się WeekToDo, możesz wesprzeć go swoim wkładem lub udostępnić aplikację znajomym.",
+    "supportMessage2": "Dziękujemy za wsparcie WeekToDo 😊"
   },
   "generatedData": {
     "data10": "Napoje bezalkoholowe",
@@ -74,7 +76,6 @@
     "goToNewDomain": "Zmieniamy witrynę WeekToDo na nową domenę, a ta zostanie wycofana 1 kwietnia 2022 roku. Aby zachować swoje dane, musisz je wyeksportować z tej domeny, a następnie zaimportować w nowej domenie (Z menu konfiguracyjnego). \nPamiętaj, że jeśli nie przeniesiesz danych, utracisz informacje, które Twoja przeglądarka przechowuje w tej domenie. \nPrzepraszamy za wszelkie niedogodności z tym związane.",
     "gotoNewDomainBtn": "Przejdź do nowej domeny",
     "import": "Import",
-    "importBackup": "Importuj kopię zapasową",
     "invalidFile": "Niepoprawny plik",
     "language": "Język",
     "notificationOnStartup": "Powiadomienie o uruchomieniu",
@@ -82,7 +83,12 @@
     "notifications": "Powiadomienia",
     "openOnStartup": "Otwórz przy starcie",
     "settings": "Ustawienia",
-    "zoom": "Powiększenie"
+    "zoom": "Powiększenie",
+    "exportData": "Eksportuj dane",
+    "importData": "Zaimportować dane",
+    "moveOldTasks": "Automatycznie przenoś stare zadania",
+    "runInBackground": "Uruchom w tle",
+    "runInBackgroundInfo": "Zezwala na działanie powiadomień przy zamkniętej aplikacji.\n \nTa opcja może powodować problemy w niektórych wersjach systemu macOS."
   },
   "tips": {
     "back": "Poprzednia wskazówka",
@@ -129,7 +135,12 @@
     "taskTitle": "Tytuł zadania",
     "untilDate": "Do daty",
     "weekly": "Co tydzień",
-    "yearly": "Rocznie"
+    "yearly": "Rocznie",
+    "actions": "działania",
+    "alarm": "Alarm",
+    "close": "Blisko",
+    "color": "Kolor",
+    "time": "Czas"
   },
   "ui": {
     "calendar": "Kalendarz",

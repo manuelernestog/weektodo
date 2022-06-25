@@ -22,8 +22,6 @@
     "notificationOnStartup": "在启动时通知",
     "notificationSound": "通知声音",
     "clearData": "清除数据",
-    "exportBackup": "导出备份",
-    "importBackup": "导入备份",
     "clearDataDetails": "您确定要删除所有应用程序数据吗？ 这个操作是不可恢复的。"
   },
   "donate": {

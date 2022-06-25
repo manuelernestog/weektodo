@@ -22,7 +22,12 @@
     "notificationOnStartup": "Notification au démarrage",
     "notificationSound": "Son de notification",
     "clearData": "Effacer les données",
-    "clearDataDetails": "Voulez-vous vraiment supprimer toutes les données de l'application ? Cette action est irréversible."
+    "clearDataDetails": "Voulez-vous vraiment supprimer toutes les données de l'application ? Cette action est irréversible.",
+    "exportData": "Exporter des données",
+    "importData": "Importer des données",
+    "moveOldTasks": "Déplacer automatiquement les anciennes tâches",
+    "runInBackground": "De fonctionner en arrière-plan",
+    "runInBackgroundInfo": "Autorise les notifications à fonctionner avec l'application fermée.\n \nCette option peut poser des problèmes pour certaines versions de macOS."
   },
   "donate": {
     "contribute": "Contribuer",
@@ -40,7 +45,10 @@
     "buyMeACoffee": "Achetez-moi un café",
     "buyMeACryptoCoffee": "Achetez-moi un café crypto",
     "translate": "Traduire",
-    "shareMessage": "Je planifie ma semaine avec WeekToDo, un planificateur hebdomadaire minimaliste gratuit axé sur la confidentialité et je pense que vous l'aimerez aussi. \nVérifiez-le!"
+    "shareMessage": "Je planifie ma semaine avec WeekToDo, un planificateur hebdomadaire minimaliste gratuit axé sur la confidentialité et je pense que vous l'aimerez aussi. \nVérifiez-le!",
+    "shareWithFriends": "Partager avec des amis",
+    "supportMessage1": "Weektodo est une application gratuite prise en charge par des utilisateurs comme vous. \nSi vous aimez WeekToDo, vous pouvez le soutenir avec la contribution que vous envisagez ou partager l'application avec vos amis.",
+    "supportMessage2": "Merci de soutenir WeekToDo 😊"
   },
   "about": {
     "about": "à propos à propos",
@@ -133,7 +141,10 @@
     "postpone": "Remettre à plus tard",
     "newVersionAvailable": "Nouvelle version disponible",
     "download": "(Télécharger)",
-    "sponsoredBy": "Sponsorisé par"
+    "sponsoredBy": "Sponsorisé par",
+    "recurringTasks": "Tâches récurrentes",
+    "removeAll": "Supprimer tout",
+    "updateAll": "Tout mettre à jour"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",
@@ -143,7 +154,26 @@
     "copiedTaskToClipboard": "Texte copié dans le presse-papiers !!!",
     "taskRemoved": "Tâche supprimée !!!",
     "taskDuplicated": "Tâche dupliquée !!!",
-    "duplicate": "Dupliquer"
+    "duplicate": "Dupliquer",
+    "actions": "Actions",
+    "alarm": "Alarme",
+    "cancel": "Annuler",
+    "close": "proche",
+    "color": "Couleur",
+    "daily": "du quotidien",
+    "done": "Fait",
+    "indefinitely": "Indéfiniment",
+    "interval": "Intervalle:",
+    "monthly": "Mensuel",
+    "noRepeat": "Pas de répétition",
+    "occurrences": "Occurrences",
+    "recurrentTaskRemoved": "Tâche récurrente supprimée",
+    "split": "Diviser",
+    "subtasks": "Sous-tâches",
+    "time": "Temps",
+    "untilDate": "Jusqu'à ce jour",
+    "weekly": "Hebdomadaire",
+    "yearly": "Annuel"
   },
   "notifications": {
     "noPendingTasksToday": "Vous n'avez aucune tâche planifiée aujourd'hui.",
