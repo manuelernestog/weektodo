@@ -22,9 +22,9 @@
     "notificationOnStartup": "Notificación al inicio",
     "notificationSound": "Sonido de notificación",
     "clearData": "Borrar datos",
-    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible.",
+    "clearDataDetails": "¿Está seguro de que desea eliminar todos los datos de la aplicación? Esta acción es irreversible.",
     "exportData": "Exportar datos",
-    "importData": "Datos de importacion",
+    "importData": "Importar datos",
     "moveOldTasks": "Mover tareas antiguas automáticamente",
     "runInBackground": "Ejecutar en segundo plano",
     "runInBackgroundInfo": "Permite que las notificaciones funcionen con la aplicación cerrada.\n \nEsta opción puede tener problemas para algunas versiones de macOS."

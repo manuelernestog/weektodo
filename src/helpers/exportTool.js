@@ -156,10 +156,7 @@ function importDbRecords(db, data_a, table) {
   var i = keys.length;
   var req;
 
-  while (i--) {
-    req = dbRepository.add(db, table, keys[i], data[keys[i]]);
-  }
-  req.onsuccess = function () {
+  if (i == 0) {
     if (table == "todo_lists") {
       importIndexedDbData(data_a, "repeating_events");
     } else if (table == "repeating_events") {
@@ -167,5 +164,18 @@ function importDbRecords(db, data_a, table) {
     } else {
       location.reload();
     }
-  };
+  } else {
+    while (i--) {
+      req = dbRepository.add(db, table, keys[i], data[keys[i]]);
+    }
+    req.onsuccess = function () {
+      if (table == "todo_lists") {
+        importIndexedDbData(data_a, "repeating_events");
+      } else if (table == "repeating_events") {
+        importIndexedDbData(data_a, "repeating_events_by_date");
+      } else {
+        location.reload();
+      }
+    };
+  }
 }
