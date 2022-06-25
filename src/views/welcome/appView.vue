@@ -22,7 +22,7 @@
               <span>
                 {{ $t("settings.runInBackground") }}
                 <sup>
-                  <i class="bi-info-circle" :title="$t('settings.runInBackgroundInfo')"> </i>
+                  <i class="bi-info-circle" style="cursor: help" :title="$t('settings.runInBackgroundInfo')"> </i>
                 </sup>
               </span>
             </label>
