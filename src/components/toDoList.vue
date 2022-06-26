@@ -183,7 +183,7 @@ export default {
 }
 
 .todo-input {
-  height: 1.2rem;
+  height: 1.28rem;
   line-height: 1.3rem;
   font-size: 0.865rem;
   margin: 2px 0px 2px 0px;

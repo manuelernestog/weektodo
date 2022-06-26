@@ -145,7 +145,7 @@ export default {
 <style scoped lang="scss">
 .todo-item-container {
   border-bottom: 1px solid #eaecef;
-  height: 1.6rem;
+  height: 1.62rem;
   z-index: 1;
 }
 
