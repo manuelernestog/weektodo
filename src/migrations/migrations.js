@@ -24,7 +24,7 @@ function configCalendarZoomColumnsCalendarHeight() {
         config['calendar'] = true;
         config['zoom'] = 100;
         config['columns'] = 5;
-        config['calendarHeight'] = "calc(50% - 35px)";
+        config['calendarHeight'] = "calc(50% - 40px)";
         configRepository.update(config);
     }
 }

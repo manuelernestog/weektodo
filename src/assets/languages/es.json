@@ -27,7 +27,8 @@
     "importData": "Importar datos",
     "moveOldTasks": "Mover tareas antiguas automáticamente",
     "runInBackground": "Ejecutar en segundo plano",
-    "runInBackgroundInfo": "Permite que las notificaciones funcionen con la aplicación cerrada.\n \nEsta opción puede tener problemas para algunas versiones de macOS."
+    "runInBackgroundInfo": "Permite que las notificaciones funcionen con la aplicación cerrada.\n \nEsta opción puede tener problemas para algunas versiones de macOS.",
+    "importing": "Importando..."
   },
   "donate": {
     "contribute": "Contribuir",

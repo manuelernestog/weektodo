@@ -294,7 +294,7 @@ export default {
 }
 
 .fake-lines.custom-list {
-  height: calc(100% - 35px);
+  height: calc(100% - 40px);
 }
 
 .todo-input {

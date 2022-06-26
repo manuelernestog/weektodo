@@ -246,6 +246,7 @@ import exportTool from "../helpers/exportTool";
 import linkList from "../components/linkList";
 import configList from "./configList";
 import notifications from "../helpers/notifications";
+import { Modal } from "bootstrap";
 
 export default {
   name: "configModal",
@@ -278,6 +279,10 @@ export default {
       exportTool.export();
     },
     importData: function (event) {
+      let configModal = Modal.getInstance(document.getElementById("configModal"));
+      configModal.hide();
+      let importingModal = new Modal(document.getElementById("importingModal"), { backdrop: "static" });
+      importingModal.show();
       exportTool.import(event);
     },
     isElectron: function () {
@@ -316,7 +321,7 @@ export default {
       return configList.configList(this);
     },
     watch: {
-      configProp: function(newVal){
+      configProp: function (newVal) {
         this.configData = newVal;
       }
     }

@@ -27,7 +27,8 @@
     "importData": "Importa dati",
     "moveOldTasks": "Sposta automaticamente le vecchie attività",
     "runInBackground": "Esegui in background",
-    "runInBackgroundInfo": "Consente alle notifiche di funzionare con l'app chiusa.\n \nQuesta opzione potrebbe presentare problemi per alcune versioni di macOS."
+    "runInBackgroundInfo": "Consente alle notifiche di funzionare con l'app chiusa.\n \nQuesta opzione potrebbe presentare problemi per alcune versioni di macOS.",
+    "importing": "Importazione..."
   },
   "donate": {
     "contribute": "Contribuisci",

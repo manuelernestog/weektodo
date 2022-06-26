@@ -15,7 +15,8 @@
         "Moving checked tasks to the bottom of the list",
         "Showing contribute modal after 7 days of use",
         "Improving contribute modal",
-        "Fixing Config menu sync with welcome modal"
+        "Fixing Config menu sync with welcome modal",
+        "Adding importing alert"
       ],
       "1.7.0-20220411": [
         "Open task detail with middle click",

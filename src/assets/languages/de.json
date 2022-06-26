@@ -27,7 +27,8 @@
     "importData": "Daten importieren",
     "moveOldTasks": "Alte Aufgaben automatisch verschieben",
     "runInBackground": "Im Hintergrund laufen",
-    "runInBackgroundInfo": "Ermöglicht Benachrichtigungen bei geschlossener App.\n \nDiese Option kann bei einigen macOS-Versionen zu Problemen führen."
+    "runInBackgroundInfo": "Ermöglicht Benachrichtigungen bei geschlossener App.\n \nDiese Option kann bei einigen macOS-Versionen zu Problemen führen.",
+    "importing": "Importieren..."
   },
   "donate": {
     "contribute": "Beitragen",

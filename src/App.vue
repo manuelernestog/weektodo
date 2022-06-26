@@ -47,6 +47,7 @@
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
       <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
+      <importing-modal></importing-modal>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
@@ -82,6 +83,7 @@ import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
 import clearDataModal from "./views/clearDataModal.vue";
+import importingModal from "./views/importingModal.vue";
 import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 import repeatingEventRepository from "./repositories/repeatingEventRepository";
 import toDoListRepository from "./repositories/toDoListRepository";
@@ -102,13 +104,14 @@ export default {
     toDoModal,
     redirectDomainModal,
     clearDataModal,
-    RecurrentEventsModal
+    RecurrentEventsModal,
+    importingModal
   },
   data() {
     return {
       selected_date: null,
       cTodoList: this.$store.getters.cTodoListIds,
-      calendarHeight: "calc(50% - 35px)",
+      calendarHeight: "calc(50% - 40px)",
       ipcRenderer: null,
     };
   },
@@ -253,7 +256,7 @@ export default {
       return window.IndexedDB;
     },
     resizerDblClick: function () {
-      this.calendarHeight = "calc(50% - 35px)";
+      this.calendarHeight = "calc(50% - 40px)";
       this.$store.commit("updateConfig", {
         val: this.calendarHeight,
         key: "calendarHeight",
@@ -412,7 +415,7 @@ body {
   height: 5px;
   transition: height 0.15s ease-out 0s;
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .slider-btn {
