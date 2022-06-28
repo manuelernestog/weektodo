@@ -22,6 +22,16 @@ WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule yo
 - Markdown Support
 - Customizable user interface
 - Local Storage
+- Task Colors
+- Task Time
+- Recurring Tasks
+- Notifications and reminders
+
+## Roadmap
+
+- Touch mode
+- Mobile Version
+- Sync across devices
 
   
 ## Installation
@@ -53,15 +63,6 @@ To install WeekToDo, simply use the following command:
 ```bash
 sudo snap install weektodo
 ```    
-
-## Roadmap
-
-- Boards
-- Task Priorities
-- Task Colors
-- Task Time
-- Repeating Event
-- Notifications and reminders
 
   
 ## Contributing
