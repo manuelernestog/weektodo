@@ -451,8 +451,8 @@ body {
   flex-grow: 1;
   display: flex;
   overflow-x: hidden;
-  height: max-content;
   min-height: -webkit-fill-available;
+  min-height: -moz-available;
 }
 
 .slides {
