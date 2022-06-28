@@ -3,3 +3,8 @@
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
+[[redirects]]
+  from = "https://weektodo-app.netlify.app/*"
+  to = "https://app.weektodo.me/:splat"
+  status = 301
+  force = true
