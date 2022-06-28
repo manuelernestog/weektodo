@@ -22,14 +22,17 @@
     "notificationOnStartup": "Notifica all'avvio",
     "notificationSound": "Suono di notifica",
     "clearData": "Elimina i dati",
-    "exportBackup": "Esporta backup",
-    "importBackup": "Importa backup",
-    "clearDataDetails": "Sei sicuro di voler eliminare tutti i dati dell'app? Questa azione è irreversibile."
+    "clearDataDetails": "Sei sicuro di voler eliminare tutti i dati dell'app? Questa azione è irreversibile.",
+    "exportData": "Esporta dati",
+    "importData": "Importa dati",
+    "moveOldTasks": "Sposta automaticamente le vecchie attività",
+    "runInBackground": "Esegui in background",
+    "runInBackgroundInfo": "Consente alle notifiche di funzionare con l'app chiusa.\n \nQuesta opzione potrebbe presentare problemi per alcune versioni di macOS.",
+    "importing": "Importazione..."
   },
   "donate": {
     "contribute": "Contribuisci",
     "contributeSponsor": "Contribuisci / Sponsorizza",
-    "mainMessage": "WeektoDo è un'applicazione completamente gratuita supportata dal contributo dei suoi utenti. Se ti piace WeekToDo, considera di supportare il progetto con il contributo che desideri. Grazie per aver utilizzato WeekToDo!",
     "comment": "Invia un parere",
     "crypto": "Cripto",
     "goBack": "Indietro",
@@ -42,7 +45,11 @@
     "cryptocurrencies": "Criptomonete",
     "buyMeACoffee": "Buy Me A Coffee",
     "buyMeACryptoCoffee": "Buy Me A Crypto Coffee",
-    "translate": "Translate"
+    "translate": "Translate",
+    "shareMessage": "Sto programmando la mia settimana con WeekToDo, un pianificatore settimanale gratuito e minimalista incentrato sulla privacy e penso che lo adorerai anche tu. \nControlla!",
+    "shareWithFriends": "Condividere con gli amici",
+    "supportMessage1": "Weektodo è un'applicazione gratuita supportata da utenti come te. \nSe ti piace WeekToDo puoi supportarlo con il contributo che consideri o condividendo l'app con i tuoi amici.",
+    "supportMessage2": "Grazie per aver supportato WeekToDo 😊"
   },
   "about": {
     "about": "A proposito di",
@@ -135,7 +142,10 @@
     "postpone": "Posticipa",
     "newVersionAvailable": "Nuova versione disponibile",
     "download": "(Scarica)",
-    "sponsoredBy": "Sponsorizzato da"
+    "sponsoredBy": "Sponsorizzato da",
+    "recurringTasks": "Compiti ricorrenti",
+    "removeAll": "Cancella tutto",
+    "updateAll": "Aggiorna tutto"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",
@@ -145,7 +155,26 @@
     "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
     "taskRemoved": "Task Removed !!!",
     "taskDuplicated": "Task Duplicated !!!",
-    "duplicate": "Duplicate"
+    "duplicate": "Duplicate",
+    "actions": "Azioni",
+    "alarm": "Allarme",
+    "cancel": "Annulla",
+    "close": "Chiudere",
+    "color": "Colore",
+    "daily": "Quotidiano",
+    "done": "Fatto",
+    "indefinitely": "Indefinitamente",
+    "interval": "Intervallo:",
+    "monthly": "Mensile",
+    "noRepeat": "Nessuna ripetizione",
+    "occurrences": "Occorrenze",
+    "recurrentTaskRemoved": "Attività ricorrente rimossa",
+    "split": "Diviso",
+    "subtasks": "Sottocompiti",
+    "time": "Volta",
+    "untilDate": "Fino a data",
+    "weekly": "settimanalmente",
+    "yearly": "Annuale"
   },
   "notifications": {
     "noPendingTasksToday": "Non hai attività programmate oggi.",

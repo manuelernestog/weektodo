@@ -13,8 +13,8 @@
     "calendar": "日历",
     "zoom": "缩放",
     "columns": "列",
-    "goToNewDomain": "我们正在将 WeekToDo 网站迁移到一个新的域名，这个域名将很快停止。 请从新域名开始访问 WeekToDo。 要移动您的数据，您必须在此处将其导出，然后从配置菜单将其导入其他域。 如有不便，敬请原谅。"
-	"gotoNewDomainBtn": "转到新域名",
+    "goToNewDomain": "我们正在将 WeekToDo 网站迁移到一个新的域名，这个域名将很快停止。 请从新域名开始访问 WeekToDo。 要移动您的数据，您必须在此处将其导出，然后从配置菜单将其导入其他域。 如有不便，敬请原谅。",
+    "gotoNewDomainBtn": "转到新域名",
     "general": "常规",
     "notifications": "通知",
     "display": "显示",
@@ -22,14 +22,12 @@
     "notificationOnStartup": "在启动时通知",
     "notificationSound": "通知声音",
     "clearData": "清除数据",
-    "exportBackup": "导出备份",
-    "importBackup": "导入备份",
-    "clearDataDetails": "您确定要删除所有应用程序数据吗？ 这个操作是不可恢复的。"
+    "clearDataDetails": "您确定要删除所有应用程序数据吗？ 这个操作是不可恢复的。",
+    "importing": "输入..."
   },
   "donate": {
     "contribute": "贡献",
     "contributeSponsor": "贡献/赞助者",
-    "mainMessage": "WeektoDo 是一个完全免费的应用程序。 您可以通过少量贡献来支持这个项目。 感谢您使用 WeekToDo！",
     "comment": "发送反馈",
     "crypto": "Crypto",
     "goBack": "返回",
@@ -53,7 +51,7 @@
     "version": "版本",
     "desc": "WeekToDo 是一个专注于隐私的极简主义每周计划。",
     "site": "访问网站",
-    "contributors": "贡献者"
+    "contributors": "贡献者",
     "sponsors": "赞助者",
     "collaborators": "合作者",
     "email": "E-mail",

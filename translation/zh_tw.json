@@ -22,14 +22,11 @@
     "notificationOnStartup": "啟動通知",
     "notificationSound": "通知聲音",
     "clearData": "清除數據",
-    "exportBackup": "導出備份",
-    "importBackup": "導入備份",
     "clearDataDetails": "您確定要刪除所有應用數據嗎？ 這個動作是不可逆的。"
   },
   "donate": {
     "contribute": "貢獻",
     "contributeSponsor": "貢獻/贊助",
-    "mainMessage": "WeektoDo 是一個完全免費的應用程序，由其用戶貢獻支持。 如果您喜歡 WeekToDo，請考慮以您希望的任何貢獻來支持該項目。 感謝您使用 WeekToDo！",
     "comment": "發表評論",
     "crypto": "加密",
     "goBack": "返回",

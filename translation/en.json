@@ -22,14 +22,19 @@
     "notificationOnStartup": "Notification on startup",
     "notificationSound": "Notification sound",
     "clearData": "Clear data",
-    "exportBackup": "Export backup",
-    "importBackup": "Import backup",
-    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible."
+    "exportData": "Export data",
+    "importData": "Import data",
+    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible.",
+    "runInBackground": "Run in background",
+    "runInBackgroundInfo": "Allows notifications to work with the app closed. \n This option may have issues for some macOS versions.",
+    "moveOldTasks": "Automatically move old tasks",
+    "importing": "Importing..."
   },
   "donate": {
     "contribute": "Contribute",
     "contributeSponsor": "Contribute / Sponsor",
-    "mainMessage": "WeektoDo is a completely free application supported by the contribution of its users. If you enjoy WeekToDo consider supporting the project with whatever contribution you wish. Thanks for using WeekToDo!",
+    "supportMessage1": "Weektodo is a free application supported by users like you. If you enjoy WeekToDo you can support it with the contribution you consider or sharing the app with your friends.",
+    "supportMessage2": "Thanks for supporting WeekToDo 😊",
     "comment": "Send feedback",
     "crypto": "Cripto",
     "goBack": "Go Back",
@@ -38,11 +43,13 @@
     "copy": "Copy",
     "copiedAddres": "Copied Address !!!",
     "share": "Share",
+    "shareWithFriends": "Share with friends",
     "rate": "Rate",
     "cryptocurrencies": "Cryptocurrencies",
     "buyMeACoffee": "Buy me a Coffee",
     "buyMeACryptoCoffee": "Buy me a Crypto Coffee",
-    "translate": "Translate"
+    "translate": "Translate",
+    "shareMessage": "I'm scheduling my week with WeekToDo, a free minimalist privacy-focused weekly planner and I think you'll love it too. Check it out!"
   },
   "about": {
     "about": "About",
@@ -135,7 +142,10 @@
     "postpone": "Postpone",
     "newVersionAvailable": "New Version Available",
     "download": "(Download)",
-    "sponsoredBy": "Sponsored by"
+    "sponsoredBy": "Sponsored by",
+    "updateAll": "Update All",
+    "removeAll": "Delete All",
+    "recurringTasks": "Recurring tasks"
   },
   "todoDetails": {
     "taskTitle": "Task title",
@@ -146,7 +156,25 @@
     "taskRemoved": "Task Removed !!!",
     "taskDuplicated": "Task Duplicated !!!",
     "duplicate": "Duplicate",
-    "subtasks": "Subtasks"
+    "subtasks": "Subtasks",
+    "interval": "Interval:",
+    "indefinitely": "Indefinitely",
+    "occurrences": "Occurrences",
+    "untilDate": "Until Date",
+    "done": "Done",
+    "cancel": "Cancel",
+    "noRepeat": "No Repeat",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "split": "Split",
+    "recurrentTaskRemoved": "Recurrent Task Removed",
+    "time": "Time",
+    "alarm": "Alarm",
+    "color": "Color",
+    "close": "Close",
+    "actions": "Actions"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",

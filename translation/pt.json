@@ -15,21 +15,24 @@
     "columns": "Colunas",
     "goToNewDomain": "Estamos mudando o site WeekToDo para um novo domínio e este será descontinuado em 1º de abril de 2022. Para manter seus dados, você deve exportá-los deste domínio e depois importá-los no novo domínio (no menu de configuração). Lembre-se de que, se você não migrar dados, perderá as informações que seu navegador armazena neste domínio. Desculpe por qualquer inconveniente que isso possa causar.",
     "gotoNewDomainBtn": "Ir para o novo domínio",
-     "general": "Em geral",
+    "general": "Em geral",
     "notifications": "Notificações",
     "display": "Tela",
     "openOnStartup": "Abrir na inicialização",
     "notificationOnStartup": "Notificação na inicialização",
     "notificationSound": "Som de notificação",
     "clearData": "Apagar os dados",
-    "exportBackup": "Exportar backup",
-    "importBackup": "Importar backup",
-    "clearDataDetails": "Tem certeza de que deseja excluir todos os dados do aplicativo? Esta ação é irreversível."
+    "clearDataDetails": "Tem certeza de que deseja excluir todos os dados do aplicativo? Esta ação é irreversível.",
+    "exportData": "Exportar dados",
+    "importData": "Importar dados",
+    "moveOldTasks": "Mover tarefas antigas automaticamente",
+    "runInBackground": "Executado em segundo plano",
+    "runInBackgroundInfo": "Permite que as notificações funcionem com o aplicativo fechado.\n \nEsta opção pode ter problemas para algumas versões do macOS.",
+    "importing": "Importando..."
   },
   "donate": {
     "contribute": "Contribuir",
     "contributeSponsor": "Contribuir / Patrocinar",
-    "mainMessage": "WeektoDo é um aplicativo totalmente gratuito apoiado pela contribuição de seus usuários. Se você gosta do WeekToDo, considere apoiar o projeto com qualquer contribuição que desejar. Obrigado por usar o WeekToDo!",
     "comment": "Enviar comentário",
     "crypto": "Cripto",
     "goBack": "Voltar",
@@ -42,7 +45,11 @@
     "cryptocurrencies": "Criptomoedas",
     "buyMeACoffee": "Compre-me um café",
     "buyMeACryptoCoffee": "Compre-me um café criptográfico",
-    "translate": "Traduzir"
+    "translate": "Traduzir",
+    "shareMessage": "Estou agendando minha semana com o WeekToDo, um planejador semanal gratuito e minimalista focado em privacidade e acho que você também vai adorar. \nConfira!",
+    "shareWithFriends": "Compartilhe com amigos",
+    "supportMessage1": "Weektodo é um aplicativo gratuito suportado por usuários como você. \nSe você gosta do WeekToDo, pode apoiá-lo com a contribuição que considerar ou compartilhando o aplicativo com seus amigos.",
+    "supportMessage2": "Obrigado por apoiar o WeekToDo 😊"
   },
   "about": {
     "about": "Sobre",
@@ -135,7 +142,10 @@
     "postpone": "Adiar",
     "newVersionAvailable": "Nova versão disponível",
     "download": "(Download)",
-    "sponsoredBy": "Patrocinado por"
+    "sponsoredBy": "Patrocinado por",
+    "recurringTasks": "Tarefas recorrentes",
+    "removeAll": "Excluir tudo",
+    "updateAll": "Atualize tudo"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",
@@ -145,7 +155,26 @@
     "copiedTaskToClipboard": "Texto copiado para a área de transferência !!!",
     "taskRemoved": "Tarefa removida !!!",
     "taskDuplicated": "Tarefa Duplicada !!!",
-    "duplicate": "Duplicado"
+    "duplicate": "Duplicado",
+    "actions": "Ações",
+    "alarm": "Alarme",
+    "cancel": "Cancelar",
+    "close": "Perto",
+    "color": "Cor",
+    "daily": "Diário",
+    "done": "Feito",
+    "indefinitely": "Indefinidamente",
+    "interval": "Intervalo:",
+    "monthly": "Por mês",
+    "noRepeat": "Sem repetição",
+    "occurrences": "Ocorrências",
+    "recurrentTaskRemoved": "Tarefa recorrente removida",
+    "split": "Dividir",
+    "subtasks": "Subtarefas",
+    "time": "Tempo",
+    "untilDate": "Até a data",
+    "weekly": "Semanalmente",
+    "yearly": "Anual"
   },
   "notifications": {
     "noPendingTasksToday": "Você não tem tarefas agendadas hoje.",

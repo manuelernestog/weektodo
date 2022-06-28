@@ -13,11 +13,25 @@
     "calendar": "カレンダー",
     "zoom": "ズーム",
     "columns": "列",
-    "goToNewDomain": "私たちは WeekToDo サイトを別の新しいドメインに移行しようとしています。このドメインはもうすぐ運用停止します。 新しいドメインから WeekToDo をアクセスしてください。 データを移行したい場合、ここでデータをエクスポートして、設定メニューより他のドメインへインポートをします。 ご不便をおかけしますが、ご了承ください。"
+    "goToNewDomain": "私たちは WeekToDo サイトを別の新しいドメインに移行しようとしています。このドメインはもうすぐ運用停止します。 新しいドメインから WeekToDo をアクセスしてください。 データを移行したい場合、ここでデータをエクスポートして、設定メニューより他のドメインへインポートをします。 ご不便をおかけしますが、ご了承ください。",
+    "clearData": "クリアデータ",
+    "clearDataDetails": "すべてのアプリデータを削除してもよろしいですか？\nこのアクションは元に戻せません。",
+    "display": "画面",
+    "exportData": "データのエクスポート",
+    "general": "全般的",
+    "gotoNewDomainBtn": "新しいドメインに移動",
+    "importData": "データのインポート",
+    "moveOldTasks": "古いタスクを自動的に移動する",
+    "notificationOnStartup": "起動時の通知",
+    "notificationSound": "通知音",
+    "notifications": "通知",
+    "openOnStartup": "起動時に開く",
+    "runInBackground": "バックグラウンドで実行",
+    "runInBackgroundInfo": "アプリを閉じた状態で通知を機能させる。\n \nこのオプションは、一部のmacOSバージョンで問題が発生する可能性があります。",
+    "importing": "インポート中..."
   },
   "donate": {
     "contribute": "コントリビューション",
-    "mainMessage": "WeektoDo は完全無料のオープンアプリケーションです。 あなたも少しの支援でこのプロジェクトに貢献できます。 WeekToDo を使っていただきありがとうございます。",
     "comment": "コメント",
     "crypto": "暗号化",
     "goBack": "戻る",
@@ -30,7 +44,12 @@
     "cryptocurrencies": "仮想通貨",
     "buyMeACoffee": "私にコーヒーを奢る",
     "buyMeACryptoCoffee": "私にいっぱいのコーヒーを奢る",
-    "translate": "翻訳"
+    "translate": "翻訳",
+    "contributeSponsor": "寄稿/スポンサー",
+    "shareMessage": "私は、プライバシーに焦点を当てた無料のミニマリストウィークリープランナーであるWeekToDoを使って週をスケジュールしていますが、あなたもきっと気に入ると思います。\n見てみな！",
+    "shareWithFriends": "友達と分け合う",
+    "supportMessage1": "Weektodoは、あなたのようなユーザーがサポートする無料のアプリケーションです。 \nWeekToDoを楽しんでいる場合は、検討している貢献やアプリの友達との共有でサポートできます。",
+    "supportMessage2": "WeekToDoをサポートしていただきありがとうございます😊"
   },
   "about": {
     "about": "私たちについて",
@@ -41,7 +60,11 @@
     "version": "バージョン",
     "desc": "WeekToDo はプライバシーに焦点を当てたミニマリストな週間タスク管理アプリです。",
     "site": "サイト",
-    "contributors": "コントリビューション"
+    "contributors": "コントリビューション",
+    "blog": "ブログ",
+    "collaborators": "協力者",
+    "email": "Eメール",
+    "sponsors": "スポンサー"
   },
   "generatedData": {
     "data2": "クリックしてタスクを完了される",
@@ -59,7 +82,8 @@
     "data11": "3個の点をクリックしてタスクの詳細情報を編集する",
     "subtask1": "私はサブタスク",
     "subtask2": "クリックしてサブタスクを完了される",
-    "desc1": "ここの設定からタスクについて注釈を追加する。ダブルクリックで注釈を編集する。"
+    "desc1": "ここの設定からタスクについて注釈を追加する。ダブルクリックで注釈を編集する。",
+    "data12": "マウスの中クリックでタスクの詳細をすばやく開く"
   },
   "tips": {
     "tips": "ヒント",
@@ -118,7 +142,10 @@
     "postpone": "延期する",
     "newVersionAvailable": "新しいバージョンが利用可能です。",
     "download": "（ダウンロード）",
-    "sponsoredBy": "スポンサー"
+    "sponsoredBy": "スポンサー",
+    "recurringTasks": "定期的なタスク",
+    "removeAll": "すべて削除",
+    "updateAll": "すべて更新"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",
@@ -129,7 +156,25 @@
     "taskRemoved": "タスクを削除しました!!!",
     "taskDuplicated": "タスクはコピーされました!!!",
     "duplicate": "コピー",
-    "subtasks": "サブタスク"
+    "subtasks": "サブタスク",
+    "actions": "行動",
+    "alarm": "警報",
+    "cancel": "キャンセル",
+    "close": "近い",
+    "color": "色",
+    "daily": "毎日",
+    "done": "終わり",
+    "indefinitely": "無期限に",
+    "interval": "間隔：",
+    "monthly": "毎月",
+    "noRepeat": "繰り返しなし",
+    "occurrences": "発生",
+    "recurrentTaskRemoved": "再発タスクが削除されました",
+    "split": "スプリット",
+    "time": "時間",
+    "untilDate": "日付まで",
+    "weekly": "毎週",
+    "yearly": "毎年"
   },
   "notifications": {
     "noPendingTasksToday": "今日、スケジュールされたタスクはありません。",

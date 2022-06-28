@@ -13,11 +13,25 @@
     "calendar": "Takvim",
     "zoom": "Yakınlaştır",
     "columns": "Kolonlar",
-    "goToNewDomain": "WeekToDo web sitesini yeni bir alana taşıyoruz ve bu alan kısa süre içinde kullanımdan kaldırılacak. Lütfen yeni alan adından WeekToDo'ya erişmeye başlayın. Verilerinizi taşımak için buraya aktarmanız ve ardından yapılandırma menüsünden diğer etki alanına aktarmanız gerekir. Bunun neden olabileceği herhangi bir rahatsızlık için özür dileriz."
+    "goToNewDomain": "WeekToDo web sitesini yeni bir alana taşıyoruz ve bu alan kısa süre içinde kullanımdan kaldırılacak. Lütfen yeni alan adından WeekToDo'ya erişmeye başlayın. Verilerinizi taşımak için buraya aktarmanız ve ardından yapılandırma menüsünden diğer etki alanına aktarmanız gerekir. Bunun neden olabileceği herhangi bir rahatsızlık için özür dileriz.",
+    "clearData": "Net veriler",
+    "clearDataDetails": "Tüm uygulama verilerini silmek istediğinizden emin misiniz? \nBu eylem geri döndürülemez.",
+    "display": "Görüntülemek",
+    "exportData": "Verileri dışa aktar",
+    "general": "Genel",
+    "gotoNewDomainBtn": "Yeni etki alanına git",
+    "importData": "Verileri içe aktar",
+    "moveOldTasks": "Eski görevleri otomatik olarak taşı",
+    "notificationOnStartup": "Açılışta bildirim",
+    "notificationSound": "Bilgilendirme sesi",
+    "notifications": "Bildirimler",
+    "openOnStartup": "Başlangıçta aç",
+    "runInBackground": "Arka planda çalıştır",
+    "runInBackgroundInfo": "Bildirimlerin uygulama kapalıyken çalışmasına izin verir.\n \nBu seçeneğin bazı macOS sürümlerinde sorunları olabilir.",
+    "importing": "İçe aktarılıyor..."
   },
   "donate": {
     "contribute": "Katkıda bulun",
-    "mainMessage": "WeektoDo tamamen ücretsiz bir uygulamadır. Küçük bir katkı ile bu projeye destek olabilirsiniz. WeekToDo'yu kullandığınız için teşekkürler!",
     "comment": "Geri bildirim gönderin",
     "crypto": "Kripto",
     "goBack": "Geri Git",
@@ -30,7 +44,12 @@
     "cryptocurrencies": "kripto para birimleri",
     "buyMeACoffee": "Buy me a Coffee",
     "buyMeACryptoCoffee": "Buy me a Crypto Coffee",
-    "translate": "Çeviri"
+    "translate": "Çeviri",
+    "contributeSponsor": "Katkıda Bulun / Sponsor olun",
+    "shareMessage": "Haftamı ücretsiz minimalist gizlilik odaklı haftalık planlayıcı WeekToDo ile planlıyorum ve sizin de seveceğinizi düşünüyorum. \nBuna bir bak!",
+    "shareWithFriends": "Arkadaşlarınla ​​paylaş",
+    "supportMessage1": "Weektodo, sizin gibi kullanıcılar tarafından desteklenen ücretsiz bir uygulamadır. \nWeekToDo'dan hoşlanıyorsanız, uygulamayı arkadaşlarınızla paylaşarak veya düşündüğünüz katkılarla destekleyebilirsiniz.",
+    "supportMessage2": "WeekToDo'yu desteklediğiniz için teşekkürler 😊"
   },
   "about": {
     "about": "Hakkında",
@@ -41,7 +60,11 @@
     "version": "Versiyon",
     "desc": "WeekToDo gizliliğe odaklanan minimalist bir Haftalık Planlayıcıdır.",
     "site": "Websitesini ziyaret edin",
-    "contributors": "Katkıda Bulunanlar"
+    "contributors": "Katkıda Bulunanlar",
+    "blog": "Blog",
+    "collaborators": "ortak çalışanlar",
+    "email": "e-posta",
+    "sponsors": "Sponsorlar"
   },
   "generatedData": {
     "data2": "Görevi tamamlamak için tıklayın",
@@ -59,7 +82,8 @@
     "data11": "Bu görev hakkında daha fazla detay görmek için üç noktaya tıklayın",
     "subtask1": "Ben bir altgörevim",
     "subtask2": "Altgörevi tamamlamak için tıklayın",
-    "desc1": "Burada bu görevle ilgili notlarınızı ayarlayabilirsiniz. Notları düzenlemek için çift tıklayın."
+    "desc1": "Burada bu görevle ilgili notlarınızı ayarlayabilirsiniz. Notları düzenlemek için çift tıklayın.",
+    "data12": "Orta fare tıklamasıyla görev ayrıntılarını hızla açın"
   },
   "tips": {
     "tips": "Öneriler",
@@ -112,13 +136,16 @@
     "softwareUpdated": "Yazılım Güncellendi",
     "seeChanges": "(Değişiklikleri Gör)",
     "changeLog": "Değişiklik Günlüğü",
-    "compatible": "Üzgünüz, WeekToDo web tarayıcınızla uyumlu değil. Güncellemeyi deneyin veya başka bir tane kullanın.",    
+    "compatible": "Üzgünüz, WeekToDo web tarayıcınızla uyumlu değil. Güncellemeyi deneyin veya başka bir tane kullanın.",
     "removeList": "Listeyi Sil",
     "completeAll": "Hepsini Tamamla",
     "postpone": "Ertele",
     "newVersionAvailable": "Yeni Versiyon Mevcut",
     "download": "(İndir)",
-    "sponsoredBy": "Sponsored by"
+    "sponsoredBy": "Sponsored by",
+    "recurringTasks": "Yinelenen görevler",
+    "removeAll": "Hepsini sil",
+    "updateAll": "Tümünü Güncelle"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",
@@ -129,6 +156,30 @@
     "taskRemoved": "Görev Kaldırıldı !!!",
     "taskDuplicated": "Görev Kopyalandı !!!",
     "duplicate": "Kopyala",
-    "subtasks": "Alt Görevler"
+    "subtasks": "Alt Görevler",
+    "actions": "Hareketler",
+    "alarm": "alarm",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "color": "Renk",
+    "daily": "Günlük",
+    "done": "Tamamlandı",
+    "indefinitely": "süresiz",
+    "interval": "Aralık:",
+    "monthly": "Aylık",
+    "noRepeat": "Tekrar Yok",
+    "occurrences": "Olaylar",
+    "recurrentTaskRemoved": "Tekrarlayan Görev Kaldırıldı",
+    "split": "Bölmek",
+    "time": "Zaman",
+    "untilDate": "Tarihine kadar",
+    "weekly": "Haftalık",
+    "yearly": "Yıllık"
+  },
+  "notifications": {
+    "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",
+    "pendingTasksToday": "Bugün {0} planlanmış göreviniz var.",
+    "pendingTasksYesterday": "Dün bekleyen {0} görevin var.",
+    "pendingTasksYesterdayAndToday": "Dün bekleyen {0} göreviniz ve bugün {1} zamanlanmış göreviniz var."
   }
 }

@@ -22,14 +22,17 @@
     "notificationOnStartup": "Notificación al inicio",
     "notificationSound": "Sonido de notificación",
     "clearData": "Borrar datos",
-    "exportBackup": "Exportar copia de seguridad",
-    "importBackup": "Importar copia de seguridad",
-    "clearDataDetails": "Are you sure you want to delete all app data? This action is irreversible."
+    "clearDataDetails": "¿Está seguro de que desea eliminar todos los datos de la aplicación? Esta acción es irreversible.",
+    "exportData": "Exportar datos",
+    "importData": "Importar datos",
+    "moveOldTasks": "Mover tareas antiguas automáticamente",
+    "runInBackground": "Ejecutar en segundo plano",
+    "runInBackgroundInfo": "Permite que las notificaciones funcionen con la aplicación cerrada.\n \nEsta opción puede tener problemas para algunas versiones de macOS.",
+    "importing": "Importando..."
   },
   "donate": {
     "contribute": "Contribuir",
     "contributeSponsor": "Contribute / Sponsor",
-    "mainMessage": "WeektoDo es una aplicación completamente gratuita sostenida con el aporte de sus usuarios. Si disfrutas WeekToDo considera apoyar el proyecto con el aporte que desees. Gracias por utilizar WeekToDo!",
     "comment": "Enviar Comentario",
     "crypto": "Cripto",
     "goBack": "Ir Atrás",
@@ -38,12 +41,15 @@
     "copy": "Copiar",
     "copiedAddres": "Dirección Copiada!!!",
     "share": "Compartir",
-    "shareWithFriends": "Compartir con Amigos",
     "rate": "Puntuar",
     "cryptocurrencies": "Criptomonedas",
     "buyMeACoffee": "Cómprame un Café",
     "buyMeACryptoCoffee": "Cómprame un Cripto Café",
-    "translate": "Traducir"
+    "translate": "Traducir",
+    "shareMessage": "Estoy programando mi semana con WeekToDo, un planificador semanal gratuito minimalista centrado en la privacidad y creo que a ti también te encantará. \n¡Échale un vistazo!",
+    "shareWithFriends": "Compartir con amigos",
+    "supportMessage1": "Weektodo es una aplicación gratuita apoyada por usuarios como tú. \nSi te gusta WeekToDo puedes apoyarlo con la aportación que consideres o compartiendo la app con tus amigos.",
+    "supportMessage2": "Gracias por apoyar WeekToDo 😊"
   },
   "about": {
     "about": "Acerca De",
@@ -119,7 +125,7 @@
   },
   "ui": {
     "rmList": "Eliminar Lista",
-    "rmListConfirm":"Estas seguro que deseas eliminar la lista",
+    "rmListConfirm": "Estas seguro que deseas eliminar la lista",
     "cancel": "Cancelar",
     "remove": "Eliminar",
     "splashSub": "Planificador Semanal Minimalista",
@@ -136,7 +142,10 @@
     "postpone": "Posponer",
     "newVersionAvailable": "Nueva versión disponible",
     "download": "(Descargar)",
-    "sponsoredBy": "Patrocinado por"
+    "sponsoredBy": "Patrocinado por",
+    "recurringTasks": "Tareas recurrentes",
+    "removeAll": "Eliminar todos",
+    "updateAll": "Actualizar todo"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",
@@ -147,7 +156,25 @@
     "taskRemoved": "Tarea Eliminada !!!",
     "taskDuplicated": "Tarea Duplicada !!!",
     "duplicate": "Duplicar",
-    "subtasks": "Subtareas"
+    "subtasks": "Subtareas",
+    "actions": "Comportamiento",
+    "alarm": "Alarma",
+    "cancel": "Cancelar",
+    "close": "Cerca",
+    "color": "Color",
+    "daily": "Diariamente",
+    "done": "Hecho",
+    "indefinitely": "Indefinidamente",
+    "interval": "Intervalo:",
+    "monthly": "Mensual",
+    "noRepeat": "Sin repetición",
+    "occurrences": "Ocurrencias",
+    "recurrentTaskRemoved": "Tarea recurrente eliminada",
+    "split": "Separar",
+    "time": "Tiempo",
+    "untilDate": "Hasta la fecha",
+    "weekly": "Semanalmente",
+    "yearly": "Anual"
   },
   "notifications": {
     "noPendingTasksToday": "No tienes tareas programadas hoy.",
