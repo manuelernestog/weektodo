@@ -2,7 +2,12 @@
   "version": "1.8.0",
   "changes": {
     "en": {
-      "1.8.0-20220610": [
+      "1.8.1-20220701": [
+        "Fixing incompatible style option for firefox",
+        "Hidding zoom option for firefox",
+        "Fxing initial load bug for old task and notifications"
+      ],
+      "1.8.0-20220627": [
         "Adding repeating tasks",
         "Adding repeating tasks view",
         "Fixing todo lists length when the column grows",

@@ -114,7 +114,7 @@
                     v-model="configData.columns" @change="changeConfig('columns', configData.columns)" />
                 </div>
 
-                <div class="px-1 mb-3">
+                <div class="px-1 mb-3 zoom-config">
                   <label for="zoomConfig" class="form-check-label">{{ $t("settings.zoom") }}: {{ configData.zoom
                   }}%</label>
                   <input type="range" class="form-range mt-2 px-2" min="50" max="200" id="zoomConfig" step="5"
@@ -388,5 +388,11 @@ export default {
 
 .form-switch label {
   max-width: 170px;
+}
+
+@-moz-document url-prefix() {
+.zoom-config{
+  display: none;
+}
 }
 </style>
