@@ -473,6 +473,13 @@ body {
   height: fit-content;
 }
 
+@-moz-document url-prefix() {
+  .todo-slider {
+    min-height: -moz-available;
+    height: unset;
+  }
+}
+
 .slides {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
