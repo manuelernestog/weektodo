@@ -10,7 +10,8 @@
           :class="{ 'full-screen': !showCustomList }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
-            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList">
+            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted">
             </to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
@@ -28,7 +29,8 @@
           }"></i>
           <div class="todo-slider slides" ref="customListContainer">
             <to-do-list v-for="(cTodoList, index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-              :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"></to-do-list>
+              :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted"></to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" @click="customMoveRight" :style="{
             visibility: cTodoList.length > columns ? 'visible' : 'hidden',
@@ -113,6 +115,9 @@ export default {
       cTodoList: this.$store.getters.cTodoListIds,
       calendarHeight: "calc(50% - 40px)",
       ipcRenderer: null,
+      initialLoadCompleted: false,
+      initialListToLoad: 0,
+      initialListLoaded: 0,
     };
   },
   beforeCreate() {
@@ -129,6 +134,9 @@ export default {
 
     this.$store.dispatch("loadAllRepeatingEvent").then(
       function () {
+        let totalDaysCount = this.$store.getters.config.columns + 2;
+        let totalCustomListCount = this.$store.getters.cTodoListIds.length;
+        this.initialListToLoad = totalDaysCount + totalCustomListCount;
         this.deleteOldRepeatingEvents();
         this.selected_date = moment().format("YYYYMMDD");
         this.$nextTick(() => { this.weekResetScroll() });
@@ -160,9 +168,6 @@ export default {
     }
 
     this.resetAppOnDayChange();
-
-    if (this.$store.getters.config.moveOldTasks) setTimeout(this.moveOldTasksToToday, 2500);
-    setTimeout(this.refreshTodayNotifications, 3500);
   },
   methods: {
     weekMoveLeft: function () {
@@ -190,7 +195,6 @@ export default {
           this.$store.commit("removeRepeatingEvent", event[0]);
         }
       }
-
     },
     weekResetScroll: function () {
       this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
@@ -282,6 +286,19 @@ export default {
     },
     refreshTodayNotifications: function () {
       notifications.refreshDayNotifications(this, moment().format("YYYYMMDD"));
+    },
+    todoListMounted: function () {
+      this.methodsAfterInitialLoad();
+    },
+    methodsAfterInitialLoad: function () {
+      if (!this.initialLoadCompleted) {
+        this.initialListLoaded++;
+        if (this.initialListLoaded == this.initialListToLoad) {
+          this.initialLoadCompleted = true;
+          if (this.$store.getters.config.moveOldTasks) { this.moveOldTasksToToday() }
+          this.refreshTodayNotifications();
+        }
+      }
     },
     showInitialNotification: function () {
       new Notification("WeekToDo", {
@@ -453,6 +470,7 @@ body {
   overflow-x: hidden;
   min-height: -webkit-fill-available;
   min-height: -moz-available;
+  height: fit-content;
 }
 
 .slides {

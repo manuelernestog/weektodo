@@ -66,6 +66,7 @@ export default {
         repeatingEventHelper.generateRepeatingEventsIntances(listId, this);
       });
       this.clearRemovedRepeatingEvents();
+      this.$emit("todoListMounted", listId);
     });
   },
   unmounted() {
