@@ -470,6 +470,7 @@ body {
   overflow-x: hidden;
   min-height: -webkit-fill-available;
   min-height: -moz-available;
+  height: fit-content;
 }
 
 .slides {
