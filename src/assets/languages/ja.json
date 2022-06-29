@@ -145,7 +145,8 @@
     "sponsoredBy": "スポンサー",
     "recurringTasks": "定期的なタスク",
     "removeAll": "すべて削除",
-    "updateAll": "すべて更新"
+    "updateAll": "すべて更新",
+    "reorderCustomLists": "カスタムリストを並べ替える"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

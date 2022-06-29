@@ -145,7 +145,8 @@
     "sponsoredBy": "При финансовой поддержке",
     "recurringTasks": "Повторяющиеся задачи",
     "removeAll": "Удалить все",
-    "updateAll": "Обновить все"
+    "updateAll": "Обновить все",
+    "reorderCustomLists": "Изменение порядка пользовательских списков"
   },
   "todoDetails": {
     "taskTitle": "Заголовок задачи",

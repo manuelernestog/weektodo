@@ -145,7 +145,8 @@
     "sponsoredBy": "За підтримки",
     "recurringTasks": "Повторювані завдання",
     "removeAll": "Видалити все",
-    "updateAll": "Оновити все"
+    "updateAll": "Оновити все",
+    "reorderCustomLists": "Змінити порядок користувацьких списків"
   },
   "todoDetails": {
     "taskTitle": "Назва завдання",

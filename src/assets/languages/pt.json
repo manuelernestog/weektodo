@@ -145,7 +145,8 @@
     "sponsoredBy": "Patrocinado por",
     "recurringTasks": "Tarefas recorrentes",
     "removeAll": "Excluir tudo",
-    "updateAll": "Atualize tudo"
+    "updateAll": "Atualize tudo",
+    "reorderCustomLists": "Reordenar listas personalizadas"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",

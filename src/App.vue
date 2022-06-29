@@ -50,6 +50,7 @@
       <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
       <importing-modal></importing-modal>
+      <reorder-custom-lists-modal @reset-custom-list="resetCustomList"></reorder-custom-lists-modal>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
@@ -89,6 +90,7 @@ import importingModal from "./views/importingModal.vue";
 import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 import repeatingEventRepository from "./repositories/repeatingEventRepository";
 import toDoListRepository from "./repositories/toDoListRepository";
+import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
 
 export default {
   name: "App",
@@ -107,7 +109,8 @@ export default {
     redirectDomainModal,
     clearDataModal,
     RecurrentEventsModal,
-    importingModal
+    importingModal,
+    ReorderCustomListsModal
   },
   data() {
     return {
@@ -204,6 +207,11 @@ export default {
     },
     customMoveLeft: function () {
       this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
+    },
+    resetCustomList: function () {
+      this.$nextTick(function () {
+        this.$refs.customListContainer.scrollLeft = 0;
+      });
     },
     todoListWidth: function () {
       return this.$refs.weekListContainer.clientWidth / this.columns;

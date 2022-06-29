@@ -145,7 +145,8 @@
     "sponsoredBy": "بدعمٍ من",
     "recurringTasks": "المهام المتكررة",
     "removeAll": "حذف الكل",
-    "updateAll": "تحديث الجميع"
+    "updateAll": "تحديث الجميع",
+    "reorderCustomLists": "إعادة ترتيب القوائم المخصصة"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

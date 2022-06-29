@@ -145,7 +145,8 @@
     "sponsoredBy": "Sponsorizzato da",
     "recurringTasks": "Compiti ricorrenti",
     "removeAll": "Cancella tutto",
-    "updateAll": "Aggiorna tutto"
+    "updateAll": "Aggiorna tutto",
+    "reorderCustomLists": "Riordina elenchi personalizzati"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",

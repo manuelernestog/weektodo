@@ -145,7 +145,8 @@
     "sponsoredBy": "Sponsored by",
     "recurringTasks": "Yinelenen görevler",
     "removeAll": "Hepsini sil",
-    "updateAll": "Tümünü Güncelle"
+    "updateAll": "Tümünü Güncelle",
+    "reorderCustomLists": "Özel listeleri yeniden sıralayın"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

@@ -145,7 +145,8 @@
     "sponsoredBy": "Sponsorisé par",
     "recurringTasks": "Tâches récurrentes",
     "removeAll": "Supprimer tout",
-    "updateAll": "Tout mettre à jour"
+    "updateAll": "Tout mettre à jour",
+    "reorderCustomLists": "Réorganiser les listes personnalisées"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",
