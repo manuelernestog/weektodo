@@ -126,7 +126,10 @@
   "ui": {
     "rmList": "Delete List",
     "rmListConfirm": "Are you sure you want to delete the list",
+    "repeatingTaskRemoveConfirm": "Are you sure you want to delete this recurring task ?",
+    "removeRepeatingTask": "Remove Repeating Task",
     "cancel": "Cancel",
+    "ok": "Ok",
     "remove": "Delete",
     "splashSub": "Minimalist Weekly Planner",
     "mobileWarning": "WeekToDo is a Desktop application and for now it is not ready to be displayed in this resolution. :(",
@@ -146,7 +149,8 @@
     "sponsoredBy": "Sponsored by",
     "updateAll": "Update All",
     "removeAll": "Delete All",
-    "recurringTasks": "Recurring tasks"
+    "recurringTasks": "Recurring tasks",
+    "undo": "Undo"
   },
   "todoDetails": {
     "taskTitle": "Task title",

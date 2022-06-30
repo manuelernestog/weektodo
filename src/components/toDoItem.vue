@@ -41,7 +41,7 @@
 
 <script>
 import toDoListRepository from "../repositories/toDoListRepository";
-import { Modal } from "bootstrap";
+import { Modal, Toast } from "bootstrap";
 import moment from "moment";
 import notifications from "../helpers/notifications";
 import mainHelpers from "../helpers/mainHelpers";
@@ -84,12 +84,12 @@ export default {
       this.editing = false;
     },
     removeTodo: function () {
-      this.$store.commit("removeTodo", {
-        toDoListId: this.toDoListId,
-        index: this.index,
-      });
+      this.$store.commit("setUndoElement", { type: 'task', todo: this.toDo, index: this.index });
+      this.$store.commit("removeTodo", { toDoListId: this.toDoListId, index: this.index, });
       notifications.refreshDayNotifications(this, this.toDoListId);
       toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
+      let toast = new Toast(document.getElementById("taskRemoved"));
+      toast.show(); // The undo remove acction it's called in todoModal.vue:undoRemoveTask
     },
     showToDoDetails: function () {
       this.$store.commit("actionsSelectedTodoIdUpdate", {

@@ -19,7 +19,8 @@
               <tr v-for="task in recurringTasks" :key="task.id">
                 <td>{{ task.data.text }}</td>
                 <td>{{ frecuency(task.type) }}</td>
-                <td><i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeRecurringTask(task.id)"></i></td>
+                <td><i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeRecurringTask(task.id)"
+                    data-bs-dismiss="modal"></i></td>
               </tr>
             </tbody>
           </table>
@@ -27,18 +28,27 @@
       </div>
     </div>
   </div>
+
+  <comfirm-modal :id="'removeReModal'" :title="$t('ui.removeRepeatingTask')" :text="$t('ui.repeatingTaskRemoveConfirm')"
+    :ico="'bi-x-circle'" :okText="$t('ui.remove')" @on-ok="removeRepeatingTaskComfirmed"
+    @on-cancel="removeRepeatingTaskCanceled"></comfirm-modal>
 </template>
 
 <script>
-import { Toast } from "bootstrap";
+import { Toast, Modal } from "bootstrap";
 import repeatingEventHelper from "../helpers/repeatingEvents.js";
 import repeatingEventRepository from "../repositories/repeatingEventRepository";
+import comfirmModal from "../views/comfirmModal.vue";
 
 export default {
   name: "RecurrentEventsModal",
+  components: {
+    comfirmModal
+  },
   data() {
     return {
       index: 0,
+      idToRemove: null
     };
   },
   methods: {
@@ -55,15 +65,26 @@ export default {
       }
     },
     removeRecurringTask: function (id) {
-      repeatingEventRepository.remove(id);
-      this.$store.commit("removeRepeatingEvent", id);
+      this.idToRemove = id;
+      let modal = new Modal(document.getElementById("removeReModal"), { backdrop: "static", });
+      modal.show();
+    },
+    removeRepeatingTaskComfirmed: function () {
+      repeatingEventRepository.remove(this.idToRemove);
+      this.$store.commit("removeRepeatingEvent", this.idToRemove);
       this.$store.getters.selectedDates.forEach((date) => {
         repeatingEventHelper.removeGeneratedRepeatingEvents(date, this);
       });
       this.$store.commit("resetRepeatingEventDateCache");
       this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
+      let modal = new Modal(document.getElementById("RecurrentEventsModal"));
+      modal.show();
       let toast = new Toast(document.getElementById("recurrentTaskRemoved"));
       toast.show();
+    },
+    removeRepeatingTaskCanceled: function () {
+      let modal = new Modal(document.getElementById("RecurrentEventsModal"));
+      modal.show();
     },
   },
   computed: {

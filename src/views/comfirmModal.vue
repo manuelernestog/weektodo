@@ -1,27 +1,26 @@
 <template>
-  <div class="modal fade" id="clearDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  dolores
+  <div class="modal fade" :id="id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
           <div class="d-flex flex-row">
-            <i class="bi-x-circle" style="font-size: 38px; margin-right: 30px"></i>
+            <i :class="ico" style="font-size: 38px; margin-right: 30px"></i>
             <div style="margin-top: 2px">
-              <h6 class="modal-title">{{ $t("settings.clearData") }}</h6>
+              <h6 class="modal-title">{{ title }}</h6>
               <text class="modal-title" style="font-size: 0.9rem">
-                {{ $t("settings.clearDataDetails") }}
+                {{ text }}
               </text>
             </div>
           </div>
         </div>
         <div class="horizontal-divider"></div>
         <div class="modal-footer d-flex">
-          <button type="button" class="btn flex-fill" data-bs-dismiss="modal" data-bs-toggle="modal"
-            data-bs-target="#configModal">
-            {{ $t("ui.cancel") }}
-          </button>
-          <button type="button" class="btn flex-fill" @click="clearData">
-            {{ $t("settings.clearData") }}
-          </button>
+          <button type="button" class="btn flex-fill" data-bs-dismiss="modal"
+            :data-bs-target="'#' + id" @click="onCancel"> {{ $t("ui.cancel") }} </button>
+          <button type="button" class="btn flex-fill" data-bs-dismiss="modal"  @click="onOk"> {{
+              okText
+          }} </button>
         </div>
       </div>
     </div>
@@ -29,15 +28,19 @@
 </template>
 
 <script>
-import exportTool from "../helpers/exportTool";
-
 export default {
-  name: "clearDataModal",
-  methods: {
-    clearData: function () {
-      exportTool.clear();
-    },
+  name: "comfirmModal",
+  props: {
+    id: { required: true },
+    title: { required: true },
+    text: { required: true },
+    okText: { required: true },
+    ico: { required: true },
   },
+  methods: {
+    onOk: function () { this.$emit("onOk"); },
+    onCancel: function () { this.$emit("onCancel"); }
+  }
 };
 </script>
 

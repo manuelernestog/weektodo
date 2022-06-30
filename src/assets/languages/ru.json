@@ -146,7 +146,11 @@
     "recurringTasks": "Повторяющиеся задачи",
     "removeAll": "Удалить все",
     "updateAll": "Обновить все",
-    "reorderCustomLists": "Изменение порядка пользовательских списков"
+    "reorderCustomLists": "Изменение порядка пользовательских списков",
+    "ok": "Ok",
+    "removeRepeatingTask": "Удалить повторяющуюся задачу",
+    "repeatingTaskRemoveConfirm": "Вы уверены, что хотите удалить эту повторяющуюся задачу?",
+    "undo": "Отменить"
   },
   "todoDetails": {
     "taskTitle": "Заголовок задачи",

@@ -146,7 +146,11 @@
     "recurringTasks": "Yinelenen görevler",
     "removeAll": "Hepsini sil",
     "updateAll": "Tümünü Güncelle",
-    "reorderCustomLists": "Özel listeleri yeniden sıralayın"
+    "reorderCustomLists": "Özel listeleri yeniden sıralayın",
+    "ok": "Tamam",
+    "removeRepeatingTask": "Yinelenen Görevi Kaldır",
+    "repeatingTaskRemoveConfirm": "Bu yinelenen görevi silmek istediğinizden emin misiniz?",
+    "undo": "Geri alma"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

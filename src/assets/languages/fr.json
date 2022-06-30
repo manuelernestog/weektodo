@@ -146,7 +146,11 @@
     "recurringTasks": "Tâches récurrentes",
     "removeAll": "Supprimer tout",
     "updateAll": "Tout mettre à jour",
-    "reorderCustomLists": "Réorganiser les listes personnalisées"
+    "reorderCustomLists": "Réorganiser les listes personnalisées",
+    "ok": "D'accord",
+    "removeRepeatingTask": "Supprimer la tâche répétitive",
+    "repeatingTaskRemoveConfirm": "Voulez-vous vraiment supprimer cette tâche récurrente ?",
+    "undo": "annuler"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

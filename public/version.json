@@ -7,7 +7,9 @@
         "Hidding zoom option for firefox",
         "Fxing initial load bug for old task and notifications",
         "Adding view for swap custom lists",
-        "Adding option to quick colaps main views"
+        "Adding option to quick colaps main views",
+        "Adding undo options for remove tasks",
+        "Adding comfirmation modal for remove repeating events"
       ],
       "1.8.0-20220627": [
         "Adding repeating tasks",

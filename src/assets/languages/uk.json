@@ -146,7 +146,11 @@
     "recurringTasks": "Повторювані завдання",
     "removeAll": "Видалити все",
     "updateAll": "Оновити все",
-    "reorderCustomLists": "Змінити порядок користувацьких списків"
+    "reorderCustomLists": "Змінити порядок користувацьких списків",
+    "ok": "В порядку",
+    "removeRepeatingTask": "Видалити повторюване завдання",
+    "repeatingTaskRemoveConfirm": "Ви впевнені, що хочете видалити це повторюване завдання?",
+    "undo": "Скасувати"
   },
   "todoDetails": {
     "taskTitle": "Назва завдання",

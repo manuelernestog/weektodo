@@ -146,7 +146,11 @@
     "recurringTasks": "Wiederkehrende Aufgaben",
     "removeAll": "Alles löschen",
     "updateAll": "Alle aktualisieren",
-    "reorderCustomLists": "Benutzerdefinierte Listen neu anordnen"
+    "reorderCustomLists": "Benutzerdefinierte Listen neu anordnen",
+    "ok": "OK",
+    "removeRepeatingTask": "Wiederkehrende Aufgabe entfernen",
+    "repeatingTaskRemoveConfirm": "Möchten Sie diese wiederkehrende Aufgabe wirklich löschen?",
+    "undo": "Rückgängig machen"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

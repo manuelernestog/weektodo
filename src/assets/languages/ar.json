@@ -146,7 +146,11 @@
     "recurringTasks": "المهام المتكررة",
     "removeAll": "حذف الكل",
     "updateAll": "تحديث الجميع",
-    "reorderCustomLists": "إعادة ترتيب القوائم المخصصة"
+    "reorderCustomLists": "إعادة ترتيب القوائم المخصصة",
+    "ok": "موافق",
+    "removeRepeatingTask": "إزالة تكرار المهمة",
+    "repeatingTaskRemoveConfirm": "هل أنت متأكد أنك تريد حذف هذه المهمة المتكررة؟",
+    "undo": "الغاء التحميل"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

@@ -146,7 +146,11 @@
     "recurringTasks": "定期的なタスク",
     "removeAll": "すべて削除",
     "updateAll": "すべて更新",
-    "reorderCustomLists": "カスタムリストを並べ替える"
+    "reorderCustomLists": "カスタムリストを並べ替える",
+    "ok": "Ok",
+    "removeRepeatingTask": "繰り返しタスクを削除する",
+    "repeatingTaskRemoveConfirm": "この定期的なタスクを削除してもよろしいですか？",
+    "undo": "元に戻す"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

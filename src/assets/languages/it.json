@@ -146,7 +146,11 @@
     "recurringTasks": "Compiti ricorrenti",
     "removeAll": "Cancella tutto",
     "updateAll": "Aggiorna tutto",
-    "reorderCustomLists": "Riordina elenchi personalizzati"
+    "reorderCustomLists": "Riordina elenchi personalizzati",
+    "ok": "Ok",
+    "removeRepeatingTask": "Rimuovi attività ripetuta",
+    "repeatingTaskRemoveConfirm": "Sei sicuro di voler eliminare questa attività ricorrente?",
+    "undo": "Annullare"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",

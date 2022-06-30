@@ -166,7 +166,11 @@
     "sponsoredBy": "Sponsorowane przez",
     "today": "Dziś",
     "updateAll": "Aktualizuj wszystko",
-    "reorderCustomLists": "Zmień kolejność list niestandardowych"
+    "reorderCustomLists": "Zmień kolejność list niestandardowych",
+    "ok": "Ok",
+    "removeRepeatingTask": "Usuń powtarzające się zadanie",
+    "repeatingTaskRemoveConfirm": "Czy na pewno chcesz usunąć to cykliczne zadanie?",
+    "undo": "Cofnij"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",
