@@ -7,7 +7,7 @@
 
       <div class="h-100 d-flex flex-column">
         <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer"
-          :class="{ 'full-screen': !showCustomList }">
+          :class="{ 'full-screen': !showCustomList, 'hidden-lists-container': hideTopListContainer, 'full-screen-divider': hideBottomListContainer }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
             <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
@@ -18,12 +18,18 @@
         </div>
 
         <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
-          @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
+          :class="mainDividerPositionClass" @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
           <div class="inner-main-horizontal-divider"></div>
+          <div class="divider-icons-container">
+            <i class="bi-chevron-up move-to-center-up divider-icons" @click="setDividerPosition(1)"></i>
+            <i class="bi-chevron-up move-to-corner-up divider-icons" @click="setDividerPosition(2)"></i>
+            <i class="bi-chevron-down move-to-center-down divider-icons" @click="setDividerPosition(1)"></i>
+            <i class="bi-chevron-down move-to-corner-down divider-icons" @click="setDividerPosition(0)"></i>
+          </div>
         </div>
 
         <div v-show="showCustomList" class="todo-lists-container"
-          :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar }">
+          :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar, 'hidden-lists-container': hideBottomListContainer }">
           <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
             visibility: cTodoList.length > columns ? 'visible' : 'hidden',
           }"></i>
@@ -379,6 +385,12 @@ export default {
           configRepository.update(this.$store.getters.config);
         }.bind(this), 5000);
       }
+    },
+    setDividerPosition: function (position) {
+      this.$nextTick(function () {
+        this.$store.commit("updateConfig", { val: position, key: 'mainDividerPosition' });
+        configRepository.update(this.$store.getters.config);
+      });
     }
   },
   computed: {
@@ -424,11 +436,32 @@ export default {
       }
       return null;
     },
+    mainDividerPositionClass: function () {
+      if (this.$store.getters.config.mainDividerPosition == 0) {
+        return 'on-bottom';
+      } else if (this.$store.getters.config.mainDividerPosition == 1) {
+        return 'on-center';
+      } else {
+        return 'on-top';
+      }
+    },
+    hideTopListContainer: function () {
+      if (!this.$store.getters.config.customList || !this.$store.getters.config.calendar) return false;
+
+      return this.$store.getters.config.mainDividerPosition == 2 ? true : false;
+    },
+    hideBottomListContainer: function () {
+      if (!this.$store.getters.config.customList || !this.$store.getters.config.calendar) return false;
+
+      return this.$store.getters.config.mainDividerPosition == 0 ? true : false;
+    }
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "/src/assets/style/globalVars.scss";
+
 body {
   line-height: unset !important;
 }
@@ -561,5 +594,99 @@ body {
 .hidden-input-for-focus {
   position: absolute;
   top: -100px;
+}
+
+.main-horizontal-divider {
+  z-index: 5;
+
+
+  &.on-top {
+    cursor: unset;
+
+    .inner-main-horizontal-divider {
+      display: none;
+    }
+
+    .divider-icons-container {
+      margin-top: 5px;
+      visibility: visible;
+      opacity: 0.3;
+    }
+
+    .move-to-corner-down,
+    .move-to-corner-up,
+    .move-to-center-up {
+      display: none;
+    }
+  }
+
+  &.on-bottom {
+    cursor: unset;
+
+    .inner-main-horizontal-divider {
+      display: none;
+    }
+
+    .divider-icons-container {
+      margin-top: -25px;
+      visibility: visible;
+      opacity: 0.3;
+    }
+
+    .move-to-corner-up,
+    .move-to-corner-down,
+    .move-to-center-down {
+      display: none;
+    }
+  }
+
+  &.on-center {
+
+    .move-to-center-down,
+    .move-to-center-up {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .divider-icons-container {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.divider-icons-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
+  z-index: 6;
+  position: absolute;
+  right: 70px;
+  margin-top: -8px;
+}
+
+.divider-icons {
+  @include btn-icon;
+  padding: 6px;
+  background-color: white;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .dark-theme & {
+    background-color: #13171d;
+  }
+}
+
+.hidden-lists-container {
+  height: 0px !important;
+  margin: 0px;
+  min-height: 0px;
+}
+
+.full-screen-divider {
+  height: 100% !important;
 }
 </style>

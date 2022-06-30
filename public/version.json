@@ -5,7 +5,9 @@
       "1.8.1-20220701": [
         "Fixing incompatible style option for firefox",
         "Hidding zoom option for firefox",
-        "Fxing initial load bug for old task and notifications"
+        "Fxing initial load bug for old task and notifications",
+        "Adding view for swap custom lists",
+        "Adding option to quick colaps main views"
       ],
       "1.8.0-20220627": [
         "Adding repeating tasks",

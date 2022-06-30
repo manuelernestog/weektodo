@@ -25,7 +25,8 @@ export default {
                 runInBackground: true,
                 moveOldTasks: true,
                 dateToShowInitialDonateModal: moment().add(7, 'd').format('YYYY-MM-DD'),
-                InitialDonateModalShown: false                
+                InitialDonateModalShown: false,                
+                mainDividerPosition: 1                
             }
             storageRepository.set('config', default_config);
             return default_config;

@@ -6,7 +6,8 @@ export default {
         configCheckUpdate();
         configCalendarZoomColumnsCalendarHeight();
         configNotifications();
-        runInBackground()
+        runInBackground();
+        mainDividerPosition();
     }
 }
 
@@ -46,6 +47,14 @@ function runInBackground() {
         config['moveOldTasks'] = true;
         config['dateToShowInitialDonateModal'] = moment().add(7, 'd').format('YYYY-MM-DD');
         config['InitialDonateModalShown'] = false;
+        configRepository.update(config);
+    }
+}
+
+function mainDividerPosition(){
+    let config = configRepository.load();
+    if (!('mainDividerPosition' in config)) {
+        config['mainDividerPosition'] = 1;
         configRepository.update(config);
     }
 }

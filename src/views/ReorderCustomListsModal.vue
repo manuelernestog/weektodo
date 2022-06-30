@@ -74,7 +74,7 @@ export default {
 }
 
 .modal-body {
-  height: 400px;
+  height: 380px;
   overflow: auto;
   margin-bottom: 20px;
 }
@@ -116,7 +116,7 @@ export default {
   list-style: none;
   padding: 0px 10px 10px 10px;
   margin-top: 10px;
-  max-height: 340px;
+  max-height: 320px;
   overflow-y: auto;
 
   li>div {
