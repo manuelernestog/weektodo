@@ -202,6 +202,7 @@ export default {
       tempSubTask: "",
       editingTitle: false,
       showingCalendar: true,
+      loadingView: false
     };
   },
   props: {
@@ -492,22 +493,35 @@ export default {
       }
       this.showingCalendar = moment(this.todo.listId, "YYYYMMDD", true).isValid();
       this.getCListOptions();
+      this.loadingView = true;
       if (this.showingCalendar) {
+        this.pickedDate = moment(this.todo.listId).toDate();
         this.pickedCList = "";
         this.pickedCListName = "";
-        this.pickedDate = moment(this.todo.listId).toDate();
       } else {
-        this.pickedDate = null;
+        this.cListOptions.forEach((x) => {
+          if (x.listId == this.todo.listId) {
+            this.pickedCListName = x.listName;
+          }
+        });
         this.pickedCList = this.todo.listId;
+        this.pickedDate = null;
       }
+      this.$nextTick(function () {
+        this.loadingView = false;
+      });
     },
     pickedDate: function (newVal) {
+      if (this.loadingView) return;
+
       var newListId = moment(newVal).format("YYYYMMDD");
       if (newListId != this.todo.listId) {
         this.moveToTodoList(newListId);
       }
     },
     pickedCList: function (newVal) {
+      if (this.loadingView) return;
+
       this.moveToTodoList(newVal);
     }
   },
