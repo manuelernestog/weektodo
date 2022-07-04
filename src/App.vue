@@ -125,7 +125,7 @@ export default {
     return {
       selected_date: null,
       cTodoList: this.$store.getters.cTodoListIds,
-      calendarHeight: "calc(50% - 40px)",
+      calendarHeight: "calc(50% - 50px)",
       ipcRenderer: null,
       initialLoadCompleted: false,
       initialListToLoad: 0,
@@ -279,7 +279,7 @@ export default {
     resizerDblClick: function () {
       if (this.$store.getters.config.mainDividerPosition != 1) return;
 
-      this.calendarHeight = "calc(50% - 40px)";
+      this.calendarHeight = "calc(50% - 50px)";
       this.$store.commit("updateConfig", {
         val: this.calendarHeight,
         key: "calendarHeight",
@@ -289,12 +289,12 @@ export default {
     resizerMouseDownHandler: function (e) {
       if (this.$store.getters.config.mainDividerPosition != 1) return;
 
-      this.resizerY = e.clientY - 35;
+      this.resizerY = e.clientY - 50;
       document.addEventListener("mousemove", this.resizerMouseMoveHandler);
       document.addEventListener("mouseup", this.resizerMouseUpHandler);
     },
     resizerMouseMoveHandler: function (e) {
-      this.calendarHeight = `${((e.clientY - 35) * 100) / this.zoom}px`;
+      this.calendarHeight = `${((e.clientY - 50) * 100) / this.zoom}px`;
     },
     resizerMouseUpHandler: function () {
       document.removeEventListener("mousemove", this.resizerMouseMoveHandler);
@@ -480,7 +480,7 @@ body {
   height: 5px;
   transition: height 0.15s ease-out 0s;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .slider-btn {

@@ -18,7 +18,7 @@ export default {
                 checkUpdates: true,
                 columns: 5,
                 zoom: 100,
-                calendarHeight: "calc(50% - 40px)",
+                calendarHeight: "calc(50% - 50px)",
                 notificationOnStartup: true,
                 notificationSound: "pop",
                 openOnStartup: true,
