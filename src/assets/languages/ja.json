@@ -150,7 +150,11 @@
     "ok": "Ok",
     "removeRepeatingTask": "繰り返しタスクを削除する",
     "repeatingTaskRemoveConfirm": "この定期的なタスクを削除してもよろしいですか？",
-    "undo": "元に戻す"
+    "undo": "元に戻す",
+    "clear": "クリア",
+    "clearList": "明確なリスト",
+    "clearListConfirm": "リストをクリアしてもよろしいですか？",
+    "sort": "選別"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

@@ -47,6 +47,7 @@
       <remove-custom-list></remove-custom-list>
       <config-modal @change-columns="weekResetScroll" :configProp="$store.getters.config"></config-modal>
       <clear-data-modal></clear-data-modal>
+      <clear-list-modal></clear-list-modal>
       <about-modal></about-modal>
       <redirect-domain-modal></redirect-domain-modal>
       <donate-modal></donate-modal>
@@ -74,7 +75,7 @@ import toDoList from "./components/toDoList";
 import moment from "moment";
 import sideBar from "./components/layout/sideBar";
 import customToDoListIdsRepository from "./repositories/customToDoListIdsRepository";
-import removeCustomList from "./components/removeCustomList";
+import removeCustomList from "./components/comfirmModals/removeCustomList";
 import configModal from "./views/configModal";
 import splashScreen from "./components/splashScreen";
 import configRepository from "./repositories/configRepository";
@@ -91,7 +92,8 @@ import version_json from "../public/version.json";
 import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
-import clearDataModal from "./views/clearDataModal.vue";
+import clearDataModal from "./components/comfirmModals/clearDataModal.vue";
+import clearListModal from "./components/comfirmModals/clearListModal.vue";
 import importingModal from "./views/importingModal.vue";
 import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 import repeatingEventRepository from "./repositories/repeatingEventRepository";
@@ -116,7 +118,8 @@ export default {
     clearDataModal,
     RecurrentEventsModal,
     importingModal,
-    ReorderCustomListsModal
+    ReorderCustomListsModal,
+    clearListModal
   },
   data() {
     return {

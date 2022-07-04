@@ -150,7 +150,11 @@
     "updateAll": "Update All",
     "removeAll": "Delete All",
     "recurringTasks": "Recurring tasks",
-    "undo": "Undo"
+    "undo": "Undo",
+    "clearList": "Clear List",
+    "clear": "Clear",
+    "clearListConfirm": "Are you sure you want to clear the list ?",
+    "sort": "Sort"
   },
   "todoDetails": {
     "taskTitle": "Task title",

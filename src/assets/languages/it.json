@@ -150,7 +150,11 @@
     "ok": "Ok",
     "removeRepeatingTask": "Rimuovi attività ripetuta",
     "repeatingTaskRemoveConfirm": "Sei sicuro di voler eliminare questa attività ricorrente?",
-    "undo": "Annullare"
+    "undo": "Annullare",
+    "clear": "Chiaro",
+    "clearList": "Elenco chiaro",
+    "clearListConfirm": "Sei sicuro di voler cancellare la lista?",
+    "sort": "Ordinare"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",
@@ -176,7 +180,7 @@
     "recurrentTaskRemoved": "Attività ricorrente rimossa",
     "split": "Diviso",
     "subtasks": "Sottocompiti",
-    "time": "Volta",
+    "time": "Orario",
     "untilDate": "Fino a data",
     "weekly": "settimanalmente",
     "yearly": "Annuale"

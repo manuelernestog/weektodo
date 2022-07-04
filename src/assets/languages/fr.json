@@ -150,7 +150,11 @@
     "ok": "D'accord",
     "removeRepeatingTask": "Supprimer la tâche répétitive",
     "repeatingTaskRemoveConfirm": "Voulez-vous vraiment supprimer cette tâche récurrente ?",
-    "undo": "annuler"
+    "undo": "annuler",
+    "clear": "Dégager",
+    "clearList": "Effacer la liste",
+    "clearListConfirm": "Voulez-vous vraiment effacer la liste ?",
+    "sort": "Trier"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

@@ -170,7 +170,11 @@
     "ok": "Ok",
     "removeRepeatingTask": "Usuń powtarzające się zadanie",
     "repeatingTaskRemoveConfirm": "Czy na pewno chcesz usunąć to cykliczne zadanie?",
-    "undo": "Cofnij"
+    "undo": "Cofnij",
+    "clear": "Jasne",
+    "clearList": "Czysta lista",
+    "clearListConfirm": "Czy na pewno chcesz wyczyścić listę?",
+    "sort": "Sortować"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

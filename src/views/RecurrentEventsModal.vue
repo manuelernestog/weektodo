@@ -38,7 +38,7 @@
 import { Toast, Modal } from "bootstrap";
 import repeatingEventHelper from "../helpers/repeatingEvents.js";
 import repeatingEventRepository from "../repositories/repeatingEventRepository";
-import comfirmModal from "../views/comfirmModal.vue";
+import comfirmModal from "../components/comfirmModal.vue";
 
 export default {
   name: "RecurrentEventsModal",

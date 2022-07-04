@@ -177,7 +177,7 @@ import repeatingEventHelper from "../../helpers/repeatingEvents.js";
 import languageHelper from "../../helpers/languageHelper.js"
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
 import mainHelpers from "../../helpers/mainHelpers";
-import comfirmModal from "../../views/comfirmModal.vue";
+import comfirmModal from "../../components/comfirmModal.vue";
 
 export default {
   name: "toDoModal",

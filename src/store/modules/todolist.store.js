@@ -22,6 +22,9 @@ const mutations = {
   loadTodoLists(state, obj) {
     state.todoLists[obj.todoListId] = obj.todoList;
   },
+  clearTodoList(state, obj) {
+    state.todoLists[obj] = [];
+  },
   checkTodo(state, obj) {
     state.todoLists[obj.toDoListId][obj.index].checked = !state.todoLists[obj.toDoListId][obj.index].checked;
   },

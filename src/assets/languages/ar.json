@@ -150,7 +150,11 @@
     "ok": "موافق",
     "removeRepeatingTask": "إزالة تكرار المهمة",
     "repeatingTaskRemoveConfirm": "هل أنت متأكد أنك تريد حذف هذه المهمة المتكررة؟",
-    "undo": "الغاء التحميل"
+    "undo": "الغاء التحميل",
+    "clear": "صافي",
+    "clearList": "لائحة خالية",
+    "clearListConfirm": "هل أنت متأكد أنك تريد مسح القائمة؟",
+    "sort": "فرز"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

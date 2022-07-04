@@ -1,11 +1,10 @@
 <template>
-  dolores
   <div class="modal fade" :id="id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
           <div class="d-flex flex-row">
-            <i :class="ico" style="font-size: 38px; margin-right: 30px"></i>
+            <i :class="ico" class="main-icon" style="font-size: 38px; margin-right: 30px"></i>
             <div style="margin-top: 2px">
               <h6 class="modal-title">{{ title }}</h6>
               <text class="modal-title" style="font-size: 0.9rem">
@@ -56,7 +55,7 @@ export default {
   border: 1px solid #30363d;
 }
 
-.bi-x-circle {
+.main-icon {
   margin-top: 5px;
   background: -webkit-linear-gradient(180deg,
       rgba(89, 66, 141, 1) 0%,
@@ -65,7 +64,7 @@ export default {
   -webkit-text-fill-color: transparent;
 }
 
-.dark-theme .bi-x-circle {
+.dark-theme .main-icon {
   background: -webkit-linear-gradient(180deg,
       rgb(115, 75, 176) 0%,
       rgb(147, 110, 203) 90%);

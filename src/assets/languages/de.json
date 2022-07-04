@@ -150,7 +150,11 @@
     "ok": "OK",
     "removeRepeatingTask": "Wiederkehrende Aufgabe entfernen",
     "repeatingTaskRemoveConfirm": "Möchten Sie diese wiederkehrende Aufgabe wirklich löschen?",
-    "undo": "Rückgängig machen"
+    "undo": "Rückgängig machen",
+    "clear": "Klar",
+    "clearList": "Liste leeren",
+    "clearListConfirm": "Möchten Sie die Liste wirklich löschen?",
+    "sort": "Sortieren"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

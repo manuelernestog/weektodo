@@ -9,7 +9,9 @@
         "Adding view for swap custom lists",
         "Adding option to quick colaps main views",
         "Adding undo options for remove tasks",
-        "Adding comfirmation modal for remove repeating events"
+        "Adding comfirmation modal for remove repeating events",
+        "Improving list headers style",
+        "Adding menu to list headers"
       ],
       "1.8.0-20220627": [
         "Adding repeating tasks",

@@ -150,7 +150,11 @@
     "ok": "Tamam",
     "removeRepeatingTask": "Yinelenen Görevi Kaldır",
     "repeatingTaskRemoveConfirm": "Bu yinelenen görevi silmek istediğinizden emin misiniz?",
-    "undo": "Geri alma"
+    "undo": "Geri alma",
+    "clear": "Temizlemek",
+    "clearList": "Listeyi temizle",
+    "clearListConfirm": "Listeyi temizlemek istediğinizden emin misiniz?",
+    "sort": "Çeşit"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

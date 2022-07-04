@@ -150,7 +150,11 @@
     "ok": "OK",
     "removeRepeatingTask": "Eliminar tarea repetitiva",
     "repeatingTaskRemoveConfirm": "¿Está seguro de que desea eliminar esta tarea recurrente?",
-    "undo": "Deshacer"
+    "undo": "Deshacer",
+    "clear": "Claro",
+    "clearList": "Limpiar lista",
+    "clearListConfirm": "¿Estás seguro de que quieres borrar la lista?",
+    "sort": "Clasificar"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",
@@ -162,7 +166,7 @@
     "taskDuplicated": "Tarea Duplicada !!!",
     "duplicate": "Duplicar",
     "subtasks": "Subtareas",
-    "actions": "Comportamiento",
+    "actions": "Acciones",
     "alarm": "Alarma",
     "cancel": "Cancelar",
     "close": "Cerca",
