@@ -98,7 +98,7 @@
   .splash-screen {
     width: 100%;
     height: 100%;
-    z-index: 1056;
+    z-index: 1060;
     position: absolute;
     background-color: #fcfcfc;
   }
