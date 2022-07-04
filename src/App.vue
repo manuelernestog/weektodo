@@ -277,6 +277,8 @@ export default {
       return window.IndexedDB;
     },
     resizerDblClick: function () {
+      if (this.$store.getters.config.mainDividerPosition != 1) return;
+
       this.calendarHeight = "calc(50% - 40px)";
       this.$store.commit("updateConfig", {
         val: this.calendarHeight,
@@ -285,6 +287,8 @@ export default {
       configRepository.update(this.$store.getters.config);
     },
     resizerMouseDownHandler: function (e) {
+      if (this.$store.getters.config.mainDividerPosition != 1) return;
+
       this.resizerY = e.clientY - 35;
       document.addEventListener("mousemove", this.resizerMouseMoveHandler);
       document.addEventListener("mouseup", this.resizerMouseUpHandler);
