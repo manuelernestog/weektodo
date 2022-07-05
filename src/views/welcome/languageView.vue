@@ -8,8 +8,8 @@
         <h4> {{ $t('welcome.welcome') }}</h4>
         <text> {{ $t('welcome.welcomeText') }}</text>
         <div>
-          <label for="language" class="form-label"></label>
-          <select id="language" class="col-sm-9 form-select" aria-label="Default select example" v-model="language"
+          <label for="wizard-language" class="form-label"></label>
+          <select id="wizard-language" class="col-sm-9 form-select" aria-label="Default select example" v-model="language"
             @change="changeLanguage">
             <option value="en">English</option>
             <option value="es">Español</option>

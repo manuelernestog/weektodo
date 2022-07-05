@@ -2,12 +2,12 @@
   <transition name="fade">
     <div v-if="show" id="splashScreen" class="splash-screen d-flex justify-content-center align-items-center" ref="splashScreen">
       <div class="d-flex flex-column align-items-center">
-        <img class="logo mt-5" src="../../public/WeekToDo-Logo-Color.svg">
+        <img class="logo mt-5" src="../../public/WeekToDo-Logo-Color.svg" alt="WeekToDo Logo">
         <h1>WeekToDo</h1>
         <span>{{$t('ui.splashSub')}}</span>
         <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px;">
           <a v-if="sponsor" :href="sponsor.url" class="d-flex sponsor-container align-items-center" target="_blank">
-            <img :src="sponsor.img" class="sponsor-img">
+            <img :src="sponsor.img" class="sponsor-img" alt="WeekToDo Sponsor">
             <div class="my-2 mx-2">
               <div class="fw-bolder d-inline" style="text-decoration: unset !important;">{{sponsor.name}}</div>
               <div class="opacity-50 mx-2 d-inline"> {{sponsor.message}}</div>

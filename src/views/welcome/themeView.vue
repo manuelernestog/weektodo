@@ -13,7 +13,7 @@
         <div style="padding-left: 50px;" class="pt-4">
           <label class="form-check-label"><i class="bi-sun"></i></label>
           <div class="form-check form-switch form-check-inline">
-            <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="darkTheme"
+            <input class="form-check-input" type="checkbox" v-model="darkTheme"
               @change="changeDarkTheme">
           </div>
           <label class="form-check-label"><i class="bi-moon-stars"></i></label>
