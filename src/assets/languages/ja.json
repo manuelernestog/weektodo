@@ -48,8 +48,8 @@
     "contributeSponsor": "寄稿/スポンサー",
     "shareMessage": "私は、プライバシーに焦点を当てた無料のミニマリストウィークリープランナーであるWeekToDoを使って週をスケジュールしていますが、あなたもきっと気に入ると思います。\n見てみな！",
     "shareWithFriends": "友達と分け合う",
-    "supportMessage1": "Weektodoは、あなたのようなユーザーがサポートする無料のアプリケーションです。 \nWeekToDoを楽しんでいる場合は、検討している貢献やアプリの友達との共有でサポートできます。",
-    "supportMessage2": "WeekToDoをサポートしていただきありがとうございます😊"
+    "supportMessage1": "Weektodoはあなたのようなユーザーが支援する無料のアプリケーションです！ \nWeekToDoを楽しんでいる場合、それを引き続き利用できるようにする最善の方法は、できる限り貢献するか、アプリを友達と共有することです。",
+    "supportMessage2": "あなたのサポートは違いをもたらします。 \nWeektodo😊をサポートしてくれてありがとう"
   },
   "about": {
     "about": "私たちについて",
@@ -154,7 +154,10 @@
     "clear": "クリア",
     "clearList": "明確なリスト",
     "clearListConfirm": "リストをクリアしてもよろしいですか？",
-    "sort": "選別"
+    "sort": "選別",
+    "maximizeCalendarPanel": "カレンダーパネルを最大化",
+    "maximizeListPanel": "リストパネルを最大化",
+    "restorePanel": "パネルサイズを復元"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

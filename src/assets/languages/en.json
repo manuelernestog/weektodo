@@ -33,8 +33,8 @@
   "donate": {
     "contribute": "Contribute",
     "contributeSponsor": "Contribute / Sponsor",
-    "supportMessage1": "Weektodo is a free application supported by users like you. If you enjoy WeekToDo you can support it with the contribution you consider or sharing the app with your friends.",
-    "supportMessage2": "Thanks for supporting WeekToDo 😊",
+    "supportMessage1": "Weektodo is a free application backed by users like you! If you enjoy WeekToDo the best way to ensure it remains available is by making the contribution you can or sharing the app with your friends.",
+    "supportMessage2": "Your support makes the difference. Thanks for supporting Weektodo 😊",
     "comment": "Send feedback",
     "crypto": "Cripto",
     "goBack": "Go Back",
@@ -154,7 +154,10 @@
     "clearList": "Clear List",
     "clear": "Clear",
     "clearListConfirm": "Are you sure you want to clear the list ?",
-    "sort": "Sort"
+    "sort": "Sort",
+    "maximizeCalendarPanel": "Maximize Calendar Panel",
+    "restorePanel": "Restore Panel Size",
+    "maximizeListPanel": "Maximize list Panel"
   },
   "todoDetails": {
     "taskTitle": "Task title",

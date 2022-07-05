@@ -48,8 +48,8 @@
     "translate": "Traduzir",
     "shareMessage": "Estou agendando minha semana com o WeekToDo, um planejador semanal gratuito e minimalista focado em privacidade e acho que você também vai adorar. \nConfira!",
     "shareWithFriends": "Compartilhe com amigos",
-    "supportMessage1": "Weektodo é um aplicativo gratuito suportado por usuários como você. \nSe você gosta do WeekToDo, pode apoiá-lo com a contribuição que considerar ou compartilhando o aplicativo com seus amigos.",
-    "supportMessage2": "Obrigado por apoiar o WeekToDo 😊"
+    "supportMessage1": "Weektodo é um aplicativo gratuito apoiado por usuários como você! \nSe você gosta do WeekToDo, a melhor maneira de garantir que ele permaneça disponível é fazendo a contribuição que puder ou compartilhando o aplicativo com seus amigos.",
+    "supportMessage2": "Seu apoio faz a diferença. \nObrigado por apoiar o Weektodo 😊"
   },
   "about": {
     "about": "Sobre",
@@ -154,7 +154,10 @@
     "clear": "Claro",
     "clearList": "Limpar lista",
     "clearListConfirm": "Tem certeza de que deseja limpar a lista?",
-    "sort": "Ordenar"
+    "sort": "Ordenar",
+    "maximizeCalendarPanel": "Maximizar o painel do calendário",
+    "maximizeListPanel": "Maximizar o painel da lista",
+    "restorePanel": "Restaurar tamanho do painel"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",

@@ -32,8 +32,8 @@
     "shareWithFriends": "Podziel się z przyjaciółmi",
     "translate": "Tłumaczyć",
     "shareMessage": "Planuję mój tydzień z WeekToDo, darmowym, minimalistycznym tygodniowym planerem skoncentrowanym na prywatności i myślę, że Tobie też się spodoba. \nSprawdź to!",
-    "supportMessage1": "Weektodo to darmowa aplikacja obsługiwana przez użytkowników takich jak Ty. \nJeśli podoba Ci się WeekToDo, możesz wesprzeć go swoim wkładem lub udostępnić aplikację znajomym.",
-    "supportMessage2": "Dziękujemy za wsparcie WeekToDo 😊"
+    "supportMessage1": "Weektodo to darmowa aplikacja wspierana przez użytkowników takich jak Ty! \nJeśli lubisz WeekToDo, najlepszym sposobem na zapewnienie jej dostępności jest wniesienie wkładu lub udostępnienie aplikacji znajomym.",
+    "supportMessage2": "Twoje wsparcie robi różnicę. \nDziękujemy za wsparcie Weektodo 😊"
   },
   "generatedData": {
     "data10": "Napoje bezalkoholowe",
@@ -174,7 +174,10 @@
     "clear": "Jasne",
     "clearList": "Czysta lista",
     "clearListConfirm": "Czy na pewno chcesz wyczyścić listę?",
-    "sort": "Sortować"
+    "sort": "Sortować",
+    "maximizeCalendarPanel": "Maksymalizuj panel kalendarza",
+    "maximizeListPanel": "Panel Maksymalizuj listę",
+    "restorePanel": "Przywróć rozmiar panelu"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

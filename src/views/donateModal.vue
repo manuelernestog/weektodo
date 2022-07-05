@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6 px-4 mt-3" style="text-align: justify; line-height: 23px;">
+            <div class="col-md-6 px-4 my-3" style="text-align: justify; line-height: 23px;">
               {{ $t("donate.supportMessage1") }}
               <br><br>
               {{ $t("donate.supportMessage2") }}
@@ -95,11 +95,16 @@ export default {
 
 <style scoped>
 .modal-dialog {
-  max-width: 650px;
+  max-width: 700px;
 }
 
 #nav-tabContent {
   margin-top: 20px;
+}
+
+
+#donate-home {
+  margin-top: 10px;
 }
 
 .tab-pane {
