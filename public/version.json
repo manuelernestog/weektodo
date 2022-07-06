@@ -3,19 +3,19 @@
   "changes": {
     "en": {
       "1.8.5-20220707": [
-        "Fixing incompatible style option for firefox",
-        "Hidding zoom option for firefox",
-        "Fxing initial load bug for old task and notifications",
+        "Fixing incompatible style option for Firefox",
+        "Hiding zoom option for Firefox",
+        "Fixing initial load bug for old task and notifications",
         "Adding view for swap custom lists",
-        "Adding option to quick colaps main views",
+        "Adding option to quickly maximize / restore main panels",
         "Adding undo options for remove tasks",
-        "Adding comfirmation modal for remove repeating events",
+        "Adding confirmation modal for remove repeating events",
         "Improving list headers style",
         "Adding menu to list headers",
         "Adding option to Reorder tasks lists",
         "Adding option to Clear tasks lists",
         "Adding offline availability for web browser",
-        "Adding option to intall app from browser"
+        "Adding option to install app from browser"
       ],
       "1.8.0-20220627": [
         "Adding repeating tasks",
