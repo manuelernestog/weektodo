@@ -1,8 +1,8 @@
 {
-  "version": "1.8.0",
+  "version": "1.8.5",
   "changes": {
     "en": {
-      "1.8.1-20220701": [
+      "1.8.1-20220707": [
         "Fixing incompatible style option for firefox",
         "Hidding zoom option for firefox",
         "Fxing initial load bug for old task and notifications",
@@ -11,7 +11,11 @@
         "Adding undo options for remove tasks",
         "Adding comfirmation modal for remove repeating events",
         "Improving list headers style",
-        "Adding menu to list headers"
+        "Adding menu to list headers",
+        "Adding option to Reorder tasks lists",
+        "Adding option to Clear tasks lists",
+        "Adding offline availability for web browser",
+        "Adding option to intall app from browser"
       ],
       "1.8.0-20220627": [
         "Adding repeating tasks",
