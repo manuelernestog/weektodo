@@ -154,10 +154,10 @@
     "clear": "Dégager",
     "clearList": "Effacer la liste",
     "clearListConfirm": "Voulez-vous vraiment effacer la liste ?",
-    "sort": "Trier",
     "maximizeCalendarPanel": "Agrandir le panneau du calendrier",
     "maximizeListPanel": "Agrandir le panneau de liste",
-    "restorePanel": "Restaurer la taille du panneau"
+    "restorePanel": "Restaurer la taille du panneau",
+    "reorder": "Réorganiser"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

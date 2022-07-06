@@ -174,10 +174,10 @@
     "clear": "Jasne",
     "clearList": "Czysta lista",
     "clearListConfirm": "Czy na pewno chcesz wyczyścić listę?",
-    "sort": "Sortować",
     "maximizeCalendarPanel": "Maksymalizuj panel kalendarza",
     "maximizeListPanel": "Panel Maksymalizuj listę",
-    "restorePanel": "Przywróć rozmiar panelu"
+    "restorePanel": "Przywróć rozmiar panelu",
+    "reorder": "Zmień kolejność"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

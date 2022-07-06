@@ -154,10 +154,10 @@
     "clear": "Chiaro",
     "clearList": "Elenco chiaro",
     "clearListConfirm": "Sei sicuro di voler cancellare la lista?",
-    "sort": "Ordinare",
     "maximizeCalendarPanel": "Massimizza il pannello del calendario",
     "maximizeListPanel": "Ingrandisci pannello elenco",
-    "restorePanel": "Ripristina dimensioni pannello"
+    "restorePanel": "Ripristina dimensioni pannello",
+    "reorder": "Riordina"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",

@@ -154,10 +154,10 @@
     "clear": "Claro",
     "clearList": "Limpiar lista",
     "clearListConfirm": "¿Estás seguro de que quieres borrar la lista?",
-    "sort": "Clasificar",
     "maximizeCalendarPanel": "Maximizar panel de calendario",
     "maximizeListPanel": "Maximizar panel de lista",
-    "restorePanel": "Restaurar tamaño del panel"
+    "restorePanel": "Restaurar tamaño del panel",
+    "reorder": "Reordenar"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",

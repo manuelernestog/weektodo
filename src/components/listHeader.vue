@@ -27,7 +27,7 @@
       </li>
       <li>
         <button class="dropdown-item" type="button" @click="sortItems">
-          <i class="bi-sort-down"></i> <span>{{ $t('ui.sort') }}</span>
+          <i class="bi-sort-down"></i> <span>{{ $t('ui.reorder') }}</span>
         </button>
       </li>
       <li v-show="!customTodoList && !allTodoChecked()">

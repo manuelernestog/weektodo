@@ -154,10 +154,10 @@
     "clear": "Klar",
     "clearList": "Liste leeren",
     "clearListConfirm": "Möchten Sie die Liste wirklich löschen?",
-    "sort": "Sortieren",
     "maximizeCalendarPanel": "Kalenderbereich maximieren",
     "maximizeListPanel": "Listenfeld maximieren",
-    "restorePanel": "Panelgröße wiederherstellen"
+    "restorePanel": "Panelgröße wiederherstellen",
+    "reorder": "Neu anordnen"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

@@ -154,10 +154,10 @@
     "clear": "クリア",
     "clearList": "明確なリスト",
     "clearListConfirm": "リストをクリアしてもよろしいですか？",
-    "sort": "選別",
     "maximizeCalendarPanel": "カレンダーパネルを最大化",
     "maximizeListPanel": "リストパネルを最大化",
-    "restorePanel": "パネルサイズを復元"
+    "restorePanel": "パネルサイズを復元",
+    "reorder": "再注文"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

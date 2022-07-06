@@ -154,7 +154,7 @@
     "clearList": "Clear List",
     "clear": "Clear",
     "clearListConfirm": "Are you sure you want to clear the list ?",
-    "sort": "Sort",
+    "reorder": "Reorder",
     "maximizeCalendarPanel": "Maximize Calendar Panel",
     "restorePanel": "Restore Panel Size",
     "maximizeListPanel": "Maximize list Panel"

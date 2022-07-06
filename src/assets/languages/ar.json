@@ -154,10 +154,10 @@
     "clear": "صافي",
     "clearList": "لائحة خالية",
     "clearListConfirm": "هل أنت متأكد أنك تريد مسح القائمة؟",
-    "sort": "فرز",
     "maximizeCalendarPanel": "تكبير لوحة التقويم",
     "maximizeListPanel": "تكبير لوحة القائمة",
-    "restorePanel": "استعادة حجم اللوحة"
+    "restorePanel": "استعادة حجم اللوحة",
+    "reorder": "إعادة ترتيب"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

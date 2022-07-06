@@ -154,10 +154,10 @@
     "clear": "чистый",
     "clearList": "Очистить список",
     "clearListConfirm": "Вы уверены, что хотите очистить список?",
-    "sort": "Сортировать",
     "maximizeCalendarPanel": "Развернуть панель календаря",
     "maximizeListPanel": "Развернуть панель списка",
-    "restorePanel": "Восстановить размер панели"
+    "restorePanel": "Восстановить размер панели",
+    "reorder": "Изменение порядка"
   },
   "todoDetails": {
     "taskTitle": "Заголовок задачи",

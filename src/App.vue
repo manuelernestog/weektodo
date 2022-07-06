@@ -137,11 +137,6 @@ export default {
     };
   },
   beforeCreate() {
-    if (!isElectron()) {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js');
-      }
-    }
     let config = configRepository.load();
     if (version_json.version != config.version) {
       migrations.migrate();

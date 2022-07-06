@@ -154,10 +154,10 @@
     "clear": "ясно",
     "clearList": "Чіткий перелік",
     "clearListConfirm": "Ви впевнені, що бажаєте очистити список?",
-    "sort": "Сортувати",
     "maximizeCalendarPanel": "Розгорнути панель календаря",
     "maximizeListPanel": "Розгорнути панель списку",
-    "restorePanel": "Відновити розмір панелі"
+    "restorePanel": "Відновити розмір панелі",
+    "reorder": "Змінити порядок"
   },
   "todoDetails": {
     "taskTitle": "Назва завдання",

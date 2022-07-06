@@ -154,10 +154,10 @@
     "clear": "Temizlemek",
     "clearList": "Listeyi temizle",
     "clearListConfirm": "Listeyi temizlemek istediğinizden emin misiniz?",
-    "sort": "Çeşit",
     "maximizeCalendarPanel": "Takvim Panelini Büyüt",
     "maximizeListPanel": "Listeyi büyüt Panel",
-    "restorePanel": "Panel Boyutunu Geri Yükle"
+    "restorePanel": "Panel Boyutunu Geri Yükle",
+    "reorder": "yeniden sırala"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",
