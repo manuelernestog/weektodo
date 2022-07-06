@@ -21,10 +21,14 @@
           :class="mainDividerPositionClass" @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
           <div class="inner-main-horizontal-divider"></div>
           <div class="divider-icons-container">
-            <i class="bi-chevron-up move-to-center-up divider-icons" @click="setDividerPosition(1)" :title="$t('ui.restorePanel')"></i>
-            <i class="bi-chevron-up move-to-corner-up divider-icons" @click="setDividerPosition(2)" :title="$t('ui.maximizeListPanel')"></i>
-            <i class="bi-chevron-down move-to-center-down divider-icons" @click="setDividerPosition(1)" :title="$t('ui.restorePanel')"></i>
-            <i class="bi-chevron-down move-to-corner-down divider-icons" @click="setDividerPosition(0)" :title="$t('ui.maximizeCalendarPanel')"></i>
+            <i class="bi-chevron-up move-to-center-up divider-icons" @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"></i>
+            <i class="bi-chevron-up move-to-corner-up divider-icons" @click="setDividerPosition(2)"
+              :title="$t('ui.maximizeListPanel')"></i>
+            <i class="bi-chevron-down move-to-center-down divider-icons" @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"></i>
+            <i class="bi-chevron-down move-to-corner-down divider-icons" @click="setDividerPosition(0)"
+              :title="$t('ui.maximizeCalendarPanel')"></i>
           </div>
         </div>
 
@@ -133,6 +137,11 @@ export default {
     };
   },
   beforeCreate() {
+    if (!isElectron()) {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+    }
     let config = configRepository.load();
     if (version_json.version != config.version) {
       migrations.migrate();
