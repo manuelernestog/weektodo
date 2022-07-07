@@ -2,7 +2,7 @@
   "version": "1.8.5",
   "changes": {
     "en": {
-      "1.8.5-20220707": [
+      "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",
         "Hiding zoom option for Firefox",
         "Fixing initial load bug for old task and notifications",
@@ -15,7 +15,8 @@
         "Adding option to Reorder tasks lists",
         "Adding option to Clear tasks lists",
         "Adding offline availability for web browser",
-        "Adding option to install app from browser"
+        "Adding option to install app from browser",
+        "Fixing bug in automatic movement of old tasks"
       ],
       "1.8.0-20220627": [
         "Adding repeating tasks",
