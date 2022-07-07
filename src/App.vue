@@ -150,7 +150,7 @@ export default {
 
     this.$store.dispatch("loadAllRepeatingEvent").then(
       function () {
-        let totalDaysCount = this.$store.getters.config.columns + 2;
+        let totalDaysCount = parseInt(this.$store.getters.config.columns) + 2;
         let totalCustomListCount = this.$store.getters.cTodoListIds.length;
         this.initialListToLoad = totalDaysCount + totalCustomListCount;
         this.deleteOldRepeatingEvents();
