@@ -7,7 +7,7 @@
 
       <div class="h-100 d-flex flex-column">
         <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer"
-          :class="{ 'full-screen': !showCustomList }">
+          :class="{ 'full-screen': !showCustomList, 'hidden-lists-container': hideTopListContainer, 'full-screen-divider': hideBottomListContainer }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
             <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
@@ -18,12 +18,22 @@
         </div>
 
         <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
-          @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
+          :class="mainDividerPositionClass" @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
           <div class="inner-main-horizontal-divider"></div>
+          <div class="divider-icons-container">
+            <i class="bi-chevron-up move-to-center-up divider-icons" @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"></i>
+            <i class="bi-chevron-up move-to-corner-up divider-icons" @click="setDividerPosition(2)"
+              :title="$t('ui.maximizeListPanel')"></i>
+            <i class="bi-chevron-down move-to-center-down divider-icons" @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"></i>
+            <i class="bi-chevron-down move-to-corner-down divider-icons" @click="setDividerPosition(0)"
+              :title="$t('ui.maximizeCalendarPanel')"></i>
+          </div>
         </div>
 
         <div v-show="showCustomList" class="todo-lists-container"
-          :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar }">
+          :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar, 'hidden-lists-container': hideBottomListContainer }">
           <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
             visibility: cTodoList.length > columns ? 'visible' : 'hidden',
           }"></i>
@@ -41,6 +51,7 @@
       <remove-custom-list></remove-custom-list>
       <config-modal @change-columns="weekResetScroll" :configProp="$store.getters.config"></config-modal>
       <clear-data-modal></clear-data-modal>
+      <clear-list-modal></clear-list-modal>
       <about-modal></about-modal>
       <redirect-domain-modal></redirect-domain-modal>
       <donate-modal></donate-modal>
@@ -50,6 +61,7 @@
       <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
       <importing-modal></importing-modal>
+      <reorder-custom-lists-modal @reset-custom-list="resetCustomList"></reorder-custom-lists-modal>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
@@ -67,7 +79,7 @@ import toDoList from "./components/toDoList";
 import moment from "moment";
 import sideBar from "./components/layout/sideBar";
 import customToDoListIdsRepository from "./repositories/customToDoListIdsRepository";
-import removeCustomList from "./components/removeCustomList";
+import removeCustomList from "./components/comfirmModals/removeCustomList";
 import configModal from "./views/configModal";
 import splashScreen from "./components/splashScreen";
 import configRepository from "./repositories/configRepository";
@@ -84,11 +96,13 @@ import version_json from "../public/version.json";
 import isElectron from "is-electron";
 import taskHelper from "./helpers/tasksHelper";
 import notifications from "./helpers/notifications";
-import clearDataModal from "./views/clearDataModal.vue";
+import clearDataModal from "./components/comfirmModals/clearDataModal.vue";
+import clearListModal from "./components/comfirmModals/clearListModal.vue";
 import importingModal from "./views/importingModal.vue";
 import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 import repeatingEventRepository from "./repositories/repeatingEventRepository";
 import toDoListRepository from "./repositories/toDoListRepository";
+import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
 
 export default {
   name: "App",
@@ -107,13 +121,15 @@ export default {
     redirectDomainModal,
     clearDataModal,
     RecurrentEventsModal,
-    importingModal
+    importingModal,
+    ReorderCustomListsModal,
+    clearListModal
   },
   data() {
     return {
       selected_date: null,
       cTodoList: this.$store.getters.cTodoListIds,
-      calendarHeight: "calc(50% - 40px)",
+      calendarHeight: "calc(50% - 50px)",
       ipcRenderer: null,
       initialLoadCompleted: false,
       initialListToLoad: 0,
@@ -134,7 +150,7 @@ export default {
 
     this.$store.dispatch("loadAllRepeatingEvent").then(
       function () {
-        let totalDaysCount = this.$store.getters.config.columns + 2;
+        let totalDaysCount = parseInt(this.$store.getters.config.columns) + 2;
         let totalCustomListCount = this.$store.getters.cTodoListIds.length;
         this.initialListToLoad = totalDaysCount + totalCustomListCount;
         this.deleteOldRepeatingEvents();
@@ -205,6 +221,11 @@ export default {
     customMoveLeft: function () {
       this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
     },
+    resetCustomList: function () {
+      this.$nextTick(function () {
+        this.$refs.customListContainer.scrollLeft = 0;
+      });
+    },
     todoListWidth: function () {
       return this.$refs.weekListContainer.clientWidth / this.columns;
     },
@@ -260,7 +281,9 @@ export default {
       return window.IndexedDB;
     },
     resizerDblClick: function () {
-      this.calendarHeight = "calc(50% - 40px)";
+      if (this.$store.getters.config.mainDividerPosition != 1) return;
+
+      this.calendarHeight = "calc(50% - 50px)";
       this.$store.commit("updateConfig", {
         val: this.calendarHeight,
         key: "calendarHeight",
@@ -268,12 +291,14 @@ export default {
       configRepository.update(this.$store.getters.config);
     },
     resizerMouseDownHandler: function (e) {
-      this.resizerY = e.clientY - 35;
+      if (this.$store.getters.config.mainDividerPosition != 1) return;
+
+      this.resizerY = e.clientY - 50;
       document.addEventListener("mousemove", this.resizerMouseMoveHandler);
       document.addEventListener("mouseup", this.resizerMouseUpHandler);
     },
     resizerMouseMoveHandler: function (e) {
-      this.calendarHeight = `${((e.clientY - 35) * 100) / this.zoom}px`;
+      this.calendarHeight = `${((e.clientY - 50) * 100) / this.zoom}px`;
     },
     resizerMouseUpHandler: function () {
       document.removeEventListener("mousemove", this.resizerMouseMoveHandler);
@@ -371,6 +396,12 @@ export default {
           configRepository.update(this.$store.getters.config);
         }.bind(this), 5000);
       }
+    },
+    setDividerPosition: function (position) {
+      this.$nextTick(function () {
+        this.$store.commit("updateConfig", { val: position, key: 'mainDividerPosition' });
+        configRepository.update(this.$store.getters.config);
+      });
     }
   },
   computed: {
@@ -416,11 +447,32 @@ export default {
       }
       return null;
     },
+    mainDividerPositionClass: function () {
+      if (this.$store.getters.config.mainDividerPosition == 0) {
+        return 'on-bottom';
+      } else if (this.$store.getters.config.mainDividerPosition == 1) {
+        return 'on-center';
+      } else {
+        return 'on-top';
+      }
+    },
+    hideTopListContainer: function () {
+      if (!this.$store.getters.config.customList || !this.$store.getters.config.calendar) return false;
+
+      return this.$store.getters.config.mainDividerPosition == 2 ? true : false;
+    },
+    hideBottomListContainer: function () {
+      if (!this.$store.getters.config.customList || !this.$store.getters.config.calendar) return false;
+
+      return this.$store.getters.config.mainDividerPosition == 0 ? true : false;
+    }
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "/src/assets/style/globalVars.scss";
+
 body {
   line-height: unset !important;
 }
@@ -432,7 +484,7 @@ body {
   height: 5px;
   transition: height 0.15s ease-out 0s;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .slider-btn {
@@ -553,5 +605,99 @@ body {
 .hidden-input-for-focus {
   position: absolute;
   top: -100px;
+}
+
+.main-horizontal-divider {
+  z-index: 5;
+
+
+  &.on-top {
+    cursor: unset;
+
+    .inner-main-horizontal-divider {
+      display: none;
+    }
+
+    .divider-icons-container {
+      margin-top: 5px;
+      visibility: visible;
+      opacity: 0.3;
+    }
+
+    .move-to-corner-down,
+    .move-to-corner-up,
+    .move-to-center-up {
+      display: none;
+    }
+  }
+
+  &.on-bottom {
+    cursor: unset;
+
+    .inner-main-horizontal-divider {
+      display: none;
+    }
+
+    .divider-icons-container {
+      margin-top: -25px;
+      visibility: visible;
+      opacity: 0.3;
+    }
+
+    .move-to-corner-up,
+    .move-to-corner-down,
+    .move-to-center-down {
+      display: none;
+    }
+  }
+
+  &.on-center {
+
+    .move-to-center-down,
+    .move-to-center-up {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .divider-icons-container {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.divider-icons-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
+  z-index: 6;
+  position: absolute;
+  right: 70px;
+  margin-top: -8px;
+}
+
+.divider-icons {
+  @include btn-icon;
+  padding: 6px;
+  background-color: white;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .dark-theme & {
+    background-color: #13171d;
+  }
+}
+
+.hidden-lists-container {
+  height: 0px !important;
+  margin: 0px;
+  min-height: 0px;
+}
+
+.full-screen-divider {
+  height: 100% !important;
 }
 </style>

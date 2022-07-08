@@ -151,9 +151,14 @@
   </div>
 
   <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
-  <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')"></toast-message>
+  <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')" :sub-text="'(' + $t('ui.undo') + ')'"
+    @subTextClick="undoRemoveTask"></toast-message>
   <toast-message id="recurrentTaskRemoved" :text="$t('todoDetails.recurrentTaskRemoved')"></toast-message>
   <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
+
+  <comfirm-modal :id="'removeReModalToDoDetails'" :title="$t('ui.removeRepeatingTask')"
+    :text="$t('ui.repeatingTaskRemoveConfirm')" :ico="'bi-x-circle'" :okText="$t('ui.remove')"
+    @on-ok="removeAllComfirmed" @on-cancel="removeAllCanceled"></comfirm-modal>
 </template>
 
 <script>
@@ -162,7 +167,7 @@ import Markdown from "vue3-markdown-it";
 import toDoListRepository from "../../repositories/toDoListRepository";
 import moment from "moment";
 import dbRepository from "../../repositories/dbRepository";
-import { Toast } from "bootstrap";
+import { Toast, Modal } from "bootstrap";
 import toastMessage from "../../components/toastMessage";
 import colorPicker from "./colorPicker";
 import timePicker from "./timePicker";
@@ -172,6 +177,7 @@ import repeatingEventHelper from "../../helpers/repeatingEvents.js";
 import languageHelper from "../../helpers/languageHelper.js"
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
 import mainHelpers from "../../helpers/mainHelpers";
+import comfirmModal from "../../components/comfirmModal.vue";
 
 export default {
   name: "toDoModal",
@@ -196,6 +202,7 @@ export default {
       tempSubTask: "",
       editingTitle: false,
       showingCalendar: true,
+      loadingView: false
     };
   },
   props: {
@@ -208,6 +215,7 @@ export default {
     toastMessage,
     timePicker,
     repeatingEvent,
+    comfirmModal
   },
   methods: {
     removeSubTask: function (index) {
@@ -364,15 +372,24 @@ export default {
       }.bind(this);
     },
     removeTodo: function () {
-      this.$store.commit("removeTodo", {
-        toDoListId: this.todo.listId,
-        index: this.index,
-      });
+      this.$store.commit("setUndoElement", { type: 'task', todo: this.todo, index: this.index });
+      this.$store.commit("removeTodo", { toDoListId: this.todo.listId, index: this.index });
       this.updateTodoList(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
       let toast = new Toast(document.getElementById("taskRemoved"));
       toast.show();
     },
+    undoRemoveTask: function () {
+      let obj = this.$store.getters.undoElement;
+      this.$store.commit("insertTodo", { toDoListId: obj.todo.listId, index: obj.index, toDo: obj.todo });
+      this.updateTodoList(obj.todo.listId, this.$store.getters.todoLists[obj.todo.listId]);
+      let toast = new Toast(document.getElementById("taskRemoved"));
+      toast.hide();
+    },
     removeAll: function () {
+      let modal = new Modal(document.getElementById("removeReModalToDoDetails"), { backdrop: "static", });
+      modal.show();
+    },
+    removeAllComfirmed() {
       repeatingEventRepository.remove(this.todo.repeatingEvent);
       this.$store.commit("removeRepeatingEvent", this.todo.repeatingEvent);
       this.$store.getters.selectedDates.forEach((date) => {
@@ -382,6 +399,10 @@ export default {
       this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
       let toast = new Toast(document.getElementById("recurrentTaskRemoved"));
       toast.show();
+    },
+    removeAllCanceled() {
+      let modal = new Modal(document.getElementById("toDoModal"));
+      modal.show();
     },
     duplicateTodo: function () {
       var newTodo = {
@@ -472,22 +493,35 @@ export default {
       }
       this.showingCalendar = moment(this.todo.listId, "YYYYMMDD", true).isValid();
       this.getCListOptions();
+      this.loadingView = true;
       if (this.showingCalendar) {
+        this.pickedDate = moment(this.todo.listId).toDate();
         this.pickedCList = "";
         this.pickedCListName = "";
-        this.pickedDate = moment(this.todo.listId).toDate();
       } else {
-        this.pickedDate = null;
+        this.cListOptions.forEach((x) => {
+          if (x.listId == this.todo.listId) {
+            this.pickedCListName = x.listName;
+          }
+        });
         this.pickedCList = this.todo.listId;
+        this.pickedDate = null;
       }
+      this.$nextTick(function () {
+        this.loadingView = false;
+      });
     },
     pickedDate: function (newVal) {
+      if (this.loadingView) return;
+
       var newListId = moment(newVal).format("YYYYMMDD");
       if (newListId != this.todo.listId) {
         this.moveToTodoList(newListId);
       }
     },
     pickedCList: function (newVal) {
+      if (this.loadingView) return;
+
       this.moveToTodoList(newVal);
     }
   },

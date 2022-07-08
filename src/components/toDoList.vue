@@ -171,7 +171,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .to-do-list {
   list-style: none;
   padding-inline-start: 0px;

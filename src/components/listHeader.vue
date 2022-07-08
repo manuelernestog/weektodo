@@ -1,55 +1,56 @@
 <template>
-  <div class="weekly-to-do-header">
-    <i
-      class="bi-check2-all"
-      v-show="!allTodoChecked() && !editing"
-      @click="check_all_items"
-      :title="$t('ui.completeAll')"
-    ></i>
-    <i
-      class="bi-info"
-      v-show="customTodoList && allTodoChecked() && !editing"
-      style="visibility: hidden"
-    ></i>
+  <div class="weekly-to-do-header d-flex">
+    <i v-show="!editing" class="bi-info header-menu-icons align-self-center dropdown-toggle-split "
+      style="visibility: hidden"></i>
     <div style="flex-grow: 1" class="noselect">
       <div v-if="!customTodoList">
         <h4 :class="{ 'today-date': is_today }">
           {{ moments(id).locale(language).format("dddd") }}
         </h4>
-        <span class="weekly-to-do-header">
+        <span class="weekly-to-do-subheader">
           {{ moments(id).locale(language).format("LL") }}
         </span>
       </div>
       <div v-else>
-        <h5 v-show="!editing" @dblclick="editToDoListName">
-          {{ todo_list_name }}
-        </h5>
-        <input
-          class="custom-todo-input"
-          v-show="editing"
-          type="text"
-          v-model="name"
-          ref="cTodoInput"
-          @blur="doneEdit()"
-          @keyup.enter="doneEdit()"
-          @keyup.esc="cancelEdit()"
-        />
+        <h4 v-show="!editing" @dblclick="editToDoListName"> {{ todo_list_name }} </h4>
+        <input class="custom-todo-input" v-show="editing" type="text" v-model="name" ref="cTodoInput" @blur="doneEdit()"
+          @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()" />
       </div>
     </div>
-    <i
-      class="bi-reply-all"
-      v-show="!customTodoList && !allTodoChecked()"
-      @click="moveUndoneItems"
-      :title="$t('ui.postpone')"
-    ></i>
-    <i
-      v-show="customTodoList && !editing"
-      class="bi-x"
-      data-bs-toggle="modal"
-      data-bs-target="#customListRemoveModal"
-      @click="removeList"
-      :title="$t('ui.removeList')"
-    ></i>
+    <i v-show="!editing" class="bi-three-dots-vertical header-menu-icons dropdown-toggle-split align-self-center"
+      type="button" data-bs-toggle="dropdown"></i>
+    <ul class="dropdown-menu" aria-labelledby="btnTaskOptionMenu">
+      <li v-show="!allTodoChecked()">
+        <button class="dropdown-item" type="button" @click="check_all_items">
+          <i class="bi-check2-all"></i> <span>{{ $t('ui.completeAll') }}</span>
+        </button>
+      </li>
+      <li>
+        <button class="dropdown-item" type="button" @click="sortItems">
+          <i class="bi-sort-down"></i> <span>{{ $t('ui.reorder') }}</span>
+        </button>
+      </li>
+      <li v-show="!customTodoList && !allTodoChecked()">
+        <button class="dropdown-item" type="button" @click="moveUndoneItems">
+          <i class="bi-reply-all"></i> <span>{{ $t('ui.postpone') }}</span>
+        </button>
+      </li>
+      <li>
+        <hr class="dropdown-divider" />
+      </li>
+      <li>
+        <button class="dropdown-item" type="button" @click="clearList" data-bs-toggle="modal"
+          data-bs-target="#clearListModal">
+          <i class="bi-trash"></i> <span>{{ $t('ui.clearList') }}</span>
+        </button>
+      </li>
+      <li v-show="customTodoList">
+        <button class="dropdown-item" type="button" data-bs-dismiss="modal" @click="removeList" data-bs-toggle="modal"
+          data-bs-target="#customListRemoveModal">
+          <i class="bi-x-circle"></i> <span>{{ $t('ui.removeList') }}</span>
+        </button>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -117,8 +118,7 @@ export default {
       return allChecked;
     },
     editToDoListName: function () {
-      this.name =
-        this.$store.getters.cTodoListIds[this.cTodoListIndex].listName;
+      this.name = this.$store.getters.cTodoListIds[this.cTodoListIndex].listName;
       this.editing = true;
       this.$nextTick(function () {
         this.$refs.cTodoInput.focus();
@@ -128,14 +128,12 @@ export default {
     doneEdit: function () {
       this.editing = false;
       this.$store.commit("updateCustomTodoList", {
-        index: this.cTodoListIndex,
-        name: this.name,
+        index: this.cTodoListIndex, name: this.name,
       });
       customToDoListIdsRepository.update(this.$store.getters.cTodoListIds);
     },
     cancelEdit: function () {
-      this.name =
-        this.$store.getters.cTodoListIds[this.cTodoListIndex].listName || "";
+      this.name = this.$store.getters.cTodoListIds[this.cTodoListIndex].listName || "";
       this.editing = false;
     },
     removeList: function () {
@@ -145,6 +143,25 @@ export default {
         name: this.$store.getters.cTodoListIds[this.cTodoListIndex].listName,
       });
     },
+    sortItems: function () {
+      var array = this.toDoList;
+      array.sort(function (a, b) {
+        if (b.checked != a.checked) {
+          if (b.checked) return -1;
+          if (a.checked) return 1;
+        }
+        if (b.time != a.time) {
+          if (b.time == null) return -1;
+          if (a.time == null) return 1;
+        }
+        if (b.time < a.time) return 1;
+        if (b.time > a.time) return -1;
+      });
+      toDoListRepository.update(this.id, array);
+    },
+    clearList: function () {
+      this.$store.commit("setListToClear", this.id);
+    }
   },
   computed: {
     is_today: function () {
@@ -160,10 +177,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .weekly-to-do-header {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 23px;
   margin-top: 10px;
   display: flex;
   font-size: 0.8rem;
@@ -180,32 +197,33 @@ export default {
   margin-bottom: 4px;
   font-size: 21px;
   text-transform: capitalize;
+  min-height: 25px;
 }
 
-.weekly-to-do-header span {
+.weekly-to-do-subheader {
   margin-top: 0px;
   font-size: 12px;
   color: grey;
 }
 
-.weekly-to-do-header i {
+.weekly-to-do-header .header-menu-icons {
   color: grey;
 }
 
-.dark-theme .weekly-to-do-header i {
+.dark-theme .weekly-to-do-header .header-menu-icons {
   color: #c9d1d9;
 }
 
-.weekly-to-do-header i:hover {
+.weekly-to-do-header .header-menu-icons:hover {
   color: black;
 }
 
-.dark-theme .weekly-to-do-header i:hover {
+.dark-theme .weekly-to-do-header .header-menu-icons:hover {
   color: white;
 }
 
-.weekly-to-do-header i {
-  font-size: 1.4rem;
+.weekly-to-do-header .header-menu-icons {
+  font-size: 20px;
   flex-grow: 0;
   align-self: start;
   cursor: pointer;
@@ -214,18 +232,9 @@ export default {
   transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
 }
 
-.bi-reply-all {
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-}
-
 .custom-todo-input {
   font-size: 1.25rem;
   width: 100%;
-}
-
-.weekly-to-do-header h5 {
-  min-height: 1.5rem;
 }
 
 .custom-todo-input:focus {
@@ -237,8 +246,40 @@ export default {
   outline: #13171d auto 1px;
 }
 
-.weekly-to-do-header:hover i {
+.weekly-to-do-header:hover .header-menu-icons,
+.header-menu-icons.show {
   visibility: visible;
   opacity: 1;
+}
+
+.dropdown-menu {
+  font-size: 0.865rem;
+  min-width: unset;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .20);
+  border: none;
+  color: #3c3c3c;
+
+  .dropdown-item {
+    padding: .4rem 1.9rem .4rem .65rem;
+  }
+
+  .dropdown-divider {
+    margin: .3rem;
+  }
+
+  i {
+    font-size: 0.99rem;
+    margin-right: 11px;
+    display: inline-block;
+  }
+}
+
+.dropdown-toggle-split{
+  padding: 0px;
+}
+
+.bi-reply-all {
+  transform: scaleX(-1);
 }
 </style>

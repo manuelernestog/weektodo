@@ -18,14 +18,15 @@ export default {
                 checkUpdates: true,
                 columns: 5,
                 zoom: 100,
-                calendarHeight: "calc(50% - 40px)",
+                calendarHeight: "calc(50% - 50px)",
                 notificationOnStartup: true,
                 notificationSound: "pop",
                 openOnStartup: true,
                 runInBackground: true,
                 moveOldTasks: true,
-                dateToShowInitialDonateModal: moment().add(7, 'd').format('YYYY-MM-DD'),
-                InitialDonateModalShown: false                
+                dateToShowInitialDonateModal: moment().add(14, 'd').format('YYYY-MM-DD'),
+                InitialDonateModalShown: false,                
+                mainDividerPosition: 1                
             }
             storageRepository.set('config', default_config);
             return default_config;

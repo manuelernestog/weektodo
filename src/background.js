@@ -65,7 +65,7 @@ async function createWindow() {
     return false;
   });
 
-  mainWindow.on("restore", function (event) {
+  mainWindow.on("restore", function () {
     setTimeout(hideSplashScreen, 5000);
   });
 
@@ -82,7 +82,7 @@ async function createWindow() {
 if (!gotTheLock) {
   app.quit();
 } else {
-  app.on("second-instance", (event, commandLine, workingDirectory) => {
+  app.on("second-instance", () => {
     if (mainWindow) {
       if (mainWindow.isMinimized()) {
         mainWindow.restore();
@@ -197,8 +197,8 @@ function matchOpenOnStartup(event, openOnStartup) {
 }
 
 function showWindow(window) {
-  window.show();
   if (process.platform === "darwin") app.dock.show();
+  window.show();
 }
 
 function hideWindow(window) {

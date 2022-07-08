@@ -3,7 +3,7 @@ export default {
         return [
             {
               name: vue.$t('settings.general'),
-              ico: "bi-gear-wide-connected",
+              ico: "bi-sliders",
               linktype: "tagId",
               link: "config-general-tab",
             },

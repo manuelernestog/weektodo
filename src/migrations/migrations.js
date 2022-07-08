@@ -6,7 +6,8 @@ export default {
         configCheckUpdate();
         configCalendarZoomColumnsCalendarHeight();
         configNotifications();
-        runInBackground()
+        runInBackground();
+        mainDividerPosition();
     }
 }
 
@@ -24,7 +25,7 @@ function configCalendarZoomColumnsCalendarHeight() {
         config['calendar'] = true;
         config['zoom'] = 100;
         config['columns'] = 5;
-        config['calendarHeight'] = "calc(50% - 40px)";
+        config['calendarHeight'] = "calc(50% - 50px)";
         configRepository.update(config);
     }
 }
@@ -44,8 +45,16 @@ function runInBackground() {
     if (!('runInBackground' in config)) {
         config['runInBackground'] = true;
         config['moveOldTasks'] = true;
-        config['dateToShowInitialDonateModal'] = moment().add(7, 'd').format('YYYY-MM-DD');
+        config['dateToShowInitialDonateModal'] = moment().add(14, 'd').format('YYYY-MM-DD');
         config['InitialDonateModalShown'] = false;
+        configRepository.update(config);
+    }
+}
+
+function mainDividerPosition(){
+    let config = configRepository.load();
+    if (!('mainDividerPosition' in config)) {
+        config['mainDividerPosition'] = 1;
         configRepository.update(config);
     }
 }

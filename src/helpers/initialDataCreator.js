@@ -32,7 +32,7 @@ export default {
     }
 };
 
-function create_todo(vue, list_id, text, checked, desc = "", subTaskList = [], color = "none", time = "") {
+function create_todo(vue, list_id, text, checked, desc = "", subTaskList = [], color = "none", time = null) {
     var newTodo = {
         text: text,
         checked: checked,

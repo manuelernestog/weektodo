@@ -1,5 +1,5 @@
 {
-    "name": "WeekToDo",
+    "name": "WeekToDo", 
     "short_name": "WeekToDo",
     "icons": [
         {
@@ -13,6 +13,8 @@
             "type": "image/png"
         }
     ],
+    "start_url": ".",
+    "description": "WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar. Available for Windows, Mac, Linux or online.",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "standalone"
