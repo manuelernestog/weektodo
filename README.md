@@ -6,7 +6,6 @@ WeekToDo | The Free Minimalist Weekly Planner
 
 
 ![GitHub all releases](https://img.shields.io/github/downloads/zuntek/weektodoweb/total) 
-[![Build Status](https://app.travis-ci.com/orgdemo2/w2.svg?token=6SqLVDBy5DDrbc2JbMRV&branch=main)](https://app.travis-ci.com/orgdemo2/w2)
 [![vue3](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://vuejs.org/)
 
 WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar. Available for Windows, Mac, Linux or online.
@@ -22,6 +21,18 @@ WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule yo
 - Markdown Support
 - Customizable user interface
 - Local Storage
+- Task Colors
+- Task Time
+- Recurring Tasks
+- Notifications and reminders
+
+## Roadmap
+
+- Touch mode
+- Mobile Version
+- Sync across devices
+- Workspaces
+- Themes
 
   
 ## Installation
@@ -54,16 +65,6 @@ To install WeekToDo, simply use the following command:
 sudo snap install weektodo
 ```    
 
-## Roadmap
-
-- Boards
-- Task Priorities
-- Task Colors
-- Task Time
-- Repeating Event
-- Notifications and reminders
-
-  
 ## Contributing
 
 You can support this project in several ways:
@@ -107,6 +108,10 @@ The code of this repo belongs to the app landing page and not to the application
 
 ## Contributors
 
+<a href="https://github.com/zuntek/weektodoweb/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=zuntek/weektodoweb" />
+</a>
 
+Made with [contrib.rocks](https://contrib.rocks).
 
   
