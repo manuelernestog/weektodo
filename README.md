@@ -31,6 +31,8 @@ WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule yo
 - Touch mode
 - Mobile Version
 - Sync across devices
+- Workspaces
+- Themes
 
   
 ## Installation
