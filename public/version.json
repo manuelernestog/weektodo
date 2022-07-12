@@ -2,6 +2,11 @@
   "version": "1.8.5",
   "changes": {
     "en": {
+      "1.8.6-202207X": [
+        "Disabling temporary offline version for browser for compatibility problems",
+        "Fixing edit task in main view bug",
+        "Fixing some Italian translations errors"
+      ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",
         "Hiding zoom option for Firefox",
