@@ -165,6 +165,17 @@ export default {
   z-index: 5;
 }
 
+.todo-input {
+  line-height: 1.3rem;
+  width: 100%;
+  border: none;
+  font-size: 0.865rem;
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
 .todo-item:hover .todo-item-sub-tasks {
   display: flex !important;
 }
