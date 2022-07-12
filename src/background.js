@@ -102,7 +102,11 @@ if (!gotTheLock) {
   });
 
   app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    } else if (!app.dock.isVisible()) {
+        showWindow(mainWindow);
+    }
   });
 
   app.on("ready", async () => {
