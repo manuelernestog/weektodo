@@ -17,9 +17,9 @@
         </div>
       </li>
     </ul>
-    <div class="fake-drop-zone flex-grow-1" @drop="onDropAtEnd($event, id)" @dragenter.self="onDragenter"
+    <div class="fake-drop-zone flex-grow-1 margin-bottom-2" @drop="onDropAtEnd($event, id)" @dragenter.self="onDragenter"
       @dragleave.self="onDragleave" @dragover.prevent :class="{ 'fake-drag-hover': fakeItemsDragHover }">
-      <div class="todo-item-container border-bottom-0">
+      <div class="todo-item-container">
         <input class="todo-input new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text" @blur="addToDo()"
           @keyup.enter="addToDo()" @keyup.esc="cancelAdd()" />
       </div>
@@ -195,6 +195,7 @@ export default {
   padding-left: 13px;
   padding-right: 13px;
   scroll-snap-align: start;
+  margin-bottom: 5px;
 }
 
 .to-do-fake-item {
@@ -279,7 +280,7 @@ export default {
       #eaecef 98.08%,
       #eaecef 100%);
   background-size: 52px 52px;
-  height: calc(100% - 25px);
+  height: calc(100% - 23px);
 }
 
 .dark-theme .fake-lines {
@@ -295,7 +296,7 @@ export default {
 }
 
 .fake-lines.custom-list {
-  height: calc(100% - 40px);
+  height: calc(100% - 24px);
 }
 
 .todo-input {
@@ -314,5 +315,12 @@ export default {
   margin: auto;
   top: 200px;
   height: 0px;
+}
+
+.todo-item-container {
+  border-bottom: 1px solid #eaecef;
+  height: 26px;
+  z-index: 1;
+  margin-bottom: -1px;
 }
 </style>
