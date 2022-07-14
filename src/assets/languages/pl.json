@@ -177,7 +177,9 @@
     "maximizeCalendarPanel": "Maksymalizuj panel kalendarza",
     "maximizeListPanel": "Panel Maksymalizuj listę",
     "restorePanel": "Przywróć rozmiar panelu",
-    "reorder": "Zmień kolejność"
+    "reorder": "Zmień kolejność",
+    "open": "otwarty",
+    "quit": "Zrezygnować"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

@@ -157,7 +157,9 @@
     "maximizeCalendarPanel": "Kalenderbereich maximieren",
     "maximizeListPanel": "Listenfeld maximieren",
     "restorePanel": "Panelgröße wiederherstellen",
-    "reorder": "Neu anordnen"
+    "reorder": "Neu anordnen",
+    "open": "Offen",
+    "quit": "Aufhören"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

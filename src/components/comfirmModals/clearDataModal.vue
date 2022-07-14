@@ -14,6 +14,11 @@ export default {
   },
   methods: {
     clearData: function () {
+      let isElectron = require("is-electron");
+      if (isElectron) {
+        const { ipcRenderer } = require('electron');
+        ipcRenderer.send('set-tray-context-menu-label', { open: 'Open', quit: 'Quit' });
+      }
       exportTool.clear();
     },
   },

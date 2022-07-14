@@ -157,7 +157,9 @@
     "maximizeCalendarPanel": "Развернуть панель календаря",
     "maximizeListPanel": "Развернуть панель списка",
     "restorePanel": "Восстановить размер панели",
-    "reorder": "Изменение порядка"
+    "reorder": "Изменение порядка",
+    "open": "Открытым",
+    "quit": "Покидать"
   },
   "todoDetails": {
     "taskTitle": "Заголовок задачи",

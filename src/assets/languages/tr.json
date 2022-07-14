@@ -157,7 +157,9 @@
     "maximizeCalendarPanel": "Takvim Panelini Büyüt",
     "maximizeListPanel": "Listeyi büyüt Panel",
     "restorePanel": "Panel Boyutunu Geri Yükle",
-    "reorder": "yeniden sırala"
+    "reorder": "yeniden sırala",
+    "open": "Açık",
+    "quit": "Çıkış yapmak"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

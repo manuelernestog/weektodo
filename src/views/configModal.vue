@@ -208,7 +208,7 @@
               <div class="d-flex flex-column mt-2 h-100">
                 <label for="language" class="form-label">{{ $t("settings.language") }}:</label>
                 <select id="language" class="col-sm-9 form-select" aria-label="Default select example"
-                  v-model="configData.language" @change="changeConfig('language', configData.language)">
+                  v-model="configData.language" @change="setLanguage">
                   <option value="en">English</option>
                   <option value="es">Español</option>
                   <option value="fr">Français</option>
@@ -310,6 +310,15 @@ export default {
         }
       });
     },
+    setLanguage: function () {
+      this.changeConfig('language', this.configData.language);
+      this.$nextTick(function () {
+        if (this.isElectron()) {
+          const { ipcRenderer } = require('electron');
+          ipcRenderer.send('set-tray-context-menu-label', {open: this.$t("ui.open"), quit: this.$t("ui.quit")});
+        }
+      });
+    },
     playSound: function () {
       notifications.playNotificationSound(
         this.$store.getters.config.notificationSound
@@ -391,8 +400,8 @@ export default {
 }
 
 @-moz-document url-prefix() {
-.zoom-config{
-  display: none;
-}
+  .zoom-config {
+    display: none;
+  }
 }
 </style>

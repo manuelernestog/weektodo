@@ -157,7 +157,9 @@
     "maximizeCalendarPanel": "カレンダーパネルを最大化",
     "maximizeListPanel": "リストパネルを最大化",
     "restorePanel": "パネルサイズを復元",
-    "reorder": "再注文"
+    "reorder": "再注文",
+    "open": "開ける",
+    "quit": "終了する"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

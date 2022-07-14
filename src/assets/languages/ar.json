@@ -157,7 +157,9 @@
     "maximizeCalendarPanel": "تكبير لوحة التقويم",
     "maximizeListPanel": "تكبير لوحة القائمة",
     "restorePanel": "استعادة حجم اللوحة",
-    "reorder": "إعادة ترتيب"
+    "reorder": "إعادة ترتيب",
+    "open": "فتح",
+    "quit": "يترك"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

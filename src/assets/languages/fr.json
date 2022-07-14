@@ -157,7 +157,9 @@
     "maximizeCalendarPanel": "Agrandir le panneau du calendrier",
     "maximizeListPanel": "Agrandir le panneau de liste",
     "restorePanel": "Restaurer la taille du panneau",
-    "reorder": "Réorganiser"
+    "reorder": "Réorganiser",
+    "open": "Ouvert",
+    "quit": "Quitter"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

@@ -15,6 +15,8 @@ const isServeMode = () => {
 
 let mainWindow = null;
 var tray = null;
+var trayContextMenu = null;
+var trayMenuTemplate = null;
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true, stream: true } }]);
 
@@ -44,6 +46,7 @@ async function createWindow() {
   ipcMain.on("match-open-on-startup", matchOpenOnStartup);
   ipcMain.on("set-open-on-startup", setOpenOnStartup);
   ipcMain.on("set-run-in-background", setRunInBackground);
+  ipcMain.on("set-tray-context-menu-label", setTrayContextMenuLabel);
   ipcMain.on("clear-config", clearConfig);
 
   if (typeof config.get("runInBackground") == "undefined") {
@@ -105,7 +108,7 @@ if (!gotTheLock) {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
     } else if (!app.dock.isVisible()) {
-        showWindow(mainWindow);
+      showWindow(mainWindow);
     }
   });
 
@@ -177,6 +180,15 @@ function setRunInBackground(event, runInBackground) {
   config.set("runInBackground", runInBackground);
 }
 
+function setTrayContextMenuLabel(event, labels) {
+  config.set("openLabel", labels.open);
+  config.set("quitLabel", labels.quit);
+  trayMenuTemplate[0].label = labels.open;
+  trayMenuTemplate[1].label = labels.quit;
+  const menu = Menu.buildFromTemplate(trayMenuTemplate);
+  tray.setContextMenu(menu);
+}
+
 function matchOpenOnStartup(event, openOnStartup) {
   let AutoLaunch = require("auto-launch");
   let autoLauncher = new AutoLaunch({
@@ -230,9 +242,14 @@ function createTray() {
   }
   tray = new Tray(iconPath);
 
-  const contextMenu = Menu.buildFromTemplate([
+  if (!config.get("openLabel")) {
+    config.set("openLabel", "Open");
+    config.set("quitLabel", "Quit");
+  }
+
+  trayMenuTemplate = [
     {
-      label: "Open",
+      label: config.get("openLabel"),
       click() {
         if (config.get("isMaximized")) mainWindow.maximize();
         showWindow(mainWindow);
@@ -240,7 +257,7 @@ function createTray() {
       },
     },
     {
-      label: "Quit",
+      label: config.get("quitLabel"),
       click() {
         app.isQuiting = true;
         config.set("winBounds", mainWindow.getBounds());
@@ -248,9 +265,11 @@ function createTray() {
         app.quit();
       },
     },
-  ]);
+  ]
+
+  trayContextMenu = Menu.buildFromTemplate(trayMenuTemplate);
   tray.setToolTip("WeekToDo Planner");
-  tray.setContextMenu(contextMenu);
+  tray.setContextMenu(trayContextMenu);
   tray.on("click", () => {
     tray.popUpContextMenu();
   });
