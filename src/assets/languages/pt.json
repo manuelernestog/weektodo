@@ -28,7 +28,8 @@
     "moveOldTasks": "Mover tarefas antigas automaticamente",
     "runInBackground": "Executado em segundo plano",
     "runInBackgroundInfo": "Permite que as notificações funcionem com o aplicativo fechado.\n \nEsta opção pode ter problemas para algumas versões do macOS.",
-    "importing": "Importando..."
+    "importing": "Importando...",
+    "darkTrayIcon": "Ícone de bandeja escura"
   },
   "donate": {
     "contribute": "Contribuir",

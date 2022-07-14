@@ -28,7 +28,8 @@
     "openOnStartup": "Başlangıçta aç",
     "runInBackground": "Arka planda çalıştır",
     "runInBackgroundInfo": "Bildirimlerin uygulama kapalıyken çalışmasına izin verir.\n \nBu seçeneğin bazı macOS sürümlerinde sorunları olabilir.",
-    "importing": "İçe aktarılıyor..."
+    "importing": "İçe aktarılıyor...",
+    "darkTrayIcon": "Karanlık Tepsi Simgesi"
   },
   "donate": {
     "contribute": "Katkıda bulun",

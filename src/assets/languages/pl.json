@@ -89,7 +89,8 @@
     "moveOldTasks": "Automatycznie przenoś stare zadania",
     "runInBackground": "Uruchom w tle",
     "runInBackgroundInfo": "Zezwala na działanie powiadomień przy zamkniętej aplikacji.\n \nTa opcja może powodować problemy w niektórych wersjach systemu macOS.",
-    "importing": "Importowanie..."
+    "importing": "Importowanie...",
+    "darkTrayIcon": "Ikona ciemnej tacy"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

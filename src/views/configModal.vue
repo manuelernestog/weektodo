@@ -130,6 +130,15 @@
                   <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="configData.darkTheme"
                     @change="changeConfig('darkTheme', configData.darkTheme)" />
                 </div>
+
+                <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label" for="darkTrayIcon">{{
+                      $t("settings.darkTrayIcon")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="darkTrayIcon" v-model="configData.darkTrayIcon"
+                    @change="setDarkTrayIcon" />
+                </div>
+
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
                 </button>
@@ -315,8 +324,15 @@ export default {
       this.$nextTick(function () {
         if (this.isElectron()) {
           const { ipcRenderer } = require('electron');
-          ipcRenderer.send('set-tray-context-menu-label', {open: this.$t("ui.open"), quit: this.$t("ui.quit")});
+          ipcRenderer.send('set-tray-context-menu-label', { open: this.$t("ui.open"), quit: this.$t("ui.quit") });
         }
+      });
+    },
+    setDarkTrayIcon: function () {
+      this.changeConfig('darkTrayIcon', this.configData.darkTrayIcon);
+      this.$nextTick(function () {
+        const { ipcRenderer } = require('electron');
+        ipcRenderer.send('set-dark-tray-icon', this.configData.darkTrayIcon);
       });
     },
     playSound: function () {

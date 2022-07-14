@@ -28,7 +28,8 @@
     "moveOldTasks": "نقل المهام القديمة تلقائيًا",
     "runInBackground": "تشغيل في الخلفية",
     "runInBackgroundInfo": "يسمح للإخطارات بالعمل مع التطبيق مغلق.\n \nقد يحتوي هذا الخيار على مشكلات في بعض إصدارات macOS.",
-    "importing": "استيراد ..."
+    "importing": "استيراد ...",
+    "darkTrayIcon": "أيقونة صينية داكنة"
   },
   "donate": {
     "contribute": "ساهِم",

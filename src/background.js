@@ -47,6 +47,7 @@ async function createWindow() {
   ipcMain.on("set-open-on-startup", setOpenOnStartup);
   ipcMain.on("set-run-in-background", setRunInBackground);
   ipcMain.on("set-tray-context-menu-label", setTrayContextMenuLabel);
+  ipcMain.on("set-dark-tray-icon", setDarkTrayIcon);
   ipcMain.on("clear-config", clearConfig);
 
   if (typeof config.get("runInBackground") == "undefined") {
@@ -180,6 +181,11 @@ function setRunInBackground(event, runInBackground) {
   config.set("runInBackground", runInBackground);
 }
 
+function setDarkTrayIcon(event, darkTrayIcon) {
+  config.set("darkTrayIcon", darkTrayIcon);
+  tray.setImage(creatTrayIconPath());
+}
+
 function setTrayContextMenuLabel(event, labels) {
   config.set("openLabel", labels.open);
   config.set("quitLabel", labels.quit);
@@ -230,16 +236,11 @@ function closeApp() {
 }
 
 function createTray() {
-  const path = require("path");
-  var iconPath;
-  if (process.platform === "win32") {
-    app.setAppUserModelId("WeekToDo");
-    iconPath = path.join(__dirname, "/trayIcon.ico");
-  } else if (process.platform === "darwin") {
-    iconPath = nativeImage.createFromPath(path.join(__dirname, "/trayIcon.png"));
-  } else {
-    iconPath = isServeMode() ? path.join(__dirname, "/bundled/trayIcon@3x.png") : path.join(__dirname, "/trayIcon@3x.png");
+  if (!config.get("darkTrayIcon")) {
+    config.set("darkTrayIcon", false);
   }
+
+  var iconPath = creatTrayIconPath();
   tray = new Tray(iconPath);
 
   if (!config.get("openLabel")) {
@@ -265,7 +266,7 @@ function createTray() {
         app.quit();
       },
     },
-  ]
+  ];
 
   trayContextMenu = Menu.buildFromTemplate(trayMenuTemplate);
   tray.setToolTip("WeekToDo Planner");
@@ -273,4 +274,22 @@ function createTray() {
   tray.on("click", () => {
     tray.popUpContextMenu();
   });
+}
+
+function creatTrayIconPath() {
+  const path = require("path");
+  const darkPrefix = config.get("darkTrayIcon") ? "Dark" : "";
+
+  var iconPath;
+  if (process.platform === "win32") {
+    app.setAppUserModelId("WeekToDo");
+    iconPath = path.join(__dirname, `/trayIcon${darkPrefix}.ico`);
+  } else if (process.platform === "darwin") {
+    iconPath = nativeImage.createFromPath(path.join(__dirname, `/trayIcon${darkPrefix}.png`));
+  } else {
+    iconPath = isServeMode()
+      ? path.join(__dirname, `/bundled/trayIcon${darkPrefix}@3x.png`)
+      : path.join(__dirname, `/trayIcon${darkPrefix}@3x.png`);
+  }
+  return iconPath;
 }
