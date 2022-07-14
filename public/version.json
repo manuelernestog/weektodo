@@ -8,7 +8,8 @@
         "Fixing some Italian translations errors",
         "Fixing bug for adding new tas k on the bottom of the list",
         "Changing Dynamically Tray menu language",
-        "New setting for change Tray icon color"
+        "New setting for change Tray icon color",
+        "Adding blurn effect to windows backgorund"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",

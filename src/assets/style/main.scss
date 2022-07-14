@@ -164,6 +164,17 @@ i {
   box-shadow: 0 2px 11px 6px rgba(0, 0, 0, .11);
 }
 
+.modal-backdrop {
+  opacity: unset !important;
+  transition: background-color .15s linear;
+  background-color: rgba(0, 0, 0,0);
+  backdrop-filter: blur(3px);
+}
+
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0,.35);
+}
+
 .modal-header {
   padding: 0.8rem 0.8rem;
 }
