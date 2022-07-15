@@ -192,6 +192,14 @@ export default {
       this.ipcRenderer.send("match-open-on-startup", this.$store.getters.config.openOnStartup);
     }
 
+    if (this.$store.getters.config.importing) {
+      this.$store.commit("updateConfig", { val: false, key: "importing" });
+      configRepository.update(this.$store.getters.config);
+      if (isElectron()) {
+        this.syncElectronConfig()
+      }
+    }
+
     this.resetAppOnDayChange();
   },
   methods: {
@@ -449,6 +457,13 @@ export default {
       let modal = new Modal(document.getElementById('changeLogModal'));
       modal.show();
     },
+    syncElectronConfig: function () {
+      const { ipcRenderer } = require('electron');
+      ipcRenderer.send('set-tray-context-menu-label', { open: this.$t("ui.open"), quit: this.$t("ui.quit") });
+      ipcRenderer.send('set-open-on-startup', this.$store.getters.config.openOnStartup);
+      ipcRenderer.send('set-run-in-background', this.$store.getters.config.runInBackground);
+      ipcRenderer.send('set-dark-tray-icon', this.$store.getters.config.darkTrayIcon);
+    }
   },
   computed: {
     dates_array: function () {

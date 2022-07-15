@@ -128,6 +128,9 @@ function importData(data) {
 
 function importLocalStorageData(data) {
   storageRepository.clean();
+  var configData = JSON.parse(data.config);
+  configData.importing = true;
+  data.config = JSON.stringify(configData)
   storageRepository.load_json(data);
 }
 

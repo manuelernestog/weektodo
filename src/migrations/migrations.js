@@ -64,6 +64,7 @@ function trayIcon() {
   let config = configRepository.load();
   if (!("darkTrayIcon" in config)) {
     config["darkTrayIcon"] = false;
+    config["importing"] = false;
     configRepository.update(config);
   }
 }

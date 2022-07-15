@@ -15,7 +15,7 @@ export default {
   methods: {
     clearData: function () {
       let isElectron = require("is-electron");
-      if (isElectron) {
+      if (isElectron()) {
         const { ipcRenderer } = require('electron');
         ipcRenderer.send('set-tray-context-menu-label', { open: 'Open', quit: 'Quit' });
         ipcRenderer.send('set-dark-tray-icon',false);

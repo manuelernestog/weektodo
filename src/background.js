@@ -184,6 +184,7 @@ function setRunInBackground(event, runInBackground) {
 
 function setDarkTrayIcon(event, darkTrayIcon) {
   config.set("darkTrayIcon", darkTrayIcon);
+  console.log(config.get("darkTrayIcon"))
   tray.setImage(creatTrayIconPath());
 }
 
