@@ -17,6 +17,7 @@ let mainWindow = null;
 var tray = null;
 var trayContextMenu = null;
 var trayMenuTemplate = null;
+var SplashScreenIsHidden = true;
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true, stream: true } }]);
 
@@ -221,6 +222,12 @@ function matchOpenOnStartup(event, openOnStartup) {
 function showWindow(window) {
   if (process.platform === "darwin") app.dock.show();
   window.show();
+  if (SplashScreenIsHidden) {
+    SplashScreenIsHidden = false;
+    setTimeout(function () {
+      mainWindow.webContents.send("initial-checks");
+    }, 4000);
+  }
 }
 
 function hideWindow(window) {

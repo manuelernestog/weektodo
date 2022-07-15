@@ -1,5 +1,5 @@
 {
-  "version": "1.8.5",
+  "version": "1.8.6",
   "changes": {
     "en": {
       "1.8.6-202207X": [
@@ -9,7 +9,8 @@
         "Fixing bug for adding new tas k on the bottom of the list",
         "Changing Dynamically Tray menu language",
         "New setting for change Tray icon color",
-        "Adding blurn effect to windows backgorund"
+        "Adding blurn effect to windows backgorund",
+        "Fixing problem with initial version notifications"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",

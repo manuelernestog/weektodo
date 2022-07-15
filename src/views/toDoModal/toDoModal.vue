@@ -150,11 +150,13 @@
     </div>
   </div>
 
-  <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
-  <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')" :sub-text="'(' + $t('ui.undo') + ')'"
-    @subTextClick="undoRemoveTask"></toast-message>
-  <toast-message id="recurrentTaskRemoved" :text="$t('todoDetails.recurrentTaskRemoved')"></toast-message>
-  <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
+    <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
+    <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')" :sub-text="'(' + $t('ui.undo') + ')'"
+      @subTextClick="undoRemoveTask"></toast-message>
+    <toast-message id="recurrentTaskRemoved" :text="$t('todoDetails.recurrentTaskRemoved')"></toast-message>
+    <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
+  </div>
 
   <comfirm-modal :id="'removeReModalToDoDetails'" :title="$t('ui.removeRepeatingTask')"
     :text="$t('ui.repeatingTaskRemoveConfirm')" :ico="'bi-x-circle'" :okText="$t('ui.remove')"

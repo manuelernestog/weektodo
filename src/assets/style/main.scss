@@ -172,11 +172,15 @@ i {
 }
 
 .modal-backdrop.show {
-  background-color: rgba(0, 0, 0,.35);
+  background-color: rgba(0, 0, 0,.40);
 }
 
 .modal-header {
   padding: 0.8rem 0.8rem;
+}
+
+.toast:not(:last-child) {
+  margin-bottom: .75rem;
 }
 
 .modal-header .modal-title {

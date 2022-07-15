@@ -72,6 +72,14 @@
     <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
     <h3 style="text-align: center">{{ $t("ui.compatible") }}</h3>
   </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
+    <toast-message id="versionChanges" :text="$t('ui.softwareUpdated')" :sub-text="$t('ui.seeChanges')"
+      @subTextClick="seeChangeLog"></toast-message>
+
+    <toast-message id="newVersionAvailable" :text="$t('ui.newVersionAvailable')" :sub-text="$t('ui.download')"
+      @subTextClick="downloadNewVersion"></toast-message>
+  </div>
 </template>
 
 <script>
@@ -89,7 +97,7 @@ import welcomeModal from "./views/welcomeModal";
 import toDoModal from "./views/toDoModal/toDoModal";
 import tipsModal from "./views/tipsModal";
 import redirectDomainModal from "./views/redirectDomainModal";
-import { Modal } from "bootstrap";
+import { Modal, Toast } from "bootstrap";
 import updateChecker from "./components/updateChecker";
 import migrations from "./migrations/migrations";
 import version_json from "../public/version.json";
@@ -103,6 +111,7 @@ import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 import repeatingEventRepository from "./repositories/repeatingEventRepository";
 import toDoListRepository from "./repositories/toDoListRepository";
 import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
+import toastMessage from "./components/toastMessage";
 
 export default {
   name: "App",
@@ -123,7 +132,8 @@ export default {
     RecurrentEventsModal,
     importingModal,
     ReorderCustomListsModal,
-    clearListModal
+    clearListModal,
+    toastMessage
   },
   data() {
     return {
@@ -257,6 +267,7 @@ export default {
       } else {
         this.$refs.splash.hideSplash();
       }
+      this.checksOnLoadApp();
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
       } else {
@@ -402,7 +413,51 @@ export default {
         this.$store.commit("updateConfig", { val: position, key: 'mainDividerPosition' });
         configRepository.update(this.$store.getters.config);
       });
-    }
+    },
+    checkVersion: function () {
+      if (version_json.version != this.$store.getters.config.version) {
+        this.$store.commit('updateConfig', { val: version_json.version, key: "version" });
+        configRepository.update(this.$store.getters.config);
+        var toast = new Toast(document.getElementById('versionChanges'));
+        toast.show();
+      }
+    },
+    checkForUpdates: function () {
+      if (this.isElectron() && this.$store.getters.config.checkUpdates) {
+        const axios = require('axios').default;
+        axios.get('https://app.weektodo.me/version.json')
+          .then(response => (this.showNewVersionToast(response)))
+          .catch(error => console.log(error.message))
+      }
+    },
+    checksOnLoadApp: function () {
+      if (this.isElectron()) {
+        require('electron').ipcRenderer.on('initial-checks', () => {
+          this.checkVersion();
+          this.checkForUpdates();
+        })
+      } else {
+        this.checkVersion();
+      }
+    },
+    showNewVersionToast: function (response) {
+      if (response.data.version != version_json.version) {
+        var toast = new Toast(document.getElementById('newVersionAvailable'));
+        toast.show();
+      }
+    },
+    downloadNewVersion: function () {
+      let isElectron = require("is-electron");
+      if (isElectron()) {
+        require('electron').shell.openExternal('https://weektodo.me', '_blank');
+      } else {
+        window.open('https://weektodo.me', '_blank');
+      }
+    },
+    seeChangeLog: function () {
+      let modal = new Modal(document.getElementById('changeLogModal'));
+      modal.show();
+    },
   },
   computed: {
     dates_array: function () {

@@ -243,8 +243,9 @@
         </div>
       </div>
     </div>
-
+ <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
     <toast-message ref="invalidFile" id="invalidFile" text="$t('settings.invalidFile')"></toast-message>
+ </div>
   </div>
 </template>
 
