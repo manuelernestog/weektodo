@@ -243,9 +243,9 @@
         </div>
       </div>
     </div>
- <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
-    <toast-message ref="invalidFile" id="invalidFile" text="$t('settings.invalidFile')"></toast-message>
- </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
+      <toast-message ref="invalidFile" id="invalidFile" text="$t('settings.invalidFile')"></toast-message>
+    </div>
   </div>
 </template>
 
@@ -286,6 +286,10 @@ export default {
       });
     },
     exportData: function () {
+      let configModal = Modal.getInstance(document.getElementById("configModal"));
+      configModal.hide();
+      let exportingModal = new Modal(document.getElementById("exportingModal"), { backdrop: "static" });
+      exportingModal.show();
       exportTool.export();
     },
     importData: function (event) {

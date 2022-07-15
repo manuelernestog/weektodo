@@ -1,6 +1,6 @@
 import storageRepository from "../repositories/storageRepository";
 import dbRepository from "../repositories/dbRepository";
-import { Toast } from "bootstrap";
+import { Toast, Modal } from "bootstrap";
 import migrations from "../migrations/migrations";
 import isElectron from "is-electron";
 
@@ -105,6 +105,10 @@ function createExportLink(filename, fileBody) {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
+  setTimeout(function () {
+    let exportingModal = Modal.getInstance(document.getElementById("exportingModal"));
+    exportingModal.hide();
+  },1000);
 }
 
 function readFile(files) {

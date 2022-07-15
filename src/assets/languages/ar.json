@@ -29,7 +29,8 @@
     "runInBackground": "تشغيل في الخلفية",
     "runInBackgroundInfo": "يسمح للإخطارات بالعمل مع التطبيق مغلق.\n \nقد يحتوي هذا الخيار على مشكلات في بعض إصدارات macOS.",
     "importing": "استيراد ...",
-    "darkTrayIcon": "أيقونة صينية داكنة"
+    "darkTrayIcon": "أيقونة صينية داكنة",
+    "exporting": "تصدير ..."
   },
   "donate": {
     "contribute": "ساهِم",

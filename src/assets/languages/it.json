@@ -29,7 +29,8 @@
     "runInBackground": "Esegui in background",
     "runInBackgroundInfo": "Consente alle notifiche di funzionare con l'app chiusa.\n \nQuesta opzione potrebbe presentare problemi per alcune versioni di macOS.",
     "importing": "Importazione...",
-    "darkTrayIcon": "Icona del vassoio scuro"
+    "darkTrayIcon": "Icona del vassoio scuro",
+    "exporting": "Esportazione..."
   },
   "donate": {
     "contribute": "Contribuisci",

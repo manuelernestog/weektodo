@@ -29,7 +29,8 @@
     "runInBackground": "Executado em segundo plano",
     "runInBackgroundInfo": "Permite que as notificações funcionem com o aplicativo fechado.\n \nEsta opção pode ter problemas para algumas versões do macOS.",
     "importing": "Importando...",
-    "darkTrayIcon": "Ícone de bandeja escura"
+    "darkTrayIcon": "Ícone de bandeja escura",
+    "exporting": "Exportador..."
   },
   "donate": {
     "contribute": "Contribuir",

@@ -59,7 +59,9 @@
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
       <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
-      <importing-modal></importing-modal>
+      <importing-modal :id="'importingModal'" :text="$t('settings.importing')"></importing-modal>
+      <importing-modal :id="'exportingModal'" :text="$t('settings.exporting')"></importing-modal>
+
       <reorder-custom-lists-modal @reset-custom-list="resetCustomList"></reorder-custom-lists-modal>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">

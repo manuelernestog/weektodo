@@ -29,7 +29,8 @@
     "runInBackground": "バックグラウンドで実行",
     "runInBackgroundInfo": "アプリを閉じた状態で通知を機能させる。\n \nこのオプションは、一部のmacOSバージョンで問題が発生する可能性があります。",
     "importing": "インポート中...",
-    "darkTrayIcon": "ダークトレイアイコン"
+    "darkTrayIcon": "ダークトレイアイコン",
+    "exporting": "エクスポート中..."
   },
   "donate": {
     "contribute": "コントリビューション",

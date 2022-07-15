@@ -29,7 +29,8 @@
     "runInBackground": "Arka planda çalıştır",
     "runInBackgroundInfo": "Bildirimlerin uygulama kapalıyken çalışmasına izin verir.\n \nBu seçeneğin bazı macOS sürümlerinde sorunları olabilir.",
     "importing": "İçe aktarılıyor...",
-    "darkTrayIcon": "Karanlık Tepsi Simgesi"
+    "darkTrayIcon": "Karanlık Tepsi Simgesi",
+    "exporting": "Dışa aktarılıyor..."
   },
   "donate": {
     "contribute": "Katkıda bulun",

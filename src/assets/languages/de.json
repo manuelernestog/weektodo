@@ -29,7 +29,8 @@
     "runInBackground": "Im Hintergrund laufen",
     "runInBackgroundInfo": "Ermöglicht Benachrichtigungen bei geschlossener App.\n \nDiese Option kann bei einigen macOS-Versionen zu Problemen führen.",
     "importing": "Importieren...",
-    "darkTrayIcon": "Dunkles Tray-Icon"
+    "darkTrayIcon": "Dunkles Tray-Icon",
+    "exporting": "Exportieren..."
   },
   "donate": {
     "contribute": "Beitragen",

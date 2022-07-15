@@ -90,7 +90,8 @@
     "runInBackground": "Uruchom w tle",
     "runInBackgroundInfo": "Zezwala na działanie powiadomień przy zamkniętej aplikacji.\n \nTa opcja może powodować problemy w niektórych wersjach systemu macOS.",
     "importing": "Importowanie...",
-    "darkTrayIcon": "Ikona ciemnej tacy"
+    "darkTrayIcon": "Ikona ciemnej tacy",
+    "exporting": "Eksportowanie..."
   },
   "tips": {
     "back": "Poprzednia wskazówka",

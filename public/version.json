@@ -10,7 +10,8 @@
         "Changing Dynamically Tray menu language",
         "New setting for change Tray icon color",
         "Adding blurn effect to windows backgorund",
-        "Fixing problem with initial version notifications"
+        "Fixing problem with initial version notifications",
+        "Adding exporting message"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",
