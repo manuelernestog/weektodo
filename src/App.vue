@@ -53,7 +53,6 @@
       <clear-data-modal></clear-data-modal>
       <clear-list-modal></clear-list-modal>
       <about-modal></about-modal>
-      <redirect-domain-modal></redirect-domain-modal>
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
@@ -96,7 +95,6 @@ import donateModal from "./views/donateModal";
 import welcomeModal from "./views/welcomeModal";
 import toDoModal from "./views/toDoModal/toDoModal";
 import tipsModal from "./views/tipsModal";
-import redirectDomainModal from "./views/redirectDomainModal";
 import { Modal, Toast } from "bootstrap";
 import updateChecker from "./components/updateChecker";
 import migrations from "./migrations/migrations";
@@ -127,7 +125,6 @@ export default {
     tipsModal,
     updateChecker,
     toDoModal,
-    redirectDomainModal,
     clearDataModal,
     RecurrentEventsModal,
     importingModal,
@@ -270,10 +267,6 @@ export default {
       this.checksOnLoadApp();
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
-      } else {
-        if (window.location.hostname.includes("netlify.app")) {
-          this.showRedirectDomainModal();
-        }
       }
     },
     showWelcomeModal: function () {
@@ -283,10 +276,6 @@ export default {
       modal.show();
       this.$store.commit("updateConfig", { val: false, key: "firstTimeOpen" });
       configRepository.update(this.$store.getters.config);
-    },
-    showRedirectDomainModal: function () {
-      let modal = new Modal(document.getElementById("RedirectDomainModal"));
-      modal.show();
     },
     compatible: function () {
       return window.IndexedDB;
