@@ -8,21 +8,16 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6 px-4 my-3" style="text-align: justify; line-height: 23px;">
+            <div  style="text-align: justify; line-height: 21px;">
               {{ $t("donate.supportMessage1") }}
               <br><br>
               {{ $t("donate.supportMessage2") }}
             </div>
-            <div class="col-md-6">
+            <div >
               <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
                 <li class="nav-item" role="presentation">
                   <button class="nav-link active" id="homeTab" data-bs-toggle="tab" data-bs-target="#donate-home"
                     role="tab">Home
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="rateTab" data-bs-toggle="tab" data-bs-target="#donate-rate"
-                    role="tab">Rate
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -34,14 +29,6 @@
               <div class="tab-content mt-0" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="donate-home">
                   <link-list :linkList="donateList"></link-list>
-                </div>
-                <div class="tab-pane fade" id="donate-rate">
-                  <div class="d-flex flex-column mt-3 h-100 ">
-                    <link-list :linkList="rateList"></link-list>
-                    <button class="btn mt-auto" type="button" @click="goHome">
-                      <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
-                    </button>
-                  </div>
                 </div>
                 <div class="tab-pane fade" id="donate-share">
                   <div class="d-flex flex-column mt-3 h-100 ">
@@ -69,11 +56,6 @@ export default {
   components: {
     linkList
   },
-  data() {
-    return {
-      rateList: donateLists.rateList(),
-    }
-  },
   methods: {
     sendEmail: function () {
       window.location = "mailto:week2do@gmail.com";
@@ -95,7 +77,7 @@ export default {
 
 <style scoped>
 .modal-dialog {
-  max-width: 700px;
+  max-width: 400px;
 }
 
 #nav-tabContent {

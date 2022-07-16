@@ -8,7 +8,7 @@ export default {
                 link: "https://support.weektodo.me"
             },
             {name: vue.$t('donate.shareWithFriends'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
-            {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
+            {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "external", link: 'https://alternativeto.net/software/weektodo/about/'},
             {
                 name: vue.$t('donate.translate'),
                 color: "#676767",       
@@ -16,28 +16,6 @@ export default {
                 linktype: "external",
                 link: "https://github.com/Zuntek/WeekToDoWeb#translations"
             }
-        ]
-    },
-    rateList() {
-        return [
-            {
-                name: "AlternativeTo",
-                img: "icons/alternativeto.png",
-                linktype: "external",
-                link: "https://alternativeto.net/software/weektodo/about/"
-            },
-            {
-                name: "ProductHunt",
-                img: "icons/product-hunt.svg",
-                linktype: "external",
-                link: "https://www.producthunt.com/posts/weektodo"
-            },
-            {
-                name: "SaaSHub",
-                img: "icons/SaaSHub.png",
-                linktype: "external",
-                link: "https://www.saashub.com/weektodo-reviews/new"
-            },
         ]
     },
     shareList(vue) {

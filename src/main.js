@@ -24,6 +24,7 @@ import './assets/style/uiComponents.scss'
 const honeyBadgerConfig = {
     apiKey: 'hbp_tN8ddzEROj1wHJa7cqfyOoHuQi7it723jzef',
     environment: 'production',
+    reportData: false,
     developmentEnvironments: ['dev', 'development', 'test']
 }
 
