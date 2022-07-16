@@ -46,6 +46,11 @@
             visibility: cTodoList.length > columns ? 'visible' : 'hidden',
           }"></i>
         </div>
+
+        <div v-show="!showCustomList && !showCalendar" style="margin: auto">
+          <img v-if="darkTheme" src="img/WeektodoDarkLogo.webp">
+          <img v-else src="img/WeektodoLightLogo.webp">
+        </div>
       </div>
 
       <remove-custom-list></remove-custom-list>
