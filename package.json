@@ -26,6 +26,8 @@
   "main": "background.js",
   "repository": "https://github.com/Zuntek/WeekToDoWeb",
   "dependencies": {
+    "@honeybadger-io/js": "^4.0.3",
+    "@honeybadger-io/vue": "^3.2.1",
     "@popperjs/core": "^2.11.0",
     "auto-launch": "^5.0.5",
     "axios": "^0.21.4",

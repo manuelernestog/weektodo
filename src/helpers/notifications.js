@@ -10,6 +10,11 @@ export default {
       clearTimeout(notification);
     });
     var notificationsList = [];
+
+    vue.$honeybadger.setContext({
+      todoListId: todoListId
+    });
+
     todoList.forEach((todo) => {
       if (todo.alarm && !todo.checked && moment(todo.time, "HH:mm") >= moment()) {
         notificationsList.push(this.createNotificationAlert(todo.time, todo.text, notificationSound));
