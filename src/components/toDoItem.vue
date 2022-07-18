@@ -26,9 +26,10 @@
           <ul class="sub-tasks">
             <li v-for="(subTask, index) in toDo.subTaskList" :key="index" class="sub-task">
               <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
-                <input class="form-check-input" type="checkbox" v-model="subTask.checked" />
+                <input class="form-check-input" type="checkbox" v-model="subTask.checked"
+                  @change="checkSubTask(subTask, index, $event)" />
                 <label class="form-check-label" @click="checkSubTask(subTask, index, $event)">
-                 <span v-html="linkifyText(subTask.text)"></span>
+                  <span v-html="linkifyText(subTask.text)"></span>
                 </label>
               </div>
             </li>
@@ -134,9 +135,10 @@ export default {
       this.todoDragHover = false;
     },
     checkSubTask: function (subTask, index, e) {
-       if (e.target.href) return;
+      if (e.target.href) return;
 
-      subTask.checked = !subTask.checked;
+      if (!e.target.value) subTask.checked = !subTask.checked;
+
       var todoList = this.toDo.subTaskList;
       if (subTask.checked) { todoList.push(todoList.splice(index, 1)[0]); }
       toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);

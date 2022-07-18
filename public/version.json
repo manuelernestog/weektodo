@@ -14,7 +14,8 @@
         "Adding exporting message",
         "Fixing importing tool for native options dynamically",
         "Adding bg imagen when no option selected in main view",
-        "Adding clickeable links for task texts"
+        "Adding clickeable links for task texts",
+        "Fixing bug in subtask reorder in main view"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",
