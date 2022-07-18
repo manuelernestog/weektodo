@@ -12,7 +12,7 @@
               'bi-circle-fill': !toDo.checked,
             }"></i>
             <i v-else class="cicle-icon" :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></i>
-            {{ toDo.text }}
+            <span v-html="todoText"></span>
             <span class="time-details"> {{ timeFormat(toDo.time) }}</span>
           </span>
           <span class="item-time" :class="{ 'checked-todo': toDo.checked }" @dblclick="editToDo" @click="checkToDo">
@@ -27,7 +27,9 @@
             <li v-for="(subTask, index) in toDo.subTaskList" :key="index" class="sub-task">
               <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
                 <input class="form-check-input" type="checkbox" v-model="subTask.checked" />
-                <label class="form-check-label" @click="checkSubTask(subTask, index)">{{ subTask.text }}</label>
+                <label class="form-check-label" @click="checkSubTask(subTask, index, $event)">
+                 <span v-html="linkifyText(subTask.text)"></span>
+                </label>
               </div>
             </li>
           </ul>
@@ -45,6 +47,7 @@ import { Modal, Toast } from "bootstrap";
 import moment from "moment";
 import notifications from "../helpers/notifications";
 import mainHelpers from "../helpers/mainHelpers";
+import linkifyStr from 'linkify-string';
 
 export default {
   components: {},
@@ -59,6 +62,7 @@ export default {
       text: this.toDo.text,
       todoDragHover: false,
       todoDragging: false,
+      options: { target: '_blank', defaultProtocol: 'https' }
     };
   },
   methods: {
@@ -101,7 +105,9 @@ export default {
       let modal = new Modal(modalEl, { keyboard: false });
       modal.show();
     },
-    checkTodoClickhandler: function () {
+    checkTodoClickhandler: function (e) {
+      if (e.target.href) return;
+
       this.$store.commit("checkTodo", { toDoListId: this.toDoListId, index: this.index, });
       mainHelpers.click_handler(this, this.checkToDo);
     },
@@ -127,7 +133,9 @@ export default {
     onDragleave: function () {
       this.todoDragHover = false;
     },
-    checkSubTask: function (subTask, index) {
+    checkSubTask: function (subTask, index, e) {
+       if (e.target.href) return;
+
       subTask.checked = !subTask.checked;
       var todoList = this.toDo.subTaskList;
       if (subTask.checked) { todoList.push(todoList.splice(index, 1)[0]); }
@@ -138,7 +146,15 @@ export default {
         return moment(date, "HH:mm").format("hh:mm a");
       }
     },
+    linkifyText: function (text) {
+      return linkifyStr(text, this.options);
+    }
   },
+  computed: {
+    todoText: function () {
+      return linkifyStr(this.toDo.text, this.options);
+    }
+  }
 };
 </script>
 

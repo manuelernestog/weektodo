@@ -95,7 +95,7 @@
             <div class="title-container">
               <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
                 :class="{ 'completed-task': todo.checked }" @dblclick="editTitle">
-                {{ todo.text }}
+                <span v-html="todoText"></span>
               </label>
               <label v-show="!editingTitle && todo.text == ''"
                 class="form-check-label todo-title todo-title-empty-title" for="todo-header" @dblclick="editTitle">
@@ -130,7 +130,9 @@
                     :id="'sub-task-' + index" @change="changeSubTaskClickhandler(index)" />
                   <label class="form-check-label" :for="'sub-task-' + index" @dblclick="editSubTask(index)"
                     @dragenter.self="onDragenter($event)" @dragleave.self="onDragleave($event)"
-                    @drop="onDrop($event, index)" @dragover.prevent>{{ subTask.text }}</label>
+                    @drop="onDrop($event, index)" @dragover.prevent>
+                     <span v-html="linkifyText(subTask.text)"></span>
+                  </label>
                   <i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeSubTask(index)"></i>
                 </div>
               </div>
@@ -180,6 +182,7 @@ import languageHelper from "../../helpers/languageHelper.js"
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
 import mainHelpers from "../../helpers/mainHelpers";
 import comfirmModal from "../../components/comfirmModal.vue";
+import linkifyStr from 'linkify-string';
 
 export default {
   name: "toDoModal",
@@ -204,8 +207,9 @@ export default {
       tempSubTask: "",
       editingTitle: false,
       showingCalendar: true,
-      loadingView: false
-    };
+      loadingView: false,
+      options: { target: '_blank', defaultProtocol: 'https' }
+    }
   },
   props: {
     selectedTodo: { required: true, type: Object },
@@ -476,6 +480,9 @@ export default {
         this.todo.subTaskList.push(this.todo.subTaskList.splice(index, 1)[0]);
       }
       this.updateTodo();
+    },
+    linkifyText: function (text) {
+      return linkifyStr(text, this.options);
     }
   },
   watch: {
@@ -538,6 +545,9 @@ export default {
     showCal: function () {
       return this.$store.getters.config.calendar;
     },
+    todoText: function () {
+      return linkifyStr(this.todo.text, this.options);
+    }
   },
 };
 </script>
@@ -675,10 +685,6 @@ export default {
       padding: 10px 5px 10px 0px;
       min-height: 38px;
       height: auto;
-
-      * {
-        pointer-events: none;
-      }
     }
 
     .form-check-input {
