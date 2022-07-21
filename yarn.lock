@@ -1121,6 +1121,11 @@
     lodash "^4.17.15"
     tmp-promise "^3.0.2"
 
+"@manuelernestog/click-handler@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@manuelernestog/click-handler/-/click-handler-1.4.0.tgz#1e349c0bee757df62256618df7ad31b2535b03af"
+  integrity sha512-qZhNoxckcD5tCkTgwTmZUWbZw9Bi8tIb+3fz7cKP0YLXMuYSvn0b5r0tgbZkiZKnWQg6Jttnb+5uNiFgHR/71w==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

@@ -128,10 +128,9 @@
                 <div class="d-flex flex-row align-items-center" :class="{ checked: subTask.checked }">
                   <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
                     :id="'sub-task-' + index" @change="changeSubTaskClickhandler(index)" />
-                  <label class="form-check-label" :for="'sub-task-' + index" @dblclick="editSubTask(index)"
-                    @dragenter.self="onDragenter($event)" @dragleave.self="onDragleave($event)"
-                    @drop="onDrop($event, index)" @dragover.prevent>
-                     <span v-html="linkifyText(subTask.text)"></span>
+                  <label class="form-check-label" :for="'sub-task-' + index" @dragenter.self="onDragenter($event)"
+                    @dragleave.self="onDragleave($event)" @drop="onDrop($event, index)" @dragover.prevent>
+                    <span v-html="linkifyText(subTask.text)"></span>
                   </label>
                   <i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeSubTask(index)"></i>
                 </div>
@@ -180,9 +179,9 @@ import notifications from "../../helpers/notifications";
 import repeatingEventHelper from "../../helpers/repeatingEvents.js";
 import languageHelper from "../../helpers/languageHelper.js"
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
-import mainHelpers from "../../helpers/mainHelpers";
 import comfirmModal from "../../components/comfirmModal.vue";
 import linkifyStr from 'linkify-string';
+import ClickHandler from "@manuelernestog/click-handler";
 
 export default {
   name: "toDoModal",
@@ -208,7 +207,8 @@ export default {
       editingTitle: false,
       showingCalendar: true,
       loadingView: false,
-      options: { target: '_blank', defaultProtocol: 'https' }
+      options: { target: '_blank', defaultProtocol: 'https' },
+      clickhandler: new ClickHandler()
     }
   },
   props: {
@@ -311,7 +311,7 @@ export default {
       document.getElementById("todo-date-picker-input").focus();
     },
     checkTodoClickhandler: function (resetRepeatinEvent = true) {
-      mainHelpers.click_handler(this, function () { this.checkTodo(resetRepeatinEvent) }.bind(this));
+      this.clickhandler.handle(function () { this.checkTodo(resetRepeatinEvent) }.bind(this), function () { })
     },
     checkTodo: function (resetRepeatinEvent = true) {
       if (this.todo.checked) {
@@ -473,7 +473,7 @@ export default {
       this.updateTodo(false);
     },
     changeSubTaskClickhandler: function (index) {
-      mainHelpers.click_handler(this, function () { this.changeSubTask(index) }.bind(this));
+      this.clickhandler.handle(function () { this.changeSubTask(index) }.bind(this), function () { this.editSubTask(index) }.bind(this),index);
     },
     changeSubTask: function (index) {
       if (this.todo.subTaskList[index].checked) {

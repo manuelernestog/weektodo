@@ -6,7 +6,7 @@
         @dragstart="startDrag($event, toDo, index)" @dragend="endDrag()">
         <div class="d-flex">
           <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1"
-            @dblclick="editToDo" @click="checkTodoClickhandler" @click.middle="showToDoDetails">
+            @click="checkTodoClickhandler" @click.middle="showToDoDetails">
             <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
               'bi-check-circle-fill': toDo.checked,
               'bi-circle-fill': !toDo.checked,
@@ -47,8 +47,8 @@ import toDoListRepository from "../repositories/toDoListRepository";
 import { Modal, Toast } from "bootstrap";
 import moment from "moment";
 import notifications from "../helpers/notifications";
-import mainHelpers from "../helpers/mainHelpers";
 import linkifyStr from 'linkify-string';
+import ClickHandler from "@manuelernestog/click-handler";
 
 export default {
   components: {},
@@ -63,7 +63,8 @@ export default {
       text: this.toDo.text,
       todoDragHover: false,
       todoDragging: false,
-      options: { target: '_blank', defaultProtocol: 'https' }
+      options: { target: '_blank', defaultProtocol: 'https' },
+      clickhandler: new ClickHandler()
     };
   },
   methods: {
@@ -110,7 +111,7 @@ export default {
       if (e.target.href) return;
 
       this.$store.commit("checkTodo", { toDoListId: this.toDoListId, index: this.index, });
-      mainHelpers.click_handler(this, this.checkToDo);
+      this.clickhandler.handle(this.checkToDo, this.editToDo);
     },
     checkToDo: function () {
       if (this.$store.getters.todoLists[this.toDoListId][this.index].checked) {
