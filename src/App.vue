@@ -1,6 +1,6 @@
 <template>
   <input class="hidden-input-for-focus" type="text" />
-  <div v-show="compatible" class="app-container" :class="{ 'dark-theme': darkTheme }">
+  <div v-show="compatible" id="app-container" class="app-container" :class="{ 'dark-theme': darkTheme }">
     <div class="hidden-mobile app-body" :style="{ zoom: `${zoom}%` }">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>

@@ -1,43 +1,56 @@
 <template>
   <div class="item-drop-zone" @dragenter.self="onDragenter" @dragleave.self="onDragleave" @drop="onDragleave"
-    :class="[{ 'drag-hover': todoDragHover }, { dragging: todoDragging }]">
-    <div class="todo-item-container">
-      <div v-if="!editing" class="todo-item d-flex flex-column" ref="currentTodo" draggable="true"
-        @dragstart="startDrag($event, toDo, index)" @dragend="endDrag()">
+    :class="[{ 'drag-hover': todoDragHover }]">
+    <div class="todo-item-container" ref="itemContainer">
+      <div v-if="!editing" class="inline-todo-item d-flex flex-column" @mouseenter="showToDoItem">
         <div class="d-flex">
-          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1"
-            @click="checkTodoClickhandler" @click.middle="showToDoDetails">
-            <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
+          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1">
+            <span v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
               'bi-check-circle-fill': toDo.checked,
               'bi-circle-fill': !toDo.checked,
-            }"></i>
-            <i v-else class="cicle-icon" :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></i>
+            }"></span>
+            <span v-else class="cicle-icon"
+              :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></span>
             <span v-html="todoText"></span>
-            <span class="time-details"> {{ timeFormat(toDo.time) }}</span>
           </span>
-          <span class="item-time" :class="{ 'checked-todo': toDo.checked }" @dblclick="editToDo" @click="checkToDo">
-            {{ timeFormat(toDo.time) }}
-          </span>
-          <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
-          <i class="bi-x todo-item-remove" @click="removeTodo"></i>
-        </div>
-
-        <div class="todo-item-sub-tasks">
-          <ul class="sub-tasks">
-            <li v-for="(subTask, index) in toDo.subTaskList" :key="index" class="sub-task">
-              <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
-                <input class="form-check-input" type="checkbox" v-model="subTask.checked"
-                  @change="checkSubTask(subTask, index, $event)" />
-                <label class="form-check-label" @click="checkSubTask(subTask, index, $event)">
-                  <span v-html="linkifyText(subTask.text)"></span>
-                </label>
-              </div>
-            </li>
-          </ul>
+          <span class="item-time" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time) }} </span>
         </div>
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
         @keyup.enter="doneEdit()" @keyup.esc="cancelEdit()" />
+    </div>
+  </div>
+
+  <div v-if="!editing" class="todo-item" ref="currentTodo" draggable="true" @dragstart="startDrag($event, toDo, index)"
+    @dragend="endDrag()" @wheel="movingWheel" :class="{ 'dragging': todoDragging }">
+    <div class="d-flex">
+      <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1"
+        @dblclick="editToDo" @click="checkTodoClickhandler" @click.middle="showToDoDetails">
+        <span v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
+          'bi-check-circle-fill': toDo.checked,
+          'bi-circle-fill': !toDo.checked,
+        }"></span>
+        <span v-else class="cicle-icon"
+          :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></span>
+        <span v-html="todoText"></span>
+        <span class="time-details"> {{ timeFormat(toDo.time) }}</span>
+      </span>
+      <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
+      <i class="bi-x todo-item-remove" @click="removeTodo"></i>
+    </div>
+
+    <div class="todo-item-sub-tasks">
+      <ul class="sub-tasks">
+        <li v-for="(subTask, index) in toDo.subTaskList" :key="index" class="sub-task">
+          <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
+            <input class="form-check-input" type="checkbox" v-model="subTask.checked"
+              @change="checkSubTask(subTask, index, $event)" />
+            <label class="form-check-label" @click="checkSubTask(subTask, index, $event)">
+              <span v-html="linkifyText(subTask.text)"></span>
+            </label>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -124,10 +137,14 @@ export default {
       event.dataTransfer.effectAllowed = "move";
       event.dataTransfer.setData("item", JSON.stringify(item));
       event.dataTransfer.setData("index", index);
-      this.todoDragging = true;
+      event.dataTransfer.setDragImage(this.$refs.itemContainer, 0, 0);
+      setTimeout(() => {this.todoDragging = true;}, 30);
+      
+      document.getElementById("app-container").classList.add("dragging-item");
     },
     endDrag: function () {
       this.todoDragging = false;
+      document.getElementById("app-container").classList.remove("dragging-item");
     },
     onDragenter: function () {
       this.todoDragHover = true;
@@ -151,6 +168,21 @@ export default {
     },
     linkifyText: function (text) {
       return linkifyStr(text, this.options);
+    },
+    showToDoItem: function () {
+      const bounding = this.$refs.itemContainer.getBoundingClientRect()
+      this.$refs.currentTodo.style.width = `${bounding.width}px`;
+      this.$refs.currentTodo.style.top = `${bounding.y}px`;
+      this.$refs.currentTodo.style.left = `${bounding.x}px`;
+      this.$refs.currentTodo.style.display = `block`;
+      const margin_bottom = 10;
+      var offset = parseInt(window.innerHeight) - (parseInt(bounding.y) + parseInt(this.$refs.currentTodo.offsetHeight)) - margin_bottom;
+      if (offset < 0) this.$refs.currentTodo.style.top = `${bounding.y + offset}px`;
+      setTimeout(() => this.$refs.currentTodo.style.display = null, 30);
+    },
+    movingWheel() {
+      console.log();
+      this.$refs.currentTodo.style.display = `none`;
     }
   },
   computed: {
@@ -166,22 +198,55 @@ export default {
   border-bottom: 1px solid #eaecef;
   height: 26px;
   z-index: 1;
+
+  .dark-theme & {
+    border-bottom: 1px solid #30363d;
+  }
 }
 
-.dark-theme .todo-item-container {
-  border-bottom: 1px solid #30363d;
+.dragging-item .item-drop-zone * {
+  pointer-events: none;
 }
+
+// .no-pointer-event *,
+// .no-pointer-event {
+//   pointer-events: none !important;
+// }
 
 .todo-item {
-  transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
-}
-
-.todo-item-sub-tasks {
+  background-color: #ffffff;
+  color: #1e1e1e;
+  border-radius: 7px;
+  position: relative;
+  // transition: all 0.4s cubic-bezier(0.2, 1, 0.1, 1) 0s;
+  box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
+  z-index: 6;
+  position: absolute;
   display: none;
-}
 
-.todo-item:hover {
-  z-index: 5;
+  &:hover {
+    display: block;
+  }
+
+  * {
+    pointer-events: all;
+  }
+
+  .dark-theme & {
+    box-shadow: 0 0px 0 1px #4c4c4c;
+    background-color: #21262d;
+    color: #f7f7f7;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .item-text {
+    white-space: unset;
+    word-break: normal;
+    height: unset;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    z-index: 1;
+  }
 }
 
 .todo-input {
@@ -189,27 +254,10 @@ export default {
   width: 100%;
   border: none;
   font-size: 0.865rem;
-}
 
-.todo-input:focus {
-  outline: none;
-}
-
-.todo-item:hover .todo-item-sub-tasks {
-  display: flex !important;
-}
-
-.tags {
-  display: none;
-}
-
-.todo-item:hover .tags {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.dark-theme .todo-item:hover {
-  box-shadow: 0 0px 0 1px #4c4c4c;
+  &:focus {
+    outline: none;
+  }
 }
 
 .item-text {
@@ -223,16 +271,6 @@ export default {
   font-size: 0.865rem;
   margin: 2px 0px 2px 0px;
   padding: 0 3px 0 7px;
-}
-
-.todo-item:hover .item-text {
-  white-space: unset;
-  word-break: normal;
-  height: unset;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  z-index: 1;
-  /*padding-bottom: 5px;*/
 }
 
 .item-time {
@@ -251,35 +289,16 @@ export default {
 
 .time-details {
   opacity: 0.6;
-  display: none;
+  display: inline;
+  margin-left: 5px;
 }
 
 .todo-item.checked-todo .time-details {
   opacity: unset;
 }
 
-.todo-item:hover .time-details {
-  display: inline;
-}
-
 .todo-item:hover .item-time {
   display: none;
-  /*padding-bottom: 5px;*/
-}
-
-.todo-item:hover {
-  background-color: #ffffff;
-  color: #1e1e1e;
-  border-radius: 7px;
-  position: relative;
-  transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
-}
-
-.dark-theme .todo-item:hover {
-  background-color: #21262d;
-  color: #f7f7f7;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 .checked-todo {
@@ -321,7 +340,6 @@ export default {
 }
 
 .todo-item-remove {
-  display: none;
   font-size: 1.3rem;
   cursor: pointer;
   margin-top: 1px;
@@ -333,7 +351,6 @@ export default {
 }
 
 .todo-item-menu {
-  display: none;
   font-size: 1rem;
   cursor: pointer;
   margin-top: 3px;
@@ -364,13 +381,7 @@ export default {
   color: white;
 }
 
-.item-drop-zone * {
-  pointer-events: none;
-}
 
-.item-drop-zone:hover * {
-  pointer-events: unset;
-}
 
 .drag-hover {
   color: rgba(157, 157, 157, 0.43);
@@ -384,20 +395,8 @@ export default {
   background-color: #0c0d14;
 }
 
-.dragging .todo-item .item-text {
-  height: 1.2rem;
-}
-
-.dark-theme .dragging .todo-item {
-  border-radius: 0px;
-}
-
-.dragging .sub-tasks {
-  display: none;
-}
-
-.dragging .time-details {
-  display: none !important;
+.dragging.todo-item {
+ display: none;
 }
 
 .sub-tasks {
@@ -431,10 +430,6 @@ export default {
   }
 }
 
-.tags {
-  margin: 2px 10px 2px 10px;
-}
-
 .cicle-icon {
   font-size: 10px;
   margin-right: 5px;
@@ -443,19 +438,5 @@ export default {
 .bi-check-circle-fill,
 .bi-check-circle {
   opacity: 0.7;
-}
-
-.tag-item {
-  background-color: #e1ecf4;
-  color: #39739d;
-  border-radius: 3px;
-  font-size: 13px;
-  padding: 4px 6px 4px 6px;
-  margin-right: 5px;
-  margin: 2px 5px 2px 0px;
-
-  span {
-    margin-left: 4px;
-  }
 }
 </style>
