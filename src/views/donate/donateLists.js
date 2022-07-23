@@ -21,13 +21,6 @@ export default {
     shareList(vue) {
         return [
             {
-                name: "Facebook",
-                ico: "bi-facebook",
-                color: "#4b6cad",
-                linktype: "external",
-                link: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.me%2F"
-            },
-            {
                 name: "Twitter",
                 ico: "bi-twitter",
                 color: "#3eafda",
@@ -35,11 +28,11 @@ export default {
                 link: "https://twitter.com/intent/tweet?text=".concat('',vue.$t('donate.shareMessage'),"  https://weektodo.me")
             },
             {
-                name: "Linkedin",
-                ico: "bi-linkedin",
-                color: "#1a77af",
+                name: "Facebook",
+                ico: "bi-facebook",
+                color: "#4b6cad",
                 linktype: "external",
-                link: "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fweektodo.me"
+                link: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.me%2F"
             },
             {
                 name: "Reddit",
