@@ -22,7 +22,7 @@
   </div>
 
   <div v-if="!editing" class="todo-item" ref="currentTodo" draggable="true" @dragstart="startDrag($event, toDo, index)"
-    @dragend="endDrag()" @wheel="movingWheel" :class="{ 'dragging': todoDragging }">
+    @dragend="endDrag()" @wheel="movingWheel" :class="{ 'dragging': todoDragging }" @mouseleave="hideToDoItem">
     <div class="d-flex">
       <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1"
         @dblclick="editToDo" @click="checkTodoClickhandler" @click.middle="showToDoDetails">
@@ -77,7 +77,8 @@ export default {
       todoDragHover: false,
       todoDragging: false,
       options: { target: '_blank', defaultProtocol: 'https' },
-      clickhandler: new ClickHandler()
+      clickhandler: new ClickHandler(),
+      scrollingTimeOut: null
     };
   },
   methods: {
@@ -138,9 +139,12 @@ export default {
       event.dataTransfer.setData("item", JSON.stringify(item));
       event.dataTransfer.setData("index", index);
       event.dataTransfer.setDragImage(this.$refs.itemContainer, 0, 0);
-      setTimeout(() => {this.todoDragging = true;}, 30);
-      
+      setTimeout(() => {
+        this.$refs.currentTodo.style.display = `none`;
+        this.todoDragging = true;
+      }, 40);
       document.getElementById("app-container").classList.add("dragging-item");
+
     },
     endDrag: function () {
       this.todoDragging = false;
@@ -178,11 +182,26 @@ export default {
       const margin_bottom = 10;
       var offset = parseInt(window.innerHeight) - (parseInt(bounding.y) + parseInt(this.$refs.currentTodo.offsetHeight)) - margin_bottom;
       if (offset < 0) this.$refs.currentTodo.style.top = `${bounding.y + offset}px`;
-      setTimeout(() => this.$refs.currentTodo.style.display = null, 30);
+    },
+    hideToDoItem: function () {
+      this.$refs.currentTodo.style.display = `none`;
     },
     movingWheel() {
-      console.log();
-      this.$refs.currentTodo.style.display = `none`;
+      this.$refs.currentTodo.classList.add("scrolling");
+      document.getElementById("app-container").classList.add("scrolling");
+
+      if (this.scrollingTimeOut != null) return;
+
+      this.scrollingTimeOut = setTimeout(() => {
+        this.scrollingTimeOut = null;
+        this.$refs.currentTodo.style.display = `none`;
+        const bounding = this.$refs.itemContainer.getBoundingClientRect()
+        this.$refs.currentTodo.style.width = `${bounding.width}px`;
+        this.$refs.currentTodo.style.top = `${bounding.y}px`;
+        this.$refs.currentTodo.style.left = `${bounding.x}px`;
+        this.$refs.currentTodo.classList.remove("scrolling");
+        document.getElementById("app-container").classList.remove("scrolling");
+      }, 300);
     }
   },
   computed: {
@@ -208,17 +227,11 @@ export default {
   pointer-events: none;
 }
 
-// .no-pointer-event *,
-// .no-pointer-event {
-//   pointer-events: none !important;
-// }
-
 .todo-item {
   background-color: #ffffff;
   color: #1e1e1e;
   border-radius: 7px;
   position: relative;
-  // transition: all 0.4s cubic-bezier(0.2, 1, 0.1, 1) 0s;
   box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
   z-index: 6;
   position: absolute;
@@ -229,6 +242,7 @@ export default {
   }
 
   * {
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.1, 1) 0s;
     pointer-events: all;
   }
 
@@ -247,6 +261,14 @@ export default {
     word-wrap: break-word;
     z-index: 1;
   }
+}
+
+#app-container.scrolling {
+  pointer-events: none;
+}
+
+.todo-item.scrolling {
+  display: none !important;
 }
 
 .todo-input {
@@ -396,7 +418,7 @@ export default {
 }
 
 .dragging.todo-item {
- display: none;
+  display: none;
 }
 
 .sub-tasks {
