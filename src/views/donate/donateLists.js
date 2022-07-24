@@ -10,11 +10,11 @@ export default {
             {name: vue.$t('donate.shareWithFriends'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
             {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "external", link: 'https://alternativeto.net/software/weektodo/about/'},
             {
-                name: vue.$t('donate.translate'),
+                name: vue.$t('donate.comment'),
                 color: "#676767",       
-                ico: "bi-globe",
-                linktype: "external",
-                link: "https://github.com/Zuntek/WeekToDoWeb#translations"
+                ico: "bi-chat-square-text",
+                linktype: "email",
+                link: "mailto:contact@weektodo.me"
             }
         ]
     },

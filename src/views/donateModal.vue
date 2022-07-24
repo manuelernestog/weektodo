@@ -63,9 +63,6 @@ export default {
     linkList
   },
   methods: {
-    sendEmail: function () {
-      window.location = "mailto:week2do@gmail.com";
-    },
     goHome: function () {
       document.getElementById("homeTab").click()
     },

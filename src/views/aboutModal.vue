@@ -30,7 +30,7 @@
                 class="bi-twitter mx-2"></i></a>
               <!-- <a href="https://github.com/Zuntek/WeekToDoWeb" target="_blank" title="Github"> <i
                 class="bi-github mx-2"></i></a> -->
-              <a href="mailto:week2do@gmail.com"> <i class="bi-envelope mx-2" :title="$t('about.email')"></i></a>
+              <a href="mailto:contact@weektodo.me"> <i class="bi-envelope mx-2" :title="$t('about.email')"></i></a>
             </div>
           </div>
           <div class="horizontal-divider mt-3 mb-3"></div>
