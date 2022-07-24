@@ -338,15 +338,15 @@ i {
   opacity: 60%;
 }
 
-.todo-item a {
+.todo-item a,.inline-todo-item a  {
   color: unset;
 }
 
-.dark-theme .todo-item a {
+.dark-theme .todo-item a, .dark-theme .inline-todo-item a {
   color: #c9d1d9;
 }
 
-.dark-theme .todo-item .checked-todo a {
+.dark-theme .todo-item .checked-todo a,.dark-theme .inline-todo-item .checked-todo a {
   color: #3a3a40;
 }
 
