@@ -187,6 +187,7 @@ export default {
       this.$refs.currentTodo.style.display = `none`;
     },
     movingWheel() {
+      this.$refs.currentTodo.style.display = `none`;
       this.$refs.currentTodo.classList.add("scrolling");
       document.getElementById("app-container").classList.add("scrolling");
 
@@ -201,7 +202,7 @@ export default {
         this.$refs.currentTodo.style.left = `${bounding.x}px`;
         this.$refs.currentTodo.classList.remove("scrolling");
         document.getElementById("app-container").classList.remove("scrolling");
-      },600);
+      },500);
     }
   },
   computed: {
