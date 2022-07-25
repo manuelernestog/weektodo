@@ -93,7 +93,7 @@ You can find the base file with all the used words in english [here](translation
 
 For add a new language Fork the repo and create a Pull Request creating a new file of the `translations/en.json` and name he file acording the [language code](https://gist.github.com/Josantonius/b455e315bc7f790d14b136d61d9ae469). 
 
-If this is to dificult, you can donwload this [file](translation/en.json/), translate it and send the file to the email week2do@gmail.com
+If this is to dificult, you can donwload this [file](translation/en.json/), translate it and send the file to the email contact@weektodo.me
 
 If you want your name appears in the app contributors credits you can add your name, a profile link and a profile picture link in the PR comment or in the email body.
 
