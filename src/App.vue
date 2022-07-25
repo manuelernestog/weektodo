@@ -190,12 +190,7 @@ export default {
     if (isElectron()) {
       const { ipcRenderer } = require("electron");
       this.ipcRenderer = ipcRenderer;
-      if (this.$store.getters.config.firstTimeOpen) {
-        this.ipcRenderer.send("show-current-window");
-      }
-      if (this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen) {
-        setTimeout(this.showInitialNotification, 4000);
-      }
+      if (this.$store.getters.config.firstTimeOpen) this.ipcRenderer.send("show-current-window");
       this.ipcRenderer.send("match-open-on-startup", this.$store.getters.config.openOnStartup);
     }
 
@@ -337,25 +332,34 @@ export default {
         this.initialListLoaded++;
         if (this.initialListLoaded == this.initialListToLoad) {
           this.initialLoadCompleted = true;
-          if (this.$store.getters.config.moveOldTasks) { this.moveOldTasksToToday() }
-          this.refreshTodayNotifications();
+          if (this.$store.getters.config.moveOldTasks) {
+            this.moveOldTasksToToday().then(() => {
+              this.refreshTodayNotifications();
+              if (isElectron()) this.showInitialNotification();
+            });
+          } else {
+            this.refreshTodayNotifications();
+            if (isElectron()) this.showInitialNotification();
+          }
         }
       }
     },
     showInitialNotification: function () {
-      new Notification("WeekToDo", {
-        body: this.initialNotificationText(),
-        icon: "/favicon.ico",
-        silent: true,
-      }).onclick = () => {
-        this.ipcRenderer.send("show-current-window");
-        setTimeout(() => {
-          if (document.getElementById("splashScreen")) {
-            document.getElementById("splashScreen").classList.add("hiddenSplashScreen");
-          }
-        }, 3000);
-      };
-      notifications.playNotificationSound(this.$store.getters.config.notificationSound);
+      if (!(this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen)) return;
+
+      setTimeout(function () {
+        new Notification("WeekToDo", {
+          body: this.initialNotificationText(), icon: "/favicon.ico", silent: true,
+        }).onclick = () => {
+          this.ipcRenderer.send("show-current-window");
+          setTimeout(() => {
+            if (document.getElementById("splashScreen")) {
+              document.getElementById("splashScreen").classList.add("hiddenSplashScreen");
+            }
+          }, 3000);
+        };
+        notifications.playNotificationSound(this.$store.getters.config.notificationSound);
+      }.bind(this), 2000);
     },
     initialNotificationText: function () {
       let yesterdayTasks = this.$store.getters.todoLists[moment().subtract(1, "d").format("YYYYMMDD")];
@@ -390,17 +394,20 @@ export default {
         duration
       );
     },
-    moveOldTasksToToday: function () {
-      var todayListId = moment(this.id).format("YYYYMMDD");
-      for (let i = 1; i <= 7; i++) {
-        let listId = moment().subtract(i, "d").format("YYYYMMDD");
-        this.$store.dispatch("loadTodoLists", listId).then(() => {
-          this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
-          toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
-          toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
-          notifications.refreshDayNotifications(this, todayListId);
-        })
-      }
+    moveOldTasksToToday: async function () {
+      var promise = new Promise((resolve) => {
+        var todayListId = moment(this.id).format("YYYYMMDD");
+        for (let i = 1; i <= 7; i++) {
+          let listId = moment().subtract(i, "d").format("YYYYMMDD");
+          this.$store.dispatch("loadTodoLists", listId).then(() => {
+            this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
+            toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
+            toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
+            if (i == 7) { resolve("done!") }
+          })
+        }
+      });
+      return promise;
     },
     showInitialDonateModal: function () {
       if (!this.$store.getters.config['InitialDonateModalShown'] && (moment() >= moment(this.$store.getters.config['dateToShowInitialDonateModal']))) {

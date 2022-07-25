@@ -21,7 +21,8 @@
         "Task details now shows over center separator",
         "Adding Korean language",
         "Fixing welcome modal layout bug",
-        "Compacting sidebar"
+        "Compacting sidebar",
+        "Fixing initial notification bug"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",
