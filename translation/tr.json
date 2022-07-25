@@ -28,7 +28,9 @@
     "openOnStartup": "Başlangıçta aç",
     "runInBackground": "Arka planda çalıştır",
     "runInBackgroundInfo": "Bildirimlerin uygulama kapalıyken çalışmasına izin verir.\n \nBu seçeneğin bazı macOS sürümlerinde sorunları olabilir.",
-    "importing": "İçe aktarılıyor..."
+    "importing": "İçe aktarılıyor...",
+    "darkTrayIcon": "Karanlık Tepsi Simgesi",
+    "exporting": "Dışa aktarılıyor..."
   },
   "donate": {
     "contribute": "Katkıda bulun",
@@ -48,8 +50,8 @@
     "contributeSponsor": "Katkıda Bulun / Sponsor olun",
     "shareMessage": "Haftamı ücretsiz minimalist gizlilik odaklı haftalık planlayıcı WeekToDo ile planlıyorum ve sizin de seveceğinizi düşünüyorum. \nBuna bir bak!",
     "shareWithFriends": "Arkadaşlarınla ​​paylaş",
-    "supportMessage1": "Weektodo, sizin gibi kullanıcılar tarafından desteklenen ücretsiz bir uygulamadır. \nWeekToDo'dan hoşlanıyorsanız, uygulamayı arkadaşlarınızla paylaşarak veya düşündüğünüz katkılarla destekleyebilirsiniz.",
-    "supportMessage2": "WeekToDo'yu desteklediğiniz için teşekkürler 😊"
+    "supportMessage1": "Weektodo, sizin gibi kullanıcılar tarafından desteklenen ücretsiz bir uygulamadır! \nWeekToDo'dan hoşlanıyorsanız, kullanılabilir durumda kalmasını sağlamanın en iyi yolu, yapabileceğiniz katkıyı yapmak veya uygulamayı arkadaşlarınızla paylaşmaktır.",
+    "supportMessage2": "Desteğiniz fark yaratır. \nWeektodo'yu desteklediğiniz için teşekkürler 😊"
   },
   "about": {
     "about": "Hakkında",
@@ -145,7 +147,21 @@
     "sponsoredBy": "Sponsored by",
     "recurringTasks": "Yinelenen görevler",
     "removeAll": "Hepsini sil",
-    "updateAll": "Tümünü Güncelle"
+    "updateAll": "Tümünü Güncelle",
+    "reorderCustomLists": "Özel listeleri yeniden sıralayın",
+    "ok": "Tamam",
+    "removeRepeatingTask": "Yinelenen Görevi Kaldır",
+    "repeatingTaskRemoveConfirm": "Bu yinelenen görevi silmek istediğinizden emin misiniz?",
+    "undo": "Geri alma",
+    "clear": "Temizlemek",
+    "clearList": "Listeyi temizle",
+    "clearListConfirm": "Listeyi temizlemek istediğinizden emin misiniz?",
+    "maximizeCalendarPanel": "Takvim Panelini Büyüt",
+    "maximizeListPanel": "Listeyi büyüt Panel",
+    "restorePanel": "Panel Boyutunu Geri Yükle",
+    "reorder": "yeniden sırala",
+    "open": "Açık",
+    "quit": "Çıkış yapmak"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

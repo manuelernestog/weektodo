@@ -11,7 +11,7 @@
     "invalidFile": "Ungültige Datei",
     "calendar": "Kalender",
     "zoom": "Zoomen",
-    "columns": "Säulen",
+    "columns": "Spalten",
     "goToNewDomain": "Wir stellen die WeekToDo-Website auf eine neue Domain um und diese wird am 1. April 2022 eingestellt. Um Ihre Daten zu behalten, müssen Sie sie aus dieser Domain exportieren und dann in die neue Domain importieren (aus dem Konfigurationsmenü). Denken Sie daran, dass Sie die Informationen verlieren, die Ihr Browser in dieser Domain speichert, wenn Sie keine Daten migrieren. Wir entschuldigen uns für eventuelle Unannehmlichkeiten.",
     "gotoNewDomainBtn": "Gehen Sie zu einer neuen Domäne",
     "general": "Allgemein",
@@ -28,7 +28,9 @@
     "moveOldTasks": "Alte Aufgaben automatisch verschieben",
     "runInBackground": "Im Hintergrund laufen",
     "runInBackgroundInfo": "Ermöglicht Benachrichtigungen bei geschlossener App.\n \nDiese Option kann bei einigen macOS-Versionen zu Problemen führen.",
-    "importing": "Importieren..."
+    "importing": "Importieren...",
+    "darkTrayIcon": "Dunkles Tray-Icon",
+    "exporting": "Exportieren..."
   },
   "donate": {
     "contribute": "Beitragen",
@@ -48,8 +50,8 @@
     "translate": "Übersetzen",
     "shareMessage": "Ich plane meine Woche mit WeekToDo, einem kostenlosen minimalistischen Wochenplaner mit Schwerpunkt auf Privatsphäre, und ich denke, Sie werden es auch lieben. \nHör zu!",
     "shareWithFriends": "Mit Freunden teilen",
-    "supportMessage1": "Weektodo ist eine kostenlose Anwendung, die von Benutzern wie Ihnen unterstützt wird. \nWenn Ihnen WeekToDo gefällt, können Sie es mit dem Beitrag unterstützen, den Sie in Betracht ziehen, oder die App mit Ihren Freunden teilen.",
-    "supportMessage2": "Danke für die Unterstützung von WeekToDo 😊"
+    "supportMessage1": "Weektodo ist eine kostenlose Anwendung, die von Benutzern wie Ihnen unterstützt wird! \nWenn Ihnen WeekToDo gefällt, stellen Sie am besten sicher, dass es verfügbar bleibt, indem Sie den Beitrag leisten, den Sie können, oder die App mit Ihren Freunden teilen.",
+    "supportMessage2": "Ihre Unterstützung macht den Unterschied. \nDanke für die Unterstützung von Weektodo 😊"
   },
   "about": {
     "about": "Über",
@@ -145,7 +147,21 @@
     "sponsoredBy": "Gesponsert von",
     "recurringTasks": "Wiederkehrende Aufgaben",
     "removeAll": "Alles löschen",
-    "updateAll": "Alle aktualisieren"
+    "updateAll": "Alle aktualisieren",
+    "reorderCustomLists": "Benutzerdefinierte Listen neu anordnen",
+    "ok": "OK",
+    "removeRepeatingTask": "Wiederkehrende Aufgabe entfernen",
+    "repeatingTaskRemoveConfirm": "Möchten Sie diese wiederkehrende Aufgabe wirklich löschen?",
+    "undo": "Rückgängig machen",
+    "clear": "Klar",
+    "clearList": "Liste leeren",
+    "clearListConfirm": "Möchten Sie die Liste wirklich löschen?",
+    "maximizeCalendarPanel": "Kalenderbereich maximieren",
+    "maximizeListPanel": "Listenfeld maximieren",
+    "restorePanel": "Panelgröße wiederherstellen",
+    "reorder": "Neu anordnen",
+    "open": "Offen",
+    "quit": "Aufhören"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

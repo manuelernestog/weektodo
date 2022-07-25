@@ -28,7 +28,9 @@
     "moveOldTasks": "Déplacer automatiquement les anciennes tâches",
     "runInBackground": "De fonctionner en arrière-plan",
     "runInBackgroundInfo": "Autorise les notifications à fonctionner avec l'application fermée.\n \nCette option peut poser des problèmes pour certaines versions de macOS.",
-    "importing": "Importation..."
+    "importing": "Importation...",
+    "darkTrayIcon": "Icône de plateau sombre",
+    "exporting": "Exportation..."
   },
   "donate": {
     "contribute": "Contribuer",
@@ -48,8 +50,8 @@
     "translate": "Traduire",
     "shareMessage": "Je planifie ma semaine avec WeekToDo, un planificateur hebdomadaire minimaliste gratuit axé sur la confidentialité et je pense que vous l'aimerez aussi. \nVérifiez-le!",
     "shareWithFriends": "Partager avec des amis",
-    "supportMessage1": "Weektodo est une application gratuite prise en charge par des utilisateurs comme vous. \nSi vous aimez WeekToDo, vous pouvez le soutenir avec la contribution que vous envisagez ou partager l'application avec vos amis.",
-    "supportMessage2": "Merci de soutenir WeekToDo 😊"
+    "supportMessage1": "Weektodo est une application gratuite soutenue par des utilisateurs comme vous ! \nSi vous appréciez WeekToDo, la meilleure façon de vous assurer qu'il reste disponible est d'apporter la contribution que vous pouvez ou de partager l'application avec vos amis.",
+    "supportMessage2": "Votre soutien fait la différence. \nMerci de soutenir Weektodo 😊"
   },
   "about": {
     "about": "à propos à propos",
@@ -145,7 +147,21 @@
     "sponsoredBy": "Sponsorisé par",
     "recurringTasks": "Tâches récurrentes",
     "removeAll": "Supprimer tout",
-    "updateAll": "Tout mettre à jour"
+    "updateAll": "Tout mettre à jour",
+    "reorderCustomLists": "Réorganiser les listes personnalisées",
+    "ok": "D'accord",
+    "removeRepeatingTask": "Supprimer la tâche répétitive",
+    "repeatingTaskRemoveConfirm": "Voulez-vous vraiment supprimer cette tâche récurrente ?",
+    "undo": "annuler",
+    "clear": "Dégager",
+    "clearList": "Effacer la liste",
+    "clearListConfirm": "Voulez-vous vraiment effacer la liste ?",
+    "maximizeCalendarPanel": "Agrandir le panneau du calendrier",
+    "maximizeListPanel": "Agrandir le panneau de liste",
+    "restorePanel": "Restaurer la taille du panneau",
+    "reorder": "Réorganiser",
+    "open": "Ouvert",
+    "quit": "Quitter"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

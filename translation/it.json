@@ -28,7 +28,9 @@
     "moveOldTasks": "Sposta automaticamente le vecchie attività",
     "runInBackground": "Esegui in background",
     "runInBackgroundInfo": "Consente alle notifiche di funzionare con l'app chiusa.\n \nQuesta opzione potrebbe presentare problemi per alcune versioni di macOS.",
-    "importing": "Importazione..."
+    "importing": "Importazione...",
+    "darkTrayIcon": "Icona del vassoio scuro",
+    "exporting": "Esportazione..."
   },
   "donate": {
     "contribute": "Contribuisci",
@@ -48,8 +50,8 @@
     "translate": "Translate",
     "shareMessage": "Sto programmando la mia settimana con WeekToDo, un pianificatore settimanale gratuito e minimalista incentrato sulla privacy e penso che lo adorerai anche tu. \nControlla!",
     "shareWithFriends": "Condividere con gli amici",
-    "supportMessage1": "Weektodo è un'applicazione gratuita supportata da utenti come te. \nSe ti piace WeekToDo puoi supportarlo con il contributo che consideri o condividendo l'app con i tuoi amici.",
-    "supportMessage2": "Grazie per aver supportato WeekToDo 😊"
+    "supportMessage1": "Weektodo è un'applicazione gratuita supportata da utenti come te! \nSe ti piace WeekToDo, il modo migliore per assicurarti che rimanga disponibile è dare il contributo che puoi o condividere l'app con i tuoi amici.",
+    "supportMessage2": "Il tuo supporto fa la differenza. \nGrazie per aver supportato Weektodo 😊"
   },
   "about": {
     "about": "A proposito di",
@@ -126,7 +128,7 @@
   "ui": {
     "rmList": "Cancella Lista",
     "rmListConfirm": "Sei sicuro di voler cancellare la lista",
-    "cancel": "Cancella",
+    "cancel": "Annulla",
     "remove": "Elimina",
     "splashSub": "Pianificatore settimanale minimalista",
     "mobileWarning": "WeekToDo è un'applicazione Desktop e per adesso non è in grado di essere visualizzato a questa risoluzione. :(",
@@ -145,17 +147,31 @@
     "sponsoredBy": "Sponsorizzato da",
     "recurringTasks": "Compiti ricorrenti",
     "removeAll": "Cancella tutto",
-    "updateAll": "Aggiorna tutto"
+    "updateAll": "Aggiorna tutto",
+    "reorderCustomLists": "Riordina elenchi personalizzati",
+    "ok": "Ok",
+    "removeRepeatingTask": "Rimuovi attività ripetuta",
+    "repeatingTaskRemoveConfirm": "Sei sicuro di voler eliminare questa attività ricorrente?",
+    "undo": "Annullare",
+    "clear": "Cancella",
+    "clearList": "Cancella tutto",
+    "clearListConfirm": "Sei sicuro di voler cancellare la lista?",
+    "maximizeCalendarPanel": "Massimizza il pannello del calendario",
+    "maximizeListPanel": "Ingrandisci pannello elenco",
+    "restorePanel": "Ripristina dimensioni pannello",
+    "reorder": "Riordina",
+    "open": "Aprire",
+    "quit": "Uscire"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",
     "notes": "Note",
     "markdown": "Stile Markdown supportato",
     "addSubTask": "Aggiungi sotto attività",
-    "copiedTaskToClipboard": "Text Copied to Clipboard !!!",
-    "taskRemoved": "Task Removed !!!",
-    "taskDuplicated": "Task Duplicated !!!",
-    "duplicate": "Duplicate",
+    "copiedTaskToClipboard": "Testo copiato negli appunti !!!",
+    "taskRemoved": "Attività rimossa !!!",
+    "taskDuplicated": "Attività duplicata !!!",
+    "duplicate": "Duplicare",
     "actions": "Azioni",
     "alarm": "Allarme",
     "cancel": "Annulla",
@@ -171,7 +187,7 @@
     "recurrentTaskRemoved": "Attività ricorrente rimossa",
     "split": "Diviso",
     "subtasks": "Sottocompiti",
-    "time": "Volta",
+    "time": "Orario",
     "untilDate": "Fino a data",
     "weekly": "settimanalmente",
     "yearly": "Annuale"
