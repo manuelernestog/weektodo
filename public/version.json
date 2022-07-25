@@ -18,7 +18,8 @@
         "Fixing bug in subtask reorder in main view",
         "Tasks details dinamic position",
         "Fixing bug compliting and editing tasks quickly",
-        "Task details now shows over center separator"
+        "Task details now shows over center separator",
+        "Adding Korean language"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",

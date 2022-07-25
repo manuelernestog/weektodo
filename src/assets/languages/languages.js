@@ -12,6 +12,7 @@ import pl from './pl.json'
 import ja from './ja.json'
 import tr from './tr.json'
 import uk from './uk.json'
+import ko from './ko.json'
 
 export const defaultLocale = 'en'
 
@@ -29,5 +30,6 @@ export const languages = {
     pl: pl,
     ja: ja,
     tr: tr,
-    uk: uk
+    uk: uk,
+    ko: ko,
 }
