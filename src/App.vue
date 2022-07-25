@@ -581,7 +581,7 @@ body {
 }
 
 .side-bar .v3dp__popout {
-  margin-left: 75px;
+  margin-left: 72px;
   margin-top: 0px;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="side-bar">
-    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" data-bs-toggle="modal"
+    <img class="logo" src="WeekToDo-Logo-Color.svg" width="30" height="30" alt="WeekTodo Logo" data-bs-toggle="modal"
       data-bs-target="#aboutModal" :title="$t('about.about')" />
     <i v-if="showCalendar" class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
@@ -101,7 +101,7 @@ export default {
 
 <style scoped>
 .side-bar {
-  width: 3.9rem;
+  width: 3.6rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -120,9 +120,9 @@ export default {
 }
 
 .side-bar i {
-  font-size: 1.3rem;
-  padding: 10px;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  padding: 9px;
+  margin-bottom: 9px;
   align-self: center;
   cursor: pointer;
   transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
