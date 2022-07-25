@@ -201,7 +201,7 @@ export default {
         this.$refs.currentTodo.style.left = `${bounding.x}px`;
         this.$refs.currentTodo.classList.remove("scrolling");
         document.getElementById("app-container").classList.remove("scrolling");
-      }, 300);
+      },600);
     }
   },
   computed: {
@@ -261,10 +261,6 @@ export default {
     word-wrap: break-word;
     z-index: 1;
   }
-}
-
-#app-container.scrolling {
-  pointer-events: none;
 }
 
 .todo-item.scrolling {

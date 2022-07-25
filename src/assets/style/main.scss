@@ -353,3 +353,7 @@ i {
 #toDoModal a {
   color: unset ;
 }
+
+#app-container.scrolling {
+  pointer-events: none;
+}
