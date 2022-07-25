@@ -390,7 +390,7 @@ export default {
 
 .modal-dialog {
   max-width: 320px;
-  height: 200px;
+  // height: 200px;
 }
 
 .form-range::-webkit-slider-thumb {

@@ -2,7 +2,7 @@
   <div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" >
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
+        <div class="modal-body pb-2">
           <ul class="nav nav-tabs d-none" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#welcome-1" id="welcome-1-tab"
@@ -30,7 +30,7 @@
               </button>
             </li>
           </ul>
-          <div class="tab-content mt-4" id="nav-tabContent" style="height: 200px">
+          <div class="tab-content mt-4" id="nav-tabContent">
             <div class="tab-pane fade show active" id="welcome-1">
               <language-view></language-view>
             </div>

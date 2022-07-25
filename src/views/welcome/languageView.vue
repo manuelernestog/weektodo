@@ -1,5 +1,5 @@
 <template>
-  <div class="row" style="height: 170px">
+  <div class="row ">
     <div class="col-md-4">
       <img class="logo info-image" src="WeekToDo-Logo-Color.svg" alt="WeekToDo" title="WeekToDo Logo" width="110">
     </div>
@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex btn-footer">
+  <div class="d-flex btn-footer mt-3">
     <button type="button" class="btn flex-fill invisible"><i class="bi-chevron-double-left"></i>
       {{ $t('welcome.back') }}
     </button>

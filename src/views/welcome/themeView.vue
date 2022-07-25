@@ -1,5 +1,5 @@
 <template>
-  <div class="row" style="height: 170px">
+  <div class="row" >
     <div class="col-md-4">
       <div class="icon-container">
         <i class="bi-circle-half"></i>
@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex btn-footer">
+  <div class="d-flex btn-footer mt-3">
     <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i>
       {{ $t('welcome.back') }}
     </button>
