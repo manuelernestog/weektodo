@@ -120,8 +120,8 @@ export default {
 }
 
 .side-bar i {
-  font-size: 1.2rem;
-  padding: 9px;
+  font-size: 1.25rem;
+  padding: 10px;
   margin-bottom: 9px;
   align-self: center;
   cursor: pointer;

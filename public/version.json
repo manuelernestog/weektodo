@@ -1,8 +1,8 @@
 {
-  "version": "1.8.6",
+  "version": "1.9.0",
   "changes": {
     "en": {
-      "1.8.6-20220727": [
+      "1.9.0-20220727": [
         "Disabling temporary offline version for browser for compatibility problems",
         "Changing Dynamically Tray menu language",
         "New setting for change Tray icon color",
