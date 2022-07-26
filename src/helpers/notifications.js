@@ -12,7 +12,8 @@ export default {
     var notificationsList = [];
 
     vue.$honeybadger.setContext({
-      todoListId: todoListId
+      todoListId: todoListId,
+      version: "1.8.6"
     });
 
     todoList.forEach((todo) => {
