@@ -153,6 +153,7 @@ function importDbRecords(db, data_a, table) {
     keys = Object.keys(data_a.todoLists);
     data = data_a.todoLists;
   } else if (table == "repeating_events") {
+    if (!('repeating_events' in data_a)) location.reload(); // if not exist is an old data, finish the import and reload
     keys = Object.keys(data_a.repeating_events);
     data = data_a.repeating_events;
   } else {

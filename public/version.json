@@ -22,7 +22,8 @@
         "Adding Korean language",
         "Fixing welcome modal layout bug",
         "Compacting sidebar",
-        "Fixing initial notification bug"
+        "Fixing initial notification bug",
+        "Fixing importing bug from old versions"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",
