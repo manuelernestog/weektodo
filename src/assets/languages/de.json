@@ -161,7 +161,8 @@
     "restorePanel": "Panelgröße wiederherstellen",
     "reorder": "Neu anordnen",
     "open": "Offen",
-    "quit": "Aufhören"
+    "quit": "Aufhören",
+    "copyTasks": "Aufgaben kopieren"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

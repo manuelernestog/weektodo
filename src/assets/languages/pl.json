@@ -181,7 +181,8 @@
     "restorePanel": "Przywróć rozmiar panelu",
     "reorder": "Zmień kolejność",
     "open": "otwarty",
-    "quit": "Zrezygnować"
+    "quit": "Zrezygnować",
+    "copyTasks": "Kopiuj zadania"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

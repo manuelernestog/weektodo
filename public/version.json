@@ -2,28 +2,26 @@
   "version": "1.8.6",
   "changes": {
     "en": {
-      "1.8.6-202207X": [
+      "1.8.6-20220727": [
         "Disabling temporary offline version for browser for compatibility problems",
-        "Fixing edit task in main view bug",
-        "Fixing some Italian translations errors",
-        "Fixing bug for adding new tas k on the bottom of the list",
         "Changing Dynamically Tray menu language",
         "New setting for change Tray icon color",
         "Adding blurn effect to windows backgorund",
-        "Fixing problem with initial version notifications",
         "Adding exporting message",
-        "Fixing importing tool for native options dynamically",
         "Adding bg imagen when no option selected in main view",
         "Adding clickeable links for task texts",
-        "Fixing bug in subtask reorder in main view",
         "Tasks details dinamic position",
-        "Fixing bug compliting and editing tasks quickly",
         "Task details now shows over center separator",
         "Adding Korean language",
-        "Fixing welcome modal layout bug",
         "Compacting sidebar",
+        "Adding copy list to clipboard option",
         "Fixing initial notification bug",
-        "Fixing importing bug from old versions"
+        "Fixing importing bug from old versions",
+        "Fixing edit task in main view bug",
+        "Fixing bug for adding new task on the bottom of the list",
+        "Fixing welcome modal layout bug",
+        "Fixing problem with initial version notifications",
+        "Fixing bug in subtask reorder in main view"
       ],
       "1.8.5-20220708": [
         "Fixing incompatible style option for Firefox",

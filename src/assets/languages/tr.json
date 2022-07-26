@@ -161,7 +161,8 @@
     "restorePanel": "Panel Boyutunu Geri Yükle",
     "reorder": "yeniden sırala",
     "open": "Açık",
-    "quit": "Çıkış yapmak"
+    "quit": "Çıkış yapmak",
+    "copyTasks": "Görevleri Kopyala"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

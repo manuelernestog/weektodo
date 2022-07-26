@@ -161,7 +161,8 @@
     "restorePanel": "Ripristina dimensioni pannello",
     "reorder": "Riordina",
     "open": "Aprire",
-    "quit": "Uscire"
+    "quit": "Uscire",
+    "copyTasks": "Copia compiti"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",

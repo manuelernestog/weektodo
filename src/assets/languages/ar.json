@@ -161,7 +161,8 @@
     "restorePanel": "استعادة حجم اللوحة",
     "reorder": "إعادة ترتيب",
     "open": "فتح",
-    "quit": "يترك"
+    "quit": "يترك",
+    "copyTasks": "نسخ المهام"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

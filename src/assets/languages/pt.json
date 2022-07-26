@@ -161,7 +161,8 @@
     "restorePanel": "Restaurar tamanho do painel",
     "reorder": "Reordenar",
     "open": "Abrir",
-    "quit": "Desistir"
+    "quit": "Desistir",
+    "copyTasks": "Copiar tarefas"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",

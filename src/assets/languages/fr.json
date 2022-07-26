@@ -161,7 +161,8 @@
     "restorePanel": "Restaurer la taille du panneau",
     "reorder": "Réorganiser",
     "open": "Ouvert",
-    "quit": "Quitter"
+    "quit": "Quitter",
+    "copyTasks": "Copier des tâches"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

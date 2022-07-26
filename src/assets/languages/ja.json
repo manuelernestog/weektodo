@@ -161,7 +161,8 @@
     "restorePanel": "パネルサイズを復元",
     "reorder": "再注文",
     "open": "開ける",
-    "quit": "終了する"
+    "quit": "終了する",
+    "copyTasks": "タスクのコピー"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

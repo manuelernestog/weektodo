@@ -161,7 +161,8 @@
     "restorePanel": "Restore Panel Size",
     "maximizeListPanel": "Maximize list Panel",
     "open": "Open",
-    "quit": "Quit"
+    "quit": "Quit",
+    "copyTasks": "Copy Tasks"
   },
   "todoDetails": {
     "taskTitle": "Task title",
