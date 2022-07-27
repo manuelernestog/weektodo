@@ -162,7 +162,9 @@
     "reorder": "Neu anordnen",
     "open": "Offen",
     "quit": "Aufhören",
-    "copyTasks": "Aufgaben kopieren"
+    "copyTasks": "Aufgaben kopieren",
+    "Frecuency": "Häufigkeit",
+    "task": "Aufgabe"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

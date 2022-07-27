@@ -4,7 +4,7 @@
     "language": "Lingua",
     "customLists": "Liste personalizzate",
     "darkTheme": "Tema scuro",
-    "data": "Data",
+    "data": "Dati",
     "import": "Importa",
     "export": "Esporta",
     "backup": "Copia di sicurezza:",
@@ -162,7 +162,9 @@
     "reorder": "Riordina",
     "open": "Aprire",
     "quit": "Uscire",
-    "copyTasks": "Copia compiti"
+    "copyTasks": "Copia compiti",
+    "Frecuency": "Frequenza",
+    "task": "Compito"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",
@@ -172,7 +174,7 @@
     "copiedTaskToClipboard": "Testo copiato negli appunti !!!",
     "taskRemoved": "Attività rimossa !!!",
     "taskDuplicated": "Attività duplicata !!!",
-    "duplicate": "Duplicare",
+    "duplicate": "Duplica",
     "actions": "Azioni",
     "alarm": "Allarme",
     "cancel": "Annulla",

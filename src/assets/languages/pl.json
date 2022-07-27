@@ -182,7 +182,9 @@
     "reorder": "Zmień kolejność",
     "open": "otwarty",
     "quit": "Zrezygnować",
-    "copyTasks": "Kopiuj zadania"
+    "copyTasks": "Kopiuj zadania",
+    "Frecuency": "Częstotliwość",
+    "task": "Zadanie"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

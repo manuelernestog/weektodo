@@ -182,7 +182,9 @@
     "today": "오늘",
     "undo": "실행 취소",
     "updateAll": "모두 업데이트",
-    "copyTasks": "복사 작업"
+    "copyTasks": "복사 작업",
+    "Frecuency": "빈도",
+    "task": "일"
   },
   "welcome": {
     "allReady": "모든 준비",

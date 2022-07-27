@@ -162,7 +162,9 @@
     "reorder": "yeniden sırala",
     "open": "Açık",
     "quit": "Çıkış yapmak",
-    "copyTasks": "Görevleri Kopyala"
+    "copyTasks": "Görevleri Kopyala",
+    "Frecuency": "frekans",
+    "task": "Görev"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

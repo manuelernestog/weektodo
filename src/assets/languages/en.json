@@ -162,7 +162,9 @@
     "maximizeListPanel": "Maximize list Panel",
     "open": "Open",
     "quit": "Quit",
-    "copyTasks": "Copy Tasks"
+    "copyTasks": "Copy Tasks",
+    "task": "Task",
+    "Frecuency": "Frecuency"
   },
   "todoDetails": {
     "taskTitle": "Task title",

@@ -10,8 +10,8 @@
           <table class="table table-hover ">
             <thead>
               <tr>
-                <th scope="col">Task</th>
-                <th scope="col">Frecuency</th>
+                <th scope="col">{{$t("ui.task")}}</th>
+                <th scope="col">{{$t("ui.Frecuency")}}</th>
                 <th scope="col"></th>
               </tr>
             </thead>

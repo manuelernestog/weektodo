@@ -162,7 +162,9 @@
     "reorder": "Reordenar",
     "open": "Abrir",
     "quit": "Desistir",
-    "copyTasks": "Copiar tarefas"
+    "copyTasks": "Copiar tarefas",
+    "Frecuency": "Frequência",
+    "task": "Tarefa"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",

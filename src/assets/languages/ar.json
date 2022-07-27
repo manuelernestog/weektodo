@@ -162,7 +162,9 @@
     "reorder": "إعادة ترتيب",
     "open": "فتح",
     "quit": "يترك",
-    "copyTasks": "نسخ المهام"
+    "copyTasks": "نسخ المهام",
+    "Frecuency": "الطموح",
+    "task": "مهمة"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

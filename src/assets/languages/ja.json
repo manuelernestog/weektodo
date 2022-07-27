@@ -162,7 +162,9 @@
     "reorder": "再注文",
     "open": "開ける",
     "quit": "終了する",
-    "copyTasks": "タスクのコピー"
+    "copyTasks": "タスクのコピー",
+    "Frecuency": "周波数",
+    "task": "仕事"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",
