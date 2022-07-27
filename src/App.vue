@@ -423,6 +423,8 @@ export default {
     },
     setDividerPosition: function (position) {
       this.$nextTick(function () {
+        document.getElementById("app-container").classList.add("scrolling");
+        setTimeout(() => { document.getElementById("app-container").classList.remove("scrolling") }, 400);
         this.$store.commit("updateConfig", { val: position, key: 'mainDividerPosition' });
         configRepository.update(this.$store.getters.config);
       });
