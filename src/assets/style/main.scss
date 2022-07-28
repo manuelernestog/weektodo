@@ -319,19 +319,6 @@ i {
   border-color: #a9adb2;
 }
 
-/*Media querys*/
-
-@media only screen and (max-width: 600px) {
-  .hidden-mobile {
-    display: none !important;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .mobile {
-    display: none !important;
-  }
-}
 
 .form-select:disabled, .form-control:disabled {
   background-color: unset;
@@ -356,4 +343,18 @@ i {
 
 #app-container.scrolling .inline-todo-item {
   pointer-events: none;
+}
+
+/*Media querys*/
+
+@media only screen and (max-width: 600px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .mobile {
+    display: none !important;
+  }
 }

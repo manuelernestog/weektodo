@@ -62,6 +62,8 @@
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
+      <active-to-do :activeTodo="activeTodo">
+      </active-to-do>
       <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
       <importing-modal :id="'importingModal'" :text="$t('settings.importing')"></importing-modal>
@@ -119,6 +121,7 @@ import repeatingEventRepository from "./repositories/repeatingEventRepository";
 import toDoListRepository from "./repositories/toDoListRepository";
 import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
 import toastMessage from "./components/toastMessage";
+import activeToDo from "./components/activeToDo.vue"
 
 export default {
   name: "App",
@@ -139,7 +142,8 @@ export default {
     importingModal,
     ReorderCustomListsModal,
     clearListModal,
-    toastMessage
+    toastMessage,
+    activeToDo
   },
   data() {
     return {
@@ -521,6 +525,12 @@ export default {
     selectedTodo: function () {
       if (this.$store.getters.actions.selectedTodo) {
         return this.$store.getters.actions.selectedTodo;
+      }
+      return null;
+    },
+    activeTodo: function () {
+      if (this.$store.getters.activeTodo) {
+        return this.$store.getters.activeTodo;
       }
       return null;
     },
