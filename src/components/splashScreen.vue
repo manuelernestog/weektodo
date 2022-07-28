@@ -132,7 +132,7 @@
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     color: #79606b;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   .sponsor {

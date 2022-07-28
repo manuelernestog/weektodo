@@ -66,6 +66,7 @@ export default {
       toDoListRepository.update(this.activeTodo.toDoListId, this.$store.getters.todoLists[this.activeTodo.toDoListId]);
       let toast = new Toast(document.getElementById("taskRemoved"));
       toast.show(); // The undo remove acction it's called in todoModal.vue:undoRemoveTask
+      this.hideToDoItem();
     },
     showToDoDetails: function () {
       this.$store.commit("actionsSelectedTodoIdUpdate", {
