@@ -11,10 +11,10 @@ export default {
     });
     var notificationsList = [];
 
-    // vue.$honeybadger.setContext({
-    //   todoListId: todoListId,
-    //   version: "1.8.6"
-    // });
+    vue.$honeybadger.setContext({
+      todoListId: todoListId,
+      version: "1.9.0"
+    });
 
     todoList.forEach((todo) => {
       if (todo.alarm && !todo.checked && moment(todo.time, "HH:mm") >= moment()) {
