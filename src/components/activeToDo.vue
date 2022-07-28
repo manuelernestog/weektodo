@@ -142,9 +142,12 @@ export default {
 
       this.scrollingTimeOut = setTimeout(() => {
         this.scrollingTimeOut = null;
-        this.$refs.currentTodo.classList.remove("scrolling");
-        document.getElementById("app-container").classList.remove("scrolling");
-      }, 500);
+        document.onmousemove = function () {
+          document.onmousemove = null;
+          document.getElementById("todo-item-active").classList.remove("scrolling");
+          document.getElementById("app-container").classList.remove("scrolling");
+        }
+      }, 400);
     }
   },
   computed: {
