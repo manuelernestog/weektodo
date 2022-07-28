@@ -30,7 +30,8 @@
     "runInBackgroundInfo": "يسمح للإخطارات بالعمل مع التطبيق مغلق.\n \nقد يحتوي هذا الخيار على مشكلات في بعض إصدارات macOS.",
     "importing": "استيراد ...",
     "darkTrayIcon": "أيقونة صينية داكنة",
-    "exporting": "تصدير ..."
+    "exporting": "تصدير ...",
+    "darkIcon": "أيقونة الظلام"
   },
   "donate": {
     "contribute": "ساهِم",

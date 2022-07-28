@@ -30,7 +30,8 @@
     "runInBackgroundInfo": "Permite que as notificações funcionem com o aplicativo fechado.\n \nEsta opção pode ter problemas para algumas versões do macOS.",
     "importing": "Importando...",
     "darkTrayIcon": "Ícone de bandeja escura",
-    "exporting": "Exportador..."
+    "exporting": "Exportador...",
+    "darkIcon": "Ícone escuro"
   },
   "donate": {
     "contribute": "Contribuir",

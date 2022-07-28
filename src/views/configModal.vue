@@ -133,7 +133,7 @@
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkTrayIcon">{{
-                      $t("settings.darkTrayIcon")
+                      $t("settings.darkIcon")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="darkTrayIcon" v-model="configData.darkTrayIcon"
                     @change="setDarkTrayIcon" />

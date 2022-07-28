@@ -91,7 +91,8 @@
     "runInBackground": "백그라운드에서 실행",
     "runInBackgroundInfo": "앱이 닫힌 상태에서 알림이 작동하도록 허용합니다.\n \n이 옵션은 일부 macOS 버전에서 문제가 있을 수 있습니다.",
     "settings": "설정",
-    "zoom": "줌"
+    "zoom": "줌",
+    "darkIcon": "다크 아이콘"
   },
   "tips": {
     "back": "이전 팁",

@@ -30,7 +30,8 @@
     "runInBackgroundInfo": "Bildirimlerin uygulama kapalıyken çalışmasına izin verir.\n \nBu seçeneğin bazı macOS sürümlerinde sorunları olabilir.",
     "importing": "İçe aktarılıyor...",
     "darkTrayIcon": "Karanlık Tepsi Simgesi",
-    "exporting": "Dışa aktarılıyor..."
+    "exporting": "Dışa aktarılıyor...",
+    "darkIcon": "Karanlık Simge"
   },
   "donate": {
     "contribute": "Katkıda bulun",

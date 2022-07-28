@@ -30,7 +30,8 @@
     "runInBackgroundInfo": "Autorise les notifications à fonctionner avec l'application fermée.\n \nCette option peut poser des problèmes pour certaines versions de macOS.",
     "importing": "Importation...",
     "darkTrayIcon": "Icône de plateau sombre",
-    "exporting": "Exportation..."
+    "exporting": "Exportation...",
+    "darkIcon": "Icône sombre"
   },
   "donate": {
     "contribute": "Contribuer",
