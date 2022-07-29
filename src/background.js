@@ -15,6 +15,9 @@ const isServeMode = () => {
 
 let mainWindow = null;
 var tray = null;
+var trayContextMenu = null;
+var trayMenuTemplate = null;
+var SplashScreenIsHidden = true;
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true, stream: true } }]);
 
@@ -44,6 +47,8 @@ async function createWindow() {
   ipcMain.on("match-open-on-startup", matchOpenOnStartup);
   ipcMain.on("set-open-on-startup", setOpenOnStartup);
   ipcMain.on("set-run-in-background", setRunInBackground);
+  ipcMain.on("set-tray-context-menu-label", setTrayContextMenuLabel);
+  ipcMain.on("set-dark-tray-icon", setDarkTrayIcon);
   ipcMain.on("clear-config", clearConfig);
 
   if (typeof config.get("runInBackground") == "undefined") {
@@ -102,7 +107,11 @@ if (!gotTheLock) {
   });
 
   app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    } else if (!app.dock.isVisible()) {
+      showWindow(mainWindow);
+    }
   });
 
   app.on("ready", async () => {
@@ -173,6 +182,20 @@ function setRunInBackground(event, runInBackground) {
   config.set("runInBackground", runInBackground);
 }
 
+function setDarkTrayIcon(event, darkTrayIcon) {
+  config.set("darkTrayIcon", darkTrayIcon);
+  tray.setImage(creatTrayIconPath());
+}
+
+function setTrayContextMenuLabel(event, labels) {
+  config.set("openLabel", labels.open);
+  config.set("quitLabel", labels.quit);
+  trayMenuTemplate[0].label = labels.open;
+  trayMenuTemplate[1].label = labels.quit;
+  const menu = Menu.buildFromTemplate(trayMenuTemplate);
+  tray.setContextMenu(menu);
+}
+
 function matchOpenOnStartup(event, openOnStartup) {
   let AutoLaunch = require("auto-launch");
   let autoLauncher = new AutoLaunch({
@@ -199,6 +222,12 @@ function matchOpenOnStartup(event, openOnStartup) {
 function showWindow(window) {
   if (process.platform === "darwin") app.dock.show();
   window.show();
+  if (SplashScreenIsHidden) {
+    SplashScreenIsHidden = false;
+    setTimeout(function () {
+      mainWindow.webContents.send("initial-checks");
+    }, 4000);
+  }
 }
 
 function hideWindow(window) {
@@ -214,21 +243,21 @@ function closeApp() {
 }
 
 function createTray() {
-  const path = require("path");
-  var iconPath;
-  if (process.platform === "win32") {
-    app.setAppUserModelId("WeekToDo");
-    iconPath = path.join(__dirname, "/trayIcon.ico");
-  } else if (process.platform === "darwin") {
-    iconPath = nativeImage.createFromPath(path.join(__dirname, "/trayIcon.png"));
-  } else {
-    iconPath = isServeMode() ? path.join(__dirname, "/bundled/trayIcon@3x.png") : path.join(__dirname, "/trayIcon@3x.png");
+  if (!config.get("darkTrayIcon")) {
+    config.set("darkTrayIcon", false);
   }
+
+  var iconPath = creatTrayIconPath();
   tray = new Tray(iconPath);
 
-  const contextMenu = Menu.buildFromTemplate([
+  if (!config.get("openLabel")) {
+    config.set("openLabel", "Open");
+    config.set("quitLabel", "Quit");
+  }
+
+  trayMenuTemplate = [
     {
-      label: "Open",
+      label: config.get("openLabel"),
       click() {
         if (config.get("isMaximized")) mainWindow.maximize();
         showWindow(mainWindow);
@@ -236,7 +265,7 @@ function createTray() {
       },
     },
     {
-      label: "Quit",
+      label: config.get("quitLabel"),
       click() {
         app.isQuiting = true;
         config.set("winBounds", mainWindow.getBounds());
@@ -244,10 +273,30 @@ function createTray() {
         app.quit();
       },
     },
-  ]);
+  ];
+
+  trayContextMenu = Menu.buildFromTemplate(trayMenuTemplate);
   tray.setToolTip("WeekToDo Planner");
-  tray.setContextMenu(contextMenu);
+  tray.setContextMenu(trayContextMenu);
   tray.on("click", () => {
     tray.popUpContextMenu();
   });
+}
+
+function creatTrayIconPath() {
+  const path = require("path");
+  const darkPrefix = config.get("darkTrayIcon") ? "Dark" : "";
+
+  var iconPath;
+  if (process.platform === "win32") {
+    app.setAppUserModelId("WeekToDo");
+    iconPath = path.join(__dirname, `/trayIcon${darkPrefix}.ico`);
+  } else if (process.platform === "darwin") {
+    iconPath = nativeImage.createFromPath(path.join(__dirname, `/trayIcon${darkPrefix}.png`));
+  } else {
+    iconPath = isServeMode()
+      ? path.join(__dirname, `/bundled/trayIcon${darkPrefix}@3x.png`)
+      : path.join(__dirname, `/trayIcon${darkPrefix}@3x.png`);
+  }
+  return iconPath;
 }

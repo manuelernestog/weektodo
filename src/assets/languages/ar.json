@@ -28,7 +28,10 @@
     "moveOldTasks": "نقل المهام القديمة تلقائيًا",
     "runInBackground": "تشغيل في الخلفية",
     "runInBackgroundInfo": "يسمح للإخطارات بالعمل مع التطبيق مغلق.\n \nقد يحتوي هذا الخيار على مشكلات في بعض إصدارات macOS.",
-    "importing": "استيراد ..."
+    "importing": "استيراد ...",
+    "darkTrayIcon": "أيقونة صينية داكنة",
+    "exporting": "تصدير ...",
+    "darkIcon": "أيقونة الظلام"
   },
   "donate": {
     "contribute": "ساهِم",
@@ -157,7 +160,12 @@
     "maximizeCalendarPanel": "تكبير لوحة التقويم",
     "maximizeListPanel": "تكبير لوحة القائمة",
     "restorePanel": "استعادة حجم اللوحة",
-    "reorder": "إعادة ترتيب"
+    "reorder": "إعادة ترتيب",
+    "open": "فتح",
+    "quit": "يترك",
+    "copyTasks": "نسخ المهام",
+    "Frecuency": "الطموح",
+    "task": "مهمة"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

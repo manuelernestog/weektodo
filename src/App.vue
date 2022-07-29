@@ -1,6 +1,6 @@
 <template>
   <input class="hidden-input-for-focus" type="text" />
-  <div v-show="compatible" class="app-container" :class="{ 'dark-theme': darkTheme }">
+  <div v-show="compatible" id="app-container" class="app-container" :class="{ 'dark-theme': darkTheme }">
     <div class="hidden-mobile app-body" :style="{ zoom: `${zoom}%` }">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
@@ -46,6 +46,11 @@
             visibility: cTodoList.length > columns ? 'visible' : 'hidden',
           }"></i>
         </div>
+
+        <div v-show="!showCustomList && !showCalendar" style="margin: auto">
+          <img v-if="darkTheme" src="img/WeektodoDarkLogo.webp">
+          <img v-else src="img/WeektodoLightLogo.webp">
+        </div>
       </div>
 
       <remove-custom-list></remove-custom-list>
@@ -53,19 +58,32 @@
       <clear-data-modal></clear-data-modal>
       <clear-list-modal></clear-list-modal>
       <about-modal></about-modal>
-      <redirect-domain-modal></redirect-domain-modal>
       <donate-modal></donate-modal>
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
+      <active-to-do :activeTodo="activeTodo">
+      </active-to-do>
       <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
-      <importing-modal></importing-modal>
+      <importing-modal :id="'importingModal'" :text="$t('settings.importing')"></importing-modal>
+      <importing-modal :id="'exportingModal'" :text="$t('settings.exporting')"></importing-modal>
+
       <reorder-custom-lists-modal @reset-custom-list="resetCustomList"></reorder-custom-lists-modal>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
       <h3 style="text-align: center">{{ $t("ui.mobileWarning") }}</h3>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
+      <toast-message id="versionChanges" :text="$t('ui.softwareUpdated')" :sub-text="$t('ui.seeChanges')"
+        @subTextClick="seeChangeLog"></toast-message>
+
+      <toast-message id="newVersionAvailable" :text="$t('ui.newVersionAvailable')" :sub-text="$t('ui.download')"
+        @subTextClick="downloadNewVersion"></toast-message>
+
+      <toast-message id="copiedAddress" :text="$t('donate.copiedAddres')"></toast-message>
     </div>
   </div>
   <div v-if="!compatible" class="compatible d-flex flex-column justify-content-center align-items-center p-5">
@@ -88,8 +106,7 @@ import donateModal from "./views/donateModal";
 import welcomeModal from "./views/welcomeModal";
 import toDoModal from "./views/toDoModal/toDoModal";
 import tipsModal from "./views/tipsModal";
-import redirectDomainModal from "./views/redirectDomainModal";
-import { Modal } from "bootstrap";
+import { Modal, Toast } from "bootstrap";
 import updateChecker from "./components/updateChecker";
 import migrations from "./migrations/migrations";
 import version_json from "../public/version.json";
@@ -103,6 +120,8 @@ import RecurrentEventsModal from "./views/RecurrentEventsModal.vue";
 import repeatingEventRepository from "./repositories/repeatingEventRepository";
 import toDoListRepository from "./repositories/toDoListRepository";
 import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
+import toastMessage from "./components/toastMessage";
+import activeToDo from "./components/activeToDo.vue"
 
 export default {
   name: "App",
@@ -118,12 +137,13 @@ export default {
     tipsModal,
     updateChecker,
     toDoModal,
-    redirectDomainModal,
     clearDataModal,
     RecurrentEventsModal,
     importingModal,
     ReorderCustomListsModal,
-    clearListModal
+    clearListModal,
+    toastMessage,
+    activeToDo
   },
   data() {
     return {
@@ -174,13 +194,16 @@ export default {
     if (isElectron()) {
       const { ipcRenderer } = require("electron");
       this.ipcRenderer = ipcRenderer;
-      if (this.$store.getters.config.firstTimeOpen) {
-        this.ipcRenderer.send("show-current-window");
-      }
-      if (this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen) {
-        setTimeout(this.showInitialNotification, 4000);
-      }
+      if (this.$store.getters.config.firstTimeOpen) this.ipcRenderer.send("show-current-window");
       this.ipcRenderer.send("match-open-on-startup", this.$store.getters.config.openOnStartup);
+    }
+
+    if (this.$store.getters.config.importing) {
+      this.$store.commit("updateConfig", { val: false, key: "importing" });
+      configRepository.update(this.$store.getters.config);
+      if (isElectron()) {
+        this.syncElectronConfig()
+      }
     }
 
     this.resetAppOnDayChange();
@@ -257,12 +280,9 @@ export default {
       } else {
         this.$refs.splash.hideSplash();
       }
+      this.checksOnLoadApp();
       if (this.$store.getters.config.firstTimeOpen) {
         this.showWelcomeModal();
-      } else {
-        if (window.location.hostname.includes("netlify.app")) {
-          this.showRedirectDomainModal();
-        }
       }
     },
     showWelcomeModal: function () {
@@ -272,10 +292,6 @@ export default {
       modal.show();
       this.$store.commit("updateConfig", { val: false, key: "firstTimeOpen" });
       configRepository.update(this.$store.getters.config);
-    },
-    showRedirectDomainModal: function () {
-      let modal = new Modal(document.getElementById("RedirectDomainModal"));
-      modal.show();
     },
     compatible: function () {
       return window.IndexedDB;
@@ -320,25 +336,34 @@ export default {
         this.initialListLoaded++;
         if (this.initialListLoaded == this.initialListToLoad) {
           this.initialLoadCompleted = true;
-          if (this.$store.getters.config.moveOldTasks) { this.moveOldTasksToToday() }
-          this.refreshTodayNotifications();
+          if (this.$store.getters.config.moveOldTasks) {
+            this.moveOldTasksToToday().then(() => {
+              this.refreshTodayNotifications();
+              if (isElectron()) this.showInitialNotification();
+            });
+          } else {
+            this.refreshTodayNotifications();
+            if (isElectron()) this.showInitialNotification();
+          }
         }
       }
     },
     showInitialNotification: function () {
-      new Notification("WeekToDo", {
-        body: this.initialNotificationText(),
-        icon: "/favicon.ico",
-        silent: true,
-      }).onclick = () => {
-        this.ipcRenderer.send("show-current-window");
-        setTimeout(() => {
-          if (document.getElementById("splashScreen")) {
-            document.getElementById("splashScreen").classList.add("hiddenSplashScreen");
-          }
-        }, 3000);
-      };
-      notifications.playNotificationSound(this.$store.getters.config.notificationSound);
+      if (!(this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen)) return;
+
+      setTimeout(function () {
+        new Notification("WeekToDo", {
+          body: this.initialNotificationText(), icon: "/favicon.ico", silent: true,
+        }).onclick = () => {
+          this.ipcRenderer.send("show-current-window");
+          setTimeout(() => {
+            if (document.getElementById("splashScreen")) {
+              document.getElementById("splashScreen").classList.add("hiddenSplashScreen");
+            }
+          }, 3000);
+        };
+        notifications.playNotificationSound(this.$store.getters.config.notificationSound);
+      }.bind(this), 2000);
     },
     initialNotificationText: function () {
       let yesterdayTasks = this.$store.getters.todoLists[moment().subtract(1, "d").format("YYYYMMDD")];
@@ -373,17 +398,20 @@ export default {
         duration
       );
     },
-    moveOldTasksToToday: function () {
-      var todayListId = moment(this.id).format("YYYYMMDD");
-      for (let i = 1; i <= 7; i++) {
-        let listId = moment().subtract(i, "d").format("YYYYMMDD");
-        this.$store.dispatch("loadTodoLists", listId).then(() => {
-          this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
-          toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
-          toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
-          notifications.refreshDayNotifications(this, todayListId);
-        })
-      }
+    moveOldTasksToToday: async function () {
+      var promise = new Promise((resolve) => {
+        var todayListId = moment(this.id).format("YYYYMMDD");
+        for (let i = 1; i <= 7; i++) {
+          let listId = moment().subtract(i, "d").format("YYYYMMDD");
+          this.$store.dispatch("loadTodoLists", listId).then(() => {
+            this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
+            toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
+            toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
+            if (i == 7) { resolve("done!") }
+          })
+        }
+      });
+      return promise;
     },
     showInitialDonateModal: function () {
       if (!this.$store.getters.config['InitialDonateModalShown'] && (moment() >= moment(this.$store.getters.config['dateToShowInitialDonateModal']))) {
@@ -399,9 +427,62 @@ export default {
     },
     setDividerPosition: function (position) {
       this.$nextTick(function () {
+        document.getElementById("app-container").classList.add("scrolling");
+        setTimeout(() => { document.getElementById("app-container").classList.remove("scrolling") }, 400);
         this.$store.commit("updateConfig", { val: position, key: 'mainDividerPosition' });
         configRepository.update(this.$store.getters.config);
       });
+    },
+    checkVersion: function () {
+      if (version_json.version != this.$store.getters.config.version) {
+        this.$store.commit('updateConfig', { val: version_json.version, key: "version" });
+        configRepository.update(this.$store.getters.config);
+        var toast = new Toast(document.getElementById('versionChanges'));
+        toast.show();
+      }
+    },
+    checkForUpdates: function () {
+      if (this.isElectron() && this.$store.getters.config.checkUpdates) {
+        const axios = require('axios').default;
+        axios.get('https://app.weektodo.me/version.json')
+          .then(response => (this.showNewVersionToast(response)))
+          .catch(error => console.log(error.message))
+      }
+    },
+    checksOnLoadApp: function () {
+      if (this.isElectron()) {
+        require('electron').ipcRenderer.on('initial-checks', () => {
+          this.checkVersion();
+          this.checkForUpdates();
+        })
+      } else {
+        this.checkVersion();
+      }
+    },
+    showNewVersionToast: function (response) {
+      if (response.data.version != version_json.version) {
+        var toast = new Toast(document.getElementById('newVersionAvailable'));
+        toast.show();
+      }
+    },
+    downloadNewVersion: function () {
+      let isElectron = require("is-electron");
+      if (isElectron()) {
+        require('electron').shell.openExternal('https://weektodo.me', '_blank');
+      } else {
+        window.open('https://weektodo.me', '_blank');
+      }
+    },
+    seeChangeLog: function () {
+      let modal = new Modal(document.getElementById('changeLogModal'));
+      modal.show();
+    },
+    syncElectronConfig: function () {
+      const { ipcRenderer } = require('electron');
+      ipcRenderer.send('set-tray-context-menu-label', { open: this.$t("ui.open"), quit: this.$t("ui.quit") });
+      ipcRenderer.send('set-open-on-startup', this.$store.getters.config.openOnStartup);
+      ipcRenderer.send('set-run-in-background', this.$store.getters.config.runInBackground);
+      ipcRenderer.send('set-dark-tray-icon', this.$store.getters.config.darkTrayIcon);
     }
   },
   computed: {
@@ -447,6 +528,12 @@ export default {
       }
       return null;
     },
+    activeTodo: function () {
+      if (this.$store.getters.activeTodo) {
+        return this.$store.getters.activeTodo;
+      }
+      return null;
+    },
     mainDividerPositionClass: function () {
       if (this.$store.getters.config.mainDividerPosition == 0) {
         return 'on-bottom';
@@ -485,6 +572,7 @@ body {
   transition: height 0.15s ease-out 0s;
   margin-top: 20px;
   margin-bottom: 25px;
+  // margin-bottom: 5px;
 }
 
 .slider-btn {
@@ -512,7 +600,7 @@ body {
 }
 
 .side-bar .v3dp__popout {
-  margin-left: 75px;
+  margin-left: 72px;
   margin-top: 0px;
 }
 

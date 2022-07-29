@@ -1,4 +1,4 @@
-var cacheName = "v1.8.5";
+var cacheName = "v1.9.0";
 
 var contentToCache = [
   "/",

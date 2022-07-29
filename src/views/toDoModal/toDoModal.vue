@@ -95,7 +95,7 @@
             <div class="title-container">
               <label v-show="!editingTitle" class="form-check-label todo-title" for="todo-header"
                 :class="{ 'completed-task': todo.checked }" @dblclick="editTitle">
-                {{ todo.text }}
+                <span v-html="todoText"></span>
               </label>
               <label v-show="!editingTitle && todo.text == ''"
                 class="form-check-label todo-title todo-title-empty-title" for="todo-header" @dblclick="editTitle">
@@ -128,9 +128,10 @@
                 <div class="d-flex flex-row align-items-center" :class="{ checked: subTask.checked }">
                   <input class="form-check-input flex-grow-1 mx-3 mt-0" type="checkbox" v-model="subTask.checked"
                     :id="'sub-task-' + index" @change="changeSubTaskClickhandler(index)" />
-                  <label class="form-check-label" :for="'sub-task-' + index" @dblclick="editSubTask(index)"
-                    @dragenter.self="onDragenter($event)" @dragleave.self="onDragleave($event)"
-                    @drop="onDrop($event, index)" @dragover.prevent>{{ subTask.text }}</label>
+                  <label class="form-check-label" :for="'sub-task-' + index" @dragenter.self="onDragenter($event)"
+                    @dragleave.self="onDragleave($event)" @drop="onDrop($event, index)" @dragover.prevent>
+                    <span v-html="linkifyText(subTask.text)"></span>
+                  </label>
                   <i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeSubTask(index)"></i>
                 </div>
               </div>
@@ -150,11 +151,13 @@
     </div>
   </div>
 
-  <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
-  <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')" :sub-text="'(' + $t('ui.undo') + ')'"
-    @subTextClick="undoRemoveTask"></toast-message>
-  <toast-message id="recurrentTaskRemoved" :text="$t('todoDetails.recurrentTaskRemoved')"></toast-message>
-  <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
+    <toast-message id="copiedTaskToClipboard" :text="$t('todoDetails.copiedTaskToClipboard')"></toast-message>
+    <toast-message id="taskRemoved" :text="$t('todoDetails.taskRemoved')" :sub-text="'(' + $t('ui.undo') + ')'"
+      @subTextClick="undoRemoveTask"></toast-message>
+    <toast-message id="recurrentTaskRemoved" :text="$t('todoDetails.recurrentTaskRemoved')"></toast-message>
+    <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
+  </div>
 
   <comfirm-modal :id="'removeReModalToDoDetails'" :title="$t('ui.removeRepeatingTask')"
     :text="$t('ui.repeatingTaskRemoveConfirm')" :ico="'bi-x-circle'" :okText="$t('ui.remove')"
@@ -176,8 +179,9 @@ import notifications from "../../helpers/notifications";
 import repeatingEventHelper from "../../helpers/repeatingEvents.js";
 import languageHelper from "../../helpers/languageHelper.js"
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
-import mainHelpers from "../../helpers/mainHelpers";
 import comfirmModal from "../../components/comfirmModal.vue";
+import linkifyStr from 'linkify-string';
+import ClickHandler from "@manuelernestog/click-handler";
 
 export default {
   name: "toDoModal",
@@ -202,8 +206,10 @@ export default {
       tempSubTask: "",
       editingTitle: false,
       showingCalendar: true,
-      loadingView: false
-    };
+      loadingView: false,
+      options: { target: '_blank', defaultProtocol: 'https' },
+      clickhandler: new ClickHandler()
+    }
   },
   props: {
     selectedTodo: { required: true, type: Object },
@@ -305,7 +311,7 @@ export default {
       document.getElementById("todo-date-picker-input").focus();
     },
     checkTodoClickhandler: function (resetRepeatinEvent = true) {
-      mainHelpers.click_handler(this, function () { this.checkTodo(resetRepeatinEvent) }.bind(this));
+      this.clickhandler.handle(function () { this.checkTodo(resetRepeatinEvent) }.bind(this), function () { })
     },
     checkTodo: function (resetRepeatinEvent = true) {
       if (this.todo.checked) {
@@ -467,13 +473,16 @@ export default {
       this.updateTodo(false);
     },
     changeSubTaskClickhandler: function (index) {
-      mainHelpers.click_handler(this, function () { this.changeSubTask(index) }.bind(this));
+      this.clickhandler.handle(function () { this.changeSubTask(index) }.bind(this), function () { this.editSubTask(index) }.bind(this),index);
     },
     changeSubTask: function (index) {
       if (this.todo.subTaskList[index].checked) {
         this.todo.subTaskList.push(this.todo.subTaskList.splice(index, 1)[0]);
       }
       this.updateTodo();
+    },
+    linkifyText: function (text) {
+      return linkifyStr(text, this.options);
     }
   },
   watch: {
@@ -536,6 +545,9 @@ export default {
     showCal: function () {
       return this.$store.getters.config.calendar;
     },
+    todoText: function () {
+      return linkifyStr(this.todo.text, this.options);
+    }
   },
 };
 </script>
@@ -673,10 +685,6 @@ export default {
       padding: 10px 5px 10px 0px;
       min-height: 38px;
       height: auto;
-
-      * {
-        pointer-events: none;
-      }
     }
 
     .form-check-input {

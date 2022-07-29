@@ -36,6 +36,11 @@
         </button>
       </li>
       <li>
+        <button class="dropdown-item" type="button" @click="copyListTasksToClipboard">
+          <i class="bi-clipboard"></i> <span>{{ $t('ui.copyTasks') }}</span>
+        </button>
+      </li>
+      <li>
         <hr class="dropdown-divider" />
       </li>
       <li>
@@ -59,6 +64,7 @@ import moment from "moment";
 import toDoListRepository from "../repositories/toDoListRepository";
 import customToDoListIdsRepository from "../repositories/customToDoListIdsRepository";
 import notifications from "../helpers/notifications";
+import { Toast } from 'bootstrap';
 
 export default {
   components: {},
@@ -161,7 +167,15 @@ export default {
     },
     clearList: function () {
       this.$store.commit("setListToClear", this.id);
-    }
+    },
+    copyListTasksToClipboard: async function () {
+      await navigator.clipboard.writeText(this.todoListToString());
+      let toast = new Toast(document.getElementById("copiedTaskToClipboard"));
+      toast.show();
+    },
+    todoListToString: function () {
+      return this.toDoList.map(x => `- ${x.text}`).join('\n')
+    },
   },
   computed: {
     is_today: function () {
@@ -275,11 +289,11 @@ export default {
   }
 }
 
-.dropdown-toggle-split{
+.dropdown-toggle-split {
   padding: 0px;
 }
 
-.bi-reply-all {
+.bi-reply-all, .bi-files {
   transform: scaleX(-1);
 }
 </style>

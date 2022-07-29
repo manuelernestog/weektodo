@@ -89,7 +89,10 @@
     "moveOldTasks": "Automatycznie przenoś stare zadania",
     "runInBackground": "Uruchom w tle",
     "runInBackgroundInfo": "Zezwala na działanie powiadomień przy zamkniętej aplikacji.\n \nTa opcja może powodować problemy w niektórych wersjach systemu macOS.",
-    "importing": "Importowanie..."
+    "importing": "Importowanie...",
+    "darkTrayIcon": "Ikona ciemnej tacy",
+    "exporting": "Eksportowanie...",
+    "darkIcon": "Ciemna ikona"
   },
   "tips": {
     "back": "Poprzednia wskazówka",
@@ -177,7 +180,12 @@
     "maximizeCalendarPanel": "Maksymalizuj panel kalendarza",
     "maximizeListPanel": "Panel Maksymalizuj listę",
     "restorePanel": "Przywróć rozmiar panelu",
-    "reorder": "Zmień kolejność"
+    "reorder": "Zmień kolejność",
+    "open": "otwarty",
+    "quit": "Zrezygnować",
+    "copyTasks": "Kopiuj zadania",
+    "Frecuency": "Częstotliwość",
+    "task": "Zadanie"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

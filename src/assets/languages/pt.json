@@ -28,7 +28,10 @@
     "moveOldTasks": "Mover tarefas antigas automaticamente",
     "runInBackground": "Executado em segundo plano",
     "runInBackgroundInfo": "Permite que as notificações funcionem com o aplicativo fechado.\n \nEsta opção pode ter problemas para algumas versões do macOS.",
-    "importing": "Importando..."
+    "importing": "Importando...",
+    "darkTrayIcon": "Ícone de bandeja escura",
+    "exporting": "Exportador...",
+    "darkIcon": "Ícone escuro"
   },
   "donate": {
     "contribute": "Contribuir",
@@ -151,13 +154,18 @@
     "removeRepeatingTask": "Remover tarefa repetitiva",
     "repeatingTaskRemoveConfirm": "Tem certeza de que deseja excluir esta tarefa recorrente?",
     "undo": "Desfazer",
-    "clear": "Claro",
+    "clear": "Apagar",
     "clearList": "Limpar lista",
     "clearListConfirm": "Tem certeza de que deseja limpar a lista?",
     "maximizeCalendarPanel": "Maximizar o painel do calendário",
     "maximizeListPanel": "Maximizar o painel da lista",
     "restorePanel": "Restaurar tamanho do painel",
-    "reorder": "Reordenar"
+    "reorder": "Reordenar",
+    "open": "Abrir",
+    "quit": "Desistir",
+    "copyTasks": "Copiar tarefas",
+    "Frecuency": "Frequência",
+    "task": "Tarefa"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",

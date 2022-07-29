@@ -164,8 +164,23 @@ i {
   box-shadow: 0 2px 11px 6px rgba(0, 0, 0, .11);
 }
 
+.modal-backdrop {
+  opacity: unset !important;
+  transition: background-color .15s linear;
+  background-color: rgba(0, 0, 0,0);
+  backdrop-filter: blur(3px);
+}
+
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0,.40);
+}
+
 .modal-header {
   padding: 0.8rem 0.8rem;
+}
+
+.toast:not(:last-child) {
+  margin-bottom: .75rem;
 }
 
 .modal-header .modal-title {
@@ -271,11 +286,13 @@ i {
 
 .toast {
   width: auto;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .dark-theme .toast {
-  background-color: #21262d;
-  border: 1px solid #30363d;
+  background-color: #21262d !important;
+  border: 1px solid #30363d !important;
 }
 
 .close-toast {
@@ -304,6 +321,32 @@ i {
   border-color: #a9adb2;
 }
 
+
+.form-select:disabled, .form-control:disabled {
+  background-color: unset;
+  opacity: 60%;
+}
+
+.todo-item a,.inline-todo-item a  {
+  color: unset;
+}
+
+.dark-theme .todo-item a, .dark-theme .inline-todo-item a {
+  color: #c9d1d9;
+}
+
+.dark-theme .todo-item .checked-todo a,.dark-theme .inline-todo-item .checked-todo a {
+  color: #3a3a40;
+}
+
+#toDoModal a {
+  color: unset ;
+}
+
+#app-container.scrolling .inline-todo-item {
+  pointer-events: none;
+}
+
 /*Media querys*/
 
 @media only screen and (max-width: 600px) {
@@ -316,9 +359,4 @@ i {
   .mobile {
     display: none !important;
   }
-}
-
-.form-select:disabled, .form-control:disabled {
-  background-color: unset;
-  opacity: 60%;
 }

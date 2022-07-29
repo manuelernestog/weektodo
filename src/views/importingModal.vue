@@ -1,5 +1,5 @@
 <template>
-  <div class="modal  fade" id="importingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal  fade" :id="id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body d-flex align-items-center justify-content-center">
@@ -8,7 +8,7 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </div>
-          <div> {{$t("settings.importing")}} </div>
+          <div> {{ text }} </div>
         </div>
       </div>
     </div>
@@ -19,7 +19,13 @@
 
 export default {
   name: "importingModal",
+  props: {
+    text: { type: String, required: true },
+    id: { type: String, required: true },
+  },
 }
+
+
 </script>
 
 <style scoped>

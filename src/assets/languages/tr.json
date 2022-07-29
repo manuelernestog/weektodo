@@ -28,7 +28,10 @@
     "openOnStartup": "Başlangıçta aç",
     "runInBackground": "Arka planda çalıştır",
     "runInBackgroundInfo": "Bildirimlerin uygulama kapalıyken çalışmasına izin verir.\n \nBu seçeneğin bazı macOS sürümlerinde sorunları olabilir.",
-    "importing": "İçe aktarılıyor..."
+    "importing": "İçe aktarılıyor...",
+    "darkTrayIcon": "Karanlık Tepsi Simgesi",
+    "exporting": "Dışa aktarılıyor...",
+    "darkIcon": "Karanlık Simge"
   },
   "donate": {
     "contribute": "Katkıda bulun",
@@ -157,7 +160,12 @@
     "maximizeCalendarPanel": "Takvim Panelini Büyüt",
     "maximizeListPanel": "Listeyi büyüt Panel",
     "restorePanel": "Panel Boyutunu Geri Yükle",
-    "reorder": "yeniden sırala"
+    "reorder": "yeniden sırala",
+    "open": "Açık",
+    "quit": "Çıkış yapmak",
+    "copyTasks": "Görevleri Kopyala",
+    "Frecuency": "frekans",
+    "task": "Görev"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

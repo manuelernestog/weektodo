@@ -1,4 +1,4 @@
-import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja, tr, uk } from "date-fns/locale";
+import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja, tr, uk, ko } from "date-fns/locale";
 
 export default {
   getLanguagePack(lang) {
@@ -45,6 +45,9 @@ export default {
         break;
       case "uk":
         return_lang = uk;
+        break;
+      case "ko":
+        return_lang = ko;
         break;
     }
     return return_lang;

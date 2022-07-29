@@ -4,6 +4,8 @@
     "language": "Language",
     "customLists": "Custom Lists",
     "darkTheme": "Dark Theme",
+    "darkTrayIcon": "Dark Tray Icon",
+    "darkIcon": "Dark Icon",
     "data": "Data",
     "import": "Import",
     "export": "Export",
@@ -28,7 +30,8 @@
     "runInBackground": "Run in background",
     "runInBackgroundInfo": "Allows notifications to work with the app closed. \n This option may have issues for some macOS versions.",
     "moveOldTasks": "Automatically move old tasks",
-    "importing": "Importing..."
+    "importing": "Importing...",
+    "exporting": "Exporting..."
   },
   "donate": {
     "contribute": "Contribute",
@@ -157,7 +160,12 @@
     "reorder": "Reorder",
     "maximizeCalendarPanel": "Maximize Calendar Panel",
     "restorePanel": "Restore Panel Size",
-    "maximizeListPanel": "Maximize list Panel"
+    "maximizeListPanel": "Maximize list Panel",
+    "open": "Open",
+    "quit": "Quit",
+    "copyTasks": "Copy Tasks",
+    "task": "Task",
+    "Frecuency": "Frecuency"
   },
   "todoDetails": {
     "taskTitle": "Task title",

@@ -1,5 +1,4 @@
 <template>
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
     <div :id="id" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
         <div class="toast-body">
@@ -9,7 +8,6 @@
         <i class="bi-x me-2 m-auto close-toast" data-bs-dismiss="toast" aria-label="Close"></i>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

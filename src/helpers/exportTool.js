@@ -1,6 +1,6 @@
 import storageRepository from "../repositories/storageRepository";
 import dbRepository from "../repositories/dbRepository";
-import { Toast } from "bootstrap";
+import { Toast, Modal } from "bootstrap";
 import migrations from "../migrations/migrations";
 import isElectron from "is-electron";
 
@@ -105,6 +105,10 @@ function createExportLink(filename, fileBody) {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
+  setTimeout(function () {
+    let exportingModal = Modal.getInstance(document.getElementById("exportingModal"));
+    exportingModal.hide();
+  },1000);
 }
 
 function readFile(files) {
@@ -124,6 +128,9 @@ function importData(data) {
 
 function importLocalStorageData(data) {
   storageRepository.clean();
+  var configData = JSON.parse(data.config);
+  configData.importing = true;
+  data.config = JSON.stringify(configData)
   storageRepository.load_json(data);
 }
 
@@ -146,6 +153,7 @@ function importDbRecords(db, data_a, table) {
     keys = Object.keys(data_a.todoLists);
     data = data_a.todoLists;
   } else if (table == "repeating_events") {
+    if (!('repeating_events' in data_a)) location.reload(); // if not exist is an old data, finish the import and reload
     keys = Object.keys(data_a.repeating_events);
     data = data_a.repeating_events;
   } else {

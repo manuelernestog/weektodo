@@ -11,7 +11,7 @@
     "invalidFile": "Ungültige Datei",
     "calendar": "Kalender",
     "zoom": "Zoomen",
-    "columns": "Säulen",
+    "columns": "Spalten",
     "goToNewDomain": "Wir stellen die WeekToDo-Website auf eine neue Domain um und diese wird am 1. April 2022 eingestellt. Um Ihre Daten zu behalten, müssen Sie sie aus dieser Domain exportieren und dann in die neue Domain importieren (aus dem Konfigurationsmenü). Denken Sie daran, dass Sie die Informationen verlieren, die Ihr Browser in dieser Domain speichert, wenn Sie keine Daten migrieren. Wir entschuldigen uns für eventuelle Unannehmlichkeiten.",
     "gotoNewDomainBtn": "Gehen Sie zu einer neuen Domäne",
     "general": "Allgemein",
@@ -28,7 +28,10 @@
     "moveOldTasks": "Alte Aufgaben automatisch verschieben",
     "runInBackground": "Im Hintergrund laufen",
     "runInBackgroundInfo": "Ermöglicht Benachrichtigungen bei geschlossener App.\n \nDiese Option kann bei einigen macOS-Versionen zu Problemen führen.",
-    "importing": "Importieren..."
+    "importing": "Importieren...",
+    "darkTrayIcon": "Dunkles Tray-Icon",
+    "exporting": "Exportieren...",
+    "darkIcon": "Dunkles Symbol"
   },
   "donate": {
     "contribute": "Beitragen",
@@ -157,7 +160,12 @@
     "maximizeCalendarPanel": "Kalenderbereich maximieren",
     "maximizeListPanel": "Listenfeld maximieren",
     "restorePanel": "Panelgröße wiederherstellen",
-    "reorder": "Neu anordnen"
+    "reorder": "Neu anordnen",
+    "open": "Offen",
+    "quit": "Aufhören",
+    "copyTasks": "Aufgaben kopieren",
+    "Frecuency": "Häufigkeit",
+    "task": "Aufgabe"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

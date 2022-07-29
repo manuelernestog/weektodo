@@ -28,7 +28,10 @@
     "moveOldTasks": "Déplacer automatiquement les anciennes tâches",
     "runInBackground": "De fonctionner en arrière-plan",
     "runInBackgroundInfo": "Autorise les notifications à fonctionner avec l'application fermée.\n \nCette option peut poser des problèmes pour certaines versions de macOS.",
-    "importing": "Importation..."
+    "importing": "Importation...",
+    "darkTrayIcon": "Icône de plateau sombre",
+    "exporting": "Exportation...",
+    "darkIcon": "Icône sombre"
   },
   "donate": {
     "contribute": "Contribuer",
@@ -157,7 +160,12 @@
     "maximizeCalendarPanel": "Agrandir le panneau du calendrier",
     "maximizeListPanel": "Agrandir le panneau de liste",
     "restorePanel": "Restaurer la taille du panneau",
-    "reorder": "Réorganiser"
+    "reorder": "Réorganiser",
+    "open": "Ouvert",
+    "quit": "Quitter",
+    "copyTasks": "Copier des tâches",
+    "Frecuency": "Fréquence",
+    "task": "Tâche"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

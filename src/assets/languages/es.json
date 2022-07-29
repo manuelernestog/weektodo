@@ -28,7 +28,10 @@
     "moveOldTasks": "Mover tareas antiguas automáticamente",
     "runInBackground": "Ejecutar en segundo plano",
     "runInBackgroundInfo": "Permite que las notificaciones funcionen con la aplicación cerrada.\n \nEsta opción puede tener problemas para algunas versiones de macOS.",
-    "importing": "Importando..."
+    "importing": "Importando...",
+    "darkTrayIcon": "Icono de bandeja oscuro",
+    "exporting": "Exportando...",
+    "darkIcon": "Icono oscuro"
   },
   "donate": {
     "contribute": "Contribuir",
@@ -151,20 +154,25 @@
     "removeRepeatingTask": "Eliminar tarea repetitiva",
     "repeatingTaskRemoveConfirm": "¿Está seguro de que desea eliminar esta tarea recurrente?",
     "undo": "Deshacer",
-    "clear": "Claro",
+    "clear": "Borrar",
     "clearList": "Limpiar lista",
     "clearListConfirm": "¿Estás seguro de que quieres borrar la lista?",
     "maximizeCalendarPanel": "Maximizar panel de calendario",
     "maximizeListPanel": "Maximizar panel de lista",
     "restorePanel": "Restaurar tamaño del panel",
-    "reorder": "Reordenar"
+    "reorder": "Reordenar",
+    "open": "Abrir",
+    "quit": "Salir",
+    "copyTasks": "Copiar tareas",
+    "Frecuency": "Frecuencia",
+    "task": "Tarea"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",
     "notes": "Notas",
     "markdown": "Estilo Markdown",
     "addSubTask": "Agregar subtarea",
-    "copiedTaskToClipboard": "Texto Copiedo al Portapapeles !!!",
+    "copiedTaskToClipboard": "Texto Copiado al Portapapeles !!!",
     "taskRemoved": "Tarea Eliminada !!!",
     "taskDuplicated": "Tarea Duplicada !!!",
     "duplicate": "Duplicar",

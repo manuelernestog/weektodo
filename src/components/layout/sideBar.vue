@@ -1,6 +1,6 @@
 <template>
   <div class="side-bar">
-    <img class="logo" src="WeekToDo-Logo-Color.svg" width="32" height="32" alt="WeekTodo Logo" data-bs-toggle="modal"
+    <img class="logo" src="WeekToDo-Logo-Color.svg" width="31" height="31" alt="WeekTodo Logo" data-bs-toggle="modal"
       data-bs-target="#aboutModal" :title="$t('about.about')" />
     <i v-if="showCalendar" class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
@@ -10,13 +10,13 @@
     </i>
     <i v-if="showCustomList" class="bi bi-clipboard-plus" @click="newCustomTodoList"
       :title="$t('ui.newCustomList')"></i>
-    <i v-if="showCustomList" class="bi bi-arrow-left-right" data-bs-target="#ReorderCustomListsModal" data-bs-toggle="modal"
-      :title="$t('ui.reorderCustomLists')"></i>
+    <i v-if="showCustomList" class="bi bi-arrow-left-right" data-bs-target="#ReorderCustomListsModal"
+      data-bs-toggle="modal" :title="$t('ui.reorderCustomLists')"></i>
 
     <span style="flex-grow: 1"></span>
-    <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
     <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal" :title="$t('donate.contribute')"
       @click="openDonateModal"></i>
+    <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
     <i class="bi-gear" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"
       @click="openConfigModal"></i>
   </div>
@@ -101,7 +101,7 @@ export default {
 
 <style scoped>
 .side-bar {
-  width: 3.9rem;
+  width: 3.6rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -120,9 +120,9 @@ export default {
 }
 
 .side-bar i {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
   align-self: center;
   cursor: pointer;
   transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);

@@ -39,7 +39,7 @@
                 }
             },
             emailLink: function (link) {
-                window.location = link;
+                window.open(link);
             },
             externaLink: function (link) {
                 let isElectron = require("is-electron");

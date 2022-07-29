@@ -1,9 +1,9 @@
 {
   "name": "WeekToDo",
-  "version": "1.8.5",
+  "version": "1.9.0",
   "private": true,
   "description": "WeekToDo is a Free Minimalist Weekly Planner focused on privacy.",
-  "author": "Manuel Ernesto Garcia <week2do@gmail.com> (https://weektodo.me/)",
+  "author": "Manuel Ernesto Garcia <contact@weektodo.me> (https://weektodo.me/)",
   "homepage": "https://weektodo.me",
   "keywords": [
     "ToDo",
@@ -26,6 +26,9 @@
   "main": "background.js",
   "repository": "https://github.com/Zuntek/WeekToDoWeb",
   "dependencies": {
+    "@honeybadger-io/js": "^4.0.3",
+    "@honeybadger-io/vue": "^3.2.1",
+    "@manuelernestog/click-handler": "^1.4.0",
     "@popperjs/core": "^2.11.0",
     "auto-launch": "^5.0.5",
     "axios": "^0.21.4",
@@ -35,6 +38,8 @@
     "cryptocurrency-icons": "^0.17.1",
     "electron-config": "^2.0.0",
     "is-electron": "^2.2.1",
+    "linkify-string": "^3.0.4",
+    "linkifyjs": "^3.0.5",
     "lodash.uniqueid": "^4.0.1",
     "moment": "^2.29.1",
     "rrule": "^2.6.9",

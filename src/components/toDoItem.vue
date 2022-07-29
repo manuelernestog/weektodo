@@ -1,36 +1,19 @@
 <template>
   <div class="item-drop-zone" @dragenter.self="onDragenter" @dragleave.self="onDragleave" @drop="onDragleave"
-    :class="[{ 'drag-hover': todoDragHover }, { dragging: todoDragging }]">
-    <div class="todo-item-container">
-      <div v-if="!editing" class="todo-item d-flex flex-column" ref="currentTodo" draggable="true"
-        @dragstart="startDrag($event, toDo, index)" @dragend="endDrag()">
+    :class="[{ 'drag-hover': todoDragHover }]">
+    <div class="todo-item-container" ref="itemContainer">
+      <div v-if="!editing" class="inline-todo-item d-flex flex-column" @mouseenter="showToDoItem">
         <div class="d-flex">
-          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1"
-            @dblclick="editToDo" @click="checkTodoClickhandler" @click.middle="showToDoDetails">
-            <i v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
+          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1">
+            <span v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
               'bi-check-circle-fill': toDo.checked,
               'bi-circle-fill': !toDo.checked,
-            }"></i>
-            <i v-else class="cicle-icon" :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></i>
-            {{ toDo.text }}
-            <span class="time-details"> {{ timeFormat(toDo.time) }}</span>
+            }"></span>
+            <span v-else class="cicle-icon"
+              :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></span>
+            <span v-html="todoText"></span>
           </span>
-          <span class="item-time" :class="{ 'checked-todo': toDo.checked }" @dblclick="editToDo" @click="checkToDo">
-            {{ timeFormat(toDo.time) }}
-          </span>
-          <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
-          <i class="bi-x todo-item-remove" @click="removeTodo"></i>
-        </div>
-
-        <div class="todo-item-sub-tasks">
-          <ul class="sub-tasks">
-            <li v-for="(subTask, index) in toDo.subTaskList" :key="index" class="sub-task">
-              <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
-                <input class="form-check-input" type="checkbox" v-model="subTask.checked" />
-                <label class="form-check-label" @click="checkSubTask(subTask, index)">{{ subTask.text }}</label>
-              </div>
-            </li>
-          </ul>
+          <span class="item-time" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time) }} </span>
         </div>
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
@@ -41,10 +24,8 @@
 
 <script>
 import toDoListRepository from "../repositories/toDoListRepository";
-import { Modal, Toast } from "bootstrap";
 import moment from "moment";
-import notifications from "../helpers/notifications";
-import mainHelpers from "../helpers/mainHelpers";
+import linkifyStr from 'linkify-string';
 
 export default {
   components: {},
@@ -58,7 +39,7 @@ export default {
       editing: false,
       text: this.toDo.text,
       todoDragHover: false,
-      todoDragging: false,
+      options: { target: '_blank', defaultProtocol: 'https' }
     };
   },
   methods: {
@@ -69,6 +50,7 @@ export default {
         this.$refs.toDoEditInput.focus();
         this.$refs.toDoEditInput.select();
       });
+      document.getElementById("todo-item-active").style.display = 'none';
     },
     doneEdit: function () {
       this.editing = false;
@@ -83,103 +65,72 @@ export default {
       this.text = this.toDo.text;
       this.editing = false;
     },
-    removeTodo: function () {
-      this.$store.commit("setUndoElement", { type: 'task', todo: this.toDo, index: this.index });
-      this.$store.commit("removeTodo", { toDoListId: this.toDoListId, index: this.index, });
-      notifications.refreshDayNotifications(this, this.toDoListId);
-      toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
-      let toast = new Toast(document.getElementById("taskRemoved"));
-      toast.show(); // The undo remove acction it's called in todoModal.vue:undoRemoveTask
-    },
-    showToDoDetails: function () {
-      this.$store.commit("actionsSelectedTodoIdUpdate", {
-        toDo: this.toDo,
-        index: this.index,
-      });
-
-      let modalEl = document.getElementById("toDoModal");
-      let modal = new Modal(modalEl, { keyboard: false });
-      modal.show();
-    },
-    checkTodoClickhandler: function () {
-      this.$store.commit("checkTodo", { toDoListId: this.toDoListId, index: this.index, });
-      mainHelpers.click_handler(this, this.checkToDo);
-    },
-    checkToDo: function () {
-      if (this.$store.getters.todoLists[this.toDoListId][this.index].checked) {
-        this.$store.commit("moveTodoToEnd", { toDoListId: this.toDoListId, index: this.index, });
-      }
-      toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
-    },
-    startDrag: function (event, item, index) {
-      event.dataTransfer.dropEffect = "move";
-      event.dataTransfer.effectAllowed = "move";
-      event.dataTransfer.setData("item", JSON.stringify(item));
-      event.dataTransfer.setData("index", index);
-      this.todoDragging = true;
-    },
-    endDrag: function () {
-      this.todoDragging = false;
-    },
     onDragenter: function () {
       this.todoDragHover = true;
     },
     onDragleave: function () {
       this.todoDragHover = false;
     },
-    checkSubTask: function (subTask, index) {
-      subTask.checked = !subTask.checked;
-      var todoList = this.toDo.subTaskList;
-      if (subTask.checked) { todoList.push(todoList.splice(index, 1)[0]); }
-      toDoListRepository.update(this.toDoListId, this.$store.getters.todoLists[this.toDoListId]);
-    },
     timeFormat: function (date) {
       if (date) {
         return moment(date, "HH:mm").format("hh:mm a");
       }
     },
+    showToDoItem: function () {
+      var activeTodo = {
+        toDo: this.toDo,
+        index: this.index,
+        toDoListId: this.toDoListId,
+        edit: this.editToDo,
+        container: this.$refs.itemContainer
+      };
+      this.$store.commit('setActiveTodo', activeTodo);
+
+      const activeTodoItem = document.getElementById("todo-item-active");
+      this.$nextTick(function () {
+        const bounding = this.$refs.itemContainer.getBoundingClientRect();
+        activeTodoItem.style.width = `${bounding.width}px`;
+        activeTodoItem.style.top = `${bounding.y}px`;
+        activeTodoItem.style.left = `${bounding.x}px`;
+        activeTodoItem.style.display = `block`;
+        const margin_bottom = 10;
+        var offset = parseInt(window.innerHeight) - (parseInt(bounding.y) + parseInt(activeTodoItem.offsetHeight)) - margin_bottom;
+        if (offset < 0) activeTodoItem.style.top = `${bounding.y + offset}px`;
+      });
+    },
   },
+  computed: {
+    todoText: function () {
+      return linkifyStr(this.toDo.text, this.options);
+    }
+  }
 };
 </script>
 
 <style scoped lang="scss">
 .todo-item-container {
   border-bottom: 1px solid #eaecef;
-  height: 1.62rem;
+  height: 26px;
   z-index: 1;
+
+  .dark-theme & {
+    border-bottom: 1px solid #30363d;
+  }
 }
 
-.dark-theme .todo-item-container {
-  border-bottom: 1px solid #30363d;
+.dragging-item .item-drop-zone * {
+  pointer-events: none;
 }
 
-.todo-item {
-  transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
-}
+.todo-input {
+  line-height: 1.3rem;
+  width: 100%;
+  border: none;
+  font-size: 0.865rem;
 
-.todo-item-sub-tasks {
-  display: none;
-}
-
-.todo-item:hover {
-  z-index: 5;
-}
-
-.todo-item:hover .todo-item-sub-tasks {
-  display: flex !important;
-}
-
-.tags {
-  display: none;
-}
-
-.todo-item:hover .tags {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.dark-theme .todo-item:hover {
-  box-shadow: 0 0px 0 1px #4c4c4c;
+  &:focus {
+    outline: none;
+  }
 }
 
 .item-text {
@@ -193,16 +144,6 @@ export default {
   font-size: 0.865rem;
   margin: 2px 0px 2px 0px;
   padding: 0 3px 0 7px;
-}
-
-.todo-item:hover .item-text {
-  white-space: unset;
-  word-break: normal;
-  height: unset;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  z-index: 1;
-  /*padding-bottom: 5px;*/
 }
 
 .item-time {
@@ -221,35 +162,8 @@ export default {
 
 .time-details {
   opacity: 0.6;
-  display: none;
-}
-
-.todo-item.checked-todo .time-details {
-  opacity: unset;
-}
-
-.todo-item:hover .time-details {
   display: inline;
-}
-
-.todo-item:hover .item-time {
-  display: none;
-  /*padding-bottom: 5px;*/
-}
-
-.todo-item:hover {
-  background-color: #ffffff;
-  color: #1e1e1e;
-  border-radius: 7px;
-  position: relative;
-  transition: box-shadow 135ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
-}
-
-.dark-theme .todo-item:hover {
-  background-color: #21262d;
-  color: #f7f7f7;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 5px;
 }
 
 .checked-todo {
@@ -274,73 +188,9 @@ export default {
   }
 }
 
-.old-date .todo-item {
-  color: lightgray;
-}
 
-.old-date .todo-item:hover {
-  color: black;
-}
 
-.dark-theme .old-date .todo-item {
-  color: #3a3a40;
-}
 
-.dark-theme .old-date .todo-item:hover {
-  color: white;
-}
-
-.todo-item-remove {
-  display: none;
-  font-size: 1.3rem;
-  cursor: pointer;
-  margin-top: 1px;
-  margin-left: 5px;
-  margin-right: 5px;
-  color: grey;
-  height: 1.3rem;
-  flex-grow: 0;
-}
-
-.todo-item-menu {
-  display: none;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 3px;
-  margin-left: 5px;
-  margin-right: 0px;
-  color: grey;
-  height: 1.1rem;
-  flex-grow: 0;
-}
-
-.todo-item:hover .todo-item-remove,
-.todo-item:hover .todo-item-menu {
-  display: block;
-}
-
-.todo-item-remove:hover,
-.todo-item-menu:hover {
-  color: black;
-}
-
-.dark-theme .todo-item-remove,
-.dark-theme .todo-item-menu {
-  color: #c9d1d9;
-}
-
-.dark-theme .todo-item-remove:hover,
-.dark-theme .todo-item-menu:hover {
-  color: white;
-}
-
-.item-drop-zone * {
-  pointer-events: none;
-}
-
-.item-drop-zone:hover * {
-  pointer-events: unset;
-}
 
 .drag-hover {
   color: rgba(157, 157, 157, 0.43);
@@ -352,22 +202,6 @@ export default {
   color: rgb(69, 69, 69);
   box-shadow: #0b0d12 0px 0px 4px 1px inset;
   background-color: #0c0d14;
-}
-
-.dragging .todo-item .item-text {
-  height: 1.2rem;
-}
-
-.dark-theme .dragging .todo-item {
-  border-radius: 0px;
-}
-
-.dragging .sub-tasks {
-  display: none;
-}
-
-.dragging .time-details {
-  display: none !important;
 }
 
 .sub-tasks {
@@ -401,10 +235,6 @@ export default {
   }
 }
 
-.tags {
-  margin: 2px 10px 2px 10px;
-}
-
 .cicle-icon {
   font-size: 10px;
   margin-right: 5px;
@@ -413,19 +243,5 @@ export default {
 .bi-check-circle-fill,
 .bi-check-circle {
   opacity: 0.7;
-}
-
-.tag-item {
-  background-color: #e1ecf4;
-  color: #39739d;
-  border-radius: 3px;
-  font-size: 13px;
-  padding: 4px 6px 4px 6px;
-  margin-right: 5px;
-  margin: 2px 5px 2px 0px;
-
-  span {
-    margin-left: 4px;
-  }
 }
 </style>

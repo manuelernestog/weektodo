@@ -8,47 +8,18 @@ export default {
                 link: "https://support.weektodo.me"
             },
             {name: vue.$t('donate.shareWithFriends'), ico: "bi-share-fill", color: "#4297d9", linktype: "tagId", link: 'shareTab'},
-            {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "tagId", link: 'rateTab'},
+            {name: vue.$t('donate.rate'), ico: "bi-star-half", color: "#d0b114", linktype: "external", link: 'https://alternativeto.net/software/weektodo/about/'},
             {
-                name: vue.$t('donate.translate'),
+                name: vue.$t('donate.comment'),
                 color: "#676767",       
-                ico: "bi-globe",
-                linktype: "external",
-                link: "https://github.com/Zuntek/WeekToDoWeb#translations"
+                ico: "bi-chat-square-text",
+                linktype: "email",
+                link: "mailto:contact@weektodo.me"
             }
-        ]
-    },
-    rateList() {
-        return [
-            {
-                name: "AlternativeTo",
-                img: "icons/alternativeto.png",
-                linktype: "external",
-                link: "https://alternativeto.net/software/weektodo/about/"
-            },
-            {
-                name: "ProductHunt",
-                img: "icons/product-hunt.svg",
-                linktype: "external",
-                link: "https://www.producthunt.com/posts/weektodo"
-            },
-            {
-                name: "SaaSHub",
-                img: "icons/SaaSHub.png",
-                linktype: "external",
-                link: "https://www.saashub.com/weektodo-reviews/new"
-            },
         ]
     },
     shareList(vue) {
         return [
-            {
-                name: "Facebook",
-                ico: "bi-facebook",
-                color: "#4b6cad",
-                linktype: "external",
-                link: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.me%2F"
-            },
             {
                 name: "Twitter",
                 ico: "bi-twitter",
@@ -57,11 +28,11 @@ export default {
                 link: "https://twitter.com/intent/tweet?text=".concat('',vue.$t('donate.shareMessage'),"  https://weektodo.me")
             },
             {
-                name: "Linkedin",
-                ico: "bi-linkedin",
-                color: "#1a77af",
+                name: "Facebook",
+                ico: "bi-facebook",
+                color: "#4b6cad",
                 linktype: "external",
-                link: "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fweektodo.me"
+                link: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweektodo.me%2F"
             },
             {
                 name: "Reddit",

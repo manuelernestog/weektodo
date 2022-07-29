@@ -130,6 +130,15 @@
                   <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="configData.darkTheme"
                     @change="changeConfig('darkTheme', configData.darkTheme)" />
                 </div>
+
+                <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label" for="darkTrayIcon">{{
+                      $t("settings.darkIcon")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="darkTrayIcon" v-model="configData.darkTrayIcon"
+                    @change="setDarkTrayIcon" />
+                </div>
+
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
                 </button>
@@ -208,17 +217,18 @@
               <div class="d-flex flex-column mt-2 h-100">
                 <label for="language" class="form-label">{{ $t("settings.language") }}:</label>
                 <select id="language" class="col-sm-9 form-select" aria-label="Default select example"
-                  v-model="configData.language" @change="changeConfig('language', configData.language)">
+                  v-model="configData.language" @change="setLanguage">
                   <option value="en">English</option>
                   <option value="es">Español</option>
                   <option value="fr">Français</option>
-                  <option value="de">Deutsche</option>
+                  <option value="de">Deutsch</option>
                   <option value="it">Italiano</option>
                   <option value="pt">Português</option>
                   <option value="ru">русский</option>
                   <option value="ja">日本</option>
                   <option value="pl">Polski</option>
                   <option value="ar">عرب</option>
+                  <option value="ko">한국어</option>
                   <option value="zh_cn">简体中文</option>
                   <option value="zh_tw">繁體中文</option>
                   <option value="uk">український</option>
@@ -234,8 +244,9 @@
         </div>
       </div>
     </div>
-
-    <toast-message ref="invalidFile" id="invalidFile" text="$t('settings.invalidFile')"></toast-message>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
+      <toast-message ref="invalidFile" id="invalidFile" text="$t('settings.invalidFile')"></toast-message>
+    </div>
   </div>
 </template>
 
@@ -276,6 +287,10 @@ export default {
       });
     },
     exportData: function () {
+      let configModal = Modal.getInstance(document.getElementById("configModal"));
+      configModal.hide();
+      let exportingModal = new Modal(document.getElementById("exportingModal"), { backdrop: "static" });
+      exportingModal.show();
       exportTool.export();
     },
     importData: function (event) {
@@ -308,6 +323,22 @@ export default {
           const { ipcRenderer } = require('electron');
           ipcRenderer.send('set-run-in-background', this.configData.runInBackground);
         }
+      });
+    },
+    setLanguage: function () {
+      this.changeConfig('language', this.configData.language);
+      this.$nextTick(function () {
+        if (this.isElectron()) {
+          const { ipcRenderer } = require('electron');
+          ipcRenderer.send('set-tray-context-menu-label', { open: this.$t("ui.open"), quit: this.$t("ui.quit") });
+        }
+      });
+    },
+    setDarkTrayIcon: function () {
+      this.changeConfig('darkTrayIcon', this.configData.darkTrayIcon);
+      this.$nextTick(function () {
+        const { ipcRenderer } = require('electron');
+        ipcRenderer.send('set-dark-tray-icon', this.configData.darkTrayIcon);
       });
     },
     playSound: function () {
@@ -359,7 +390,7 @@ export default {
 
 .modal-dialog {
   max-width: 320px;
-  height: 200px;
+  // height: 200px;
 }
 
 .form-range::-webkit-slider-thumb {
@@ -391,8 +422,8 @@ export default {
 }
 
 @-moz-document url-prefix() {
-.zoom-config{
-  display: none;
-}
+  .zoom-config {
+    display: none;
+  }
 }
 </style>

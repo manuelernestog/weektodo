@@ -5,6 +5,7 @@ import actions from "./modules/actions.store";
 import notifications from "./modules/notifications.store";
 import repeatingEvents from "./modules/repeatingEvent.store";
 import repeatingEventsDataCache from "./modules/repeatingEventDateCache.store";
+import activeTodo from "./modules/activeTodo.store";
 import mainStore from './modules/main.store';
 
 
@@ -16,7 +17,8 @@ export const store = createStore({
         notifications: notifications,
         repeatingEvents: repeatingEvents,
         repeatingEventsDataCache: repeatingEventsDataCache,
-        mainStore: mainStore
+        mainStore: mainStore,
+        activeTodo: activeTodo
     },
     state: {},
     getters: {},
