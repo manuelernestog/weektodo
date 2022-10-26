@@ -1,10 +1,11 @@
 <template>
   <div class="item-drop-zone" @dragenter.self="onDragenter" @dragleave.self="onDragleave" @drop="onDragleave"
     :class="[{ 'drag-hover': todoDragHover }]">
-    <div class="todo-item-container" ref="itemContainer">
+    <div class="todo-item-container" :class="{ 'compact-view': compactView }" ref="itemContainer">
       <div v-if="!editing" class="inline-todo-item d-flex flex-column" @mouseenter="showToDoItem">
         <div class="d-flex">
-          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked }" style="flex-grow: 1">
+          <span class="noselect item-text" :class="{ 'checked-todo': toDo.checked, 'compact-view': compactView }"
+            style="flex-grow: 1">
             <span v-if="toDo.color != 'none'" class="cicle-icon" :style="'color: ' + toDo.color" :class="{
               'bi-check-circle-fill': toDo.checked,
               'bi-circle-fill': !toDo.checked,
@@ -12,8 +13,9 @@
             <span v-else class="cicle-icon"
               :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></span>
             <span v-html="todoText"></span>
+            <span v-if="!compactView" class="item-time mx-2" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time) }} </span>
           </span>
-          <span class="item-time" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time) }} </span>
+          <span v-if="compactView" class="item-time" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time) }} </span>
         </div>
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
@@ -102,6 +104,9 @@ export default {
   computed: {
     todoText: function () {
       return linkifyStr(this.toDo.text, this.options);
+    },
+    compactView: function () {
+      return this.$store.getters.config.compactView;
     }
   }
 };
@@ -110,7 +115,7 @@ export default {
 <style scoped lang="scss">
 .todo-item-container {
   border-bottom: 1px solid #eaecef;
-  height: 26px;
+  min-height: 26px;
   z-index: 1;
 
   .dark-theme & {
@@ -135,15 +140,19 @@ export default {
 
 .item-text {
   transition: width 2s, height 2s, transform 2s;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   width: 1rem;
-  height: 1.2rem;
+  min-height: 1.2rem;
   line-height: 1.3rem;
   font-size: 0.865rem;
   margin: 2px 0px 2px 0px;
   padding: 0 3px 0 7px;
+}
+
+.item-text.compact-view {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 1.2rem;
 }
 
 .item-time {
@@ -187,10 +196,6 @@ export default {
     opacity: 0.5;
   }
 }
-
-
-
-
 
 .drag-hover {
   color: rgba(157, 157, 157, 0.43);
@@ -243,5 +248,9 @@ export default {
 .bi-check-circle-fill,
 .bi-check-circle {
   opacity: 0.7;
+}
+
+.todo-item-container.compact-view {
+  height: 26px;
 }
 </style>
