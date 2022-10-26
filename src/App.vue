@@ -489,12 +489,14 @@ export default {
   computed: {
     dates_array: function () {
       if (!this.selected_date) return [];
-
       var dates_array = [
-        moment(this.selected_date).subtract(2, "d").format("YYYYMMDD"),
         moment(this.selected_date).subtract(1, "d").format("YYYYMMDD"),
         this.selected_date,
       ];
+
+      if (!this.$store.getters.config.moveOldTasks)
+        dates_array.unshift(moment(this.selected_date).subtract(2, "d").format("YYYYMMDD"));
+
       for (let i = 1; i < this.columns; i++) {
         dates_array.push(moment(this.selected_date).add(i, "d").format("YYYYMMDD"));
       }
