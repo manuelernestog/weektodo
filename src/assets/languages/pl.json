@@ -66,7 +66,7 @@
     "checkUpdates": "Sprawdź aktualizacje podczas uruchamiania",
     "clearData": "Wyczyść dane",
     "clearDataDetails": "Czy na pewno chcesz usunąć wszystkie dane aplikacji? \nTo działanie jest nieodwracalne.",
-    "columns": "Kolumny",
+    "columns": "Kolumny kalendarza",
     "customLists": "Listy niestandardowe",
     "darkTheme": "Ciemny schemat",
     "data": "Dane",
@@ -92,7 +92,8 @@
     "importing": "Importowanie...",
     "darkTrayIcon": "Ikona ciemnej tacy",
     "exporting": "Eksportowanie...",
-    "darkIcon": "Ciemna ikona"
+    "darkIcon": "Ciemna ikona",
+    "lists_columns": "Kolumny list niestandardowych"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

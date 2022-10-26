@@ -12,7 +12,7 @@
     "checkUpdates": "在啟動時檢查更新",
     "calendar": "日曆",
     "zoom": "飛漲",
-    "columns": "飛漲",
+    "columns": "日历栏",
     "goToNewDomain": "我們正在將 WeekToDo 網站更改為新域，該域將於 2022 年 4 月 1 日停止使用。為了保留您的數據，您必須從該域導出它，然後將其導入新域（從配置菜單）。 請記住，如果您不遷移數據，您將丟失瀏覽器存儲在此域中的信息。 如有不便，敬請原諒。",
     "gotoNewDomainBtn": "轉到新域",
     "general": "一般的",
@@ -115,7 +115,7 @@
   },
   "ui": {
     "rmList": "刪除列表",
-    "rmListConfirm":"確定要刪除列表",
+    "rmListConfirm": "確定要刪除列表",
     "cancel": "取消",
     "remove": "刪除",
     "splashSub": "極簡主義每週計劃",

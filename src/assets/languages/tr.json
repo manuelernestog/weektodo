@@ -12,7 +12,7 @@
     "checkUpdates": "Başlangıçta Güncellemeleri Kontrol Et",
     "calendar": "Takvim",
     "zoom": "Yakınlaştır",
-    "columns": "Kolonlar",
+    "columns": "Takvim Sütunları",
     "goToNewDomain": "WeekToDo web sitesini yeni bir alana taşıyoruz ve bu alan kısa süre içinde kullanımdan kaldırılacak. Lütfen yeni alan adından WeekToDo'ya erişmeye başlayın. Verilerinizi taşımak için buraya aktarmanız ve ardından yapılandırma menüsünden diğer etki alanına aktarmanız gerekir. Bunun neden olabileceği herhangi bir rahatsızlık için özür dileriz.",
     "clearData": "Net veriler",
     "clearDataDetails": "Tüm uygulama verilerini silmek istediğinizden emin misiniz? \nBu eylem geri döndürülemez.",
@@ -31,7 +31,8 @@
     "importing": "İçe aktarılıyor...",
     "darkTrayIcon": "Karanlık Tepsi Simgesi",
     "exporting": "Dışa aktarılıyor...",
-    "darkIcon": "Karanlık Simge"
+    "darkIcon": "Karanlık Simge",
+    "lists_columns": "Özel Listeler Sütunları"
   },
   "donate": {
     "contribute": "Katkıda bulun",

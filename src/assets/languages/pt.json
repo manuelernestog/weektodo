@@ -12,7 +12,7 @@
     "checkUpdates": "Verifique se há atualizações na inicialização",
     "calendar": "Calendário",
     "zoom": "Ampliação",
-    "columns": "Colunas",
+    "columns": "Colunas do calendário",
     "goToNewDomain": "Estamos mudando o site WeekToDo para um novo domínio e este será descontinuado em 1º de abril de 2022. Para manter seus dados, você deve exportá-los deste domínio e depois importá-los no novo domínio (no menu de configuração). Lembre-se de que, se você não migrar dados, perderá as informações que seu navegador armazena neste domínio. Desculpe por qualquer inconveniente que isso possa causar.",
     "gotoNewDomainBtn": "Ir para o novo domínio",
     "general": "Em geral",
@@ -31,7 +31,8 @@
     "importing": "Importando...",
     "darkTrayIcon": "Ícone de bandeja escura",
     "exporting": "Exportador...",
-    "darkIcon": "Ícone escuro"
+    "darkIcon": "Ícone escuro",
+    "lists_columns": "Colunas de listas personalizadas"
   },
   "donate": {
     "contribute": "Contribuir",
