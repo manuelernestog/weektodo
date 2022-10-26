@@ -4,7 +4,8 @@
     "en": {
       "1.2.0-20221101": [
         "Adding telemetric system",
-        "Adding custom list columns count setting"
+        "Adding custom list columns count setting",
+        "Adding compact and expanded view settings"
       ],
       "1.9.0-20220729": [
         "Disabling temporary offline version for browser for compatibility problems",
