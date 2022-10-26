@@ -93,7 +93,8 @@
     "settings": "설정",
     "zoom": "줌",
     "darkIcon": "다크 아이콘",
-    "lists_columns": "사용자 지정 목록 열"
+    "lists_columns": "사용자 지정 목록 열",
+    "reportErrors": "오류 보고서 보내기"
   },
   "tips": {
     "back": "이전 팁",

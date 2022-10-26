@@ -32,7 +32,8 @@
     "darkTrayIcon": "Karanlık Tepsi Simgesi",
     "exporting": "Dışa aktarılıyor...",
     "darkIcon": "Karanlık Simge",
-    "lists_columns": "Özel Listeler Sütunları"
+    "lists_columns": "Özel Listeler Sütunları",
+    "reportErrors": "Hata Raporu Gönder"
   },
   "donate": {
     "contribute": "Katkıda bulun",

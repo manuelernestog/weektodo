@@ -32,7 +32,8 @@
     "darkTrayIcon": "Icona del vassoio scuro",
     "exporting": "Esportazione...",
     "darkIcon": "Icona scura",
-    "lists_columns": "Colonne degli elenchi personalizzati"
+    "lists_columns": "Colonne degli elenchi personalizzati",
+    "reportErrors": "Invia rapporto errori"
   },
   "donate": {
     "contribute": "Contribuisci",

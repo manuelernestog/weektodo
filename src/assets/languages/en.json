@@ -32,7 +32,8 @@
     "runInBackgroundInfo": "Allows notifications to work with the app closed. \n This option may have issues for some macOS versions.",
     "moveOldTasks": "Automatically move old tasks",
     "importing": "Importing...",
-    "exporting": "Exporting..."
+    "exporting": "Exporting...",
+    "reportErrors": "Send Errors Report"
   },
   "donate": {
     "contribute": "Contribute",

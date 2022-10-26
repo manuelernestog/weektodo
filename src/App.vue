@@ -181,6 +181,7 @@ export default {
     );
   },
   mounted() {
+    this.$honeybadger.config.reportData = this.$store.getters.config.reportErrors;
     this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
     this.calendarHeight = this.$store.getters.config.calendarHeight;
     window.addEventListener("resize", this.weekResetScroll);

@@ -32,7 +32,8 @@
     "darkTrayIcon": "Dunkles Tray-Icon",
     "exporting": "Exportieren...",
     "darkIcon": "Dunkles Symbol",
-    "lists_columns": "Benutzerdefinierte Listenspalten"
+    "lists_columns": "Benutzerdefinierte Listenspalten",
+    "reportErrors": "Fehlerbericht senden"
   },
   "donate": {
     "contribute": "Beitragen",

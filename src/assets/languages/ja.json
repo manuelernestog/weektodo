@@ -32,7 +32,8 @@
     "darkTrayIcon": "ダークトレイアイコン",
     "exporting": "エクスポート中...",
     "darkIcon": "暗いアイコン",
-    "lists_columns": "カスタム リスト列"
+    "lists_columns": "カスタム リスト列",
+    "reportErrors": "エラー レポートの送信"
   },
   "donate": {
     "contribute": "コントリビューション",

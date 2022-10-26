@@ -72,8 +72,8 @@ function trayIcon() {
 
 function telemetric() {
   let config = configRepository.load();
-  if (!("sendTelemetricData" in config)) {
-    config["sendTelemetricData"] = false;
+  if (!("reportErrors" in config)) {
+    config["reportErrors"] = false;
     config["custom_columns"] = config["columns"];
     configRepository.update(config);
   }

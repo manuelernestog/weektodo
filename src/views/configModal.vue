@@ -74,7 +74,7 @@
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="updatesCheckSetting">{{
-                      $t("settings.checkUpdates")
+                  $t("settings.checkUpdates")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="updatesCheckSetting"
                     v-model="configData.checkUpdates" @change="changeConfig('checkUpdates', configData.checkUpdates)" />
@@ -82,7 +82,7 @@
 
                 <div v-if="isElectron()" class=" form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="openOnStartup">{{
-                      $t("settings.openOnStartup")
+                  $t("settings.openOnStartup")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="openOnStartup" v-model="configData.openOnStartup"
                     @change="setOpenOnStart()" />
@@ -99,6 +99,14 @@
                   <input class="form-check-input" type="checkbox" id="runInBackground"
                     v-model="configData.runInBackground" @change="setRunInBackground()" />
                 </div>
+
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.reportErrors")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="reportErrors" v-model="configData.reportErrors"
+                    @change="setSendErrors()" />
+                </div>
+
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
                 </button>
@@ -108,7 +116,7 @@
               <div class="d-flex flex-column mt-2 h-100">
                 <div class="px-1 mb-3">
                   <label for="columnsConfig" class="form-check-label">{{ $t("settings.columns") }}: {{
-                      configData.columns
+                  configData.columns
                   }}</label>
                   <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig"
                     v-model="configData.columns" @change="changeConfig('columns', configData.columns)" />
@@ -116,10 +124,11 @@
 
                 <div class="px-1 mb-3">
                   <label for="columnsConfig" class="form-check-label">{{ $t("settings.lists_columns") }}: {{
-                      configData.custom_columns
+                  configData.custom_columns
                   }}</label>
                   <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig"
-                    v-model="configData.custom_columns" @change="changeConfig('custom_columns', configData.custom_columns)" />
+                    v-model="configData.custom_columns"
+                    @change="changeConfig('custom_columns', configData.custom_columns)" />
                 </div>
 
                 <div class="px-1 mb-3 zoom-config">
@@ -133,7 +142,7 @@
 
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkThemeSetting">{{
-                      $t("settings.darkTheme")
+                  $t("settings.darkTheme")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="configData.darkTheme"
                     @change="changeConfig('darkTheme', configData.darkTheme)" />
@@ -141,7 +150,7 @@
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkTrayIcon">{{
-                      $t("settings.darkIcon")
+                  $t("settings.darkIcon")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="darkTrayIcon" v-model="configData.darkTrayIcon"
                     @change="setDarkTrayIcon" />
@@ -162,7 +171,7 @@
                     justify-content-between
                   ">
                   <label class="form-check-label" style="margin-left: 0px" for="notificationOnStartup">{{
-                      $t("settings.notificationOnStartup")
+                  $t("settings.notificationOnStartup")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="notificationOnStartup"
                     v-model="configData.notificationOnStartup"
@@ -341,6 +350,11 @@ export default {
           ipcRenderer.send('set-tray-context-menu-label', { open: this.$t("ui.open"), quit: this.$t("ui.quit") });
         }
       });
+    },
+    setSendErrors: function () {
+      this.changeConfig('reportErrors', this.configData.reportErrors);
+      this.$honeybadger.config.reportData = this.configData.reportErrors;
+      console.log(this.$honeybadger.config);
     },
     setDarkTrayIcon: function () {
       this.changeConfig('darkTrayIcon', this.configData.darkTrayIcon);

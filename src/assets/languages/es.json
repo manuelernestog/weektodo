@@ -32,7 +32,8 @@
     "darkTrayIcon": "Icono de bandeja oscuro",
     "exporting": "Exportando...",
     "darkIcon": "Icono oscuro",
-    "lists_columns": "Columnas de listas personalizadas"
+    "lists_columns": "Columnas de listas personalizadas",
+    "reportErrors": "Enviar informe de errores"
   },
   "donate": {
     "contribute": "Contribuir",

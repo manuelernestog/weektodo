@@ -32,7 +32,8 @@
     "darkTrayIcon": "أيقونة صينية داكنة",
     "exporting": "تصدير ...",
     "darkIcon": "أيقونة الظلام",
-    "lists_columns": "قوائم أعمدة مخصصة"
+    "lists_columns": "قوائم أعمدة مخصصة",
+    "reportErrors": "إرسال تقرير الأخطاء"
   },
   "donate": {
     "contribute": "ساهِم",

@@ -32,7 +32,8 @@
     "darkTrayIcon": "Значок темної панелі",
     "exporting": "Експорт...",
     "darkIcon": "Темний значок",
-    "lists_columns": "Настроювані стовпці списків"
+    "lists_columns": "Настроювані стовпці списків",
+    "reportErrors": "Надіслати звіт про помилки"
   },
   "donate": {
     "contribute": "Співпраця",

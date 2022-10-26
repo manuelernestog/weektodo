@@ -32,7 +32,8 @@
     "darkTrayIcon": "Icône de plateau sombre",
     "exporting": "Exportation...",
     "darkIcon": "Icône sombre",
-    "lists_columns": "Colonnes de listes personnalisées"
+    "lists_columns": "Colonnes de listes personnalisées",
+    "reportErrors": "Envoyer le rapport d'erreurs"
   },
   "donate": {
     "contribute": "Contribuer",
