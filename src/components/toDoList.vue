@@ -17,8 +17,9 @@
         </div>
       </li>
     </ul>
-    <div class="fake-drop-zone flex-grow-1 margin-bottom-2" @drop="onDropAtEnd($event, id)" @dragenter.self="onDragenter"
-      @dragleave.self="onDragleave" @dragover.prevent :class="{ 'fake-drag-hover': fakeItemsDragHover }">
+    <div class="fake-drop-zone flex-grow-1 margin-bottom-2" @drop="onDropAtEnd($event, id)"
+      @dragenter.self="onDragenter" @dragleave.self="onDragleave" @dragover.prevent
+      :class="{ 'fake-drag-hover': fakeItemsDragHover }">
       <div class="todo-item-container">
         <input class="todo-input new-todo-input" type="text" ref="newToDoInput" v-model="newToDo.text" @blur="addToDo()"
           @keyup.enter="addToDo()" @keyup.esc="cancelAdd()" />
@@ -165,6 +166,9 @@ export default {
       return this.$store.getters.todoLists[this.id];
     },
     columns: function () {
+      if (this.customTodoList)
+        return this.$store.getters.config.custom_columns;
+        
       return this.$store.getters.config.columns;
     },
   },

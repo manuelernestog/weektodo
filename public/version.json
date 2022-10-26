@@ -1,7 +1,11 @@
 {
-  "version": "1.9.0",
+  "version": "2.0.0",
   "changes": {
     "en": {
+      "1.2.0-20221101": [
+        "Adding telemetric system"
+
+      ],
       "1.9.0-20220729": [
         "Disabling temporary offline version for browser for compatibility problems",
         "Changing Dynamically Tray menu language",

@@ -17,6 +17,7 @@ export default {
         version: version_json.version,
         checkUpdates: true,
         columns: 5,
+        custom_columns: 5,
         zoom: 100,
         calendarHeight: "calc(50% - 50px)",
         notificationOnStartup: true,

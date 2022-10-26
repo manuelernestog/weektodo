@@ -35,7 +35,7 @@
         <div v-show="showCustomList" class="todo-lists-container"
           :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar, 'hidden-lists-container': hideBottomListContainer }">
           <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
-            visibility: cTodoList.length > columns ? 'visible' : 'hidden',
+            visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
           }"></i>
           <div class="todo-slider slides" ref="customListContainer">
             <to-do-list v-for="(cTodoList, index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
@@ -43,7 +43,7 @@
               @todo-list-mounted="todoListMounted"></to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" @click="customMoveRight" :style="{
-            visibility: cTodoList.length > columns ? 'visible' : 'hidden',
+            visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
           }"></i>
         </div>
 
@@ -253,7 +253,7 @@ export default {
       return this.$refs.weekListContainer.clientWidth / this.columns;
     },
     customTodoListWidth: function () {
-      return this.$refs.customListContainer.clientWidth / this.columns;
+      return this.$refs.customListContainer.clientWidth / this.custom_columns;
     },
     setSelectedDate: function (date) {
       this.selected_date = date;
@@ -508,6 +508,9 @@ export default {
     },
     columns: function () {
       return this.$store.getters.config.columns;
+    },
+    custom_columns: function () {
+      return this.$store.getters.config.custom_columns;
     },
     zoom: function () {
       return this.$store.getters.config.zoom;

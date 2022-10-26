@@ -9,6 +9,7 @@ export default {
     runInBackground();
     mainDividerPosition();
     trayIcon();
+    telemetric();
   },
 };
 
@@ -65,6 +66,15 @@ function trayIcon() {
   if (!("darkTrayIcon" in config)) {
     config["darkTrayIcon"] = false;
     config["importing"] = false;
+    configRepository.update(config);
+  }
+}
+
+function telemetric() {
+  let config = configRepository.load();
+  if (!("sendTelemetricData" in config)) {
+    config["sendTelemetricData"] = false;
+    config["custom_columns"] = config["columns"];
     configRepository.update(config);
   }
 }

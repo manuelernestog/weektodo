@@ -116,10 +116,10 @@
 
                 <div class="px-1 mb-3">
                   <label for="columnsConfig" class="form-check-label">{{ $t("settings.lists_columns") }}: {{
-                      configData.columns
+                      configData.custom_columns
                   }}</label>
                   <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig"
-                    v-model="configData.columns" @change="changeConfig('columns', configData.columns)" />
+                    v-model="configData.custom_columns" @change="changeConfig('custom_columns', configData.custom_columns)" />
                 </div>
 
                 <div class="px-1 mb-3 zoom-config">
