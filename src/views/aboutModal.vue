@@ -37,7 +37,7 @@
           <div>
             <div style="margin-top: 10px">
               <div class="row">
-                <a href="https://manuelernestogr.bio.link/" target="_blank" class="row" style="text-decoration: none">
+                <a href="https://manuelernestog.github.io" target="_blank" class="row" style="text-decoration: none">
                   <div class="col-md-3">
                     <img class="logo align-self-center" src="Avatar.webp" alt="Manuel Ernesto Garcia"
                          title="Manuel Ernesto Garcia" width="64">
