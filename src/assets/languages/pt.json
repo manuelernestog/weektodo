@@ -123,8 +123,8 @@
     "welcome": "Welcome to WeekToDo",
     "welcomeText": "O gerenciador de tarefas semanais minimalistas com foco na privacidade. Para começar, selecione seu idioma.",
     "privacy": "Privacidade",
-    "privacyText": "WeekToDo armazena as informações no seu computador. Se você eventualmente quiser alterar o seu computador ou navegador, lembre-se de criar um backup.",
-    "privacySub": "Você pode criar um backup no menu de configurações.",
+    "privacyText": "Todos os seus dados são armazenados em seu computador. \nSe você precisar alterar seu computador ou navegador, lembre-se de criar um backup.",
+    "privacySub": "Em caso de erros no aplicativo, você pode enviar um relatório dos erros ao dev.",
     "theme": "Tema",
     "themeText": "Você pode selecionar entre o tema claro e escuro de acordo com sua preferência."
   },

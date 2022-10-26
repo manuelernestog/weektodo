@@ -123,8 +123,8 @@
     "welcome": "WeekToDo'ya Hoşgeldiniz",
     "welcomeText": "Gizliliğe odaklanan Minimalist Haftalık Görev Yöneticisi. Başlamak için dilinizi seçin.",
     "privacy": "Gizlilik",
-    "privacyText": "WeekToDo, bilgileri bilgisayarınızda saklar. Sonunda bilgisayarınızı veya tarayıcınızı değiştirmek isterseniz, bir yedek oluşturmayı unutmayın.",
-    "privacySub": "Ayarlar menüsünden bir yedek oluşturabilirsiniz.",
+    "privacyText": "Tüm verileriniz bilgisayarınızda saklanır. \nBilgisayarınızı veya tarayıcınızı değiştirmeniz gerekirse, bir yedek oluşturmayı unutmayın.",
+    "privacySub": "Uygulamada hata olması durumunda, geliştiriciye hataların bir raporunu gönderebilirsiniz.",
     "theme": "Tema",
     "themeText": "Tercihinize göre açık ve koyu tema arasında seçim yapabilirsiniz."
   },

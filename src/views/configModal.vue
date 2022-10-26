@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
-                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.reportErrors")
+                  <label class="form-check-label flex-fill" for="reportErrors">{{ $t("settings.reportErrors")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="reportErrors" v-model="configData.reportErrors"
                     @change="setSendErrors()" />

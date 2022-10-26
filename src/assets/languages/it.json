@@ -123,8 +123,8 @@
     "welcome": "Benvenuto in WeekToDo",
     "welcomeText": "Gestore delle attività settimanali minimalista, focalizzato sulla privacy. Per iniziare seleziona la tua lingua.",
     "privacy": "Privacy",
-    "privacyText": "WeekToDo salva le informazioni sul tuo computer. Se vuoi cambiarecomputer o il programma di navigazione, ricordati di eseguire unsalvataggio dei dati. Puoi farlo tramite il menu impostazioni.",
-    "privacySub": "Puoi creare un salvataggio nel menu impostazioni.",
+    "privacyText": "Tutti i tuoi dati sono archiviati sul tuo computer. \nSe hai bisogno di cambiare il tuo computer o browser, ricordati di creare un backup.",
+    "privacySub": "In caso di errori nell'app, puoi inviare un report degli errori allo sviluppatore.",
     "theme": "Tema",
     "themeText": "A seconda delle tue preferenze puoi scegliere tra il tema scuro o quello luminoso."
   },

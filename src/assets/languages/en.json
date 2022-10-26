@@ -123,8 +123,8 @@
     "welcome": "Welcome to WeekToDo",
     "welcomeText": "The Minimalist Weekly Task Manager focused on privacy. To start select your language.",
     "privacy": "Privacy",
-    "privacyText": "WeekToDo stores the information on your computer. If you eventually want to change your computer or browser, remember to create a backup.",
-    "privacySub": "You can create a backup in the settings menu.",
+    "privacyText": "All your data is stored on your computer. If you need to change your computer or browser, remember to create a backup.",
+    "privacySub": "In case of errors in the app, you can send a report of the errors to the dev.",
     "theme": "Theme",
     "themeText": "You can select between light and dark theme according to your preference."
   },
