@@ -94,7 +94,8 @@
     "exporting": "Eksportowanie...",
     "darkIcon": "Ciemna ikona",
     "lists_columns": "Kolumny list niestandardowych",
-    "reportErrors": "Wyślij raport o błędach"
+    "reportErrors": "Wyślij raport o błędach",
+    "compactView": "Widok kompaktowy"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

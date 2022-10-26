@@ -33,7 +33,8 @@
     "exporting": "Exportation...",
     "darkIcon": "Icône sombre",
     "lists_columns": "Colonnes de listes personnalisées",
-    "reportErrors": "Envoyer le rapport d'erreurs"
+    "reportErrors": "Envoyer le rapport d'erreurs",
+    "compactView": "Vue compacte"
   },
   "donate": {
     "contribute": "Contribuer",

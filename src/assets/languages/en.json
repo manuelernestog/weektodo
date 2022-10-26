@@ -33,7 +33,8 @@
     "moveOldTasks": "Automatically move old tasks",
     "importing": "Importing...",
     "exporting": "Exporting...",
-    "reportErrors": "Send Errors Report"
+    "reportErrors": "Send Errors Report",
+    "compactView": "Compact View"
   },
   "donate": {
     "contribute": "Contribute",

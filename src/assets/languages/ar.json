@@ -33,7 +33,8 @@
     "exporting": "تصدير ...",
     "darkIcon": "أيقونة الظلام",
     "lists_columns": "قوائم أعمدة مخصصة",
-    "reportErrors": "إرسال تقرير الأخطاء"
+    "reportErrors": "إرسال تقرير الأخطاء",
+    "compactView": "عرض مضغوط"
   },
   "donate": {
     "contribute": "ساهِم",

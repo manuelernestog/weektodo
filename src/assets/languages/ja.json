@@ -33,7 +33,8 @@
     "exporting": "エクスポート中...",
     "darkIcon": "暗いアイコン",
     "lists_columns": "カスタム リスト列",
-    "reportErrors": "エラー レポートの送信"
+    "reportErrors": "エラー レポートの送信",
+    "compactView": "コンパクト ビュー"
   },
   "donate": {
     "contribute": "コントリビューション",

@@ -138,6 +138,14 @@
                     v-model="configData.zoom" @change="changeConfig('zoom', configData.zoom)" />
                 </div>
 
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label" for="compactViewSetting">{{
+                  $t("settings.compactView")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="compactViewSetting" v-model="configData.compactView"
+                    @change="changeConfig('compactView', configData.compactView)" />
+                </div>
+
                 <div class="horizontal-divider mb-3"></div>
 
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">

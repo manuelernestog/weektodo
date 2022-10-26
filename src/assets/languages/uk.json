@@ -33,7 +33,8 @@
     "exporting": "Експорт...",
     "darkIcon": "Темний значок",
     "lists_columns": "Настроювані стовпці списків",
-    "reportErrors": "Надіслати звіт про помилки"
+    "reportErrors": "Надіслати звіт про помилки",
+    "compactView": "Компактний вид"
   },
   "donate": {
     "contribute": "Співпраця",

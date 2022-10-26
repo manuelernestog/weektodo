@@ -94,7 +94,8 @@
     "zoom": "줌",
     "darkIcon": "다크 아이콘",
     "lists_columns": "사용자 지정 목록 열",
-    "reportErrors": "오류 보고서 보내기"
+    "reportErrors": "오류 보고서 보내기",
+    "compactView": "컴팩트 뷰"
   },
   "tips": {
     "back": "이전 팁",

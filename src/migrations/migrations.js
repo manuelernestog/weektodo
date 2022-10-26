@@ -75,6 +75,7 @@ function telemetric() {
   if (!("reportErrors" in config)) {
     config["reportErrors"] = false;
     config["custom_columns"] = config["columns"];
+    config["compactView"] = true;
     configRepository.update(config);
   }
 }

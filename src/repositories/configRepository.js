@@ -30,6 +30,7 @@ export default {
         mainDividerPosition: 1,
         darkTrayIcon: false,
         importing: false,
+        compactView: true
       };
       storageRepository.set("config", default_config);
       return default_config;

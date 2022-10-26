@@ -33,7 +33,8 @@
     "exporting": "Dışa aktarılıyor...",
     "darkIcon": "Karanlık Simge",
     "lists_columns": "Özel Listeler Sütunları",
-    "reportErrors": "Hata Raporu Gönder"
+    "reportErrors": "Hata Raporu Gönder",
+    "compactView": "Kompakt Görünüm"
   },
   "donate": {
     "contribute": "Katkıda bulun",

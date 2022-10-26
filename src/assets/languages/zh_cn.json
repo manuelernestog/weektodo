@@ -25,7 +25,8 @@
     "clearDataDetails": "您确定要删除所有应用程序数据吗？ 这个操作是不可恢复的。",
     "importing": "输入...",
     "lists_columns": "自定义列表列",
-    "reportErrors": "发送错误报告"
+    "reportErrors": "发送错误报告",
+    "compactView": "紧凑视图"
   },
   "donate": {
     "contribute": "贡献",

@@ -33,7 +33,8 @@
     "exporting": "Exportieren...",
     "darkIcon": "Dunkles Symbol",
     "lists_columns": "Benutzerdefinierte Listenspalten",
-    "reportErrors": "Fehlerbericht senden"
+    "reportErrors": "Fehlerbericht senden",
+    "compactView": "Kompakte Ansicht"
   },
   "donate": {
     "contribute": "Beitragen",
