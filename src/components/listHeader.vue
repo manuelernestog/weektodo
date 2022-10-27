@@ -21,6 +21,11 @@
       type="button" data-bs-toggle="dropdown"></i>
     <ul class="dropdown-menu" aria-labelledby="btnTaskOptionMenu">
       <li v-show="!allTodoChecked()">
+        <button class="dropdown-item" type="button" @click="newTask">
+          <i class="bi-plus-lg"></i> <span>{{ $t('ui.newTask') }}</span>
+        </button>
+      </li>
+      <li v-show="!allTodoChecked()">
         <button class="dropdown-item" type="button" @click="check_all_items">
           <i class="bi-check2-all"></i> <span>{{ $t('ui.completeAll') }}</span>
         </button>
@@ -176,6 +181,14 @@ export default {
     todoListToString: function () {
       return this.toDoList.map(x => `- ${x.text}`).join('\n')
     },
+    newTask: function () {
+      this.$nextTick(function () {
+        document
+          .getElementById("list" + this.id)
+          .getElementsByClassName("new-todo-input")[0]
+          .focus();
+      });
+    }
   },
   computed: {
     is_today: function () {

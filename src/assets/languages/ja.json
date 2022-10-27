@@ -168,7 +168,8 @@
     "quit": "終了する",
     "copyTasks": "タスクのコピー",
     "Frecuency": "周波数",
-    "task": "仕事"
+    "task": "仕事",
+    "newTask": "新しい仕事"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

@@ -6,7 +6,8 @@
         "Adding telemetric system",
         "Adding custom list columns count setting",
         "Adding compact and expanded view settings",
-        "Calendar start in today date if old items move automatically"
+        "Calendar start in today date if old items move automatically",
+        "Adding new task list action"
       ],
       "1.9.0-20220729": [
         "Disabling temporary offline version for browser for compatibility problems",

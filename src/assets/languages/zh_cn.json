@@ -136,7 +136,8 @@
     "postpone": "推迟",
     "newVersionAvailable": "新版本可用",
     "download": "（下载）",
-    "sponsoredBy": "赞助商"
+    "sponsoredBy": "赞助商",
+    "newTask": "新任务"
   },
   "todoDetails": {
     "taskTitle": "任务标题",

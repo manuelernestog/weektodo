@@ -168,7 +168,8 @@
     "quit": "يترك",
     "copyTasks": "نسخ المهام",
     "Frecuency": "الطموح",
-    "task": "مهمة"
+    "task": "مهمة",
+    "newTask": "مهمة جديدة"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

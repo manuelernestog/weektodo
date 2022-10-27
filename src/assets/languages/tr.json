@@ -168,7 +168,8 @@
     "quit": "Çıkış yapmak",
     "copyTasks": "Görevleri Kopyala",
     "Frecuency": "frekans",
-    "task": "Görev"
+    "task": "Görev",
+    "newTask": "Yeni görev"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

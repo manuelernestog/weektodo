@@ -168,7 +168,8 @@
     "quit": "Quitter",
     "copyTasks": "Copier des tâches",
     "Frecuency": "Fréquence",
-    "task": "Tâche"
+    "task": "Tâche",
+    "newTask": "Nouvelle tâche"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",

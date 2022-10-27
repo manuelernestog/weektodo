@@ -326,10 +326,6 @@ export default {
           .getElementById("list" + date)
           .getElementsByClassName("new-todo-input")[0]
           .focus();
-        document
-          .getElementById("list" + date)
-          .getElementsByClassName("new-todo-input")[0]
-          .select();
       });
     },
     isElectron: function () {

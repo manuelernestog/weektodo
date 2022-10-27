@@ -168,7 +168,8 @@
     "quit": "Desistir",
     "copyTasks": "Copiar tarefas",
     "Frecuency": "Frequência",
-    "task": "Tarefa"
+    "task": "Tarefa",
+    "newTask": "Nova tarefa"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",

@@ -188,7 +188,8 @@
     "quit": "Zrezygnować",
     "copyTasks": "Kopiuj zadania",
     "Frecuency": "Częstotliwość",
-    "task": "Zadanie"
+    "task": "Zadanie",
+    "newTask": "Nowe zadanie"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

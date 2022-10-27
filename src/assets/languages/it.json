@@ -168,7 +168,8 @@
     "quit": "Uscire",
     "copyTasks": "Copia compiti",
     "Frecuency": "Frequenza",
-    "task": "Compito"
+    "task": "Compito",
+    "newTask": "Nuovo compito"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",

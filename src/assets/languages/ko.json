@@ -188,7 +188,8 @@
     "updateAll": "모두 업데이트",
     "copyTasks": "복사 작업",
     "Frecuency": "빈도",
-    "task": "일"
+    "task": "일",
+    "newTask": "새 작업"
   },
   "welcome": {
     "allReady": "모든 준비",
