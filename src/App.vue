@@ -6,50 +6,103 @@
       <side-bar @change-date="setSelectedDate"></side-bar>
 
       <div class="h-100 d-flex flex-column">
-        <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer"
-          :class="{ 'full-screen': !showCustomList, 'hidden-lists-container': hideTopListContainer, 'full-screen-divider': hideBottomListContainer }">
+        <div
+          v-show="showCalendar"
+          class="todo-lists-container"
+          :style="resizableStyle"
+          ref="calendarContainer"
+          :class="{
+            'full-screen': !showCustomList,
+            'hidden-lists-container': hideTopListContainer,
+            'full-screen-divider': hideBottomListContainer,
+          }"
+        >
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
-            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
-              @todo-list-mounted="todoListMounted">
+            <to-do-list
+              v-for="date in dates_array"
+              :key="date"
+              :id="date"
+              :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted"
+            >
             </to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
         </div>
 
-        <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
-          :class="mainDividerPositionClass" @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
+        <div
+          v-show="showCustomList && showCalendar"
+          class="main-horizontal-divider"
+          id="resizer"
+          :class="mainDividerPositionClass"
+          @mousedown="resizerMouseDownHandler"
+          @dblclick="resizerDblClick"
+        >
           <div class="inner-main-horizontal-divider"></div>
           <div class="divider-icons-container">
-            <i class="bi-chevron-up move-to-center-up divider-icons" @click="setDividerPosition(1)"
-              :title="$t('ui.restorePanel')"></i>
-            <i class="bi-chevron-up move-to-corner-up divider-icons" @click="setDividerPosition(2)"
-              :title="$t('ui.maximizeListPanel')"></i>
-            <i class="bi-chevron-down move-to-center-down divider-icons" @click="setDividerPosition(1)"
-              :title="$t('ui.restorePanel')"></i>
-            <i class="bi-chevron-down move-to-corner-down divider-icons" @click="setDividerPosition(0)"
-              :title="$t('ui.maximizeCalendarPanel')"></i>
+            <i
+              class="bi-chevron-up move-to-center-up divider-icons"
+              @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"
+            ></i>
+            <i
+              class="bi-chevron-up move-to-corner-up divider-icons"
+              @click="setDividerPosition(2)"
+              :title="$t('ui.maximizeListPanel')"
+            ></i>
+            <i
+              class="bi-chevron-down move-to-center-down divider-icons"
+              @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"
+            ></i>
+            <i
+              class="bi-chevron-down move-to-corner-down divider-icons"
+              @click="setDividerPosition(0)"
+              :title="$t('ui.maximizeCalendarPanel')"
+            ></i>
           </div>
         </div>
 
-        <div v-show="showCustomList" class="todo-lists-container"
-          :class="{ 'full-screen': !showCalendar, 'flex-grow-1': showCalendar, 'hidden-lists-container': hideBottomListContainer }">
-          <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
-            visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
-          }"></i>
+        <div
+          v-show="showCustomList"
+          class="todo-lists-container"
+          :class="{
+            'full-screen': !showCalendar,
+            'flex-grow-1': showCalendar,
+            'hidden-lists-container': hideBottomListContainer,
+          }"
+        >
+          <i
+            class="bi-chevron-left slider-btn"
+            @click="customMoveLeft"
+            :style="{
+              visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
+            }"
+          ></i>
           <div class="todo-slider slides" ref="customListContainer">
-            <to-do-list v-for="(cTodoList, index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-              :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"
-              @todo-list-mounted="todoListMounted"></to-do-list>
+            <to-do-list
+              v-for="(cTodoList, index) in cTodoList"
+              :key="cTodoList.listId"
+              :id="cTodoList.listId"
+              :customTodoList="true"
+              :cTodoListIndex="index"
+              :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted"
+            ></to-do-list>
           </div>
-          <i class="bi-chevron-right slider-btn" @click="customMoveRight" :style="{
-            visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
-          }"></i>
+          <i
+            class="bi-chevron-right slider-btn"
+            @click="customMoveRight"
+            :style="{
+              visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
+            }"
+          ></i>
         </div>
 
         <div v-show="!showCustomList && !showCalendar" style="margin: auto">
-          <img v-if="darkTheme" src="img/WeektodoDarkLogo.webp">
-          <img v-else src="img/WeektodoLightLogo.webp">
+          <img v-if="darkTheme" src="img/WeektodoDarkLogo.webp" />
+          <img v-else src="img/WeektodoLightLogo.webp" />
         </div>
       </div>
 
@@ -62,8 +115,7 @@
       <welcome-modal></welcome-modal>
       <tips-modal></tips-modal>
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
-      <active-to-do :activeTodo="activeTodo">
-      </active-to-do>
+      <active-to-do :activeTodo="activeTodo"> </active-to-do>
       <recurrent-events-modal></recurrent-events-modal>
       <update-checker></update-checker>
       <importing-modal :id="'importingModal'" :text="$t('settings.importing')"></importing-modal>
@@ -77,11 +129,19 @@
     </div>
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
-      <toast-message id="versionChanges" :text="$t('ui.softwareUpdated')" :sub-text="$t('ui.seeChanges')"
-        @subTextClick="seeChangeLog"></toast-message>
+      <toast-message
+        id="versionChanges"
+        :text="$t('ui.softwareUpdated')"
+        :sub-text="$t('ui.seeChanges')"
+        @subTextClick="seeChangeLog"
+      ></toast-message>
 
-      <toast-message id="newVersionAvailable" :text="$t('ui.newVersionAvailable')" :sub-text="$t('ui.download')"
-        @subTextClick="downloadNewVersion"></toast-message>
+      <toast-message
+        id="newVersionAvailable"
+        :text="$t('ui.newVersionAvailable')"
+        :sub-text="$t('ui.download')"
+        @subTextClick="downloadNewVersion"
+      ></toast-message>
 
       <toast-message id="copiedAddress" :text="$t('donate.copiedAddres')"></toast-message>
     </div>
@@ -121,7 +181,7 @@ import repeatingEventRepository from "./repositories/repeatingEventRepository";
 import toDoListRepository from "./repositories/toDoListRepository";
 import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
 import toastMessage from "./components/toastMessage";
-import activeToDo from "./components/activeToDo.vue"
+import activeToDo from "./components/activeToDo.vue";
 
 export default {
   name: "App",
@@ -143,7 +203,7 @@ export default {
     ReorderCustomListsModal,
     clearListModal,
     toastMessage,
-    activeToDo
+    activeToDo,
   },
   data() {
     return {
@@ -175,7 +235,9 @@ export default {
         this.initialListToLoad = totalDaysCount + totalCustomListCount;
         this.deleteOldRepeatingEvents();
         this.selected_date = moment().format("YYYYMMDD");
-        this.$nextTick(() => { this.weekResetScroll() });
+        this.$nextTick(() => {
+          this.weekResetScroll();
+        });
         this.$store.commit("loadRepeatingEventDateCache", this.$store.getters.repeatingEventList);
       }.bind(this)
     );
@@ -203,7 +265,7 @@ export default {
       this.$store.commit("updateConfig", { val: false, key: "importing" });
       configRepository.update(this.$store.getters.config);
       if (isElectron()) {
-        this.syncElectronConfig()
+        this.syncElectronConfig();
       }
     }
 
@@ -240,7 +302,8 @@ export default {
       this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
     },
     customMoveRight: function () {
-      this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft + this.customTodoListWidth() - 13;
+      this.$refs.customListContainer.scrollLeft =
+        this.$refs.customListContainer.scrollLeft + this.customTodoListWidth() - 13;
     },
     customMoveLeft: function () {
       this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
@@ -352,19 +415,24 @@ export default {
     showInitialNotification: function () {
       if (!(this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen)) return;
 
-      setTimeout(function () {
-        new Notification("WeekToDo", {
-          body: this.initialNotificationText(), icon: "/favicon.ico", silent: true,
-        }).onclick = () => {
-          this.ipcRenderer.send("show-current-window");
-          setTimeout(() => {
-            if (document.getElementById("splashScreen")) {
-              document.getElementById("splashScreen").classList.add("hiddenSplashScreen");
-            }
-          }, 3000);
-        };
-        notifications.playNotificationSound(this.$store.getters.config.notificationSound);
-      }.bind(this), 2000);
+      setTimeout(
+        function () {
+          new Notification("WeekToDo", {
+            body: this.initialNotificationText(),
+            icon: "/favicon.ico",
+            silent: true,
+          }).onclick = () => {
+            this.ipcRenderer.send("show-current-window");
+            setTimeout(() => {
+              if (document.getElementById("splashScreen")) {
+                document.getElementById("splashScreen").classList.add("hiddenSplashScreen");
+              }
+            }, 3000);
+          };
+          notifications.playNotificationSound(this.$store.getters.config.notificationSound);
+        }.bind(this),
+        2000
+      );
     },
     initialNotificationText: function () {
       let yesterdayTasks = this.$store.getters.todoLists[moment().subtract(1, "d").format("YYYYMMDD")];
@@ -408,98 +476,110 @@ export default {
             this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
             toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
             toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
-            if (i == 7) { resolve("done!") }
-          })
+            if (i == 7) {
+              resolve("done!");
+            }
+          });
         }
       });
       return promise;
     },
     showInitialDonateModal: function () {
-      if (!this.$store.getters.config['InitialDonateModalShown'] && (moment() >= moment(this.$store.getters.config['dateToShowInitialDonateModal']))) {
-        setTimeout(function () {
-          let modal = new Modal(document.getElementById("donateModal"), {
-            backdrop: "static",
-          });
-          modal.show();
-          this.$store.commit("updateConfig", { val: true, key: "InitialDonateModalShown" });
-          configRepository.update(this.$store.getters.config);
-        }.bind(this), 5000);
+      if (
+        !this.$store.getters.config["InitialDonateModalShown"] &&
+        moment() >= moment(this.$store.getters.config["dateToShowInitialDonateModal"])
+      ) {
+        setTimeout(
+          function () {
+            let modal = new Modal(document.getElementById("donateModal"), {
+              backdrop: "static",
+            });
+            modal.show();
+            this.$store.commit("updateConfig", { val: true, key: "InitialDonateModalShown" });
+            configRepository.update(this.$store.getters.config);
+          }.bind(this),
+          5000
+        );
       }
     },
     setDividerPosition: function (position) {
       this.$nextTick(function () {
         document.getElementById("app-container").classList.add("scrolling");
-        setTimeout(() => { document.getElementById("app-container").classList.remove("scrolling") }, 400);
-        this.$store.commit("updateConfig", { val: position, key: 'mainDividerPosition' });
+        setTimeout(() => {
+          document.getElementById("app-container").classList.remove("scrolling");
+        }, 400);
+        this.$store.commit("updateConfig", { val: position, key: "mainDividerPosition" });
         configRepository.update(this.$store.getters.config);
       });
     },
     checkVersion: function () {
       if (version_json.version != this.$store.getters.config.version) {
-        this.$store.commit('updateConfig', { val: version_json.version, key: "version" });
+        this.$store.commit("updateConfig", { val: version_json.version, key: "version" });
         configRepository.update(this.$store.getters.config);
-        var toast = new Toast(document.getElementById('versionChanges'));
+        var toast = new Toast(document.getElementById("versionChanges"));
         toast.show();
       }
     },
     checkForUpdates: function () {
       if (this.isElectron() && this.$store.getters.config.checkUpdates) {
-        const axios = require('axios').default;
-        axios.get('https://app.weektodo.me/version.json')
-          .then(response => (this.showNewVersionToast(response)))
-          .catch(error => console.log(error.message))
+        const axios = require("axios").default;
+        axios
+          .get("https://app.weektodo.me/version.json")
+          .then((response) => this.showNewVersionToast(response))
+          .catch((error) => console.log(error.message));
       }
     },
     checksOnLoadApp: function () {
       if (this.isElectron()) {
-        require('electron').ipcRenderer.on('initial-checks', () => {
+        require("electron").ipcRenderer.on("initial-checks", () => {
           this.checkVersion();
           this.checkForUpdates();
-        })
+        });
       } else {
         this.checkVersion();
       }
     },
     showNewVersionToast: function (response) {
       if (response.data.version != version_json.version) {
-        var toast = new Toast(document.getElementById('newVersionAvailable'));
+        var toast = new Toast(document.getElementById("newVersionAvailable"));
         toast.show();
       }
     },
     downloadNewVersion: function () {
       let isElectron = require("is-electron");
       if (isElectron()) {
-        require('electron').shell.openExternal('https://weektodo.me', '_blank');
+        require("electron").shell.openExternal("https://weektodo.me", "_blank");
       } else {
-        window.open('https://weektodo.me', '_blank');
+        window.open("https://weektodo.me", "_blank");
       }
     },
     seeChangeLog: function () {
-      let modal = new Modal(document.getElementById('changeLogModal'));
+      let modal = new Modal(document.getElementById("changeLogModal"));
       modal.show();
     },
     syncElectronConfig: function () {
-      const { ipcRenderer } = require('electron');
-      ipcRenderer.send('set-tray-context-menu-label', { open: this.$t("ui.open"), quit: this.$t("ui.quit") });
-      ipcRenderer.send('set-open-on-startup', this.$store.getters.config.openOnStartup);
-      ipcRenderer.send('set-run-in-background', this.$store.getters.config.runInBackground);
-      ipcRenderer.send('set-dark-tray-icon', this.$store.getters.config.darkTrayIcon);
-    }
+      const { ipcRenderer } = require("electron");
+      ipcRenderer.send("set-tray-context-menu-label", { open: this.$t("ui.open"), quit: this.$t("ui.quit") });
+      ipcRenderer.send("set-open-on-startup", this.$store.getters.config.openOnStartup);
+      ipcRenderer.send("set-run-in-background", this.$store.getters.config.runInBackground);
+      ipcRenderer.send("set-dark-tray-icon", this.$store.getters.config.darkTrayIcon);
+    },
   },
   computed: {
     dates_array: function () {
       if (!this.selected_date) return [];
-      var dates_array = [
-        moment(this.selected_date).subtract(1, "d").format("YYYYMMDD"),
-        this.selected_date,
-      ];
-
-      if (!this.$store.getters.config.moveOldTasks)
-        dates_array.unshift(moment(this.selected_date).subtract(2, "d").format("YYYYMMDD"));
+      var dates_array = [moment(this.selected_date).subtract(1, "d").format("YYYYMMDD"), this.selected_date];
 
       for (let i = 1; i < this.columns; i++) {
         dates_array.push(moment(this.selected_date).add(i, "d").format("YYYYMMDD"));
       }
+
+      if (!this.$store.getters.config.moveOldTasks) {
+        dates_array.unshift(moment(this.selected_date).subtract(2, "d").format("YYYYMMDD"));
+      } else {
+        dates_array.push(moment(this.selected_date).add(this.columns, "d").format("YYYYMMDD"));
+      }
+
       this.$store.commit("updateSelectedDates", dates_array);
       return dates_array;
     },
@@ -542,11 +622,11 @@ export default {
     },
     mainDividerPositionClass: function () {
       if (this.$store.getters.config.mainDividerPosition == 0) {
-        return 'on-bottom';
+        return "on-bottom";
       } else if (this.$store.getters.config.mainDividerPosition == 1) {
-        return 'on-center';
+        return "on-center";
       } else {
-        return 'on-top';
+        return "on-top";
       }
     },
     hideTopListContainer: function () {
@@ -558,7 +638,7 @@ export default {
       if (!this.$store.getters.config.customList || !this.$store.getters.config.calendar) return false;
 
       return this.$store.getters.config.mainDividerPosition == 0 ? true : false;
-    }
+    },
   },
 };
 </script>
@@ -704,7 +784,6 @@ body {
 .main-horizontal-divider {
   z-index: 5;
 
-
   &.on-top {
     cursor: unset;
 
@@ -746,7 +825,6 @@ body {
   }
 
   &.on-center {
-
     .move-to-center-down,
     .move-to-center-up {
       display: none;
