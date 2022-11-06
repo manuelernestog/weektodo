@@ -6,98 +6,51 @@
       <side-bar @change-date="setSelectedDate"></side-bar>
 
       <div class="h-100 d-flex flex-column">
-        <div
-          v-show="showCalendar"
-          class="todo-lists-container"
-          :style="resizableStyle"
-          ref="calendarContainer"
-          :class="{
-            'full-screen': !showCustomList,
-            'hidden-lists-container': hideTopListContainer,
-            'full-screen-divider': hideBottomListContainer,
-          }"
-        >
+        <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer" :class="{
+          'full-screen': !showCustomList,
+          'hidden-lists-container': hideTopListContainer,
+          'full-screen-divider': hideBottomListContainer,
+        }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
           <div class="todo-slider" ref="weekListContainer">
-            <to-do-list
-              v-for="date in dates_array"
-              :key="date"
-              :id="date"
-              :showCustomList="showCustomList"
-              @todo-list-mounted="todoListMounted"
-            >
+            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted">
             </to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
         </div>
 
-        <div
-          v-show="showCustomList && showCalendar"
-          class="main-horizontal-divider"
-          id="resizer"
-          :class="mainDividerPositionClass"
-          @mousedown="resizerMouseDownHandler"
-          @dblclick="resizerDblClick"
-        >
+        <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
+          :class="mainDividerPositionClass" @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
           <div class="inner-main-horizontal-divider"></div>
           <div class="divider-icons-container">
-            <i
-              class="bi-chevron-up move-to-center-up divider-icons"
-              @click="setDividerPosition(1)"
-              :title="$t('ui.restorePanel')"
-            ></i>
-            <i
-              class="bi-chevron-up move-to-corner-up divider-icons"
-              @click="setDividerPosition(2)"
-              :title="$t('ui.maximizeListPanel')"
-            ></i>
-            <i
-              class="bi-chevron-down move-to-center-down divider-icons"
-              @click="setDividerPosition(1)"
-              :title="$t('ui.restorePanel')"
-            ></i>
-            <i
-              class="bi-chevron-down move-to-corner-down divider-icons"
-              @click="setDividerPosition(0)"
-              :title="$t('ui.maximizeCalendarPanel')"
-            ></i>
+            <i class="bi-chevron-up move-to-center-up divider-icons" @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"></i>
+            <i class="bi-chevron-up move-to-corner-up divider-icons" @click="setDividerPosition(2)"
+              :title="$t('ui.maximizeListPanel')"></i>
+            <i class="bi-chevron-down move-to-center-down divider-icons" @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"></i>
+            <i class="bi-chevron-down move-to-corner-down divider-icons" @click="setDividerPosition(0)"
+              :title="$t('ui.maximizeCalendarPanel')"></i>
           </div>
         </div>
 
-        <div
-          v-show="showCustomList"
-          class="todo-lists-container"
-          :class="{
-            'full-screen': !showCalendar,
-            'flex-grow-1': showCalendar,
-            'hidden-lists-container': hideBottomListContainer,
-          }"
-        >
-          <i
-            class="bi-chevron-left slider-btn"
-            @click="customMoveLeft"
-            :style="{
-              visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
-            }"
-          ></i>
+        <div v-show="showCustomList" class="todo-lists-container" :class="{
+          'full-screen': !showCalendar,
+          'flex-grow-1': showCalendar,
+          'hidden-lists-container': hideBottomListContainer,
+        }">
+          <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
+            visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
+          }"></i>
           <div class="todo-slider slides" ref="customListContainer">
-            <to-do-list
-              v-for="(cTodoList, index) in cTodoList"
-              :key="cTodoList.listId"
-              :id="cTodoList.listId"
-              :customTodoList="true"
-              :cTodoListIndex="index"
-              :showCustomList="showCustomList"
-              @todo-list-mounted="todoListMounted"
-            ></to-do-list>
+            <to-do-list v-for="(cTodoList, index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
+              :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted"></to-do-list>
           </div>
-          <i
-            class="bi-chevron-right slider-btn"
-            @click="customMoveRight"
-            :style="{
-              visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
-            }"
-          ></i>
+          <i class="bi-chevron-right slider-btn" @click="customMoveRight" :style="{
+            visibility: cTodoList.length > custom_columns ? 'visible' : 'hidden',
+          }"></i>
         </div>
 
         <div v-show="!showCustomList && !showCalendar" style="margin: auto">
@@ -129,19 +82,11 @@
     </div>
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
-      <toast-message
-        id="versionChanges"
-        :text="$t('ui.softwareUpdated')"
-        :sub-text="$t('ui.seeChanges')"
-        @subTextClick="seeChangeLog"
-      ></toast-message>
+      <toast-message id="versionChanges" :text="$t('ui.softwareUpdated')" :sub-text="$t('ui.seeChanges')"
+        @subTextClick="seeChangeLog"></toast-message>
 
-      <toast-message
-        id="newVersionAvailable"
-        :text="$t('ui.newVersionAvailable')"
-        :sub-text="$t('ui.download')"
-        @subTextClick="downloadNewVersion"
-      ></toast-message>
+      <toast-message id="newVersionAvailable" :text="$t('ui.newVersionAvailable')" :sub-text="$t('ui.download')"
+        @subTextClick="downloadNewVersion"></toast-message>
 
       <toast-message id="copiedAddress" :text="$t('donate.copiedAddres')"></toast-message>
     </div>
@@ -251,6 +196,7 @@ export default {
       if (document.readyState == "complete") {
         setTimeout(this.hideSplash, 4500);
         this.showInitialDonateModal();
+        this.hitStadisticCounter();
       }
     };
 
@@ -560,6 +506,12 @@ export default {
       ipcRenderer.send("set-run-in-background", this.$store.getters.config.runInBackground);
       ipcRenderer.send("set-dark-tray-icon", this.$store.getters.config.darkTrayIcon);
     },
+    hitStadisticCounter: function () {
+      var d = new Date();
+      var datestring = d.getMonth() + 1 + "-" + d.getFullYear();
+
+      fetch("https://api.countapi.xyz/hit/weektodo/" + datestring);
+    }
   },
   computed: {
     dates_array: function () {
@@ -821,6 +773,7 @@ body {
   }
 
   &.on-center {
+
     .move-to-center-down,
     .move-to-center-up {
       display: none;
