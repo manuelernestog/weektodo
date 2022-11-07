@@ -195,8 +195,8 @@ export default {
     document.onreadystatechange = () => {
       if (document.readyState == "complete") {
         setTimeout(this.hideSplash, 4500);
+        this.hitSponsorsImpressions();
         this.showInitialDonateModal();
-        this.hitStadisticCounter();
       }
     };
 
@@ -506,7 +506,7 @@ export default {
       ipcRenderer.send("set-run-in-background", this.$store.getters.config.runInBackground);
       ipcRenderer.send("set-dark-tray-icon", this.$store.getters.config.darkTrayIcon);
     },
-    hitStadisticCounter: function () {
+    hitSponsorsImpressions: function () {
       var d = new Date();
       var datestring = d.getMonth() + 1 + "-" + d.getFullYear();
 
