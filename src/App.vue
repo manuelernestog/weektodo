@@ -166,7 +166,8 @@ export default {
     if (version_json.version != config.version) {
       migrations.migrate();
     }
-    if (Notification.permission !== "denied") {
+
+    if ((typeof Boniato !== 'undefined') && (Notification.permission !== "denied")) {
       Notification.requestPermission();
     }
     this.$store.commit("loadCustomTodoListsIds", customToDoListIdsRepository.load());
