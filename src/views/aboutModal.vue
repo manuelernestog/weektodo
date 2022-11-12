@@ -24,12 +24,12 @@
               </div>
               </span>
             <div class="d-flex align-self-center">
-              <a href="https://blog.weektodo.me" target="_blank" title="Blog"> <i class="bi-rss mx-2"></i></a>
+              <a href="https://weektodo.me/blog" target="_blank" title="Blog"> <i class="bi-rss mx-2"></i></a>
               <a href="https://t.me/weektodo" target="_blank" title="Telegram"> <i class="bi-telegram mx-2"></i></a>
               <a href="https://twitter.com/weektodo" target="_blank" title="Twitter"> <i
                 class="bi-twitter mx-2"></i></a>
-              <!-- <a href="https://github.com/Zuntek/WeekToDoWeb" target="_blank" title="Github"> <i
-                class="bi-github mx-2"></i></a> -->
+              <a href="https://github.com/manuelernestog/weektodo" target="_blank" title="Github"> <i
+                class="bi-github mx-2"></i></a>
               <a href="mailto:contact@weektodo.me"> <i class="bi-envelope mx-2" :title="$t('about.email')"></i></a>
             </div>
           </div>
@@ -51,7 +51,7 @@
               <div class="horizontal-divider mt-3 mb-2"></div>
               <div class="text-center text-uppercase px-2 d-flex justify-content-center flex-wrap" style="font-size: 0.8rem; opacity: .8; line-height: 20px">
                 <span class="mx-2" @click="showSponsors" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.sponsors')}} </span>
-                <span class="mx-2" @click="showContributors" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.contributors')}} </span>
+                <a class="mx-2" href="https://weektodo.me/about" target="_blank" > {{$t('about.contributors')}} </a>
                 <span class="mx-2" @click="showCollaborators" data-bs-dismiss="modal" style="cursor: pointer"> {{$t('about.collaborators')}} </span>
               </div>
               <div class="horizontal-divider mt-2 mb-3"></div>
@@ -69,13 +69,11 @@
     </div>
   </div>
 
-  <contributors-modal ref="contributorsModal"></contributors-modal>
   <sponsor-modal ref="sponsorsModal"></sponsor-modal>
   <collaborators-modal ref="collaboratorsModal"></collaborators-modal>
 </template>
 
 <script>
-    import contributorsModal from "./contributorsModal";
     import sponsorModal from "./sponsorModal";
     import collaboratorsModal from "./collaboratorsModal";
     import version_json from '../../public/version.json'
@@ -89,18 +87,12 @@
             }
         },
         components: {
-            contributorsModal,
             sponsorModal,
             collaboratorsModal
         },
         methods: {
             showChangeLog: function () {
                 let modal = new Modal(document.getElementById('changeLogModal'));
-                modal.show();
-            },
-            showContributors: function () {
-                this.$refs.contributorsModal.loadContributors();
-                let modal = new Modal(document.getElementById('contributorModal'));
                 modal.show();
             },
             showCollaborators: function () {

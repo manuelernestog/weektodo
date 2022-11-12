@@ -70,7 +70,6 @@
       <to-do-modal :selectedTodo="selectedTodo"></to-do-modal>
       <active-to-do :activeTodo="activeTodo"> </active-to-do>
       <recurrent-events-modal></recurrent-events-modal>
-      <update-checker></update-checker>
       <importing-modal :id="'importingModal'" :text="$t('settings.importing')"></importing-modal>
       <importing-modal :id="'exportingModal'" :text="$t('settings.exporting')"></importing-modal>
 
@@ -112,7 +111,6 @@ import welcomeModal from "./views/welcomeModal";
 import toDoModal from "./views/toDoModal/toDoModal";
 import tipsModal from "./views/tipsModal";
 import { Modal, Toast } from "bootstrap";
-import updateChecker from "./components/updateChecker";
 import migrations from "./migrations/migrations";
 import version_json from "../public/version.json";
 import isElectron from "is-electron";
@@ -140,7 +138,6 @@ export default {
     aboutModal,
     welcomeModal,
     tipsModal,
-    updateChecker,
     toDoModal,
     clearDataModal,
     RecurrentEventsModal,
@@ -497,8 +494,7 @@ export default {
       }
     },
     seeChangeLog: function () {
-      let modal = new Modal(document.getElementById("changeLogModal"));
-      modal.show();
+      window.open("https://weektodo.me/changelog", "_blank");
     },
     syncElectronConfig: function () {
       const { ipcRenderer } = require("electron");
