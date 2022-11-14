@@ -19,7 +19,7 @@
       <i class="bi-x todo-item-remove" @click="removeTodo"></i>
     </div>
 
-    <div v-if="activeTodo.toDo.subTaskList.length > 0" class="todo-item-sub-tasks">
+    <div v-if="activeTodo.toDo.subTaskList && activeTodo.toDo.subTaskList.length > 0" class="todo-item-sub-tasks">
       <ul class="sub-tasks">
         <li v-for="(subTask, index) in activeTodo.toDo.subTaskList" :key="index" class="sub-task">
           <div class="d-flex flex-row mt-1" :class="{ 'checked-sub-task': subTask.checked }">
