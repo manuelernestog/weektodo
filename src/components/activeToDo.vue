@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!editing" id="todo-item-active" class="todo-item" ref="currentTodo" draggable="true"
+  <div id="todo-item-active" class="todo-item" ref="currentTodo" draggable="true"
     @dragstart="startDrag($event, activeTodo.toDo, activeTodo.index)" @dragend="endDrag()" @wheel="movingWheel"
     :class="{ 'dragging': todoDragging }" @mouseleave="hideToDoItem">
     <div class="d-flex">
