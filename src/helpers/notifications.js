@@ -5,22 +5,18 @@ export default {
     let todoList = vue.$store.getters.todoLists[todoListId];
     var notificationSound = vue.$store.getters.config.notificationSound;
     if (todoListId != moment().format("YYYYMMDD")) return;
-    
+
     vue.$store.getters.notifications.forEach((notification) => {
       clearTimeout(notification);
     });
     var notificationsList = [];
 
-    vue.$honeybadger.setContext({
-      todoListId: todoListId,
-      version: "1.9.0"
-    });
-
-    todoList.forEach((todo) => {
-      if (todo.alarm && !todo.checked && moment(todo.time, "HH:mm") >= moment()) {
-        notificationsList.push(this.createNotificationAlert(todo.time, todo.text, notificationSound));
-      }
-    });
+    if (todoList != null)
+      todoList.forEach((todo) => {
+        if (todo.alarm && !todo.checked && moment(todo.time, "HH:mm") >= moment()) {
+          notificationsList.push(this.createNotificationAlert(todo.time, todo.text, notificationSound));
+        }
+      });
 
     vue.$store.commit("setNotificatios", notificationsList);
   },
