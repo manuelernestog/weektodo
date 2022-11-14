@@ -186,7 +186,7 @@ export default {
     );
   },
   mounted() {
-    this.$honeybadger.config.reportData = this.$store.getters.config.reportErrors;
+    this.setupTelemetric();
     this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
     this.calendarHeight = this.$store.getters.config.calendarHeight;
     window.addEventListener("resize", this.weekResetScroll);
@@ -508,6 +508,13 @@ export default {
       var datestring = d.getMonth() + 1 + "-" + d.getFullYear();
 
       fetch("https://api.countapi.xyz/hit/weektodo/" + datestring);
+    },
+    setupTelemetric: function (){
+      this.$honeybadger.setContext({
+      version: "2.0.0",
+      lang: this.$store.getters.config.language
+    });
+    this.$honeybadger.config.reportData = this.$store.getters.config.reportErrors;
     }
   },
   computed: {
