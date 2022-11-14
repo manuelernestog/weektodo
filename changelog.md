@@ -1,3 +1,16 @@
+## v2.0.0
+Nov 18, 2022
+
+- Adding telemetric system
+- Adding custom list columns count setting
+- Adding compact and expanded view settings
+- Calendar start in today date if old items move automatically
+- Adding new task list action
+- Fixing Bugs
+- Moving changelog, contributors, and support us views to web site
+- Creating New Website
+- Changing license to GNU GPL 3
+
 ## v1.9.0
 Jul 28, 2022
 
