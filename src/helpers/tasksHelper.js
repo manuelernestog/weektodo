@@ -1,7 +1,6 @@
-
-
 export default {
-    pendingTasksCount(todoList) {
-        return todoList.filter(todo => !todo.checked).length;
-    }
-}
+  pendingTasksCount(todoList) {
+    if (todoList == null) return 0;
+    return todoList.filter((todo) => !todo.checked).length;
+  },
+};

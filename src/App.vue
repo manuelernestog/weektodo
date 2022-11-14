@@ -378,6 +378,8 @@ export default {
       let yesterdayTasks = this.$store.getters.todoLists[moment().subtract(1, "d").format("YYYYMMDD")];
       let todayTasks = this.$store.getters.todoLists[moment().format("YYYYMMDD")];
 
+      console.log('asd11');
+      console.log(taskHelper);
       let yesterayPendingTasksCount = taskHelper.pendingTasksCount(yesterdayTasks);
       let todayPendingTasksCount = taskHelper.pendingTasksCount(todayTasks);
 
