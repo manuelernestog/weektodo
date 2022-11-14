@@ -14,7 +14,7 @@
       data-bs-toggle="modal" :title="$t('ui.reorderCustomLists')"></i>
 
     <span style="flex-grow: 1"></span>
-    <i class="bi-gift" data-bs-toggle="modal" data-bs-target="#donateModal" :title="$t('donate.contribute')"
+    <i class="bi-gift" :title="$t('donate.supportUs')"
       @click="openDonateModal"></i>
     <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
     <i class="bi-gear" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"
@@ -71,7 +71,7 @@ export default {
       document.getElementById("config-home-tab").click();
     },
     openDonateModal: function () {
-      document.getElementById("homeTab").click();
+      window.open("https://weektodo.me/support-us", "_blank");
     },
   },
   watch: {

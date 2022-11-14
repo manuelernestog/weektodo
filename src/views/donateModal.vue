@@ -3,15 +3,13 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{ $t("donate.contribute") }}</h5>
+          <h5 class="modal-title">{{ $t("donate.supportUs") }}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
           <div class="row">
             <div style="text-align: justify; line-height: 21px;">
               {{ $t("donate.supportMessage1") }}
-              <br><br>
-              {{ $t("donate.supportMessage2") }}
             </div>
             <div>
               <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
@@ -85,7 +83,7 @@ export default {
 
 <style scoped>
 .modal-dialog {
-  max-width: 400px;
+  max-width: 380px;
 }
 
 #nav-tabContent {
@@ -95,10 +93,6 @@ export default {
 
 #donate-home {
   margin-top: 10px;
-}
-
-.tab-pane {
-  min-height: 230px;
 }
 
 .nav-tabs {
