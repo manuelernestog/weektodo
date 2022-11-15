@@ -199,7 +199,8 @@
     "time": "Tempo",
     "untilDate": "Até a data",
     "weekly": "Semanalmente",
-    "yearly": "Anual"
+    "yearly": "Anual",
+    "weekdays": "Dias úteis (Seg-Sex)"
   },
   "notifications": {
     "noPendingTasksToday": "Você não tem tarefas agendadas hoje.",

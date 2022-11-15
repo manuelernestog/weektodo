@@ -191,6 +191,7 @@
     "noRepeat": "No Repeat",
     "daily": "Daily",
     "weekly": "Weekly",
+    "weekdays": "Weekdays (Mon-Fri)",
     "monthly": "Monthly",
     "yearly": "Yearly",
     "split": "Split",

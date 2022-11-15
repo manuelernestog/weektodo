@@ -10,6 +10,7 @@ Nov 18, 2022
 - Moving changelog, contributors, and support us views to web site
 - Creating New Website
 - Changing license to GNU GPL 3
+- Adding Weekdays to recurrent events
 
 ## v1.9.0
 Jul 28, 2022

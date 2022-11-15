@@ -199,7 +199,8 @@
     "time": "Час",
     "untilDate": "До дати",
     "weekly": "Щотижня",
-    "yearly": "Щорічно"
+    "yearly": "Щорічно",
+    "weekdays": "будні (пн-пт)"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",

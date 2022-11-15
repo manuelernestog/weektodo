@@ -148,7 +148,8 @@
     "alarm": "Alarm",
     "close": "Blisko",
     "color": "Kolor",
-    "time": "Czas"
+    "time": "Czas",
+    "weekdays": "Dni powszednie (pon.-pt.)"
   },
   "ui": {
     "calendar": "Kalendarz",

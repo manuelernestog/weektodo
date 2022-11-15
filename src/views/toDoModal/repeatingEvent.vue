@@ -9,6 +9,7 @@
         :disabled="repeatingEvent">
         <option value="">{{ $t("todoDetails.noRepeat") }}</option>
         <option value="3">{{ $t("todoDetails.daily") }}</option>
+        <option value="4">{{ $t("todoDetails.weekdays") }} </option>
         <option value="2">{{ $t("todoDetails.weekly") }} </option>
         <option value="1">{{ $t("todoDetails.monthly") }}</option>
         <option value="0">{{ $t("todoDetails.yearly") }}</option>
@@ -109,11 +110,18 @@ export default {
     },
     repeatingEventRule() {
       if (!this.repeatingType) return null;
-      var ruleOptions = {
+
+       var ruleOptions = {
         freq: this.repeatingType,
         interval: this.interval,
         dtstart: moment(this.todo.listId, "YYYYMMDD").toDate(),
       };
+
+      if (this.repeatingType == 4){
+        ruleOptions.byweekday = [RRule.MO, RRule.TU, RRule.WE, RRule.TH, RRule.FR];
+        ruleOptions.freq = 3;
+      }
+      
 
       if (this.ocurrencesType == "ocurrences") {
         ruleOptions.count = this.ocurrences;

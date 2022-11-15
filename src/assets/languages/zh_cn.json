@@ -149,7 +149,8 @@
     "taskRemoved": "任务已删除！！！",
     "taskDuplicated": "任务已重复！！！",
     "duplicate": "重复",
-    "subtasks": "子任务"
+    "subtasks": "子任务",
+    "weekdays": "工作日（周一至周五）"
   },
   "notifications": {
     "noPendingTasksToday": "你今天没有定期任务。",

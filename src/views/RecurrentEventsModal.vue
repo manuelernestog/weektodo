@@ -10,8 +10,8 @@
           <table class="table table-hover ">
             <thead>
               <tr>
-                <th scope="col">{{$t("ui.task")}}</th>
-                <th scope="col">{{$t("ui.Frecuency")}}</th>
+                <th scope="col">{{     $t("ui.task")     }}</th>
+                <th scope="col">{{     $t("ui.Frecuency")     }}</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -62,6 +62,8 @@ export default {
           return this.$t("todoDetails.weekly");
         case "3":
           return this.$t("todoDetails.daily");
+        case "4":
+          return this.$t("todoDetails.weekdays");
       }
     },
     removeRecurringTask: function (id) {

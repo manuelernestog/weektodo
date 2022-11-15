@@ -199,7 +199,8 @@
     "time": "Tiempo",
     "untilDate": "Hasta la fecha",
     "weekly": "Semanalmente",
-    "yearly": "Anual"
+    "yearly": "Anual",
+    "weekdays": "Laborables (lunes a viernes)"
   },
   "notifications": {
     "noPendingTasksToday": "No tienes tareas programadas hoy.",

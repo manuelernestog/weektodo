@@ -199,7 +199,8 @@
     "time": "Zaman",
     "untilDate": "Tarihine kadar",
     "weekly": "Haftalık",
-    "yearly": "Yıllık"
+    "yearly": "Yıllık",
+    "weekdays": "Hafta İçi (Pazartesi-Cuma)"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",

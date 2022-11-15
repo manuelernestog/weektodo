@@ -199,7 +199,8 @@
     "time": "Orario",
     "untilDate": "Fino a data",
     "weekly": "settimanalmente",
-    "yearly": "Annuale"
+    "yearly": "Annuale",
+    "weekdays": "Feriali (lun-ven)"
   },
   "notifications": {
     "noPendingTasksToday": "Non hai attività programmate oggi.",

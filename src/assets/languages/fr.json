@@ -199,7 +199,8 @@
     "time": "Temps",
     "untilDate": "Jusqu'à ce jour",
     "weekly": "Hebdomadaire",
-    "yearly": "Annuel"
+    "yearly": "Annuel",
+    "weekdays": "Jours de semaine (du lundi au vendredi)"
   },
   "notifications": {
     "noPendingTasksToday": "Vous n'avez aucune tâche planifiée aujourd'hui.",
