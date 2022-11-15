@@ -13,9 +13,15 @@
             <span v-else class="cicle-icon"
               :class="{ 'bi-check-circle': toDo.checked, 'bi-circle': !toDo.checked, }"></span>
             <span v-html="todoText"></span>
-            <span v-if="!compactView" class="item-time mx-2" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time) }} </span>
+            <span v-if="!compactView" class="item-time mx-2" :class="{ 'checked-todo': toDo.checked }"> {{
+                timeFormat(toDo.time)
+            }} <div class="alarm-indicator" :class="{ 'show-alarm-indicator': toDo.alarm }">
+              </div></span>
           </span>
-          <span v-if="compactView" class="item-time" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time) }} </span>
+          <span v-if="compactView" class="item-time" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time)
+          }}
+            <div class="alarm-indicator" :class="{ 'show-alarm-indicator': toDo.alarm }"></div>
+          </span>
         </div>
       </div>
       <input v-show="editing" class="edit todo-input" type="text" v-model="text" ref="toDoEditInput" @blur="doneEdit()"
@@ -161,7 +167,7 @@ export default {
   line-height: 1.3rem;
   font-size: 0.865rem;
   margin: 2px 0px 2px 0px;
-  padding: 0 7px 0 0px;
+  padding: 0 2px 0 0px;
   opacity: 0.6;
 }
 

@@ -282,6 +282,29 @@ i {
   line-height: 21px;
 }
 
+.alarm-indicator {
+  display: inline-block;
+  margin-left: -2px;
+  margin-bottom: 9px;
+  width: 4px;
+  height: 4px;
+  border-radius: 5px;
+
+}
+
+.show-alarm-indicator {
+  background-color: red;
+}
+
+.checked-todo .show-alarm-indicator {
+  background-color: #c4c4c4;
+}
+
+.dark-theme .checked-todo .show-alarm-indicator {
+  background-color: #3a3a40;
+}
+
+
 /*TOast*/
 
 .toast {
