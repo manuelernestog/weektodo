@@ -167,7 +167,7 @@ export default {
     },
     columns: function () {
       if (this.customTodoList)
-        return this.$store.getters.config.custom_columns;
+        return this.$store.getters.config.customColumns;
         
       return this.$store.getters.config.columns;
     },

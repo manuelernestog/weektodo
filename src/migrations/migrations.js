@@ -74,8 +74,11 @@ function telemetric() {
   let config = configRepository.load();
   if (!("reportErrors" in config)) {
     config["reportErrors"] = false;
-    config["custom_columns"] = config["columns"];
+    config["customColumns"] = config["columns"];
     config["compactView"] = true;
+    config["showYesterday"] = true;
+    config["alarmIndicator"] = true;
+    config["autoReorder"] = true;
     configRepository.update(config);
   }
 }
