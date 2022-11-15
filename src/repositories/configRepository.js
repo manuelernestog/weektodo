@@ -30,7 +30,10 @@ export default {
         mainDividerPosition: 1,
         darkTrayIcon: false,
         importing: false,
-        compactView: true
+        compactView: true,
+        showYesterday: true,
+        alarmIndicator: false,
+        autoReorder: false
       };
       storageRepository.set("config", default_config);
       return default_config;

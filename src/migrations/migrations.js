@@ -77,8 +77,8 @@ function telemetric() {
     config["customColumns"] = config["columns"];
     config["compactView"] = true;
     config["showYesterday"] = true;
-    config["alarmIndicator"] = true;
-    config["autoReorder"] = true;
+    config["alarmIndicator"] = false;
+    config["autoReorder"] = false;
     configRepository.update(config);
   }
 }
