@@ -119,7 +119,7 @@ export default {
 
       if (this.repeatingType == 4){
         ruleOptions.byweekday = [RRule.MO, RRule.TU, RRule.WE, RRule.TH, RRule.FR];
-        ruleOptions.freq = 3;
+        ruleOptions.freq = 2;
       }
       
 
