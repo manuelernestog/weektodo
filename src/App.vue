@@ -193,7 +193,6 @@ export default {
     document.onreadystatechange = () => {
       if (document.readyState == "complete") {
         setTimeout(this.hideSplash, 4500);
-        this.hitSponsorsImpressions();
         this.showInitialDonateModal();
       }
     };
@@ -502,12 +501,6 @@ export default {
       ipcRenderer.send("set-open-on-startup", this.$store.getters.config.openOnStartup);
       ipcRenderer.send("set-run-in-background", this.$store.getters.config.runInBackground);
       ipcRenderer.send("set-dark-tray-icon", this.$store.getters.config.darkTrayIcon);
-    },
-    hitSponsorsImpressions: function () {
-      var d = new Date();
-      var datestring = d.getMonth() + 1 + "-" + d.getFullYear();
-
-      fetch("https://api.countapi.xyz/hit/weektodo/" + datestring);
     },
     setupTelemetric: function (){
       this.$honeybadger.setContext({
