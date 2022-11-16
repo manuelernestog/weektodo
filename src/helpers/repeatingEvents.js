@@ -1,6 +1,7 @@
 import toDoListRepository from "../repositories/toDoListRepository";
 import repeatingEventByDateRepository from "../repositories/repeatingEventByDateRepository";
 import moment from "moment";
+import tasksHelper from "./tasksHelper";
 
 export default {
   generateRepeatingEventsIntances(listId, vue) {
@@ -12,7 +13,13 @@ export default {
         var new_instanced_event = JSON.parse(JSON.stringify(re.data));
         new_instanced_event.listId = listId;
         vue.$store.commit("addTodo", new_instanced_event);
-        toDoListRepository.update(listId, vue.$store.getters.todoLists[listId]);
+
+        if(vue.$store.getters.config.autoReorderTasks){
+          toDoListRepository.update(listId, tasksHelper.reorderTasksList(vue.$store.getters.todoLists[listId]));
+        } else {
+          toDoListRepository.update(listId, vue.$store.getters.todoLists[listId]);
+        }
+     
         re_by_date[re_id] = true;
         repeatingEventByDateRepository.update(listId, re_by_date);
       }

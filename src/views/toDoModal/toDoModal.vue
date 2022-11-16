@@ -182,6 +182,7 @@ import repeatingEventRepository from "../../repositories/repeatingEventRepositor
 import comfirmModal from "../../components/comfirmModal.vue";
 import linkifyStr from 'linkify-string';
 import ClickHandler from "@manuelernestog/click-handler";
+import tasksHelper from "../../helpers/tasksHelper";
 
 export default {
   name: "toDoModal",
@@ -318,13 +319,24 @@ export default {
         this.$store.commit("moveTodoToEnd", { toDoListId: this.todo.listId, index: this.index });
         this.index = this.todoList.length - 1;
       }
-      this.updateTodo(resetRepeatinEvent);
+      this.updateTodoWithReorder(resetRepeatinEvent);
     },
     updateTodo: function (resetRepeatinEvent = true) {
       if (resetRepeatinEvent) {
         this.todo.repeatingEvent = null;
       }
       this.updateTodoList(this.todo.listId, this.todoList);
+    },
+    updateTodoWithReorder: function (resetRepeatinEvent = true) {
+      if (resetRepeatinEvent) {
+        this.todo.repeatingEvent = null;
+      }
+
+      if (this.$store.getters.config.autoReorderTasks) {
+        this.updateTodoList(this.todo.listId, tasksHelper.reorderTasksList(this.todoList));
+      } else {
+        this.updateTodoList(this.todo.listId, this.todoList);
+      }
     },
     updateTodoList: function (todoListId, TodoList) {
       notifications.refreshDayNotifications(this, todoListId);
@@ -357,7 +369,13 @@ export default {
         this.todoList = this.$store.getters.todoLists[this.todo.listId];
         this.index = this.todoList.length - 1;
         this.todo = this.todoList[this.index];
+
+      if(this.$store.getters.config.autoReorderTasks){
+        this.updateTodoList(newListID,tasksHelper.reorderTasksList( this.todoList));
+      } else {
         this.updateTodoList(newListID, this.todoList);
+      }
+
       } else {
         this.loadToDoFormDB(newListID);
       }
@@ -425,7 +443,13 @@ export default {
         repeatingEvent: null,
       };
       this.$store.commit("addTodo", newTodo);
-      this.updateTodoList(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+
+      if(this.$store.getters.config.autoReorderTasks){
+        this.updateTodoList(this.todo.listId, tasksHelper.reorderTasksList(this.$store.getters.todoLists[this.todo.listId]));
+      } else {
+        this.updateTodoList(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
+      }
+
       let toast = new Toast(document.getElementById("taskDuplicated"));
       toast.show();
     },
@@ -460,7 +484,7 @@ export default {
       if (!time) {
         this.todo.alarm = false;
       }
-      this.updateTodo();
+      this.updateTodoWithReorder();
     },
     changeAlarm() {
       if (this.todo.time) {

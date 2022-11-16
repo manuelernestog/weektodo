@@ -36,6 +36,7 @@ import toDoListRepository from "../repositories/toDoListRepository";
 import listHeader from "./listHeader";
 import notifications from "../helpers/notifications";
 import repeatingEventHelper from "../helpers/repeatingEvents.js";
+import tasksHelper from "../helpers/tasksHelper";
 
 export default {
   components: {
@@ -119,7 +120,11 @@ export default {
         index: new_index,
         toDo: toDo,
       });
-      this.updateTodoList(list, this.$store.getters.todoLists[list]);
+      if(this.$store.getters.config.autoReorderTasks){
+        this.updateTodoList(list, tasksHelper.reorderTasksList(this.$store.getters.todoLists[list]));
+      } else {
+        this.updateTodoList(list, this.$store.getters.todoLists[list]);
+      }
     },
     onDropAtEnd: function (event, list) {
       let toDo = JSON.parse(event.dataTransfer.getData("item"));
@@ -129,7 +134,12 @@ export default {
       if (toDo.listId != list) toDo.repeatingEvent = null;
       toDo.listId = list;
       this.$store.commit("addTodo", toDo);
-      this.updateTodoList(list, this.$store.getters.todoLists[list]);
+
+      if(this.$store.getters.config.autoReorderTasks){
+        this.updateTodoList(list, tasksHelper.reorderTasksList(this.$store.getters.todoLists[list]));
+      } else {
+        this.updateTodoList(list, this.$store.getters.todoLists[list]);
+      }
       this.fakeItemsDragHover = false;
     },
     updateTodoList: function (todoListId, TodoList) {

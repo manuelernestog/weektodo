@@ -44,6 +44,7 @@ import moment from "moment";
 import notifications from "../helpers/notifications";
 import linkifyStr from 'linkify-string';
 import ClickHandler from "@manuelernestog/click-handler";
+import tasksHelper from "../helpers/tasksHelper";
 
 export default {
   components: {},
@@ -93,7 +94,12 @@ export default {
         this.$refs.currentTodo.style.display = `none`;
         this.$store.commit("moveTodoToEnd", { toDoListId: toDoListId, index: index, });
       }
-      toDoListRepository.update(toDoListId, this.$store.getters.todoLists[toDoListId]);
+      if (this.$store.getters.config.autoReorderTasks) {
+        this.$refs.currentTodo.style.display = `none`;
+        toDoListRepository.update(toDoListId, tasksHelper.reorderTasksList(this.$store.getters.todoLists[toDoListId]));
+      } else {
+        toDoListRepository.update(toDoListId, this.$store.getters.todoLists[toDoListId]);
+      }
     },
     startDrag: function (event, item, index) {
       event.dataTransfer.dropEffect = "move";
