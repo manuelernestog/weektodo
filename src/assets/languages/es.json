@@ -34,7 +34,8 @@
     "darkIcon": "Icono oscuro",
     "lists_columns": "Columnas de listas personalizadas",
     "reportErrors": "Enviar informe de errores",
-    "compactView": "Vista compacta"
+    "compactView": "Vista compacta",
+    "behavior": "Comportamiento"
   },
   "donate": {
     "contribute": "Contribuir",

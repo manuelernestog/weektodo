@@ -96,7 +96,8 @@
     "darkIcon": "Ciemna ikona",
     "lists_columns": "Kolumny list niestandardowych",
     "reportErrors": "Wyślij raport o błędach",
-    "compactView": "Widok kompaktowy"
+    "compactView": "Widok kompaktowy",
+    "behavior": "Zachowanie"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

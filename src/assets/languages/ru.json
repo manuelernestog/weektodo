@@ -34,7 +34,8 @@
     "darkIcon": "Темная икона",
     "lists_columns": "Пользовательские столбцы списков",
     "reportErrors": "Отправить отчет об ошибках",
-    "compactView": "Компактный вид"
+    "compactView": "Компактный вид",
+    "behavior": "Поведение"
   },
   "donate": {
     "contribute": "Способствовать",

@@ -8,16 +8,22 @@ export default {
               link: "config-general-tab",
             },
             {
-              name: vue.$t('settings.notifications'),
-              ico: "bi-bell",
+              name: vue.$t('settings.behavior'),
+              ico: "bi-shuffle",
               linktype: "tagId",
-              link: "config-notifications-tab",
+              link: "config-behavior-tab",
             },
             {
               name: vue.$t('settings.display'),
               ico: "bi-eye",
               linktype: "tagId",
               link: "config-display-tab",
+            },
+            {
+              name: vue.$t('settings.notifications'),
+              ico: "bi-bell",
+              linktype: "tagId",
+              link: "config-notifications-tab",
             },
             {
               name: vue.$t('settings.data'),

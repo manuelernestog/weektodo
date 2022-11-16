@@ -34,7 +34,8 @@
     "importing": "Importing...",
     "exporting": "Exporting...",
     "reportErrors": "Send Errors Report",
-    "compactView": "Compact View"
+    "compactView": "Compact View",
+    "behavior": "Behavior"
   },
   "donate": {
     "contribute": "Contribute",

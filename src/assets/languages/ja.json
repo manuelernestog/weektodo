@@ -34,7 +34,8 @@
     "darkIcon": "暗いアイコン",
     "lists_columns": "カスタム リスト列",
     "reportErrors": "エラー レポートの送信",
-    "compactView": "コンパクト ビュー"
+    "compactView": "コンパクト ビュー",
+    "behavior": "行動"
   },
   "donate": {
     "contribute": "コントリビューション",

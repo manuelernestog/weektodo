@@ -34,7 +34,8 @@
     "darkIcon": "Karanlık Simge",
     "lists_columns": "Özel Listeler Sütunları",
     "reportErrors": "Hata Raporu Gönder",
-    "compactView": "Kompakt Görünüm"
+    "compactView": "Kompakt Görünüm",
+    "behavior": "Davranış"
   },
   "donate": {
     "contribute": "Katkıda bulun",

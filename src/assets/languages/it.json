@@ -34,7 +34,8 @@
     "darkIcon": "Icona scura",
     "lists_columns": "Colonne degli elenchi personalizzati",
     "reportErrors": "Invia rapporto errori",
-    "compactView": "Vista compatta"
+    "compactView": "Vista compatta",
+    "behavior": "Comportamento"
   },
   "donate": {
     "contribute": "Contribuisci",

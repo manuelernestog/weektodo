@@ -34,7 +34,8 @@
     "darkIcon": "أيقونة الظلام",
     "lists_columns": "قوائم أعمدة مخصصة",
     "reportErrors": "إرسال تقرير الأخطاء",
-    "compactView": "عرض مضغوط"
+    "compactView": "عرض مضغوط",
+    "behavior": "سلوك"
   },
   "donate": {
     "contribute": "ساهِم",

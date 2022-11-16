@@ -44,6 +44,12 @@
                 Language
               </button>
             </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="config-behavior-tab" data-bs-toggle="tab" data-bs-target="#config-behavior"
+                role="tab">
+                Behavior
+              </button>
+            </li>
           </ul>
 
           <div class="tab-content" id="confTab-content">
@@ -63,13 +69,6 @@
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="customListsSetting"
                     v-model="configData.customList" @change="changeConfig('customList', configData.customList)" />
-                </div>
-
-                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
-                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.moveOldTasks")
-                  }}</label>
-                  <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.moveOldTasks"
-                    @change="changeConfig('moveOldTasks', configData.moveOldTasks)" />
                 </div>
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
@@ -106,6 +105,21 @@
                   <input class="form-check-input" type="checkbox" id="reportErrors" v-model="configData.reportErrors"
                     @change="setSendErrors()" />
                 </div>
+
+                <button class="btn mt-3" type="button" @click="goHome">
+                  <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
+                </button>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="config-behavior">
+              <div class="d-flex flex-column mt-2 h-100">
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.moveOldTasks")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.moveOldTasks"
+                    @change="changeConfig('moveOldTasks', configData.moveOldTasks)" />
+                </div>
+
 
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}

@@ -34,7 +34,8 @@
     "darkIcon": "Темний значок",
     "lists_columns": "Настроювані стовпці списків",
     "reportErrors": "Надіслати звіт про помилки",
-    "compactView": "Компактний вид"
+    "compactView": "Компактний вид",
+    "behavior": "Поведінка"
   },
   "donate": {
     "contribute": "Співпраця",
