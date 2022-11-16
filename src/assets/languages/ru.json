@@ -36,7 +36,8 @@
     "reportErrors": "Отправить отчет об ошибках",
     "compactView": "Компактный вид",
     "behavior": "Поведение",
-    "hideYesterday": "Скрыть вчера"
+    "hideYesterday": "Скрыть вчера",
+    "notificationIndicator": "Индикатор уведомлений"
   },
   "donate": {
     "contribute": "Способствовать",

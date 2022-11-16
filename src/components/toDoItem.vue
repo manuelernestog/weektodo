@@ -15,12 +15,12 @@
             <span v-html="todoText"></span>
             <span v-if="!compactView" class="item-time mx-2" :class="{ 'checked-todo': toDo.checked }"> {{
                 timeFormat(toDo.time)
-            }} <div class="alarm-indicator" :class="{ 'show-alarm-indicator': toDo.alarm }">
+            }} <div class="alarm-indicator" :class="{ 'show-alarm-indicator': notificationIndicator && toDo.alarm }">
               </div></span>
           </span>
           <span v-if="compactView" class="item-time" :class="{ 'checked-todo': toDo.checked }"> {{ timeFormat(toDo.time)
           }}
-            <div class="alarm-indicator" :class="{ 'show-alarm-indicator': toDo.alarm }"></div>
+            <div class="alarm-indicator" :class="{ 'show-alarm-indicator': notificationIndicator && toDo.alarm }"></div>
           </span>
         </div>
       </div>
@@ -113,6 +113,9 @@ export default {
     },
     compactView: function () {
       return this.$store.getters.config.compactView;
+    },
+    notificationIndicator: function () {
+      return this.$store.getters.config.notificationIndicator;
     }
   }
 };

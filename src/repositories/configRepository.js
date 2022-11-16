@@ -32,7 +32,7 @@ export default {
         importing: false,
         compactView: true,
         hideYesterday: true,
-        alarmIndicator: false,
+        notificationIndicator: false,
         autoReorder: false
       };
       storageRepository.set("config", default_config);

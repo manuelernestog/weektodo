@@ -36,7 +36,8 @@
     "reportErrors": "Invia rapporto errori",
     "compactView": "Vista compatta",
     "behavior": "Comportamento",
-    "hideYesterday": "Nascondi ieri"
+    "hideYesterday": "Nascondi ieri",
+    "notificationIndicator": "Indicatore di notifica"
   },
   "donate": {
     "contribute": "Contribuisci",

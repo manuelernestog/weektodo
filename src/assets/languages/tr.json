@@ -36,7 +36,8 @@
     "reportErrors": "Hata Raporu Gönder",
     "compactView": "Kompakt Görünüm",
     "behavior": "Davranış",
-    "hideYesterday": "Dünü Gizle"
+    "hideYesterday": "Dünü Gizle",
+    "notificationIndicator": "Bildirim Göstergesi"
   },
   "donate": {
     "contribute": "Katkıda bulun",

@@ -73,7 +73,7 @@
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="updatesCheckSetting">{{
-                  $t("settings.checkUpdates")
+                      $t("settings.checkUpdates")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="updatesCheckSetting"
                     v-model="configData.checkUpdates" @change="changeConfig('checkUpdates', configData.checkUpdates)" />
@@ -81,7 +81,7 @@
 
                 <div v-if="isElectron()" class=" form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="openOnStartup">{{
-                  $t("settings.openOnStartup")
+                      $t("settings.openOnStartup")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="openOnStartup" v-model="configData.openOnStartup"
                     @change="setOpenOnStart()" />
@@ -135,7 +135,7 @@
               <div class="d-flex flex-column mt-2 h-100">
                 <div class="px-1 mb-3">
                   <label for="columnsConfig" class="form-check-label">{{ $t("settings.columns") }}: {{
-                  configData.columns
+                      configData.columns
                   }}</label>
                   <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig"
                     v-model="configData.columns" @change="changeConfig('columns', configData.columns)" />
@@ -143,7 +143,7 @@
 
                 <div class="px-1 mb-3">
                   <label for="columnsConfig" class="form-check-label">{{ $t("settings.lists_columns") }}: {{
-                  configData.customColumns
+                      configData.customColumns
                   }}</label>
                   <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig"
                     v-model="configData.customColumns"
@@ -159,17 +159,17 @@
 
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="compactViewSetting">{{
-                  $t("settings.compactView")
+                      $t("settings.compactView")
                   }}</label>
-                  <input class="form-check-input" type="checkbox" id="compactViewSetting" v-model="configData.compactView"
-                    @change="changeConfig('compactView', configData.compactView)" />
+                  <input class="form-check-input" type="checkbox" id="compactViewSetting"
+                    v-model="configData.compactView" @change="changeConfig('compactView', configData.compactView)" />
                 </div>
 
                 <div class="horizontal-divider mb-3"></div>
 
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkThemeSetting">{{
-                  $t("settings.darkTheme")
+                      $t("settings.darkTheme")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="configData.darkTheme"
                     @change="changeConfig('darkTheme', configData.darkTheme)" />
@@ -177,7 +177,7 @@
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkTrayIcon">{{
-                  $t("settings.darkIcon")
+                      $t("settings.darkIcon")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="darkTrayIcon" v-model="configData.darkTrayIcon"
                     @change="setDarkTrayIcon" />
@@ -190,20 +190,25 @@
             </div>
             <div class="tab-pane fade" id="config-notifications">
               <div class="d-flex flex-column mt-3 h-100">
-                <div v-if="isElectron()" class="
-                    form-check form-switch
-                    d-flex
-                    px-0
-                    mb-3
-                    justify-content-between
-                  ">
+                <div v-if="isElectron()" class="orm-check form-switch d-flex px-0 mb-3  justify-content-between">
                   <label class="form-check-label" style="margin-left: 0px" for="notificationOnStartup">{{
-                  $t("settings.notificationOnStartup")
+                      $t("settings.notificationOnStartup")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="notificationOnStartup"
                     v-model="configData.notificationOnStartup"
                     @change="changeConfig('notificationOnStartup', configData.notificationOnStartup)" />
                 </div>
+
+                <div class="form-check form-switch d-flex px-0 mb-3  justify-content-between">
+                  <label class="form-check-label" style="margin-left: 0px" for="notificationIndicator">{{
+                      $t("settings.notificationIndicator")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="notificationIndicator"
+                    v-model="configData.notificationIndicator"
+                    @change="changeConfig('notificationIndicator', configData.notificationIndicator)" />
+                </div>
+
+                <div class="horizontal-divider mb-3"></div>
 
                 <label for="notificationSound" class="form-label">{{ $t("settings.notificationSound") }}:</label>
                 <div class="d-flex">
@@ -225,10 +230,15 @@
                     <i class="bi-play-circle a"></i>
                   </button>
                 </div>
+
+
+
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
                 </button>
               </div>
+
+
             </div>
             <div class="tab-pane fade" id="config-data">
               <div class="d-flex flex-column mt-2 h-100">

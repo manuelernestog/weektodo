@@ -36,7 +36,8 @@
     "reportErrors": "エラー レポートの送信",
     "compactView": "コンパクト ビュー",
     "behavior": "行動",
-    "hideYesterday": "昨日を非表示"
+    "hideYesterday": "昨日を非表示",
+    "notificationIndicator": "通知インジケータ"
   },
   "donate": {
     "contribute": "コントリビューション",

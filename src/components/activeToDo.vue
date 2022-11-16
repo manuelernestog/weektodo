@@ -14,7 +14,7 @@
           :class="{ 'bi-check-circle': activeTodo.toDo.checked, 'bi-circle': !activeTodo.toDo.checked, }"></span>
         <span v-html="todoText"></span>
         <span class="time-details"> {{ timeFormat(activeTodo.toDo.time) }}
-          <div class="alarm-indicator" :class="{ 'show-alarm-indicator': activeTodo.toDo.alarm }"></div>
+          <div class="alarm-indicator" :class="{ 'show-alarm-indicator': notificationIndicator && activeTodo.toDo.alarm }"></div>
         </span>
       </span>
       <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
@@ -155,6 +155,9 @@ export default {
   computed: {
     todoText: function () {
       return linkifyStr(this.activeTodo.toDo.text, this.options);
+    },
+    notificationIndicator: function () {
+      return this.$store.getters.config.notificationIndicator;
     }
   }
 };

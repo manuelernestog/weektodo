@@ -98,7 +98,8 @@
     "reportErrors": "Wyślij raport o błędach",
     "compactView": "Widok kompaktowy",
     "behavior": "Zachowanie",
-    "hideYesterday": "Ukryj wczoraj"
+    "hideYesterday": "Ukryj wczoraj",
+    "notificationIndicator": "Wskaźnik powiadomień"
   },
   "tips": {
     "back": "Poprzednia wskazówka",
