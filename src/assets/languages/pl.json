@@ -97,7 +97,8 @@
     "lists_columns": "Kolumny list niestandardowych",
     "reportErrors": "Wyślij raport o błędach",
     "compactView": "Widok kompaktowy",
-    "behavior": "Zachowanie"
+    "behavior": "Zachowanie",
+    "hideYesterday": "Ukryj wczoraj"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

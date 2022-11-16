@@ -35,7 +35,8 @@
     "lists_columns": "Columnas de listas personalizadas",
     "reportErrors": "Enviar informe de errores",
     "compactView": "Vista compacta",
-    "behavior": "Comportamiento"
+    "behavior": "Comportamiento",
+    "hideYesterday": "Ocultar ayer"
   },
   "donate": {
     "contribute": "Contribuir",

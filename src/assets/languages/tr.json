@@ -35,7 +35,8 @@
     "lists_columns": "Özel Listeler Sütunları",
     "reportErrors": "Hata Raporu Gönder",
     "compactView": "Kompakt Görünüm",
-    "behavior": "Davranış"
+    "behavior": "Davranış",
+    "hideYesterday": "Dünü Gizle"
   },
   "donate": {
     "contribute": "Katkıda bulun",

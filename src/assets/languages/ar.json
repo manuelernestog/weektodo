@@ -35,7 +35,8 @@
     "lists_columns": "قوائم أعمدة مخصصة",
     "reportErrors": "إرسال تقرير الأخطاء",
     "compactView": "عرض مضغوط",
-    "behavior": "سلوك"
+    "behavior": "سلوك",
+    "hideYesterday": "إخفاء أمس"
   },
   "donate": {
     "contribute": "ساهِم",

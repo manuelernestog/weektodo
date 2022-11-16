@@ -97,7 +97,8 @@
     "lists_columns": "사용자 지정 목록 열",
     "reportErrors": "오류 보고서 보내기",
     "compactView": "컴팩트 뷰",
-    "behavior": "행동"
+    "behavior": "행동",
+    "hideYesterday": "어제 숨기기"
   },
   "tips": {
     "back": "이전 팁",

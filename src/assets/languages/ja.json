@@ -35,7 +35,8 @@
     "lists_columns": "カスタム リスト列",
     "reportErrors": "エラー レポートの送信",
     "compactView": "コンパクト ビュー",
-    "behavior": "行動"
+    "behavior": "行動",
+    "hideYesterday": "昨日を非表示"
   },
   "donate": {
     "contribute": "コントリビューション",

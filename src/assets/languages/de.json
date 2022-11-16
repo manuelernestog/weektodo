@@ -35,7 +35,8 @@
     "lists_columns": "Benutzerdefinierte Listenspalten",
     "reportErrors": "Fehlerbericht senden",
     "compactView": "Kompakte Ansicht",
-    "behavior": "Verhalten"
+    "behavior": "Verhalten",
+    "hideYesterday": "Gestern verstecken"
   },
   "donate": {
     "contribute": "Beitragen",

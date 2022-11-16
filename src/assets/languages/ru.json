@@ -35,7 +35,8 @@
     "lists_columns": "Пользовательские столбцы списков",
     "reportErrors": "Отправить отчет об ошибках",
     "compactView": "Компактный вид",
-    "behavior": "Поведение"
+    "behavior": "Поведение",
+    "hideYesterday": "Скрыть вчера"
   },
   "donate": {
     "contribute": "Способствовать",

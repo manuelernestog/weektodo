@@ -35,7 +35,8 @@
     "lists_columns": "Настроювані стовпці списків",
     "reportErrors": "Надіслати звіт про помилки",
     "compactView": "Компактний вид",
-    "behavior": "Поведінка"
+    "behavior": "Поведінка",
+    "hideYesterday": "Сховати Вчора"
   },
   "donate": {
     "contribute": "Співпраця",
