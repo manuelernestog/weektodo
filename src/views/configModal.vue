@@ -120,10 +120,10 @@
                     @change="changeConfig('moveOldTasks', configData.moveOldTasks)" />
                 </div>
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
-                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.hideYesterday")
+                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.startCalendarYesterday")
                   }}</label>
-                  <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.hideYesterday"
-                    @change="changeConfig('hideYesterday', configData.hideYesterday)" />
+                  <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.startCalendarYesterday"
+                    @change="changeConfig('startCalendarYesterday', configData.startCalendarYesterday)" />
                 </div>
 
                 <button class="btn mt-3" type="button" @click="goHome">

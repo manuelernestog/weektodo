@@ -27,7 +27,7 @@
     "lists_columns": "自定义列表列",
     "reportErrors": "发送错误报告",
     "compactView": "紧凑视图",
-    "hideYesterday": "隐藏昨天",
+    "startCalendarYesterday": "日历从昨天开始",
     "notificationIndicator": "通知指示器"
   },
   "donate": {

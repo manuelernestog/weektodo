@@ -36,7 +36,7 @@
     "reportErrors": "Hata Raporu Gönder",
     "compactView": "Kompakt Görünüm",
     "behavior": "Davranış",
-    "hideYesterday": "Dünü Gizle",
+    "startCalendarYesterday": "Takvim dün başlıyor",
     "notificationIndicator": "Bildirim Göstergesi"
   },
   "donate": {

@@ -36,7 +36,7 @@
     "reportErrors": "إرسال تقرير الأخطاء",
     "compactView": "عرض مضغوط",
     "behavior": "سلوك",
-    "hideYesterday": "إخفاء أمس",
+    "startCalendarYesterday": "التقويم يبدأ أمس",
     "notificationIndicator": "مؤشر الإخطار"
   },
   "donate": {

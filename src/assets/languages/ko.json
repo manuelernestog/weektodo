@@ -98,7 +98,7 @@
     "reportErrors": "오류 보고서 보내기",
     "compactView": "컴팩트 뷰",
     "behavior": "행동",
-    "hideYesterday": "어제 숨기기",
+    "startCalendarYesterday": "어제 일정 시작",
     "notificationIndicator": "알림 표시기"
   },
   "tips": {

@@ -31,7 +31,7 @@ export default {
         darkTrayIcon: false,
         importing: false,
         compactView: true,
-        hideYesterday: true,
+        startCalendarYesterday: false,
         notificationIndicator: true,
         autoReorder: false
       };

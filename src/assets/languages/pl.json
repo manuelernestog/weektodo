@@ -98,7 +98,7 @@
     "reportErrors": "Wyślij raport o błędach",
     "compactView": "Widok kompaktowy",
     "behavior": "Zachowanie",
-    "hideYesterday": "Ukryj wczoraj",
+    "startCalendarYesterday": "Kalendarz zaczął się wczoraj",
     "notificationIndicator": "Wskaźnik powiadomień"
   },
   "tips": {

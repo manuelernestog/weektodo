@@ -36,7 +36,7 @@
     "reportErrors": "Send Errors Report",
     "compactView": "Compact View",
     "behavior": "Behavior",
-    "hideYesterday": "Hide Yesterday",
+    "startCalendarYesterday": "Calendar start yesterday",
     "notificationIndicator": "Notification Indicator"
   },
   "donate": {

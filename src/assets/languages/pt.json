@@ -36,7 +36,7 @@
     "reportErrors": "Enviar relatório de erros",
     "compactView": "Visualização compacta",
     "behavior": "Comportamento",
-    "hideYesterday": "Ocultar Ontem",
+    "startCalendarYesterday": "Calendário começou ontem",
     "notificationIndicator": "Indicador de notificação"
   },
   "donate": {

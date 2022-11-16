@@ -519,10 +519,10 @@ export default {
         dates_array.push(moment(this.selected_date).add(i, "d").format("YYYYMMDD"));
       }
 
-      if (this.$store.getters.config.hideYesterday) {
-        dates_array.push(moment(this.selected_date).add(this.columns, "d").format("YYYYMMDD"));
-      } else {
+      if (this.$store.getters.config.startCalendarYesterday) {
         dates_array.unshift(moment(this.selected_date).subtract(2, "d").format("YYYYMMDD"));
+      } else {
+        dates_array.push(moment(this.selected_date).add(this.columns, "d").format("YYYYMMDD"));
       }
 
       this.$store.commit("updateSelectedDates", dates_array);
