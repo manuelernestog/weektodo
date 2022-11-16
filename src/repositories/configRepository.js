@@ -31,7 +31,7 @@ export default {
         darkTrayIcon: false,
         importing: false,
         compactView: true,
-        showYesterday: true,
+        hideYesterday: true,
         alarmIndicator: false,
         autoReorder: false
       };

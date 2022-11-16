@@ -119,7 +119,12 @@
                   <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.moveOldTasks"
                     @change="changeConfig('moveOldTasks', configData.moveOldTasks)" />
                 </div>
-
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.hideYesterday")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.hideYesterday"
+                    @change="changeConfig('hideYesterday', configData.hideYesterday)" />
+                </div>
 
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
