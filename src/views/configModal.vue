@@ -125,6 +125,12 @@
                   <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.startCalendarYesterday"
                     @change="changeConfig('startCalendarYesterday', configData.startCalendarYesterday)" />
                 </div>
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="autoReorderTasks">{{ $t("settings.autoReorderTasks")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="autoReorderTasks" v-model="configData.autoReorderTasks"
+                    @change="changeConfig('autoReorderTasks', configData.autoReorderTasks)" />
+                </div>
 
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}

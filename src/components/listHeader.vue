@@ -69,6 +69,7 @@ import moment from "moment";
 import toDoListRepository from "../repositories/toDoListRepository";
 import customToDoListIdsRepository from "../repositories/customToDoListIdsRepository";
 import notifications from "../helpers/notifications";
+import tasksHelper from "../helpers/tasksHelper";
 import { Toast } from 'bootstrap';
 
 export default {
@@ -155,20 +156,7 @@ export default {
       });
     },
     sortItems: function () {
-      var array = this.toDoList;
-      array.sort(function (a, b) {
-        if (b.checked != a.checked) {
-          if (b.checked) return -1;
-          if (a.checked) return 1;
-        }
-        if (b.time != a.time) {
-          if (b.time == null) return -1;
-          if (a.time == null) return 1;
-        }
-        if (b.time < a.time) return 1;
-        if (b.time > a.time) return -1;
-      });
-      toDoListRepository.update(this.id, array);
+      toDoListRepository.update(this.id, tasksHelper.reorderTasksList(this.toDoList));
     },
     clearList: function () {
       this.$store.commit("setListToClear", this.id);

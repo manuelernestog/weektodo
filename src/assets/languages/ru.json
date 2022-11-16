@@ -37,7 +37,8 @@
     "compactView": "Компактный вид",
     "behavior": "Поведение",
     "startCalendarYesterday": "Календарь начинается вчера",
-    "notificationIndicator": "Индикатор уведомлений"
+    "notificationIndicator": "Индикатор уведомлений",
+    "autoReorderTasks": "Автоматически переупорядочивать задачи"
   },
   "donate": {
     "contribute": "Способствовать",

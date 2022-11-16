@@ -37,7 +37,8 @@
     "compactView": "عرض مضغوط",
     "behavior": "سلوك",
     "startCalendarYesterday": "التقويم يبدأ أمس",
-    "notificationIndicator": "مؤشر الإخطار"
+    "notificationIndicator": "مؤشر الإخطار",
+    "autoReorderTasks": "إعادة ترتيب المهام تلقائيًا"
   },
   "donate": {
     "contribute": "ساهِم",

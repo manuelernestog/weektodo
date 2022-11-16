@@ -37,7 +37,8 @@
     "compactView": "コンパクト ビュー",
     "behavior": "行動",
     "startCalendarYesterday": "昨日から始まるカレンダー",
-    "notificationIndicator": "通知インジケータ"
+    "notificationIndicator": "通知インジケータ",
+    "autoReorderTasks": "タスクを自動的に並べ替える"
   },
   "donate": {
     "contribute": "コントリビューション",

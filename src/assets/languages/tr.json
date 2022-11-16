@@ -37,7 +37,8 @@
     "compactView": "Kompakt Görünüm",
     "behavior": "Davranış",
     "startCalendarYesterday": "Takvim dün başlıyor",
-    "notificationIndicator": "Bildirim Göstergesi"
+    "notificationIndicator": "Bildirim Göstergesi",
+    "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala"
   },
   "donate": {
     "contribute": "Katkıda bulun",

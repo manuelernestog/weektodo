@@ -37,7 +37,8 @@
     "compactView": "Visualização compacta",
     "behavior": "Comportamento",
     "startCalendarYesterday": "Calendário começou ontem",
-    "notificationIndicator": "Indicador de notificação"
+    "notificationIndicator": "Indicador de notificação",
+    "autoReorderTasks": "Reordenar tarefas automaticamente"
   },
   "donate": {
     "contribute": "Contribuir",

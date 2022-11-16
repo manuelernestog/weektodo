@@ -78,7 +78,7 @@ function telemetric() {
     config["compactView"] = true;
     config["startCalendarYesterday"] = true;
     config["notificationIndicator"] = true;
-    config["autoReorder"] = false;
+    config["autoReorderTasks"] = false;
     configRepository.update(config);
   }
 }

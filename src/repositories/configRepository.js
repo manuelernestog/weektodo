@@ -33,7 +33,7 @@ export default {
         compactView: true,
         startCalendarYesterday: false,
         notificationIndicator: true,
-        autoReorder: false
+        autoReorderTasks: false
       };
       storageRepository.set("config", default_config);
       return default_config;

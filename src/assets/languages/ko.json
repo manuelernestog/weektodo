@@ -99,7 +99,8 @@
     "compactView": "컴팩트 뷰",
     "behavior": "행동",
     "startCalendarYesterday": "어제 일정 시작",
-    "notificationIndicator": "알림 표시기"
+    "notificationIndicator": "알림 표시기",
+    "autoReorderTasks": "자동으로 작업 재정렬"
   },
   "tips": {
     "back": "이전 팁",

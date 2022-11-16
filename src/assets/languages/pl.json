@@ -99,7 +99,8 @@
     "compactView": "Widok kompaktowy",
     "behavior": "Zachowanie",
     "startCalendarYesterday": "Kalendarz zaczął się wczoraj",
-    "notificationIndicator": "Wskaźnik powiadomień"
+    "notificationIndicator": "Wskaźnik powiadomień",
+    "autoReorderTasks": "Automatycznie zmieniaj kolejność zadań"
   },
   "tips": {
     "back": "Poprzednia wskazówka",
