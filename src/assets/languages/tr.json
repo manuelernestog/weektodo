@@ -76,7 +76,8 @@
     "blog": "Blog",
     "collaborators": "ortak çalışanlar",
     "email": "e-posta",
-    "sponsors": "Sponsorlar"
+    "sponsors": "Sponsorlar",
+    "license": "Lisans"
   },
   "generatedData": {
     "data2": "Görevi tamamlamak için tıklayın",

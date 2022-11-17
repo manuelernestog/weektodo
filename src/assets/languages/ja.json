@@ -76,7 +76,8 @@
     "blog": "ブログ",
     "collaborators": "協力者",
     "email": "Eメール",
-    "sponsors": "スポンサー"
+    "sponsors": "スポンサー",
+    "license": "ライセンス"
   },
   "generatedData": {
     "data2": "クリックしてタスクを完了される",

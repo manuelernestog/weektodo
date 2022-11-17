@@ -55,12 +55,15 @@
                 <a class="mx-2" style=" text-decoration: none;" href="https://weektodo.me/about" target="_blank"> {{
                     $t('about.contributors')
                 }} </a>
+                   <a class="mx-2" style=" text-decoration: none;" href="https://weektodo.me/license" target="_blank"> {{
+                    $t('about.license')
+                }} </a>
               </div>
               <div class="horizontal-divider mt-2 mb-3"></div>
               <div class="d-flex">
                 <span style="margin-top: 10px; margin-right: 10px;">{{ $t('about.madeWith') }} <i class="bi-heart-fill"
                     style="color: red"></i> {{ $t('about.inCuba') }}</span>
-                <a class="btn flex-fill" href="https://weektodo.me/support-us">{{ $t('donate.contribute') }}
+                <a class="btn flex-fill" href="https://weektodo.me/support-us">{{ $t('donate.supportUs') }}
                 </a>
               </div>
             </div>

@@ -12,7 +12,8 @@
     "madeWith": "로 만든",
     "site": "웹사이트 방문",
     "sponsors": "스폰서",
-    "version": "버전"
+    "version": "버전",
+    "license": "특허"
   },
   "donate": {
     "address": "주소",

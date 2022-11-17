@@ -12,7 +12,8 @@
     "blog": "Blog",
     "collaborators": "Współpracownicy",
     "contributors": "Współtwórcy",
-    "desc": "WeekToDo to minimalistyczny planer tygodniowy skoncentrowany na prywatności."
+    "desc": "WeekToDo to minimalistyczny planer tygodniowy skoncentrowany na prywatności.",
+    "license": "Licencja"
   },
   "donate": {
     "address": "Adres zamieszkania",
