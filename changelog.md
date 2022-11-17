@@ -1,5 +1,5 @@
 ## v2.0.0
-Nov 18, 2022
+Nov 24, 2022
 
 - Adding telemetric system
 - Adding custom list columns count setting
@@ -11,6 +11,10 @@ Nov 18, 2022
 - Creating New Website
 - Changing license to GNU GPL 3
 - Adding Weekdays to recurrent events
+- Adding Automatic Reorder Task Option
+- Adding Setting to start week Yesterday
+- Creating new Behavior Setting Menu
+- Adding time to Copy task list action
 
 ## v1.9.0
 Jul 28, 2022

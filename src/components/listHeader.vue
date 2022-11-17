@@ -111,12 +111,12 @@ export default {
       });
       this.updateTodoList(this.id, this.$store.getters.todoLists[this.id]);
 
-      if(this.$store.getters.config.autoReorderTasks){
+      if (this.$store.getters.config.autoReorderTasks) {
         this.updateTodoList(towmorrow_id, tasksHelper.reorderTasksList(this.$store.getters.todoLists[towmorrow_id]));
       } else {
         this.updateTodoList(towmorrow_id, this.$store.getters.todoLists[towmorrow_id]);
       }
-      
+
     },
     moments: function (date) {
       return moment(date);
@@ -173,7 +173,11 @@ export default {
       toast.show();
     },
     todoListToString: function () {
-      return this.toDoList.map(x => `- ${x.text}`).join('\n')
+      return this.toDoList.map((x) => {
+        let task = `- ${x.text}`;
+        if (x.time) task += ` [${x.time}]`;
+        return task;
+      }).join('\n')
     },
     newTask: function () {
       this.$nextTick(function () {
@@ -300,7 +304,8 @@ export default {
   padding: 0px;
 }
 
-.bi-reply-all, .bi-files {
+.bi-reply-all,
+.bi-files {
   transform: scaleX(-1);
 }
 </style>
