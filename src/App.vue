@@ -125,6 +125,7 @@ import toDoListRepository from "./repositories/toDoListRepository";
 import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
 import toastMessage from "./components/toastMessage";
 import activeToDo from "./components/activeToDo.vue";
+import tasksHelper from "./helpers/tasksHelper";
 
 export default {
   name: "App",
@@ -414,7 +415,11 @@ export default {
           this.$store.dispatch("loadTodoLists", listId).then(() => {
             this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
             toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
-            toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
+            if (this.$store.getters.config.autoReorderTasks) {
+              toDoListRepository.update(todayListId, tasksHelper.reorderTasksList(this.$store.getters.todoLists[todayListId]));
+            } else {
+              toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
+            }
             if (i == 7) {
               resolve("done!");
             }
