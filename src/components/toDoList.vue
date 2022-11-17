@@ -232,19 +232,6 @@ export default {
 .weekly-to-do-header i:hover {
   color: black;
 }
-
-.old-date .item-text {
-  color: #a1a1a1;
-}
-
-.old-date .item-text.checked-todo {
-  color: #c4c4c4;
-}
-
-.dark-theme .old-date .item-text {
-  color: #3a3a40;
-}
-
 .weekly-to-do-header i {
   font-size: 1.4rem;
   flex-grow: 0;

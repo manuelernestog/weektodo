@@ -38,6 +38,20 @@ i {
   transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
 }
 
+
+.old-date .item-text, .old-date .item-time {
+  color: #a1a1a1;
+}
+
+.old-date .item-text.checked-todo {
+  color: #c4c4c4;
+}
+
+.dark-theme .old-date .item-text,.dark-theme .old-date .item-time {
+  color: #3a3a40;
+}
+
+
 .main-horizontal-divider {
   cursor: row-resize;
   display: flex;
