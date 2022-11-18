@@ -12,7 +12,7 @@
               width="64">
             <h5 style="margin-top: 15px; margin-bottom: 2px;">WeekToDo</h5>
             <span class="mt-1" style="font-size: 0.75rem">{{ $t('about.version') }} {{ version }} •
-              <a href="https://weektodo.me/changelog"
+              <a href="https://weektodo.me/changelog" target="_blank"
                 style="font-size: 0.75rem; cursor: pointer; opacity: .7; text-decoration: none;">
                 {{ $t("ui.changeLog") }}
               </a>
@@ -55,7 +55,7 @@
                 <a class="mx-2" style=" text-decoration: none;" href="https://weektodo.me/about" target="_blank"> {{
                     $t('about.contributors')
                 }} </a>
-                   <a class="mx-2" style=" text-decoration: none;" href="https://weektodo.me/license" target="_blank"> {{
+                <a class="mx-2" style=" text-decoration: none;" href="https://weektodo.me/license" target="_blank"> {{
                     $t('about.license')
                 }} </a>
               </div>
