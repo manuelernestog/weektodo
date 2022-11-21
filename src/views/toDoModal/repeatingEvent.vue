@@ -159,11 +159,12 @@ export default {
   },
   watch: {
     repeatingEvent: function (newVal) {
-      console.log(this.repeatingEvent);
       let re = this.$store.getters.repeatingEventList[newVal];
-      console.log(re);
       if (re) {
         const rule = rrulestr(re.repeating_rule);
+        console.log(re.repeating_rule);
+        console.log(rule);
+        console.log(rule.options.freq);
         this.repeatingType = rule.options.freq;
         this.interval = rule.options.interval;
         this.ocurrences = rule.options.count;
