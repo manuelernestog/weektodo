@@ -164,7 +164,7 @@ function isWindowsVisible(event) {
 function setOpenOnStartup(event, openOnStartup) {
   let AutoLaunch = require("auto-launch");
   let autoLauncher = new AutoLaunch({
-    name: "WeekToDo Planner",
+    name: "Weektodo Planner",
     path: app.getPath("exe"),
   });
   if (openOnStartup) {
@@ -199,7 +199,7 @@ function setTrayContextMenuLabel(event, labels) {
 function matchOpenOnStartup(event, openOnStartup) {
   let AutoLaunch = require("auto-launch");
   let autoLauncher = new AutoLaunch({
-    name: "WeekToDo Planner",
+    name: "Weektodo Planner",
     path: app.getPath("exe"),
   });
 
@@ -276,7 +276,7 @@ function createTray() {
   ];
 
   trayContextMenu = Menu.buildFromTemplate(trayMenuTemplate);
-  tray.setToolTip("WeekToDo Planner");
+  tray.setToolTip("Weektodo Planner");
   tray.setContextMenu(trayContextMenu);
   tray.on("click", () => {
     tray.popUpContextMenu();
@@ -289,7 +289,7 @@ function creatTrayIconPath() {
 
   var iconPath;
   if (process.platform === "win32") {
-    app.setAppUserModelId("WeekToDo");
+    app.setAppUserModelId("Weektodo");
     iconPath = path.join(__dirname, `/trayIcon${darkPrefix}.ico`);
   } else if (process.platform === "darwin") {
     iconPath = nativeImage.createFromPath(path.join(__dirname, `/trayIcon${darkPrefix}.png`));

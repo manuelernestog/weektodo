@@ -1,8 +1,8 @@
 {
-  "name": "WeekToDo",
+  "name": "Weektodo",
   "version": "2.0.0",
   "private": true,
-  "description": "WeekToDo is a Free Minimalist Weekly Planner focused on privacy.",
+  "description": "Weektodo is a Free Minimalist Weekly Planner focused on privacy.",
   "author": "Manuel Ernesto Garcia <contact@weektodo.me> (https://weektodo.me/)",
   "homepage": "https://weektodo.me",
   "keywords": [
@@ -24,7 +24,7 @@
     "test": "echo success"
   },
   "main": "background.js",
-  "repository": "https://github.com/Zuntek/WeekToDoWeb",
+  "repository": "https://github.com/Zuntek/WeektodoWeb",
   "dependencies": {
     "@honeybadger-io/js": "^4.0.3",
     "@honeybadger-io/vue": "^3.2.1",

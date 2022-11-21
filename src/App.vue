@@ -357,7 +357,7 @@ export default {
 
       setTimeout(
         function () {
-          new Notification("WeekToDo", {
+          new Notification("Weektodo", {
             body: this.initialNotificationText(),
             icon: "/favicon.ico",
             silent: true,
