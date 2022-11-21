@@ -180,6 +180,11 @@ export default {
         this.ocurrences = null;
         this.untilDate = null;
       }
+      console.log(this.repeatingType);
+      console.log(interval);
+      console.log(this.ocurrencesType);
+      console.log(this.ocurrences);
+      console.log(this.untilDate);
     },
   },
 };
