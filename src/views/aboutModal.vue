@@ -8,9 +8,9 @@
         </div>
         <div class="modal-body">
           <div class=" d-flex flex-column " style="text-align: center; margin-top: 10px;">
-            <img class="logo align-self-center" src="Weektodo-Logo-Color.svg" alt="Weektodo" title="Weektodo Logo"
+            <img class="logo align-self-center" src="WeekToDo-Logo-Color.svg" alt="WeekToDo" title="WeekToDo Logo"
               width="64">
-            <h5 style="margin-top: 15px; margin-bottom: 2px;">Weektodo</h5>
+            <h5 style="margin-top: 15px; margin-bottom: 2px;">WeekToDo</h5>
             <span class="mt-1" style="font-size: 0.75rem">{{ $t('about.version') }} {{ version }} •
               <a href="https://weektodo.me/changelog" target="_blank"
                 style="font-size: 0.75rem; cursor: pointer; opacity: .7; text-decoration: none;">

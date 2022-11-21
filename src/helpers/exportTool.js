@@ -6,7 +6,7 @@ import isElectron from "is-electron";
 
 export default {
   export() {
-    var filename = "WeektodoBackup.wtdb";
+    var filename = "WeekToDoBackup.wtdb";
     var data = storageRepository.as_json();
     data.todoLists = {};
     data.repeating_events = {};

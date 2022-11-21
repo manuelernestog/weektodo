@@ -4,7 +4,7 @@ module.exports = {
             nodeIntegration: true,
             builderOptions: {
                 appId: "weektodo-app.netlify.app",
-                productName: "Weektodo",
+                productName: "WeekToDo",
                 publish: ['github'],
                 linux: {
                     category: "Utility",

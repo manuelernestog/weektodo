@@ -1,7 +1,7 @@
 <template>
   <div class="row ">
     <div class="col-md-4">
-      <img class="logo info-image" src="Weektodo-Logo-Color.svg" alt="Weektodo" title="Weektodo Logo" width="110">
+      <img class="logo info-image" src="WeekToDo-Logo-Color.svg" alt="WeekToDo" title="WeekToDo Logo" width="110">
     </div>
     <div class="col-md-8">
       <div>

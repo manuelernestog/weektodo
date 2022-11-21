@@ -5,13 +5,13 @@ var contentToCache = [
   "js/app.js",
   "js/chunk-vendors.js",
   "/libs/honeybadger.min.js",
-  "/img/Weektodo-Logo-Color.4c453658.svg",
+  "/img/WeekToDo-Logo-Color.4c453658.svg",
   "/Avatar.webp",
   "/icons/alternativeto.png",
   "/icons/product-hunt.svg",
   "/icons/SaaSHub.png",
   "/fonts/bootstrap-icons.1ed478a6.woff2",
-  "/Weektodo-Logo-Color.svg",
+  "/WeekToDo-Logo-Color.svg",
   "/manifest.json",
   "/fav_icons/android-chrome-192x192.png"
 ];

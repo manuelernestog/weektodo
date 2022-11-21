@@ -1,14 +1,14 @@
 
-![Logo](https://weektodo.me/assets/images/WeektodoApp_256x256.png)
+![Logo](https://weektodo.me/assets/images/WeekToDoApp_256x256.png)
 
-Weektodo | The Free Minimalist Weekly Planner
+WeekToDo | The Free Minimalist Weekly Planner
 ---
 
 
 ![GitHub all releases](https://img.shields.io/github/downloads/zuntek/weektodoweb/total) 
 [![vue3](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://vuejs.org/)
 
-Weektodo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar. Available for Windows, Mac, Linux or online.
+WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar. Available for Windows, Mac, Linux or online.
 
 ## Features
 
@@ -60,7 +60,7 @@ Snapd can be installed from the command line:
 sudo apt update
 sudo apt install snapd
 ```
-To install Weektodo, simply use the following command:
+To install WeekToDo, simply use the following command:
 ```bash
 sudo snap install weektodo
 ```    

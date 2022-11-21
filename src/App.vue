@@ -54,8 +54,8 @@
         </div>
 
         <div v-show="!showCustomList && !showCalendar" style="margin: auto">
-          <img v-if="darkTheme" src="img/WeektodoDarkLogo.webp" />
-          <img v-else src="img/WeektodoLightLogo.webp" />
+          <img v-if="darkTheme" src="img/WeekToDoDarkLogo.webp" />
+          <img v-else src="img/WeekToDoLightLogo.webp" />
         </div>
       </div>
 
@@ -357,7 +357,7 @@ export default {
 
       setTimeout(
         function () {
-          new Notification("Weektodo", {
+          new Notification("WeekToDo", {
             body: this.initialNotificationText(),
             icon: "/favicon.ico",
             silent: true,

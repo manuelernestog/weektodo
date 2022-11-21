@@ -1,6 +1,6 @@
 <template>
   <div class="side-bar">
-    <img class="logo" src="Weektodo-Logo-Color.svg" width="31" height="31" alt="WeekTodo Logo" data-bs-toggle="modal"
+    <img class="logo" src="WeekToDo-Logo-Color.svg" width="31" height="31" alt="WeekTodo Logo" data-bs-toggle="modal"
       data-bs-target="#aboutModal" :title="$t('about.about')" />
     <i v-if="showCalendar" class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />

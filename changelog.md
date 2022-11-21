@@ -16,7 +16,7 @@ Nov 24, 2022
 - Creating new Behavior Setting Menu
 - Adding time to Copy task list action
 - Improving contrast for old items/ checked tasks
-- Raplacing name WeekToDo for Weektodo
+- Raplacing name WeekToDo for WeekToDo
 
 ## v1.9.0
 Jul 28, 2022

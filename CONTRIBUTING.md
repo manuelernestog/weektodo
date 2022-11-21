@@ -1,6 +1,6 @@
-# Contributing to Weektodo
+# Contributing to WeekToDo
 
-Thanks for checking out Weektodo! We'd love for you to contribute. Whether you're a first-time open source contributor or an experienced developer, there are ways you can help make Weektodo great!
+Thanks for checking out WeekToDo! We'd love for you to contribute. Whether you're a first-time open source contributor or an experienced developer, there are ways you can help make WeekToDo great!
 
 ## Contributing Code
 
@@ -10,7 +10,7 @@ Please be wary of working on issues *not* marked as `accepted`. Just because som
 
 ### Pull requests
 
-When you create a pull request you waive any patent or copyright claims you might have to the code you're contributing. (For example, you can't submit a PR and then sue Weektodo for using your code.)
+When you create a pull request you waive any patent or copyright claims you might have to the code you're contributing. (For example, you can't submit a PR and then sue WeekToDo for using your code.)
 
 ## Filing Issues
 
@@ -19,11 +19,11 @@ If you have a bug to report or a feature to suggest, you may do so on our [issue
 We also ask that you search for existing issues, *including closed ones!* We're in the process of migrating. If someone has already reported a bug or
 requested the feature you have in mind,  **vote for it** at the top.
 
-For bugs, please verify that you're running the latest version of Weektodo. If you file an issue without providing detail, we may close it without comment.
+For bugs, please verify that you're running the latest version of WeekToDo. If you file an issue without providing detail, we may close it without comment.
 
 # Build and Run From Source
 
-If you want to understand how Weektodo works or want to debug an issue, you'll want to get the source, build it, and run it locally.
+If you want to understand how WeekToDo works or want to debug an issue, you'll want to get the source, build it, and run it locally.
 
 ## Installing Prerequisites
 
