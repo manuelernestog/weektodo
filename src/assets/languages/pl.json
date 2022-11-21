@@ -102,7 +102,8 @@
     "behavior": "Zachowanie",
     "startCalendarYesterday": "Kalendarz zaczął się wczoraj",
     "notificationIndicator": "Wskaźnik powiadomień",
-    "autoReorderTasks": "Automatycznie zmieniaj kolejność zadań"
+    "autoReorderTasks": "Automatycznie zmieniaj kolejność zadań",
+    "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

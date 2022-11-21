@@ -38,7 +38,8 @@
     "behavior": "Davranış",
     "startCalendarYesterday": "Takvim dün başlıyor",
     "notificationIndicator": "Bildirim Göstergesi",
-    "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala"
+    "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
+    "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı"
   },
   "donate": {
     "contribute": "Katkıda bulun",

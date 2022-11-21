@@ -316,7 +316,9 @@ export default {
     },
     checkTodo: function (resetRepeatinEvent = true) {
       if (this.todo.checked) {
-        this.$store.commit("moveTodoToEnd", { toDoListId: this.todo.listId, index: this.index });
+        if (this.$store.getters.config.moveCompletedTaskToBottom) {
+          this.$store.commit("moveTodoToEnd", { toDoListId: this.todo.listId, index: this.index });
+        }
         this.index = this.todoList.length - 1;
       }
       this.updateTodoWithReorder(resetRepeatinEvent);

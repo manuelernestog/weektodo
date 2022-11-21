@@ -79,6 +79,7 @@ function telemetric() {
     config["startCalendarYesterday"] = true;
     config["notificationIndicator"] = true;
     config["autoReorderTasks"] = false;
+    config["moveCompletedTaskToBottom"] = true;
     configRepository.update(config);
   }
 }

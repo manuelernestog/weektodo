@@ -90,7 +90,7 @@ export default {
       this.clickhandler.handle(() => { this.checkToDo(id, index) }, this.activeTodo.edit, `${this.activeTodo.toDoListId}${this.activeTodo.index}`);
     },
     checkToDo: function (toDoListId, index) {
-      if (this.$store.getters.todoLists[toDoListId][index].checked) {
+      if (this.$store.getters.todoLists[toDoListId][index].checked && this.$store.getters.config.moveCompletedTaskToBottom) {
         this.$refs.currentTodo.style.display = `none`;
         this.$store.commit("moveTodoToEnd", { toDoListId: toDoListId, index: index, });
       }
@@ -127,9 +127,9 @@ export default {
       if (e.target.href) return;
 
       if (!e.target.value) subTask.checked = !subTask.checked;
-      var todoList = this.activeTodo.toDo.subTaskList;
+        var todoList = this.activeTodo.toDo.subTaskList;
       if (subTask.checked) { todoList.push(todoList.splice(index, 1)[0]); }
-      toDoListRepository.update(this.activeTodo.toDoListId, this.$store.getters.todoLists[this.activeTodo.toDoListId]);
+        toDoListRepository.update(this.activeTodo.toDoListId, this.$store.getters.todoLists[this.activeTodo.toDoListId]);
     },
     timeFormat: function (date) {
       if (date) {

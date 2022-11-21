@@ -38,7 +38,8 @@
     "behavior": "Поведение",
     "startCalendarYesterday": "Календарь начинается вчера",
     "notificationIndicator": "Индикатор уведомлений",
-    "autoReorderTasks": "Автоматически переупорядочивать задачи"
+    "autoReorderTasks": "Автоматически переупорядочивать задачи",
+    "moveCompletedTaskToBottom": "Переместить выполненные задачи вниз"
   },
   "donate": {
     "contribute": "Способствовать",

@@ -38,7 +38,8 @@
     "behavior": "Comportamento",
     "startCalendarYesterday": "Calendário começou ontem",
     "notificationIndicator": "Indicador de notificação",
-    "autoReorderTasks": "Reordenar tarefas automaticamente"
+    "autoReorderTasks": "Reordenar tarefas automaticamente",
+    "moveCompletedTaskToBottom": "Mover tarefas concluídas para baixo"
   },
   "donate": {
     "contribute": "Contribuir",

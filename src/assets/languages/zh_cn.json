@@ -29,7 +29,8 @@
     "compactView": "紧凑视图",
     "startCalendarYesterday": "日历从昨天开始",
     "notificationIndicator": "通知指示器",
-    "autoReorderTasks": "自动重新排序任务"
+    "autoReorderTasks": "自动重新排序任务",
+    "moveCompletedTaskToBottom": "将完成的任务移至底部"
   },
   "donate": {
     "contribute": "贡献",

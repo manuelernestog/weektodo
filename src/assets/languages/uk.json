@@ -38,7 +38,8 @@
     "behavior": "Поведінка",
     "startCalendarYesterday": "Календар починається вчора",
     "notificationIndicator": "Індикатор сповіщення",
-    "autoReorderTasks": "Автоматично змінюйте порядок завдань"
+    "autoReorderTasks": "Автоматично змінюйте порядок завдань",
+    "moveCompletedTaskToBottom": "Перемістити виконані завдання вниз"
   },
   "donate": {
     "contribute": "Співпраця",

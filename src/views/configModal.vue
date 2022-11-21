@@ -131,6 +131,12 @@
                   <input class="form-check-input" type="checkbox" id="autoReorderTasks" v-model="configData.autoReorderTasks"
                     @change="changeConfig('autoReorderTasks', configData.autoReorderTasks)" />
                 </div>
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="moveCompletedTaskToBottom">{{ $t("settings.moveCompletedTaskToBottom")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="moveCompletedTaskToBottom" v-model="configData.moveCompletedTaskToBottom"
+                    @change="changeConfig('moveCompletedTaskToBottom', configData.moveCompletedTaskToBottom)" />
+                </div>
 
                 <button class="btn mt-3" type="button" @click="goHome">
                   <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
