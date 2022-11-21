@@ -15,6 +15,7 @@ Nov 24, 2022
 - Adding Setting to start week Yesterday
 - Creating new Behavior Setting Menu
 - Adding time to Copy task list action
+- Improving contrast for old items/ checked tasks
 
 ## v1.9.0
 Jul 28, 2022

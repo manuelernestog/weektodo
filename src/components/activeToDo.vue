@@ -248,11 +248,10 @@ export default {
 }
 
 .checked-todo {
-  color: #c4c4c4;
+  color: #acacac;
   text-decoration: line-through;
-
   .dark-theme & {
-    color: #3a3a40;
+    color: #636363;
   }
 }
 
