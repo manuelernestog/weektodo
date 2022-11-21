@@ -160,6 +160,7 @@ export default {
   watch: {
     repeatingEvent: function (newVal) {
       let re = this.$store.getters.repeatingEventList[newVal];
+      console.log(re);
       if (re) {
         const rule = rrulestr(re.repeating_rule);
         console.log(re.repeating_rule);
@@ -171,6 +172,7 @@ export default {
         this.ocurrencesType = re.ocurrencesType;
         this.untilDate = rule.options.until ? rule.options.until.toLocaleDateString("en-GB").split("/").reverse().join("-") : null;
       } else {
+        console.log('limpiando');
         this.repeatingType = "";
         this.ocurrencesType = "";
         this.interval = 1;
