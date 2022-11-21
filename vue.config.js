@@ -8,7 +8,7 @@ module.exports = {
                 publish: ['github'],
                 linux: {
                     category: "Utility",
-                    target: ["deb", "rpm","pacman"],
+                    target: ["deb", "rpm","pacman","AppImage"],
                     icon: "build/icon.icns"
                 },
                 win: {
