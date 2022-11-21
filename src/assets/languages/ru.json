@@ -207,7 +207,7 @@
     "untilDate": "До даты",
     "weekly": "Еженедельно",
     "yearly": "Ежегодно",
-    "weekdays": "будние дни (пн-пт)"
+    "weekdays": "пн-пт"
   },
   "notifications": {
     "noPendingTasksToday": "У вас нет запланированных задач на сегодня.",

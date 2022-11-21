@@ -207,7 +207,7 @@
     "untilDate": "Bis zum Datum",
     "weekly": "Wöchentlich",
     "yearly": "Jährlich",
-    "weekdays": "Wochentags (Mo-Fr)"
+    "weekdays": "Mo-Fr"
   },
   "notifications": {
     "noPendingTasksToday": "Sie haben heute keine geplanten Aufgaben.",

@@ -207,7 +207,7 @@
     "untilDate": "До дати",
     "weekly": "Щотижня",
     "yearly": "Щорічно",
-    "weekdays": "будні (пн-пт)"
+    "weekdays": "Пн-Пт"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",

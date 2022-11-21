@@ -156,7 +156,7 @@
     "untilDate": "종료일",
     "weekly": "주간",
     "yearly": "매년",
-    "weekdays": "평일(월~금)"
+    "weekdays": "월-금"
   },
   "ui": {
     "calendar": "달력",

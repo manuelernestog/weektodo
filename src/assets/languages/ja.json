@@ -207,7 +207,7 @@
     "untilDate": "日付まで",
     "weekly": "毎週",
     "yearly": "毎年",
-    "weekdays": "平日（月～金）"
+    "weekdays": "月～金"
   },
   "notifications": {
     "noPendingTasksToday": "今日、スケジュールされたタスクはありません。",
