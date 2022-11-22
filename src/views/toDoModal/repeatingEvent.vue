@@ -76,6 +76,7 @@ export default {
   methods: {
     done() {
       const rule = this.repeatingEventRule();
+      console.log(rule);
       var repeatingEventId = this.repeatingEvent ? this.repeatingEvent : moment().format("x");
       if (rule) {
         let date = this.todo.listId;
@@ -114,8 +115,11 @@ export default {
        var ruleOptions = {
         freq: this.repeatingType,
         interval: this.interval,
-        dtstart: moment(this.todo.listId, "YYYYMMDD").toDate(),
+        dtstart: moment.utc(this.todo.listId, "YYYYMMDD").toDate(),
       };
+
+      console.log(moment(this.todo.listId, "YYYYMMDD").toDate())
+      console.log(moment.utc(this.todo.listId, "YYYYMMDD").toDate())
 
       if (this.repeatingType == 4){
         ruleOptions.byweekday = [RRule.MO, RRule.TU, RRule.WE, RRule.TH, RRule.FR];
@@ -134,7 +138,6 @@ export default {
       var todo_data = JSON.parse(JSON.stringify(this.todo));
       todo_data.repeatingEvent = repeatingEventId;
       const rule2 = rrulestr(rule.toString()); //Cloning the rule for some error in the library don't works with original rule
-
       var re_event = {
         start_date: rule.options.dtstart,
         repeating_rule: rule.toString(),
