@@ -70,9 +70,6 @@
                     {text: this.$i18n.t("tips.tip16")},
                     {text: this.$i18n.t("tips.tip17")},
                     {text: this.$i18n.t("tips.tip18")},
-                    {text: this.$i18n.t("tips.tip10")},
-                    {text: this.$i18n.t("tips.tip11")},
-                    {text: this.$i18n.t("tips.tip12")}
                 ]
             }
         }

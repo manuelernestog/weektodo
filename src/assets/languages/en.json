@@ -117,10 +117,7 @@
     "tip15": "You can modify the number of columns and the zoom of the application in the configuration panel.",
     "tip16": "Click the three dots in the tasks to see details.",
     "tip17": "You can drag and drop the sub task in the task details window.",
-    "tip18": "In the top of the task details window you can change the day or the list of a task.",
-    "tip10": "Productivity: Try to define the fewest possible tasks per day and order them according to their priority.",
-    "tip11": "Productivity: Review and organize your to-do list for the week at the beginning and end of your day.",
-    "tip12": "Productivity: Do not plan many things in advance, organize yourself one day at a time. If you have tasks to do move them to for the next day."
+    "tip18": "In the top of the task details window you can change the day or the list of a task."
   },
   "welcome": {
     "next": "Next",
