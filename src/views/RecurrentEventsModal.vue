@@ -10,15 +10,15 @@
           <table class="table table-hover ">
             <thead>
               <tr>
-                <th scope="col">{{     $t("ui.task")     }}</th>
-                <th scope="col">{{     $t("ui.Frecuency")     }}</th>
+                <th scope="col">{{ $t("ui.task") }}</th>
+                <th scope="col">{{ $t("ui.Frecuency") }}</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="task in recurringTasks" :key="task.id">
                 <td>{{ task.data.text }}</td>
-                <td>{{ frecuency(task.type) }}</td>
+                <td>{{ frecuency(task) }}</td>
                 <td><i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeRecurringTask(task.id)"
                     data-bs-dismiss="modal"></i></td>
               </tr>
@@ -39,6 +39,9 @@ import { Toast, Modal } from "bootstrap";
 import repeatingEventHelper from "../helpers/repeatingEvents.js";
 import repeatingEventRepository from "../repositories/repeatingEventRepository";
 import comfirmModal from "../components/comfirmModal.vue";
+import moment from "moment";
+
+
 
 export default {
   name: "RecurrentEventsModal",
@@ -52,14 +55,14 @@ export default {
     };
   },
   methods: {
-    frecuency: function (frec) {
-      switch (frec) {
+    frecuency: function (task) {
+      switch (task.type) {
         case "0":
-          return this.$t("todoDetails.yearly");
+          return this.$t("todoDetails.yearly") +' / ' + moment(task.start_date).locale(this.language).format("MMM Do");
         case "1":
-          return this.$t("todoDetails.monthly");
+          return this.$t("todoDetails.monthly") +' / ' + moment(task.start_date).locale(this.language).format("Do");
         case "2":
-          return this.$t("todoDetails.weekly");
+          return this.$t("todoDetails.weekly") +' / ' + moment(task.start_date).locale(this.language).format("dddd");
         case "3":
           return this.$t("todoDetails.daily");
         case "4":
@@ -92,6 +95,9 @@ export default {
   computed: {
     recurringTasks: function () {
       return this.$store.getters.repeatingEventList;
+    },
+    language: function () {
+      return this.$store.getters.config.language;
     },
   },
 };
