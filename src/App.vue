@@ -429,10 +429,8 @@ export default {
       return promise;
     },
     showInitialDonateModal: function () {
-      if (
-        !this.$store.getters.config["InitialDonateModalShown"] &&
-        moment() >= moment(this.$store.getters.config["dateToShowInitialDonateModal"])
-      ) {
+      if (!this.$store.getters.config["InitialDonateModalShown"] &&
+        moment() >= moment(this.$store.getters.config["dateToShowInitialDonateModal"])) {
         setTimeout(
           function () {
             let modal = new Modal(document.getElementById("donateModal"), {

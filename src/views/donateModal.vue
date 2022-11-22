@@ -83,7 +83,7 @@ export default {
 
 <style scoped>
 .modal-dialog {
-  max-width: 380px;
+  max-width: 400px;
 }
 
 #nav-tabContent {

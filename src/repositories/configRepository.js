@@ -25,7 +25,7 @@ export default {
         openOnStartup: true,
         runInBackground: true,
         moveOldTasks: true,
-        dateToShowInitialDonateModal: moment().add(14, "d").format("YYYY-MM-DD"),
+        dateToShowInitialDonateModal: moment().add(15, "d").format("YYYY-MM-DD"),
         InitialDonateModalShown: false,
         mainDividerPosition: 1,
         darkTrayIcon: false,
