@@ -17,6 +17,7 @@ Nov 24, 2022
 - Adding time to Copy task list action
 - Improving contrast for old items/ checked tasks
 - Raplacing name WeekToDo for WeekToDo
+- improving dark theme switchers btn
 
 ## v1.9.0
 Jul 28, 2022
