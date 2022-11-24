@@ -23,7 +23,7 @@
               </div>
             </span>
             <div class="d-flex align-self-center">
-              <a href="https://weektodo.me/blog" target="_blank" title="Blog"> <i class="bi-rss mx-2"></i></a>
+              <a href="https://weektodo.me/blog/1" target="_blank" title="Blog"> <i class="bi-rss mx-2"></i></a>
               <a href="https://twitter.com/weektodo" target="_blank" title="Twitter"> <i
                   class="bi-twitter mx-2"></i></a>
               <a href="https://github.com/manuelernestog/weektodo" target="_blank" title="Github"> <i
@@ -49,7 +49,7 @@
               <div class="horizontal-divider mt-3 mb-2"></div>
               <div class="text-center text-uppercase px-2 d-flex justify-content-center flex-wrap"
                 style="font-size: 0.8rem; opacity: .8; line-height: 20px">
-                <a class="mx-2" href="https://weektodo.me/sponsors" style=" text-decoration: none;"> {{
+                <a class="mx-2" href="https://weektodo.me#sponsors" target="_blank" style=" text-decoration: none;"> {{
                     $t('about.sponsors')
                 }} </a>
                 <a class="mx-2" style=" text-decoration: none;" href="https://weektodo.me/about" target="_blank"> {{
