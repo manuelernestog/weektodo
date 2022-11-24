@@ -100,7 +100,7 @@ If you want your name appears in the app contributors credits you can add your n
   
 ## Repo Information
 
-The code of this repo belongs to the app landing page and not to the application. THe repo it's used to manage the versions of the app, the translations and get feedbacks and PR. For now the WeekTodo it is a Freeware application and not open source.
+The code of this repo belongs to the app landing page and not to the application. The repo it's used to manage the versions of the app, the translations and get feedbacks and PR. For now the WeekTodo it is a Freeware application and not open source.
 
 ## Author
 
