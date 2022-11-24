@@ -1,5 +1,3 @@
-
-
 # WeekToDo | FOSS Minimalist Weekly Planner
 ---
 ![GitHub all releases](https://img.shields.io/github/downloads/zuntek/weektodoweb/total) 
