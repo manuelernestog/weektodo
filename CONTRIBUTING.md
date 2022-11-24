@@ -37,8 +37,6 @@ yarn run serve // to run web version
 yarn run electron:serve // to run native version
 ```
 
-## Development Workflow
-
 # Where to Contribute
 
 Check out our [issues page](https://github.com/manuelernestog/issues) for all potential areas for contributions. Note that just because a topic exists does not mean we will accept a contribution to the app. There are several reasons we may not accepts a pull requests, like:
