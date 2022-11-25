@@ -8,6 +8,7 @@ module.exports = {
                 publish: ['github'],
                 linux: {
                     category: "Utility",
+                    description: "Free and Open Source Minimalist Weekly Planner and To Do list App focused on privacy.",
                     target: ["deb", "rpm","pacman","AppImage"],
                     icon: "build/icon.icns"
                 },
