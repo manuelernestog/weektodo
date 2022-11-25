@@ -1,0 +1,10 @@
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+[[redirects]]
+  from = "https://weektodo-app.netlify.app/"
+  to = "https://app.weektodo.me/"
+  status = 301
+  force = true

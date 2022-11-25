@@ -1,0 +1,50 @@
+
+$black-bg-color: #21262d;
+$black-border-color: 1px solid #30363d;
+
+//--------------------------------Text--------------------------------
+$text-color: #212529;
+$dt-text-color: #f7f7f7;
+
+//-------------------------------Buttons-----------------------------
+$btn-color: #5c5c5c;
+$btn-hover-color: black;
+$btn-hover-bg-color: #f4f4f4;
+$btn-active-bg-color: #e9e9e9;
+
+$dt-btn-color: #ababab;
+$dt-btn-hover-color: white;
+$dt-btn-hover-bg-color: #303940;
+$dt-btn-active-bg-color: #354048;
+
+@mixin btn-icon {
+  font-size: 1.1rem;
+  border-radius: 5px;
+  padding: 8px;
+  color: $btn-color;
+  &:hover {
+    color: $btn-hover-color;
+    background-color: $btn-hover-bg-color;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: $btn-active-bg-color;
+  }
+  .dark-theme & {
+    color: $dt-btn-color;
+
+    &:hover {
+      color: $dt-btn-hover-color;
+      background-color: $dt-btn-hover-bg-color;
+    }
+
+    &:active {
+      background-color: $dt-btn-active-bg-color;
+    }
+  }
+}
+
+//-------------------------------Checkboxs and radiobtns-----------------------------
+
+$check-color: #1f63a4;
+$dt-check-color: #236fb8;

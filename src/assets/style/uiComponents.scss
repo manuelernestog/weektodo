@@ -1,0 +1,75 @@
+@import "globalVars";
+//------------------------------------------dropdown-menu--------------------------------------------------
+.dropdown-menu {
+  border-radius: 7px;
+  
+  .dropdown-item {
+    padding: .42rem 1rem;
+
+    &:hover {
+      color: #1e2125;
+      background-color: #e9ecef;
+    }
+
+    &:active {
+      background-color: #dde0e3;
+    }
+  }
+
+  i {
+    margin-right: 15px;
+  }
+
+  .dark-theme & {
+    background-color: $black-bg-color !important;
+    border: $black-border-color;
+    color: #c9d1d9 !important;
+    box-shadow: none !important;
+
+    .dropdown-item {
+      color: #c9d1d9 !important;
+
+      &:hover {
+        background-color: #2e353d !important;
+      }
+
+      &:active {
+        background-color: #363f48 !important;
+      }
+    }
+  }
+}
+
+//------------------------------------------input-type-text--------------------------------------------------
+
+//------------------------------------------input-checkbox--------------------------------------------------
+
+.form-check-input {
+  border-radius: 1px ;
+  border: 1px solid #ced4da;
+
+  &:checked {
+    border: 1px solid $check-color;
+    background-color: $check-color;
+  }
+
+  &:focus {
+    border-color: $check-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(210, 253, 198, 0.2);
+  }
+
+  .form-switch{
+    border-radius: 10px ;
+  }
+
+  .dark-theme & {
+    background-color: unset;
+    color: #c9d1d9;
+    border: 1px solid #81868c;
+    &:checked {
+      border: 1px solid $dt-check-color;
+      background-color: $dt-check-color;
+    }
+  }
+}

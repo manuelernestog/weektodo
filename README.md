@@ -1,14 +1,11 @@
-
-![Logo](https://weektodo.me/assets/images/WeekToDoApp_256x256.png)
-
-WeekToDo | The Free Minimalist Weekly Planner
+# WeekToDo | FOSS Minimalist Weekly Planner
 ---
-
-
 ![GitHub all releases](https://img.shields.io/github/downloads/zuntek/weektodoweb/total) 
 [![vue3](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://vuejs.org/)
 
 WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule your tasks and projects with to do lists and a calendar. Available for Windows, Mac, Linux or online.
+
+![Logo](https://weektodo.me/weektodo-preview.webp)
 
 ## Features
 
@@ -65,13 +62,28 @@ To install WeekToDo, simply use the following command:
 sudo snap install weektodo
 ```    
 
+## Build and Run From Source
+
+If you want to understand how WeekToDo works or want to debug an issue, you'll want to get the source, build it, and run it locally.
+
+### Installing Prerequisites
+
+You'll need git, a recent version of [Node.JS](https://nodejs.org/en/) (currently v16.X is recommended), [Yarn](https://yarnpkg.com/) and [Electron](https://www.electronjs.org/).
+
+```
+git clone https://github.com/manuelernestog/weektodo
+cd weektodo
+yarn install
+yarn run serve // to run web version
+yarn run electron:serve // to run native version
+```
 ## Contributing
 
 You can support this project in several ways:
 
 ### Donate
 
-https://support.weektodo.me
+https://weektodo.me/support-us
 
 ### Share
 
@@ -89,18 +101,17 @@ https://support.weektodo.me
 
 Currently the system is developed in multiple languages, you can send me a correction of any error or you can add your language if it's not available.
 
-You can find the base file with all the used words in english [here](translation/en.json/)
+You can find the base file with all the used words in english [here](src/assets/languages/en.json/)
 
 For add a new language Fork the repo and create a Pull Request creating a new file of the `translations/en.json` and name he file acording the [language code](https://gist.github.com/Josantonius/b455e315bc7f790d14b136d61d9ae469). 
 
-If this is to dificult, you can donwload this [file](translation/en.json/), translate it and send the file to the email contact@weektodo.me
+If this is to dificult, you can donwload this [file](src/assets/languages/en.json/), translate it and send the file to the email contact@weektodo.me
+ 
+## Contributing
 
-If you want your name appears in the app contributors credits you can add your name, a profile link and a profile picture link in the PR comment or in the email body.
+Weektodo is open-source. Pull requests and contributions are welcome! There are three ways to contribute: grab a [bug report](https://github.com/manuelernestog/issues?q=is%3Aopen+is%3Aissue+label%3Abug) or [feature suggestion](https://github.com/manuelernestog/issues?q=is%3Aissue+is%3Aopen+label%3Afeature) that has been marked `accepted` and dig in.
 
-  
-## Repo Information
-
-The code of this repo belongs to the app landing page and not to the application. The repo it's used to manage the versions of the app, the translations and get feedbacks and PR. For now the WeekTodo it is a Freeware application and not open source.
+Read [Contributing.md](/CONTRIBUTING.md) for more information.
 
 ## Author
 
