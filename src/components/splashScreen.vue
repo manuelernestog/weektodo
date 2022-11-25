@@ -34,7 +34,7 @@ export default {
   },
   mounted() {
     const axios = require('axios').default;
-    axios.get('http://weektodo.me/api/sponsors')
+    axios.get('https://weektodo.me/api/sponsors')
       .then(response => (this.renderSponsor(response)))
       .catch(error => console.log(error.message))
   }
