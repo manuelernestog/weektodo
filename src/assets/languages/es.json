@@ -43,7 +43,7 @@
   },
   "donate": {
     "contribute": "Contribuir",
-    "contributeSponsor": "Contribute / Sponsor",
+    "contributeSponsor": "Contribuir / Patrocinar",
     "supportMessage1": "¡WeekToDo es una aplicación gratuita respaldada por usuarios como tú! \nSi encuentra útil WeekToDo, considere apoyarnos de cualquier manera que pueda. \nTu apoyo hace la diferencia. \nGracias por usar WeekToDo.",
     "supportMessage2": "Tu apoyo hace la diferencia. \nGracias por apoyar a WeekToDo 😊",
     "comment": "Enviar Comentario",
@@ -69,7 +69,7 @@
     "madeWith": "Hecho con",
     "inCuba": "en Cuba",
     "dev": "Desarrollador y Diseñador",
-    "devName": "Manuel Ernesto García",
+    "devName": "Manuel Ernesto García",
     "version": "Versión",
     "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad.",
     "site": "Visitar Sitio Web",
