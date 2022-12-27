@@ -27,7 +27,19 @@
     "runInBackgroundInfo": "訊息通知在應用程式關閉後仍可用. \n 這個選擇可能在某些 macOS 中有問題",
     "moveOldTasks": "自動移動舊任務",
     "importing": "匯入...",
-    "exporting": "匯出..."
+    "exporting": "匯出...",
+    "autoReorderTasks": "自動重新排序任務",
+    "behavior": "行為",
+    "compactView": "精簡視圖",
+    "darkIcon": "深色圖標",
+    "darkTrayIcon": "深色托盤圖標",
+    "exportData": "導出數據",
+    "importData": "導入數據",
+    "lists_columns": "自定義列表列",
+    "moveCompletedTaskToBottom": "將完成的任務移至底部",
+    "notificationIndicator": "通知指示器",
+    "reportErrors": "發送錯誤報告",
+    "startCalendarYesterday": "日曆從昨天開始"
   },
   "donate": {
     "contribute": "貢獻",
@@ -45,7 +57,12 @@
     "buyMeACoffee": "給我買杯咖啡",
     "buyMeACryptoCoffee": "給我買一杯加密咖啡",
     "translate": "翻譯",
-    "shareMessage": "我用 WeekTodo 安排我的每週, 一個免費且注重隱私的極簡主義每週計劃，我想你也會喜歡它. 快來吧!"
+    "shareMessage": "我用 WeekTodo 安排我的每週, 一個免費且注重隱私的極簡主義每週計劃，我想你也會喜歡它. 快來吧!",
+    "shareWithFriends": "和朋友分享",
+    "splashMessage": "喜歡 WeekToDo 嗎？\n您可以在這裡支持該項目！",
+    "supportMessage1": "WeekToDo 是一個免費的應用程序，得到像您這樣的用戶的支持！\n如果您發現 WeekToDo 有用，請考慮以任何方式支持我們。\n您的支持與眾不同。\n感謝您使用 WeekToDo。",
+    "supportMessage2": "您的支持與眾不同。\n感謝您對 WeekToDo 的支持😊",
+    "supportUs": "支持我們"
   },
   "about": {
     "about": "關於",
@@ -60,7 +77,8 @@
     "sponsors": "贊助商",
     "collaborators": "合作者",
     "email": "電子郵件",
-    "blog": "部落格"
+    "blog": "部落格",
+    "license": "執照"
   },
   "generatedData": {
     "data2": "點擊以完成任務",
@@ -118,7 +136,7 @@
   },
   "ui": {
     "rmList": "刪除列表",
-    "rmListConfirm":"確定要刪除列表",
+    "rmListConfirm": "確定要刪除列表",
     "cancel": "取消",
     "remove": "刪除",
     "splashSub": "極簡主義每週計劃",
@@ -148,7 +166,15 @@
     "restorePanel": "恢復區塊原本大小",
     "maximizeListPanel": "最大化列表區",
     "open": "打開",
-    "quit": "離開"
+    "quit": "離開",
+    "Frecuency": "頻率",
+    "copyTasks": "複製任務",
+    "newTask": "新任務",
+    "ok": "行",
+    "removeRepeatingTask": "刪除重複任務",
+    "reorderCustomLists": "重新排序自定義列表",
+    "repeatingTaskRemoveConfirm": "您確定要刪除此重複性任務嗎？",
+    "task": "任務"
   },
   "todoDetails": {
     "taskTitle": "任務名稱",
@@ -177,7 +203,8 @@
     "alarm": "警報",
     "color": "色彩",
     "close": "關閉",
-    "actions": "行動"
+    "actions": "行動",
+    "weekdays": "週一至週五"
   },
   "notifications": {
     "noPendingTasksToday": "您今天沒有計劃任務。",

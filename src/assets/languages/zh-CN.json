@@ -30,7 +30,9 @@
     "runInBackgroundInfo": "允许通知在应用关闭的情况下工作。 \n 对于某些 macOS 版本，此选项可能存在问题。",
     "moveOldTasks": "自动移动旧任务",
     "importing": "正在导入...",
-    "exporting": "正在导出..."
+    "exporting": "正在导出...",
+    "autoReorderTasks": "自动重新排序任务",
+    "behavior": "行为"
   },
   "donate": {
     "contribute": "贡献",
@@ -51,7 +53,9 @@
     "buyMeACoffee": "请我喝一杯咖啡",
     "buyMeACryptoCoffee": "请我喝一杯加密咖啡",
     "translate": "翻译",
-    "shareMessage": "我正在使用 WeekToDo 来安排我的一周，这是一个免费的、注重隐私的、极简主义的每周计划，我想你也会喜欢它的。"
+    "shareMessage": "我正在使用 WeekToDo 来安排我的一周，这是一个免费的、注重隐私的、极简主义的每周计划，我想你也会喜欢它的。",
+    "splashMessage": "喜欢 WeekToDo 吗？\n您可以在这里支持该项目！",
+    "supportUs": "支持我们"
   },
   "about": {
     "about": "关于",
@@ -66,7 +70,8 @@
     "sponsors": "赞助者",
     "collaborators": "合作者",
     "email": "E-mail",
-    "blog": "博客"
+    "blog": "博客",
+    "license": "执照"
   },
   "generatedData": {
     "data2": "点击完成任务",
