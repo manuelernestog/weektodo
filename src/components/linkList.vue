@@ -1,13 +1,13 @@
 <template>
   <ul class="list-group">
-    <li v-for="item in linkList" :key="item" class="list-group-item">
+    <li v-for="item in linkList" :key="item" class="list-group-item" :class="{ 'rtl' : isRTL}">
       <div class="d-flex list-item justify-content-between" @click="linkAction(item.link,item.linktype)">
         <div class="item-img">
           <i v-if="item.ico" :style="'font-size: 24px; color: '+ item.color" :class="item.ico"></i>
           <img v-if="item.img" :src="item.img" height="24">
         </div>
         <div class="align-self-center w-100">{{item.name}}</div>
-        <i class="bi-chevron-right align-self-center"></i>
+        <i class="align-self-center" :class="isRTL ? 'bi-chevron-left' : 'bi-chevron-right'"></i>
       </div>
     </li>
   </ul>
@@ -52,6 +52,11 @@
             tagIdLink: function (id) {
                 document.getElementById(id).click();
             }
+        },
+        computed: {
+          isRTL: function () {
+            return this.$i18n.locale === 'ar'
+          },
         }
     }
 </script>
@@ -82,6 +87,10 @@
 
   .item-img {
     margin-right: 24px;
+  }
+  .list-group-item.rtl .list-item .item-img {
+    margin-right: 0;
+    margin-left: 24px;
   }
 
   .dark-theme .card {
