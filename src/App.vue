@@ -1,6 +1,6 @@
 <template>
   <input class="hidden-input-for-focus" type="text" />
-  <div v-show="compatible" id="app-container" class="app-container" :class="{ 'dark-theme': darkTheme }">
+  <div v-show="compatible" id="app-container" class="app-container" :class="{ 'dark-theme': darkTheme, 'lang-rtl': isRTL }">
     <div class="hidden-mobile app-body" :style="{ zoom: `${zoom}%` }">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
@@ -549,6 +549,9 @@ export default {
     darkTheme: function () {
       return this.$store.getters.config.darkTheme;
     },
+    isRTL: function () {
+      return this.$i18n.locale === 'ar'
+    },
     resizableStyle: function () {
       if (this.showCalendar && this.showCustomList) {
         return { height: this.calendarHeight };
@@ -658,7 +661,9 @@ body {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
-
+.lang-rtl {
+  direction: rtl;
+}
 .dark-theme *::-webkit-scrollbar-thumb {
   background: #333940;
   border-radius: 5px;
