@@ -282,7 +282,7 @@
             <div class="tab-pane fade" id="config-language">
               <div class="d-flex flex-column mt-2 h-100">
                 <label for="language" class="form-label">{{ $t("settings.language") }}:</label>
-                <select id="language" class="col-sm-9 form-select" aria-label="Default select example"
+                <select id="language" class="col-sm-9 form-select" :class="{'rtl' : isRTL}" aria-label="Default select example"
                   v-model="configData.language" @change="setLanguage">
                   <option value="en">English</option>
                   <option value="es">Español</option>
@@ -422,6 +422,9 @@ export default {
     configLinks: function () {
       return configList.configList(this);
     },
+    isRTL: function () {
+      return this.$i18n.locale === 'ar'
+    },
     watch: {
       configProp: function (newVal) {
         this.configData = newVal;
@@ -458,7 +461,9 @@ export default {
 .form-select:focus {
   box-shadow: none;
 }
-
+.form-select.rtl {
+  background-position: left .75rem center;
+}
 .modal-dialog {
   max-width: 320px;
   // height: 200px;
