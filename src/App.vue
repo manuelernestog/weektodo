@@ -10,14 +10,15 @@
           'full-screen': !showCustomList,
           'hidden-lists-container': hideTopListContainer,
           'full-screen-divider': hideBottomListContainer,
+          'rtl': isRTL,
         }">
-          <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
+          <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="isRTL ? weekMoveRight() : weekMoveLeft()"></i>
           <div class="todo-slider" ref="weekListContainer">
             <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
               @todo-list-mounted="todoListMounted">
             </to-do-list>
           </div>
-          <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
+          <i class="bi-chevron-right slider-btn" ref="weekRight" @click="isRTL ? weekMoveLeft() : weekMoveRight()"></i>
         </div>
 
         <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
@@ -39,6 +40,7 @@
           'full-screen': !showCalendar,
           'flex-grow-1': showCalendar,
           'hidden-lists-container': hideBottomListContainer,
+          'rtl': isRTL,
         }">
           <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
             visibility: cTodoList.length > customColumns ? 'visible' : 'hidden',
@@ -611,7 +613,9 @@ body {
   margin-bottom: 25px;
   // margin-bottom: 5px;
 }
-
+.todo-lists-container.rtl {
+  flex-direction: row-reverse;
+}
 .slider-btn {
   padding: 3px;
   font-size: 2rem;
