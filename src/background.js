@@ -18,6 +18,7 @@ var tray = null;
 var trayContextMenu = null;
 var trayMenuTemplate = null;
 var SplashScreenIsHidden = true;
+const path = require("path");
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true, stream: true } }]);
 
@@ -26,6 +27,7 @@ async function createWindow() {
     minWidth: 1000,
     minHeight: 600,
     show: !config.get("runInBackground"),
+    icon: path.join(__dirname, 'icon.png'),
     webPreferences: {
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       contextIsolation: false,
