@@ -73,7 +73,7 @@ async function createWindow() {
   });
 
   mainWindow.on("restore", function () {
-    setTimeout(hideSplashScreen, 5000);
+    setTimeout(hideSplashScreen, 4500);
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
