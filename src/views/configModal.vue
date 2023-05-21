@@ -6,7 +6,7 @@
           <h5 class="modal-title">{{ $t("settings.settings") }}</h5>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
-        <div class="modal-body">
+        <div class="modal-body px-0" style="display: flex">
           <ul class="nav nav-tabs" id="confTab" role="tablist" style="display: none">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="config-home-tab" data-bs-toggle="tab" data-bs-target="#config-home"
@@ -33,8 +33,7 @@
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="config-data-tab" data-bs-toggle="tab" data-bs-target="#config-data"
-                role="tab">
+              <button class="nav-link" id="config-data-tab" data-bs-toggle="tab" data-bs-target="#config-data" role="tab">
                 Data
               </button>
             </li>
@@ -52,11 +51,12 @@
             </li>
           </ul>
 
-          <div class="tab-content" id="confTab-content">
-            <div class="tab-pane fade show active" id="config-home">
-              <link-list :linkList="configLinks"></link-list>
-            </div>
-            <div class="tab-pane fade" id="config-general">
+          <div id="config-links-menu" class="tab-pane fade show" style="width: 340px;">
+            <link-list :linkList="configLinks"></link-list>
+          </div>
+
+          <div class="tab-content px-4" id="confTab-content" style="width: 100%; height: 400px; overflow-y: auto;">
+            <div class="tab-pane fade active show" id="config-general">
               <div class="d-flex flex-column mt-2 h-100">
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label flex-fill" for="calendarSetting">{{ $t("settings.calendar") }}</label>
@@ -67,13 +67,13 @@
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label flex-fill" for="customListsSetting">{{ $t("settings.customLists")
                   }}</label>
-                  <input class="form-check-input" type="checkbox" id="customListsSetting"
-                    v-model="configData.customList" @change="changeConfig('customList', configData.customList)" />
+                  <input class="form-check-input" type="checkbox" id="customListsSetting" v-model="configData.customList"
+                    @change="changeConfig('customList', configData.customList)" />
                 </div>
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="updatesCheckSetting">{{
-                      $t("settings.checkUpdates")
+                    $t("settings.checkUpdates")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="updatesCheckSetting"
                     v-model="configData.checkUpdates" @change="changeConfig('checkUpdates', configData.checkUpdates)" />
@@ -81,7 +81,7 @@
 
                 <div v-if="isElectron()" class=" form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="openOnStartup">{{
-                      $t("settings.openOnStartup")
+                    $t("settings.openOnStartup")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="openOnStartup" v-model="configData.openOnStartup"
                     @change="setOpenOnStart()" />
@@ -105,10 +105,6 @@
                   <input class="form-check-input" type="checkbox" id="reportErrors" v-model="configData.reportErrors"
                     @change="setSendErrors()" />
                 </div>
-
-                <button class="btn mt-3" type="button" @click="goHome">
-                  <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
-                </button>
               </div>
             </div>
             <div class="tab-pane fade" id="config-behavior">
@@ -122,32 +118,32 @@
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.startCalendarYesterday")
                   }}</label>
-                  <input class="form-check-input" type="checkbox" id="moveOldTasks" v-model="configData.startCalendarYesterday"
+                  <input class="form-check-input" type="checkbox" id="moveOldTasks"
+                    v-model="configData.startCalendarYesterday"
                     @change="changeConfig('startCalendarYesterday', configData.startCalendarYesterday)" />
                 </div>
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label flex-fill" for="autoReorderTasks">{{ $t("settings.autoReorderTasks")
                   }}</label>
-                  <input class="form-check-input" type="checkbox" id="autoReorderTasks" v-model="configData.autoReorderTasks"
+                  <input class="form-check-input" type="checkbox" id="autoReorderTasks"
+                    v-model="configData.autoReorderTasks"
                     @change="changeConfig('autoReorderTasks', configData.autoReorderTasks)" />
                 </div>
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
-                  <label class="form-check-label flex-fill" for="moveCompletedTaskToBottom">{{ $t("settings.moveCompletedTaskToBottom")
+                  <label class="form-check-label flex-fill" for="moveCompletedTaskToBottom">{{
+                    $t("settings.moveCompletedTaskToBottom")
                   }}</label>
-                  <input class="form-check-input" type="checkbox" id="moveCompletedTaskToBottom" v-model="configData.moveCompletedTaskToBottom"
+                  <input class="form-check-input" type="checkbox" id="moveCompletedTaskToBottom"
+                    v-model="configData.moveCompletedTaskToBottom"
                     @change="changeConfig('moveCompletedTaskToBottom', configData.moveCompletedTaskToBottom)" />
                 </div>
-
-                <button class="btn mt-3" type="button" @click="goHome">
-                  <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
-                </button>
               </div>
             </div>
             <div class="tab-pane fade" id="config-display">
               <div class="d-flex flex-column mt-2 h-100">
                 <div class="px-1 mb-3">
                   <label for="columnsConfig" class="form-check-label">{{ $t("settings.columns") }}: {{
-                      configData.columns
+                    configData.columns
                   }}</label>
                   <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig"
                     v-model="configData.columns" @change="changeConfig('columns', configData.columns)" />
@@ -155,7 +151,7 @@
 
                 <div class="px-1 mb-3">
                   <label for="columnsConfig" class="form-check-label">{{ $t("settings.lists_columns") }}: {{
-                      configData.customColumns
+                    configData.customColumns
                   }}</label>
                   <input type="range" class="form-range mt-2 px-2" min="1" max="12" id="columnsConfig"
                     v-model="configData.customColumns"
@@ -171,17 +167,17 @@
 
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="compactViewSetting">{{
-                      $t("settings.compactView")
+                    $t("settings.compactView")
                   }}</label>
-                  <input class="form-check-input" type="checkbox" id="compactViewSetting"
-                    v-model="configData.compactView" @change="changeConfig('compactView', configData.compactView)" />
+                  <input class="form-check-input" type="checkbox" id="compactViewSetting" v-model="configData.compactView"
+                    @change="changeConfig('compactView', configData.compactView)" />
                 </div>
 
                 <div class="horizontal-divider mb-3"></div>
 
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkThemeSetting">{{
-                      $t("settings.darkTheme")
+                    $t("settings.darkTheme")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="darkThemeSetting" v-model="configData.darkTheme"
                     @change="changeConfig('darkTheme', configData.darkTheme)" />
@@ -189,22 +185,18 @@
 
                 <div v-if="isElectron()" class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label" for="darkTrayIcon">{{
-                      $t("settings.darkIcon")
+                    $t("settings.darkIcon")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="darkTrayIcon" v-model="configData.darkTrayIcon"
                     @change="setDarkTrayIcon" />
                 </div>
-
-                <button class="btn mt-3" type="button" @click="goHome">
-                  <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
-                </button>
               </div>
             </div>
             <div class="tab-pane fade" id="config-notifications">
               <div class="d-flex flex-column mt-3 h-100">
                 <div v-if="isElectron()" class="orm-check form-switch d-flex px-0 mb-3  justify-content-between">
                   <label class="form-check-label" style="margin-left: 0px" for="notificationOnStartup">{{
-                      $t("settings.notificationOnStartup")
+                    $t("settings.notificationOnStartup")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="notificationOnStartup"
                     v-model="configData.notificationOnStartup"
@@ -213,7 +205,7 @@
 
                 <div class="form-check form-switch d-flex px-0 mb-3  justify-content-between">
                   <label class="form-check-label" style="margin-left: 0px" for="notificationIndicator">{{
-                      $t("settings.notificationIndicator")
+                    $t("settings.notificationIndicator")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="notificationIndicator"
                     v-model="configData.notificationIndicator"
@@ -227,7 +219,7 @@
                   <select id="notificationSound" class="col-sm-9 form-select flex-fill"
                     aria-label="Default select example" v-model="configData.notificationSound" @change="
                       changeConfig('notificationSound', configData.notificationSound)
-                    ">
+                      ">
                     <option value="none">None</option>
                     <option value="pop">Pop</option>
                     <option value="bell">Bell</option>
@@ -242,12 +234,6 @@
                     <i class="bi-play-circle a"></i>
                   </button>
                 </div>
-
-
-
-                <button class="btn mt-3" type="button" @click="goHome">
-                  <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
-                </button>
               </div>
 
 
@@ -273,10 +259,6 @@
                   <input type="file" id="file-selector" class="d-none" accept=".wtdb" ref="loadData"
                     @change="importData($event)" />
                 </div>
-
-                <button class="btn mt-3" type="button" @click="goHome">
-                  <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
-                </button>
               </div>
             </div>
             <div class="tab-pane fade" id="config-language">
@@ -300,10 +282,6 @@
                   <option value="uk">український</option>
                   <option value="tr">Türk</option>
                 </select>
-
-                <button class="btn mt-3" type="button" @click="goHome">
-                  <i class="bi-arrow-left a"></i> {{ $t("donate.goBack") }}
-                </button>
               </div>
             </div>
           </div>
@@ -439,6 +417,10 @@ export default {
   height: 1.4em !important;
 }
 
+#config-links-menu {
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
 .icons {
   font-size: 20px;
   margin-right: 5px;
@@ -460,8 +442,8 @@ export default {
 }
 
 .modal-dialog {
-  max-width: 320px;
-  // height: 200px;
+  max-width: 800px;
+  max-height: 500px;
 }
 
 .form-range::-webkit-slider-thumb {
@@ -488,9 +470,6 @@ export default {
   }
 }
 
-.form-switch label {
-  max-width: 170px;
-}
 
 @-moz-document url-prefix() {
   .zoom-config {
