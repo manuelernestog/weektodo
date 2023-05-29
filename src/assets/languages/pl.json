@@ -103,7 +103,8 @@
     "startCalendarYesterday": "Kalendarz zaczął się wczoraj",
     "notificationIndicator": "Wskaźnik powiadomień",
     "autoReorderTasks": "Automatycznie zmieniaj kolejność zadań",
-    "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół"
+    "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół",
+    "clear": "Usuwać"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

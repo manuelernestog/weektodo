@@ -39,7 +39,8 @@
     "startCalendarYesterday": "التقويم يبدأ أمس",
     "notificationIndicator": "مؤشر الإخطار",
     "autoReorderTasks": "إعادة ترتيب المهام تلقائيًا",
-    "moveCompletedTaskToBottom": "انقل المهام المكتملة إلى الأسفل"
+    "moveCompletedTaskToBottom": "انقل المهام المكتملة إلى الأسفل",
+    "clear": "يمسح"
   },
   "donate": {
     "contribute": "ساهِم",

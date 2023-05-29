@@ -39,7 +39,8 @@
     "startCalendarYesterday": "Календарь начинается вчера",
     "notificationIndicator": "Индикатор уведомлений",
     "autoReorderTasks": "Автоматически переупорядочивать задачи",
-    "moveCompletedTaskToBottom": "Переместить выполненные задачи вниз"
+    "moveCompletedTaskToBottom": "Переместить выполненные задачи вниз",
+    "clear": "Удалить"
   },
   "donate": {
     "contribute": "Способствовать",

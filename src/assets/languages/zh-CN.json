@@ -32,7 +32,8 @@
     "importing": "正在导入...",
     "exporting": "正在导出...",
     "autoReorderTasks": "自动重新排序任务",
-    "behavior": "行为"
+    "behavior": "行为",
+    "clear": "删除"
   },
   "donate": {
     "contribute": "贡献",

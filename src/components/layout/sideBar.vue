@@ -68,7 +68,7 @@ export default {
       this.datepickerEnabled = false;
     },
     openConfigModal: function () {
-      document.getElementById("config-home-tab").click();
+      document.getElementById("config-general-tab").click();
     },
     openDonateModal: function () {
       window.open("https://weektodo.me/support-us", "_blank");

@@ -39,7 +39,8 @@
     "startCalendarYesterday": "Takvim dün başlıyor",
     "notificationIndicator": "Bildirim Göstergesi",
     "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
-    "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı"
+    "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
+    "clear": "Silmek"
   },
   "donate": {
     "contribute": "Katkıda bulun",

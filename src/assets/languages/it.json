@@ -39,7 +39,8 @@
     "startCalendarYesterday": "Il calendario inizia ieri",
     "notificationIndicator": "Indicatore di notifica",
     "autoReorderTasks": "Riordina automaticamente le attività",
-    "moveCompletedTaskToBottom": "Sposta le attività completate in basso"
+    "moveCompletedTaskToBottom": "Sposta le attività completate in basso",
+    "clear": "Eliminare"
   },
   "donate": {
     "contribute": "Contribuisci",

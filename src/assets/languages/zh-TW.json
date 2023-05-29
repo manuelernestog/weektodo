@@ -39,7 +39,8 @@
     "moveCompletedTaskToBottom": "將完成的任務移至底部",
     "notificationIndicator": "通知指示器",
     "reportErrors": "發送錯誤報告",
-    "startCalendarYesterday": "日曆從昨天開始"
+    "startCalendarYesterday": "日曆從昨天開始",
+    "clear": "刪除"
   },
   "donate": {
     "contribute": "貢獻",

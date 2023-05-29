@@ -39,7 +39,8 @@
     "startCalendarYesterday": "어제 일정 시작",
     "notificationIndicator": "알림 표시기",
     "autoReorderTasks": "자동으로 작업 재정렬",
-    "moveCompletedTaskToBottom": "완료된 작업을 맨 아래로 이동"
+    "moveCompletedTaskToBottom": "완료된 작업을 맨 아래로 이동",
+    "clear": "삭제"
   },
   "donate": {
     "contribute": "기여하다",
