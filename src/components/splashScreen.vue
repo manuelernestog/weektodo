@@ -3,9 +3,10 @@
     <div v-if="show" id="splashScreen" class="splash-screen d-flex justify-content-center align-items-center"
       ref="splashScreen">
       <div class="d-flex flex-column align-items-center">
-        <img class="logo mt-5" src="../../public/WeekToDo-Logo-Color.svg" alt="WeekToDo Logo">
-        <h1>WeekToDo</h1>
-        <span>{{ $t('ui.splashSub') }}</span>
+        <div class="mt-5 d-flex justify-content-center align-items-center" style="margin-bottom: 2rem;">
+          <img class="logo" src="../../public/WeekToDo-Logo-Color.svg" alt="WeekToDo Logo" style="display: inline;">
+          <h1 style="display: inline;" class="mb-0">WeekToDo</h1>
+        </div>
         <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px;">
           <a v-if="sponsor" :href="sponsor.url" class="d-flex sponsor-container align-items-center" target="_blank">
             <img :src="sponsor.img" class="sponsor-img" alt="WeekToDo Sponsor">
@@ -48,11 +49,11 @@ export default {
       var sponsors = [];
 
       sponsors.push({
-          name: "WeekToDo",
-          message: this.$t('donate.splashMessage'),
-          url: "https://weektodo.me/support-us",
-          img: "/icons/ko-fi.png",
-        });
+        name: "WeekToDo",
+        message: this.$t('donate.splashMessage'),
+        url: "https://weektodo.me/support-us",
+        img: "/icons/ko-fi.png",
+      });
 
       response.data.bronze.forEach(function (obj) {
         sponsors.push(obj);
@@ -134,9 +135,8 @@ export default {
 }
 
 .logo {
-  margin-top: 48px;
-  margin-bottom: 20px;
-  width: 5rem;
+  margin-right: 15px;
+  width: 4rem;
 }
 
 .splash-screen h1 {
