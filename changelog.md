@@ -1,3 +1,12 @@
+## v2.1.0
+Jun 1, 2023
+
+- Fixing Bugs
+- Improving app performance
+- Refactoring config menu
+- Adding new colors to tasks color picker
+
+
 ## v2.0.0
 Nov 24, 2022
 
