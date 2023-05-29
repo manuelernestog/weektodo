@@ -40,7 +40,8 @@
     "startCalendarYesterday": "Calendar start yesterday",
     "notificationIndicator": "Notification Indicator",
     "autoReorderTasks": "Automatically reorder tasks",
-    "moveCompletedTaskToBottom": "Move completed tasks to bottom"
+    "moveCompletedTaskToBottom": "Move completed tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen"
   },
   "donate": {
     "contribute": "Contribute",

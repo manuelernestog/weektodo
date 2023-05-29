@@ -5,6 +5,7 @@ Jun 1, 2023
 - Improving app performance
 - Refactoring config menu
 - Adding new colors to tasks color picker
+- Upgrading all tech stack libraries
 
 
 ## v2.0.0

@@ -40,7 +40,8 @@
     "notificationIndicator": "알림 표시기",
     "autoReorderTasks": "자동으로 작업 재정렬",
     "moveCompletedTaskToBottom": "완료된 작업을 맨 아래로 이동",
-    "clear": "삭제"
+    "clear": "삭제",
+    "fullscreenToDoModal": "전체 화면으로 할 일 세부 정보"
   },
   "donate": {
     "contribute": "기여하다",

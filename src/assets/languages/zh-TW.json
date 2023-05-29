@@ -40,7 +40,8 @@
     "notificationIndicator": "通知指示器",
     "reportErrors": "發送錯誤報告",
     "startCalendarYesterday": "日曆從昨天開始",
-    "clear": "刪除"
+    "clear": "刪除",
+    "fullscreenToDoModal": "全屏待辦事項詳細信息"
   },
   "donate": {
     "contribute": "貢獻",

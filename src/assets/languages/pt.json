@@ -40,7 +40,8 @@
     "notificationIndicator": "Indicador de notificação",
     "autoReorderTasks": "Reordenar tarefas automaticamente",
     "moveCompletedTaskToBottom": "Mover tarefas concluídas para baixo",
-    "clear": "Excluir"
+    "clear": "Excluir",
+    "fullscreenToDoModal": "Detalhes da tarefa em tela cheia"
   },
   "donate": {
     "contribute": "Contribuir",

@@ -1,5 +1,6 @@
 <template>
-  <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="configModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -189,6 +190,14 @@
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="compactViewSetting" v-model="configData.compactView"
                     @change="changeConfig('compactView', configData.compactView)" />
+                </div>
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label" for="fullscreenToDoModal">{{
+                    $t("settings.fullscreenToDoModal")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="fullscreenToDoModal"
+                    v-model="configData.fullscreenToDoModal"
+                    @change="changeConfig('fullscreenToDoModal', configData.fullscreenToDoModal)" />
                 </div>
               </div>
             </div>

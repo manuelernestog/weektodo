@@ -40,7 +40,8 @@
     "notificationIndicator": "مؤشر الإخطار",
     "autoReorderTasks": "إعادة ترتيب المهام تلقائيًا",
     "moveCompletedTaskToBottom": "انقل المهام المكتملة إلى الأسفل",
-    "clear": "يمسح"
+    "clear": "يمسح",
+    "fullscreenToDoModal": "تفاصيل المهام في وضع ملء الشاشة"
   },
   "donate": {
     "contribute": "ساهِم",

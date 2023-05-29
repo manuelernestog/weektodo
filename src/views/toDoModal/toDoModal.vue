@@ -1,5 +1,5 @@
 <template>
-  <div class="modal fade" id="toDoModal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+  <div class="modal fade" :class="{ 'fullscreen': fullscreenToDoModal }" id="toDoModal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex">
@@ -83,8 +83,7 @@
               </li>
             </ul>
             <div>
-              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal"
-                :title="$t('todoDetails.close')"></i>
+              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal" :title="$t('todoDetails.close')"></i>
             </div>
           </div>
         </div>
@@ -97,8 +96,8 @@
                 :class="{ 'completed-task': todo.checked }" @dblclick="editTitle">
                 <span v-html="todoText"></span>
               </label>
-              <label v-show="!editingTitle && todo.text == ''"
-                class="form-check-label todo-title todo-title-empty-title" for="todo-header" @dblclick="editTitle">
+              <label v-show="!editingTitle && todo.text == ''" class="form-check-label todo-title todo-title-empty-title"
+                for="todo-header" @dblclick="editTitle">
                 {{ $t("todoDetails.taskTitle") }}
               </label>
               <input v-show="editingTitle" class="todo-title-input" type="text" v-model="todo.text" ref="titleInput"
@@ -142,8 +141,8 @@
             <div class="new-sub-task d-flex align-items-center">
               <label for="new-sub-task"><i class="bi-plus-square mx-3"></i></label>
               <input type="text" id="new-sub-task" :placeholder="$t('todoDetails.addSubTask')" autocomplete="off"
-                @blur="addSubTask()" @keyup.enter="addSubTask()" @keyup.esc="cancelAddSubTask()"
-                v-model="newSubTask.text" ref="newSubTask" />
+                @blur="addSubTask()" @keyup.enter="addSubTask()" @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text"
+                ref="newSubTask" />
             </div>
           </ul>
         </div>
@@ -160,8 +159,8 @@
   </div>
 
   <comfirm-modal :id="'removeReModalToDoDetails'" :title="$t('ui.removeRepeatingTask')"
-    :text="$t('ui.repeatingTaskRemoveConfirm')" :ico="'bi-x-circle'" :okText="$t('ui.remove')"
-    @on-ok="removeAllComfirmed" @on-cancel="removeAllCanceled"></comfirm-modal>
+    :text="$t('ui.repeatingTaskRemoveConfirm')" :ico="'bi-x-circle'" :okText="$t('ui.remove')" @on-ok="removeAllComfirmed"
+    @on-cancel="removeAllCanceled"></comfirm-modal>
 </template>
 
 <script>
@@ -372,11 +371,11 @@ export default {
         this.index = this.todoList.length - 1;
         this.todo = this.todoList[this.index];
 
-      if(this.$store.getters.config.autoReorderTasks){
-        this.updateTodoList(newListID,tasksHelper.reorderTasksList( this.todoList));
-      } else {
-        this.updateTodoList(newListID, this.todoList);
-      }
+        if (this.$store.getters.config.autoReorderTasks) {
+          this.updateTodoList(newListID, tasksHelper.reorderTasksList(this.todoList));
+        } else {
+          this.updateTodoList(newListID, this.todoList);
+        }
 
       } else {
         this.loadToDoFormDB(newListID);
@@ -446,7 +445,7 @@ export default {
       };
       this.$store.commit("addTodo", newTodo);
 
-      if(this.$store.getters.config.autoReorderTasks){
+      if (this.$store.getters.config.autoReorderTasks) {
         this.updateTodoList(this.todo.listId, tasksHelper.reorderTasksList(this.$store.getters.todoLists[this.todo.listId]));
       } else {
         this.updateTodoList(this.todo.listId, this.$store.getters.todoLists[this.todo.listId]);
@@ -499,7 +498,7 @@ export default {
       this.updateTodo(false);
     },
     changeSubTaskClickhandler: function (index) {
-      this.clickhandler.handle(function () { this.changeSubTask(index) }.bind(this), function () { this.editSubTask(index) }.bind(this),index);
+      this.clickhandler.handle(function () { this.changeSubTask(index) }.bind(this), function () { this.editSubTask(index) }.bind(this), index);
     },
     changeSubTask: function (index) {
       if (this.todo.subTaskList[index].checked) {
@@ -573,13 +572,44 @@ export default {
     },
     todoText: function () {
       return linkifyStr(this.todo.text, this.options);
-    }
+    },
+    fullscreenToDoModal: function () {
+      return this.$store.getters.config.fullscreenToDoModal;
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 @import "/src/assets/style/globalVars.scss";
+
+
+#toDoModal.fullscreen {
+  .modal-dialog {
+    margin: 0px;
+    height: 80%;
+    width: 80%;
+    max-width: unset;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    .modal-content {
+      height: 100%;
+      width: 100%;
+    }
+
+    .modal-body {
+      overflow-y: auto;
+    }
+
+    .sub-tasks {
+      max-height: unset;
+    }
+  }
+}
 
 .todo-list-selector .bi-chevron-down {
   @include btn-icon;

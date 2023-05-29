@@ -40,7 +40,8 @@
     "notificationIndicator": "通知インジケータ",
     "autoReorderTasks": "タスクを自動的に並べ替える",
     "moveCompletedTaskToBottom": "完了したタスクを一番下に移動",
-    "clear": "消去"
+    "clear": "消去",
+    "fullscreenToDoModal": "全画面でのToDo詳細"
   },
   "donate": {
     "contribute": "コントリビューション",

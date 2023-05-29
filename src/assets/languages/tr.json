@@ -40,7 +40,8 @@
     "notificationIndicator": "Bildirim Göstergesi",
     "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
     "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
-    "clear": "Silmek"
+    "clear": "Silmek",
+    "fullscreenToDoModal": "Yapılacaklar Ayrıntıları tam ekranda"
   },
   "donate": {
     "contribute": "Katkıda bulun",

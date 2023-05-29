@@ -10,6 +10,7 @@ export default {
     mainDividerPosition();
     trayIcon();
     telemetric();
+    v2_1_0();
   },
 };
 
@@ -81,5 +82,12 @@ function telemetric() {
     config["autoReorderTasks"] = false;
     config["moveCompletedTaskToBottom"] = true;
     configRepository.update(config);
+  }
+}
+
+function v2_1_0() {
+  let config = configRepository.load();
+  if (!("fullscreenToDoModal" in config)) {
+    config["fullscreenToDoModal"] = false;
   }
 }

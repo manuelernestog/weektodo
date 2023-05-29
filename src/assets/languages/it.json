@@ -40,7 +40,8 @@
     "notificationIndicator": "Indicatore di notifica",
     "autoReorderTasks": "Riordina automaticamente le attività",
     "moveCompletedTaskToBottom": "Sposta le attività completate in basso",
-    "clear": "Eliminare"
+    "clear": "Eliminare",
+    "fullscreenToDoModal": "Dettagli attività a schermo intero"
   },
   "donate": {
     "contribute": "Contribuisci",

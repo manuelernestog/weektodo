@@ -33,7 +33,8 @@
     "exporting": "正在导出...",
     "autoReorderTasks": "自动重新排序任务",
     "behavior": "行为",
-    "clear": "删除"
+    "clear": "删除",
+    "fullscreenToDoModal": "全屏待办事项详细信息"
   },
   "donate": {
     "contribute": "贡献",

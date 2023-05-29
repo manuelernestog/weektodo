@@ -40,7 +40,8 @@
     "notificationIndicator": "Индикатор уведомлений",
     "autoReorderTasks": "Автоматически переупорядочивать задачи",
     "moveCompletedTaskToBottom": "Переместить выполненные задачи вниз",
-    "clear": "Удалить"
+    "clear": "Удалить",
+    "fullscreenToDoModal": "Подробная информация о делах в полноэкранном режиме"
   },
   "donate": {
     "contribute": "Способствовать",

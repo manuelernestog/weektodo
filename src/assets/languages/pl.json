@@ -104,7 +104,8 @@
     "notificationIndicator": "Wskaźnik powiadomień",
     "autoReorderTasks": "Automatycznie zmieniaj kolejność zadań",
     "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół",
-    "clear": "Usuwać"
+    "clear": "Usuwać",
+    "fullscreenToDoModal": "Szczegóły zadań na pełnym ekranie"
   },
   "tips": {
     "back": "Poprzednia wskazówka",
