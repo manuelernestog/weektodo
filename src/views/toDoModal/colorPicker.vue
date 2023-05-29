@@ -3,7 +3,7 @@
     <i id="btnTaskColorPicker" class="header-menu-icons bi-circle-fill" type="button" data-bs-toggle="dropdown"
       :style="'color: ' + color" :title="$t('todoDetails.color')"></i>
 
-    <ul class="dropdown-menu color-picker-dropdown" aria-labelledby="btnTaskTimePicker">
+    <ul class="dropdown-menu color-picker-dropdown px-2" aria-labelledby="btnTaskTimePicker">
       <div class="d-flex align-items-center">
         <i class="bi-circle colors-menu-icons" type="button" @click="selectColor('none')"></i>
         <i class="bi-circle-fill colors-menu-icons" type="button" @click="selectColor('#77e785')"
