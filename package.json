@@ -41,13 +41,13 @@
     "linkify-string": "^4.1.1",
     "linkifyjs": "^4.1.1",
     "lodash.uniqueid": "^4.0.1",
+    "markdown-it": "^13.0.1",
     "moment": "^2.29.4",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "rrule": "^2.7.2",
     "vue": "^3.3.4",
     "vue-i18n": "^9.2.2",
     "vue3-datepicker": "^0.3.4",
-    "vue3-markdown-it": "^1.0.10",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

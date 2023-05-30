@@ -1,5 +1,6 @@
 <template>
-  <div class="modal fade" :class="{ 'fullscreen': fullscreenToDoModal }" id="toDoModal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+  <div class="modal fade" :class="{ 'fullscreen': fullscreenToDoModal }" id="toDoModal" data-backdrop="static"
+    data-keyboard="false" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex">
@@ -110,9 +111,7 @@
                 <i class="bi-markdown-fill" @mousedown="goToMarkDown" :title="$t('todoDetails.markdown')"></i>
               </div>
               <div v-show="!editingDescription && todo.desc != ''" class="mt-2 todo-description"
-                @dblclick="editDescription">
-                <Markdown :source="todo.desc" />
-              </div>
+                @dblclick="editDescription" v-html="todoDescription"> </div>
               <div v-show="!editingDescription && todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') == ''"
                 @dblclick="editDescription" class="description-empty mt-2">
                 {{ $t("todoDetails.notes") }}
@@ -165,7 +164,7 @@
 
 <script>
 import Datepicker from "vue3-datepicker";
-import Markdown from "vue3-markdown-it";
+import MarkdownIt from 'markdown-it';
 import toDoListRepository from "../../repositories/toDoListRepository";
 import moment from "moment";
 import dbRepository from "../../repositories/dbRepository";
@@ -182,6 +181,7 @@ import comfirmModal from "../../components/comfirmModal.vue";
 import linkifyStr from 'linkify-string';
 import ClickHandler from "@manuelernestog/click-handler";
 import tasksHelper from "../../helpers/tasksHelper";
+import markdownTargetBlankLinks from '../../helpers/markdownTargetBlankLinks';
 
 export default {
   name: "toDoModal",
@@ -208,8 +208,12 @@ export default {
       showingCalendar: true,
       loadingView: false,
       options: { target: '_blank', defaultProtocol: 'https' },
-      clickhandler: new ClickHandler()
+      clickhandler: new ClickHandler(),
+      md: new MarkdownIt()
     }
+  },
+  mounted() {
+    markdownTargetBlankLinks.renderBlankLinks(this.md);
   },
   props: {
     selectedTodo: { required: true, type: Object },
@@ -217,7 +221,6 @@ export default {
   components: {
     colorPicker,
     Datepicker,
-    Markdown,
     toastMessage,
     timePicker,
     repeatingEvent,
@@ -576,6 +579,9 @@ export default {
     fullscreenToDoModal: function () {
       return this.$store.getters.config.fullscreenToDoModal;
     },
+    todoDescription: function () {
+      return this.md.render(this.todo.desc);
+    }
   },
 };
 </script>
