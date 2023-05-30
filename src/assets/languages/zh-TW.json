@@ -206,7 +206,8 @@
     "color": "色彩",
     "close": "關閉",
     "actions": "行動",
-    "weekdays": "週一至週五"
+    "weekdays": "週一至週五",
+    "customWeekdays": "自定義工作日"
   },
   "notifications": {
     "noPendingTasksToday": "您今天沒有計劃任務。",

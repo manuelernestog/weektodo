@@ -206,7 +206,8 @@
     "alarm": "Alarme",
     "color": "Cor",
     "close": "Perto",
-    "actions": "Ações"
+    "actions": "Ações",
+    "customWeekdays": "Dias da semana personalizados"
   },
   "notifications": {
     "noPendingTasksToday": "Você não tem tarefas agendadas hoje.",

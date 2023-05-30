@@ -206,7 +206,8 @@
     "alarm": "Сигналізація",
     "color": "Колір",
     "close": "Закрити",
-    "actions": "Дії"
+    "actions": "Дії",
+    "customWeekdays": "Індивідуальні будні"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",

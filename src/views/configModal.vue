@@ -253,7 +253,7 @@
                   <div>
                     <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between align-items-center">
                       <label class="form-check-label" for="export-data-btn">{{ $t("settings.exportData") }}</label>
-                      <button id="export-data-btn" type="button" class="btn py-1 px-2 border" style="width: 120px;"
+                      <button id="export-data-btn" type="button" class="btn py-1 px-2 border" style="width: 140px;"
                         @click="exportData">
                         <i class="icons bi-cloud-arrow-down mx-2"></i>
                         {{ $t("settings.export") }}
@@ -262,7 +262,7 @@
 
                     <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between align-items-center">
                       <label class="form-check-label" for="import-data-btn">{{ $t("settings.importData") }}</label>
-                      <button id="import-data-btn" type="button" class="btn py-1 px-2 border" style="width: 120px;"
+                      <button id="import-data-btn" type="button" class="btn py-1 px-2 border" style="width: 140px;"
                         @click="$refs.loadData.click">
                         <i class="icons bi-cloud-arrow-up mx-2"></i>
                         {{ $t("settings.import") }}
@@ -271,7 +271,7 @@
 
                     <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between align-items-center">
                       <label class="form-check-label" for="clear-data-btn">{{ $t("settings.clearData") }}</label>
-                      <button id="clear-data-btn" type="button" class="btn py-1 px-2 border" style="width: 120px;"
+                      <button id="clear-data-btn" type="button" class="btn py-1 px-2 border" style="width: 140px;"
                         data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#clearDataModal">
                         <i class="icons bi-x-circle mx-2"></i>
                         {{ $t("settings.clear") }}

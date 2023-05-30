@@ -206,7 +206,8 @@
     "alarm": "Alarm",
     "color": "Color",
     "close": "Close",
-    "actions": "Actions"
+    "actions": "Actions",
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",

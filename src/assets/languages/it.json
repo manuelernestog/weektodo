@@ -206,7 +206,8 @@
     "alarm": "Allarme",
     "color": "Colore",
     "close": "Chiudere",
-    "actions": "Azioni"
+    "actions": "Azioni",
+    "customWeekdays": "Giorni feriali personalizzati"
   },
   "notifications": {
     "noPendingTasksToday": "Non hai attività programmate oggi.",

@@ -206,7 +206,8 @@
     "alarm": "警報",
     "color": "色",
     "close": "近い",
-    "actions": "行動"
+    "actions": "行動",
+    "customWeekdays": "カスタム平日"
   },
   "notifications": {
     "noPendingTasksToday": "今日、スケジュールされたタスクはありません。",

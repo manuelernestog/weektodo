@@ -206,7 +206,8 @@
     "untilDate": "حتى تاريخ",
     "weekly": "أسبوعي",
     "yearly": "سنوي",
-    "weekdays": "من الإثنين إلى الجمعة"
+    "weekdays": "من الإثنين إلى الجمعة",
+    "customWeekdays": "أيام الأسبوع المخصصة"
   },
   "notifications": {
     "noPendingTasksToday": "ليس لديك مهام مجدولة اليوم.",

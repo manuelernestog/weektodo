@@ -58,15 +58,17 @@ export default {
     frecuency: function (task) {
       switch (task.type) {
         case "0":
-          return this.$t("todoDetails.yearly") +' / ' + moment(task.start_date).locale(this.language).format("MMM Do");
+          return this.$t("todoDetails.yearly") + ' / ' + moment(task.start_date).locale(this.language).format("MMM Do");
         case "1":
-          return this.$t("todoDetails.monthly") +' / ' + moment(task.start_date).locale(this.language).format("Do");
+          return this.$t("todoDetails.monthly") + ' / ' + moment(task.start_date).locale(this.language).format("Do");
         case "2":
-          return this.$t("todoDetails.weekly") +' / ' + moment(task.start_date).locale(this.language).format("dddd");
+          return this.$t("todoDetails.weekly") + ' / ' + moment(task.start_date).locale(this.language).format("dddd");
         case "3":
           return this.$t("todoDetails.daily");
         case "4":
           return this.$t("todoDetails.weekdays");
+        case "5":
+          return this.$t("todoDetails.customWeekdays");
       }
     },
     removeRecurringTask: function (id) {

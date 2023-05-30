@@ -155,7 +155,8 @@
     "close": "Blisko",
     "color": "Kolor",
     "time": "Czas",
-    "weekdays": "pon-pt"
+    "weekdays": "pon-pt",
+    "customWeekdays": "Niestandardowe dni tygodnia"
   },
   "ui": {
     "calendar": "Kalendarz",

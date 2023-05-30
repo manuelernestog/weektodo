@@ -206,7 +206,8 @@
     "alarm": "Тревога",
     "color": "Цвет",
     "close": "Закрывать",
-    "actions": "Действия"
+    "actions": "Действия",
+    "customWeekdays": "Пользовательские дни недели"
   },
   "notifications": {
     "noPendingTasksToday": "У вас нет запланированных задач на сегодня.",

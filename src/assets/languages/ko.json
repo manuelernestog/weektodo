@@ -206,7 +206,8 @@
     "alarm": "경보",
     "color": "색깔",
     "close": "닫다",
-    "actions": "행위"
+    "actions": "행위",
+    "customWeekdays": "맞춤 평일"
   },
   "notifications": {
     "noPendingTasksToday": "오늘은 예약된 작업이 없습니다.",

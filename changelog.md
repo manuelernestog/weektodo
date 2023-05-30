@@ -6,6 +6,7 @@ Jun 1, 2023
 - Refactoring config menu
 - Adding new colors to tasks color picker
 - Upgrading all tech stack libraries
+- Adding new repeating event option for custom weekdays selector
 
 
 ## v2.0.0
