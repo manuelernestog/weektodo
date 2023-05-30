@@ -41,7 +41,8 @@
     "autoReorderTasks": "إعادة ترتيب المهام تلقائيًا",
     "moveCompletedTaskToBottom": "انقل المهام المكتملة إلى الأسفل",
     "clear": "يمسح",
-    "fullscreenToDoModal": "تفاصيل المهام في وضع ملء الشاشة"
+    "fullscreenToDoModal": "تفاصيل المهام في وضع ملء الشاشة",
+    "moveCompletedSubTaskToBottom": "انقل المهام الفرعية المكتملة إلى الأسفل"
   },
   "donate": {
     "contribute": "ساهِم",

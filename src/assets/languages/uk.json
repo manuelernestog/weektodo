@@ -41,7 +41,8 @@
     "autoReorderTasks": "Автоматично змінюйте порядок завдань",
     "moveCompletedTaskToBottom": "Перемістити виконані завдання вниз",
     "clear": "Видалити",
-    "fullscreenToDoModal": "Деталі справ на весь екран"
+    "fullscreenToDoModal": "Деталі справ на весь екран",
+    "moveCompletedSubTaskToBottom": "Перемістіть виконані підзавдання вниз"
   },
   "donate": {
     "contribute": "Співпраця",

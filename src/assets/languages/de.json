@@ -41,7 +41,8 @@
     "autoReorderTasks": "Aufgaben automatisch neu anordnen",
     "moveCompletedTaskToBottom": "Erledigte Aufgaben nach unten verschieben",
     "clear": "Löschen",
-    "fullscreenToDoModal": "Aufgabendetails im Vollbildmodus"
+    "fullscreenToDoModal": "Aufgabendetails im Vollbildmodus",
+    "moveCompletedSubTaskToBottom": "Abgeschlossene Unteraufgaben nach unten verschieben"
   },
   "donate": {
     "contribute": "Beitragen",

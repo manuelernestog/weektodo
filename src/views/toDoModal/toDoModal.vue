@@ -504,7 +504,7 @@ export default {
       this.clickhandler.handle(function () { this.changeSubTask(index) }.bind(this), function () { this.editSubTask(index) }.bind(this), index);
     },
     changeSubTask: function (index) {
-      if (this.todo.subTaskList[index].checked) {
+      if (this.todo.subTaskList[index].checked && this.moveSubtaskToBotttom) {
         this.todo.subTaskList.push(this.todo.subTaskList.splice(index, 1)[0]);
       }
       this.updateTodo();
@@ -578,6 +578,9 @@ export default {
     },
     fullscreenToDoModal: function () {
       return this.$store.getters.config.fullscreenToDoModal;
+    },
+    moveSubtaskToBotttom: function () {
+      return this.$store.getters.config.moveCompletedSubTaskToBottom;
     },
     todoDescription: function () {
       return this.md.render(this.todo.desc);

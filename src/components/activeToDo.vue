@@ -5,16 +5,16 @@
     <div class="d-flex">
       <span class="noselect item-text" :class="{ 'checked-todo': activeTodo.toDo.checked }" style="flex-grow: 1"
         @click="checkTodoClickhandler" @click.middle="showToDoDetails">
-        <span v-if="activeTodo.toDo.color != 'none'" class="cicle-icon" :style="'color: ' + activeTodo.toDo.color"
-          :class="{
-            'bi-check-circle-fill': activeTodo.toDo.checked,
-            'bi-circle-fill': !activeTodo.toDo.checked,
-          }"></span>
+        <span v-if="activeTodo.toDo.color != 'none'" class="cicle-icon" :style="'color: ' + activeTodo.toDo.color" :class="{
+          'bi-check-circle-fill': activeTodo.toDo.checked,
+          'bi-circle-fill': !activeTodo.toDo.checked,
+        }"></span>
         <span v-else class="cicle-icon"
           :class="{ 'bi-check-circle': activeTodo.toDo.checked, 'bi-circle': !activeTodo.toDo.checked, }"></span>
         <span v-html="todoText"></span>
         <span class="time-details"> {{ timeFormat(activeTodo.toDo.time) }}
-          <div class="alarm-indicator" :class="{ 'show-alarm-indicator': notificationIndicator && activeTodo.toDo.alarm }"></div>
+          <div class="alarm-indicator"
+            :class="{ 'show-alarm-indicator': notificationIndicator && activeTodo.toDo.alarm }"></div>
         </span>
       </span>
       <i class="bi-three-dots todo-item-menu" type="button" @click="showToDoDetails"></i>
@@ -128,9 +128,9 @@ export default {
       if (e.target.href) return;
 
       if (!e.target.value) subTask.checked = !subTask.checked;
-        var todoList = this.activeTodo.toDo.subTaskList;
-      if (subTask.checked) { todoList.push(todoList.splice(index, 1)[0]); }
-        toDoListRepository.update(this.activeTodo.toDoListId, this.$store.getters.todoLists[this.activeTodo.toDoListId]);
+      var todoList = this.activeTodo.toDo.subTaskList;
+      if (subTask.checked && this.moveSubtaskToBotttom) { todoList.push(todoList.splice(index, 1)[0]); }
+      toDoListRepository.update(this.activeTodo.toDoListId, this.$store.getters.todoLists[this.activeTodo.toDoListId]);
     },
     timeFormat: function (date) {
       if (date) {
@@ -165,7 +165,10 @@ export default {
     },
     notificationIndicator: function () {
       return this.$store.getters.config.notificationIndicator;
-    }
+    },
+    moveSubtaskToBotttom: function () {
+      return this.$store.getters.config.moveCompletedSubTaskToBottom;
+    },
   }
 };
 </script>
@@ -251,6 +254,7 @@ export default {
 .checked-todo {
   color: #acacac;
   text-decoration: line-through;
+
   .dark-theme & {
     color: #636363;
   }

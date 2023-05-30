@@ -41,7 +41,8 @@
     "autoReorderTasks": "Reordenar tareas automáticamente",
     "moveCompletedTaskToBottom": "Mover las tareas completadas al final",
     "clear": "Borrar",
-    "fullscreenToDoModal": "Detalles de tareas en pantalla completa"
+    "fullscreenToDoModal": "Detalles de tareas en pantalla completa",
+    "moveCompletedSubTaskToBottom": "Mover las subtareas completadas al final"
   },
   "donate": {
     "contribute": "Contribuir",

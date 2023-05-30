@@ -138,6 +138,14 @@
                     v-model="configData.moveCompletedTaskToBottom"
                     @change="changeConfig('moveCompletedTaskToBottom', configData.moveCompletedTaskToBottom)" />
                 </div>
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="moveCompletedSubTaskToBottom">{{
+                    $t("settings.moveCompletedSubTaskToBottom")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="moveCompletedSubTaskToBottom"
+                    v-model="configData.moveCompletedSubTaskToBottom"
+                    @change="changeConfig('moveCompletedSubTaskToBottom', configData.moveCompletedSubTaskToBottom)" />
+                </div>
               </div>
             </div>
             <div class="tab-pane fade" id="config-display">

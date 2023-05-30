@@ -89,5 +89,6 @@ function v2_1_0() {
   let config = configRepository.load();
   if (!("fullscreenToDoModal" in config)) {
     config["fullscreenToDoModal"] = false;
+    config["moveCompletedSubTaskToBottom"] = true;
   }
 }

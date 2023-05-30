@@ -41,7 +41,8 @@
     "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
     "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
     "clear": "Silmek",
-    "fullscreenToDoModal": "Yapılacaklar Ayrıntıları tam ekranda"
+    "fullscreenToDoModal": "Yapılacaklar Ayrıntıları tam ekranda",
+    "moveCompletedSubTaskToBottom": "Tamamlanan alt görevleri en alta taşı"
   },
   "donate": {
     "contribute": "Katkıda bulun",

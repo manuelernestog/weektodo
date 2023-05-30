@@ -41,6 +41,7 @@
     "notificationIndicator": "Notification Indicator",
     "autoReorderTasks": "Automatically reorder tasks",
     "moveCompletedTaskToBottom": "Move completed tasks to bottom",
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
     "fullscreenToDoModal": "To-do Details in full screen"
   },
   "donate": {

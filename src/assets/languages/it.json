@@ -41,7 +41,8 @@
     "autoReorderTasks": "Riordina automaticamente le attività",
     "moveCompletedTaskToBottom": "Sposta le attività completate in basso",
     "clear": "Eliminare",
-    "fullscreenToDoModal": "Dettagli attività a schermo intero"
+    "fullscreenToDoModal": "Dettagli attività a schermo intero",
+    "moveCompletedSubTaskToBottom": "Sposta le attività secondarie completate in basso"
   },
   "donate": {
     "contribute": "Contribuisci",

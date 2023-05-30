@@ -105,7 +105,8 @@
     "autoReorderTasks": "Automatycznie zmieniaj kolejność zadań",
     "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół",
     "clear": "Usuwać",
-    "fullscreenToDoModal": "Szczegóły zadań na pełnym ekranie"
+    "fullscreenToDoModal": "Szczegóły zadań na pełnym ekranie",
+    "moveCompletedSubTaskToBottom": "Przenieś ukończone zadania podrzędne na dół"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

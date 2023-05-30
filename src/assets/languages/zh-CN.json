@@ -34,7 +34,8 @@
     "autoReorderTasks": "自动重新排序任务",
     "behavior": "行为",
     "clear": "删除",
-    "fullscreenToDoModal": "全屏待办事项详细信息"
+    "fullscreenToDoModal": "全屏待办事项详细信息",
+    "moveCompletedSubTaskToBottom": "将完成的子任务移至底部"
   },
   "donate": {
     "contribute": "贡献",

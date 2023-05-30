@@ -41,7 +41,8 @@
     "autoReorderTasks": "タスクを自動的に並べ替える",
     "moveCompletedTaskToBottom": "完了したタスクを一番下に移動",
     "clear": "消去",
-    "fullscreenToDoModal": "全画面でのToDo詳細"
+    "fullscreenToDoModal": "全画面でのToDo詳細",
+    "moveCompletedSubTaskToBottom": "完了したサブタスクを一番下に移動します"
   },
   "donate": {
     "contribute": "コントリビューション",

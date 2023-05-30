@@ -35,6 +35,7 @@ export default {
         notificationIndicator: true,
         autoReorderTasks: false,
         moveCompletedTaskToBottom: true,
+        moveCompletedSubTaskToBottom: true,
         fullscreenToDoModal: false
       };
       storageRepository.set("config", default_config);
