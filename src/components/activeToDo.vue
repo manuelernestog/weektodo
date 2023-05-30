@@ -100,6 +100,7 @@ export default {
       } else {
         toDoListRepository.update(toDoListId, this.$store.getters.todoLists[toDoListId]);
       }
+      notifications.refreshDayNotifications(this, this.activeTodo.toDoListId);
     },
     startDrag: function (event, item, index) {
       event.dataTransfer.dropEffect = "move";
