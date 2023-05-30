@@ -39,13 +39,7 @@ async function createWindow() {
   mainWindow = new BrowserWindow(opts);
   mainWindow.removeMenu();
 
-  // mainWindow.webContents.on("new-window", function (e, url) {
-  //   e.preventDefault();
-  //   require("electron").shell.openExternal(url);
-  // });
-
-  mainWindow.webContents.setWindowOpenHandler((details) => {
-    console.log(details);
+   mainWindow.webContents.setWindowOpenHandler((details) => {
     require("electron").shell.openExternal(details.url);
     return { action: 'deny' }
   })
