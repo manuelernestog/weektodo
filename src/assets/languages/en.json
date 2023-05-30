@@ -9,7 +9,7 @@
     "data": "Data",
     "import": "Import",
     "export": "Export",
-    "clear": "Delete",
+    "clear": "Clear",
     "backup": "Backup:",
     "invalidFile": "Invalid File",
     "checkUpdates": "Check for Updates on startup",
