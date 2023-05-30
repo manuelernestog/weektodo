@@ -39,10 +39,16 @@ async function createWindow() {
   mainWindow = new BrowserWindow(opts);
   mainWindow.removeMenu();
 
-  mainWindow.webContents.on("new-window", function (e, url) {
-    e.preventDefault();
-    require("electron").shell.openExternal(url);
-  });
+  // mainWindow.webContents.on("new-window", function (e, url) {
+  //   e.preventDefault();
+  //   require("electron").shell.openExternal(url);
+  // });
+
+  mainWindow.webContents.setWindowOpenHandler((details) => {
+    console.log(details);
+    require("electron").shell.openExternal(details.url);
+    return { action: 'deny' }
+  })
 
   ipcMain.on("show-current-window", showCurrentWindow);
   ipcMain.on("is-windows-visible", isWindowsVisible);
