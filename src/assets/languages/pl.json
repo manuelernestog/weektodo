@@ -103,7 +103,11 @@
     "startCalendarYesterday": "Kalendarz zaczął się wczoraj",
     "notificationIndicator": "Wskaźnik powiadomień",
     "autoReorderTasks": "Automatycznie zmieniaj kolejność zadań",
-    "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół"
+    "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół",
+    "clear": "Usuwać",
+    "fullscreenToDoModal": "Szczegóły zadań na pełnym ekranie",
+    "moveCompletedSubTaskToBottom": "Przenieś ukończone zadania podrzędne na dół",
+    "weekStartOnMonday": "Tydzień zaczyna się w poniedziałek"
   },
   "tips": {
     "back": "Poprzednia wskazówka",
@@ -153,7 +157,8 @@
     "close": "Blisko",
     "color": "Kolor",
     "time": "Czas",
-    "weekdays": "pon-pt"
+    "weekdays": "pon-pt",
+    "customWeekdays": "Niestandardowe dni tygodnia"
   },
   "ui": {
     "calendar": "Kalendarz",

@@ -194,7 +194,6 @@ export default {
     document.onreadystatechange = () => {
       if (document.readyState == "complete") {
         setTimeout(this.hideSplash, 4500);
-        this.showInitialDonateModal();
       }
     };
 
@@ -427,22 +426,6 @@ export default {
         }
       });
       return promise;
-    },
-    showInitialDonateModal: function () {
-      if (!this.$store.getters.config["InitialDonateModalShown"] &&
-        moment() >= moment(this.$store.getters.config["dateToShowInitialDonateModal"])) {
-        setTimeout(
-          function () {
-            let modal = new Modal(document.getElementById("donateModal"), {
-              backdrop: "static",
-            });
-            modal.show();
-            this.$store.commit("updateConfig", { val: true, key: "InitialDonateModalShown" });
-            configRepository.update(this.$store.getters.config);
-          }.bind(this),
-          5000
-        );
-      }
     },
     setDividerPosition: function (position) {
       this.$nextTick(function () {

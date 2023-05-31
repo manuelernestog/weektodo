@@ -39,7 +39,11 @@
     "startCalendarYesterday": "Takvim dün başlıyor",
     "notificationIndicator": "Bildirim Göstergesi",
     "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
-    "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı"
+    "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
+    "clear": "Silmek",
+    "fullscreenToDoModal": "Yapılacaklar Ayrıntıları tam ekranda",
+    "moveCompletedSubTaskToBottom": "Tamamlanan alt görevleri en alta taşı",
+    "weekStartOnMonday": "Hafta Pazartesi günü başlar"
   },
   "donate": {
     "contribute": "Katkıda bulun",
@@ -204,7 +208,8 @@
     "alarm": "alarm",
     "color": "Renk",
     "close": "Kapat",
-    "actions": "Hareketler"
+    "actions": "Hareketler",
+    "customWeekdays": "Özel Hafta İçi"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",

@@ -119,8 +119,8 @@ Read [Contributing.md](/CONTRIBUTING.md) for more information.
 
 ## Contributors
 
-<a href="https://github.com/zuntek/weektodoweb/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=zuntek/weektodoweb" />
+<a href="https://github.com/manuelernestog/weektodo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=manuelernestog/weektodo" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).

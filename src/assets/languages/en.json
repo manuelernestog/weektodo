@@ -9,6 +9,7 @@
     "data": "Data",
     "import": "Import",
     "export": "Export",
+    "clear": "Clear",
     "backup": "Backup:",
     "invalidFile": "Invalid File",
     "checkUpdates": "Check for Updates on startup",
@@ -39,7 +40,10 @@
     "startCalendarYesterday": "Calendar start yesterday",
     "notificationIndicator": "Notification Indicator",
     "autoReorderTasks": "Automatically reorder tasks",
-    "moveCompletedTaskToBottom": "Move completed tasks to bottom"
+    "moveCompletedTaskToBottom": "Move completed tasks to bottom",
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen",
+    "weekStartOnMonday": "The Week start on Monday"
   },
   "donate": {
     "contribute": "Contribute",
@@ -204,7 +208,8 @@
     "alarm": "Alarm",
     "color": "Color",
     "close": "Close",
-    "actions": "Actions"
+    "actions": "Actions",
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",

@@ -1,6 +1,6 @@
 export default {
   pendingTasksCount(todoList) {
-    if (todoList == null) return 0;
+    if (todoList == null || typeof(todoList) === "undefined") return 0;
     return todoList.filter((todo) => !todo.checked).length;
   },
   reorderTasksList(toDoList) {
