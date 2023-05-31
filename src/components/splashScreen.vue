@@ -3,7 +3,7 @@
     <div v-if="show" id="splashScreen" class="splash-screen d-flex justify-content-center align-items-center"
       ref="splashScreen">
       <div class="d-flex flex-column align-items-center">
-        <div class="mt-5 d-flex justify-content-center align-items-center" style="margin-bottom: 2rem;">
+        <div class=" d-flex justify-content-center align-items-center" style="margin-bottom: 2.2rem;">
           <img class="logo" src="../../public/WeekToDo-Logo-Color.svg" alt="WeekToDo Logo" style="display: inline;">
           <h1 style="display: inline;" class="mb-0">WeekToDo</h1>
         </div>
