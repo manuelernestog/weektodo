@@ -4,14 +4,6 @@
   "private": true,
   "description": "Free and Open Source Minimalist Weekly Planner focused on privacy.",
   "author": "Manuel Ernesto Garcia <contact@weektodo.me> (https://weektodo.me/)",
-  "homepage": "https://weektodo.me",
-  "keywords": [
-    "ToDo",
-    "Weekly Planner",
-    "to-do",
-    "Productivity",
-    "Minimalist"
-  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -24,7 +16,6 @@
     "test": "echo success"
   },
   "main": "background.js",
-  "repository": "https://github.com/manuelernestog/weektodo",
   "dependencies": {
     "@honeybadger-io/js": "^6.0.0",
     "@honeybadger-io/vue": "^6.0.0",
@@ -63,7 +54,16 @@
     "eslint-plugin-vue": "^9.14.1",
     "node-sass": "^9.0.0",
     "sass-loader": "^13.3.1",
-    "vue-cli-plugin-electron-builder": "^2.1.1",
+    "vue-cli-plugin-electron-builder": "^3.0.0-alpha.4",
     "yarn-upgrade-all": "^0.7.2"
-  }
+  },
+  "homepage": "https://weektodo.me",
+  "keywords": [
+    "ToDo",
+    "Weekly Planner",
+    "to-do",
+    "Productivity",
+    "Minimalist"
+  ],
+  "repository": "https://github.com/manuelernestog/weektodo"
 }
