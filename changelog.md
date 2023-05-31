@@ -11,6 +11,7 @@ Jun 1, 2023
 - Adding sent subtask to bottom on clomplete setting
 - Todo Description markdown link now redirect to external link in web browser
 - Adding week start on monday setting
+- Improving Chinese and Russian languages
 
 
 ## v2.0.0
