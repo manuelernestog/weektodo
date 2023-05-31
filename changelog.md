@@ -7,6 +7,9 @@ Jun 1, 2023
 - Adding new colors to tasks color picker
 - Upgrading all tech stack libraries
 - Adding new repeating event option for custom weekdays selector
+- Improving splash screen
+- Adding sent subtask to bottom on clomplete setting
+- Todo Description markdown link now redirect to external link in web browser
 
 
 ## v2.0.0
