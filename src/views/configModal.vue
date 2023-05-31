@@ -449,7 +449,12 @@ export default {
 
 #config-links-menu {
   border-right: 1px solid rgba(0, 0, 0, 0.06);
+
+.dark-theme & {
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
 }
+}
+
 
 .icons {
   font-size: 18px;

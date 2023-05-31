@@ -303,6 +303,7 @@ export default {
   text-align: center;
   cursor: pointer;
   font-size: 12px;
+  text-transform: uppercase;
 }
 
 .dark-theme .weekDays-selector input[type=checkbox]+label {
