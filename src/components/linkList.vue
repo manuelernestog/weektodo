@@ -3,8 +3,8 @@
     <li v-for="item in linkList" :key="item" class="list-group-item" :class="{ 'rtl' : isRTL}">
       <div class="d-flex list-item justify-content-between" @click="linkAction(item.link,item.linktype)">
         <div class="item-img">
-          <i v-if="item.ico" :style="'font-size: 24px; color: '+ item.color" :class="item.ico"></i>
-          <img v-if="item.img" :src="item.img" height="24">
+          <i v-if="item.ico" :style="'font-size: 20px; color: '+ item.color" :class="item.ico"></i>
+          <img v-if="item.img" :src="item.img" height="22">
         </div>
         <div class="align-self-center w-100">{{item.name}}</div>
         <i class="align-self-center" :class="isRTL ? 'bi-chevron-left' : 'bi-chevron-right'"></i>
@@ -65,7 +65,7 @@
   .list-group-item {
     background-color: unset;
     border: none;
-    padding: .85rem 1rem;
+    padding: .66rem 1rem;
     transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
   }
 

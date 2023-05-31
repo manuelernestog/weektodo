@@ -18,6 +18,7 @@ var tray = null;
 var trayContextMenu = null;
 var trayMenuTemplate = null;
 var SplashScreenIsHidden = true;
+const path = require("path");
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true, stream: true } }]);
 
@@ -26,6 +27,7 @@ async function createWindow() {
     minWidth: 1000,
     minHeight: 600,
     show: !config.get("runInBackground"),
+    icon: path.join(__dirname, 'icon.png'),
     webPreferences: {
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       contextIsolation: false,
@@ -37,10 +39,10 @@ async function createWindow() {
   mainWindow = new BrowserWindow(opts);
   mainWindow.removeMenu();
 
-  mainWindow.webContents.on("new-window", function (e, url) {
-    e.preventDefault();
-    require("electron").shell.openExternal(url);
-  });
+   mainWindow.webContents.setWindowOpenHandler((details) => {
+    require("electron").shell.openExternal(details.url);
+    return { action: 'deny' }
+  })
 
   ipcMain.on("show-current-window", showCurrentWindow);
   ipcMain.on("is-windows-visible", isWindowsVisible);
@@ -71,7 +73,7 @@ async function createWindow() {
   });
 
   mainWindow.on("restore", function () {
-    setTimeout(hideSplashScreen, 5000);
+    setTimeout(hideSplashScreen, 4500);
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {

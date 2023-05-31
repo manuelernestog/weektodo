@@ -39,7 +39,11 @@
     "startCalendarYesterday": "Календар починається вчора",
     "notificationIndicator": "Індикатор сповіщення",
     "autoReorderTasks": "Автоматично змінюйте порядок завдань",
-    "moveCompletedTaskToBottom": "Перемістити виконані завдання вниз"
+    "moveCompletedTaskToBottom": "Перемістити виконані завдання вниз",
+    "clear": "Видалити",
+    "fullscreenToDoModal": "Деталі справ на весь екран",
+    "moveCompletedSubTaskToBottom": "Перемістіть виконані підзавдання вниз",
+    "weekStartOnMonday": "Початок тижня в понеділок"
   },
   "donate": {
     "contribute": "Співпраця",
@@ -204,7 +208,8 @@
     "alarm": "Сигналізація",
     "color": "Колір",
     "close": "Закрити",
-    "actions": "Дії"
+    "actions": "Дії",
+    "customWeekdays": "Індивідуальні будні"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",

@@ -39,7 +39,11 @@
     "startCalendarYesterday": "التقويم يبدأ أمس",
     "notificationIndicator": "مؤشر الإخطار",
     "autoReorderTasks": "إعادة ترتيب المهام تلقائيًا",
-    "moveCompletedTaskToBottom": "انقل المهام المكتملة إلى الأسفل"
+    "moveCompletedTaskToBottom": "انقل المهام المكتملة إلى الأسفل",
+    "clear": "يمسح",
+    "fullscreenToDoModal": "تفاصيل المهام في وضع ملء الشاشة",
+    "moveCompletedSubTaskToBottom": "انقل المهام الفرعية المكتملة إلى الأسفل",
+    "weekStartOnMonday": "يبدأ الأسبوع يوم الاثنين"
   },
   "donate": {
     "contribute": "ساهِم",
@@ -204,7 +208,8 @@
     "untilDate": "حتى تاريخ",
     "weekly": "أسبوعي",
     "yearly": "سنوي",
-    "weekdays": "من الإثنين إلى الجمعة"
+    "weekdays": "من الإثنين إلى الجمعة",
+    "customWeekdays": "أيام الأسبوع المخصصة"
   },
   "notifications": {
     "noPendingTasksToday": "ليس لديك مهام مجدولة اليوم.",

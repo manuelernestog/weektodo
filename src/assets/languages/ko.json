@@ -39,7 +39,11 @@
     "startCalendarYesterday": "어제 일정 시작",
     "notificationIndicator": "알림 표시기",
     "autoReorderTasks": "자동으로 작업 재정렬",
-    "moveCompletedTaskToBottom": "완료된 작업을 맨 아래로 이동"
+    "moveCompletedTaskToBottom": "완료된 작업을 맨 아래로 이동",
+    "clear": "삭제",
+    "fullscreenToDoModal": "전체 화면으로 할 일 세부 정보",
+    "moveCompletedSubTaskToBottom": "완료된 하위 작업을 맨 아래로 이동",
+    "weekStartOnMonday": "주 시작 월요일"
   },
   "donate": {
     "contribute": "기여하다",
@@ -204,7 +208,8 @@
     "alarm": "경보",
     "color": "색깔",
     "close": "닫다",
-    "actions": "행위"
+    "actions": "행위",
+    "customWeekdays": "맞춤 평일"
   },
   "notifications": {
     "noPendingTasksToday": "오늘은 예약된 작업이 없습니다.",
