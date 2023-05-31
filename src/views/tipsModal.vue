@@ -9,13 +9,13 @@
         </div>
         <div class="modal-body d-flex">
           <div style="margin: 5px">
-            <i class="bi-info-circle" :class="{ 'rtl' : isRTL}" style="font-size: 38px;"></i>
+            <i class="bi-info-circle" style="font-size: 38px;"></i>
           </div>
           <div style="margin-top: 9px">
             {{tips[index].text}}
           </div>
         </div>
-        <div class="modal-footer d-flex" :class="{ 'rtl' : isRTL}">
+        <div class="modal-footer d-flex">
           <button type="button" class="btn flex-fill" @click="back"><i class="bi-chevron-double-left"></i>
             {{$t('tips.back')}}
           </button>
@@ -71,10 +71,7 @@
                     {text: this.$i18n.t("tips.tip17")},
                     {text: this.$i18n.t("tips.tip18")},
                 ]
-            },
-            isRTL: function () {
-              return this.$i18n.locale === 'ar'
-            },
+            }
         }
     }
 </script>
@@ -87,9 +84,6 @@
   .modal-body {
     height: 100px;
   }
-  .modal-footer.rtl {
-    flex-direction: row-reverse;
-  }
   .modal-footer .btn {
     direction: ltr;
   }
@@ -99,9 +93,7 @@
     -webkit-text-fill-color: transparent;
     margin-right: 30px;
   }
-  .bi-info-circle.rtl {
-    margin-left: 30px;
-  }
+
   .dark-theme .bi-info-circle {
     background: -webkit-linear-gradient(180deg, rgb(115, 75, 176) 0%, rgb(147, 110, 203) 90%);
     -webkit-background-clip: text;

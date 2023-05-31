@@ -9,8 +9,7 @@
         <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer" :class="{
           'full-screen': !showCustomList,
           'hidden-lists-container': hideTopListContainer,
-          'full-screen-divider': hideBottomListContainer,
-          'rtl': isRTL,
+          'full-screen-divider': hideBottomListContainer
         }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="isRTL ? weekMoveRight() : weekMoveLeft()"></i>
           <div class="todo-slider" ref="weekListContainer">
@@ -40,7 +39,6 @@
           'full-screen': !showCalendar,
           'flex-grow-1': showCalendar,
           'hidden-lists-container': hideBottomListContainer,
-          'rtl': isRTL,
         }">
           <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
             visibility: cTodoList.length > customColumns ? 'visible' : 'hidden',
@@ -581,6 +579,7 @@ export default {
 
 <style lang="scss">
 @import "/src/assets/style/globalVars.scss";
+@import "/src/assets/style/lang-rtl.scss";
 
 body {
   line-height: unset !important;
@@ -596,9 +595,7 @@ body {
   margin-bottom: 25px;
   // margin-bottom: 5px;
 }
-.todo-lists-container.rtl {
-  flex-direction: row-reverse;
-}
+
 .slider-btn {
   padding: 3px;
   font-size: 2rem;

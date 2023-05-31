@@ -1,6 +1,6 @@
 <template>
   <ul class="list-group">
-    <li v-for="item in linkList" :key="item" class="list-group-item" :class="{ 'rtl' : isRTL}">
+    <li v-for="item in linkList" :key="item" class="list-group-item">
       <div class="d-flex list-item justify-content-between" @click="linkAction(item.link,item.linktype)">
         <div class="item-img">
           <i v-if="item.ico" :style="'font-size: 20px; color: '+ item.color" :class="item.ico"></i>
@@ -87,10 +87,6 @@
 
   .item-img {
     margin-right: 24px;
-  }
-  .list-group-item.rtl .list-item .item-img {
-    margin-right: 0;
-    margin-left: 24px;
   }
 
   .dark-theme .card {
