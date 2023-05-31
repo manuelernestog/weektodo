@@ -659,7 +659,7 @@ export default {
   border-radius: 3px;
 
   .dark-theme & {
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.658);
     background-color: unset;
   }
 }
@@ -683,7 +683,7 @@ export default {
   border-radius: 3px;
 
   .dark-theme & {
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.658);
     color: #c9d1d9;
   }
 }
@@ -829,7 +829,7 @@ export default {
         border-radius: 3px;
 
         .dark-theme & {
-          border: 2px solid white;
+          border: 1px solid rgba(255, 255, 255, 0.658);
           background-color: #21262d;
         }
       }
