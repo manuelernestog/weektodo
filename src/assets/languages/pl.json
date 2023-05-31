@@ -106,7 +106,8 @@
     "moveCompletedTaskToBottom": "Przenieś ukończone zadania na dół",
     "clear": "Usuwać",
     "fullscreenToDoModal": "Szczegóły zadań na pełnym ekranie",
-    "moveCompletedSubTaskToBottom": "Przenieś ukończone zadania podrzędne na dół"
+    "moveCompletedSubTaskToBottom": "Przenieś ukończone zadania podrzędne na dół",
+    "weekStartOnMonday": "Tydzień zaczyna się w poniedziałek"
   },
   "tips": {
     "back": "Poprzednia wskazówka",

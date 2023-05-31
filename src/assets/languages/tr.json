@@ -42,7 +42,8 @@
     "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
     "clear": "Silmek",
     "fullscreenToDoModal": "Yapılacaklar Ayrıntıları tam ekranda",
-    "moveCompletedSubTaskToBottom": "Tamamlanan alt görevleri en alta taşı"
+    "moveCompletedSubTaskToBottom": "Tamamlanan alt görevleri en alta taşı",
+    "weekStartOnMonday": "Hafta Pazartesi günü başlar"
   },
   "donate": {
     "contribute": "Katkıda bulun",

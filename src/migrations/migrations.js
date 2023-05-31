@@ -90,5 +90,6 @@ function v2_1_0() {
   if (!("fullscreenToDoModal" in config)) {
     config["fullscreenToDoModal"] = false;
     config["moveCompletedSubTaskToBottom"] = true;
+    config["weekStartOnMonday"] = true;
   }
 }

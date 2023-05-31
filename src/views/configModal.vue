@@ -117,6 +117,12 @@
                     @change="changeConfig('moveOldTasks', configData.moveOldTasks)" />
                 </div>
                 <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
+                  <label class="form-check-label flex-fill" for="weekStartOnMonday">{{ $t("settings.weekStartOnMonday")
+                  }}</label>
+                  <input class="form-check-input" type="checkbox" id="weekStartOnMonday" v-model="configData.weekStartOnMonday"
+                    @change="changeConfig('weekStartOnMonday', configData.weekStartOnMonday)" />
+                </div>
+                <div class="form-check form-switch d-flex px-1 mb-3 justify-content-between">
                   <label class="form-check-label flex-fill" for="moveOldTasks">{{ $t("settings.startCalendarYesterday")
                   }}</label>
                   <input class="form-check-input" type="checkbox" id="moveOldTasks"

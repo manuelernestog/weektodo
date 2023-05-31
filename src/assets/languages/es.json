@@ -42,7 +42,8 @@
     "moveCompletedTaskToBottom": "Mover las tareas completadas al final",
     "clear": "Borrar",
     "fullscreenToDoModal": "Detalles de tareas en pantalla completa",
-    "moveCompletedSubTaskToBottom": "Mover las subtareas completadas al final"
+    "moveCompletedSubTaskToBottom": "Mover las subtareas completadas al final",
+    "weekStartOnMonday": "La semana empieza el lunes"
   },
   "donate": {
     "contribute": "Contribuir",

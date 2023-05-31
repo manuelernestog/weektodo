@@ -9,7 +9,7 @@
               <div v-show="showingCalendar" class="align-items-center date-picker-btn" @click="showCalendar()">
                 <i class="bi-calendar-event mx-2"></i>
                 <datepicker id="todo-date-picker-input" class="py-2" v-model="pickedDate" :locale="language"
-                  :input-format='"dd/MM/yyyy"' />
+                  :input-format='"dd/MM/yyyy"' :weekStartsOn="weekStartOnMonday" />
               </div>
               <div v-show="!showingCalendar" class="align-items-center date-picker-btn">
                 <div class="align-items-center date-picker-btn py-2" id="customListDropDown" data-bs-toggle="dropdown">
@@ -581,6 +581,9 @@ export default {
     },
     moveSubtaskToBotttom: function () {
       return this.$store.getters.config.moveCompletedSubTaskToBottom;
+    },
+    weekStartOnMonday: function () {
+      return this.$store.getters.config.weekStartOnMonday ? 1 : 0;
     },
     todoDescription: function () {
       return this.md.render(this.todo.desc);

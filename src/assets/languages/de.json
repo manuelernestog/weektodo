@@ -42,7 +42,8 @@
     "moveCompletedTaskToBottom": "Erledigte Aufgaben nach unten verschieben",
     "clear": "Löschen",
     "fullscreenToDoModal": "Aufgabendetails im Vollbildmodus",
-    "moveCompletedSubTaskToBottom": "Abgeschlossene Unteraufgaben nach unten verschieben"
+    "moveCompletedSubTaskToBottom": "Abgeschlossene Unteraufgaben nach unten verschieben",
+    "weekStartOnMonday": "Die Woche beginnt am Montag"
   },
   "donate": {
     "contribute": "Beitragen",

@@ -36,7 +36,8 @@ export default {
         autoReorderTasks: false,
         moveCompletedTaskToBottom: true,
         moveCompletedSubTaskToBottom: true,
-        fullscreenToDoModal: false
+        fullscreenToDoModal: false,
+        weekStartOnMonday: true
       };
       storageRepository.set("config", default_config);
       return default_config;

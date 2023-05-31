@@ -3,19 +3,18 @@
     <img class="logo" src="WeekToDo-Logo-Color.svg" width="31" height="31" alt="WeekTodo Logo" data-bs-toggle="modal"
       data-bs-target="#aboutModal" :title="$t('about.about')" />
     <i v-if="showCalendar" class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
-    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language" />
+    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language"
+      :weekStartsOn="weekStartOnMonday" />
     <i v-if="showCalendar" class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
     <i v-if="showCalendar" class="bi-arrow-repeat" :title="$t('ui.recurringTasks')" data-bs-toggle="modal"
       data-bs-target="#RecurrentEventsModal">
     </i>
-    <i v-if="showCustomList" class="bi bi-clipboard-plus" @click="newCustomTodoList"
-      :title="$t('ui.newCustomList')"></i>
+    <i v-if="showCustomList" class="bi bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
     <i v-if="showCustomList" class="bi bi-arrow-left-right" data-bs-target="#ReorderCustomListsModal"
       data-bs-toggle="modal" :title="$t('ui.reorderCustomLists')"></i>
 
     <span style="flex-grow: 1"></span>
-    <i class="bi-gift" :title="$t('donate.supportUs')"
-      @click="openDonateModal"></i>
+    <i class="bi-gift" :title="$t('donate.supportUs')" @click="openDonateModal"></i>
     <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
     <i class="bi-gear" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"
       @click="openConfigModal"></i>
@@ -90,6 +89,9 @@ export default {
     },
     showCalendar: function () {
       return this.$store.getters.config.calendar;
+    },
+    weekStartOnMonday: function () {
+      return this.$store.getters.config.weekStartOnMonday ? 1 : 0;
     },
     language: function () {
       let lang = this.$store.getters.config.language;

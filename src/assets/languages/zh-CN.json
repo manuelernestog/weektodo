@@ -39,7 +39,8 @@
     "startCalendarYesterday": "昨天开始的日历",
     "notificationIndicator": "通知指示器",
     "autoReorderTasks": "自动重新排列任务",
-    "moveCompletedTaskToBottom": "把已完成的任务移到底部"
+    "moveCompletedTaskToBottom": "把已完成的任务移到底部",
+    "weekStartOnMonday": "一周从星期一开始"
   },
   "donate": {
     "contribute": "贡献",

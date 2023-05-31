@@ -42,7 +42,8 @@
     "moveCompletedTaskToBottom": "完了したタスクを一番下に移動",
     "clear": "消去",
     "fullscreenToDoModal": "全画面でのToDo詳細",
-    "moveCompletedSubTaskToBottom": "完了したサブタスクを一番下に移動します"
+    "moveCompletedSubTaskToBottom": "完了したサブタスクを一番下に移動します",
+    "weekStartOnMonday": "週は月曜日から始まります"
   },
   "donate": {
     "contribute": "コントリビューション",

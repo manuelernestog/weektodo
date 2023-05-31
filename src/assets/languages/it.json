@@ -42,7 +42,8 @@
     "moveCompletedTaskToBottom": "Sposta le attività completate in basso",
     "clear": "Eliminare",
     "fullscreenToDoModal": "Dettagli attività a schermo intero",
-    "moveCompletedSubTaskToBottom": "Sposta le attività secondarie completate in basso"
+    "moveCompletedSubTaskToBottom": "Sposta le attività secondarie completate in basso",
+    "weekStartOnMonday": "La settimana inizia lunedì"
   },
   "donate": {
     "contribute": "Contribuisci",

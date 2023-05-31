@@ -42,7 +42,8 @@
     "moveCompletedTaskToBottom": "Перемістити виконані завдання вниз",
     "clear": "Видалити",
     "fullscreenToDoModal": "Деталі справ на весь екран",
-    "moveCompletedSubTaskToBottom": "Перемістіть виконані підзавдання вниз"
+    "moveCompletedSubTaskToBottom": "Перемістіть виконані підзавдання вниз",
+    "weekStartOnMonday": "Початок тижня в понеділок"
   },
   "donate": {
     "contribute": "Співпраця",
