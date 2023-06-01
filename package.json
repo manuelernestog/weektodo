@@ -15,7 +15,7 @@
     "release": "electron-builder",
     "test": "echo success"
   },
-  "main": "background.js",
+  "main": "index.js",
   "dependencies": {
     "@honeybadger-io/js": "^6.0.0",
     "@honeybadger-io/vue": "^6.0.0",
