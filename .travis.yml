@@ -8,21 +8,21 @@ node_js:
 # linux apps
 matrix:
   include:
-    - os: osx
-      osx_image: xcode14.2
-      language: node_js
-      node_js: "18.16.0"
-      env:
-          - ELECTRON_CACHE=$HOME/.cache/electron
-          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-      deploy:
-        - provider: script
-          script: bash deploy.travis.sh
-          skip_cleanup: true
-          on:
-            branch: deploy
+    # - os: osx
+    #   osx_image: xcode14.2
+    #   language: node_js
+    #   node_js: "18.16.0"
+    #   env:
+    #       - ELECTRON_CACHE=$HOME/.cache/electron
+    #       - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+    #   deploy:
+    #     - provider: script
+    #       script: bash deploy.travis.sh
+    #       skip_cleanup: true
+    #       on:
+    #         branch: deploy
     - os: linux
-      dist: jammy
+      dist: xenial
       deploy:
         - provider: script
           script: bash deploy.travis.sh
@@ -60,7 +60,7 @@ before_install:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       sudo apt-get install libarchive-tools
-      # sudo apt-get install bsdtar
+      sudo apt-get install bsdtar
     fi
 before_script:
   - git lfs pull
