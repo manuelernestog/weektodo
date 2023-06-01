@@ -39,11 +39,7 @@
     "startCalendarYesterday": "El calendario empieza ayer",
     "notificationIndicator": "Indicador de notificación",
     "autoReorderTasks": "Reordenar tareas automáticamente",
-    "moveCompletedTaskToBottom": "Mover las tareas completadas al final",
-    "clear": "Borrar",
-    "fullscreenToDoModal": "Detalles de tareas en pantalla completa",
-    "moveCompletedSubTaskToBottom": "Mover las subtareas completadas al final",
-    "weekStartOnMonday": "La semana empieza el lunes"
+    "moveCompletedTaskToBottom": "Mover las tareas completadas al final"
   },
   "donate": {
     "contribute": "Contribuir",
@@ -87,7 +83,7 @@
   "generatedData": {
     "data2": "Clic para completar tarea",
     "data3": "Doble clic para editar tarea",
-    "data4": "Sitúa el mouse encima para mostrar el resto del texto de esta tarea",
+    "data4": "Sitúa el cursor encima para mostrar el resto del texto de esta tarea.",
     "data5": "Puedes arrastrar y soltar las tareas",
     "data6": "Esto es una lista personalizada",
     "data7": "Puedes crear nuevas listas desde la barra lateral",
@@ -95,12 +91,12 @@
     "data9": "Manzanas",
     "data10": "Refrescos",
     "data11": "Haga clic en los tres puntos para ver más detalles sobre esta tarea",
-    "data12": "Abra los detalles de la tarea rápidamente con el clic central del mouse",
+    "data12": "Abra los detalles de la tarea rápidamente con el clic central del ratón",
     "list1": "Lista Personalizada",
     "list2": "Lista de Compras",
     "list3": "Ideas",
     "subtask1": "Soy una subtarea",
-    "subtask2": "Click to complete subtask.",
+    "subtask2": "Haga clic para completar la subtarea",
     "desc1": "Aquí puede configurar sus notas sobre esta tarea. Haga doble clic para editar las notas."
   },
   "tips": {
@@ -118,7 +114,7 @@
     "tip9": "El botón Inicio te sitúa en el día actual.",
     "tip13": "WeekToDo almacena la información en tu equipo. Si deseas cambiar de equipo o navegador recuerda crear una copia de seguridad. Puedes hacerlo en el menú de configuración.",
     "tip14": "Haz clic y arrastra la división central para redimensionar la altura del calendario y las listas personalizadas. Haz doble clic sobre ella para restablecer su tamaño.",
-    "tip15": "Puedes modificar la cantidad de columnas y el Zoom de la aplicacion en el panel de configuración.",
+    "tip15": "Puedes modificar la cantidad de columnas y el Zoom de la aplicación en el panel de configuración.",
     "tip16": "Haga clic en los tres puntos en las tareas para ver los detalles.",
     "tip17": "Puede arrastrar y soltar la subtarea en la ventana de detalles de la tarea.",
     "tip18": "En la parte superior de la ventana de detalles de la tarea, puede cambiar el día o la lista de una tarea."
@@ -126,10 +122,10 @@
   "welcome": {
     "next": "Siguiente",
     "back": "Anterior",
-    "ready": "Listo",
+    "ready": "listo",
     "allReady": "Todo listo",
-    "allReadyText": "Ya todo esta listo para que puedas disfrutar de WeekTodo.",
-    "allReadySub": "Si tienes alguna duda puedes encontrar consejos en la barra lateral ",
+    "allReadyText": "Ya todo está listo para que puedas disfrutar de WeekTodo.",
+    "allReadySub": "Si tienes alguna duda puedes encontrar consejos en la barra lateral",
     "welcome": "Bienvenido a WeekToDo",
     "welcomeText": "El Gestor de Tareas Semanales Minimalista enfocado en la privacidad. Para comenzar selecciona tu idioma.",
     "privacy": "Privacidad",
@@ -140,11 +136,11 @@
   },
   "ui": {
     "rmList": "Eliminar Lista",
-    "rmListConfirm": "Estas seguro que deseas eliminar la lista",
+    "rmListConfirm": "Estás seguro de que deseas eliminar la lista",
     "repeatingTaskRemoveConfirm": "¿Está seguro de que desea eliminar esta tarea recurrente?",
     "removeRepeatingTask": "Eliminar tarea repetitiva",
     "cancel": "Cancelar",
-    "ok": "OK",
+    "ok": "Ok",
     "remove": "Eliminar",
     "splashSub": "Planificador Semanal Minimalista",
     "mobileWarning": "WeekToDo es una aplicación de Escritorio y por ahora no esta lista para mostrarse en esta resolución. :(",
@@ -185,9 +181,9 @@
     "notes": "Notas",
     "markdown": "Estilo Markdown",
     "addSubTask": "Agregar subtarea",
-    "copiedTaskToClipboard": "Texto Copiado al Portapapeles !!!",
-    "taskRemoved": "Tarea Eliminada !!!",
-    "taskDuplicated": "Tarea Duplicada !!!",
+    "copiedTaskToClipboard": "¡Texto Copiado al Portapapeles!!!",
+    "taskRemoved": "¡Tarea Eliminada!!!",
+    "taskDuplicated": "¡Tarea Duplicada!!!",
     "duplicate": "Duplicar",
     "subtasks": "Subtareas",
     "interval": "Intervalo:",
@@ -199,7 +195,7 @@
     "noRepeat": "Sin repetición",
     "daily": "Diariamente",
     "weekly": "Semanalmente",
-    "weekdays": "lun-vie",
+    "weekdays": "Lun-Vie",
     "monthly": "Mensual",
     "yearly": "Anual",
     "split": "Separar",
@@ -208,8 +204,7 @@
     "alarm": "Alarma",
     "color": "Color",
     "close": "Cerca",
-    "actions": "Acciones",
-    "customWeekdays": "Días de la semana personalizados"
+    "actions": "Acciones"
   },
   "notifications": {
     "noPendingTasksToday": "No tienes tareas programadas hoy.",
