@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "14.15.1"
+  - "18.16.0"
 
 # Always run two parallel builds: one on mac and one on linux
 # the linux build will use wine to be able to build windows and
@@ -11,7 +11,7 @@ matrix:
     - os: osx
       osx_image: xcode10.2
       language: node_js
-      node_js: "14.15.1"
+      node_js: "18.16.0"
       env:
           - ELECTRON_CACHE=$HOME/.cache/electron
           - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
