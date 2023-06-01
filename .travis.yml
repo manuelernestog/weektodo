@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "14.15.1"
+  - "16"
 
 # Always run two parallel builds: one on mac and one on linux
 # the linux build will use wine to be able to build windows and
