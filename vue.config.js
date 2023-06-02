@@ -16,7 +16,7 @@ module.exports = {
           icon: "build/icon.icns",
         },
         win: {
-          target: ["nsis"],
+          target: ["nsis","msi"],
         },
         mac: {
           category: "public.app-category.productivity",
