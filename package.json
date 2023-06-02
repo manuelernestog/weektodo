@@ -35,7 +35,7 @@
     "markdown-it": "^13.0.1",
     "moment": "^2.29.4",
     "node-polyfill-webpack-plugin": "^2.0.1",
-    "node-sass": "^9.0.0",
+    "node-sass": "^8.0.0",
     "rrule": "^2.7.2",
     "vue": "^3.3.4",
     "vue-i18n": "^9.2.2",
