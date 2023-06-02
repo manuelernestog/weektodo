@@ -12,6 +12,7 @@ Jun 1, 2023
 - Todo Description markdown link now redirect to external link in web browser
 - Adding week start on monday setting
 - Improving Chinese and Russian languages
+- Close todoModal with Escape Key
 
 
 ## v2.0.0
