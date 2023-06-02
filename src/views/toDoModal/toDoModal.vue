@@ -1,6 +1,6 @@
 <template>
-  <div class="modal fade" :class="{ 'fullscreen': fullscreenToDoModal }" id="toDoModal" data-backdrop="static"
-    data-keyboard="false" aria-hidden="true">
+  <div class="modal fade" :class="{ 'fullscreen': fullscreenToDoModal }" @keydown.esc="pressEsc" id="toDoModal"
+    tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex">
@@ -84,7 +84,8 @@
               </li>
             </ul>
             <div>
-              <i class="bi-x close-modal header-menu-icons" data-bs-dismiss="modal" :title="$t('todoDetails.close')"></i>
+              <i class="bi-x close-modal header-menu-icons" ref="closeModal" data-bs-dismiss="modal"
+                :title="$t('todoDetails.close')"></i>
             </div>
           </div>
         </div>
@@ -102,8 +103,7 @@
                 {{ $t("todoDetails.taskTitle") }}
               </label>
               <input v-show="editingTitle" class="todo-title-input" type="text" v-model="todo.text" ref="titleInput"
-                :placeholder="$t('todoDetails.taskTitle')" @blur="doneEditTitle()" @keyup.esc="cancelEditTitle()"
-                @keyup.enter="doneEditTitle()" />
+                :placeholder="$t('todoDetails.taskTitle')" @blur="doneEditTitle()" @keyup.enter="doneEditTitle()" />
               <div class="position-relative" v-show="editingDescription">
                 <textarea class="todo-description-textarea mt-2" v-model="todo.desc"
                   :placeholder="$t('todoDetails.notes')" ref="descriptionInput" @blur="doneEditDescription">
@@ -134,14 +134,12 @@
                 </div>
               </div>
               <input v-show="subTask.editing" v-model="subTask.text" @blur="doneEditSubTask(index)"
-                @keyup.enter="doneEditSubTask(index)" @keyup.esc="cancelEditSubTask(index)" :ref="'subTaskEdit' + index"
-                class="edit-sub-task" />
+                @keyup.enter="doneEditSubTask(index)" :ref="'subTaskEdit' + index" class="edit-sub-task" />
             </li>
             <div class="new-sub-task d-flex align-items-center">
               <label for="new-sub-task"><i class="bi-plus-square mx-3"></i></label>
               <input type="text" id="new-sub-task" :placeholder="$t('todoDetails.addSubTask')" autocomplete="off"
-                @blur="addSubTask()" @keyup.enter="addSubTask()" @keyup.esc="cancelAddSubTask()" v-model="newSubTask.text"
-                ref="newSubTask" />
+                @blur="addSubTask()" @keyup.enter="addSubTask()" v-model="newSubTask.text" ref="newSubTask" />
             </div>
           </ul>
         </div>
@@ -511,6 +509,11 @@ export default {
     },
     linkifyText: function (text) {
       return linkifyStr(text, this.options);
+    },
+    pressEsc: function () {
+      if (document.activeElement.id == "toDoModal") {
+        this.$refs.closeModal.click();
+      }
     }
   },
   watch: {

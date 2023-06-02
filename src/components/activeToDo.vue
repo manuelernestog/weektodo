@@ -77,8 +77,7 @@ export default {
         index: this.activeTodo.index,
       });
 
-      let modalEl = document.getElementById("toDoModal");
-      let modal = new Modal(modalEl, { keyboard: false });
+      let modal = new Modal(document.getElementById("toDoModal"), { keyboard: false });
       modal.show();
     },
     checkTodoClickhandler: function (e) {
