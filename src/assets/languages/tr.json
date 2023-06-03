@@ -9,6 +9,7 @@
     "data": "Veri",
     "import": "İçeri Aktar",
     "export": "Dışarı Aktar",
+    "clear": "Clear",
     "backup": "Yedekle:",
     "invalidFile": "Geçersiz Dosya",
     "checkUpdates": "Başlangıçta Güncellemeleri Kontrol Et",
@@ -40,10 +41,9 @@
     "notificationIndicator": "Bildirim Göstergesi",
     "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
     "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
-    "clear": "Silmek",
-    "fullscreenToDoModal": "Yapılacaklar Ayrıntıları tam ekranda",
-    "moveCompletedSubTaskToBottom": "Tamamlanan alt görevleri en alta taşı",
-    "weekStartOnMonday": "Hafta Pazartesi günü başlar"
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen",
+    "weekStartOnMonday": "The Week start on Monday"
   },
   "donate": {
     "contribute": "Katkıda bulun",
@@ -209,7 +209,7 @@
     "color": "Renk",
     "close": "Kapat",
     "actions": "Hareketler",
-    "customWeekdays": "Özel Hafta İçi"
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",
