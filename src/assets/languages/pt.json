@@ -9,6 +9,7 @@
     "data": "Dados",
     "import": "Importar",
     "export": "Exportar",
+    "clear": "Clear",
     "backup": "Backup:",
     "invalidFile": "Arquivo inválido",
     "checkUpdates": "Verifique se há atualizações na inicialização",
@@ -40,10 +41,9 @@
     "notificationIndicator": "Indicador de notificação",
     "autoReorderTasks": "Reordenar tarefas automaticamente",
     "moveCompletedTaskToBottom": "Mover tarefas concluídas para baixo",
-    "clear": "Excluir",
-    "fullscreenToDoModal": "Detalhes da tarefa em tela cheia",
-    "moveCompletedSubTaskToBottom": "Mover subtarefas concluídas para baixo",
-    "weekStartOnMonday": "A semana começa na segunda-feira"
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen",
+    "weekStartOnMonday": "The Week start on Monday"
   },
   "donate": {
     "contribute": "Contribuir",
@@ -209,7 +209,7 @@
     "color": "Cor",
     "close": "Perto",
     "actions": "Ações",
-    "customWeekdays": "Dias da semana personalizados"
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "Você não tem tarefas agendadas hoje.",
