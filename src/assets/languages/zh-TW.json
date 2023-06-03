@@ -9,6 +9,7 @@
     "data": "數據",
     "import": "匯入",
     "export": "匯出",
+    "clear": "Clear",
     "backup": "備份：",
     "invalidFile": "無效的文件",
     "checkUpdates": "在啟動時檢查更新",
@@ -40,10 +41,9 @@
     "notificationIndicator": "通知指示器",
     "autoReorderTasks": "自動重新排序任務",
     "moveCompletedTaskToBottom": "將完成的任務移至底部",
-    "clear": "刪除",
-    "fullscreenToDoModal": "全屏待辦事項詳細信息",
-    "moveCompletedSubTaskToBottom": "將完成的子任務移至底部",
-    "weekStartOnMonday": "一周從星期一開始"
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen",
+    "weekStartOnMonday": "The Week start on Monday"
   },
   "donate": {
     "contribute": "貢獻",
@@ -209,8 +209,7 @@
     "color": "色彩",
     "close": "關閉",
     "actions": "行動",
-    "weekdays": "週一至週五",
-    "customWeekdays": "自定義工作日"
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "您今天沒有計劃任務。",
