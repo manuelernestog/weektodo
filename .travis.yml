@@ -60,7 +60,6 @@ before_install:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       sudo apt-get install libarchive-tools
-      sudo apt-get install bsdtar
     fi
 before_script:
   - git lfs pull
