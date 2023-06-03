@@ -9,6 +9,7 @@
     "data": "データ",
     "import": "インポート",
     "export": "エクスポート",
+    "clear": "Clear",
     "backup": "バックアップ",
     "invalidFile": "無効ファイル",
     "checkUpdates": "起動時にアップデートを確認",
@@ -40,10 +41,9 @@
     "notificationIndicator": "通知インジケータ",
     "autoReorderTasks": "タスクを自動的に並べ替える",
     "moveCompletedTaskToBottom": "完了したタスクを一番下に移動",
-    "clear": "消去",
-    "fullscreenToDoModal": "全画面でのToDo詳細",
-    "moveCompletedSubTaskToBottom": "完了したサブタスクを一番下に移動します",
-    "weekStartOnMonday": "週は月曜日から始まります"
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen",
+    "weekStartOnMonday": "The Week start on Monday"
   },
   "donate": {
     "contribute": "コントリビューション",
@@ -209,7 +209,7 @@
     "color": "色",
     "close": "近い",
     "actions": "行動",
-    "customWeekdays": "カスタム平日"
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "今日、スケジュールされたタスクはありません。",
