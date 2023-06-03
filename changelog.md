@@ -1,5 +1,5 @@
 ## v2.1.0
-Jun 1, 2023
+Jun 3, 2023
 
 - Fixing Bugs
 - Improving app performance
