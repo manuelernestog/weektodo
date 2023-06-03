@@ -1,5 +1,3 @@
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
-
 module.exports = {
   pluginOptions: {
     electronBuilder: {
@@ -24,13 +22,5 @@ module.exports = {
         },
       },
     },
-  },
-  configureWebpack: {
-    plugins: [new NodePolyfillPlugin()],
-    resolve: {
-      fallback: {
-        fs: false,
-      },
-    },
-  },
+  }
 };
