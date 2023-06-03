@@ -22,7 +22,7 @@ matrix:
           on:
             branch: deploy
     - os: linux
-      dist: xenial
+      dist: jammy
       deploy:
         - provider: script
           script: bash deploy.travis.sh
@@ -60,7 +60,6 @@ before_install:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       sudo apt-get install libarchive-tools
-      sudo apt-get install bsdtar
     fi
 before_script:
   - git lfs pull
