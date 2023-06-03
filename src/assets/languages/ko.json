@@ -9,6 +9,7 @@
     "data": "데이터",
     "import": "수입",
     "export": "내보내다",
+    "clear": "Clear",
     "backup": "지원:",
     "invalidFile": "유효하지 않은 파일",
     "checkUpdates": "시작 시 업데이트 확인",
@@ -40,10 +41,9 @@
     "notificationIndicator": "알림 표시기",
     "autoReorderTasks": "자동으로 작업 재정렬",
     "moveCompletedTaskToBottom": "완료된 작업을 맨 아래로 이동",
-    "clear": "삭제",
-    "fullscreenToDoModal": "전체 화면으로 할 일 세부 정보",
-    "moveCompletedSubTaskToBottom": "완료된 하위 작업을 맨 아래로 이동",
-    "weekStartOnMonday": "주 시작 월요일"
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen",
+    "weekStartOnMonday": "The Week start on Monday"
   },
   "donate": {
     "contribute": "기여하다",
@@ -209,7 +209,7 @@
     "color": "색깔",
     "close": "닫다",
     "actions": "행위",
-    "customWeekdays": "맞춤 평일"
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "오늘은 예약된 작업이 없습니다.",
