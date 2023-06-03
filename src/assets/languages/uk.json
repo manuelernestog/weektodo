@@ -9,6 +9,7 @@
     "data": "Дані",
     "import": "Імпорт",
     "export": "Експорт",
+    "clear": "Clear",
     "backup": "Резервна копія:",
     "invalidFile": "Неправильний файл",
     "checkUpdates": "Перевіряти оновлення під час запуску",
@@ -40,10 +41,9 @@
     "notificationIndicator": "Індикатор сповіщення",
     "autoReorderTasks": "Автоматично змінюйте порядок завдань",
     "moveCompletedTaskToBottom": "Перемістити виконані завдання вниз",
-    "clear": "Видалити",
-    "fullscreenToDoModal": "Деталі справ на весь екран",
-    "moveCompletedSubTaskToBottom": "Перемістіть виконані підзавдання вниз",
-    "weekStartOnMonday": "Початок тижня в понеділок"
+    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
+    "fullscreenToDoModal": "To-do Details in full screen",
+    "weekStartOnMonday": "The Week start on Monday"
   },
   "donate": {
     "contribute": "Співпраця",
@@ -209,7 +209,7 @@
     "color": "Колір",
     "close": "Закрити",
     "actions": "Дії",
-    "customWeekdays": "Індивідуальні будні"
+    "customWeekdays": "Custom Weekdays"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",
