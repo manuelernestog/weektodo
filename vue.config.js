@@ -4,7 +4,6 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       nodeIntegration: true,
-      customFileProtocol: './',
       builderOptions: {
         appId: "weektodo-app.netlify.app",
         productName: "WeekToDo",
