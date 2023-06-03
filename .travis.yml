@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "18.16.0"
+  - "16.20.0"
 
 # Always run two parallel builds: one on mac and one on linux
 # the linux build will use wine to be able to build windows and
@@ -11,7 +11,7 @@ matrix:
     - os: osx
       osx_image: xcode10.2
       language: node_js
-      node_js: "18.16.0"
+      node_js: "16.20.0"
       env:
           - ELECTRON_CACHE=$HOME/.cache/electron
           - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
@@ -33,7 +33,7 @@ matrix:
       dist: xenial
       deploy:
         - provider: script
-          script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb rpm --win nsis -p always"
+          script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb pacman AppImage rpm --win nsis msi -p always"
           skip_cleanup: true
           on:
             branch: deploy
