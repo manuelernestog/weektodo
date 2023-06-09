@@ -490,7 +490,7 @@ export default {
     },
     setupTelemetric: function (){
       this.$honeybadger.setContext({
-      version: "2.0.0",
+      version: "2.1.0",
       lang: this.$store.getters.config.language
     });
     this.$honeybadger.config.reportData = this.$store.getters.config.reportErrors;
