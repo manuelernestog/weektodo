@@ -19,7 +19,7 @@
       <i class="bi-three-dots sidebar-icon align-self-center" type="button" data-bs-toggle="dropdown"></i>
       <ul class="dropdown-menu mx-3" aria-labelledby="btnTaskOptionMenu">
         <li>
-          <button class="dropdown-item" type="button">
+          <button class="dropdown-item" type="button" @click="print">
             <i class="bi-printer"></i> <span>{{ $t('ui.print') }} </span>
           </button>
         </li>
@@ -27,12 +27,12 @@
           <hr class="dropdown-divider" />
         </li>
         <li>
-          <button class="dropdown-item" type="button">
+          <a href="https://weektodo.me/support-us" target="_blank" class="dropdown-item" type="button">
             <i class="bi-gift"></i> <span>{{ $t('donate.supportUs') }}</span>
-          </button>
+          </a>
         </li>
         <li>
-          <button class="dropdown-item" type="button">
+          <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#aboutModal">
             <i class="bi-info-circle"></i> <span>{{ $t('about.about') }}</span>
           </button>
         </li>
@@ -64,6 +64,15 @@ export default {
       pickedDate: new Date(),
       datepickerEnabled: false,
     };
+  },
+  mounted() {
+    window.addEventListener("beforeprint", () => {
+      console.log("Before print");
+    });
+
+    window.addEventListener("afterprint", () => {
+      console.log("After print");
+    });
   },
   methods: {
     changeDate: function () {
@@ -97,6 +106,9 @@ export default {
     openDonateModal: function () {
       window.open("https://weektodo.me/support-us", "_blank");
     },
+    print: function () {
+      window.print();
+    }
   },
   watch: {
     pickedDate: function (val) {
