@@ -12,7 +12,7 @@
           'full-screen-divider': hideBottomListContainer,
         }">
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
-          <div class="todo-slider" ref="weekListContainer">
+          <div class="todo-slider weekdays" ref="weekListContainer">
             <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
               @todo-list-mounted="todoListMounted">
             </to-do-list>

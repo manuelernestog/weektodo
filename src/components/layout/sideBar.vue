@@ -15,7 +15,7 @@
     <i v-if="showCustomList" class="bi bi-arrow-left-right" data-bs-target="#ReorderCustomListsModal"
       data-bs-toggle="modal" :title="$t('ui.reorderCustomLists')"></i>
     <span style="flex-grow: 1"></span>
-    <div class="dropend d-flex justify-content-center">
+    <div class="dropend d-flex justify-content-center sidebar-extra-menu">
       <i class="bi-three-dots sidebar-icon align-self-center" type="button" data-bs-toggle="dropdown"></i>
       <ul class="dropdown-menu mx-3" aria-labelledby="btnTaskOptionMenu">
         <li>
@@ -67,10 +67,12 @@ export default {
   },
   mounted() {
     window.addEventListener("beforeprint", () => {
+      document.getElementById("app-container").classList.add("ready-to-print");
       console.log("Before print");
     });
 
     window.addEventListener("afterprint", () => {
+      document.getElementById("app-container").classList.remove("ready-to-print");
       console.log("After print");
     });
   },
