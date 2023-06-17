@@ -178,7 +178,8 @@
     "quit": "Desistir",
     "copyTasks": "Copiar tarefas",
     "task": "Tarefa",
-    "Frecuency": "Frequência"
+    "Frecuency": "Frequência",
+    "print": "PDF / Imprimir"
   },
   "todoDetails": {
     "taskTitle": "Título da tarefa",

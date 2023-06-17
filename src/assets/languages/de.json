@@ -178,7 +178,8 @@
     "quit": "Aufhören",
     "copyTasks": "Aufgaben kopieren",
     "task": "Aufgabe",
-    "Frecuency": "Häufigkeit"
+    "Frecuency": "Häufigkeit",
+    "print": "PDF / Drucken"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

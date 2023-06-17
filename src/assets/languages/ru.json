@@ -178,7 +178,8 @@
     "quit": "Выход",
     "copyTasks": "Копировать задачи",
     "task": "Задача",
-    "Frecuency": "Частота"
+    "Frecuency": "Частота",
+    "print": "PDF/печать"
   },
   "todoDetails": {
     "taskTitle": "Заголовок задачи",

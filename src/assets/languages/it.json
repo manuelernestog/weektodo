@@ -178,7 +178,8 @@
     "quit": "Uscire",
     "copyTasks": "Copia compiti",
     "task": "Compito",
-    "Frecuency": "Frequenza"
+    "Frecuency": "Frequenza",
+    "print": "PDF / Stampa"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",

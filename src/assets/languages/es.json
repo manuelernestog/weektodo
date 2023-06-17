@@ -174,7 +174,8 @@
     "quit": "Salir",
     "copyTasks": "Copiar tareas",
     "task": "Tarea",
-    "Frecuency": "Frecuencia"
+    "Frecuency": "Frecuencia",
+    "print": "PDF / Imprimir"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",

@@ -178,7 +178,8 @@
     "copyTasks": "نسخ المهام",
     "Frecuency": "الطموح",
     "task": "مهمة",
-    "newTask": "مهمة جديدة"
+    "newTask": "مهمة جديدة",
+    "print": "PDF / طباعة"
   },
   "todoDetails": {
     "taskTitle": "عنوان الواجب",

@@ -16,12 +16,11 @@
       data-bs-toggle="modal" :title="$t('ui.reorderCustomLists')"></i>
     <span style="flex-grow: 1"></span>
     <div class="dropend d-flex justify-content-center">
-      <i class="bi-three-dots sidebar-icon align-self-center" :title="$t('donate.supportUs')" type="button"
-        data-bs-toggle="dropdown"></i>
+      <i class="bi-three-dots sidebar-icon align-self-center" type="button" data-bs-toggle="dropdown"></i>
       <ul class="dropdown-menu mx-3" aria-labelledby="btnTaskOptionMenu">
         <li>
           <button class="dropdown-item" type="button">
-            <i class="bi-plus-lg"></i> <span>{{ $t('ui.newTask') }}</span>
+            <i class="bi-printer"></i> <span>{{ $t('ui.print') }} </span>
           </button>
         </li>
         <li>
@@ -29,7 +28,12 @@
         </li>
         <li>
           <button class="dropdown-item" type="button">
-            <i class="bi-plus-lg"></i> <span>{{ $t('ui.newTask') }}</span>
+            <i class="bi-gift"></i> <span>{{ $t('donate.supportUs') }}</span>
+          </button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">
+            <i class="bi-info-circle"></i> <span>{{ $t('about.about') }}</span>
           </button>
         </li>
       </ul>
@@ -213,4 +217,5 @@ sidebar-icon:active {
 
 .dark-theme .side-bar i:active {
   background-color: #2e353d;
-}</style>
+}
+</style>

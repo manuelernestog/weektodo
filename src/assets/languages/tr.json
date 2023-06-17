@@ -178,7 +178,8 @@
     "quit": "Çıkış yapmak",
     "copyTasks": "Görevleri Kopyala",
     "task": "Görev",
-    "Frecuency": "frekans"
+    "Frecuency": "frekans",
+    "print": "PDF / Yazdır"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

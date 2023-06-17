@@ -178,7 +178,8 @@
     "quit": "終了する",
     "copyTasks": "タスクのコピー",
     "task": "仕事",
-    "Frecuency": "周波数"
+    "Frecuency": "周波数",
+    "print": "PDF / 印刷"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",
