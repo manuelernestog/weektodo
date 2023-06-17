@@ -68,12 +68,14 @@ export default {
   mounted() {
     window.addEventListener("beforeprint", () => {
       document.getElementById("app-container").classList.add("ready-to-print");
-      console.log("Before print");
+      if (JSON.parse(localStorage.getItem("config")).darkTheme)
+        document.getElementById("app-container").classList.remove("dark-theme");
     });
 
     window.addEventListener("afterprint", () => {
       document.getElementById("app-container").classList.remove("ready-to-print");
-      console.log("After print");
+      if (JSON.parse(localStorage.getItem("config")).darkTheme)
+        document.getElementById("app-container").classList.add("dark-theme");
     });
   },
   methods: {

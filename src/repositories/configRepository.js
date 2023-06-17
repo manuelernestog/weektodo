@@ -9,7 +9,7 @@ export default {
       return config;
     } else {
       let default_config = {
-        darkMode: false,
+        darkTheme: false,
         customList: true,
         calendar: true,
         firstTimeOpen: true,
