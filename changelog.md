@@ -2,6 +2,7 @@
 Jun 3, 2023
 
 - Adding Print and Export PDF Feature
+- Adding new sidebar submenu
 ## v2.1.0
 Jun 3, 2023
 
