@@ -6,15 +6,36 @@
     <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language"
       :weekStartsOn="weekStartOnMonday" />
     <i v-if="showCalendar" class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
+    <!-- <i class="bi-search" :title="$t('donate.supportUs')"></i>
+    <i class="bi-filter" :title="$t('donate.supportUs')" ></i> -->
     <i v-if="showCalendar" class="bi-arrow-repeat" :title="$t('ui.recurringTasks')" data-bs-toggle="modal"
       data-bs-target="#RecurrentEventsModal">
     </i>
     <i v-if="showCustomList" class="bi bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
     <i v-if="showCustomList" class="bi bi-arrow-left-right" data-bs-target="#ReorderCustomListsModal"
       data-bs-toggle="modal" :title="$t('ui.reorderCustomLists')"></i>
-
     <span style="flex-grow: 1"></span>
-    <i class="bi-gift" :title="$t('donate.supportUs')" @click="openDonateModal"></i>
+    <div class="dropend d-flex justify-content-center">
+      <i class="bi-three-dots sidebar-icon align-self-center" :title="$t('donate.supportUs')" type="button"
+        data-bs-toggle="dropdown"></i>
+      <ul class="dropdown-menu mx-3" aria-labelledby="btnTaskOptionMenu">
+        <li>
+          <button class="dropdown-item" type="button">
+            <i class="bi-plus-lg"></i> <span>{{ $t('ui.newTask') }}</span>
+          </button>
+        </li>
+        <li>
+          <hr class="dropdown-divider" />
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">
+            <i class="bi-plus-lg"></i> <span>{{ $t('ui.newTask') }}</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <i class="bi-person-circle" :title="$t('donate.supportUs')" @click="openDonateModal"></i> -->
     <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
     <i class="bi-gear" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"
       @click="openConfigModal"></i>
@@ -101,7 +122,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .side-bar {
   width: 3.6rem;
   height: 100%;
@@ -111,17 +132,18 @@ export default {
   background-color: #fcfcfc;
 }
 
-.side-bar i:first-child {
+.side-bar>i:first-child {
   margin-bottom: 14px;
   margin-top: 8px;
 }
 
-.side-bar i:first-child:hover {
+.side-bar>i:first-child:hover {
   border-radius: unset;
   background-color: unset;
 }
 
-.side-bar i {
+.side-bar>i,
+.sidebar-icon {
   font-size: 1.25rem;
   padding: 10px;
   margin-bottom: 9px;
@@ -130,13 +152,15 @@ export default {
   transition: 0.4s cubic-bezier(0.2, 1, 0.1, 1);
 }
 
-.side-bar i:hover {
+.side-bar i:hover,
+sidebar-icon:hover {
   border-radius: 6px;
   background-color: #eaecef;
   color: black;
 }
 
-.side-bar i:active {
+.side-bar i:active,
+sidebar-icon:active {
   background-color: #dddfe2;
 }
 
@@ -145,6 +169,33 @@ export default {
   margin-top: 18px;
   align-self: center;
   cursor: pointer;
+}
+
+.dropdown-menu {
+  font-size: 0.865rem;
+  min-width: unset;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .20);
+  border: none;
+  color: #3c3c3c;
+
+  .dropdown-item {
+    padding: .4rem 1.9rem .4rem .65rem;
+  }
+
+  .dropdown-divider {
+    margin: .3rem;
+  }
+
+  i {
+    font-size: 0.99rem;
+    margin-right: 11px;
+    display: inline-block;
+  }
+}
+
+.dropdown-toggle-split {
+  padding: 0px;
 }
 
 /*------------------------Dark Theme*------------------*/
@@ -162,5 +213,4 @@ export default {
 
 .dark-theme .side-bar i:active {
   background-color: #2e353d;
-}
-</style>
+}</style>
