@@ -105,7 +105,7 @@
               <input v-show="editingTitle" class="todo-title-input" type="text" v-model="todo.text" ref="titleInput"
                 :placeholder="$t('todoDetails.taskTitle')" @blur="doneEditTitle()" @keyup.enter="doneEditTitle()" />
               <div class="position-relative" v-show="editingDescription">
-                <textarea class="todo-description-textarea mt-2" v-model="todo.desc"
+                <textarea class="todo-description-textarea mt-2" v-model="todo.desc" @input="resizeTextArea"
                   :placeholder="$t('todoDetails.notes')" ref="descriptionInput" @blur="doneEditDescription">
                 </textarea>
                 <i class="bi-markdown-fill" @mousedown="goToMarkDown" :title="$t('todoDetails.markdown')"></i>
@@ -262,8 +262,10 @@ export default {
       this.$refs["subTaskEdit" + index].blur();
     },
     editDescription: function () {
+   
       this.editingDescription = true;
       this.$nextTick(function () {
+        this.resizeTextArea();
         this.$refs["descriptionInput"].focus();
         this.$refs["descriptionInput"].setSelectionRange(0, 0);
         this.$refs["descriptionInput"].scrollTop = 0;
@@ -514,6 +516,11 @@ export default {
       if (document.activeElement.id == "toDoModal") {
         this.$refs.closeModal.click();
       }
+    },
+    resizeTextArea: function () {
+      let textArea = this.$refs["descriptionInput"];
+      textArea.style.height = "18px";
+      textArea.style.height = textArea.scrollHeight + "px";
     }
   },
   watch: {
@@ -598,27 +605,33 @@ export default {
 <style scoped lang="scss">
 @import "/src/assets/style/globalVars.scss";
 
+.modal-dialog {
+  max-height: 80%;
+
+  .modal-content {
+    height: 100%;
+
+    .modal-body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: calc(100vh - 180px);
+      ;
+      margin: 16px 0px 16px 0px;
+      padding: 0px 16px 0px 16px;
+    }
+  }
+}
 
 #toDoModal.fullscreen {
   .modal-dialog {
     margin: 0px;
-    height: 80%;
-    width: 80%;
+    height: 85%;
+    width: 90%;
     max-width: unset;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-
-    .modal-content {
-      height: 100%;
-      width: 100%;
-    }
-
-    .modal-body {
-      overflow-y: auto;
-    }
 
     .sub-tasks {
       max-height: unset;
@@ -678,9 +691,9 @@ export default {
 .todo-description-textarea {
   font-size: 14px;
   line-height: 19px;
-  height: 150px;
+  min-height: 150px;
+  overflow: hidden;
   width: 100%;
-  overflow: auto;
   resize: none;
   background: unset;
   cursor: auto;
@@ -713,9 +726,8 @@ export default {
 }
 
 .todo-description {
+  word-wrap: break-word;
   zoom: 89%;
-  max-height: 150px;
-  overflow-y: auto;
   user-select: auto;
   -moz-user-select: auto;
   -webkit-user-drag: auto;
@@ -737,8 +749,6 @@ export default {
   list-style: none;
   padding: 0px 10px 10px 10px;
   margin: 0px;
-  max-height: 250px;
-  overflow-y: auto;
 
   li>div {
     -webkit-user-drag: element;
@@ -886,7 +896,7 @@ export default {
 }
 
 .modal-dialog {
-  max-width: 600px;
+  max-width: 650px;
 }
 
 .header-menu-icons {
