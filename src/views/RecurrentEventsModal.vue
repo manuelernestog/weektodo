@@ -10,15 +10,15 @@
           <table class="table table-hover ">
             <thead>
               <tr>
-                <th scope="col">{{ $t("ui.task") }}</th>
-                <th scope="col">{{ $t("ui.Frecuency") }}</th>
+                <th  class="recurrent-heading" scope="col">{{ $t("ui.task") }}</th>
+                <th  class="recurrent-heading" scope="col">{{ $t("ui.Frecuency") }}</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="task in recurringTasks" :key="task.id">
-                <td>{{ task.data.text }}</td>
-                <td>{{ frecuency(task) }}</td>
+                <td class="reccurent-items">{{ task.data.text }}</td>
+                <td class="recurring-freq">{{ frecuency(task) }}</td>
                 <td><i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeRecurringTask(task.id)"
                     data-bs-dismiss="modal"></i></td>
               </tr>
@@ -148,4 +148,17 @@ export default {
     }
   }
 }
+.recurrent-heading{
+  .dark-theme & {
+       color:rgb(222, 222, 222);
+  }
+ 
+}
+
+.reccurent-items , .recurring-freq{
+    .dark-theme & {
+    color: #babbbe;
+  }
+}
+
 </style>
