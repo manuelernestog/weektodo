@@ -9,7 +9,7 @@
     "data": "Veri",
     "import": "İçeri Aktar",
     "export": "Dışarı Aktar",
-    "clear": "Clear",
+    "clear": "Temizle",
     "backup": "Yedekle:",
     "invalidFile": "Geçersiz Dosya",
     "checkUpdates": "Başlangıçta Güncellemeleri Kontrol Et",
@@ -41,9 +41,9 @@
     "notificationIndicator": "Bildirim Göstergesi",
     "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
     "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
-    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
-    "fullscreenToDoModal": "To-do Details in full screen",
-    "weekStartOnMonday": "The Week start on Monday"
+    "moveCompletedSubTaskToBottom": "Tamamlanan görevleri en alta taşı",
+    "fullscreenToDoModal": "Tam ekranda yapılacakların ayrıntıları",
+    "weekStartOnMonday": "Hafta Pazartesi ile başlar"
   },
   "donate": {
     "contribute": "Katkıda bulun",
@@ -61,8 +61,8 @@
     "shareWithFriends": "Arkadaşlarınla ​​paylaş",
     "rate": "Bizi değerlendirin",
     "cryptocurrencies": "kripto para birimleri",
-    "buyMeACoffee": "Buy me a Coffee",
-    "buyMeACryptoCoffee": "Buy me a Crypto Coffee",
+    "buyMeACoffee": "Kahve ısmarla",
+    "buyMeACryptoCoffee": "Kripto kahve ısmarla",
     "translate": "Çeviri",
     "shareMessage": "Haftamı ücretsiz minimalist gizlilik odaklı haftalık planlayıcı WeekToDo ile planlıyorum ve sizin de seveceğinizi düşünüyorum. \nBuna bir bak!",
     "supportUs": "Bizi destekle",
@@ -71,7 +71,7 @@
   "about": {
     "about": "Hakkında",
     "madeWith": "Tarafından",
-    "inCuba": "in Cuba",
+    "inCuba": "küba'da",
     "dev": "Geliştirici ve Tasarımcı",
     "devName": "Manuel Ernesto García",
     "version": "Versiyon",
@@ -162,7 +162,7 @@
     "postpone": "Ertele",
     "newVersionAvailable": "Yeni Versiyon Mevcut",
     "download": "(İndir)",
-    "sponsoredBy": "Sponsored by",
+    "sponsoredBy": "Destek sağlayanlar",
     "updateAll": "Tümünü Güncelle",
     "removeAll": "Hepsini sil",
     "recurringTasks": "Yinelenen görevler",
@@ -209,7 +209,7 @@
     "color": "Renk",
     "close": "Kapat",
     "actions": "Hareketler",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Özel Hafta içi günler"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",
