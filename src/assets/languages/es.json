@@ -9,7 +9,7 @@
     "data": "Datos",
     "import": "Importar",
     "export": "Exportar",
-    "clear": "Clear",
+    "clear": "Limpiar",
     "backup": "Copia de Seguridad:",
     "invalidFile": "Archivo Inválido",
     "checkUpdates": "Buscar actualizaciones al inicio",
@@ -41,9 +41,9 @@
     "notificationIndicator": "Indicador de notificación",
     "autoReorderTasks": "Reordenar tareas automáticamente",
     "moveCompletedTaskToBottom": "Mover las tareas completadas al final",
-    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
-    "fullscreenToDoModal": "To-do Details in full screen",
-    "weekStartOnMonday": "The Week start on Monday"
+    "moveCompletedSubTaskToBottom": "Mover sub-tareas completadas al final",
+    "fullscreenToDoModal": "Detalles de tarea en pantalla completa",
+    "weekStartOnMonday": "La semana inicia el lunes"
   },
   "donate": {
     "contribute": "Contribuir",
