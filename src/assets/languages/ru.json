@@ -9,7 +9,7 @@
     "data": "Данные",
     "import": "Импорт",
     "export": "Экспорт",
-    "clear": "Clear",
+    "clear": "Очистить",
     "backup": "Резервная копия:",
     "invalidFile": "Неверный файл",
     "checkUpdates": "Проверять обновления при запуске",
@@ -41,9 +41,9 @@
     "notificationIndicator": "Индикатор уведомлений",
     "autoReorderTasks": "Автоматически переупорядочивать задачи",
     "moveCompletedTaskToBottom": "Переместить выполненные задачи вниз",
-    "moveCompletedSubTaskToBottom": "Move completed sub-tasks to bottom",
-    "fullscreenToDoModal": "To-do Details in full screen",
-    "weekStartOnMonday": "The Week start on Monday"
+    "moveCompletedSubTaskToBottom": "Переместить завершенные подзадачи в конец",
+    "fullscreenToDoModal": "Детали на весь экран",
+    "weekStartOnMonday": "Начало недели в понедельник"
   },
   "donate": {
     "contribute": "Способствовать",
@@ -144,7 +144,7 @@
     "repeatingTaskRemoveConfirm": "Вы уверены, что хотите удалить эту повторяющуюся задачу?",
     "removeRepeatingTask": "Удалить повторяющуюся задачу",
     "cancel": "Отменить",
-    "ok": "Ok",
+    "ok": "Ок",
     "remove": "Удалить",
     "splashSub": "Минималистский еженедельник",
     "mobileWarning": "WeekToDo - это настольное приложение, и пока оно не готово для отображения в этом разрешении. :(",
@@ -209,7 +209,7 @@
     "color": "Цвет",
     "close": "Закрывать",
     "actions": "Действия",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Пользовательские дни"
   },
   "notifications": {
     "noPendingTasksToday": "У вас нет запланированных задач на сегодня.",
