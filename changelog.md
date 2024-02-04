@@ -1,9 +1,10 @@
 ## v2.2.0
-Jun 3, 2023
+Feb 14, 2024
 
 - Adding Print and Export PDF Feature
 - Adding new sidebar submenu
 - To-do detail view textarea with dynamic height
+- Rebranding (made by Hallgraph)
 
 
 ## v2.1.0

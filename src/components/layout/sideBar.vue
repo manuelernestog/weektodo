@@ -1,26 +1,59 @@
 <template>
   <div class="side-bar">
-    <img class="logo" src="WeekToDo-Logo-Color.svg" width="31" height="31" alt="WeekTodo Logo" data-bs-toggle="modal"
-      data-bs-target="#aboutModal" :title="$t('about.about')" />
+    <img
+      class="logo"
+      src="/img/logo-color.svg"
+      width="42"
+      height="42"
+      alt="WeekTodo Logo"
+      data-bs-toggle="modal"
+      data-bs-target="#aboutModal"
+      :title="$t('about.about')"
+    />
+    <img
+      class="logo logo-white"
+      src="/img/logo-white.svg"
+      width="42"
+      height="42"
+      alt="WeekTodo Logo"
+      data-bs-toggle="modal"
+      data-bs-target="#aboutModal"
+      :title="$t('about.about')"
+    />
     <i v-if="showCalendar" class="bi-house" @click="setTodayDate" :title="$t('ui.today')"></i>
-    <datepicker v-if="datepickerEnabled" id="side-bar-date-picker-input" v-model="pickedDate" :locale="language"
-      :weekStartsOn="weekStartOnMonday" />
+    <datepicker
+      v-if="datepickerEnabled"
+      id="side-bar-date-picker-input"
+      v-model="pickedDate"
+      :locale="language"
+      :weekStartsOn="weekStartOnMonday"
+    />
     <i v-if="showCalendar" class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
     <!-- <i class="bi-search" :title="$t('donate.supportUs')"></i>
     <i class="bi-filter" :title="$t('donate.supportUs')" ></i> -->
-    <i v-if="showCalendar" class="bi-arrow-repeat" :title="$t('ui.recurringTasks')" data-bs-toggle="modal"
-      data-bs-target="#RecurrentEventsModal">
+    <i
+      v-if="showCalendar"
+      class="bi-arrow-repeat"
+      :title="$t('ui.recurringTasks')"
+      data-bs-toggle="modal"
+      data-bs-target="#RecurrentEventsModal"
+    >
     </i>
     <i v-if="showCustomList" class="bi bi-clipboard-plus" @click="newCustomTodoList" :title="$t('ui.newCustomList')"></i>
-    <i v-if="showCustomList" class="bi bi-arrow-left-right" data-bs-target="#ReorderCustomListsModal"
-      data-bs-toggle="modal" :title="$t('ui.reorderCustomLists')"></i>
+    <i
+      v-if="showCustomList"
+      class="bi bi-arrow-left-right"
+      data-bs-target="#ReorderCustomListsModal"
+      data-bs-toggle="modal"
+      :title="$t('ui.reorderCustomLists')"
+    ></i>
     <span style="flex-grow: 1"></span>
     <div class="dropend d-flex justify-content-center sidebar-extra-menu">
       <i class="bi-three-dots sidebar-icon align-self-center" type="button" data-bs-toggle="dropdown"></i>
       <ul class="dropdown-menu mx-3" aria-labelledby="btnTaskOptionMenu">
         <li>
           <button class="dropdown-item" type="button" @click="print">
-            <i class="bi-printer"></i> <span>{{ $t('ui.print') }} </span>
+            <i class="bi-printer"></i> <span>{{ $t("ui.print") }} </span>
           </button>
         </li>
         <li>
@@ -28,12 +61,12 @@
         </li>
         <li>
           <a href="https://weektodo.me/support-us" target="_blank" class="dropdown-item" type="button">
-            <i class="bi-gift"></i> <span>{{ $t('donate.supportUs') }}</span>
+            <i class="bi-gift"></i> <span>{{ $t("donate.supportUs") }}</span>
           </a>
         </li>
         <li>
           <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#aboutModal">
-            <i class="bi-info-circle"></i> <span>{{ $t('about.about') }}</span>
+            <i class="bi-info-circle"></i> <span>{{ $t("about.about") }}</span>
           </button>
         </li>
       </ul>
@@ -41,8 +74,13 @@
 
     <!-- <i class="bi-person-circle" :title="$t('donate.supportUs')" @click="openDonateModal"></i> -->
     <i class="bi-info-square" data-bs-toggle="modal" data-bs-target="#tipsModal" :title="$t('tips.tips')"></i>
-    <i class="bi-gear" data-bs-toggle="modal" data-bs-target="#configModal" :title="$t('settings.settings')"
-      @click="openConfigModal"></i>
+    <i
+      class="bi-gear"
+      data-bs-toggle="modal"
+      data-bs-target="#configModal"
+      :title="$t('settings.settings')"
+      @click="openConfigModal"
+    ></i>
   </div>
 </template>
 
@@ -51,7 +89,7 @@ import moment from "moment";
 import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
 import toDoListRepository from "../../repositories/toDoListRepository";
 import Datepicker from "vue3-datepicker";
-import languageHelper from "../../helpers/languageHelper.js"
+import languageHelper from "../../helpers/languageHelper.js";
 
 export default {
   name: "sideBar",
@@ -112,7 +150,7 @@ export default {
     },
     print: function () {
       window.print();
-    }
+    },
   },
   watch: {
     pickedDate: function (val) {
@@ -152,17 +190,17 @@ export default {
   background-color: #fcfcfc;
 }
 
-.side-bar>i:first-child {
+.side-bar > i:first-child {
   margin-bottom: 14px;
   margin-top: 8px;
 }
 
-.side-bar>i:first-child:hover {
+.side-bar > i:first-child:hover {
   border-radius: unset;
   background-color: unset;
 }
 
-.side-bar>i,
+.side-bar > i,
 .sidebar-icon {
   font-size: 1.25rem;
   padding: 10px;
@@ -185,26 +223,40 @@ sidebar-icon:active {
 }
 
 .side-bar .logo {
-  margin-bottom: 18px;
-  margin-top: 18px;
+  margin-bottom: 6px;
+  margin-top: 10px;
   align-self: center;
   cursor: pointer;
+}
+
+.side-bar .logo-white {
+  display: none;
+}
+
+.dark-theme {
+  .side-bar .logo {
+    display: none;
+  }
+  .side-bar .logo-white {
+    display: block;
+    opacity: 0.95;
+  }
 }
 
 .dropdown-menu {
   font-size: 0.865rem;
   min-width: unset;
   border-radius: 8px;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .20);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
   border: none;
   color: #3c3c3c;
 
   .dropdown-item {
-    padding: .4rem 1.9rem .4rem .65rem;
+    padding: 0.4rem 1.9rem 0.4rem 0.65rem;
   }
 
   .dropdown-divider {
-    margin: .3rem;
+    margin: 0.3rem;
   }
 
   i {
