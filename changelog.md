@@ -5,6 +5,7 @@ Feb 14, 2024
 - Adding new sidebar submenu
 - To-do detail view textarea with dynamic height
 - Rebranding (made by Hallgraph)
+- Using Sentry for error handle
 
 
 ## v2.1.0
