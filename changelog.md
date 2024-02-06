@@ -6,6 +6,7 @@ Feb 14, 2024
 - To-do detail view textarea with dynamic height
 - Rebranding (made by Hallgraph)
 - Using Sentry for error handle
+- Fixing move old tasks to current day
 
 
 ## v2.1.0

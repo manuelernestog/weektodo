@@ -301,9 +301,9 @@ export default {
     customMoveRight: function () {
       this.$refs.customListContainer.scrollLeft =
         this.$refs.customListContainer.scrollLeft + this.customTodoListWidth() - 13;
-      },
-      customMoveLeft: function () {
-        this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
+    },
+    customMoveLeft: function () {
+      this.$refs.customListContainer.scrollLeft = this.$refs.customListContainer.scrollLeft - this.customTodoListWidth();
     },
     resetCustomList: function () {
       this.$nextTick(function () {
@@ -396,11 +396,15 @@ export default {
           if (this.$store.getters.config.moveOldTasks) {
             this.moveOldTasksToToday().then(() => {
               this.refreshTodayNotifications();
+              this.$store.commit("updateConfig", { val: moment().format("YYYYMMDD"), key: "lastDayOpened" });
+              configRepository.update(this.$store.getters.config);
               if (isElectron()) this.showInitialNotification();
             });
           } else {
             this.refreshTodayNotifications();
             if (isElectron()) this.showInitialNotification();
+            this.$store.commit("updateConfig", { val: moment().format("YYYYMMDD"), key: "lastDayOpened" });
+            configRepository.update(this.$store.getters.config);
           }
         }
       }
@@ -462,8 +466,9 @@ export default {
     },
     moveOldTasksToToday: async function () {
       var promise = new Promise((resolve) => {
-        var todayListId = moment(this.id).format("YYYYMMDD");
-        for (let i = 1; i <= 7; i++) {
+        var todayListId = moment().format("YYYYMMDD");
+        const daysBefore = moment().diff(moment(this.$store.getters.config.lastDayOpened), "days");
+        for (let i = 1; i <= daysBefore; i++) {
           let listId = moment().subtract(i, "d").format("YYYYMMDD");
           this.$store.dispatch("loadTodoLists", listId).then(() => {
             this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
@@ -476,7 +481,7 @@ export default {
             } else {
               toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
             }
-            if (i == 7) {
+            if (i == daysBefore) {
               resolve("done!");
             }
           });

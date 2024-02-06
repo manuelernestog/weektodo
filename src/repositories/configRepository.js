@@ -37,7 +37,8 @@ export default {
         moveCompletedTaskToBottom: true,
         moveCompletedSubTaskToBottom: true,
         fullscreenToDoModal: false,
-        weekStartOnMonday: true
+        weekStartOnMonday: true,
+        lastDayOpened: moment().format("YYYY-MM-DD")
       };
       storageRepository.set("config", default_config);
       return default_config;

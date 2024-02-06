@@ -40,7 +40,7 @@
             </span>
             <div class="d-flex align-self-center">
               <a href="https://weektodo.me/blog/1" target="_blank" title="Blog"> <i class="bi-rss mx-2"></i></a>
-              <a href="https://twitter.com/weektodo" target="_blank" title="Twitter"> <i class="bi-twitter mx-2"></i></a>
+              <!-- <a href="https://twitter.com/weektodo" target="_blank" title="Twitter"> <i class="bi-twitter mx-2"></i></a> -->
               <a href="https://github.com/manuelernestog/weektodo" target="_blank" title="Github">
                 <i class="bi-github mx-2"></i
               ></a>
