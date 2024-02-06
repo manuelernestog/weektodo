@@ -4,7 +4,6 @@ var contentToCache = [
   "/",
   "js/app.js",
   "js/chunk-vendors.js",
-  "/libs/honeybadger.min.js",
   "/Avatar.webp",
   "/fonts/bootstrap-icons.1ed478a6.woff2",
   "/WeekToDo-Logo-Color.svg",
