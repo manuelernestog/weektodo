@@ -179,7 +179,8 @@
     "copyTasks": "Sao chép Công việc",
     "task": "Công việc",
     "Frecuency": "Tần suất",
-    "print": "PDF / In"
+    "print": "PDF / In",
+    "showAll": "Hiển thị tất cả"
   },
   "todoDetails": {
     "taskTitle": "Tiêu đề Công việc",

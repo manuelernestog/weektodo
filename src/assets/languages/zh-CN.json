@@ -179,7 +179,8 @@
     "copyTasks": "复制任务",
     "task": "任务",
     "Frecuency": "频率",
-    "print": "PDF/打印"
+    "print": "PDF/打印",
+    "showAll": "显示所有"
   },
   "todoDetails": {
     "taskTitle": "任务标题",

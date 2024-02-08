@@ -179,7 +179,8 @@
     "copyTasks": "העתק משימות",
     "task": "משימה",
     "Frecuency": "תדירות",
-    "print": "PDF / הדפסה"
+    "print": "PDF / הדפסה",
+    "showAll": "הצג הכול"
   },
   "todoDetails": {
     "taskTitle": "כותרת המשימה",

@@ -179,7 +179,8 @@
     "copyTasks": "Copia compiti",
     "task": "Compito",
     "Frecuency": "Frequenza",
-    "print": "PDF / Stampa"
+    "print": "PDF / Stampa",
+    "showAll": "Mostra tutto"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",

@@ -179,7 +179,8 @@
     "copyTasks": "Копировать задачи",
     "task": "Задача",
     "Frecuency": "Частота",
-    "print": "PDF/печать"
+    "print": "PDF/печать",
+    "showAll": "Показать все"
   },
   "todoDetails": {
     "taskTitle": "Заголовок задачи",

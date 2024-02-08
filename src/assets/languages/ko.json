@@ -179,7 +179,8 @@
     "copyTasks": "복사 작업",
     "task": "일",
     "Frecuency": "빈도",
-    "print": "PDF / 인쇄"
+    "print": "PDF / 인쇄",
+    "showAll": "모두 보이기"
   },
   "todoDetails": {
     "taskTitle": "작업 제목",

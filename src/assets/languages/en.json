@@ -179,7 +179,8 @@
     "quit": "Quit",
     "copyTasks": "Copy Tasks",
     "task": "Task",
-    "Frecuency": "Frecuency"
+    "Frecuency": "Frecuency",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "Task title",

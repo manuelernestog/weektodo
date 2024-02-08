@@ -179,7 +179,8 @@
     "copyTasks": "Görevleri Kopyala",
     "task": "Görev",
     "Frecuency": "frekans",
-    "print": "PDF / Yazdır"
+    "print": "PDF / Yazdır",
+    "showAll": "Hepsini Göster ↓"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",

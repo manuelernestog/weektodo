@@ -179,7 +179,8 @@
     "copyTasks": "タスクのコピー",
     "task": "仕事",
     "Frecuency": "周波数",
-    "print": "PDF / 印刷"
+    "print": "PDF / 印刷",
+    "showAll": "すべて表示する"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",

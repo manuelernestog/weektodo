@@ -12,7 +12,7 @@
               v-model="repeatingType"
               :disabled="repeatingEvent"
             >
-              <option value="all">All</option>
+              <option value="all">{{ $t("ui.showAll") }}</option>
               <option value="3">{{ $t("todoDetails.daily") }}</option>
               <option value="2">{{ $t("todoDetails.weekly") }}</option>
               <option value="4">{{ $t("todoDetails.weekdays") }}</option>

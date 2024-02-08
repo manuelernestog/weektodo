@@ -179,7 +179,8 @@
     "copyTasks": "Aufgaben kopieren",
     "task": "Aufgabe",
     "Frecuency": "Häufigkeit",
-    "print": "PDF / Drucken"
+    "print": "PDF / Drucken",
+    "showAll": "Zeige alles"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",

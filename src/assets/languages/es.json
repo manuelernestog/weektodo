@@ -179,7 +179,8 @@
     "copyTasks": "Copiar tareas",
     "task": "Tarea",
     "Frecuency": "Frecuencia",
-    "print": "PDF / Imprimir"
+    "print": "PDF / Imprimir",
+    "showAll": "Mostrar todo"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",

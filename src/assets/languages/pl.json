@@ -202,7 +202,8 @@
     "Frecuency": "Częstotliwość",
     "task": "Zadanie",
     "newTask": "Nowe zadanie",
-    "print": "PDF / Drukuj"
+    "print": "PDF / Drukuj",
+    "showAll": "Pokaż wszystko"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",
