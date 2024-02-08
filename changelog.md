@@ -4,11 +4,13 @@ Feb 14, 2024
 - Adding Print and Export PDF Feature
 - Adding new sidebar submenu
 - To-do detail view textarea with dynamic height
-- Rebranding (made by Hallgraph)
+- Adding Rebranding
 - Using Sentry for error handle
 - Fixing move old tasks to current day
 - Adding recurring task filter
 - Adding Month days recurring tasks
+- Fixing typos and improving translations
+- Adding Hindi, Vietnamese and Hebrew
 
 
 ## v2.1.0
