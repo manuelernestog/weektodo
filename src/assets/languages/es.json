@@ -39,7 +39,11 @@
     "startCalendarYesterday": "El calendario empieza ayer",
     "notificationIndicator": "Indicador de notificación",
     "autoReorderTasks": "Reordenar tareas automáticamente",
-    "moveCompletedTaskToBottom": "Mover las tareas completadas al final"
+    "moveCompletedTaskToBottom": "Mover las tareas completadas al final",
+    "clear": "Eliminar",
+    "fullscreenToDoModal": "Detalles de tareas en pantalla completa",
+    "moveCompletedSubTaskToBottom": "Mover las subtareas completadas al final",
+    "weekStartOnMonday": "La semana comienza el lunes."
   },
   "donate": {
     "contribute": "Contribuir",
@@ -206,7 +210,8 @@
     "color": "Color",
     "close": "Cerca",
     "actions": "Acciones",
-    "daysOfMonth": "Días del mes"
+    "daysOfMonth": "Días del mes",
+    "customWeekdays": "Días de la semana personalizados"
   },
   "notifications": {
     "noPendingTasksToday": "No tienes tareas programadas hoy.",

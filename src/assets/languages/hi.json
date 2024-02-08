@@ -43,7 +43,7 @@
     "moveCompletedTaskToBottom": "पूरे हुए कार्यों को नीचे ले जाएं",
     "moveCompletedSubTaskToBottom": "पूरी हुई उप-कार्यों को नीचे ले जाएं",
     "fullscreenToDoModal": "फुल स्क्रीन में करने के लिए कार्यों का विवरण",
-    "weekStartOnMonday":"सप्ताह सोमवार से शुरू होता है"
+    "weekStartOnMonday": "सप्ताह सोमवार से शुरू होता है"
   },
   "donate": {
     "contribute": "योगदान",
@@ -178,7 +178,8 @@
     "quit": "बंद करें",
     "copyTasks": "कार्य कॉपी करें",
     "task": "कार्य",
-    "Frecuency": "अक्सर"
+    "Frecuency": "अक्सर",
+    "print": "पीडीएफ/प्रिंट"
   },
   "todoDetails": {
     "taskTitle": "कार्य का शीर्षक",
@@ -209,7 +210,8 @@
     "color": "रंग",
     "close": "बंद करें",
     "actions": "क्रियाएँ",
-    "customWeekdays": "कस्टम सप्ताहदिन"
+    "customWeekdays": "कस्टम सप्ताहदिन",
+    "daysOfMonth": "महीने के दिन"
   },
   "notifications": {
     "noPendingTasksToday": "आपके पास आज कोई निर्धारित कार्य नहीं हैं।",

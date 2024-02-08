@@ -178,7 +178,8 @@
     "quit": "خروج",
     "copyTasks": "نسخ المهام",
     "task": "مهمة",
-    "Frecuency": "تكرار"
+    "Frecuency": "تكرار",
+    "print": "قوات الدفاع الشعبي / الطباعة"
   },
   "todoDetails": {
     "taskTitle": "عنوان المهمة",
@@ -209,7 +210,8 @@
     "color": "اللون",
     "close": "إغلاق",
     "actions": "الإجراءات",
-    "customWeekdays": "أيام الأسبوع المخصصة"
+    "customWeekdays": "أيام الأسبوع المخصصة",
+    "daysOfMonth": "أيام الشهر"
   },
   "notifications": {
     "noPendingTasksToday": "ليس لديك مهام مجدولة اليوم.",

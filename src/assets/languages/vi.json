@@ -178,7 +178,8 @@
     "quit": "Thoát",
     "copyTasks": "Sao chép Công việc",
     "task": "Công việc",
-    "Frecuency": "Tần suất"
+    "Frecuency": "Tần suất",
+    "print": "PDF / In"
   },
   "todoDetails": {
     "taskTitle": "Tiêu đề Công việc",
@@ -209,7 +210,8 @@
     "color": "Màu sắc",
     "close": "Đóng",
     "actions": "Hành động",
-    "customWeekdays": "Ngày trong tuần Tùy chỉnh"
+    "customWeekdays": "Ngày trong tuần Tùy chỉnh",
+    "daysOfMonth": "Ngày trong tháng"
   },
   "notifications": {
     "noPendingTasksToday": "Bạn không có công việc nào được lên lịch hôm nay.",

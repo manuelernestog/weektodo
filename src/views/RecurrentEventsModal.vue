@@ -127,7 +127,6 @@ export default {
   },
   computed: {
     recurringTasks: function () {
-      console.log(this.repeatingType);
       let tasks = [];
       for (const key in this.$store.getters.repeatingEventList) {
         if (this.repeatingType == "all" || this.repeatingType == this.$store.getters.repeatingEventList[key].type)

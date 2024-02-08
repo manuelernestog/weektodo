@@ -178,7 +178,8 @@
     "quit": "יציאה",
     "copyTasks": "העתק משימות",
     "task": "משימה",
-    "Frecuency": "תדירות"
+    "Frecuency": "תדירות",
+    "print": "PDF / הדפסה"
   },
   "todoDetails": {
     "taskTitle": "כותרת המשימה",
@@ -209,7 +210,8 @@
     "color": "צבע",
     "close": "סגור",
     "actions": "פעולות",
-    "customWeekdays": "ימי שבוע מותאמים"
+    "customWeekdays": "ימי שבוע מותאמים",
+    "daysOfMonth": "ימי החודש"
   },
   "notifications": {
     "noPendingTasksToday": "אין לך משימות מתוזמנות היום.",
