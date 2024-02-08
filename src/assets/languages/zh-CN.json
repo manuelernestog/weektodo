@@ -206,7 +206,8 @@
     "alarm": "警报",
     "color": "颜色",
     "close": "关闭",
-    "actions": "操作"
+    "actions": "操作",
+    "daysOfMonth": "每月的天数"
   },
   "notifications": {
     "noPendingTasksToday": "你今天没有定期任务。",

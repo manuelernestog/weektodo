@@ -210,7 +210,8 @@
     "color": "Колір",
     "close": "Закрити",
     "actions": "Дії",
-    "customWeekdays": "Індивідуальні будні"
+    "customWeekdays": "Індивідуальні будні",
+    "daysOfMonth": "Дні місяця"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",

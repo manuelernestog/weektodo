@@ -210,7 +210,8 @@
     "color": "Renk",
     "close": "Kapat",
     "actions": "Hareketler",
-    "customWeekdays": "Özel Hafta İçi"
+    "customWeekdays": "Özel Hafta İçi",
+    "daysOfMonth": "Ayın Günleri"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",

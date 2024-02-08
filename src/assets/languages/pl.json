@@ -158,7 +158,8 @@
     "color": "Kolor",
     "time": "Czas",
     "weekdays": "pon-pt",
-    "customWeekdays": "Niestandardowe dni tygodnia"
+    "customWeekdays": "Niestandardowe dni tygodnia",
+    "daysOfMonth": "Dni miesiąca"
   },
   "ui": {
     "calendar": "Kalendarz",

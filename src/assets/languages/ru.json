@@ -210,7 +210,8 @@
     "color": "Цвет",
     "close": "Закрывать",
     "actions": "Действия",
-    "customWeekdays": "Пользовательские дни недели"
+    "customWeekdays": "Пользовательские дни недели",
+    "daysOfMonth": "Дни месяца"
   },
   "notifications": {
     "noPendingTasksToday": "У вас нет запланированных задач на сегодня.",

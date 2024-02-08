@@ -210,7 +210,8 @@
     "color": "色彩",
     "close": "關閉",
     "actions": "行動",
-    "customWeekdays": "自定義工作日"
+    "customWeekdays": "自定義工作日",
+    "daysOfMonth": "每月的天數"
   },
   "notifications": {
     "noPendingTasksToday": "您今天沒有計劃任務。",

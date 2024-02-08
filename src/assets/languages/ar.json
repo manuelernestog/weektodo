@@ -210,7 +210,8 @@
     "weekly": "أسبوعي",
     "yearly": "سنوي",
     "weekdays": "من الإثنين إلى الجمعة",
-    "customWeekdays": "أيام الأسبوع المخصصة"
+    "customWeekdays": "أيام الأسبوع المخصصة",
+    "daysOfMonth": "أيام الشهر"
   },
   "notifications": {
     "noPendingTasksToday": "ليس لديك مهام مجدولة اليوم.",

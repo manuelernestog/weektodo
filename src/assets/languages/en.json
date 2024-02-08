@@ -210,7 +210,8 @@
     "color": "Color",
     "close": "Close",
     "actions": "Actions",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",

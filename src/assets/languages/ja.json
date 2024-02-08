@@ -210,7 +210,8 @@
     "color": "色",
     "close": "近い",
     "actions": "行動",
-    "customWeekdays": "カスタム平日"
+    "customWeekdays": "カスタム平日",
+    "daysOfMonth": "月の日"
   },
   "notifications": {
     "noPendingTasksToday": "今日、スケジュールされたタスクはありません。",

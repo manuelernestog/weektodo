@@ -210,7 +210,8 @@
     "color": "Farbe",
     "close": "Nah dran",
     "actions": "Aktionen",
-    "customWeekdays": "Benutzerdefinierte Wochentage"
+    "customWeekdays": "Benutzerdefinierte Wochentage",
+    "daysOfMonth": "Tage des Monats"
   },
   "notifications": {
     "noPendingTasksToday": "Sie haben heute keine geplanten Aufgaben.",

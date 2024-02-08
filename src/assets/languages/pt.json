@@ -210,7 +210,8 @@
     "color": "Cor",
     "close": "Perto",
     "actions": "Ações",
-    "customWeekdays": "Dias da semana personalizados"
+    "customWeekdays": "Dias da semana personalizados",
+    "daysOfMonth": "Dias do mês"
   },
   "notifications": {
     "noPendingTasksToday": "Você não tem tarefas agendadas hoje.",
