@@ -178,7 +178,8 @@
     "quit": "Quitter",
     "copyTasks": "Copier des tâches",
     "task": "Tâche",
-    "Frecuency": "Fréquence"
+    "Frecuency": "Fréquence",
+    "print": "PDF / Imprimer"
   },
   "todoDetails": {
     "taskTitle": "Titre de la tâche",
@@ -209,7 +210,8 @@
     "color": "Couleur",
     "close": "proche",
     "actions": "Actions",
-    "customWeekdays": "Jours de semaine personnalisés"
+    "customWeekdays": "Jours de semaine personnalisés",
+    "daysOfMonth": "Jours du mois"
   },
   "notifications": {
     "noPendingTasksToday": "Vous n'avez aucune tâche planifiée aujourd'hui.",

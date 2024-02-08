@@ -416,8 +416,6 @@ export default {
     },
     setSendErrors: function () {
       this.changeConfig('reportErrors', this.configData.reportErrors);
-      this.$honeybadger.config.reportData = this.configData.reportErrors;
-      console.log(this.$honeybadger.config);
     },
     setDarkTrayIcon: function () {
       this.changeConfig('darkTrayIcon', this.configData.darkTrayIcon);
