@@ -36,7 +36,7 @@
             <tbody>
               <tr v-for="task in recurringTasks" :key="task.id">
                 <td class="reccurent-items">{{ task.data.text }}</td>
-                <td lass="recurring-freq">{{ frecuency(task) }}</td>
+                <td class="recurring-freq">{{ frecuency(task) }}</td>
                 <td>
                   <i
                     class="bi-trash mx-2"
