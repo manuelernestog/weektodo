@@ -178,7 +178,9 @@
     "quit": "終了する",
     "copyTasks": "タスクのコピー",
     "task": "仕事",
-    "Frecuency": "周波数"
+    "Frecuency": "周波数",
+    "print": "PDF / 印刷",
+    "showAll": "すべて表示する"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",
@@ -209,7 +211,8 @@
     "color": "色",
     "close": "近い",
     "actions": "行動",
-    "customWeekdays": "カスタム平日"
+    "customWeekdays": "カスタム平日",
+    "daysOfMonth": "月の日"
   },
   "notifications": {
     "noPendingTasksToday": "今日、スケジュールされたタスクはありません。",

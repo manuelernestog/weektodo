@@ -40,7 +40,10 @@
     "notificationIndicator": "通知指示器",
     "autoReorderTasks": "自动重新排列任务",
     "moveCompletedTaskToBottom": "把已完成的任务移到底部",
-    "weekStartOnMonday": "一周从星期一开始"
+    "weekStartOnMonday": "一周从星期一开始",
+    "clear": "清除",
+    "fullscreenToDoModal": "全屏显示待办事项详细信息",
+    "moveCompletedSubTaskToBottom": "将已完成的子任务移至底部"
   },
   "donate": {
     "contribute": "贡献",
@@ -175,7 +178,9 @@
     "quit": "退出",
     "copyTasks": "复制任务",
     "task": "任务",
-    "Frecuency": "频率"
+    "Frecuency": "频率",
+    "print": "PDF/打印",
+    "showAll": "显示所有"
   },
   "todoDetails": {
     "taskTitle": "任务标题",
@@ -205,7 +210,9 @@
     "alarm": "警报",
     "color": "颜色",
     "close": "关闭",
-    "actions": "操作"
+    "actions": "操作",
+    "daysOfMonth": "每月的天数",
+    "customWeekdays": "定制工作日"
   },
   "notifications": {
     "noPendingTasksToday": "你今天没有定期任务。",

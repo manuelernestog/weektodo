@@ -178,7 +178,9 @@
     "quit": "Çıkış yapmak",
     "copyTasks": "Görevleri Kopyala",
     "task": "Görev",
-    "Frecuency": "frekans"
+    "Frecuency": "frekans",
+    "print": "PDF / Yazdır",
+    "showAll": "Hepsini Göster ↓"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",
@@ -209,7 +211,8 @@
     "color": "Renk",
     "close": "Kapat",
     "actions": "Hareketler",
-    "customWeekdays": "Özel Hafta İçi"
+    "customWeekdays": "Özel Hafta İçi",
+    "daysOfMonth": "Ayın Günleri"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",

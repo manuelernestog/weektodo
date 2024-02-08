@@ -309,6 +309,7 @@
                   <option value="it">Italiano</option>
                   <option value="pt">Português</option>
                   <option value="ru">русский</option>
+                  <option value="hi">हिंदी</option>
                   <option value="ja">日本</option>
                   <option value="pl">Polski</option>
                   <option value="ar">عرب</option>
@@ -317,6 +318,8 @@
                   <option value="zh_tw">繁體中文</option>
                   <option value="uk">український</option>
                   <option value="tr">Türk</option>
+                  <option value="vi">Tiếng Việt</option>
+                  <option value="he">עִברִית</option>
                 </select>
               </div>
             </div>
@@ -416,8 +419,6 @@ export default {
     },
     setSendErrors: function () {
       this.changeConfig('reportErrors', this.configData.reportErrors);
-      this.$honeybadger.config.reportData = this.configData.reportErrors;
-      console.log(this.$honeybadger.config);
     },
     setDarkTrayIcon: function () {
       this.changeConfig('darkTrayIcon', this.configData.darkTrayIcon);
