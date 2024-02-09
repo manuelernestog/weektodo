@@ -158,7 +158,8 @@
     "color": "Kolor",
     "time": "Czas",
     "weekdays": "pon-pt",
-    "customWeekdays": "Niestandardowe dni tygodnia"
+    "customWeekdays": "Niestandardowe dni tygodnia",
+    "daysOfMonth": "Dni miesiąca"
   },
   "ui": {
     "calendar": "Kalendarz",
@@ -200,7 +201,9 @@
     "copyTasks": "Kopiuj zadania",
     "Frecuency": "Częstotliwość",
     "task": "Zadanie",
-    "newTask": "Nowe zadanie"
+    "newTask": "Nowe zadanie",
+    "print": "PDF / Drukuj",
+    "showAll": "Pokaż wszystko"
   },
   "welcome": {
     "allReady": "Wszystko gotowe",

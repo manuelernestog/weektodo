@@ -178,7 +178,9 @@
     "quit": "그만두다",
     "copyTasks": "복사 작업",
     "task": "일",
-    "Frecuency": "빈도"
+    "Frecuency": "빈도",
+    "print": "PDF / 인쇄",
+    "showAll": "모두 보이기"
   },
   "todoDetails": {
     "taskTitle": "작업 제목",
@@ -209,7 +211,8 @@
     "color": "색깔",
     "close": "닫다",
     "actions": "행위",
-    "customWeekdays": "맞춤 평일"
+    "customWeekdays": "맞춤 평일",
+    "daysOfMonth": "날짜"
   },
   "notifications": {
     "noPendingTasksToday": "오늘은 예약된 작업이 없습니다.",

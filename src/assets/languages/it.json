@@ -178,7 +178,9 @@
     "quit": "Uscire",
     "copyTasks": "Copia compiti",
     "task": "Compito",
-    "Frecuency": "Frequenza"
+    "Frecuency": "Frequenza",
+    "print": "PDF / Stampa",
+    "showAll": "Mostra tutto"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",
@@ -209,7 +211,8 @@
     "color": "Colore",
     "close": "Chiudere",
     "actions": "Azioni",
-    "customWeekdays": "Giorni feriali personalizzati"
+    "customWeekdays": "Giorni feriali personalizzati",
+    "daysOfMonth": "Giorni del mese"
   },
   "notifications": {
     "noPendingTasksToday": "Non hai attività programmate oggi.",
