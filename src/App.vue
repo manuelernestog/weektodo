@@ -700,9 +700,7 @@ body {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
-.lang-rtl {
-  direction: rtl;
-}
+
 .dark-theme *::-webkit-scrollbar-thumb {
   background: #333940;
   border-radius: 5px;
