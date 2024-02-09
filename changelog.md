@@ -11,6 +11,7 @@ Feb 14, 2024
 - Adding Month days recurring tasks
 - Fixing typos and improving translations
 - Adding Hindi, Vietnamese and Hebrew
+- Adding Docker config To run the development web version 
 
 
 ## v2.1.0
