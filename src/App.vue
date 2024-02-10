@@ -411,7 +411,6 @@ export default {
     },
     showInitialNotification: function () {
       if (!(this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen)) return;
-
       setTimeout(
         function () {
           new Notification("WeekToDo", {
@@ -467,7 +466,8 @@ export default {
     moveOldTasksToToday: async function () {
       var promise = new Promise((resolve) => {
         var todayListId = moment().format("YYYYMMDD");
-        const daysBefore = moment().diff(moment(this.$store.getters.config.lastDayOpened), "days");
+        let daysBefore = moment().diff(moment(this.$store.getters.config.lastDayOpened), "days");
+        if (daysBefore == 0) daysBefore = 7;
         for (let i = 1; i <= daysBefore; i++) {
           let listId = moment().subtract(i, "d").format("YYYYMMDD");
           this.$store.dispatch("loadTodoLists", listId).then(() => {
