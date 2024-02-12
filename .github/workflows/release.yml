@@ -3,7 +3,7 @@ name: Build/release Electron app
 on:
   push:
     branches:
-      - deploy-github
+      - deploy
 
 jobs:
   release:
