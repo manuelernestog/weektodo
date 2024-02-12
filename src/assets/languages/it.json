@@ -94,7 +94,7 @@
     "data8": "Puoi anche nasconderle tramite il menu impostazioni",
     "data9": "Mele",
     "data10": "Aperitivi analcolici",
-    "data11": "Clicca sui tre puntini per visualizzare maggiori dettagli su questa attività",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "Apri rapidamente i dettagli dell'attività con il clic centrale del mouse",
     "list1": "Lista personalizzata",
     "list2": "Lista della spesa",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo è un'applicazione Desktop e per adesso non è in grado di essere visualizzato a questa risoluzione. :(",
     "today": "Oggi",
     "calendar": "Calendario",
+    "print": "PDF / Print",
     "newCustomList": "Nuova Lista Personalizzata",
     "reorderCustomLists": "Riordina elenchi personalizzati",
     "softwareUpdated": "Software aggiornato",
@@ -178,7 +179,8 @@
     "quit": "Uscire",
     "copyTasks": "Copia compiti",
     "task": "Compito",
-    "Frecuency": "Frequenza"
+    "Frecuency": "Frequenza",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "Nome attività",
@@ -209,7 +211,8 @@
     "color": "Colore",
     "close": "Chiudere",
     "actions": "Azioni",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "Non hai attività programmate oggi.",
