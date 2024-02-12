@@ -7,6 +7,13 @@
   resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-5.1.1.tgz#9274ec7460652f9c632c59addf24efb1684ef876"
   integrity sha512-sAP4LldeWNz0lNzmTird3uWfFDWWTeg6V/MsmyyLR9X1idwKBWIgt/ZvinqQldJm3LecKEs1emkbquO6PCiLVQ==
 
+"@achrinza/event-pubsub@5.0.9":
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/@achrinza/event-pubsub/-/event-pubsub-5.0.9.tgz#ea6c4ee48bee9f50dac253ee08c1f65b144e1e84"
+  integrity sha512-49RyPP7w4abKMsLRHKgB9neAH085mdHQtv+0H5TnJeOq3oK57qQRd/JD9K5Z5D3vFODsvBODiBjYkRQZKdqiAA==
+  dependencies:
+    "@achrinza/strong-type" "0.1.11"
+
 "@achrinza/node-ipc@9.2.2":
   version "9.2.2"
   resolved "https://registry.yarnpkg.com/@achrinza/node-ipc/-/node-ipc-9.2.2.tgz#ae1b5d3d6a9362034eea60c8d946b93893c2e4ec"
@@ -15,6 +22,26 @@
     "@node-ipc/js-queue" "2.0.3"
     event-pubsub "4.3.0"
     js-message "1.0.7"
+
+"@achrinza/node-ipc@^10.1.10":
+  version "10.1.10"
+  resolved "https://registry.yarnpkg.com/@achrinza/node-ipc/-/node-ipc-10.1.10.tgz#104bdc668f792841058e4b1a56ee02335ec7e216"
+  integrity sha512-eBP/YMdiaxFHQ5OlKfYpnarMtuMmdtv+iI21UeXL1yATZEGEvRm2gqPsnio6SRlarLt9/IxTQJl0b/6S5yX+1g==
+  dependencies:
+    "@achrinza/event-pubsub" "5.0.9"
+    "@achrinza/strong-type" "1.1.8"
+    "@node-ipc/js-queue" "2.0.3"
+    js-message "1.0.7"
+
+"@achrinza/strong-type@0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@achrinza/strong-type/-/strong-type-0.1.11.tgz#4f8f22b19195c47edbd8411ba54f80452226a6a5"
+  integrity sha512-35Ou0jcGHGKQS8a6lgdan+u3BajmL315ZpDhH2/WSRNgG1jPpizhe87epgLaotN4uY3kXaEbfRU56sBPMdR5LA==
+
+"@achrinza/strong-type@1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@achrinza/strong-type/-/strong-type-1.1.8.tgz#17dbb04d330c90841f0fa8215a701800150db7eb"
+  integrity sha512-ub/mgPRjbqZmwhU3rGya745IMn9znh3cm4g2iGepzvzhZUlKhLRfdkVoUD+H1NLaHE30pRp/FQHEoHTAVcleBQ==
 
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"

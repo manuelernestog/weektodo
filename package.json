@@ -26,6 +26,7 @@
   "main": "background.js",
   "repository": "https://github.com/manuelernestog/weektodo",
   "dependencies": {
+    "@achrinza/node-ipc": "^10.1.10",
     "@manuelernestog/click-handler": "^1.4.0",
     "@popperjs/core": "^2.11.0",
     "@sentry/vue": "^7.99.0",
@@ -62,5 +63,8 @@
     "sass": "^1.69.5",
     "sass-loader": "^10",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.6"
+  },
+  "resolutions": {
+    "vue-cli-plugin-electron-builder/electron-builder": "^23.0.3"
   }
 }
