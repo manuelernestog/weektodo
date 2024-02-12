@@ -94,7 +94,7 @@
     "data8": "설정 메뉴에서 숨길 수도 있습니다.",
     "data9": "사과",
     "data10": "청량 음료",
-    "data11": "이 작업에 대한 자세한 내용을 보려면 점 3개를 클릭하세요.",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "마우스 가운데 버튼으로 빠르게 작업 세부 정보 열기",
     "list1": "사용자 지정 목록",
     "list2": "식료품 목록",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo는 데스크탑 애플리케이션이며 현재로서는 이 해상도로 표시할 준비가 되지 않았습니다. \n:(",
     "today": "오늘",
     "calendar": "달력",
+    "print": "PDF / Print",
     "newCustomList": "새 사용자 지정 목록",
     "reorderCustomLists": "사용자 지정 목록 재정렬",
     "softwareUpdated": "소프트웨어 업데이트",
@@ -178,7 +179,8 @@
     "quit": "그만두다",
     "copyTasks": "복사 작업",
     "task": "일",
-    "Frecuency": "빈도"
+    "Frecuency": "빈도",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "작업 제목",
@@ -209,7 +211,8 @@
     "color": "색깔",
     "close": "닫다",
     "actions": "행위",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "오늘은 예약된 작업이 없습니다.",
