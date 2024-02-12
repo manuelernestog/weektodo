@@ -94,7 +94,7 @@
     "data8": "設定メニューで非表示にすることもできます",
     "data9": "りんご",
     "data10": "飲み物",
-    "data11": "3個の点をクリックしてタスクの詳細情報を編集する",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "マウスの中クリックでタスクの詳細をすばやく開く",
     "list1": "カスタムリスト",
     "list2": "買い物リスト",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo はデスクトップアプリです、その解像度で表示する準備はまだできていません。 :(",
     "today": "今日",
     "calendar": "カレンダー",
+    "print": "PDF / Print",
     "newCustomList": "新しいカスタムリスト",
     "reorderCustomLists": "カスタムリストを並べ替える",
     "softwareUpdated": "ソフトウエアアップデート",
@@ -178,7 +179,8 @@
     "quit": "終了する",
     "copyTasks": "タスクのコピー",
     "task": "仕事",
-    "Frecuency": "周波数"
+    "Frecuency": "周波数",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "タスクタイトル",
@@ -209,7 +211,8 @@
     "color": "色",
     "close": "近い",
     "actions": "行動",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "今日、スケジュールされたタスクはありません。",
