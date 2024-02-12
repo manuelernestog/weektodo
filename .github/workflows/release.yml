@@ -80,6 +80,7 @@ jobs:
             dist_electron//*.dmg
             dist_electron//*.AppImage
             dist_electron//*.snap
+            dist_electron//*.pacman
             dist_electron//*.deb
             dist_electron//*.rpm
             dist_electron//*.pkg
