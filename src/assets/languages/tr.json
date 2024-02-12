@@ -94,7 +94,7 @@
     "data8": "Bunları ayarlar menüsünden de gizleyebilirsiniz.",
     "data9": "Elmalar",
     "data10": "İçecekler",
-    "data11": "Bu görev hakkında daha fazla detay görmek için üç noktaya tıklayın",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "Orta fare tıklamasıyla görev ayrıntılarını hızla açın",
     "list1": "Kişisel Liste",
     "list2": "Alışveriş Listesi",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo bir Masaüstü uygulamasıdır ve şimdilik bu çözünürlükte görüntülenmeye hazır değil. :(",
     "today": "Bugün",
     "calendar": "Takvim",
+    "print": "PDF / Print",
     "newCustomList": "Yeni Özel Liste",
     "reorderCustomLists": "Özel listeleri yeniden sıralayın",
     "softwareUpdated": "Yazılım Güncellendi",
@@ -178,7 +179,8 @@
     "quit": "Çıkış yapmak",
     "copyTasks": "Görevleri Kopyala",
     "task": "Görev",
-    "Frecuency": "frekans"
+    "Frecuency": "frekans",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",
@@ -209,7 +211,8 @@
     "color": "Renk",
     "close": "Kapat",
     "actions": "Hareketler",
-    "customWeekdays": "Özel Hafta içi günler"
+    "customWeekdays": "Özel Hafta içi günler",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",
