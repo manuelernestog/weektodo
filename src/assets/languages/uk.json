@@ -94,7 +94,7 @@
     "data8": "Їх можна сховати в меню налаштувань",
     "data9": "Яблука",
     "data10": "Легкі напої",
-    "data11": "Клацніть три крапки, щоб детальніше переглянути це завдання",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "Швидко відкривайте деталі завдання за допомогою середнього клацання миші",
     "list1": "Власний список",
     "list2": "Список продуктів",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo є стільничною програмою і на разі не може відображатися в цьому розширені. :(",
     "today": "Сьогодні",
     "calendar": "Календар",
+    "print": "PDF / Print",
     "newCustomList": "Новий власний список",
     "reorderCustomLists": "Змінити порядок користувацьких списків",
     "softwareUpdated": "Програму оновлено",
@@ -178,7 +179,8 @@
     "quit": "Вийти",
     "copyTasks": "Копіювати завдання",
     "task": "завдання",
-    "Frecuency": "Частота"
+    "Frecuency": "Частота",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "Назва завдання",
@@ -209,7 +211,8 @@
     "color": "Колір",
     "close": "Закрити",
     "actions": "Дії",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",
