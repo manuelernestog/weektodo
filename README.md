@@ -124,9 +124,14 @@ Read [Contributing.md](/CONTRIBUTING.md) for more information.
 
 ## Contributors
 
+- Logo Rebranding by [hallgraph](https://twitter.com/hallgraph)
+- [Translators](https://weektodo.me/about/)
+
 <a href="https://github.com/manuelernestog/weektodo/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=manuelernestog/weektodo" />
 </a>
+
+
 
 Made with [contrib.rocks](https://contrib.rocks).
 
