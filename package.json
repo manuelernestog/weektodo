@@ -26,6 +26,7 @@
   "main": "background.js",
   "repository": "https://github.com/manuelernestog/weektodo",
   "dependencies": {
+    "@achrinza/node-ipc": "^10.1.10",
     "@manuelernestog/click-handler": "^1.4.0",
     "@popperjs/core": "^2.11.0",
     "@sentry/vue": "^7.99.0",
