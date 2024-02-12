@@ -94,7 +94,7 @@
     "data8": "Sie können sie auch im Optionsmenü ausblenden",
     "data9": "Äpfel",
     "data10": "Erfrischungen",
-    "data11": "Klicken Sie auf die drei Punkte, um weitere Details zu dieser Aufgabe anzuzeigen",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "Öffnen Sie Aufgabendetails schnell mit dem mittleren Mausklick",
     "list1": "Benutzerdefinierte Liste",
     "list2": "Einkaufsliste",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo ist eine Desktop-Anwendung und kann derzeit nicht in dieser Auflösung angezeigt werden. :(",
     "today": "heute",
     "calendar": "Kalender",
+    "print": "PDF / Print",
     "newCustomList": "Neue benutzerdefinierte Liste",
     "reorderCustomLists": "Benutzerdefinierte Listen neu anordnen",
     "softwareUpdated": "Software aktualisiert",
@@ -178,7 +179,8 @@
     "quit": "Aufhören",
     "copyTasks": "Aufgaben kopieren",
     "task": "Aufgabe",
-    "Frecuency": "Häufigkeit"
+    "Frecuency": "Häufigkeit",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "Aufgabentitel",
@@ -209,7 +211,8 @@
     "color": "Farbe",
     "close": "Nah dran",
     "actions": "Aktionen",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "Sie haben heute keine geplanten Aufgaben.",
