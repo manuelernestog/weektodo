@@ -5,7 +5,7 @@
     "customLists": "自定义列表",
     "darkTheme": "深色主题",
     "darkTrayIcon": "深色托盘图标",
-    "darkIcon": "深色图标",
+    "darkIcon": "暗色图标",
     "data": "数据",
     "import": "导入",
     "export": "导出",
@@ -14,8 +14,8 @@
     "checkUpdates": "启动时检查更新",
     "calendar": "日历",
     "zoom": "缩放",
-    "columns": "日历栏",
-    "lists_columns": "自定义列表栏",
+    "columns": "列",
+    "lists_columns": "自定义显示列",
     "goToNewDomain": "我们正在将 WeekToDo 网站迁移到一个新的域名，这个域名将很快停止。 请从新域名开始访问 WeekToDo。 要移动您的数据，您必须在此处将其导出，然后从配置菜单将其导入其他域。 如有不便，敬请原谅。",
     "gotoNewDomainBtn": "转到新域名",
     "general": "常规",
@@ -35,12 +35,15 @@
     "exporting": "正在导出...",
     "reportErrors": "发送错误报告",
     "compactView": "紧凑视图",
-    "behavior": "行为习惯",
+    "behavior": "行为",
     "startCalendarYesterday": "昨天开始的日历",
     "notificationIndicator": "通知指示器",
-    "autoReorderTasks": "自动重新排列任务",
-    "moveCompletedTaskToBottom": "把已完成的任务移到底部",
-    "weekStartOnMonday": "一周从星期一开始"
+    "autoReorderTasks": "自动重新排序任务",
+    "moveCompletedTaskToBottom": "将已完成的任务移到底部",
+    "weekStartOnMonday": "从星期一开始",
+    "clear": "清除",
+    "fullscreenToDoModal": "全屏显示“待办事项详情”",
+    "moveCompletedSubTaskToBottom": "将已完成的子任务移到底部"
   },
   "donate": {
     "contribute": "贡献",
@@ -63,7 +66,7 @@
     "translate": "翻译",
     "shareMessage": "我正在使用 WeekToDo 来安排我的一周，这是一个免费的、注重隐私的、极简主义的每周计划，我想你也会喜欢它的。",
     "supportUs": "支持我们",
-    "splashMessage": "喜欢 WeekToDo 吗？你可以在这里支持这个项目 !"
+    "splashMessage": "喜欢 WeekToDo 吗？\n您可以在这里支持该项目！"
   },
   "about": {
     "about": "关于",
@@ -79,7 +82,7 @@
     "collaborators": "合作者",
     "email": "电子邮箱",
     "blog": "博客",
-    "license": "许可证"
+    "license": "执照"
   },
   "generatedData": {
     "data2": "点击完成任务",
@@ -155,7 +158,7 @@
     "compatible": "抱歉，WeekToDo 与您的网络浏览器不兼容。 尝试更新它或使用另一个。",
     "removeList": "删除列表",
     "completeAll": "完成所有",
-    "newTask": "新建任务",
+    "newTask": "新任务",
     "postpone": "推迟",
     "newVersionAvailable": "新版本可用",
     "download": "（下载）",
@@ -175,12 +178,14 @@
     "quit": "退出",
     "copyTasks": "复制任务",
     "task": "任务",
-    "Frecuency": "频率"
+    "Frecuency": "频率",
+    "print": "PDF/打印",
+    "showAll": "显示所有"
   },
   "todoDetails": {
     "taskTitle": "任务标题",
     "notes": "注释",
-    "markdown": "已支持 Markdown 样式",
+    "markdown": "支持 Markdown 样式",
     "addSubTask": "添加子任务",
     "copiedTaskToClipboard": "文本已复制到剪贴板！！！",
     "taskRemoved": "任务已删除！！！",
@@ -205,7 +210,9 @@
     "alarm": "警报",
     "color": "颜色",
     "close": "关闭",
-    "actions": "操作"
+    "actions": "操作",
+    "daysOfMonth": "每月的天数",
+    "customWeekdays": "自定义工作日"
   },
   "notifications": {
     "noPendingTasksToday": "你今天没有定期任务。",

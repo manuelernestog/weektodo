@@ -94,7 +94,7 @@
     "data8": "You can also hide them in the settings menu",
     "data9": "Apples",
     "data10": "Soft drinks",
-    "data11": "Click the three dots for see more details about this task",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "Open task details quickly with the middle mouse click",
     "list1": "Custom List",
     "list2": "Grocery List",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo is a Desktop application and for now it is not ready to be displayed in this resolution. :(",
     "today": "Today",
     "calendar": "Calendar",
+    "print": "PDF / Print",
     "newCustomList": "New Custom List",
     "reorderCustomLists": "Reorder Custom lists",
     "softwareUpdated": "Software Updated",
@@ -178,7 +179,8 @@
     "quit": "Quit",
     "copyTasks": "Copy Tasks",
     "task": "Task",
-    "Frecuency": "Frecuency"
+    "Frecuency": "Frecuency",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "Task title",
@@ -209,7 +211,8 @@
     "color": "Color",
     "close": "Close",
     "actions": "Actions",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "You have no scheduled tasks today.",

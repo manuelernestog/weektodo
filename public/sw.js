@@ -1,15 +1,10 @@
-var cacheName = "v1.9.0";
+var cacheName = "v2.2.0";
 
 var contentToCache = [
   "/",
   "js/app.js",
   "js/chunk-vendors.js",
-  "/libs/honeybadger.min.js",
-  "/img/WeekToDo-Logo-Color.4c453658.svg",
   "/Avatar.webp",
-  "/icons/alternativeto.png",
-  "/icons/product-hunt.svg",
-  "/icons/SaaSHub.png",
   "/fonts/bootstrap-icons.1ed478a6.woff2",
   "/WeekToDo-Logo-Color.svg",
   "/manifest.json",

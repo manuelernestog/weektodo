@@ -178,7 +178,9 @@
     "quit": "離開",
     "copyTasks": "複製任務",
     "task": "任務",
-    "Frecuency": "頻率"
+    "Frecuency": "頻率",
+    "print": "PDF/打印",
+    "showAll": "顯示所有"
   },
   "todoDetails": {
     "taskTitle": "任務名稱",
@@ -209,8 +211,8 @@
     "color": "色彩",
     "close": "關閉",
     "actions": "行動",
-    "weekdays": "週一至週五",
-    "customWeekdays": "自定義工作日"
+    "customWeekdays": "自定義工作日",
+    "daysOfMonth": "每月的天數"
   },
   "notifications": {
     "noPendingTasksToday": "您今天沒有計劃任務。",

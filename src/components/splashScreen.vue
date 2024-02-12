@@ -1,23 +1,39 @@
 <template>
   <transition name="fade">
-    <div v-if="show" id="splashScreen" class="splash-screen d-flex justify-content-center align-items-center"
-      ref="splashScreen">
+    <div
+      v-if="show"
+      id="splashScreen"
+      class="splash-screen d-flex justify-content-center align-items-center"
+      ref="splashScreen"
+    >
       <div class="d-flex flex-column align-items-center">
-        <div class=" d-flex justify-content-center align-items-center" style="margin-bottom: 2.2rem;">
-          <img class="logo" src="../../public/WeekToDo-Logo-Color.svg" alt="WeekToDo Logo" style="display: inline;">
-          <h1 style="display: inline;" class="mb-0">WeekToDo</h1>
+        <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 2.2rem">
+          <img
+            v-if="darkTheme"
+            class="logo"
+            src="../../public/img/weektodo-isologo-white.svg"
+            alt="WeekToDo Logo"
+            style="display: inline"
+          />
+          <img
+            v-else
+            class="logo"
+            src="../../public/img/weektodo-isologo-color.svg"
+            alt="WeekToDo Logo"
+            style="display: inline"
+          />
         </div>
-        <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px;">
+        <div v-show="sponsor" class="d-flex justify-content-center" style="height: 50px">
           <a v-if="sponsor" :href="sponsor.url" class="d-flex sponsor-container align-items-center" target="_blank">
-            <img :src="sponsor.img" class="sponsor-img" alt="WeekToDo Sponsor">
+            <img :src="sponsor.img" class="sponsor-img" alt="WeekToDo Sponsor" />
             <div class="my-2 mx-2">
-              <div class="fw-bolder d-inline" style="text-decoration: unset !important;">{{ sponsor.name }}</div>
-              <div class="opacity-50 mx-2 d-inline"> {{ sponsor.message }}</div>
+              <div class="fw-bolder d-inline" style="text-decoration: unset !important">{{ sponsor.name }}</div>
+              <div class="opacity-50 mx-2 d-inline">{{ sponsor.message }}</div>
             </div>
           </a>
         </div>
-        <div style="height: 25px; width: 200px;" class="d-flex justify-content-center">
-          <div v-show="sponsor" class="opacity-25" style="font-size: 0.7rem;">{{ $t('ui.sponsoredBy') }}</div>
+        <div style="height: 25px; width: 200px" class="d-flex justify-content-center">
+          <div v-show="sponsor" class="opacity-25" style="font-size: 0.7rem">{{ $t("ui.sponsoredBy") }}</div>
         </div>
       </div>
     </div>
@@ -30,27 +46,27 @@ export default {
   data() {
     return {
       show: true,
-      sponsor: null
-    }
+      sponsor: null,
+      darkTheme: this.$store.getters.config.darkTheme,
+    };
   },
   mounted() {
-    const axios = require('axios').default;
-    axios.get('https://weektodo.me/api/sponsors')
-      .then(response => (this.renderSponsor(response)))
-      .catch(error => console.log(error.message))
-  }
-  ,
+    const axios = require("axios").default;
+    axios
+      .get("https://weektodo.me/api/sponsors")
+      .then((response) => this.renderSponsor(response))
+      .catch((error) => console.log(error.message));
+  },
   methods: {
     hideSplash: function () {
       this.show = false;
-    }
-    ,
+    },
     renderSponsor: function (response) {
       var sponsors = [];
 
       sponsors.push({
         name: "WeekToDo",
-        message: this.$t('donate.splashMessage'),
+        message: this.$t("donate.splashMessage"),
         url: "https://weektodo.me/support-us",
         img: "/icons/ko-fi.png",
       });
@@ -78,9 +94,9 @@ export default {
       });
 
       this.sponsor = sponsors[Math.floor(Math.random() * sponsors.length)];
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -102,7 +118,7 @@ export default {
   /*border: 1px solid #dbdbdb;*/
   text-decoration: unset;
   color: unset;
-  transition: transform .4s;
+  transition: transform 0.4s;
 }
 
 .dark-theme .sponsor-container {
@@ -136,7 +152,7 @@ export default {
 
 .logo {
   margin-right: 15px;
-  width: 4rem;
+  width: 25rem;
 }
 
 .splash-screen h1 {

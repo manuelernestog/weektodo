@@ -11,6 +11,7 @@ export default {
     trayIcon();
     telemetric();
     v2_1_0();
+    v2_2_0();
   },
 };
 
@@ -91,5 +92,14 @@ function v2_1_0() {
     config["fullscreenToDoModal"] = false;
     config["moveCompletedSubTaskToBottom"] = true;
     config["weekStartOnMonday"] = true;
+    configRepository.update(config);
+  }
+}
+
+function v2_2_0() {
+  let config = configRepository.load();
+  if (!("lastDayOpened" in config)) {
+    config["lastDayOpened"] = moment().format("YYYY-MM-DD");
+    configRepository.update(config);
   }
 }

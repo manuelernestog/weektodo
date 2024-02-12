@@ -18,7 +18,7 @@ const mutations = {
   loadRepeatingEventDateCache(state, repeatingEventList) {
     var today = new Date();
     var future_date = new Date();
-    
+
     future_date.setFullYear(today.getFullYear() + 10);
     for (const [id, re] of Object.entries(repeatingEventList)) {
       const rule = rrulestr(re.repeating_rule);

@@ -1,5 +1,21 @@
+## v2.2.0
+Feb 14, 2024
+
+- Adding Print and Export PDF Feature
+- Adding new sidebar submenu
+- To-do detail view textarea with dynamic height
+- Adding Rebranding
+- Using Sentry for error handle
+- Fixing move old tasks to current day
+- Adding recurring task filter
+- Adding Month days recurring tasks
+- Fixing typos and improving translations
+- Adding Hindi, Vietnamese and Hebrew
+- Adding Docker config To run the development web version 
+
+
 ## v2.1.0
-Jun 1, 2023
+Jun 3, 2023
 
 - Fixing Bugs
 - Improving app performance
@@ -8,7 +24,7 @@ Jun 1, 2023
 - Upgrading all tech stack libraries
 - Adding new repeating event option for custom weekdays selector
 - Improving splash screen
-- Adding sent subtask to bottom on clomplete setting
+- Adding sent subtask to bottom on complete setting
 - Todo Description markdown link now redirect to external link in web browser
 - Adding week start on monday setting
 - Improving Chinese and Russian languages
