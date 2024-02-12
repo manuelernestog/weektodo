@@ -35,6 +35,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install wine wine32
           sudo apt-get install snapd
+          sudo apt-get install libarchive-tools
           sudo snap install snapcraft --classic
 
       - name: build-linux
