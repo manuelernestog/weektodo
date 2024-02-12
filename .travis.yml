@@ -8,27 +8,27 @@ node_js:
 # linux apps
 matrix:
   include:
-    - os: osx
-      osx_image: xcode14.2
-      language: node_js
-      node_js: "16.20.0"
-      env:
-          - ELECTRON_CACHE=$HOME/.cache/electron
-          - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-      deploy:
-        - provider: script
-          script: bash deploy.travis.sh
-          skip_cleanup: true
-          on:
-            branch: deploy
-    # - os: linux
-    #   dist: xenial
+    # - os: osx
+    #   osx_image: xcode14.2
+    #   language: node_js
+    #   node_js: "16.20.0"
+    #   env:
+    #       - ELECTRON_CACHE=$HOME/.cache/electron
+    #       - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
     #   deploy:
     #     - provider: script
     #       script: bash deploy.travis.sh
     #       skip_cleanup: true
     #       on:
     #         branch: deploy
+    - os: linux
+      dist: xenial
+      deploy:
+        - provider: script
+          script: bash deploy.travis.sh
+          skip_cleanup: true
+          on:
+            branch: deploy
     # - os: linux
     #   dist: xenial
     #   deploy:
