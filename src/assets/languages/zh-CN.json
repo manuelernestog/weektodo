@@ -94,7 +94,7 @@
     "data8": "您也可以在设置菜单中隐藏它们",
     "data9": "苹果",
     "data10": "饮料",
-    "data11": "单击三个点以查看有关此任务的更多详细信息",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "用鼠标点击快速打开任务详细信息",
     "list1": "自定义列表",
     "list2": "购物列表",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo 是一个桌面应用程序，目前尚未准备好以该分辨率显示。:(",
     "today": "今天",
     "calendar": "日历",
+    "print": "PDF / Print",
     "newCustomList": "新建自定义列表",
     "reorderCustomLists": "重新排序自定义列表",
     "softwareUpdated": "软件更新",
@@ -178,7 +179,8 @@
     "quit": "退出",
     "copyTasks": "复制任务",
     "task": "任务",
-    "Frecuency": "频率"
+    "Frecuency": "频率",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "任务标题",
@@ -209,7 +211,8 @@
     "color": "颜色",
     "close": "关闭",
     "actions": "操作",
-    "customWeekdays": "自定义工作日"
+    "customWeekdays": "自定义工作日",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "你今天没有定期任务。",
