@@ -63,5 +63,8 @@
     "sass": "^1.69.5",
     "sass-loader": "^10",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.6"
+  },
+  "resolutions": {
+    "vue-cli-plugin-electron-builder/electron-builder": "^23.0.3"
   }
 }
