@@ -22,25 +22,23 @@ matrix:
     #       on:
     #         branch: deploy
     - os: linux
-      dist: xenial
-      language: node_js
-      node_js: "16.20.0"
+      dist: jammy
       deploy:
         - provider: script
           script: bash deploy.travis.sh
           skip_cleanup: true
           on:
             branch: deploy
-    - os: linux
-      dist: xenial
-      language: node_js
-      node_js: "16.20.0"
-      deploy:
-        - provider: script
-          script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb pacman AppImage rpm --win nsis msi -p always"
-          skip_cleanup: true
-          on:
-            branch: deploy
+    # - os: linux
+    #   dist: xenial
+    #   language: node_js
+    #   node_js: "16.20.0"
+    #   deploy:
+    #     - provider: script
+    #       script: docker run --rm -e GH_TOKEN -v "${PWD}":/project -v ~/.cache/electron:/root/.cache/electron -v ~/.cache/electron-builder:/root/.cache/electron-builder electronuserland/builder:wine /bin/bash -c "yarn electron:build --linux deb pacman AppImage rpm --win nsis msi -p always"
+    #       skip_cleanup: true
+    #       on:
+    #         branch: deploy
 
 notifications:
   email: false
