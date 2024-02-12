@@ -94,7 +94,7 @@
     "data8": "También puedes ocultarlas en el menú de opciones",
     "data9": "Manzanas",
     "data10": "Refrescos",
-    "data11": "Haga clic en los tres puntos para ver más detalles sobre esta tarea",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "Abra los detalles de la tarea rápidamente con el clic central del ratón",
     "list1": "Lista Personalizada",
     "list2": "Lista de Compras",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo es una aplicación de Escritorio y por ahora no esta lista para mostrarse en esta resolución. :(",
     "today": "Hoy",
     "calendar": "Calendario",
+    "print": "PDF / Print",
     "newCustomList": "Nueva Lista Personalizada",
     "reorderCustomLists": "Reordenar listas personalizadas",
     "softwareUpdated": "Software Actualizado",
@@ -178,7 +179,8 @@
     "quit": "Salir",
     "copyTasks": "Copiar tareas",
     "task": "Tarea",
-    "Frecuency": "Frecuencia"
+    "Frecuency": "Frecuencia",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",
@@ -209,7 +211,8 @@
     "color": "Color",
     "close": "Cerca",
     "actions": "Acciones",
-    "customWeekdays": "Días de la semana personalizados"
+    "customWeekdays": "Días de la semana personalizados",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "No tienes tareas programadas hoy.",
