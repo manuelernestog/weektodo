@@ -22,7 +22,7 @@ matrix:
     #       on:
     #         branch: deploy
     - os: linux
-      dist: jammy
+      dist: xenial
       deploy:
         - provider: script
           script: bash deploy.travis.sh
