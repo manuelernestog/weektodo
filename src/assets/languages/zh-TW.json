@@ -94,7 +94,7 @@
     "data8": "您也可以將它們隱藏在選項選中中",
     "data9": "蘋果",
     "data10": "茶點",
-    "data11": "點擊三個點以查看有關此任務的更多詳細訊息",
+    "data11": "Click the three dots to see more details about this task",
     "data12": "點擊滑鼠中鍵快速打開任務詳情",
     "list1": "自定義列表",
     "list2": "購物清單",
@@ -150,6 +150,7 @@
     "mobileWarning": "WeekToDo是一個桌面應用程式，目前尚未準備好以該解析度顯示。:(",
     "today": "今天",
     "calendar": "日曆",
+    "print": "PDF / Print",
     "newCustomList": "新的自定義列表",
     "reorderCustomLists": "重新排序自定義列表",
     "softwareUpdated": "軟體已更新",
@@ -178,7 +179,8 @@
     "quit": "離開",
     "copyTasks": "複製任務",
     "task": "任務",
-    "Frecuency": "頻率"
+    "Frecuency": "頻率",
+    "showAll": "Show All"
   },
   "todoDetails": {
     "taskTitle": "任務名稱",
@@ -209,7 +211,8 @@
     "color": "色彩",
     "close": "關閉",
     "actions": "行動",
-    "customWeekdays": "Custom Weekdays"
+    "customWeekdays": "Custom Weekdays",
+    "daysOfMonth": "Days of Month"
   },
   "notifications": {
     "noPendingTasksToday": "您今天沒有計劃任務。",
