@@ -188,6 +188,7 @@ export default {
   flex-direction: column;
   float: left;
   background-color: #fcfcfc;
+  direction: ltr;
 }
 
 .side-bar > i:first-child {

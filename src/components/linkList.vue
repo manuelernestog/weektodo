@@ -7,6 +7,7 @@
           <img v-if="item.img" :src="item.img" height="22">
         </div>
         <div class="align-self-center w-100">{{item.name}}</div>
+        <i class="align-self-center" :class="isRTL ? 'bi-chevron-left' : 'bi-chevron-right'"></i>
       </div>
     </li>
   </ul>
@@ -51,6 +52,11 @@
             tagIdLink: function (id) {
                 document.getElementById(id).click();
             }
+        },
+        computed: {
+          isRTL: function () {
+            return this.$i18n.locale === 'ar'
+          },
         }
     }
 </script>

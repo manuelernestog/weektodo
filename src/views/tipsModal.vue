@@ -9,7 +9,7 @@
         </div>
         <div class="modal-body d-flex">
           <div style="margin: 5px">
-            <i class="bi-info-circle" style="font-size: 38px; margin-right: 30px; "></i>
+            <i class="bi-info-circle" style="font-size: 38px;"></i>
           </div>
           <div style="margin-top: 9px">
             {{tips[index].text}}
@@ -84,11 +84,14 @@
   .modal-body {
     height: 100px;
   }
-
+  .modal-footer .btn {
+    direction: ltr;
+  }
   .bi-info-circle {
     background: -webkit-linear-gradient(180deg, rgba(89, 66, 141, 1) 0%, rgba(114, 78, 156, 1) 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-right: 30px;
   }
 
   .dark-theme .bi-info-circle {

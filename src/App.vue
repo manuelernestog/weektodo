@@ -1,6 +1,6 @@
 <template>
   <input class="hidden-input-for-focus" type="text" />
-  <div v-show="compatible" id="app-container" class="app-container" :class="{ 'dark-theme': darkTheme }">
+  <div v-show="compatible" id="app-container" class="app-container" :class="{ 'dark-theme': darkTheme, 'lang-rtl': isRTL }">
     <div class="hidden-mobile app-body" :style="{ zoom: `${zoom}%` }">
       <splash-screen ref="splash"></splash-screen>
       <side-bar @change-date="setSelectedDate"></side-bar>
@@ -17,7 +17,7 @@
             'full-screen-divider': hideBottomListContainer,
           }"
         >
-          <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
+          <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="isRTL ? weekMoveRight() : weekMoveLeft()"></i>
           <div class="todo-slider weekdays" ref="weekListContainer">
             <to-do-list
               v-for="date in dates_array"
@@ -28,7 +28,7 @@
             >
             </to-do-list>
           </div>
-          <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
+          <i class="bi-chevron-right slider-btn" ref="weekRight" @click="isRTL ? weekMoveLeft() : weekMoveRight()"></i>
         </div>
 
         <div
@@ -587,6 +587,9 @@ export default {
     darkTheme: function () {
       return this.$store.getters.config.darkTheme;
     },
+    isRTL: function () {
+      return this.$i18n.locale === 'ar'
+    },
     resizableStyle: function () {
       if (this.showCalendar && this.showCustomList) {
         return { height: this.calendarHeight };
@@ -631,6 +634,7 @@ export default {
 
 <style lang="scss">
 @import "/src/assets/style/globalVars.scss";
+@import "/src/assets/style/lang-rtl.scss";
 
 body {
   line-height: unset !important;

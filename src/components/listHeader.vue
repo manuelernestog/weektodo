@@ -19,7 +19,7 @@
     </div>
     <i v-show="!editing" class="bi-three-dots-vertical header-menu-icons dropdown-toggle-split align-self-center"
       type="button" data-bs-toggle="dropdown"></i>
-    <ul class="dropdown-menu" aria-labelledby="btnTaskOptionMenu">
+    <ul class="dropdown-menu tasklists-menu" aria-labelledby="btnTaskOptionMenu">
       <li>
         <button class="dropdown-item" type="button" @click="newTask">
           <i class="bi-plus-lg"></i> <span>{{ $t('ui.newTask') }}</span>
