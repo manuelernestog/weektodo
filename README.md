@@ -31,6 +31,33 @@ WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule yo
 - Workspaces
 - Themes
 
+## Sponsors
+
+WeekToDo is an GPL-licensed open source project with its ongoing development made possible entirely by users support and sponsors. If you'd like to join them, please consider [ sponsoring WeekToDo's development](https://weektodo.me/sponsor-us/) or [make the donation](https://weektodo.me/support-us/) you can.
+
+<p align="center">
+  <h3 align="center">Diamond Sponsors</h3>
+</p>
+
+<p align="center">
+  <a target="_blank" href="https://password.link">
+  <img alt="Password.link - Securely share sensitive information with one-time links. Send and receive passwords and confidential documents." src="https://weektodo.me/img/sponsors/passwordlink/wide.webp" width="350">
+  </a>
+</p>
+
+<p align="center">
+  <h3 align="center">Silver Sponsors</h3>
+</p>
+
+<p align="center">
+  <a target="_blank" href="https://www.snapclear.app/">
+    <img alt="Snapclear - Remove image backgrounds with a single click for free." src="https://weektodo.me/img/sponsors/snapclear/wide.webp" width="150">
+  </a>
+  <a target="_blank" href="https://chrome.google.com/webstore/detail/easyfiller-automatic-form/oaphggcbnpminjffkjgldfepehcdjndp?hl=es&authuser=0">
+    <img alt="Easyfiller - Fill your forms with a single click for free" src="https://weektodo.me/img/sponsors/easyfiller/wide.webp" width="150">
+  </a>
+</p>
+
   
 ## Installation
 
