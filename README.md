@@ -103,12 +103,12 @@ cd weektodo
 yarn install
 yarn run serve // to run web version
 yarn run electron:serve // to run native version
+```
 
 ### Docker
 
  To run the development web version use `docker-compose up`
 
-```
 ## Contributing
 
 You can support this project in several ways:
