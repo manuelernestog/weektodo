@@ -33,7 +33,7 @@ WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule yo
 
 ## Sponsors
 
-WeekToDo is a GPL-licensed open source project with its ongoing development supported entirely by users and sponsors. If you'd like to join them, please consider [sponsoring WeekToDo's development](https://weektodo.me/sponsor-us/) or [making a donation](https://weektodo.me/support-us/) if you can.
+WeekToDo is a GPL-licensed open source project with its ongoing development being supported entirely by users and sponsors. If you'd like to join them, please consider [sponsoring WeekToDo's development](https://weektodo.me/sponsor-us/) or [making a donation](https://weektodo.me/support-us/) if you can.
 
 <p align="center">
   <h3 align="center">Diamond Sponsors</h3>
@@ -137,11 +137,11 @@ You can find the base file with all the words used in english [here](src/assets/
 
 To add a new language, fork the repo and create a pull request that adds a translation file (like `translations/en.json`), which should be named accordingly using one of the language codes available [here](https://gist.github.com/Josantonius/b455e315bc7f790d14b136d61d9ae469).
 
-If this is too dificult, you can donwload this [file](src/assets/languages/en.json/), translate it and send it to the following e-mail address: contact@weektodo.me
+If this is too dificult, you can download this [file](src/assets/languages/en.json/), translate it and send it to the following e-mail address: contact@weektodo.me
  
 ## Contributing
 
-WeekToDo is open-source. Pull requests and contributions are welcome! There are three ways to contribute: fill a [bug report](https://github.com/manuelernestog/issues?q=is%3Aopen+is%3Aissue+label%3Abug), [suggest a feature](https://github.com/manuelernestog/weektodo/issues?q=is%3Aissue+is%3Aopen+label%3Afeature) or search for feature request that have been marked as `accepted` and dig in.
+WeekToDo is open-source. Pull requests and contributions are welcome! There are three ways to contribute: fill a [bug report](https://github.com/manuelernestog/issues?q=is%3Aopen+is%3Aissue+label%3Abug), [suggest a feature](https://github.com/manuelernestog/weektodo/issues?q=is%3Aissue+is%3Aopen+label%3Afeature) or search for feature requests that have been marked as `accepted` and dig in.
 
 Read [Contributing.md](/CONTRIBUTING.md) for more information.
 
