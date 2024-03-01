@@ -33,7 +33,7 @@ WeekToDo is a free minimalist weekly planner app focused on privacy. Schedule yo
 
 ## Sponsors
 
-WeekToDo is a GPL-licensed open source project with its ongoing development being supported entirely by users and sponsors. If you'd like to join them, please consider [sponsoring WeekToDo's development](https://weektodo.me/sponsor-us/) or [making a donation](https://weektodo.me/support-us/) if you can.
+WeekToDo is a GPL-licensed open source project, with its ongoing development being made possible entirely by users and sponsors. If you'd like to join them, please consider [sponsoring WeekToDo's development](https://weektodo.me/sponsor-us/) or [making a donation](https://weektodo.me/support-us/) if you can.
 
 <p align="center">
   <h3 align="center">Diamond Sponsors</h3>
