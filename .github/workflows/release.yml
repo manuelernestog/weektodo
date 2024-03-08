@@ -1,0 +1,86 @@
+name: Build/release Electron app
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Dependencies
+        run: |
+          npm install --global yarn
+          yarn --version
+          yarn install
+
+      - name: Install Linux Dependencies 
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install wine wine32
+          sudo apt-get install snapd
+          sudo apt-get install libarchive-tools
+          sudo snap install snapcraft --classic
+
+      - name: build-linux
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          yarn run electron:build
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          VUE_APP_SENTRY_DNS: ${{ secrets.VUE_APP_SENTRY_DNS }}
+
+      - name: build-linux
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          yarn run electron:build --win nsis
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          VUE_APP_SENTRY_DNS: ${{ secrets.VUE_APP_SENTRY_DNS }}
+
+      - name: build-linux-snap
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          yarn electron:build --linux snap -p always
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          VUE_APP_SENTRY_DNS: ${{ secrets.VUE_APP_SENTRY_DNS }}
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+
+      - name: build-mac
+        if: matrix.os == 'macos-latest'
+        run: yarn run electron:build
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          VUE_APP_SENTRY_DNS: ${{ secrets.VUE_APP_SENTRY_DNS }}
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          repository: manuelernestog/weektodo
+          files: |
+            dist_electron//*.exe
+            dist_electron//*.dmg
+            dist_electron//*.AppImage
+            dist_electron//*.snap
+            dist_electron//*.pacman
+            dist_electron//*.deb
+            dist_electron//*.rpm
+            dist_electron//*.pkg

@@ -40,10 +40,10 @@
     "notificationIndicator": "Индикатор уведомлений",
     "autoReorderTasks": "Автоматически переупорядочивать задачи",
     "moveCompletedTaskToBottom": "Переместить выполненные задачи вниз",
-    "clear": "Удалить",
-    "fullscreenToDoModal": "Подробная информация о делах в полноэкранном режиме",
-    "moveCompletedSubTaskToBottom": "Переместить выполненные подзадачи вниз",
-    "weekStartOnMonday": "Неделя начинается в понедельник"
+    "clear": "Очистить",
+    "fullscreenToDoModal": "Детали на весь экран",
+    "moveCompletedSubTaskToBottom": "Переместить завершенные подзадачи в конец",
+    "weekStartOnMonday": "Начало недели в понедельник"
   },
   "donate": {
     "contribute": "Способствовать",
@@ -144,7 +144,7 @@
     "repeatingTaskRemoveConfirm": "Вы уверены, что хотите удалить эту повторяющуюся задачу?",
     "removeRepeatingTask": "Удалить повторяющуюся задачу",
     "cancel": "Отменить",
-    "ok": "Ok",
+    "ok": "Ок",
     "remove": "Удалить",
     "splashSub": "Минималистский еженедельник",
     "mobileWarning": "WeekToDo - это настольное приложение, и пока оно не готово для отображения в этом разрешении. :(",
@@ -178,7 +178,9 @@
     "quit": "Выход",
     "copyTasks": "Копировать задачи",
     "task": "Задача",
-    "Frecuency": "Частота"
+    "Frecuency": "Частота",
+    "print": "PDF/печать",
+    "showAll": "Показать все"
   },
   "todoDetails": {
     "taskTitle": "Заголовок задачи",
@@ -209,7 +211,8 @@
     "color": "Цвет",
     "close": "Закрывать",
     "actions": "Действия",
-    "customWeekdays": "Пользовательские дни недели"
+    "customWeekdays": "Пользовательские дни",
+    "daysOfMonth": "Дни месяца"
   },
   "notifications": {
     "noPendingTasksToday": "У вас нет запланированных задач на сегодня.",

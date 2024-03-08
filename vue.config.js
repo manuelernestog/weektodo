@@ -10,11 +10,11 @@ module.exports = {
         linux: {
           category: "Utility",
           description: "Free and Open Source Minimalist Weekly Planner and To Do list App focused on privacy.",
-          target: ["deb", "rpm", "pacman", "AppImage"],
+          target: ["deb", "rpm", "pacman","AppImage"],
           icon: "build/icon.icns",
         },
         win: {
-          target: ["nsis","msi"],
+          target: ["nsis"],
         },
         mac: {
           category: "public.app-category.productivity",

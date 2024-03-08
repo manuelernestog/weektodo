@@ -104,18 +104,8 @@
               </label>
               <input v-show="editingTitle" class="todo-title-input" type="text" v-model="todo.text" ref="titleInput"
                 :placeholder="$t('todoDetails.taskTitle')" @blur="doneEditTitle()" @keyup.enter="doneEditTitle()" />
-              <div class="position-relative" v-show="editingDescription">
-                <textarea class="todo-description-textarea mt-2" v-model="todo.desc"
-                  :placeholder="$t('todoDetails.notes')" ref="descriptionInput" @blur="doneEditDescription">
-                </textarea>
-                <i class="bi-markdown-fill" @mousedown="goToMarkDown" :title="$t('todoDetails.markdown')"></i>
-              </div>
-              <div v-show="!editingDescription && todo.desc != ''" class="mt-2 todo-description"
-                @dblclick="editDescription" v-html="todoDescription"> </div>
-              <div v-show="!editingDescription && todo.desc.replace(/^\s*$(?:\r\n?|\n)/gm, '') == ''"
-                @dblclick="editDescription" class="description-empty mt-2">
-                {{ $t("todoDetails.notes") }}
-              </div>
+              <description-text-area :todoDesc="todo.desc"
+                @updated-description="changeDescription"></description-text-area>
             </div>
           </div>
           <div class="mt-3"></div>
@@ -162,7 +152,6 @@
 
 <script>
 import Datepicker from "vue3-datepicker";
-import MarkdownIt from 'markdown-it';
 import toDoListRepository from "../../repositories/toDoListRepository";
 import moment from "moment";
 import dbRepository from "../../repositories/dbRepository";
@@ -179,7 +168,7 @@ import comfirmModal from "../../components/comfirmModal.vue";
 import linkifyStr from 'linkify-string';
 import ClickHandler from "@manuelernestog/click-handler";
 import tasksHelper from "../../helpers/tasksHelper";
-import markdownTargetBlankLinks from '../../helpers/markdownTargetBlankLinks';
+import descriptionTextArea from './descriptionTextArea.vue'
 
 export default {
   name: "toDoModal",
@@ -199,7 +188,6 @@ export default {
       todoList: null,
       index: 0,
       newSubTask: { text: "", checked: false, editing: false },
-      editingDescription: false,
       tempTitle: "",
       tempSubTask: "",
       editingTitle: false,
@@ -207,11 +195,7 @@ export default {
       loadingView: false,
       options: { target: '_blank', defaultProtocol: 'https' },
       clickhandler: new ClickHandler(),
-      md: new MarkdownIt()
     }
-  },
-  mounted() {
-    markdownTargetBlankLinks.renderBlankLinks(this.md);
   },
   props: {
     selectedTodo: { required: true, type: Object },
@@ -222,7 +206,8 @@ export default {
     toastMessage,
     timePicker,
     repeatingEvent,
-    comfirmModal
+    comfirmModal,
+    descriptionTextArea
   },
   methods: {
     removeSubTask: function (index) {
@@ -261,18 +246,6 @@ export default {
       this.todo.subTaskList[index].text = this.tempSubTask;
       this.$refs["subTaskEdit" + index].blur();
     },
-    editDescription: function () {
-      this.editingDescription = true;
-      this.$nextTick(function () {
-        this.$refs["descriptionInput"].focus();
-        this.$refs["descriptionInput"].setSelectionRange(0, 0);
-        this.$refs["descriptionInput"].scrollTop = 0;
-      });
-    },
-    doneEditDescription: function () {
-      this.editingDescription = false;
-      this.updateTodo();
-    },
     editTitle: function () {
       this.editingTitle = true;
       this.$nextTick(function () {
@@ -288,9 +261,6 @@ export default {
     doneEditTitle: function () {
       this.editingTitle = false;
       this.updateTodo();
-    },
-    goToMarkDown: function () {
-      window.open("https://commonmark.org/help/", "_blank");
     },
     startDrag: function (event, index) {
       event.dataTransfer.setData("index", index);
@@ -494,6 +464,10 @@ export default {
         this.updateTodo();
       }
     },
+    changeDescription(desc) {
+      this.todo.desc = desc;
+      this.updateTodo();
+    },
     changeRepeatingEvent(repeatingEvent) {
       this.todo.repeatingEvent = repeatingEvent;
       this.updateTodo(false);
@@ -587,9 +561,6 @@ export default {
     },
     weekStartOnMonday: function () {
       return this.$store.getters.config.weekStartOnMonday ? 1 : 0;
-    },
-    todoDescription: function () {
-      return this.md.render(this.todo.desc);
     }
   },
 };
@@ -598,27 +569,33 @@ export default {
 <style scoped lang="scss">
 @import "/src/assets/style/globalVars.scss";
 
+.modal-dialog {
+  max-height: 80%;
+
+  .modal-content {
+    height: 100%;
+
+    .modal-body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: calc(100vh - 180px);
+      ;
+      margin: 16px 0px 16px 0px;
+      padding: 0px 16px 0px 16px;
+    }
+  }
+}
 
 #toDoModal.fullscreen {
   .modal-dialog {
     margin: 0px;
-    height: 80%;
-    width: 80%;
+    height: 85%;
+    width: 90%;
     max-width: unset;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-
-    .modal-content {
-      height: 100%;
-      width: 100%;
-    }
-
-    .modal-body {
-      overflow-y: auto;
-    }
 
     .sub-tasks {
       max-height: unset;
@@ -675,70 +652,16 @@ export default {
   margin-left: -8px;
 }
 
-.todo-description-textarea {
-  font-size: 14px;
-  line-height: 19px;
-  height: 150px;
-  width: 100%;
-  overflow: auto;
-  resize: none;
-  background: unset;
-  cursor: auto;
-  outline: unset;
-  border: 2px solid black;
-  border-radius: 3px;
 
-  .dark-theme & {
-    border: 1px solid rgba(255, 255, 255, 0.658);
-    color: #c9d1d9;
-  }
-}
-
-.bi-markdown-fill {
-  font-size: 20px;
-  margin-top: -50px;
-  position: absolute;
-  right: 10px;
-  bottom: 5px;
-  opacity: 0.3;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 1;
-  }
-}
 
 .dropdown-item {
   color: #3c3c3c;
-}
-
-.todo-description {
-  zoom: 89%;
-  max-height: 150px;
-  overflow-y: auto;
-  user-select: auto;
-  -moz-user-select: auto;
-  -webkit-user-drag: auto;
-  -webkit-user-select: auto;
-  -ms-user-select: auto;
-  padding: 2px;
-  border: 2px solid transparent;
-}
-
-.description-empty {
-  color: grey;
-  font-size: 14px;
-  line-height: 21px;
-  padding: 2px;
-  border: 2px solid transparent;
 }
 
 .sub-tasks {
   list-style: none;
   padding: 0px 10px 10px 10px;
   margin: 0px;
-  max-height: 250px;
-  overflow-y: auto;
 
   li>div {
     -webkit-user-drag: element;
@@ -886,7 +809,7 @@ export default {
 }
 
 .modal-dialog {
-  max-width: 600px;
+  max-width: 650px;
 }
 
 .header-menu-icons {

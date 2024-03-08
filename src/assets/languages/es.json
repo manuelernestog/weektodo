@@ -39,7 +39,11 @@
     "startCalendarYesterday": "El calendario empieza ayer",
     "notificationIndicator": "Indicador de notificación",
     "autoReorderTasks": "Reordenar tareas automáticamente",
-    "moveCompletedTaskToBottom": "Mover las tareas completadas al final"
+    "moveCompletedTaskToBottom": "Mover las tareas completadas al final",
+    "clear": "Eliminar",
+    "fullscreenToDoModal": "Detalles de tareas en pantalla completa",
+    "moveCompletedSubTaskToBottom": "Mover las subtareas completadas al final",
+    "weekStartOnMonday": "La semana comienza el lunes."
   },
   "donate": {
     "contribute": "Contribuir",
@@ -60,7 +64,7 @@
     "buyMeACoffee": "Cómprame un café",
     "buyMeACryptoCoffee": "Invítame a un café",
     "translate": "Traducir",
-    "shareMessage": "Estoy programando mi semana con WeekToDo, un planificador semanal minimalista gratuito enfocado en la privacidad y espero que te encante.\n¡Pruébalo!",
+    "shareMessage": "Estoy programando mi semana con WeekToDo, un planificador semanal gratuito minimalista centrado en la privacidad y creo que a ti también te encantará. \n¡Échale un vistazo!",
     "supportUs": "Apóyanos",
     "splashMessage": "¿Disfrutando de WeekToDo? \n¡Puedes apoyar el proyecto aquí!"
   },
@@ -72,7 +76,7 @@
     "devName": "Manuel Ernesto García",
     "version": "Versión",
     "desc": "WeekToDo es un Planificador Semanal Minimalista enfocado en la privacidad.",
-    "site": "Visita el sitio web",
+    "site": "Visitar Sitio Web",
     "contributors": "Contribuidores",
     "sponsors": "Patrocinadores",
     "collaborators": "Colaboradores",
@@ -174,7 +178,9 @@
     "quit": "Salir",
     "copyTasks": "Copiar tareas",
     "task": "Tarea",
-    "Frecuency": "Frecuencia"
+    "Frecuency": "Frecuencia",
+    "print": "PDF / Imprimir",
+    "showAll": "Mostrar todo"
   },
   "todoDetails": {
     "taskTitle": "Título de la tarea",
@@ -204,7 +210,9 @@
     "alarm": "Alarma",
     "color": "Color",
     "close": "Cerca",
-    "actions": "Acciones"
+    "actions": "Acciones",
+    "daysOfMonth": "Días del mes",
+    "customWeekdays": "Días de la semana personalizados"
   },
   "notifications": {
     "noPendingTasksToday": "No tienes tareas programadas hoy.",

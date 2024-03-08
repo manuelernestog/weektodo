@@ -178,7 +178,9 @@
     "quit": "Вийти",
     "copyTasks": "Копіювати завдання",
     "task": "завдання",
-    "Frecuency": "Частота"
+    "Frecuency": "Частота",
+    "print": "PDF / Друк",
+    "showAll": "Покажи все"
   },
   "todoDetails": {
     "taskTitle": "Назва завдання",
@@ -209,7 +211,8 @@
     "color": "Колір",
     "close": "Закрити",
     "actions": "Дії",
-    "customWeekdays": "Індивідуальні будні"
+    "customWeekdays": "Індивідуальні будні",
+    "daysOfMonth": "Дні місяця"
   },
   "notifications": {
     "noPendingTasksToday": "У вас сьогодні немає запланованих завдань.",

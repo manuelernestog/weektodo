@@ -3,24 +3,48 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{ $t("ui.recurringTasks") }}</h5>
+          <div class="d-flex">
+            <h5 class="modal-title">{{ $t("ui.recurringTasks") }}</h5>
+
+            <select
+              class="form-select re-input w-auto mx-3"
+              aria-label="Default select example"
+              v-model="repeatingType"
+              :disabled="repeatingEvent"
+            >
+              <option value="all">{{ $t("ui.showAll") }}</option>
+              <option value="3">{{ $t("todoDetails.daily") }}</option>
+              <option value="2">{{ $t("todoDetails.weekly") }}</option>
+              <option value="4">{{ $t("todoDetails.weekdays") }}</option>
+              <option value="5">{{ $t("todoDetails.customWeekdays") }}</option>
+              <option value="1">{{ $t("todoDetails.monthly") }}</option>
+              <option value="6">{{ $t("todoDetails.daysOfMonth") }}</option>
+              <option value="0">{{ $t("todoDetails.yearly") }}</option>
+            </select>
+          </div>
           <i class="bi-x close-modal" data-bs-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          <table class="table table-hover ">
+          <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">{{ $t("ui.task") }}</th>
-                <th scope="col">{{ $t("ui.Frecuency") }}</th>
+                <th  class="recurrent-heading" scope="col">{{ $t("ui.task") }}</th>
+                <th  class="recurrent-heading" scope="col">{{ $t("ui.Frecuency") }}</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="task in recurringTasks" :key="task.id">
-                <td>{{ task.data.text }}</td>
-                <td>{{ frecuency(task) }}</td>
-                <td><i class="bi-trash mx-2" :title="$t('ui.remove')" @click="removeRecurringTask(task.id)"
-                    data-bs-dismiss="modal"></i></td>
+                <td class="reccurent-items">{{ task.data.text }}</td>
+                <td class="recurring-freq">{{ frecuency(task) }}</td>
+                <td>
+                  <i
+                    class="bi-trash mx-2"
+                    :title="$t('ui.remove')"
+                    @click="removeRecurringTask(task.id)"
+                    data-bs-dismiss="modal"
+                  ></i>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -29,9 +53,15 @@
     </div>
   </div>
 
-  <comfirm-modal :id="'removeReModal'" :title="$t('ui.removeRepeatingTask')" :text="$t('ui.repeatingTaskRemoveConfirm')"
-    :ico="'bi-x-circle'" :okText="$t('ui.remove')" @on-ok="removeRepeatingTaskComfirmed"
-    @on-cancel="removeRepeatingTaskCanceled"></comfirm-modal>
+  <comfirm-modal
+    :id="'removeReModal'"
+    :title="$t('ui.removeRepeatingTask')"
+    :text="$t('ui.repeatingTaskRemoveConfirm')"
+    :ico="'bi-x-circle'"
+    :okText="$t('ui.remove')"
+    @on-ok="removeRepeatingTaskComfirmed"
+    @on-cancel="removeRepeatingTaskCanceled"
+  ></comfirm-modal>
 </template>
 
 <script>
@@ -41,39 +71,40 @@ import repeatingEventRepository from "../repositories/repeatingEventRepository";
 import comfirmModal from "../components/comfirmModal.vue";
 import moment from "moment";
 
-
-
 export default {
   name: "RecurrentEventsModal",
   components: {
-    comfirmModal
+    comfirmModal,
   },
   data() {
     return {
       index: 0,
-      idToRemove: null
+      idToRemove: null,
+      repeatingType: "all",
     };
   },
   methods: {
     frecuency: function (task) {
       switch (task.type) {
         case "0":
-          return this.$t("todoDetails.yearly") + ' / ' + moment(task.start_date).locale(this.language).format("MMM Do");
+          return this.$t("todoDetails.yearly") + " / " + moment(task.start_date).locale(this.language).format("MMM Do");
         case "1":
-          return this.$t("todoDetails.monthly") + ' / ' + moment(task.start_date).locale(this.language).format("Do");
+          return this.$t("todoDetails.monthly") + " / " + moment(task.start_date).locale(this.language).format("Do");
         case "2":
-          return this.$t("todoDetails.weekly") + ' / ' + moment(task.start_date).locale(this.language).format("dddd");
+          return this.$t("todoDetails.weekly") + " / " + moment(task.start_date).locale(this.language).format("dddd");
         case "3":
           return this.$t("todoDetails.daily");
         case "4":
           return this.$t("todoDetails.weekdays");
         case "5":
           return this.$t("todoDetails.customWeekdays");
+        case "6":
+          return this.$t("todoDetails.daysOfMonth") + " / " + task.repeating_rule.split("BYMONTHDAY=")[1];
       }
     },
     removeRecurringTask: function (id) {
       this.idToRemove = id;
-      let modal = new Modal(document.getElementById("removeReModal"), { backdrop: "static", });
+      let modal = new Modal(document.getElementById("removeReModal"), { backdrop: "static" });
       modal.show();
     },
     removeRepeatingTaskComfirmed: function () {
@@ -96,12 +127,18 @@ export default {
   },
   computed: {
     recurringTasks: function () {
-      return this.$store.getters.repeatingEventList;
+      let tasks = [];
+      for (const key in this.$store.getters.repeatingEventList) {
+        if (this.repeatingType == "all" || this.repeatingType == this.$store.getters.repeatingEventList[key].type)
+          tasks.push(this.$store.getters.repeatingEventList[key]);
+      }
+      return tasks;
     },
     language: function () {
       return this.$store.getters.config.language;
     },
   },
+  watch: {},
 };
 </script>
 
@@ -148,4 +185,17 @@ export default {
     }
   }
 }
+.recurrent-heading{
+  .dark-theme & {
+       color:rgb(222, 222, 222);
+  }
+ 
+}
+
+.reccurent-items , .recurring-freq{
+    .dark-theme & {
+    color: #babbbe;
+  }
+}
+
 </style>

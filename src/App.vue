@@ -6,51 +6,98 @@
       <side-bar @change-date="setSelectedDate"></side-bar>
 
       <div class="h-100 d-flex flex-column">
-        <div v-show="showCalendar" class="todo-lists-container" :style="resizableStyle" ref="calendarContainer" :class="{
-          'full-screen': !showCustomList,
-          'hidden-lists-container': hideTopListContainer,
-          'full-screen-divider': hideBottomListContainer,
-        }">
+        <div
+          v-show="showCalendar"
+          class="todo-lists-container"
+          :style="resizableStyle"
+          ref="calendarContainer"
+          :class="{
+            'full-screen': !showCustomList,
+            'hidden-lists-container': hideTopListContainer,
+            'full-screen-divider': hideBottomListContainer,
+          }"
+        >
           <i class="bi-chevron-left slider-btn" ref="weekLeft" @click="weekMoveLeft"></i>
-          <div class="todo-slider" ref="weekListContainer">
-            <to-do-list v-for="date in dates_array" :key="date" :id="date" :showCustomList="showCustomList"
-              @todo-list-mounted="todoListMounted">
+          <div class="todo-slider weekdays" ref="weekListContainer">
+            <to-do-list
+              v-for="date in dates_array"
+              :key="date"
+              :id="date"
+              :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted"
+            >
             </to-do-list>
           </div>
           <i class="bi-chevron-right slider-btn" ref="weekRight" @click="weekMoveRight"></i>
         </div>
 
-        <div v-show="showCustomList && showCalendar" class="main-horizontal-divider" id="resizer"
-          :class="mainDividerPositionClass" @mousedown="resizerMouseDownHandler" @dblclick="resizerDblClick">
+        <div
+          v-show="showCustomList && showCalendar"
+          class="main-horizontal-divider"
+          id="resizer"
+          :class="mainDividerPositionClass"
+          @mousedown="resizerMouseDownHandler"
+          @dblclick="resizerDblClick"
+        >
           <div class="inner-main-horizontal-divider"></div>
           <div class="divider-icons-container">
-            <i class="bi-chevron-up move-to-center-up divider-icons" @click="setDividerPosition(1)"
-              :title="$t('ui.restorePanel')"></i>
-            <i class="bi-chevron-up move-to-corner-up divider-icons" @click="setDividerPosition(2)"
-              :title="$t('ui.maximizeListPanel')"></i>
-            <i class="bi-chevron-down move-to-center-down divider-icons" @click="setDividerPosition(1)"
-              :title="$t('ui.restorePanel')"></i>
-            <i class="bi-chevron-down move-to-corner-down divider-icons" @click="setDividerPosition(0)"
-              :title="$t('ui.maximizeCalendarPanel')"></i>
+            <i
+              class="bi-chevron-up move-to-center-up divider-icons"
+              @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"
+            ></i>
+            <i
+              class="bi-chevron-up move-to-corner-up divider-icons"
+              @click="setDividerPosition(2)"
+              :title="$t('ui.maximizeListPanel')"
+            ></i>
+            <i
+              class="bi-chevron-down move-to-center-down divider-icons"
+              @click="setDividerPosition(1)"
+              :title="$t('ui.restorePanel')"
+            ></i>
+            <i
+              class="bi-chevron-down move-to-corner-down divider-icons"
+              @click="setDividerPosition(0)"
+              :title="$t('ui.maximizeCalendarPanel')"
+            ></i>
           </div>
         </div>
 
-        <div v-show="showCustomList" class="todo-lists-container" :class="{
-          'full-screen': !showCalendar,
-          'flex-grow-1': showCalendar,
-          'hidden-lists-container': hideBottomListContainer,
-        }">
-          <i class="bi-chevron-left slider-btn" @click="customMoveLeft" :style="{
-            visibility: cTodoList.length > customColumns ? 'visible' : 'hidden',
-          }"></i>
+        <div
+          v-show="showCustomList"
+          class="todo-lists-container"
+          :class="{
+            'full-screen': !showCalendar,
+            'flex-grow-1': showCalendar,
+            'hidden-lists-container': hideBottomListContainer,
+          }"
+        >
+          <i
+            class="bi-chevron-left slider-btn"
+            @click="customMoveLeft"
+            :style="{
+              visibility: cTodoList.length > customColumns ? 'visible' : 'hidden',
+            }"
+          ></i>
           <div class="todo-slider slides" ref="customListContainer">
-            <to-do-list v-for="(cTodoList, index) in cTodoList" :key="cTodoList.listId" :id="cTodoList.listId"
-              :customTodoList="true" :cTodoListIndex="index" :showCustomList="showCustomList"
-              @todo-list-mounted="todoListMounted"></to-do-list>
+            <to-do-list
+              v-for="(cTodoList, index) in cTodoList"
+              :key="cTodoList.listId"
+              :id="cTodoList.listId"
+              :customTodoList="true"
+              :cTodoListIndex="index"
+              :showCustomList="showCustomList"
+              @todo-list-mounted="todoListMounted"
+            ></to-do-list>
           </div>
-          <i class="bi-chevron-right slider-btn" @click="customMoveRight" :style="{
-            visibility: cTodoList.length > customColumns ? 'visible' : 'hidden',
-          }"></i>
+          <i
+            class="bi-chevron-right slider-btn"
+            @click="customMoveRight"
+            :style="{
+              visibility: cTodoList.length > customColumns ? 'visible' : 'hidden',
+            }"
+          ></i>
         </div>
 
         <div v-show="!showCustomList && !showCalendar" style="margin: auto">
@@ -81,11 +128,19 @@
     </div>
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
-      <toast-message id="versionChanges" :text="$t('ui.softwareUpdated')" :sub-text="$t('ui.seeChanges')"
-        @subTextClick="seeChangeLog"></toast-message>
+      <toast-message
+        id="versionChanges"
+        :text="$t('ui.softwareUpdated')"
+        :sub-text="$t('ui.seeChanges')"
+        @subTextClick="seeChangeLog"
+      ></toast-message>
 
-      <toast-message id="newVersionAvailable" :text="$t('ui.newVersionAvailable')" :sub-text="$t('ui.download')"
-        @subTextClick="downloadNewVersion"></toast-message>
+      <toast-message
+        id="newVersionAvailable"
+        :text="$t('ui.newVersionAvailable')"
+        :sub-text="$t('ui.download')"
+        @subTextClick="downloadNewVersion"
+      ></toast-message>
 
       <toast-message id="copiedAddress" :text="$t('donate.copiedAddres')"></toast-message>
     </div>
@@ -165,7 +220,7 @@ export default {
       migrations.migrate();
     }
 
-    if ((typeof Boniato !== 'undefined') && (Notification.permission !== "denied")) {
+    if (Notification.permission !== "denied") {
       Notification.requestPermission();
     }
     this.$store.commit("loadCustomTodoListsIds", customToDoListIdsRepository.load());
@@ -187,7 +242,6 @@ export default {
     );
   },
   mounted() {
-    this.setupTelemetric();
     this.$refs.weekListContainer.scrollLeft = this.todoListWidth();
     this.calendarHeight = this.$store.getters.config.calendarHeight;
     window.addEventListener("resize", this.weekResetScroll);
@@ -342,18 +396,21 @@ export default {
           if (this.$store.getters.config.moveOldTasks) {
             this.moveOldTasksToToday().then(() => {
               this.refreshTodayNotifications();
+              this.$store.commit("updateConfig", { val: moment().format("YYYYMMDD"), key: "lastDayOpened" });
+              configRepository.update(this.$store.getters.config);
               if (isElectron()) this.showInitialNotification();
             });
           } else {
             this.refreshTodayNotifications();
             if (isElectron()) this.showInitialNotification();
+            this.$store.commit("updateConfig", { val: moment().format("YYYYMMDD"), key: "lastDayOpened" });
+            configRepository.update(this.$store.getters.config);
           }
         }
       }
     },
     showInitialNotification: function () {
       if (!(this.$store.getters.config.notificationOnStartup && !this.$store.getters.config.firstTimeOpen)) return;
-
       setTimeout(
         function () {
           new Notification("WeekToDo", {
@@ -408,18 +465,23 @@ export default {
     },
     moveOldTasksToToday: async function () {
       var promise = new Promise((resolve) => {
-        var todayListId = moment(this.id).format("YYYYMMDD");
-        for (let i = 1; i <= 7; i++) {
+        var todayListId = moment().format("YYYYMMDD");
+        let daysBefore = moment().diff(moment(this.$store.getters.config.lastDayOpened), "days");
+        if (daysBefore == 0) daysBefore = 7;
+        for (let i = 1; i <= daysBefore; i++) {
           let listId = moment().subtract(i, "d").format("YYYYMMDD");
           this.$store.dispatch("loadTodoLists", listId).then(() => {
             this.$store.commit("moveUndoneItems", { origenId: listId, destinyId: todayListId });
             toDoListRepository.update(listId, this.$store.getters.todoLists[listId]);
             if (this.$store.getters.config.autoReorderTasks) {
-              toDoListRepository.update(todayListId, tasksHelper.reorderTasksList(this.$store.getters.todoLists[todayListId]));
+              toDoListRepository.update(
+                todayListId,
+                tasksHelper.reorderTasksList(this.$store.getters.todoLists[todayListId])
+              );
             } else {
               toDoListRepository.update(todayListId, this.$store.getters.todoLists[todayListId]);
             }
-            if (i == 7) {
+            if (i == daysBefore) {
               resolve("done!");
             }
           });
@@ -488,13 +550,6 @@ export default {
       ipcRenderer.send("set-run-in-background", this.$store.getters.config.runInBackground);
       ipcRenderer.send("set-dark-tray-icon", this.$store.getters.config.darkTrayIcon);
     },
-    setupTelemetric: function (){
-      this.$honeybadger.setContext({
-      version: "2.0.0",
-      lang: this.$store.getters.config.language
-    });
-    this.$honeybadger.config.reportData = this.$store.getters.config.reportErrors;
-    }
   },
   computed: {
     dates_array: function () {
@@ -756,7 +811,6 @@ body {
   }
 
   &.on-center {
-
     .move-to-center-down,
     .move-to-center-up {
       display: none;

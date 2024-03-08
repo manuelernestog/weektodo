@@ -40,10 +40,10 @@
     "notificationIndicator": "Bildirim Göstergesi",
     "autoReorderTasks": "Görevleri otomatik olarak yeniden sırala",
     "moveCompletedTaskToBottom": "Tamamlanan görevleri en alta taşı",
-    "clear": "Silmek",
-    "fullscreenToDoModal": "Yapılacaklar Ayrıntıları tam ekranda",
-    "moveCompletedSubTaskToBottom": "Tamamlanan alt görevleri en alta taşı",
-    "weekStartOnMonday": "Hafta Pazartesi günü başlar"
+    "clear": "Temizle",
+    "fullscreenToDoModal": "Tam ekranda yapılacakların ayrıntıları",
+    "moveCompletedSubTaskToBottom": "Tamamlanan görevleri en alta taşı",
+    "weekStartOnMonday": "Hafta Pazartesi ile başlar"
   },
   "donate": {
     "contribute": "Katkıda bulun",
@@ -61,8 +61,8 @@
     "shareWithFriends": "Arkadaşlarınla ​​paylaş",
     "rate": "Bizi değerlendirin",
     "cryptocurrencies": "kripto para birimleri",
-    "buyMeACoffee": "Buy me a Coffee",
-    "buyMeACryptoCoffee": "Buy me a Crypto Coffee",
+    "buyMeACoffee": "Kahve ısmarla",
+    "buyMeACryptoCoffee": "Kripto kahve ısmarla",
     "translate": "Çeviri",
     "shareMessage": "Haftamı ücretsiz minimalist gizlilik odaklı haftalık planlayıcı WeekToDo ile planlıyorum ve sizin de seveceğinizi düşünüyorum. \nBuna bir bak!",
     "supportUs": "Bizi destekle",
@@ -71,7 +71,7 @@
   "about": {
     "about": "Hakkında",
     "madeWith": "Tarafından",
-    "inCuba": "in Cuba",
+    "inCuba": "küba'da",
     "dev": "Geliştirici ve Tasarımcı",
     "devName": "Manuel Ernesto García",
     "version": "Versiyon",
@@ -162,7 +162,7 @@
     "postpone": "Ertele",
     "newVersionAvailable": "Yeni Versiyon Mevcut",
     "download": "(İndir)",
-    "sponsoredBy": "Sponsored by",
+    "sponsoredBy": "Destek sağlayanlar",
     "updateAll": "Tümünü Güncelle",
     "removeAll": "Hepsini sil",
     "recurringTasks": "Yinelenen görevler",
@@ -178,7 +178,9 @@
     "quit": "Çıkış yapmak",
     "copyTasks": "Görevleri Kopyala",
     "task": "Görev",
-    "Frecuency": "frekans"
+    "Frecuency": "frekans",
+    "print": "PDF / Yazdır",
+    "showAll": "Hepsini Göster ↓"
   },
   "todoDetails": {
     "taskTitle": "Görev Başlığı",
@@ -209,7 +211,8 @@
     "color": "Renk",
     "close": "Kapat",
     "actions": "Hareketler",
-    "customWeekdays": "Özel Hafta İçi"
+    "customWeekdays": "Özel Hafta içi günler",
+    "daysOfMonth": "Ayın Günleri"
   },
   "notifications": {
     "noPendingTasksToday": "Bugün planlanmış bir göreviniz yok.",
