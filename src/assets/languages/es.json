@@ -126,7 +126,7 @@
   "welcome": {
     "next": "Siguiente",
     "back": "Anterior",
-    "ready": "listo",
+    "ready": "Listo",
     "allReady": "Todo listo",
     "allReadyText": "Ya todo está listo para que puedas disfrutar de WeekTodo.",
     "allReadySub": "Si tienes alguna duda puedes encontrar consejos en la barra lateral",
@@ -209,7 +209,7 @@
     "time": "Tiempo",
     "alarm": "Alarma",
     "color": "Color",
-    "close": "Cerca",
+    "close": "Cerrar",
     "actions": "Acciones",
     "daysOfMonth": "Días del mes",
     "customWeekdays": "Días de la semana personalizados"
