@@ -1,4 +1,4 @@
-import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja, tr, uk, ko, hi, vi, he } from "date-fns/locale";
+import { es, enUS, fr, pt, ru, zhCN, de, it, ar, pl, zhTW, ja, tr, uk, ko, hi, vi, he, faIR } from "date-fns/locale";
 
 export default {
   getLanguagePack(lang) {
@@ -58,6 +58,8 @@ export default {
       case "he":
         return_lang = he;
         break;
+      case "fa":
+        return_lang = faIR
     }
     return return_lang;
   },
