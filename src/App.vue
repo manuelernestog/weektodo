@@ -121,6 +121,7 @@
       <importing-modal :id="'exportingModal'" :text="$t('settings.exporting')"></importing-modal>
 
       <reorder-custom-lists-modal @reset-custom-list="resetCustomList"></reorder-custom-lists-modal>
+      <month-calendar @goToDate="setSelectedDate"></month-calendar>
     </div>
     <div class="mobile d-flex flex-column justify-content-center align-items-center">
       <i class="bi-exclamation-diamond mb-4" style="font-size: 100px"></i>
@@ -181,6 +182,7 @@ import ReorderCustomListsModal from "./views/ReorderCustomListsModal.vue";
 import toastMessage from "./components/toastMessage";
 import activeToDo from "./components/activeToDo.vue";
 import tasksHelper from "./helpers/tasksHelper";
+import MonthCalendar from "./views/MonthCalendar.vue";
 
 export default {
   name: "App",
@@ -202,6 +204,7 @@ export default {
     clearListModal,
     toastMessage,
     activeToDo,
+    MonthCalendar,
   },
   data() {
     return {

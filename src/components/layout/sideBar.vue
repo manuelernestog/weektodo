@@ -29,6 +29,13 @@
       :weekStartsOn="weekStartOnMonday"
     />
     <i v-if="showCalendar" class="bi-calendar-event" @click="changeDate" :title="$t('ui.calendar')"> </i>
+    <i
+      v-if="showCalendar"
+      class="bi-calendar3"
+      data-bs-toggle="modal"
+      data-bs-target="#monthCalendarModal"
+      :title="$t('ui.calendar')"
+    ></i>
     <!-- <i class="bi-search" :title="$t('donate.supportUs')"></i>
     <i class="bi-filter" :title="$t('donate.supportUs')" ></i> -->
     <i
